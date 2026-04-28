@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR-Code-Generator - Kostenlos Online Werkzeug</title>
+  <meta name="description" content="Generieren Sie QR-Codes einfach und kostenlos mit unserem online-Werkzeug. Erstellen Sie Ihren eigenen QR-Code nur in einigen Klicks!">
+  <meta property="og:title" content="QR-Code-Generator - Kostenlos Online Werkzeug">
+  <meta property="og:description" content="Generieren Sie QR-Codes einfach und kostenlos mit unserem online-Werkzeug. Erstellen Sie Ihren eigenen QR-Code nur in einigen Klicks!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/qr-code-generator">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR-Code-Generator",
+      "description": "Generieren Sie QR-Codes einfach und kostenlos mit unserem online-Werkzeug. Erstellen Sie Ihren eigenen QR-Code nur in einigen Klicks!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .form-group { margin-bottom: 20px; }
+    input[type="text"] { width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .result { margin-top: 20px; text-align: center; }
+    @media (max-width: 768px) {
+      .container { max-width: 100%; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QR-Code-Generator</h1>
+    <p class="description">Generieren Sie QR-Codes einfach und kostenlos mit unserem online-Werkzeug. Erstellen Sie Ihren eigenen QR-Code nur in einigen Klicks!</p>
+    
+    <form id="qrForm" action="#" method="post">
+      <div class="form-group">
+        <label for="qrText">Eingeben von URL oder Text:</label>
+        <input type="text" id="qrText" name="qrText" required placeholder="https://beispielt.com">
+      </div>
+      <button type="submit">QR-Code generieren</button>
+    </form>
+
+    <div class="result" id="qrResult"></div>
+    
+    <div class="usage">
+      <h2>Wie man das Werkzeug benutzt</h2>
+      <ol>
+        <li>Geben Sie die URL oder den Text ein, der kodiert werden soll.</li>
+        <li>Klicken Sie auf "QR-Code generieren".</li>
+        <li>Ihr QR-Code wird im Bereich unten angezeigt.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Funktionen</h2>
+      <ul>
+        <li>✓ Einfache und benutzerfreundliche Oberfläche.</li>
+        <li>✓ Kostengünstig und ohne Einschränkungen zum Benutzen.</li>
+        <li>✓ Kompatibel auf allen Geräten.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('qrForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const qrText = document.getElementById('qrText').value;
+      if (!qrText) {
+        alert('Bitte geben Sie eine URL oder Text ein.');
+        return;
+      }
+      
+      fetch('/generate-qr-code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ qrText })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('qrResult').innerHTML = `<img src="${data.qrCodeUrl}" alt="Generierter QR-Code">`;
+      })
+      .catch(error => {
+        console.error('Fehler beim Generieren des QR-Codes:', error);
+        alert('Es gab einen Fehler beim Generieren Ihres QR-Codes.');
+      });
+    });
+  </script>
+</body>
+</html>
+```
+

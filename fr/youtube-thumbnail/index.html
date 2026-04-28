@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Télécharger des miniatures YouTube - Outil en ligne gratuit</title>
+  <meta name="description" content="Téléchargez rapidement et facilement les miniatures YouTube avec cet outil en ligne gratuit !">
+  <meta property="og:title" content="Télécharger des miniatures YouTube - Outils en ligne gratuits">
+  <meta property="og:description" content="Téléchargez rapidement et facilement les miniatures YouTube avec cet outil en ligne gratuit !">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Télécharger des miniatures YouTube",
+    "description": "Téléchargez rapidement et facilement les miniatures YouTube avec cet outil en ligne gratuit !",
+    "applicationCategory": "Utilitaire",
+    "operatingSystem": "N'importe lequel",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #7f8c8d;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      background: #2c3e50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    button:hover { background: #34495e; }
+    .usage {
+      margin-top: 30px;
+    }
+    ol, ul {
+      padding-left: 20px;
+    }
+    li::marker { color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Télécharger des miniatures YouTube</h1>
+    <p class="description">Téléchargez rapidement et facilement les miniatures YouTube avec cet outil en ligne gratuit !</p>
+    
+    <form id="ytForm">
+      <div class="form-group">
+        <label for="videoUrl">Entrer l'URL de la vidéo :</label>
+        <input type="text" id="videoUrl" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
+      </div>
+      <button type="submit">Télécharger miniature</button>
+    </form>
+    
+    <div class="usage">
+      <h2>Comment utiliser</h2>
+      <ol>
+        <li>Copiez l'URL de la vidéo YouTube et collez-la dans le champ d'entrée.</li>
+        <li>Cliquez sur "Télécharger miniature".</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Fonctionnalités</h2>
+      <ul>
+        <li>✓ Téléchargez rapidement et facilement les miniatures YouTube.</li>
+        <li>✓ Gratuit sans aucun coût.</li>
+        <li>✓ Interface simple et conviviale.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('ytForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const videoUrl = document.getElementById('videoUrl').value;
+      if (videoUrl) {
+        // Simuler le téléchargement de la miniature
+        alert(`La miniature pour ${videoUrl} est en cours de téléchargement...`);
+      } else {
+        alert('Veuillez entrer une URL de vidéo YouTube valide.');
+      }
+    });
+  </script>
+</body>
+</html>
+```
+

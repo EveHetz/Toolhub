@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorem Ipsum Generator - Free Online Text Tool</title>
+  <meta name="description" content="Generate high-quality placeholder text for your projects with the Lorem Ipsum Generator. Perfect for design and writing tasks.">
+  <meta property="og:title" content="Lorem Ipsum Generator - Free Online Tool">
+  <meta property="og:description" content="Generate high-quality placeholder text for your projects with the Lorem Ipsum Generator. Perfect for design and writing tasks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/lorem-ipsum-generator">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Lorem Ipsum Generator",
+      "description": "Generate high-quality placeholder text for your projects with the Lorem Ipsum Generator. Perfect for design and writing tasks.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    input, textarea { width: calc(100% - 20px); padding: 10px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc; }
+    button { background: #337ab7; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 15px; }
+    .description { font-size: 16px; line-height: 1.8; margin-bottom: 30px; color: #7f8c8d; }
+    .usage, .features { margin-top: 30px; }
+    ol, ul { list-style-type: none; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lorem Ipsum Generator</h1>
+    <p class="description">Generate high-quality placeholder text for your projects with the Lorem Ipsum Generator. Perfect for design and writing tasks.</p>
+    
+    <form id="generatorForm">
+      <label for="paragraphs">Number of Paragraphs:</label>
+      <input type="number" id="paragraphs" name="paragraphs" min="1" value="5" required>
+      
+      <label for="wordsPerParagraph">Words per Paragraph:</label>
+      <input type="number" id="wordsPerParagraph" name="wordsPerParagraph" min="10" max="300" value="50" required>
+      
+      <button type="submit">Generate Lorem Ipsum</button>
+    </form>
+    
+    <div class="usage">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Enter the number of paragraphs you need.</li>
+        <li>Adjust the word count per paragraph as needed.</li>
+        <li>Click "Generate Lorem Ipsum" and get your text!</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>✓ Flexible Paragraph Count</li>
+        <li>✓ Adjustable Word Count</li>
+        <li>✓ Clean and Professional Design</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('generatorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const paragraphs = parseInt(document.getElementById('paragraphs').value);
+      const wordsPerParagraph = parseInt(document.getElementById('wordsPerParagraph').value);
+      
+      let loremIpsum = '';
+      for (let i = 0; i < paragraphs; i++) {
+        for (let j = 0; j < wordsPerParagraph; j++) {
+          loremIpsum += 'Lorem ipsum ';
+        }
+        if (i < paragraphs - 1) {
+          loremIpsum += '\n';
+        }
+      }
+      
+      document.body.innerHTML += `<p>${loremIpsum}</p>`;
+    });
+  </script>
+</body>
+</html>
+```
+

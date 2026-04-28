@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Códigos QR - Herramienta gratuita en línea</title>
+  <meta name="description" content="Genera códigos QR fácilmente y gratuitamente con nuestra herramienta en línea. Crea tu propio código qr con solo unos clics!">
+  <meta property="og:title" content="Generador de Códigos QR - Herramienta gratuita en línea">
+  <meta property="og:description" content="Genera códigos QR fácilmente y gratuitamente con nuestra herramienta en línea. Crea tu propio código qr con solo unos clics!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tu dominio.com/generador-de-codigo-qr">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Generador de Códigos QR",
+      "description": "Genera códigos QR fácilmente y gratuitamente con nuestra herramienta en línea. Crea tu propio código qr con solo unos clics!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .form-group { margin-bottom: 20px; }
+    input[type="text"] { width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .result { margin-top: 20px; text-align: center; }
+    @media (max-width: 768px) {
+      .container { max-width: 100%; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generador de Códigos QR</h1>
+    <p class="description">Genera códigos QR fácilmente y gratuitamente con nuestra herramienta en línea. Crea tu propio código qr con solo unos clics!</p>
+    
+    <form id="qrForm" action="#" method="post">
+      <div class="form-group">
+        <label for="qrText">Escribe un URL o texto:</label>
+        <input type="text" id="qrText" name="qrText" required placeholder="https://ejemplo.com">
+      </div>
+      <button type="submit">Generar Código QR</button>
+    </form>
+
+    <div class="result" id="qrResult"></div>
+    
+    <div class="usage">
+      <h2>Cómo Usarlo</h2>
+      <ol>
+        <li>Escribe el URL o texto que quieres codificar en el campo de entrada.</li>
+        <li>Haz clic en "Generar Código QR".</li>
+        <li>Se mostrará tu código QR abajo.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Características</h2>
+      <ul>
+        <li>✓ Interfaz sencilla y fácil de usar.</li>
+        <li>✓ Gratuito de usar con ninguna limitación.</li>
+        <li>✓ Compatible en todos los dispositivos.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('qrForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const qrText = document.getElementById('qrText').value;
+      if (!qrText) {
+        alert('Por favor, escribe un URL o texto.');
+        return;
+      }
+      
+      fetch('/generar-codigo-qr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ qrText })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('qrResult').innerHTML = `<img src="${data.qrCodeUrl}" alt="Código QR generado">`;
+      })
+      .catch(error => {
+        console.error('Error generando el código QR:', error);
+        alert('Hubo un error al generar tu código QR.');
+      });
+    });
+  </script>
+</body>
+</html>
+```
+

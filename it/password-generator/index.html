@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generatore di Password - Strumento Online gratuito</title>
+  <meta name="description" content="Genera password forti gratuitamente con il nostro strumento online. Generatore random e sicuro di password.">
+  <meta property="og:title" content="Generatore di Password - Strumento Online gratuito">
+  <meta property="og:description" content="Genera password forti gratuitamente con il nostro strumento online. Generatore random e sicuro di password.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/generatore-di-password">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Generatore di Password",
+    "description": "Genera password forti gratuitamente con il nostro strumento online. Generatore random e sicuro di password.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { 
+      max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .description { color: #7f8c8d; margin-bottom: 40px; }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    input[type="number"], select, button {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #dfe6e9;
+      border-radius: 4px;
+      background-color: white;
+      color: #333;
+    }
+    input[type="number"] { width: 50%; }
+    select { width: 200px; }
+    button {
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border: none;
+    }
+    .output { 
+      margin-top: 20px; 
+      padding: 16px;
+      border-radius: 4px;
+      overflow-x: auto;
+      font-size: 18px;
+      background-color: #ecf0f1;
+      color: #333;
+    }
+    ol, ul { margin-left: 20px; }
+    li { list-style-type: none; }
+    .usage h2, .features h2 {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 16px;
+    }
+    .usage ol, .features ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generatore di Password</h1>
+    <p class="description">Genera password forti gratuitamente con il nostro strumento online. Generatore random e sicuro di password.</p>
+    
+    <form id="passwordForm">
+      <label for="length">Lunghezza della Password:</label>
+      <input type="number" id="length" name="length" min="8" max="128" value="16">
+      
+      <div>
+        <label for="uppercase">Includi lettere maiuscole?</label>
+        <select id="uppercase" name="uppercase">
+          <option value="true">Sì</option>
+          <option value="false">No</option>
+        </select>
+        
+        <label for="lowercase">Includi lettere minuscole?</label>
+        <select id="lowercase" name="lowercase">
+          <option value="true">Sì</option>
+          <option value="false">No</option>
+        </select>
+        
+        <label for="numbers">Includi numeri?</label>
+        <select id="numbers" name="numbers">
+          <option value="true">Sì</option>
+          <option value="false">No</option>
+        </select>
+        
+        <label for="symbols">Includi simboli?</label>
+        <select id="symbols" name="symbols">
+          <option value="true">Sì</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      
+      <button type="submit">Genera Password</button>
+    </form>
+    
+    <div class="output" id="passwordOutput"></div>
+    
+    <div class="usage">
+      <h2>Guida all'uso</h2>
+      <ol>
+        <li>Scegli la lunghezza desiderata della password.</li>
+        <li>Seleziona se includere lettere maiuscole, minuscole, numeri e simboli.</li>
+        <li>Clicca su "Genera Password" per creare una password forte.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Funzionalità</h2>
+      <ul>
+        <li>✓ Personalizza la lunghezza da 8 a 128 caratteri.</li>
+        <li>✓ Include lettere maiuscole, minuscole, numeri e simboli.</li>
+        <li>✓ Generazione di password randomica e sicura.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('passwordForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const length = parseInt(document.getElementById('length').value);
+      const includeUppercase = document.getElementById('uppercase').value === 'true';
+      const includeLowercase = document.getElementById('lowercase').value === 'true';
+      const includeNumbers = document.getElementById('numbers').value === 'true';
+      const includeSymbols = document.getElementById('symbols').value === 'true';
+      
+      let characters = '';
+      if (includeUppercase) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (includeLowercase) characters += 'abcdefghijklmnopqrstuvwxyz';
+      if (includeNumbers) characters += '0123456789';
+      if (includeSymbols) characters += '!@#$%^&*()_+-=[]{}|;:,.<>?~`';
+
+      let password = '';
+      
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        password += characters[randomIndex];
+      }
+      
+      document.getElementById('passwordOutput').textContent = password;
+    });
+  </script>
+</body>
+</html>
+```
+

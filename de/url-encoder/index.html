@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Encoder/Decoder - Kostenlose Entwicklerwerkzeug</title>
+  <meta name="description" content="Kodieren und dekodieren Sie URLs, URIs oder percent-gekodete Zeichenketten mit diesem kostenlosen Online-Werkzeug. Perfekt für Entwickler!">
+  <meta property="og:title" content="URL Encoder/Decoder - Kostenlose Entwicklerwerkzeug">
+  <meta property="og:description" content="Kodieren und dekodieren Sie URLs, URIs oder percent-gekodete Zeichenketten mit diesem kostenlosen Online-Werkzeug. Perfekt für Entwickler!">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "URL Encoder/Decoder",
+      "description": "Kodieren und dekodieren Sie URLs, URIs oder percent-gekodete Zeichenketten mit diesem kostenlosen Online-Werkzeug. Perfekt für Entwickler!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc; }
+    button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+    .output { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9; overflow-x: auto; }
+    ol, ul { margin-top: 20px; }
+    li { list-style-type: none; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>URL Encoder/Decoder</h1>
+    <p class="description">Kodieren und dekodieren Sie URLs, URIs oder percent-gekodete Zeichenketten mit diesem kostenlosen Online-Werkzeug. Perfekt für Entwickler!</p>
+
+    <form>
+      <label for="inputData">Eingabe-Daten:</label><br>
+      <textarea id="inputData" rows="5" placeholder="Geben Sie Ihre URL/URI hier ein..."></textarea><br>
+      <button onclick="encode()">Kodieren</button>
+      <button onclick="decode()">Dekodieren</button>
+    </form>
+
+    <div class="output" id="output">
+      Ausgabe-Daten:
+    </div>
+
+    <div class="usage">
+      <h2>Wie Sie das Werkzeug verwenden können</h2>
+      <ol>
+        <li>Geben Sie Ihre URL oder URI in das Eingabefeld ein.</li>
+        <li>Wählen Sie, ob Sie kodieren oder dekodieren möchten, indem Sie den Kodierungs- oder Dekodierungs-Button klicken.</li>
+        <li>Der Ergebnis-Ausgabe wird unter den Knöpfen angezeigt.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funktionen</h2>
+      <ul>
+        <li>✓ URLs, URIs und percent-gekodete Zeichenketten kodieren</li>
+        <li>✓ URLs, URIs und percent-gekodete Zeichenketten dekodieren</li>
+        <li>✓ Einfache, saubere Oberfläche</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function encode() {
+      const inputData = document.getElementById('inputData').value;
+      const outputDiv = document.getElementById('output');
+      try {
+        outputDiv.textContent = encodeURIComponent(inputData);
+      } catch (error) {
+        outputDiv.textContent = 'Fehler: Eingabedaten zu groß.';
+      }
+    }
+
+    function decode() {
+      const inputData = document.getElementById('inputData').value;
+      const outputDiv = document.getElementById('output');
+      try {
+        outputDiv.textContent = decodeURIComponent(inputData);
+      } catch (error) {
+        outputDiv.textContent = 'Fehler: Ungültiges Kodierung.';
+      }
+    }
+  </script>
+</body>
+</html>
+```
+

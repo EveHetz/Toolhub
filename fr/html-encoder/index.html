@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encodage des Entités HTML - Outil en Ligne Gratuit pour Développeurs</title>
+  <meta name="description" content="Encodage des entités HTML, évitez les caractères spéciaux dans l'HTML avec cet outil en ligne gratuit.">
+  <meta property="og:title" content="Encodage des Entités HTML - Outil en Ligne Gratuit">
+  <meta property="og:description" content="Encodage des entités HTML, évitez les caractères spéciaux dans l'HTML avec cet outil en ligne gratuit.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Encodage des Entités HTML",
+      "description": "Encodage des entités HTML, évitez les caractères spéciaux dans l'HTML avec cet outil en ligne gratuit.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group { margin-bottom: 20px; }
+    .input-group input { width: calc(100% - 42px); padding: 10px 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+    .result { background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-top: 20px; white-space: pre-wrap; word-break: break-all; }
+    ol, ul { list-style-type: none; padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .features li { margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Encodage des Entités HTML</h1>
+    <p class="description">Encodage des entités HTML, évitez les caractères spéciaux dans l'HTML avec cet outil en ligne gratuit.</p>
+    
+    <form id="encoderForm" onsubmit="return false;">
+      <div class="input-group">
+        <label for="htmlInput" class="sr-only">Entrez votre texte HTML</label>
+        <textarea id="htmlInput" placeholder="Entrez votre texte HTML ici..." rows="5"></textarea>
+      </div>
+      <button type="button" onclick="encodeHTML()">Encodage</button>
+    </form>
+
+    <pre id="result" class="result"></pre>
+
+    <div class="usage">
+      <h2>Comment utiliser</h2>
+      <ol>
+        <li>Entrez votre texte HTML dans la zone d'entrée.</li>
+        <li>Sélectionnez et copiez le résultat codé depuis l'aire de sortie.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Fonctionnalités</h2>
+      <ul>
+        <li>✓ Codage simple et efficace des caractères spéciaux.</li>
+        <li>✓ Retour en temps réel pour des résultats immédiats.</li>
+        <li>✓ Pas de inscription ou connexion requise.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function encodeHTML() {
+      const input = document.getElementById('htmlInput').value;
+      if (!input) return;
+
+      try {
+        const encodedResult = encodeURIComponent(input).replace(/%u/gi, '%U');
+        document.getElementById('result').innerText = `&lt;pre&gt;\n${encodeURIComponent(encodedResult)}\n&lt;/pre&gt;`;
+      } catch (err) {
+        document.getElementById('result').innerText = 'Erreur lors du codage de l\'entrée.';
+      }
+    }
+
+    document.querySelector('#encoderForm button').addEventListener('click', encodeHTML);
+  </script>
+</body>
+</html>
+```
+

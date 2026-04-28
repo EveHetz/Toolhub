@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scegli colore - Strumento online gratuito</title>
+  <meta name="description" content="Scegli e converti colori con questo strumento online gratuito per il design. Seleziona i valori hex o rgb per le tue progettazioni.">
+  <meta property="og:title" content="Scegli colore - Strumento online gratuito">
+  <meta property="og:description" content="Scegli e converti colori con questo strumento online gratuito per il design. Seleziona i valori hex o rgb per le tue progettazioni.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/color-picker">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Scegli colore",
+    "description": "Scegli e converti colori con questo strumento online gratuito per il design. Seleziona i valori hex o rgb per le tue progettazioni.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .color-palette {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: calc(50% - 22px);
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #337ab7;
+    }
+    .description {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .usage h2, .features h2 {
+      color: #2c3e50;
+      font-size: 24px;
+      margin-top: 40px;
+    }
+    .usage ol, .features ul {
+      padding-left: 20px;
+    }
+    .usage li, .features li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Scegli colore</h1>
+    <p class="description">Scegli e converti colori con questo strumento online gratuito per il design. Seleziona i valori hex o rgb per le tue progettazioni.</p>
+    
+    <div class="color-palette">
+      <div class="color-swatch" style="background: #ff0000;" onclick="selectColor('#ff0000')"></div>
+      <div class="color-swatch" style="background: #00ff00;" onclick="selectColor('#00ff00')"></div>
+      <div class="color-swatch" style="background: #0000ff;" onclick="selectColor('#0000ff')"></div>
+    </div>
+
+    <input type="text" id="colorInputHex" placeholder="#FFFFFF">
+    <input type="text" id="colorInputRgb" placeholder="(255, 255, 255)">
+
+    <div class="usage">
+      <h2>Come utilizzare</h2>
+      <ol>
+        <li>Scegli un colore dalla paletta o inserisci il suo valore hex.</li>
+        <li>Il corrispondente valore RGB verrà aggiornato automaticamente.</li>
+        <li>Copia i valori per l'uso successivo.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funzionalità</h2>
+      <ul>
+        <li>✓ Input hex e rgb di colore</li>
+        <li>✓ Conversione automatica</li>
+        <li>✓ Interfaccia facile da usare</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let currentColor = '#FFFFFF';
+
+    function selectColor(color) {
+      document.getElementById('colorInputHex').value = color;
+      document.getElementById('colorInputRgb').value = rgbFromHex(color);
+      currentColor = color;
+      updateBackgroundColor();
+    }
+
+    function updateBackgroundColor() {
+      const container = document.querySelector('.container');
+      container.style.backgroundColor = currentColor;
+    }
+
+    function rgbFromHex(hex) {
+      hex = hex.replace('#', '');
+      let r = parseInt(hex.substring(0, 2), 16);
+      let g = parseInt(hex.substring(2, 4), 16);
+      let b = parseInt(hex.substring(4, 6), 16);
+      return `(${r}, ${g}, ${b})`;
+    }
+
+    document.getElementById('colorInputHex').addEventListener('input', () => {
+      const value = document.getElementById('colorInputHex').value;
+      if (value.startsWith('#') && hexToRgb(value)) {
+        currentColor = value;
+        updateBackgroundColor();
+      }
+    });
+
+    function hexToRgb(hex) {
+      return /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/i.test(hex);
+    }
+
+    document.getElementById('colorInputRgb').addEventListener('input', () => {
+      const value = document.getElementById('colorInputRgb').value;
+      if (value.startsWith('(') && value.endsWith(')')) {
+        const parsedValue = value.slice(1, -1).split(', ');
+        if (parsedValue.length === 3 && parsedValue.every(v => /^\d+$/.test(v))) {
+          const [r, g, b] = parsedValue.map(Number);
+          currentColor = hexFromRgb(r, g, b);
+          updateBackgroundColor();
+        }
+      }
+    });
+
+    function hexFromRgb(r, g, b) {
+      return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    }
+
+    window.onload = () => {
+      updateBackgroundColor();
+    };
+  </script>
+</body>
+</html>
+

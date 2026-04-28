@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Hash (MD5/SHA) - Herramienta en Línea Gratuita</title>
+  <meta name="description" content="Genera hashes MD5 y SHA256 para tus cadenas. Perfecto para comprobaciones de suma de verificación y controles de seguridad.">
+  <meta property="og:title" content="Generador de Hash (MD5/SHA) - Herramienta en Línea Gratuita">
+  <meta property="og:description" content="Genera hashes MD5 y SHA256 para tus cadenas. Perfecto para comprobaciones de suma de verificación y controles de seguridad.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/generador-de-hash">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Generador de Hash (MD5/SHA)",
+    "description": "Genera hashes MD5 y SHA256 para tus cadenas. Perfecto para comprobaciones de suma de verificación y controles de seguridad.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    input[type="text"], select { width: calc(100% - 40px); padding: 10px; border: 1px solid #dcdcdc; border-radius: 5px; margin-bottom: 20px; }
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .output { margin-top: 20px; font-size: 1.2em; background-color: #ecf0f1; padding: 10px; border-radius: 5px; }
+    a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generador de Hash (MD5/SHA)</h1>
+    <p class="description">Genera hashes MD5 y SHA256 para tus cadenas. Perfecto para comprobaciones de suma de verificación y controles de seguridad.</p>
+    
+    <form id="hashForm">
+      <label for="inputText">Escribe el texto:</label>
+      <input type="text" id="inputText" placeholder="Escribe o pega aquí..." required>
+      <select id="hashType">
+        <option value="md5">MD5</option>
+        <option value="sha256">SHA-256</option>
+      </select>
+      <button onclick="generateHash()">Generar Hash</button>
+    </form>
+    
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function generateHash() {
+      const inputText = document.getElementById('inputText').value;
+      const hashType = document.getElementById('hashType').value;
+
+      fetch('/generate-hash', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: inputText, type: hashType })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('output').innerText = `Hash: ${data.hash}`;
+      })
+      .catch(error => {
+        alert('Error generando hash: ' + error);
+      });
+    }
+  </script>
+</body>
+</html>
+```
+

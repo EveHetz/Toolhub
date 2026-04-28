@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de CSV a JSON - Herramienta en Línea Gratuita para Desarrolladores</title>
+  <meta name="description" content="Convirta archivos CSV a JSON en línea de forma gratuita. Use nuestra herramienta sencilla para analizar e convertir sus datos CSV en formato JSON fácilmente.">
+  <meta property="og:title" content="Conversor de CSV a JSON - Herramienta en Línea Gratuita">
+  <meta property="og:description" content="Convirta archivos CSV a JSON en línea de forma gratuita. Use nuestra herramienta sencilla para analizar e convertir sus datos CSV en formato JSON fácilmente.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/csv-to-json-converter">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Conversor de CSV a JSON",
+    "description": "Convirta archivos CSV a JSON en línea de forma gratuita. Use nuestra herramienta sencilla para analizar e convertir sus datos CSV en formato JSON fácilmente.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .description { color: #7f8c8d; font-size: 16px; line-height: 1.4; }
+    input[type="file"], textarea, button {
+      width: calc(100% - 30px);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #dfe3e8;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    textarea { height: 100px; resize: vertical; }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .output { 
+      margin-top: 20px;
+      padding: 20px;
+      background: #ecf0f1;
+      border-radius: 6px; 
+      overflow-x: auto;
+    }
+    @media (max-width: 768px) {
+      .container { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de CSV a JSON</h1>
+    <p class="description">Convirta archivos CSV a JSON en línea de forma gratuita. Use nuestra herramienta sencilla para analizar e convertir sus datos CSV en formato JSON fácilmente.</p>
+
+    <form id="csvToJsonForm" onsubmit="event.preventDefault(); handleConversion(event);">
+      <input type="file" id="csvFileInput" accept=".csv">
+      <textarea id="csvDataArea" placeholder="O pegue el contenido del CSV aquí"></textarea>
+      <button type="submit">Convertir a JSON</button>
+    </form>
+
+    <div class="output" id="outputJsonArea" style="display: none;">
+      <h2>JSON Convertido:</h2>
+      <pre><code id="jsonOutput"></code></pre>
+    </div>
+
+    <div class="usage">
+      <h2>Cómo Usar</h2>
+      <ol>
+        <li>Elija un archivo CSV o pegue su contenido en la área de texto.</li>
+        <li>Haga clic en el botón "Convertir a JSON".</li>
+        <li>Su datos JSON convertidos aparecerán abajo.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funciones</h2>
+      <ul>
+        <li>✓ Interfaz simple y de fácil uso.</li>
+        <li>✓ Soporta tanto subida de archivos como entrada manual.</li>
+        <li>✓ Convierte los datos CSV a formato JSON instantáneamente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function handleConversion(event) {
+      const csvData = document.getElementById('csvFileInput').files.length ? document.getElementById('csvFileInput').files[0].name : document.getElementById('csvDataArea').value;
+      if (!csvData) return alert('Por favor, seleccione un archivo o introduzca datos CSV.');
+
+      try {
+        const parser = new FileReader();
+        parser.readAsText(csvData);
+        parser.onload = function(e) {
+          const csvContent = e.target.result;
+          let jsonOutput = convertCsvToJson(csvContent);
+          document.getElementById('jsonOutput').textContent = JSON.stringify(jsonOutput, null, 2);
+          document.getElementById('outputJsonArea').style.display = 'block';
+        };
+      } catch (e) {
+        alert(e);
+      }
+    }
+
+    function convertCsvToJson(csv) {
+      const lines = csv.split('\n');
+      const headers = lines[0].split(',');
+      let outputData = [];
+      for (let i = 1; i < lines.length; i++) {
+        const data = lines[i].split(',');
+        let obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          obj[headers[j]] = data[j];
+        }
+        outputData.push(obj);
+      }
+      return outputData;
+    }
+  </script>
+</body>
+</html>
+

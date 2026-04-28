@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Porcentajes - Herramienta Online Gratuita</title>
+  <meta name="description" content="Calcular porcentajes con facilidad usando nuestra herramienta online gratuita. Ideal para estudiantes y profesionales igualmente.">
+  <meta property="og:title" content="Calculadora de Porcentajes - Herramienta Online Gratuita">
+  <meta property="og:description" content="Calcular porcentajes con facilidad usando nuestra herramienta online gratuita. Ideal para estudiantes y profesionales igualmente.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Porcentajes",
+    "description": "Calcular porcentajes con facilidad usando nuestra herramienta online gratuita. Ideal para estudiantes y profesionales igualmente.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    input[type="number"] {
+      width: 60%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #dfe1e5;
+      flex-grow: 1;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .result { margin-top: 20px; font-size: 24px; color: #3498db; }
+    .description { margin-bottom: 20px; font-size: 16px; line-height: 1.5; color: #7f8c8d; }
+    .usage, .features { margin-top: 40px; }
+    h2 { font-size: 22px; margin-bottom: 10px; color: #34495e; }
+    ol, ul { margin-left: 20px; }
+    li { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Porcentajes</h1>
+    <p class="description">Calcular porcentajes con facilidad usando nuestra herramienta online gratuita. Ideal para estudiantes y profesionales igualmente.</p>
+    
+    <form id="calc-form">
+      <div class="input-group">
+        <label for="value" aria-label="Introduce un valor">Valor:</label>
+        <input type="number" id="value" name="value" required>
+      </div>
+      <div class="input-group">
+        <label for="percentage" aria-label="Introduce porcentaje">Porcentaje:</label>
+        <input type="number" id="percentage" name="percentage" required>
+      </div>
+      <button type="submit">Calcular</button>
+    </form>
+    
+    <div class="result" id="result"></div>
+    
+    <div class="usage">
+      <h2>Cómo Usar</h2>
+      <ol>
+        <li>Introduce un valor y porcentaje.</li>
+        <li>Haz clic en "Calcular".</li>
+        <li>Tu resultado se mostrará abajo.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Características</h2>
+      <ul>
+        <li>✓ Interfaz fácil de usar.</li>
+        <li>✓ Soporta números grandes.</li>
+        <li>✓ Resultados instantáneos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calc-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const value = parseFloat(document.getElementById('value').value);
+      const percentage = parseFloat(document.getElementById('percentage').value);
+      if (isNaN(value) || isNaN(percentage)) {
+        alert('Por favor introduce números válidos.');
+        return;
+      }
+      
+      const result = (value * percentage) / 100;
+      document.getElementById('result').textContent = `Resultado: ${result}`;
+    });
+  </script>
+</body>
+</html>
+

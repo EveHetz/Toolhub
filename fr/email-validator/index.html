@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validateur de courriel - Outil en ligne gratuit</title>
+  <meta name="description" content="Validez et vérifiez des adresses e-mail gratuitement avec notre outil en ligne. Parfait pour la vérification d'e-mail.">
+  <meta property="og:title" content="Validateur de courriel - Outil en ligne gratuit">
+  <meta property="og:description" content="Validez et vérifiez des adresses e-mail gratuitement avec notre outil en ligne. Parfait pour la vérification d'e-mail.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/validateur-de-courriel">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validateur de courriel",
+      "description": "Un outil en ligne pour la validation et la vérification des adresses e-mail.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input[type="email"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .output { margin-top: 20px; color: red; display: none; }
+    @media (max-width: 600px) {
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Validateur de courriel</h1>
+    <p class="description">Validez et vérifiez des adresses e-mail gratuitement avec notre outil en ligne. Parfait pour la vérification d'e-mail.</p>
+
+    <form id="email-form">
+      <div class="input-group">
+        <label for="email-input" aria-label="Entrez une adresse courriel"></label><input type="email" id="email-input" placeholder="Entrez votre adresse courriel">
+      </div>
+      <button type="submit">Valider</button>
+    </form>
+
+    <div class="output" id="output"></div>
+
+    <div class="usage">
+      <h2>Comment utiliser</h2>
+      <ol>
+        <li>Entrez l'adresse e-mail que vous souhaitez valider dans le champ de saisie.</li>
+        <li>Cliquez sur le bouton "Valider".</li>
+        <li>Résultat affiché ci-dessous.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Fonctionnalités</h2>
+      <ul>
+        <li>✓ Interface simple et conviviale</li>
+        <li>✓ Processus de validation rapide</li>
+        <li>✓ Pas besoin d'enregistrer un compte</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('email-form');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      output.style.display = 'block';
+      validateEmail(document.getElementById('email-input').value);
+    });
+
+    function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailPattern.test(email)) {
+        output.textContent = 'Ceci est une adresse e-mail valide.';
+      } else {
+        output.textContent = 'Veuillez entrer une adresse e-mail valide.';
+      }
+    }
+  </script>
+</body>
+</html>
+```
+

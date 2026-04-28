@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base64 Encoder/Decoder - Free Online developer Tool</title>
+  <meta name="description" content="Encode and decode text to/from Base64 with our free online tool. Easy to use for developers and web professionals.">
+  <meta property="og:title" content="Base64 Encoder/Decoder - Free Online Tool">
+  <meta property="og:description" content="Encode and decode text to/from Base64 with our free online tool. Easy to use for developers and web professionals.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/base64-encoder-decoder">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Base64 Encoder/Decoder",
+      "description": "Encode and decode text to/from Base64 with our free online tool. Easy to use for developers and web professionals.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    textarea, input {
+      width: calc(100% - 40px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .input-group label {
+      margin-right: 20px;
+    }
+    .btn {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #34495e;
+    }
+    p.description {
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+    .usage, .features {
+      margin-top: 40px;
+    }
+    ol, ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Base64 Encoder/Decoder</h1>
+    <p class="description">Encode and decode text to/from Base64 with our free online tool. Easy to use for developers and web professionals.</p>
+
+    <div class="input-group">
+      <label for="inputText">Input Text:</label>
+      <textarea id="inputText" rows="5"></textarea>
+    </div>
+
+    <button class="btn" onclick="convert()">Encode</button>
+    <button class="btn" onclick="convert(true)">Decode</button>
+
+    <div id="output" style="margin-top: 20px;"></div>
+
+    <div class="usage">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Enter or paste your text in the input field.</li>
+        <li>Select 'Encode' to convert text to Base64, or 'Decode' to revert it back.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>✓ Easy and fast conversion.</li>
+        <li>✓ No registration required.</li>
+        <li>✓ Offline functionality supported.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function convert(isDecode = false) {
+      const inputText = document.getElementById('inputText').value;
+      let output;
+
+      if (isDecode) {
+        try {
+          output = decodeURIComponent(escape(window.atob(inputText)));
+        } catch (e) {
+          alert("Invalid Base64 input.");
+          return;
+        }
+      } else {
+        try {
+          const base64String = btoa(unescape(encodeURIComponent(inputText)));
+          output = base64String;
+        } catch (e) {
+          alert("Error encoding text.");
+          return;
+        }
+      }
+
+      document.getElementById('output').innerText = output;
+    }
+  </script>
+</body>
+</html>
+

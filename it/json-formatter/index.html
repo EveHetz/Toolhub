@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formattatore JSON - Strumento Online gratuito per sviluppatori</title>
+  <meta name="description" content="Formatta JSON online con il nostro strumento gratuito. Pulisci, validi e formatta i tuoi dati JSON rapidamente e facilmente.">
+  <meta property="og:title" content="Formattatore JSON - Strumento Online gratuito">
+  <meta property="og:description" content="Formatta JSON online con il nostro strumento gratuito. Pulisci, validi e formatta i tuoi dati JSON rapidamente e facilmente.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Formattatore JSON",
+    "description": "Pulisci, formatta e valida i tuoi dati JSON online.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .description { margin-bottom: 20px; font-size: 16px; line-height: 1.4; }
+    textarea {
+      width: calc(100% - 22px);
+      height: 150px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      resize: none;
+    }
+    button { background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; }
+    .output {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #f9f9f9;
+      min-height: 150px;
+    }
+    ol, ul { list-style-position: inside; }
+    li { margin-bottom: 8px; }
+    .features li { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formattatore JSON</h1>
+    <p class="description">Pulisci, formatta e valida i tuoi dati JSON online rapidamente e facilmente.</p>
+    
+    <textarea placeholder="Inserisci il tuo JSON qui..." id="json-input"></textarea>
+    <button onclick="formatJson()">Formatta JSON</button>
+    <div class="output" id="json-output"></div>
+    
+    <div class="usage">
+      <h2>Come utilizzare</h2>
+      <ol>
+        <li>Inserisci i tuoi dati JSON nel campo di testo.</li>
+        <li>Clicca il pulsante "Formatta JSON".</li>
+        <li>I tuoi dati JSON formattati saranno visualizzati qui sotto.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Caratteristiche</h2>
+      <ul>
+        <li>✓ Formatta i dati JSON</li>
+        <li>✓ Valida la sintassi JSON</li>
+        <li>✓ Pulisce l'output JSON</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function formatJson() {
+      try {
+        const input = document.getElementById('json-input').value;
+        const json = JSON.parse(input);
+        const formattedJson = JSON.stringify(json, null, 2);
+        document.getElementById('json-output').innerText = formattedJson;
+      } catch (e) {
+        alert("JSON non valido: " + e.message);
+      }
+    }
+  </script>
+</body>
+</html>
+```
+

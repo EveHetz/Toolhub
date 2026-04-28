@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator - Free Online Utility Tool</title>
+  <meta name="description" content="Generate QR codes easily and for free with our online utility tool. Create your own qr code with just a few clicks!">
+  <meta property="og:title" content="QR Code Generator - Free Online Tool">
+  <meta property="og:description" content="Generate QR codes easily and for free with our online utility tool. Create your own qr code with just a few clicks!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/qr-code-generator">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QR Code Generator",
+      "description": "Generate QR codes easily and for free with our online utility tool. Create your own qr code with just a few clicks!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .form-group { margin-bottom: 20px; }
+    input[type="text"] { width: calc(100% - 22px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .result { margin-top: 20px; text-align: center; }
+    @media (max-width: 768px) {
+      .container { max-width: 100%; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <p class="description">Generate QR codes easily and for free with our online utility tool. Create your own qr code with just a few clicks!</p>
+    
+    <form id="qrForm" action="#" method="post">
+      <div class="form-group">
+        <label for="qrText">Enter URL or Text:</label>
+        <input type="text" id="qrText" name="qrText" required placeholder="https://example.com">
+      </div>
+      <button type="submit">Generate QR Code</button>
+    </form>
+
+    <div class="result" id="qrResult"></div>
+    
+    <div class="usage">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Enter the URL or text you want to encode in the input field.</li>
+        <li>Click on "Generate QR Code".</li>
+        <li>Your QR code will be displayed below.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>✓ Simple and user-friendly interface.</li>
+        <li>✓ Free to use with no limitations.</li>
+        <li>✓ Compatible on all devices.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('qrForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const qrText = document.getElementById('qrText').value;
+      if (!qrText) {
+        alert('Please enter a URL or text.');
+        return;
+      }
+      
+      fetch('/generate-qr-code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ qrText })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('qrResult').innerHTML = `<img src="${data.qrCodeUrl}" alt="Generated QR Code">`;
+      })
+      .catch(error => {
+        console.error('Error generating QR code:', error);
+        alert('There was an error generating your QR code.');
+      });
+    });
+  </script>
+</body>
+</html>
+```
+

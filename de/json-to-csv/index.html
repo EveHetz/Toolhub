@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON in CSV Konverter - Kostenloses Entwicklerwerkzeug online</title>
+  <meta name="description" content="Konvertieren Sie JSON-Daten in das CSV-Format mit unserem kostenlosen Werkzeug. Registrierung notwendig? Nein! Probieren Sie es jetzt aus!">
+  <meta property="og:title" content="JSON to CSV Konverter - Kostenloses Entwicklerwerkzeug">
+  <meta property="og:description" content="Konvertieren Sie JSON-Daten in das CSV-Format mit unserem kostenlosen Werkzeug. Registrierung notwendig? Nein! Probieren Sie es jetzt aus!">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "JSON in CSV Konverter",
+    "description": "Konvertieren Sie JSON-Daten in das CSV-Format mit unserem kostenlosen Werkzeug. Registrierung notwendig? Nein!",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"}
+  }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    p.description { color: #7f8c8d; font-size: 16px; margin-bottom: 20px; line-height: 1.4; }
+    .input-area { margin-bottom: 20px; }
+    .input-area textarea { width: 100%; padding: 10px; border: 1px solid #dfe2e5; border-radius: 4px; resize: none; }
+    .input-area button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    .output-area textarea { width: 100%; height: 200px; padding: 10px; border: 1px solid #dfe2e5; border-radius: 4px; resize: none; overflow-y: auto; }
+    .usage, .features { margin-top: 30px; }
+    ol, ul { list-style-type: none; }
+    li { margin-bottom: 10px; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JSON in CSV Konverter</h1>
+    <p class="description">Konvertieren Sie JSON-Daten in das CSV-Format mit unserem kostenlosen Werkzeug. Registrierung notwendig? Nein.</p>
+    
+    <form id="jsonForm">
+      <div class="input-area">
+        <textarea id="jsonInput" placeholder="Fügen Sie Ihre JSON-Daten hier ein"></textarea>
+        <button type="submit">Konvertieren</button>
+      </div>
+      
+      <div class="output-area">
+        <textarea id="csvOutput" readonly></textarea>
+      </div>
+    </form>
+
+    <div class="usage">
+      <h2>Wie Sie es verwenden</h2>
+      <ol>
+        <li>Fügen Sie Ihre JSON-Daten in das Textfeld auf der linken Seite ein.</li>
+        <li>Klicken Sie auf den Knopf "Konvertieren".</li>
+        <li>Ihr CSV-Datei wird unten angezeigt, bereit zum Herunterladen oder Kopieren.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Merkmale</h2>
+      <ul>
+        <li>✓ Einfache Benutzeroberfläche</li>
+        <li>✓ Unterstützung von komplexen, verschachtelten JSON-Daten</li>
+        <li>✓ Registrierung oder Anmeldung erforderlich? Nein</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('jsonForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const jsonInput = document.getElementById('jsonInput');
+      const csvOutput = document.getElementById('csvOutput');
+
+      try {
+        const jsonData = JSON.parse(jsonInput.value);
+        let csvContent = '';
+
+        if (Array.isArray(jsonData)) {
+          for (const item of jsonData) {
+            let row = '';
+            for (const key in item) {
+              row += item[key] + ',';
+            }
+            csvContent += row.slice(0, -1) + '\n';
+          }
+        } else {
+          const keys = Object.keys(jsonData);
+          csvContent += keys.join(',') + '\n';
+          let row = '';
+          for (const key of keys) {
+            row += jsonData[key] + ',';
+          }
+          csvContent += row.slice(0, -1);
+        }
+
+        csvOutput.value = csvContent;
+      } catch (error) {
+        alert('Ungültige JSON-Daten');
+      }
+    });
+  </script>
+</body>
+</html>
+```
+

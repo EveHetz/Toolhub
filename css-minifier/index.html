@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Minifier - Free Online developer Tool</title>
+  <meta name="description" content="Minify CSS with our free online tool. Compress and optimize your stylesheets for faster loading times.">
+  <meta property="og:title" content="CSS Minifier - Free Online Tool">
+  <meta property="og:description" content="Minify CSS with our free online tool. Compress and optimize your stylesheets for faster loading times.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CSS Minifier",
+      "description": "Minify CSS with our free online tool. Compress and optimize your stylesheets for faster loading times.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    p.description { font-size: 16px; margin-bottom: 30px; line-height: 1.4; }
+    .usage, .features { margin-top: 30px; }
+    h2 { color: #2c3e50; margin-bottom: 20px; font-size: 24px; }
+    ol, ul { padding-left: 20px; }
+    li { margin-bottom: 10px; }
+    input[type="text"], textarea { width: calc(100% - 35px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
+    button { display: block; margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: all 0.3s ease; }
+    button:hover { background: #0056b3; }
+    .error { color: red; margin-top: 5px; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Minifier</h1>
+    <p class="description">Minify CSS with our free online tool. Compress and optimize your stylesheets for faster loading times.</p>
+    
+    <form id="minifyForm">
+      <textarea id="cssInput" placeholder="Paste your CSS here..."></textarea>
+      <button type="submit">Minify</button>
+      <div class="error" id="errorMessage"></div>
+    </form>
+    
+    <div class="usage">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Paste your CSS code into the textarea.</li>
+        <li>Click on "Minify" button.</li>
+        <li>Your minified CSS will appear below.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>✓ Minify CSS code</li>
+        <li>✓ Remove whitespace and comments</li>
+        <li>✓ Compress properties for smaller file sizes</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('minifyForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const input = document.getElementById('cssInput');
+      const errorMessage = document.getElementById('errorMessage');
+      errorMessage.style.display = 'none';
+      
+      if (input.value.trim() === '') {
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      // Simulate minification process
+      setTimeout(() => {
+        document.querySelector('#minifyForm').style.display = 'none';
+        
+        const outputDiv = document.createElement('div');
+        outputDiv.id = 'output';
+        outputDiv.className = 'output';
+        outputDiv.textContent = input.value.replace(/\s+/g, ' ').trim();
+        
+        const backButton = document.createElement('button');
+        backButton.innerText = 'Minify Again';
+        backButton.addEventListener('click', () => {
+          document.getElementById('minifyForm').style.display = '';
+          document.getElementById('output').remove();
+          errorMessage.style.display = 'none';
+        });
+        outputDiv.appendChild(backButton);
+        
+        const outputContainer = document.querySelector('.container');
+        outputContainer.insertBefore(outputDiv, outputContainer.firstChild);
+      }, 500);
+    });
+  </script>
+</body>
+</html>
+

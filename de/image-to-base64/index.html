@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bild in Base64 - kostenlose Online-Werkzeugseite</title>
+  <meta name="description" content="Konvertieren Sie Ihr Bild schnell und einfach mit unserem kostenlosen Online-Tool in Base64. Codieren Sie Bilder mithilfe von data URI.">
+  <meta property="og:title" content="Bild in Base64 - kostenlose Online-Werkzeugseite">
+  <meta property="og:description" content="Konvertieren Sie Ihr Bild schnell und einfach mit unserem kostenlosen Online-Tool in Base64. Codieren Sie Bilder mithilfe von data URI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/bild-in-base64">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Bild in Base64",
+      "description": "Konvertieren Sie Ihr Bild schnell und einfach mit unserem kostenlosen Online-Tool in Base64. Codieren Sie Bilder mithilfe von data URI.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    input[type="file"] { width: 100%; height: 34px; padding-left: 10px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; }
+    textarea { width: 100%; min-height: 150px; padding: 10px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; resize: vertical; margin-bottom: 20px; }
+    .output { white-space: pre-wrap; word-break: break-word; min-height: 150px; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 20px; }
+    .usage, .features { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bild in Base64</h1>
+    <p class="description">Konvertieren Sie Ihr Bild schnell und einfach mit unserem kostenlosen Online-Tool in Base64. Codieren Sie Bilder mithilfe von data URI.</p>
+    
+    <form id="uploadForm">
+      <label for="imageUpload" class="input-group">
+        <span>Auf ein Bild wählen:</span>
+        <input type="file" id="imageUpload" accept="image/*">
+      </label>
+      <textarea id="output" placeholder="Ihr Base64 kodiertes Bild erscheint hier..." readonly></textarea>
+    </form>
+    
+    <div class="usage">
+      <h2>Wie Sie das Werkzeug verwenden</h2>
+      <ol>
+        <li>Aus Ihrem Gerät ein Bilddatei auswählen.</li>
+        <li>Das Tool konvertiert das ausgewählte Bild automatisch in eine Base64 kodierten Zeichenfolge.</li>
+      </ol>
+    </div>
+    
+    <div class="features">
+      <h2>Funktionen</h2>
+      <ul>
+        <li>✓ Einfache und intuitive Benutzeroberfläche.</li>
+        <li>✓ Sofortige Konvertierung ohne any Delays.</li>
+        <li>✓ Unterstützt alle häufig verwendeten Bildformate (JPEG, PNG, GIF).</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('uploadForm').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onloadend = function() {
+        document.getElementById('output').value = reader.result.split(',').pop().trim();
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
+```
+

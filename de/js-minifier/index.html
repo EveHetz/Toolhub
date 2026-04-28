@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Minifier - kostenlose Online-Entwicklerwerkzeug</title>
+  <meta name="description" content="Minify JS, komprimieren Sie JavaScript und optimieren Sie Ihr Code mit diesem kostenlosen Online-Tool. Machen Sie Ihren Webseiten schneller!">
+  <meta property="og:title" content="JavaScript Minifier - kostenlose Online-Werkzeug">
+  <meta property="og:description" content="Minify JS, komprimieren Sie JavaScript und optimieren Sie Ihr Code mit diesem kostenlosen Online-Tool. Machen Sie Ihre Webseiten schneller!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/minifier">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JavaScript Minifier",
+      "description": "Minify JS, komprimieren Sie JavaScript und optimieren Sie Ihr Code mit diesem kostenlosen Online-Tool. Machen Sie Ihre Webseiten schneller!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    p.description { margin-bottom: 20px; }
+    .usage ol, .features ul { list-style-type: none; padding-left: 20px; }
+    a { color: #3498db; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Minifier</h1>
+    <p class="description">Minify JS, komprimieren Sie JavaScript und optimieren Sie Ihr Code mit diesem kostenlosen Online-Tool. Machen Sie Ihre Webseiten schneller!</p>
+
+    <form id="minifier-form">
+      <label for="js-input">Fügen Sie hier Ihr JavaScript ein:</label>
+      <textarea id="js-input" rows="10" required></textarea><br>
+      <button type="submit">Minify</button>
+    </form>
+
+    <div class="usage">
+      <h2>Wie Sie das Werkzeug verwenden</h2>
+      <ol>
+        <li>Fügen Sie Ihr JavaScript-Code in den Textfelder ein.</li>
+        <li>Klicken Sie auf "Minify", um die minimierte Version zu erhalten.</li>
+        <li>Ihr komprimierter Code erscheint unterhalb.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Werkzeuge</h2>
+      <ul>
+        <li>✓ Minify JavaScript-Code</li>
+        <li>✓ Komprimieren Sie Ihre JS-Dateien</li>
+        <li>✓ Optimiert Ihren Skript für schnelle Ladezeiten</li>
+      </ul>
+    </div>
+
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    document.getElementById('minifier-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const jsInput = document.getElementById('js-input').value;
+      const output = document.getElementById('output');
+      let minifiedJs = '';
+
+      // Simple minification logic
+      if (jsInput.trim() !== '') {
+        minifiedJs = jsInput.replace(/\s+/g, ' ').replace(/^\s+|\s+$/g, '');
+        output.textContent = minifiedJs;
+      } else {
+        output.textContent = 'Bitte geben Sie einige JavaScript-Code ein.';
+      }
+    });
+  </script>
+</body>
+</html>
+```
+

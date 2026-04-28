@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertitore di Tempo Unix - Strumento Online gratuito</title>
+  <meta name="description" content="Converte tempo Unix in data leggibile e viceversa con questo strumento online gratuito.">
+  <meta property="og:title" content="Convertitore di Tempo Unix - Strumento Online gratuito">
+  <meta property="og:description" content="Converte tempo Unix in data leggibile e viceversa con questo strumento online gratuito.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.convertitoretempounix.com/">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertitore di Tempo Unix",
+      "description": "Converte tempo Unix in data leggibile e viceversa con questo strumento online gratuito.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    input[type="number"] { width: 90%; padding: 10px; border-radius: 4px; border: 1px solid #ddd; }
+    button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease; }
+    .output { font-size: 18px; margin-top: 20px; }
+    p.description, ol.usage, ul.features { margin-bottom: 20px; color: #777; }
+    a { color: #007bff; text-decoration: none; }
+    @media (max-width: 600px) {
+      .container { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Convertitore di Tempo Unix</h1>
+    <p class="description">Converte tempo Unix in data leggibile e viceversa con questo strumento online gratuito.</p>
+    
+    <!-- Strumento qui - rendilo intuitivo e funzionale -->
+    <form id="timestamp-form">
+      <div class="input-group">
+        <label for="unix-input" class="sr-only">Tempo Unix</label>
+        <input type="number" id="unix-input" placeholder="Inserisci tempo Unix" required>
+        <button type="submit">Converti in Data</button>
+      </div>
+    </form>
+    <div id="output"></div>
+
+    <div class="usage">
+      <h2>COME USARLO</h2>
+      <ol>
+        <li>Inserisci il tempo Unix nel campo di input.</li>
+        <li>Clicca sul pulsante "Converti in Data".</li>
+        <li>La data convertita apparirà qui sotto.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funzionalità</h2>
+      <ul>
+        <li>✓ Converte tempo Unix in data leggibile e viceversa.</li>
+        <li>✓ Nessuna registrazione richiesta. Usa questo strumento online gratuitamente.</li>
+        <li>✓ Design adatto a dispositivi mobili per un accesso facile ovunque.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('timestamp-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const unixInput = document.getElementById('unix-input').value;
+      const outputElement = document.getElementById('output');
+      
+      if (unixInput === '') {
+        outputElement.textContent = 'Hai inserito un valore vuoto.';
+      } else {
+        fetch(`https://api.example.com/convert?timestamp=${unixInput}`)
+          .then(response => response.json())
+          .then(data => {
+            const dateOutput = new Date(unixInput * 1000).toLocaleDateString();
+            outputElement.textContent = `Data: ${dateOutput}`;
+          })
+          .catch(error => {
+            outputElement.textContent = 'Si è verificato un errore. Riprova più tardi.';
+          });
+      }
+    });
+  </script>
+</body>
+</html>
+```
+

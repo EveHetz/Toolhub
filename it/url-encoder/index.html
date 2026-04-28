@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encoder/Decodificatore di URL - Strumento Online Gratuitto</title>
+  <meta name="description" content="Codifica e decodifica URL, URI o stringhe codificate percentualmente con questo strumento online gratuito. Perfetto per i developer!">
+  <meta property="og:title" content="Encoder/Decodificatore di URL - Strumento Online Gratuitto">
+  <meta property="og:description" content="Codifica e decodifica URL, URI o stringhe codificate percentualmente con questo strumento online gratuito. Perfetto per i developer!">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Encoder/Decodificatore di URL",
+      "description": "Codifica e decodifica URL, URI o stringhe codificate percentualmente con questo strumento online gratuito. Perfetto per i developer!",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    input, textarea { width: 100%; padding: 10px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc; }
+    button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+    .output { margin-top: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9; overflow-x: auto; }
+    ol, ul { margin-top: 20px; }
+    li { list-style-type: none; margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Encoder/Decodificatore di URL</h1>
+    <p class="description">Codifica e decodifica URL, URI o stringhe codificate percentualmente con questo strumento online gratuito. Perfetto per i developer!</p>
+
+    <form>
+      <label for="inputData">Inserisci il dato:</label><br>
+      <textarea id="inputData" rows="5" placeholder="Inserisci qui il tuo URL/URI..."></textarea><br>
+      <button onclick="encode()">Codifica</button>
+      <button onclick="decode()">Decodifica</button>
+    </form>
+
+    <div class="output" id="output">
+      Dati di uscita:
+    </div>
+
+    <div class="usage">
+      <h2>Come utilizzare</h2>
+      <ol>
+        <li>Inserisci il tuo URL o URI nel campo di input.</li>
+        <li>Scegli se vuoi codificare o decodificare cliccando sul pulsante Codifica o Decodifica.</li>
+        <li>I risultati saranno visualizzati sotto ai pulsanti.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Caratteristiche</h2>
+      <ul>
+        <li>✓ Codifica URL, URI e stringhe codificate percentualmente</li>
+        <li>✓ Decodifica URL, URI e stringhe codificate percentualmente</li>
+        <li>✓ Interfaccia semplice ed elegante</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function encode() {
+      const inputData = document.getElementById('inputData').value;
+      const outputDiv = document.getElementById('output');
+      try {
+        outputDiv.textContent = encodeURIComponent(inputData);
+      } catch (error) {
+        outputDiv.textContent = 'Errore: Dati di input troppo grandi.';
+      }
+    }
+
+    function decode() {
+      const inputData = document.getElementById('inputData').value;
+      const outputDiv = document.getElementById('output');
+      try {
+        outputDiv.textContent = decodeURIComponent(inputData);
+      } catch (error) {
+        outputDiv.textContent = 'Errore: Codifica non valida.';
+      }
+    }
+  </script>
+</body>
+</html>
+```
+

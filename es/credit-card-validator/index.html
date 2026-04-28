@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validador de Tarjetas de Crédito - Herramienta Online Gratuita</title>
+  <meta name="description" content="Valide su tarjeta de crédito instantáneamente usando el algoritmo Luhn. Compruebe la validez de la tarjeta con facilidad.">
+  <meta property="og:title" content="Validador de Tarjetas de Crédito - Herramienta Online Gratuita">
+  <meta property="og:description" content="Valide su tarjeta de crédito instantáneamente usando el algoritmo Luhn. Compruebe la validez de la tarjeta con facilidad.">
+  <meta property="og:type" content="website">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Validador de Tarjetas de Crédito",
+      "description": "Valide su tarjeta de crédito instantáneamente usando el algoritmo Luhn. Compruebe la validez de la tarjeta con facilidad.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .input-group input { width: calc(100% - 120px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    .input-group button { padding: 10px 16px; background-color: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease; }
+    .input-group button:hover { background-color: #1a2430; }
+    p.description { font-size: 16px; margin-bottom: 24px; }
+    ol, ul { list-style-type: none; padding: 0; }
+    li { margin-bottom: 8px; }
+    .usage h2, .features h2 { color: #2c3e50; margin-top: 40px; font-size: 24px; }
+    .features ul { font-size: 16px; line-height: 1.4; }
+    .message { margin-top: 24px; font-size: 18px; color: #2c3e50; text-align: center; display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Validador de Tarjetas de Crédito</h1>
+    <p class="description">Valide su tarjeta de crédito instantáneamente usando el algoritmo Luhn. Compruebe la validez de la tarjeta con facilidad.</p>
+
+    <form id="validator-form">
+      <div class="input-group">
+        <input type="text" id="card-number" placeholder="Ingrese Número de Tarjeta de Crédito" required>
+        <button type="submit">Validar</button>
+      </div>
+      <p id="message" class="message"></p>
+    </form>
+
+    <div class="usage">
+      <h2>Cómo Usarlo</h2>
+      <ol>
+        <li>Ingrese el número de tarjeta de crédito en el campo proporcionado.</li>
+        <li>Haga clic en "Validar."</li>
+        <li>El resultado se mostrará debajo.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funciones</h2>
+      <ul>
+        <li>✓ Validación con Algoritmo Luhn</li>
+        <li>✓ Retroalimentación Inmediata</li>
+        <li>✓ Sin Dependencias Externas</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('validator-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const cardNumber = document.getElementById('card-number').value;
+      const messageElement = document.getElementById('message');
+      
+      if (validateCard(cardNumber)) {
+        messageElement.textContent = 'Tarjeta de Crédito es Valida';
+        messageElement.style.color = '#2c3e50';
+      } else {
+        messageElement.textContent = 'Tarjeta de Crédito es Invalida';
+        messageElement.style.color = '#e74c3c';
+      }
+      messageElement.style.display = 'block';
+    });
+
+    function validateCard(cardNumber) {
+      const digits = cardNumber.split('').map(Number);
+      let checksum = 0;
+
+      for (let i = digits.length - 1, j = 0; j < digits.length; i--, j++) {
+        if (j % 2 === 0) {
+          let doubled = digits[i] * 2;
+          checksum += doubled > 9 ? doubled - 9 : doubled;
+        } else {
+          checksum += digits[i];
+        }
+      }
+
+      return (checksum % 10 === 0);
+    }
+  </script>
+</body>
+</html>
+

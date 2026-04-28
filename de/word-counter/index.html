@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wortzähler - Kostenlos Online Textwerkzeug</title>
+  <meta name="description" content="Zählen Sie Wörter und Zeichen in Ihrem Text mit diesem kostenlosen Online-Wortzähler. Perfekt für das Schreiben von Artikeln, E-Mails oder jeglichem Textstück.">
+  <meta property="og:title" content="Wortzähler - Kostenlos Online Werkzeug">
+  <meta property="og:description" content="Zählen Sie Wörter und Zeichen in Ihrem Text mit diesem kostenlosen Online-Wortzähler. Perfekt für das Schreiben von Artikeln, E-Mails oder jeglichem Textstück.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://deine-wortz%C3%A4hler-url.de">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Wortzähler",
+      "description": "Zählen Sie Wörter und Zeichen in Ihrem Text mit diesem kostenlosen Online-Wortzähler.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { 
+      max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    textarea { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #dcdfe6; resize: none; margin-bottom: 15px; }
+    .counters { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    p.count, span.count {
+      font-size: 24px;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+    .usage, .features { margin-top: 30px; }
+    h2 { color: #2c3e50; font-size: 24px; margin-bottom: 15px; }
+    ol, ul { margin-left: 20px; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Wortzähler</h1>
+    <p class="description">Zählen Sie Wörter und Zeichen in Ihrem Text mit diesem kostenlosen Online-Wortzähler. Perfekt für das Schreiben von Artikeln, E-Mails oder jeglichem Textstück.</p>
+
+    <textarea id="text-input" placeholder="Fügen Sie Ihren Text hier ein..."></textarea>
+    <div class="counters">
+      <span id="word-count" class="count">0</span> Wörter
+      <span id="char-count" class="count">0</span> Zeichen
+    </div>
+
+    <div class="usage">
+      <h2>Benutzung</h2>
+      <ol>
+        <li>Fügen Sie Ihren Text in das Textfeld ein.</li>
+        <li>Klicken Sie außerhalb oder drücken Sie Enter, um die Zähler zu aktualisieren.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Züge</h2>
+      <ul>
+        <li>✓ Genaues Zählen von Wörtern und Zeichen.</li>
+        <li>✓ Simple und intuitiver Benutzeroberfläche.</li>
+        <li>✓ Arbeitet auch ohne Internetverbindung.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const textInput = document.getElementById('text-input');
+    const wordCountDisplay = document.getElementById('word-count');
+    const charCountDisplay = document.getElementById('char-count');
+
+    function updateCounts() {
+      const inputText = textInput.value;
+      const words = inputText.trim().split(/\s+/).filter(Boolean);
+      const countWords = words.length;
+      const countChars = inputText.length;
+
+      wordCountDisplay.textContent = countWords;
+      charCountDisplay.textContent = countChars;
+    }
+
+    textInput.addEventListener('input', updateCounts);
+  </script>
+</body>
+</html>
+

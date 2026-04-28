@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatore Parole - Strumento Online gratuito</title>
+  <meta name="description" content="Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.">
+  <meta property="og:title" content="Contatore Parole - Strumento Online gratuito">
+  <meta property="og:description" content="Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tuo-url-di-contatore-di-parole.com">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Contatore Parole",
+      "description": "Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
+      "offers": {"@type": "Offer", "price": "0"}
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f7fa;
+      padding: 20px;
+    }
+    .container { 
+      max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    }
+    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
+    textarea { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #dcdfe6; resize: none; margin-bottom: 15px; }
+    .counters { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    p.count, span.count {
+      font-size: 24px;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 15px;
+    }
+    .usage, .features { margin-top: 30px; }
+    h2 { color: #2c3e50; font-size: 24px; margin-bottom: 15px; }
+    ol, ul { margin-left: 20px; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contatore Parole</h1>
+    <p class="description">Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.</p>
+
+    <textarea id="text-input" placeholder="Inserisci il tuo testo qui..."></textarea>
+    <div class="counters">
+      <span id="word-count" class="count">0</span> Parole
+      <span id="char-count" class="count">0</span> Caratteri
+    </div>
+
+    <div class="usage">
+      <h2>Come Usare</h2>
+      <ol>
+        <li>Copia e incolla il tuo testo nella casella.</li>
+        <li>Fai clic fuori o premi Invio per aggiornare i contatori.</li>
+      </ol>
+    </div>
+
+    <div class="features">
+      <h2>Funzionalità</h2>
+      <ul>
+        <li>✓ Conta parole e caratteri con precisione.</li>
+        <li>✓ Interfaccia semplice e intuitiva.</li>
+        <li>✓ Funziona offline senza dipendenze esterne.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const textInput = document.getElementById('text-input');
+    const wordCountDisplay = document.getElementById('word-count');
+    const charCountDisplay = document.getElementById('char-count');
+
+    function updateCounts() {
+      const inputText = textInput.value;
+      const words = inputText.trim().split(/\s+/).filter(Boolean);
+      const countWords = words.length;
+      const countChars = inputText.length;
+
+      wordCountDisplay.textContent = countWords;
+      charCountDisplay.textContent = countChars;
+    }
+
+    textInput.addEventListener('input', updateCounts);
+  </script>
+</body>
+</html>
+
