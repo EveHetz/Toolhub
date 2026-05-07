@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formattatore JSON — Toolhub</title>
-  <meta name="description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
-  <meta property="og:title" content="Formattatore JSON — Toolhub">
-  <meta property="og:description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
+  <title>YAML ↔ JSON Konverter — Toolhub</title>
+  <meta name="description" content="Kostenloser YAML-zu-JSON und JSON-zu-YAML Konverter. Bidirektional, läuft komplett im Browser. Anker, Aliase und Multi-Dokument-YAML unterstützt.">
+  <meta property="og:title" content="YAML ↔ JSON Konverter — Toolhub">
+  <meta property="og:description" content="Kostenloser YAML-zu-JSON und JSON-zu-YAML Konverter. Bidirektional, läuft komplett im Browser. Anker, Aliase und Multi-Dokument-YAML unterstützt.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/it/json-formatter/">
-  <link rel="canonical" href="https://toolhub.software/it/json-formatter/">
+  <meta property="og:url" content="https://toolhub.software/de/yaml-json/">
+  <link rel="canonical" href="https://toolhub.software/de/yaml-json/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Formattatore JSON",
-    "description": "Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.",
+    "name": "YAML ↔ JSON Konverter",
+    "description": "Kostenloser YAML-zu-JSON und JSON-zu-YAML Konverter. Bidirektional, läuft komplett im Browser. Anker, Aliase und Multi-Dokument-YAML unterstützt.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/it/json-formatter/"
+    "url": "https://toolhub.software/de/yaml-json/"
   }
   </script>
   <style>
@@ -91,59 +91,80 @@
 </head>
 <body>
   <header class="header">
-    <a href="/it/" class="logo"><span>Tool</span>hub</a>
+    <a href="/de/" class="logo"><span>Tool</span>hub</a>
     <div class="header-actions">
-      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/yaml-json/'; else location.href='/yaml-json/'">
         <option value="" >🇬🇧 EN</option>
-        <option value="de" >🇩🇪 DE</option>
+        <option value="de" selected="selected">🇩🇪 DE</option>
         <option value="es" >🇪🇸 ES</option>
         <option value="fr" >🇫🇷 FR</option>
-        <option value="it" selected="selected">🇮🇹 IT</option>
+        <option value="it" >🇮🇹 IT</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Formattatore JSON</div>
-    <h1>Formattatore JSON</h1>
-    <p class="tagline">Formatta, valida e minifica JSON all'istante. Gli errori sono evidenziati con riga e colonna.</p>
+    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / YAML ↔ JSON Konverter</div>
+    <h1>YAML ↔ JSON Konverter</h1>
+    <p class="tagline">Konvertiere zwischen YAML und JSON in beide Richtungen. Für Kubernetes-Manifeste, CI-Configs und OpenAPI-Specs.</p>
     
 <div class="tool-card">
-  <label for="json-input">Input</label>
-  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
+  <div class="row-2col">
+    <div>
+      <label>Von</label>
+      <select id="yj-from" onchange="yjSwap()">
+        <option value="yaml">YAML</option>
+        <option value="json">JSON</option>
+      </select>
+    </div>
+    <div>
+      <label>Zu</label>
+      <select id="yj-to" onchange="yjConv()">
+        <option value="json">JSON</option>
+        <option value="yaml">YAML</option>
+      </select>
+    </div>
+  </div>
+  <label style="margin-top:1rem">Eingabe</label>
+  <textarea id="yj-in" oninput="yjConv()" spellcheck="false" placeholder="apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example
+data:
+  message: hello"></textarea>
   <div class="button-row">
-    <button onclick="jfFormat(2)">Formatta</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
-    <button class="secondary" onclick="jfMinify()">Minifica</button>
-    <button class="secondary" onclick="jfValidate()">Valida</button>
-    <button class="secondary" onclick="document.getElementById('json-input').value=''">Pulisci</button>
+    <button onclick="yjConv()">Konvertieren</button>
+    <button class="secondary" onclick="document.getElementById('yj-in').value=''; yjConv()">Leeren</button>
   </div>
 </div>
 <div class="tool-card">
-  <label>Output</label>
+  <label>Ausgabe</label>
   <div class="output-row">
-    <pre class="output" id="json-output">Inserisci un input sopra per vedere il risultato.</pre>
-    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Copia</button>
+    <pre class="output" id="yj-out">Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('yj-out', this)">Kopieren</button>
   </div>
-  <div class="meta" id="json-meta"></div>
 </div>
 
     <div class="help">
 <h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
-<h3>Tips</h3>
+<p>YAML parsing uses <a href="https://github.com/nodeca/js-yaml" rel="noopener">js-yaml</a> (YAML 1.2 compliant). JSON uses the native <code>JSON</code> API. All conversion happens in your browser.</p>
+<h3>What it handles</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li>Anchors and aliases (<code>&amp;ref</code>, <code>*ref</code>) — resolved on YAML→JSON</li>
+  <li>Block-style and flow-style YAML</li>
+  <li>Numbers, booleans, null, dates auto-typed per YAML 1.2</li>
+  <li>Order is preserved on JSON→YAML</li>
 </ul>
-<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/yaml-json/">Convertitore YAML ↔ JSON</a></div></div>
+<h3>What it doesn't handle</h3>
+<ul>
+  <li>Custom YAML tags (<code>!!python/object</code>, etc.) — strict YAML 1.2 only, no language-specific tags</li>
+  <li>Multi-document YAML (<code>---</code> separators) is parsed as the first document only</li>
+</ul>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/json-formatter/">JSON-Formatter</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
-    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
   </footer>
   <script>
     function toggleTheme(){
@@ -167,59 +188,34 @@
     }
   </script>
   
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <script>
-function jfShowError(e, raw){
-  const out = document.getElementById('json-output');
-  out.classList.add('error');
-  out.classList.remove('success');
-  let msg = e.message || String(e);
-  // Try to extract position
-  const m = msg.match(/position (\d+)/i);
-  if (m){
-    const pos = parseInt(m[1], 10);
-    const before = raw.slice(0, pos);
-    const line = (before.match(/\n/g) || []).length + 1;
-    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
-    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
-  }
-  out.textContent = '✗ ' + msg;
-  document.getElementById('json-meta').textContent = '';
+function yjSwap(){
+  const f = document.getElementById('yj-from').value;
+  const t = document.getElementById('yj-to');
+  // ensure 'to' is the OTHER format
+  t.value = (f === 'yaml') ? 'json' : 'yaml';
+  yjConv();
 }
-function jfShowOk(text, label){
-  const out = document.getElementById('json-output');
+function yjConv(){
+  const from = document.getElementById('yj-from').value;
+  const to = document.getElementById('yj-to').value;
+  const raw = document.getElementById('yj-in').value;
+  const out = document.getElementById('yj-out');
   out.classList.remove('error');
-  out.classList.add('success');
-  out.textContent = text;
-  document.getElementById('json-meta').textContent = label || '';
-}
-function jfFormat(indent){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
+  if (!raw.trim()){ out.textContent = 'Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.'; return; }
   try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj, null, indent);
-    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
-  } catch(e){ jfShowError(e, raw); }
+    let data;
+    if (from === 'yaml') data = jsyaml.load(raw);
+    else data = JSON.parse(raw);
+    if (to === 'json') out.textContent = JSON.stringify(data, null, 2);
+    else out.textContent = jsyaml.dump(data, { indent: 2, lineWidth: 120 });
+  } catch(e){
+    out.classList.add('error');
+    out.textContent = '✗ ' + (e.message || String(e));
+  }
 }
-function jfMinify(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj);
-    jfShowOk(out, out.length + ' chars (minified)');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfValidate(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const t = Array.isArray(obj) ? 'array' : typeof obj;
-    const sz = JSON.stringify(obj).length;
-    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
-  } catch(e){ jfShowError(e, raw); }
-}
+document.addEventListener('DOMContentLoaded', yjConv);
 </script>
 
 </body>

@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formattatore JSON — Toolhub</title>
-  <meta name="description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
-  <meta property="og:title" content="Formattatore JSON — Toolhub">
-  <meta property="og:description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
+  <title>Decoder JWT — Toolhub</title>
+  <meta name="description" content="Decoder JSON Web Token gratuito. Decodifica header e payload, verifica scadenza, ispeziona la firma. Funziona offline nel browser.">
+  <meta property="og:title" content="Decoder JWT — Toolhub">
+  <meta property="og:description" content="Decoder JSON Web Token gratuito. Decodifica header e payload, verifica scadenza, ispeziona la firma. Funziona offline nel browser.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/it/json-formatter/">
-  <link rel="canonical" href="https://toolhub.software/it/json-formatter/">
+  <meta property="og:url" content="https://toolhub.software/it/jwt-decoder/">
+  <link rel="canonical" href="https://toolhub.software/it/jwt-decoder/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Formattatore JSON",
-    "description": "Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.",
+    "name": "Decoder JWT",
+    "description": "Decoder JSON Web Token gratuito. Decodifica header e payload, verifica scadenza, ispeziona la firma. Funziona offline nel browser.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/it/json-formatter/"
+    "url": "https://toolhub.software/it/jwt-decoder/"
   }
   </script>
   <style>
@@ -93,7 +93,7 @@
   <header class="header">
     <a href="/it/" class="logo"><span>Tool</span>hub</a>
     <div class="header-actions">
-      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/jwt-decoder/'; else location.href='/jwt-decoder/'">
         <option value="" >🇬🇧 EN</option>
         <option value="de" >🇩🇪 DE</option>
         <option value="es" >🇪🇸 ES</option>
@@ -104,42 +104,44 @@
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Formattatore JSON</div>
-    <h1>Formattatore JSON</h1>
-    <p class="tagline">Formatta, valida e minifica JSON all'istante. Gli errori sono evidenziati con riga e colonna.</p>
+    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Decoder JWT</div>
+    <h1>Decoder JWT</h1>
+    <p class="tagline">Incolla un JWT per decodificare header e payload. Tutto viene eseguito nel browser — i token non lasciano la pagina.</p>
     
 <div class="tool-card">
-  <label for="json-input">Input</label>
-  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
-  <div class="button-row">
-    <button onclick="jfFormat(2)">Formatta</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
-    <button class="secondary" onclick="jfMinify()">Minifica</button>
-    <button class="secondary" onclick="jfValidate()">Valida</button>
-    <button class="secondary" onclick="document.getElementById('json-input').value=''">Pulisci</button>
-  </div>
+  <label>JWT</label>
+  <textarea id="jwt-in" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." spellcheck="false" oninput="jwtDecode()"></textarea>
+  <div class="meta" id="jwt-summary"></div>
 </div>
 <div class="tool-card">
-  <label>Output</label>
-  <div class="output-row">
-    <pre class="output" id="json-output">Inserisci un input sopra per vedere il risultato.</pre>
-    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Copia</button>
-  </div>
-  <div class="meta" id="json-meta"></div>
+  <label>Header</label>
+  <pre class="output" id="jwt-header">Inserisci un input sopra per vedere il risultato.</pre>
+</div>
+<div class="tool-card">
+  <label>Payload</label>
+  <pre class="output" id="jwt-payload">Inserisci un input sopra per vedere il risultato.</pre>
+</div>
+<div class="tool-card">
+  <label>Signature (base64url, not verified)</label>
+  <pre class="output" id="jwt-sig">Inserisci un input sopra per vedere il risultato.</pre>
+  <div class="meta">This tool decodes only — it does not verify the signature against a key. Treat decoded payload as untrusted until verified.</div>
 </div>
 
     <div class="help">
 <h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
-<h3>Tips</h3>
+<p>A JWT is three base64url-encoded parts joined by dots: <code>header.payload.signature</code>. This tool decodes the first two — the signature is shown raw because verification needs the original signing key.</p>
+<h3>Common claims</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li><code>iss</code> — issuer (who created the token)</li>
+  <li><code>sub</code> — subject (the user/account it represents)</li>
+  <li><code>aud</code> — audience (who should accept it)</li>
+  <li><code>exp</code> — expiry (Unix timestamp)</li>
+  <li><code>iat</code> — issued-at (Unix timestamp)</li>
+  <li><code>nbf</code> — not-valid-before (Unix timestamp)</li>
 </ul>
-<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/yaml-json/">Convertitore YAML ↔ JSON</a></div></div>
+<h3>Security note</h3>
+<p>A decoded JWT is <strong>not trustworthy</strong> until you verify the signature with the issuer's public key (RSA/EC) or shared secret (HMAC). Treat anything you decode here as an opaque blob until that step.</p>
+<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/json-formatter/">Formattatore JSON</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
@@ -168,58 +170,66 @@
   </script>
   
 <script>
-function jfShowError(e, raw){
-  const out = document.getElementById('json-output');
-  out.classList.add('error');
-  out.classList.remove('success');
-  let msg = e.message || String(e);
-  // Try to extract position
-  const m = msg.match(/position (\d+)/i);
-  if (m){
-    const pos = parseInt(m[1], 10);
-    const before = raw.slice(0, pos);
-    const line = (before.match(/\n/g) || []).length + 1;
-    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
-    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
+function b64urlDecode(s){
+  s = s.replace(/-/g,'+').replace(/_/g,'/');
+  while (s.length % 4) s += '=';
+  try {
+    const bin = atob(s);
+    // utf-8 decode
+    const bytes = new Uint8Array(bin.length);
+    for (let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch(e){ return null; }
+}
+function jwtPretty(s){
+  try { return JSON.stringify(JSON.parse(s), null, 2); }
+  catch(e){ return s; }
+}
+function jwtDecode(){
+  const tok = document.getElementById('jwt-in').value.trim();
+  const hdr = document.getElementById('jwt-header');
+  const pld = document.getElementById('jwt-payload');
+  const sig = document.getElementById('jwt-sig');
+  const sum = document.getElementById('jwt-summary');
+  hdr.classList.remove('error'); pld.classList.remove('error'); sig.classList.remove('error');
+  if (!tok){ hdr.textContent='Inserisci un input sopra per vedere il risultato.'; pld.textContent='Inserisci un input sopra per vedere il risultato.'; sig.textContent='Inserisci un input sopra per vedere il risultato.'; sum.textContent=''; return; }
+  const parts = tok.split('.');
+  if (parts.length !== 3){
+    hdr.classList.add('error');
+    hdr.textContent = '✗ Invalid JWT — expected 3 dot-separated parts (header.payload.signature)';
+    pld.textContent = ''; sig.textContent = ''; sum.textContent = parts.length + ' parts found';
+    return;
   }
-  out.textContent = '✗ ' + msg;
-  document.getElementById('json-meta').textContent = '';
-}
-function jfShowOk(text, label){
-  const out = document.getElementById('json-output');
-  out.classList.remove('error');
-  out.classList.add('success');
-  out.textContent = text;
-  document.getElementById('json-meta').textContent = label || '';
-}
-function jfFormat(indent){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
+  const h = b64urlDecode(parts[0]);
+  const p = b64urlDecode(parts[1]);
+  if (h === null){ hdr.classList.add('error'); hdr.textContent = '✗ Header is not valid base64url'; }
+  else hdr.textContent = jwtPretty(h);
+  if (p === null){ pld.classList.add('error'); pld.textContent = '✗ Payload is not valid base64url'; }
+  else pld.textContent = jwtPretty(p);
+  sig.textContent = parts[2] || '(empty signature)';
+  // Summary: alg + exp/iat status
+  let parts2 = [];
   try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj, null, indent);
-    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfMinify(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
+    const hj = JSON.parse(h);
+    if (hj.alg) parts2.push('alg: ' + hj.alg);
+  } catch(e){}
   try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj);
-    jfShowOk(out, out.length + ' chars (minified)');
-  } catch(e){ jfShowError(e, raw); }
+    const pj = JSON.parse(p);
+    const now = Math.floor(Date.now()/1000);
+    if (pj.exp){
+      const d = new Date(pj.exp*1000);
+      parts2.push('exp: ' + d.toISOString().replace('T',' ').slice(0,19) + 'Z' + (pj.exp < now ? ' ⚠ EXPIRED' : ''));
+    }
+    if (pj.iat){
+      const d = new Date(pj.iat*1000);
+      parts2.push('iat: ' + d.toISOString().replace('T',' ').slice(0,19) + 'Z');
+    }
+    if (pj.iss) parts2.push('iss: ' + pj.iss);
+    if (pj.sub) parts2.push('sub: ' + pj.sub);
+  } catch(e){}
+  sum.textContent = parts2.join(' · ');
 }
-function jfValidate(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const t = Array.isArray(obj) ? 'array' : typeof obj;
-    const sz = JSON.stringify(obj).length;
-    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
-  } catch(e){ jfShowError(e, raw); }
-}
+document.addEventListener('DOMContentLoaded', jwtDecode);
 </script>
 
 </body>

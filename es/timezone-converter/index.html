@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formateador JSON — Toolhub</title>
-  <meta name="description" content="Formateador y validador JSON gratuito en línea. Formatea, minifica y verifica la sintaxis JSON.">
-  <meta property="og:title" content="Formateador JSON — Toolhub">
-  <meta property="og:description" content="Formateador y validador JSON gratuito en línea. Formatea, minifica y verifica la sintaxis JSON.">
+  <title>Conversor de Zonas Horarias — Toolhub</title>
+  <meta name="description" content="Conversor gratuito de zonas horarias. Convierte entre zonas IANA con conciencia del horario de verano. Selecciona de zonas comunes o de las 400+ del navegador.">
+  <meta property="og:title" content="Conversor de Zonas Horarias — Toolhub">
+  <meta property="og:description" content="Conversor gratuito de zonas horarias. Convierte entre zonas IANA con conciencia del horario de verano. Selecciona de zonas comunes o de las 400+ del navegador.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/es/json-formatter/">
-  <link rel="canonical" href="https://toolhub.software/es/json-formatter/">
+  <meta property="og:url" content="https://toolhub.software/es/timezone-converter/">
+  <link rel="canonical" href="https://toolhub.software/es/timezone-converter/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Formateador JSON",
-    "description": "Formateador y validador JSON gratuito en línea. Formatea, minifica y verifica la sintaxis JSON.",
+    "name": "Conversor de Zonas Horarias",
+    "description": "Conversor gratuito de zonas horarias. Convierte entre zonas IANA con conciencia del horario de verano. Selecciona de zonas comunes o de las 400+ del navegador.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/es/json-formatter/"
+    "url": "https://toolhub.software/es/timezone-converter/"
   }
   </script>
   <style>
@@ -93,7 +93,7 @@
   <header class="header">
     <a href="/es/" class="logo"><span>Tool</span>hub</a>
     <div class="header-actions">
-      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/timezone-converter/'; else location.href='/timezone-converter/'">
         <option value="" >🇬🇧 EN</option>
         <option value="de" >🇩🇪 DE</option>
         <option value="es" selected="selected">🇪🇸 ES</option>
@@ -104,42 +104,47 @@
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Formateador JSON</div>
-    <h1>Formateador JSON</h1>
-    <p class="tagline">Formatea, valida y minifica JSON al instante. Los errores se resaltan con línea y columna.</p>
+    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Conversor de Zonas Horarias</div>
+    <h1>Conversor de Zonas Horarias</h1>
+    <p class="tagline">Convierte fecha y hora entre zonas horarias IANA. Muestra offsets, horario de verano y día de la semana.</p>
     
 <div class="tool-card">
-  <label for="json-input">Entrada</label>
-  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
-  <div class="button-row">
-    <button onclick="jfFormat(2)">Formatear</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
-    <button class="secondary" onclick="jfMinify()">Minificar</button>
-    <button class="secondary" onclick="jfValidate()">Validar</button>
-    <button class="secondary" onclick="document.getElementById('json-input').value=''">Limpiar</button>
+  <div class="row-2col">
+    <div>
+      <label>Date &amp; time (in source zone)</label>
+      <input type="datetime-local" id="tz-when" oninput="tzRun()" step="1">
+    </div>
+    <div>
+      <label>Desde (source zone)</label>
+      <select id="tz-from" onchange="tzRun()"></select>
+    </div>
+  </div>
+  <div class="row-2col" style="margin-top:1rem">
+    <div>
+      <label>Hasta (target zone)</label>
+      <select id="tz-to" onchange="tzRun()"></select>
+    </div>
+    <div>
+      <label>&nbsp;</label>
+      <button class="secondary" onclick="tzNow()" style="width:100%">Now</button>
+    </div>
   </div>
 </div>
 <div class="tool-card">
-  <label>Salida</label>
-  <div class="output-row">
-    <pre class="output" id="json-output">Introduce un valor arriba para ver el resultado.</pre>
-    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Copiar</button>
-  </div>
-  <div class="meta" id="json-meta"></div>
+  <label>Resultado</label>
+  <pre class="output" id="tz-out">Introduce un valor arriba para ver el resultado.</pre>
 </div>
 
     <div class="help">
 <h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
+<p>Uses the browser's <code>Intl.DateTimeFormat</code> with IANA time-zone IDs (e.g. <code>Europe/Bratislava</code>, <code>America/New_York</code>). DST transitions and historical offsets are handled by the underlying ICU/CLDR data the browser ships with.</p>
 <h3>Tips</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li>Pick the zone where the time was recorded as the source — DST is resolved automatically.</li>
+  <li>"Now" snaps the input to current local time and source to your browser's zone.</li>
+  <li>Output shows local-format date, the timezone abbreviation, and UTC for unambiguous storage.</li>
 </ul>
-<div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/regex-tester/">Probador de Regex</a> <a href="/es/yaml-json/">Conversor YAML ↔ JSON</a></div></div>
+<div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/cron-parser/">Analizador de Cron</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
@@ -168,58 +173,91 @@
   </script>
   
 <script>
-function jfShowError(e, raw){
-  const out = document.getElementById('json-output');
-  out.classList.add('error');
-  out.classList.remove('success');
-  let msg = e.message || String(e);
-  // Try to extract position
-  const m = msg.match(/position (\d+)/i);
-  if (m){
-    const pos = parseInt(m[1], 10);
-    const before = raw.slice(0, pos);
-    const line = (before.match(/\n/g) || []).length + 1;
-    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
-    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
+const TZ_COMMON = [
+  'UTC','Europe/London','Europe/Paris','Europe/Berlin','Europe/Bratislava','Europe/Madrid','Europe/Rome','Europe/Athens','Europe/Moscow',
+  'Africa/Cairo','Africa/Lagos','Africa/Johannesburg',
+  'Asia/Dubai','Asia/Karachi','Asia/Kolkata','Asia/Bangkok','Asia/Singapore','Asia/Shanghai','Asia/Tokyo','Asia/Seoul',
+  'Australia/Perth','Australia/Sydney','Pacific/Auckland',
+  'America/New_York','America/Toronto','America/Chicago','America/Denver','America/Los_Angeles','America/Anchorage','America/Sao_Paulo','America/Mexico_City'
+];
+
+function tzPopulate(){
+  const local = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  let all = TZ_COMMON.slice();
+  if (Intl.supportedValuesOf){
+    try { all = Intl.supportedValuesOf('timeZone'); } catch(e){}
   }
-  out.textContent = '✗ ' + msg;
-  document.getElementById('json-meta').textContent = '';
+  if (!all.includes(local)) all = [local, ...all];
+  for (const sel of [document.getElementById('tz-from'), document.getElementById('tz-to')]){
+    sel.innerHTML = all.map(z => `<option value="${z}">${z}</option>`).join('');
+  }
+  document.getElementById('tz-from').value = local;
+  document.getElementById('tz-to').value = 'UTC';
 }
-function jfShowOk(text, label){
-  const out = document.getElementById('json-output');
+
+function tzNow(){
+  const d = new Date();
+  const local = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  document.getElementById('tz-from').value = local;
+  // Format current local date for datetime-local input
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('tz-when').value = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  tzRun();
+}
+
+function tzGetOffsetMinutes(date, tz){
+  // Get the minutes offset of `date` (an instant) in `tz`, vs UTC
+  const dtf = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz, hour12: false,
+    year:'numeric', month:'2-digit', day:'2-digit',
+    hour:'2-digit', minute:'2-digit', second:'2-digit'
+  });
+  const parts = Object.fromEntries(dtf.formatToParts(date).filter(p=>p.type!=='literal').map(p=>[p.type,p.value]));
+  const asLocal = Date.UTC(parts.year, parts.month-1, parts.day, parts.hour==='24'?0:parts.hour, parts.minute, parts.second);
+  return Math.round((asLocal - date.getTime()) / 60000);
+}
+
+function tzFormatOffset(min){
+  const sign = min < 0 ? '-' : '+';
+  const a = Math.abs(min);
+  return sign + String(Math.floor(a/60)).padStart(2,'0') + ':' + String(a%60).padStart(2,'0');
+}
+
+function tzRun(){
+  const whenStr = document.getElementById('tz-when').value;
+  const from = document.getElementById('tz-from').value;
+  const to = document.getElementById('tz-to').value;
+  const out = document.getElementById('tz-out');
   out.classList.remove('error');
-  out.classList.add('success');
-  out.textContent = text;
-  document.getElementById('json-meta').textContent = label || '';
+  if (!whenStr || !from || !to){ out.textContent = 'Introduce un valor arriba para ver el resultado.'; return; }
+  // Parse the wall-clock time as if it's in the source zone.
+  // Strategy: build a Date from the wall-clock as if UTC, then shift by the source-zone offset.
+  const m = whenStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/);
+  if (!m){ out.classList.add('error'); out.textContent = 'Invalid date'; return; }
+  const utcMs = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5], +(m[6]||0));
+  const probe = new Date(utcMs);
+  const fromOff = tzGetOffsetMinutes(probe, from);
+  // The actual instant: utcMs minus the source zone offset gives the true UTC instant for the wall-clock time
+  const instant = new Date(utcMs - fromOff * 60000);
+  const toFmt = new Intl.DateTimeFormat(undefined, {
+    timeZone: to, weekday:'short', year:'numeric', month:'short', day:'2-digit',
+    hour:'2-digit', minute:'2-digit', second:'2-digit', timeZoneName:'short', hour12: false
+  });
+  const fromFmt = new Intl.DateTimeFormat(undefined, {
+    timeZone: from, weekday:'short', year:'numeric', month:'short', day:'2-digit',
+    hour:'2-digit', minute:'2-digit', second:'2-digit', timeZoneName:'short', hour12: false
+  });
+  const toOff = tzGetOffsetMinutes(instant, to);
+  out.textContent =
+    'Source:  ' + fromFmt.format(instant) + '\n' +
+    '         (' + from + ', UTC' + tzFormatOffset(fromOff) + ')\n\n' +
+    'Target:  ' + toFmt.format(instant) + '\n' +
+    '         (' + to + ', UTC' + tzFormatOffset(toOff) + ')\n\n' +
+    'Diff:    ' + Math.abs(toOff - fromOff) + ' min (' + ((toOff-fromOff)/60).toFixed(2) + ' h)\n' +
+    'UTC:     ' + instant.toISOString().replace('T',' ').slice(0,19) + 'Z\n' +
+    'Unix:    ' + Math.floor(instant.getTime()/1000);
 }
-function jfFormat(indent){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Introduce un valor arriba para ver el resultado.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj, null, indent);
-    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfMinify(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Introduce un valor arriba para ver el resultado.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj);
-    jfShowOk(out, out.length + ' chars (minified)');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfValidate(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Introduce un valor arriba para ver el resultado.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const t = Array.isArray(obj) ? 'array' : typeof obj;
-    const sz = JSON.stringify(obj).length;
-    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
-  } catch(e){ jfShowError(e, raw); }
-}
+document.addEventListener('DOMContentLoaded', () => { tzPopulate(); tzNow(); });
 </script>
 
 </body>

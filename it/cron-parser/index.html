@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formattatore JSON — Toolhub</title>
-  <meta name="description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
-  <meta property="og:title" content="Formattatore JSON — Toolhub">
-  <meta property="og:description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
+  <title>Analizzatore Cron — Toolhub</title>
+  <meta name="description" content="Analizzatore di espressioni cron gratuito. Valida la sintassi crontab a 5 campi e mostra le prossime 10 esecuzioni nel tuo fuso orario.">
+  <meta property="og:title" content="Analizzatore Cron — Toolhub">
+  <meta property="og:description" content="Analizzatore di espressioni cron gratuito. Valida la sintassi crontab a 5 campi e mostra le prossime 10 esecuzioni nel tuo fuso orario.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/it/json-formatter/">
-  <link rel="canonical" href="https://toolhub.software/it/json-formatter/">
+  <meta property="og:url" content="https://toolhub.software/it/cron-parser/">
+  <link rel="canonical" href="https://toolhub.software/it/cron-parser/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Formattatore JSON",
-    "description": "Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.",
+    "name": "Analizzatore Cron",
+    "description": "Analizzatore di espressioni cron gratuito. Valida la sintassi crontab a 5 campi e mostra le prossime 10 esecuzioni nel tuo fuso orario.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/it/json-formatter/"
+    "url": "https://toolhub.software/it/cron-parser/"
   }
   </script>
   <style>
@@ -93,7 +93,7 @@
   <header class="header">
     <a href="/it/" class="logo"><span>Tool</span>hub</a>
     <div class="header-actions">
-      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/cron-parser/'; else location.href='/cron-parser/'">
         <option value="" >🇬🇧 EN</option>
         <option value="de" >🇩🇪 DE</option>
         <option value="es" >🇪🇸 ES</option>
@@ -104,42 +104,45 @@
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Formattatore JSON</div>
-    <h1>Formattatore JSON</h1>
-    <p class="tagline">Formatta, valida e minifica JSON all'istante. Gli errori sono evidenziati con riga e colonna.</p>
+    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Analizzatore Cron</div>
+    <h1>Analizzatore Cron</h1>
+    <p class="tagline">Analizza espressioni cron e vedi le prossime 10 esecuzioni. Crontab standard a 5 campi.</p>
     
 <div class="tool-card">
-  <label for="json-input">Input</label>
-  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
+  <label>Cron expression (5 fields: minute hour day-of-month month day-of-week)</label>
+  <input type="text" id="cron-in" oninput="cronRun()" placeholder="*/5 * * * *" value="0 9 * * 1-5" style="font-family:ui-monospace,monospace">
   <div class="button-row">
-    <button onclick="jfFormat(2)">Formatta</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
-    <button class="secondary" onclick="jfMinify()">Minifica</button>
-    <button class="secondary" onclick="jfValidate()">Valida</button>
-    <button class="secondary" onclick="document.getElementById('json-input').value=''">Pulisci</button>
+    <button class="secondary" onclick="cronSet('*/5 * * * *')">every 5 min</button>
+    <button class="secondary" onclick="cronSet('0 * * * *')">hourly</button>
+    <button class="secondary" onclick="cronSet('0 9 * * 1-5')">weekdays 9am</button>
+    <button class="secondary" onclick="cronSet('0 0 1 * *')">1st of month</button>
+    <button class="secondary" onclick="cronSet('0 2 * * 0')">Sunday 2am</button>
   </div>
+  <div class="meta" id="cron-explain"></div>
 </div>
 <div class="tool-card">
-  <label>Output</label>
-  <div class="output-row">
-    <pre class="output" id="json-output">Inserisci un input sopra per vedere il risultato.</pre>
-    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Copia</button>
-  </div>
-  <div class="meta" id="json-meta"></div>
+  <label>Next 10 fire times (local timezone)</label>
+  <pre class="output" id="cron-out">Inserisci un input sopra per vedere il risultato.</pre>
 </div>
 
     <div class="help">
-<h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
-<h3>Tips</h3>
+<h2>Cron field reference</h2>
+<table>
+  <tr><th>Field</th><th>Range</th><th>Wildcards</th></tr>
+  <tr><td>Minute</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>Hour</td><td>0-23</td><td>same</td></tr>
+  <tr><td>Day of month</td><td>1-31</td><td>same</td></tr>
+  <tr><td>Month</td><td>1-12</td><td>same</td></tr>
+  <tr><td>Day of week</td><td>0-6 (0 = Sunday, 7 also = Sunday)</td><td>same</td></tr>
+</table>
+<h3>Common gotchas</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li>If both day-of-month and day-of-week are restricted, most cron implementations OR them — this tool follows that convention.</li>
+  <li><code>*/N</code> means "every N", starting from the lower bound.</li>
+  <li>Step values can combine with ranges: <code>0-30/5</code> = 0,5,10,…,30.</li>
+  <li>The next-fire calculation is in your browser's local timezone.</li>
 </ul>
-<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/yaml-json/">Convertitore YAML ↔ JSON</a></div></div>
+<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/timezone-converter/">Convertitore Fusi Orari</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
@@ -168,58 +171,101 @@
   </script>
   
 <script>
-function jfShowError(e, raw){
-  const out = document.getElementById('json-output');
-  out.classList.add('error');
-  out.classList.remove('success');
-  let msg = e.message || String(e);
-  // Try to extract position
-  const m = msg.match(/position (\d+)/i);
-  if (m){
-    const pos = parseInt(m[1], 10);
-    const before = raw.slice(0, pos);
-    const line = (before.match(/\n/g) || []).length + 1;
-    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
-    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
+const FIELD_RANGES = [[0,59],[0,23],[1,31],[1,12],[0,7]]; // last 0 and 7 = Sunday
+const FIELD_NAMES = ['minute','hour','day-of-month','month','day-of-week'];
+
+function cronExpand(field, idx){
+  const [lo,hi] = FIELD_RANGES[idx];
+  const out = new Set();
+  field.split(',').forEach(part => {
+    let step = 1;
+    if (part.includes('/')){ const [a,b] = part.split('/'); step = parseInt(b,10); part = a; }
+    let from = lo, to = hi;
+    if (part === '*'){ /* keep range */ }
+    else if (part.includes('-')){ const [a,b] = part.split('-'); from = parseInt(a,10); to = parseInt(b,10); }
+    else { from = to = parseInt(part,10); }
+    if (isNaN(from) || isNaN(to) || from < lo || to > hi || from > to) throw new Error('Invalid value: ' + part + ' (expected ' + lo + '-' + hi + ')');
+    if (isNaN(step) || step < 1) throw new Error('Invalid step: ' + step);
+    for (let v = from; v <= to; v += step) out.add(idx === 4 && v === 7 ? 0 : v);
+  });
+  return out;
+}
+
+function cronMatches(date, sets){
+  return sets[0].has(date.getMinutes())
+      && sets[1].has(date.getHours())
+      && sets[2].has(date.getDate())
+      && sets[3].has(date.getMonth() + 1)
+      && sets[4].has(date.getDay());
+}
+
+function cronNext(expr, count){
+  const fields = expr.trim().split(/\s+/);
+  if (fields.length !== 5) throw new Error('Expected 5 space-separated fields, got ' + fields.length);
+  const sets = fields.map((f, i) => cronExpand(f, i));
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes() + 1, 0, 0);
+  const out = [];
+  let d = new Date(start);
+  let safety = 0;
+  while (out.length < count && safety < 600000){
+    if (cronMatches(d, sets)) out.push(new Date(d));
+    d.setMinutes(d.getMinutes() + 1);
+    safety++;
   }
-  out.textContent = '✗ ' + msg;
-  document.getElementById('json-meta').textContent = '';
+  if (safety >= 600000) throw new Error('Search exhausted (no matches in next ~1 year)');
+  return out;
 }
-function jfShowOk(text, label){
-  const out = document.getElementById('json-output');
+
+function cronExplain(expr){
+  // Very brief human-readable summary
+  const parts = expr.trim().split(/\s+/);
+  if (parts.length !== 5) return '';
+  const m = parts[0], h = parts[1], dom = parts[2], mon = parts[3], dow = parts[4];
+  let s = 'At ';
+  if (m === '*') s += 'every minute';
+  else if (m.startsWith('*/')) s += 'every ' + m.slice(2) + ' minutes';
+  else s += 'minute ' + m;
+  s += ', ';
+  if (h === '*') s += 'every hour';
+  else if (h.startsWith('*/')) s += 'every ' + h.slice(2) + ' hours';
+  else s += 'hour ' + h;
+  if (dow !== '*'){
+    const names = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    if (dow.includes('-')){
+      const [a,b] = dow.split('-').map(x => parseInt(x,10));
+      s += ', on ' + names[a] + '-' + names[b];
+    } else if (!isNaN(parseInt(dow,10))){
+      s += ', on ' + names[parseInt(dow,10) % 7];
+    }
+  }
+  if (dom !== '*'){
+    s += ', on day ' + dom + ' of the month';
+  }
+  if (mon !== '*'){
+    s += ', in month ' + mon;
+  }
+  return s + '.';
+}
+
+function cronRun(){
+  const expr = document.getElementById('cron-in').value;
+  const out = document.getElementById('cron-out');
+  const exp = document.getElementById('cron-explain');
   out.classList.remove('error');
-  out.classList.add('success');
-  out.textContent = text;
-  document.getElementById('json-meta').textContent = label || '';
-}
-function jfFormat(indent){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
+  if (!expr.trim()){ out.textContent = 'Inserisci un input sopra per vedere il risultato.'; exp.textContent = ''; return; }
   try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj, null, indent);
-    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
-  } catch(e){ jfShowError(e, raw); }
+    const dates = cronNext(expr, 10);
+    out.textContent = dates.map((d,i) => (i+1).toString().padStart(2,' ') + '.  ' + d.toLocaleString(undefined,{weekday:'short', year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'})).join('\n');
+    exp.textContent = cronExplain(expr);
+  } catch(e){
+    out.classList.add('error');
+    out.textContent = '✗ ' + e.message;
+    exp.textContent = '';
+  }
 }
-function jfMinify(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj);
-    jfShowOk(out, out.length + ' chars (minified)');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfValidate(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const t = Array.isArray(obj) ? 'array' : typeof obj;
-    const sz = JSON.stringify(obj).length;
-    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
-  } catch(e){ jfShowError(e, raw); }
-}
+function cronSet(s){ document.getElementById('cron-in').value = s; cronRun(); }
+document.addEventListener('DOMContentLoaded', cronRun);
 </script>
 
 </body>

@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formattatore JSON — Toolhub</title>
-  <meta name="description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
-  <meta property="og:title" content="Formattatore JSON — Toolhub">
-  <meta property="og:description" content="Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.">
+  <title>Zahlensystem-Konverter — Toolhub</title>
+  <meta name="description" content="Kostenloser Zahlensystem-Konverter. Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebiger Basis 2-36. Auch negative und große Zahlen via BigInt.">
+  <meta property="og:title" content="Zahlensystem-Konverter — Toolhub">
+  <meta property="og:description" content="Kostenloser Zahlensystem-Konverter. Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebiger Basis 2-36. Auch negative und große Zahlen via BigInt.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/it/json-formatter/">
-  <link rel="canonical" href="https://toolhub.software/it/json-formatter/">
+  <meta property="og:url" content="https://toolhub.software/de/number-base-converter/">
+  <link rel="canonical" href="https://toolhub.software/de/number-base-converter/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Formattatore JSON",
-    "description": "Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.",
+    "name": "Zahlensystem-Konverter",
+    "description": "Kostenloser Zahlensystem-Konverter. Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebiger Basis 2-36. Auch negative und große Zahlen via BigInt.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
     "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/it/json-formatter/"
+    "url": "https://toolhub.software/de/number-base-converter/"
   }
   </script>
   <style>
@@ -91,59 +91,73 @@
 </head>
 <body>
   <header class="header">
-    <a href="/it/" class="logo"><span>Tool</span>hub</a>
+    <a href="/de/" class="logo"><span>Tool</span>hub</a>
     <div class="header-actions">
-      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/number-base-converter/'; else location.href='/number-base-converter/'">
         <option value="" >🇬🇧 EN</option>
-        <option value="de" >🇩🇪 DE</option>
+        <option value="de" selected="selected">🇩🇪 DE</option>
         <option value="es" >🇪🇸 ES</option>
         <option value="fr" >🇫🇷 FR</option>
-        <option value="it" selected="selected">🇮🇹 IT</option>
+        <option value="it" >🇮🇹 IT</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Formattatore JSON</div>
-    <h1>Formattatore JSON</h1>
-    <p class="tagline">Formatta, valida e minifica JSON all'istante. Gli errori sono evidenziati con riga e colonna.</p>
+    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Zahlensystem-Konverter</div>
+    <h1>Zahlensystem-Konverter</h1>
+    <p class="tagline">Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebigen Basen von 2 bis 36.</p>
     
 <div class="tool-card">
-  <label for="json-input">Input</label>
-  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
-  <div class="button-row">
-    <button onclick="jfFormat(2)">Formatta</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
-    <button class="secondary" onclick="jfMinify()">Minifica</button>
-    <button class="secondary" onclick="jfValidate()">Valida</button>
-    <button class="secondary" onclick="document.getElementById('json-input').value=''">Pulisci</button>
+  <div class="row-2col">
+    <div>
+      <label>Eingabe</label>
+      <input type="text" id="nb-in" oninput="nbRun()" placeholder="42" value="42" style="font-family:ui-monospace,monospace">
+    </div>
+    <div>
+      <label>Von (base)</label>
+      <select id="nb-from" onchange="nbRun()">
+        <option value="2">2 — binary</option>
+        <option value="8">8 — octal</option>
+        <option value="10" selected>10 — decimal</option>
+        <option value="16">16 — hexadecimal</option>
+        <option value="36">36</option>
+        <option value="other">Other (2-36)…</option>
+      </select>
+      <input type="number" id="nb-from-other" min="2" max="36" placeholder="custom base" oninput="nbRun()" style="display:none;margin-top:0.4rem">
+    </div>
   </div>
 </div>
 <div class="tool-card">
-  <label>Output</label>
-  <div class="output-row">
-    <pre class="output" id="json-output">Inserisci un input sopra per vedere il risultato.</pre>
-    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Copia</button>
-  </div>
-  <div class="meta" id="json-meta"></div>
+  <label>All bases</label>
+  <table>
+    <tr><th style="width:140px">Base</th><th>Value</th></tr>
+    <tr><td>2 (binary)</td><td><code id="nb-bin">…</code></td></tr>
+    <tr><td>8 (octal)</td><td><code id="nb-oct">…</code></td></tr>
+    <tr><td>10 (decimal)</td><td><code id="nb-dec">…</code></td></tr>
+    <tr><td>16 (hex)</td><td><code id="nb-hex">…</code></td></tr>
+    <tr><td>32</td><td><code id="nb-32">…</code></td></tr>
+    <tr><td>36</td><td><code id="nb-36">…</code></td></tr>
+  </table>
+  <div class="meta" id="nb-meta"></div>
 </div>
 
     <div class="help">
 <h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
-<h3>Tips</h3>
+<p>Uses JavaScript <code>BigInt</code> internally so values aren't capped at 2<sup>53</sup>. Negative numbers carry through. Underscore digit grouping is accepted (<code>1_000_000</code>).</p>
+<h3>Recognised prefixes</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li>Hex: <code>0x</code>, <code>0X</code>, <code>#</code></li>
+  <li>Binary: <code>0b</code>, <code>0B</code></li>
+  <li>Octal: <code>0o</code>, <code>0O</code></li>
 </ul>
-<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/yaml-json/">Convertitore YAML ↔ JSON</a></div></div>
+<h3>Bit width</h3>
+<p>The "bits" indicator shows the minimum number of bits needed to represent the absolute value (plus one sign bit for negatives in two's complement).</p>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/uuid-generator/">UUID-Generator</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
-    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
   </footer>
   <script>
     function toggleTheme(){
@@ -168,58 +182,67 @@
   </script>
   
 <script>
-function jfShowError(e, raw){
-  const out = document.getElementById('json-output');
-  out.classList.add('error');
-  out.classList.remove('success');
-  let msg = e.message || String(e);
-  // Try to extract position
-  const m = msg.match(/position (\d+)/i);
-  if (m){
-    const pos = parseInt(m[1], 10);
-    const before = raw.slice(0, pos);
-    const line = (before.match(/\n/g) || []).length + 1;
-    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
-    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
+function nbValidate(s, base){
+  // Accept optional leading minus, but BigInt with arbitrary base needs custom parsing
+  if (!s) return null;
+  s = s.trim();
+  let neg = false;
+  if (s.startsWith('-')){ neg = true; s = s.slice(1); }
+  if (!s.length) return null;
+  // Strip leading 0x/0o/0b/# prefix lenience for base 10 input — only when base hints
+  if (base === 16 && (s.startsWith('0x') || s.startsWith('0X') || s.startsWith('#'))) s = s.replace(/^0x|^0X|^#/,'');
+  if (base === 2 && (s.startsWith('0b') || s.startsWith('0B'))) s = s.slice(2);
+  if (base === 8 && (s.startsWith('0o') || s.startsWith('0O'))) s = s.slice(2);
+  s = s.replace(/_/g, ''); // allow digit grouping with underscores
+  // Validate against alphabet
+  const alpha = '0123456789abcdefghijklmnopqrstuvwxyz'.slice(0, base);
+  for (const ch of s.toLowerCase()){
+    if (!alpha.includes(ch)) throw new Error('Invalid digit `' + ch + '` for base ' + base);
   }
-  out.textContent = '✗ ' + msg;
-  document.getElementById('json-meta').textContent = '';
+  let val = 0n;
+  for (const ch of s.toLowerCase()) val = val * BigInt(base) + BigInt(alpha.indexOf(ch));
+  return neg ? -val : val;
 }
-function jfShowOk(text, label){
-  const out = document.getElementById('json-output');
-  out.classList.remove('error');
-  out.classList.add('success');
-  out.textContent = text;
-  document.getElementById('json-meta').textContent = label || '';
+
+function nbToBase(big, base){
+  if (big === 0n) return '0';
+  const neg = big < 0n;
+  let n = neg ? -big : big;
+  const alpha = '0123456789abcdefghijklmnopqrstuvwxyz';
+  let out = '';
+  while (n > 0n){
+    out = alpha[Number(n % BigInt(base))] + out;
+    n = n / BigInt(base);
+  }
+  return (neg ? '-' : '') + out;
 }
-function jfFormat(indent){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
+
+function nbRun(){
+  const sel = document.getElementById('nb-from');
+  const otherInput = document.getElementById('nb-from-other');
+  otherInput.style.display = sel.value === 'other' ? 'block' : 'none';
+  let base = sel.value === 'other' ? parseInt(otherInput.value, 10) : parseInt(sel.value, 10);
+  const inp = document.getElementById('nb-in').value;
+  const meta = document.getElementById('nb-meta');
+  const ids = ['nb-bin','nb-oct','nb-dec','nb-hex','nb-32','nb-36'];
+  if (!base || base < 2 || base > 36){ meta.textContent = 'Pick a base between 2 and 36'; return; }
   try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj, null, indent);
-    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
-  } catch(e){ jfShowError(e, raw); }
+    const big = nbValidate(inp, base);
+    if (big === null){ ids.forEach(id => document.getElementById(id).textContent = '—'); meta.textContent = ''; return; }
+    document.getElementById('nb-bin').textContent = nbToBase(big, 2);
+    document.getElementById('nb-oct').textContent = nbToBase(big, 8);
+    document.getElementById('nb-dec').textContent = big.toString();
+    document.getElementById('nb-hex').textContent = nbToBase(big, 16).toUpperCase();
+    document.getElementById('nb-32').textContent = nbToBase(big, 32);
+    document.getElementById('nb-36').textContent = nbToBase(big, 36);
+    const bits = big < 0n ? (-big).toString(2).length + 1 : big.toString(2).length;
+    meta.textContent = bits + ' bits';
+  } catch(e){
+    meta.textContent = '✗ ' + e.message;
+    ids.forEach(id => document.getElementById(id).textContent = '—');
+  }
 }
-function jfMinify(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const out = JSON.stringify(obj);
-    jfShowOk(out, out.length + ' chars (minified)');
-  } catch(e){ jfShowError(e, raw); }
-}
-function jfValidate(){
-  const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Inserisci un input sopra per vedere il risultato.'; return; }
-  try {
-    const obj = JSON.parse(raw);
-    const t = Array.isArray(obj) ? 'array' : typeof obj;
-    const sz = JSON.stringify(obj).length;
-    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
-  } catch(e){ jfShowError(e, raw); }
-}
+document.addEventListener('DOMContentLoaded', nbRun);
 </script>
 
 </body>
