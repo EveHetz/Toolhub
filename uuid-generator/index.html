@@ -65,8 +65,11 @@
     <h1>UUID Generator</h1>
     <p class="description">Generate a random UUID or GUID online for free. Perfect for developers needing unique IDs.</p>
     
-    <input type="button" value="Generate UUID" onclick="generateUUID()" />
-    <div id="result" class="result"></div>
+    <label for="uuid-count" style="display:block;margin-bottom:6px;color:#555;">How many?</label>
+    <input type="number" id="uuid-count" value="1" min="1" max="100" style="width:100%;padding:10px;margin-bottom:10px;border:1px solid #d0d7de;border-radius:4px;font-size:16px;">
+    <input type="button" value="Generate UUID(s)" onclick="generateUUID()" />
+    <input type="button" id="copy-btn" value="Copy all" onclick="copyAll()" style="margin-top:8px;background-color:#7f8c8d;" />
+    <div id="result" class="result" style="white-space:pre-wrap;font-family:ui-monospace,monospace;"></div>
 
     <div class="usage">
       <h2>How to Use</h2>
@@ -79,25 +82,43 @@
     <div class="features">
       <h2>Features</h2>
       <ul>
-        <li>✓ Generates both UUID v1, v3, v4, and v5</li>
-        <li>✓ No registration required</li>
-        <li>✓ Fast and reliable</li>
+        <li>✓ Generates RFC 4122 UUID v4 (random)</li>
+        <li>✓ Uses your browser's crypto API — never sent to any server</li>
+        <li>✓ Generate one or up to 100 in batch</li>
       </ul>
     </div>
   </div>
 
   <script>
-    function generateUUID() {
-      var result = document.getElementById('result');
-      result.textContent = 'Generating UUID...';
-      
-      // Simulate a delay to mimic actual generation
-      setTimeout(() => {
-        result.textContent = '2fa86b79-3d1c-4b65-bf0e-c8a0af775da5'; // Replace with actual UUID generator logic
-      }, 500);
+    function uuidv4() {
+      // RFC 4122 v4 using crypto.getRandomValues
+      const b = new Uint8Array(16);
+      crypto.getRandomValues(b);
+      b[6] = (b[6] & 0x0f) | 0x40;     // version 4
+      b[8] = (b[8] & 0x3f) | 0x80;     // variant 10
+      const h = [...b].map(x => x.toString(16).padStart(2, '0'));
+      return h.slice(0,4).join('') + '-' + h.slice(4,6).join('') + '-' +
+             h.slice(6,8).join('') + '-' + h.slice(8,10).join('') + '-' + h.slice(10,16).join('');
     }
+    function generateUUID() {
+      const result = document.getElementById('result');
+      const count = Math.max(1, Math.min(100, parseInt(document.getElementById('uuid-count').value, 10) || 1));
+      const ids = [];
+      for (let i = 0; i < count; i++) ids.push(uuidv4());
+      result.textContent = ids.join('\n');
+    }
+    function copyAll() {
+      const text = document.getElementById('result').textContent;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      const orig = btn.value;
+      btn.value = 'Copied!';
+      setTimeout(() => { btn.value = orig; }, 800);
+    }
+    // generate one on load so the box isn't empty
+    document.addEventListener('DOMContentLoaded', generateUUID);
   </script>
 </body>
 </html>
-```
 
