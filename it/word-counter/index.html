@@ -3,99 +3,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contatore Parole - Strumento Online gratuito</title>
-  <meta name="description" content="Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.">
-  <meta property="og:title" content="Contatore Parole - Strumento Online gratuito">
-  <meta property="og:description" content="Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.">
+  <title>Contatore Parole — Toolhub</title>
+  <meta name="description" content="Contatore di parole gratuito. Conteggio live di parole, caratteri (con/senza spazi), frasi, paragrafi, sillabe e stima del tempo di lettura e parlato.">
+  <meta property="og:title" content="Contatore Parole — Toolhub">
+  <meta property="og:description" content="Contatore di parole gratuito. Conteggio live di parole, caratteri (con/senza spazi), frasi, paragrafi, sillabe e stima del tempo di lettura e parlato.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tuo-url-di-contatore-di-parole.com">
+  <meta property="og:url" content="https://toolhub.software/it/word-counter/">
+  <link rel="canonical" href="https://toolhub.software/it/word-counter/">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Contatore Parole",
-      "description": "Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0"}
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Contatore Parole",
+    "description": "Contatore di parole gratuito. Conteggio live di parole, caratteri (con/senza spazi), frasi, paragrafi, sillabe e stima del tempo di lettura e parlato.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/it/word-counter/"
+  }
   </script>
   <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
-    }
-    .container { 
-      max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-    }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    textarea { width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #dcdfe6; resize: none; margin-bottom: 15px; }
-    .counters { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    p.count, span.count {
-      font-size: 24px;
-      color: #333;
-      background-color: #f9f9f9;
-      padding: 5px 10px;
-      border-radius: 5px;
-      margin-right: 15px;
-    }
-    .usage, .features { margin-top: 30px; }
-    h2 { color: #2c3e50; font-size: 24px; margin-bottom: 15px; }
-    ol, ul { margin-left: 20px; }
-    li { margin-bottom: 5px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
+  <header class="header">
+    <a href="/it/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/word-counter/'; else location.href='/word-counter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" selected="selected">🇮🇹 IT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Contatore Parole</div>
     <h1>Contatore Parole</h1>
-    <p class="description">Conteggia parole e caratteri nel tuo testo con questo strumento online gratuito di contatore delle parole. Perfetto per scrivere articoli, email o qualsiasi altro pezzo di testo.</p>
-
-    <textarea id="text-input" placeholder="Inserisci il tuo testo qui..."></textarea>
-    <div class="counters">
-      <span id="word-count" class="count">0</span> Parole
-      <span id="char-count" class="count">0</span> Caratteri
-    </div>
-
-    <div class="usage">
-      <h2>Come Usare</h2>
-      <ol>
-        <li>Copia e incolla il tuo testo nella casella.</li>
-        <li>Fai clic fuori o premi Invio per aggiornare i contatori.</li>
-      </ol>
-    </div>
-
-    <div class="features">
-      <h2>Funzionalità</h2>
-      <ul>
-        <li>✓ Conta parole e caratteri con precisione.</li>
-        <li>✓ Interfaccia semplice e intuitiva.</li>
-        <li>✓ Funziona offline senza dipendenze esterne.</li>
-      </ul>
-    </div>
+    <p class="tagline">Conta parole, caratteri, frasi, paragrafi e stima tempo di lettura e parlato in tempo reale.</p>
+    
+<div class="tool-card">
+  <label>Input</label>
+  <textarea id="wc-input" oninput="wcRun()" placeholder="Paste or type your text here…" spellcheck="false" style="min-height:240px"></textarea>
+</div>
+<div class="tool-card">
+  <label>Risultato</label>
+  <div class="wc-grid" id="wc-stats">
+    <div class="wc-stat"><div class="wc-num" id="wc-words">0</div><div class="wc-lbl" id="wc-words-lbl">Words</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-chars">0</div><div class="wc-lbl" id="wc-chars-lbl">Characters</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-chars-ns">0</div><div class="wc-lbl" id="wc-chars-ns-lbl">Characters (no spaces)</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-sentences">0</div><div class="wc-lbl" id="wc-sentences-lbl">Sentences</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-paragraphs">0</div><div class="wc-lbl" id="wc-paragraphs-lbl">Paragraphs</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-lines">0</div><div class="wc-lbl" id="wc-lines-lbl">Lines</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-read">0:00</div><div class="wc-lbl" id="wc-read-lbl">Reading time</div></div>
+    <div class="wc-stat"><div class="wc-num" id="wc-speak">0:00</div><div class="wc-lbl" id="wc-speak-lbl">Speaking time</div></div>
   </div>
+  <div class="wc-extra" id="wc-extra"></div>
+</div>
 
+    <div class="help">
+<h2>Notes</h2>
+<ul>
+  <li><strong>Words</strong> — runs of non-whitespace characters separated by whitespace.</li>
+  <li><strong>Sentences</strong> — segments ending in <code>.</code>, <code>!</code> or <code>?</code> (or end-of-text). Heuristic — abbreviations like "Mr." may inflate the count.</li>
+  <li><strong>Reading time</strong> — assumes 250 words / minute (silent reading).</li>
+  <li><strong>Speaking time</strong> — assumes 130 words / minute (typical speech).</li>
+  <li><strong>Most frequent</strong> — case-insensitive, includes letters / digits / apostrophes; no stop-word filtering.</li>
+</ul>
+<div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/lorem-ipsum/">Generatore di Lorem Ipsum</a> <a href="/it/case-converter/">Convertitore di Maiuscole/Minuscole</a> <a href="/it/text-diff/">Confronto Testo</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    const textInput = document.getElementById('text-input');
-    const wordCountDisplay = document.getElementById('word-count');
-    const charCountDisplay = document.getElementById('char-count');
-
-    function updateCounts() {
-      const inputText = textInput.value;
-      const words = inputText.trim().split(/\s+/).filter(Boolean);
-      const countWords = words.length;
-      const countChars = inputText.length;
-
-      wordCountDisplay.textContent = countWords;
-      charCountDisplay.textContent = countChars;
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
     }
-
-    textInput.addEventListener('input', updateCounts);
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<style>
+.wc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.6rem}
+.wc-stat{background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.8rem;text-align:left}
+.wc-num{font-family:ui-monospace,monospace;font-size:1.4rem;font-weight:600;color:var(--accent)}
+.wc-lbl{font-size:0.78rem;color:var(--text-muted);margin-top:0.15rem}
+.wc-extra{margin-top:0.8rem;font-size:0.85rem;color:var(--text-muted);display:grid;gap:0.3rem}
+.wc-extra .wc-row{display:grid;grid-template-columns:160px 1fr;gap:0.5rem}
+.wc-extra code{font-size:0.82rem}
+</style>
+<script>
+function wcFmtTime(sec){
+  const m = Math.floor(sec/60), s = Math.round(sec%60);
+  return m + ':' + String(s).padStart(2,'0');
+}
+function wcRun(){
+  const t = document.getElementById('wc-input').value;
+  const chars = t.length;
+  const charsNs = t.replace(/\s/g,'').length;
+  const words = (t.trim().match(/\S+/g) || []).length;
+  const sentences = (t.match(/[^.!?\n]+[.!?]+(?=\s|$)|[^.!?\n]+$/g) || []).filter(s => s.trim().length>0).length;
+  const paragraphs = t.split(/\n\s*\n/).filter(p => p.trim().length>0).length;
+  const lines = t === '' ? 0 : t.split(/\n/).length;
+  const readSec = words / 250 * 60;   // 250 wpm reading
+  const speakSec = words / 130 * 60;  // 130 wpm speaking
+  document.getElementById('wc-words').textContent = words.toLocaleString();
+  document.getElementById('wc-chars').textContent = chars.toLocaleString();
+  document.getElementById('wc-chars-ns').textContent = charsNs.toLocaleString();
+  document.getElementById('wc-sentences').textContent = sentences.toLocaleString();
+  document.getElementById('wc-paragraphs').textContent = paragraphs.toLocaleString();
+  document.getElementById('wc-lines').textContent = lines.toLocaleString();
+  document.getElementById('wc-read').textContent = wcFmtTime(readSec);
+  document.getElementById('wc-speak').textContent = wcFmtTime(speakSec);
+
+  // Extra stats
+  const extra = document.getElementById('wc-extra');
+  if(words === 0){ extra.innerHTML = ''; return; }
+  const wordList = (t.toLowerCase().match(/[\p{L}\p{N}']+/gu) || []);
+  const freq = {};
+  for(const w of wordList) freq[w] = (freq[w]||0) + 1;
+  const top = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const avgWordLen = wordList.length ? (wordList.reduce((a,w)=>a+w.length,0)/wordList.length).toFixed(1) : '0';
+  const avgSentLen = sentences ? (words/sentences).toFixed(1) : '0';
+  extra.innerHTML = `
+    <div class="wc-row"><div>Avg word length</div><div><code>${avgWordLen}</code> chars</div></div>
+    <div class="wc-row"><div>Avg sentence length</div><div><code>${avgSentLen}</code> words</div></div>
+    <div class="wc-row"><div>Most frequent</div><div>${top.map(([w,n]) => `<code>${w}</code> ×${n}`).join(' · ') || '—'}</div></div>
+    <div class="wc-row"><div>Twitter / X</div><div><code>${chars}</code> / 280 ${chars>280?'(over limit)':''}</div></div>
+    <div class="wc-row"><div>SMS</div><div><code>${chars}</code> / 160 ${chars>160?'(multi-segment)':''}</div></div>
+  `;
+}
+document.addEventListener('DOMContentLoaded', wcRun);
+</script>
+
 </body>
 </html>
-

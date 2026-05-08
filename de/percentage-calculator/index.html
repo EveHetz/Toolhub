@@ -3,115 +3,215 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prozentrechner - kostenlose Online-Werkzeug</title>
-  <meta name="description" content="Berechnen Sie Prozente einfach mit unserem kostenlosen Online-Werkzeug. Ideal für Schüler und Profis gleichermaßen.">
-  <meta property="og:title" content="Prozentrechner - kostenloses Online-Werkzeug">
-  <meta property="og:description" content="Berechnen Sie Prozente einfach mit unserem kostenlosen Online-Werkzeug. Ideal für Schüler und Profis gleichermaßen.">
+  <title>Prozentrechner — Toolhub</title>
+  <meta name="description" content="Kostenloser Prozentrechner. X % von Y, wie viel % ist X von Y, Prozentänderung, Zunahme/Abnahme sowie Trinkgeld- oder Steuerberechnung.">
+  <meta property="og:title" content="Prozentrechner — Toolhub">
+  <meta property="og:description" content="Kostenloser Prozentrechner. X % von Y, wie viel % ist X von Y, Prozentänderung, Zunahme/Abnahme sowie Trinkgeld- oder Steuerberechnung.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/de/percentage-calculator/">
+  <link rel="canonical" href="https://toolhub.software/de/percentage-calculator/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Prozentrechner",
-    "description": "Berechnen Sie Prozente einfach mit unserem kostenlosen Online-Werkzeug. Ideal für Schüler und Profis gleichermaßen.",
+    "description": "Kostenloser Prozentrechner. X % von Y, wie viel % ist X von Y, Prozentänderung, Zunahme/Abnahme sowie Trinkgeld- oder Steuerberechnung.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"}
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/de/percentage-calculator/"
   }
   </script>
   <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
-    }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    .input-group {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-    input[type="number"] {
-      width: 60%;
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #dfe1e5;
-      flex-grow: 1;
-    }
-    button {
-      padding: 10px 20px;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .result { margin-top: 20px; font-size: 24px; color: #3498db; }
-    .description { margin-bottom: 20px; font-size: 16px; line-height: 1.5; color: #7f8c8d; }
-    .usage, .features { margin-top: 40px; }
-    h2 { font-size: 22px; margin-bottom: 10px; color: #34495e; }
-    ol, ul { margin-left: 20px; }
-    li { margin-bottom: 10px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Prozentrechner</h1>
-    <p class="description">Berechnen Sie Prozente einfach mit unserem kostenlosen Online-Werkzeug. Ideal für Schüler und Profis gleichermaßen.</p>
-    
-    <form id="calc-form">
-      <div class="input-group">
-        <label for="value" aria-label="Geben Sie einen Wert ein">Wert:</label>
-        <input type="number" id="value" name="value" required>
-      </div>
-      <div class="input-group">
-        <label for="percentage" aria-label="Geben Sie eine Prozentsatz ein">Prozentsatz:</label>
-        <input type="number" id="percentage" name="percentage" required>
-      </div>
-      <button type="submit">Berechnen</button>
-    </form>
-    
-    <div class="result" id="result"></div>
-    
-    <div class="usage">
-      <h2>Wie Sie das Werkzeug nutzen können</h2>
-      <ol>
-        <li>Geben Sie einen Wert und einen Prozentsatz ein.</li>
-        <li>Klicken Sie auf "Berechnen".</li>
-        <li>Ihr Ergebnis wird unterhalb angezeigt werden.</li>
-      </ol>
+  <header class="header">
+    <a href="/de/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/percentage-calculator/'; else location.href='/percentage-calculator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" selected="selected">🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
     </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Prozentrechner</div>
+    <h1>Prozentrechner</h1>
+    <p class="tagline">Fünf Prozent-Rechner in einem: von, wie viel %, Zunahme/Abnahme, Änderung und Trinkgeld/Steuer.</p>
     
-    <div class="features">
-      <h2>Funktionen</h2>
-      <ul>
-        <li>✓ Einfache Benutzeroberfläche.</li>
-        <li>✓ Unterstützung von großen Zahlen.</li>
-        <li>✓ Instantielle Ergebnisse.</li>
-      </ul>
+<div class="tool-card">
+  <label>Calculation</label>
+  <select id="pc-mode" onchange="pcSwitch()">
+    <option value="of">What is X% of Y</option>
+    <option value="is">X is what % of Y</option>
+    <option value="change">% change from X to Y</option>
+    <option value="inc">Increase X by Y%</option>
+    <option value="dec">Decrease X by Y%</option>
+    <option value="tip">Tip / Tax: X plus Y%</option>
+  </select>
+</div>
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label id="pc-l1">X</label>
+      <input type="number" id="pc-a" step="any" oninput="pcRun()" value="20">
+    </div>
+    <div>
+      <label id="pc-l2">Y</label>
+      <input type="number" id="pc-b" step="any" oninput="pcRun()" value="150">
     </div>
   </div>
+</div>
+<div class="tool-card">
+  <label>Ergebnis</label>
+  <div id="pc-out" class="output" style="font-size:1.1rem">Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.</div>
+  <div id="pc-formula" class="meta" style="margin-top:0.6rem;font-family:ui-monospace,monospace"></div>
+</div>
 
+    <div class="help">
+<h2>What each mode does</h2>
+<ul>
+  <li><strong>What is X% of Y</strong> — for discounts, commissions, percentage of a total. <em>20% of 150 → 30</em>.</li>
+  <li><strong>X is what % of Y</strong> — for "score / max" style ratios. <em>30 of 150 → 20%</em>.</li>
+  <li><strong>% change</strong> — signed: positive is an increase, negative is a decrease. <em>100 → 125 = +25%</em>.</li>
+  <li><strong>Increase / Decrease</strong> — applies a percentage adjustment to a starting value.</li>
+  <li><strong>Tip / Tax</strong> — convenience for adding a percentage on top of a bill.</li>
+</ul>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/number-base-converter/">Zahlensystem-Konverter</a> <a href="/de/timestamp-converter/">Unix-Zeitstempel-Konverter</a> <a href="/de/json-formatter/">JSON-Formatter</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    document.getElementById('calc-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const value = parseFloat(document.getElementById('value').value);
-      const percentage = parseFloat(document.getElementById('percentage').value);
-      if (isNaN(value) || isNaN(percentage)) {
-        alert('Bitte geben Sie gültige Zahlen ein.');
-        return;
-      }
-      
-      const result = (value * percentage) / 100;
-      document.getElementById('result').textContent = `Ergebnis: ${result}`;
-    });
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<script>
+function pcFmt(n){if(!isFinite(n))return '∞';const r=Math.round(n*1e6)/1e6;return Number.isInteger(r)?r.toString():r.toString().replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,'')}
+function pcSwitch(){
+  const m = document.getElementById('pc-mode').value;
+  const l1 = document.getElementById('pc-l1'), l2 = document.getElementById('pc-l2');
+  const labels = {
+    of:    ['Percentage (X%)', 'Of (Y)'],
+    is:    ['Part (X)',         'Of total (Y)'],
+    change:['From (X)',         'To (Y)'],
+    inc:   ['Starting value (X)', 'Increase by (Y%)'],
+    dec:   ['Starting value (X)', 'Decrease by (Y%)'],
+    tip:   ['Bill amount (X)',    'Tip / tax (Y%)'],
+  }[m];
+  l1.textContent = labels[0];
+  l2.textContent = labels[1];
+  pcRun();
+}
+function pcRun(){
+  const m = document.getElementById('pc-mode').value;
+  const a = parseFloat(document.getElementById('pc-a').value);
+  const b = parseFloat(document.getElementById('pc-b').value);
+  const out = document.getElementById('pc-out');
+  const fml = document.getElementById('pc-formula');
+  if(isNaN(a) || isNaN(b)){ out.textContent = 'Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.'; fml.textContent = ''; return; }
+  let res = '', formula = '';
+  switch(m){
+    case 'of':     { const v = (a/100)*b; res = `${pcFmt(a)}% of ${pcFmt(b)} = ${pcFmt(v)}`; formula = `(${pcFmt(a)} ÷ 100) × ${pcFmt(b)} = ${pcFmt(v)}`; break; }
+    case 'is':     { const v = b===0 ? Infinity : (a/b)*100; res = `${pcFmt(a)} is ${pcFmt(v)}% of ${pcFmt(b)}`; formula = `(${pcFmt(a)} ÷ ${pcFmt(b)}) × 100 = ${pcFmt(v)}%`; break; }
+    case 'change': { const v = a===0 ? Infinity : ((b-a)/Math.abs(a))*100; res = `Change: ${pcFmt(v)}% (${v>=0?'increase':'decrease'})`; formula = `((${pcFmt(b)} − ${pcFmt(a)}) ÷ |${pcFmt(a)}|) × 100 = ${pcFmt(v)}%`; break; }
+    case 'inc':    { const v = a + (a*b/100); res = `${pcFmt(a)} increased by ${pcFmt(b)}% = ${pcFmt(v)}`; formula = `${pcFmt(a)} × (1 + ${pcFmt(b)}/100) = ${pcFmt(v)}`; break; }
+    case 'dec':    { const v = a - (a*b/100); res = `${pcFmt(a)} decreased by ${pcFmt(b)}% = ${pcFmt(v)}`; formula = `${pcFmt(a)} × (1 − ${pcFmt(b)}/100) = ${pcFmt(v)}`; break; }
+    case 'tip':    { const tip = a*b/100; const total = a+tip; res = `Tip/Tax: ${pcFmt(tip)} · Total: ${pcFmt(total)}`; formula = `${pcFmt(a)} × ${pcFmt(b)}/100 = ${pcFmt(tip)} · ${pcFmt(a)} + ${pcFmt(tip)} = ${pcFmt(total)}`; break; }
+  }
+  out.textContent = res;
+  fml.textContent = formula;
+}
+document.addEventListener('DOMContentLoaded', pcSwitch);
+</script>
+
 </body>
 </html>
-

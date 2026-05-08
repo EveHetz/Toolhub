@@ -3,111 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minificateur CSS - Outil en ligne gratuit</title>
-  <meta name="description" content="Minifiez votre CSS avec notre outil en ligne gratuit. Comprimez et optimisez vos feuilles de styles pour des temps de chargement plus rapides.">
-  <meta property="og:title" content="Minificateur CSS - Outil en ligne gratuit">
-  <meta property="og:description" content="Minifiez votre CSS avec notre outil en ligne gratuit. Comprimez et optimisez vos feuilles de styles pour des temps de chargement plus rapides.">
+  <title>Minificateur CSS — Toolhub</title>
+  <meta name="description" content="Minificateur CSS gratuit. Supprime commentaires, espaces inutiles, point-virgules superflus et unités zéro. Affiche le taux de compression.">
+  <meta property="og:title" content="Minificateur CSS — Toolhub">
+  <meta property="og:description" content="Minificateur CSS gratuit. Supprime commentaires, espaces inutiles, point-virgules superflus et unités zéro. Affiche le taux de compression.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/fr/css-minifier/">
+  <link rel="canonical" href="https://toolhub.software/fr/css-minifier/">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Minificateur CSS",
-      "description": "Minifiez votre CSS avec notre outil en ligne gratuit. Comprimez et optimisez vos feuilles de styles pour des temps de chargement plus rapides.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0"}
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Minificateur CSS",
+    "description": "Minificateur CSS gratuit. Supprime commentaires, espaces inutiles, point-virgules superflus et unités zéro. Affiche le taux de compression.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/fr/css-minifier/"
+  }
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
     }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    p.description { font-size: 16px; margin-bottom: 30px; line-height: 1.4; }
-    .usage, .features { margin-top: 30px; }
-    h2 { color: #2c3e50; margin-bottom: 20px; font-size: 24px; }
-    ol, ul { padding-left: 20px; }
-    li { margin-bottom: 10px; }
-    input[type="text"], textarea { width: calc(100% - 35px); padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
-    button { display: block; margin-top: 20px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: all 0.3s ease; }
-    button:hover { background: #0056b3; }
-    .error { color: red; margin-top: 5px; display: none; }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
+  <header class="header">
+    <a href="/fr/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/css-minifier/'; else location.href='/css-minifier/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" selected="selected">🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Minificateur CSS</div>
     <h1>Minificateur CSS</h1>
-    <p class="description">Minifiez votre CSS avec notre outil en ligne gratuit. Comprimez et optimisez vos feuilles de styles pour des temps de chargement plus rapides.</p>
+    <p class="tagline">Supprimez commentaires, espaces et redondances du CSS. Tailles avant/après et pourcentage d'économie.</p>
     
-    <form id="minifyForm">
-      <textarea id="cssInput" placeholder="Coller votre code CSS ici..."></textarea>
-      <button type="submit">Minifier</button>
-      <div class="error" id="errorMessage"></div>
-    </form>
-    
-    <div class="usage">
-      <h2>Utilisation</h2>
-      <ol>
-        <li>Coller votre code CSS dans la zone de texte.</li>
-        <li>Faire clic sur le bouton "Minifier".</li>
-        <li>Votre CSS minifié apparaîtra en dessous.</li>
-      </ol>
-    </div>
-    
-    <div class="features">
-      <h2>Fonctionnalités</h2>
-      <ul>
-        <li>✓ Minification du code CSS</li>
-        <li>✓ Suppression des espaces blancs et des commentaires</li>
-        <li>✓ Compression des propriétés pour des tailles de fichiers plus courtes</li>
-      </ul>
-    </div>
-  </div>
+<div class="tool-card">
+  <label>Entrée</label>
+  <textarea id="cm-input" oninput="cmRun()" placeholder="/* paste your CSS here */
+.button {
+  background: #3b82f6;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #ffffff;
+}" spellcheck="false">/* sample */
+.button {
+  background-color: #3b82f6;
+  padding: 0.5rem 1.0rem;
+  border-radius: 6px;
+  color: #ffffff;
+  margin: 0px 0px 0px 0px;
+}
 
+/* hover state */
+.button:hover {
+  background-color: #2563eb;
+}</textarea>
+</div>
+<div class="tool-card">
+  <label>Sortie</label>
+  <div class="output-row">
+    <pre class="output" id="cm-out" style="white-space:pre-wrap;word-break:break-all"></pre>
+    <button class="copy-btn secondary" onclick="copyOutput('cm-out', this)">Copier</button>
+  </div>
+  <div class="meta" id="cm-stats" style="margin-top:0.6rem"></div>
+</div>
+
+    <div class="help">
+<h2>What gets removed</h2>
+<ul>
+  <li>Block comments (<code>/* … */</code>) — single-line <code>//</code> isn't valid in plain CSS.</li>
+  <li>Whitespace around <code>{</code>, <code>}</code>, <code>:</code>, <code>;</code>, <code>,</code>, and combinators (<code>&gt; ~ +</code>).</li>
+  <li>Trailing semicolons before <code>}</code>.</li>
+  <li>Leading zeros (<code>0.5</code> → <code>.5</code>) and zero units (<code>0px</code> → <code>0</code>).</li>
+  <li>Long hex (<code>#aabbcc</code> → <code>#abc</code>) where it's exact.</li>
+</ul>
+<h3>What it doesn't do</h3>
+<p>This is a fast structural minify, not a full optimiser. It won't merge selectors, reorder rules, or rewrite shorthand — for that, use <code>cssnano</code> or <code>esbuild</code> in your build chain.</p>
+<div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/js-minifier/">Minifieur JavaScript</a> <a href="/fr/html-encoder/">Encodeur / Décodeur HTML</a> <a href="/fr/color-picker/">Sélecteur de Couleur</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    document.getElementById('minifyForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      const input = document.getElementById('cssInput');
-      const errorMessage = document.getElementById('errorMessage');
-      errorMessage.style.display = 'none';
-      
-      if (input.value.trim() === '') {
-        errorMessage.style.display = 'block';
-        return;
-      }
-      
-      // Simulate minification process
-      setTimeout(() => {
-        document.querySelector('#minifyForm').style.display = 'none';
-        
-        const outputDiv = document.createElement('div');
-        outputDiv.id = 'output';
-        outputDiv.className = 'output';
-        outputDiv.textContent = input.value.replace(/\s+/g, ' ').trim();
-        
-        const backButton = document.createElement('button');
-        backButton.innerText = 'Minifier à nouveau';
-        backButton.addEventListener('click', () => {
-          document.getElementById('minifyForm').style.display = '';
-          document.getElementById('output').remove();
-          errorMessage.style.display = 'none';
-        });
-        outputDiv.appendChild(backButton);
-        
-        const outputContainer = document.querySelector('.container');
-        outputContainer.insertBefore(outputDiv, outputContainer.firstChild);
-      }, 500);
-    });
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<script>
+function copyOutput(id, btn){
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent || '');
+  const o = btn.textContent; btn.textContent = '✓'; setTimeout(()=>btn.textContent = o, 900);
+}
+function cmMinify(css){
+  // Strip /* … */ comments (non-greedy)
+  let out = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  // Preserve string contents — quick mask
+  const strings = [];
+  out = out.replace(/("([^"\\]|\\.)*"|'([^'\\]|\\.)*')/g, m => { strings.push(m); return '\u0001' + (strings.length-1) + '\u0002'; });
+  // Collapse all whitespace
+  out = out.replace(/\s+/g, ' ');
+  // Tighten around punctuation
+  out = out.replace(/\s*([{}:;,>~+])\s*/g, '$1');
+  // Trim trailing ; before }
+  out = out.replace(/;}/g, '}');
+  // Drop leading zeros (0.5 → .5) but keep 0 alone
+  out = out.replace(/(^|[\s:,(])0+(\.\d+)/g, '$1$2');
+  // Zero units (0px, 0em, 0% → 0) — but not in calc() and not for time/angle where 0s differs
+  out = out.replace(/(^|[\s:,(])(0)(px|em|rem|%|vh|vw|pt|pc|ex|ch)(?=[\s,;)})]|$)/g, '$1$2');
+  // Hex shortening (#aabbcc → #abc)
+  out = out.replace(/#([0-9a-f])\1([0-9a-f])\2([0-9a-f])\3/gi, '#$1$2$3');
+  // Restore strings
+  out = out.replace(/\u0001(\d+)\u0002/g, (_, i) => strings[+i]);
+  return out.trim();
+}
+function cmRun(){
+  const src = document.getElementById('cm-input').value;
+  const out = document.getElementById('cm-out');
+  const stats = document.getElementById('cm-stats');
+  if(!src.trim()){ out.textContent = 'Saisissez une entrée ci-dessus pour voir le résultat.'; stats.textContent = ''; return; }
+  const min = cmMinify(src);
+  out.textContent = min;
+  const before = new Blob([src]).size;
+  const after = new Blob([min]).size;
+  const saved = before - after;
+  const pct = before ? Math.round((saved/before)*100) : 0;
+  stats.textContent = `Original: ${before.toLocaleString()} B · Minified: ${after.toLocaleString()} B · Saved: ${saved.toLocaleString()} B (${pct}%)`;
+}
+document.addEventListener('DOMContentLoaded', cmRun);
+</script>
+
 </body>
 </html>
-

@@ -3,127 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convertisseur de Majuscules - Outil en Ligne Gratuit</title>
-  <meta name="description" content="Convertissez votre texte en majuscules, minuscules, titre ou camelCase facilement et rapidement avec notre outil Convertisseur de Majuscules.">
-  <meta property="og:title" content="Convertisseur de Majuscules - Outil en Ligne Gratuit">
-  <meta property="og:description" content="Convertissez votre texte en majuscules, minuscules, titre ou camelCase facilement et rapidement avec notre outil Convertisseur de Majuscules.">
+  <title>Convertisseur de Casse — Toolhub</title>
+  <meta name="description" content="Convertisseur de casse gratuit. MAJ, min, titre, phrase, camel, pascal, snake, kebab, constante et point.">
+  <meta property="og:title" content="Convertisseur de Casse — Toolhub">
+  <meta property="og:description" content="Convertisseur de casse gratuit. MAJ, min, titre, phrase, camel, pascal, snake, kebab, constante et point.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/case-converter">
+  <meta property="og:url" content="https://toolhub.software/fr/case-converter/">
+  <link rel="canonical" href="https://toolhub.software/fr/case-converter/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Convertisseur de Majuscules",
-    "description": "Convertissez votre texte en majuscules, minuscules, titre ou camelCase facilement et rapidement avec notre outil Convertisseur de Majuscules.",
+    "name": "Convertisseur de Casse",
+    "description": "Convertisseur de casse gratuit. MAJ, min, titre, phrase, camel, pascal, snake, kebab, constante et point.",
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"}
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/fr/case-converter/"
   }
   </script>
   <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
-    }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    .description { font-size: 16px; margin-bottom: 20px; }
-    textarea, input { 
-      width: calc(100% - 20px); 
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-    button { 
-      padding: 10px 20px; 
-      background-color: #337ab7; 
-      color: white; 
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 16px;
-    }
-    .output { 
-      max-height: 250px; 
-      overflow-y: auto; 
-      padding: 10px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      margin-top: 20px;
-      font-size: 16px;
-    }
-    ol, ul { list-style-position: inside; }
-    .usage li, .features li { margin-bottom: 5px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Convertisseur de Majuscules</h1>
-    <p class="description">Convertissez votre texte en majuscules, minuscules, titre ou camelCase facilement et rapidement avec notre outil Convertisseur de Majuscules.</p>
-    
-    <form>
-      <textarea placeholder="Entrez votre texte ici..." required></textarea>
-      <select name="mode" id="mode">
-        <option value="majuscules">Majuscules</option>
-        <option value="minuscules">Minuscules</option>
-        <option value="titre">Titre</option>
-        <option value="camelcase">CamelCase</option>
+  <header class="header">
+    <a href="/fr/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/case-converter/'; else location.href='/case-converter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" selected="selected">🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
       </select>
-      <button type="submit">Convertir</button>
-    </form>
-    
-    <div class="output" aria-live="polite"></div>
-    
-    <div class="usage">
-      <h2>Comment Utiliser</h2>
-      <ol>
-        <li>Entrez votre texte dans la zone de texte.</li>
-        <li>Sélectionnez le mode de conversion souhaité dans la liste déroulante.</li>
-        <li>Cliquez sur "Convertir" pour voir le résultat.</li>
-      </ol>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
     </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur de Casse</div>
+    <h1>Convertisseur de Casse</h1>
+    <p class="tagline">Convertissez du texte entre MAJUSCULES, minuscules, Titre, Phrase, camelCase, PascalCase, snake_case, kebab-case, CONSTANTE et dot.case.</p>
     
-    <div class="features">
-      <h2>Fonctionnalités</h2>
-      <ul>
-        <li>✓ Prise en charge de plusieurs entrées de texte à la fois.</li>
-        <li>✓ Mises à jour en temps réel du rendu pour un retour immédiat des informations.</li>
-        <li>✓ Conception mobile et accessible.</li>
-      </ul>
-    </div>
-  </div>
+<div class="tool-card">
+  <label>Entrée</label>
+  <textarea id="cc-input" oninput="ccRun()" placeholder="Paste or type any text here" spellcheck="false">The Quick Brown Fox Jumps Over the Lazy Dog</textarea>
+</div>
+<div class="tool-card">
+  <label>Sortie</label>
+  <div class="case-grid" id="cc-out"></div>
+</div>
 
+    <div class="help">
+<h2>How it works</h2>
+<p>The text is split into words by detecting case transitions, separators (<code>_</code>, <code>-</code>, <code>.</code>, <code>/</code>), and whitespace. The split words are then re-joined according to each target style.</p>
+<h3>Where each form fits</h3>
+<ul>
+  <li><strong>camelCase</strong> — JavaScript variables, JSON keys.</li>
+  <li><strong>PascalCase</strong> — class names in most C-family languages, React components.</li>
+  <li><strong>snake_case</strong> — Python identifiers, SQL columns, Ruby methods.</li>
+  <li><strong>kebab-case</strong> — URL slugs, CSS class names, file names.</li>
+  <li><strong>CONSTANT_CASE</strong> — environment variables, language constants.</li>
+</ul>
+<div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/word-counter/">Compteur de Mots</a> <a href="/fr/text-diff/">Comparateur de Texte</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    document.querySelector('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const text = document.querySelector('textarea').value;
-      const mode = document.getElementById('mode').value;
-      let output = '';
-      
-      switch(mode) {
-        case 'majuscules': 
-          output = text.toUpperCase(); break;
-        case 'minuscules':
-          output = text.toLowerCase(); break;
-        case 'titre':
-          output = text.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-          break;
-        case 'camelcase':
-          const camelCaseText = text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-          output = camelCaseText[0].toLowerCase() + camelCaseText.substring(1);
-          break;
-      }
-      
-      document.querySelector('.output').textContent = output;
-    });
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<style>
+.case-grid{display:grid;gap:0.6rem}
+.case-row{display:grid;grid-template-columns:140px 1fr auto;gap:0.6rem;align-items:center;padding:0.55rem 0.7rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:8px}
+.case-row .lbl{font-size:0.78rem;color:var(--text-muted);font-family:ui-monospace,monospace}
+.case-row .val{font-family:ui-monospace,monospace;font-size:0.9rem;word-break:break-word;overflow-wrap:anywhere}
+.case-row button{padding:0.3rem 0.65rem;font-size:0.78rem}
+@media(max-width:600px){.case-row{grid-template-columns:1fr;gap:0.25rem}.case-row button{justify-self:start}}
+</style>
+<script>
+function ccWords(s){
+  return s
+    .replace(/([a-z\d])([A-Z])/g, '$1 $2')
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+    .replace(/[_\-\.\s/]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+}
+const CC_FORMS = [
+  ['UPPER',     w => w.map(x=>x.toUpperCase()).join(' ')],
+  ['lower',     w => w.map(x=>x.toLowerCase()).join(' ')],
+  ['Title',     w => w.map(x=>x[0].toUpperCase()+x.slice(1).toLowerCase()).join(' ')],
+  ['Sentence',  w => w.length ? (w[0][0].toUpperCase()+w[0].slice(1).toLowerCase()+(w.length>1?' '+w.slice(1).map(x=>x.toLowerCase()).join(' '):'')) : ''],
+  ['camelCase', w => w.map((x,i)=>i===0?x.toLowerCase():x[0].toUpperCase()+x.slice(1).toLowerCase()).join('')],
+  ['PascalCase',w => w.map(x=>x[0].toUpperCase()+x.slice(1).toLowerCase()).join('')],
+  ['snake_case',w => w.map(x=>x.toLowerCase()).join('_')],
+  ['kebab-case',w => w.map(x=>x.toLowerCase()).join('-')],
+  ['CONSTANT',  w => w.map(x=>x.toUpperCase()).join('_')],
+  ['dot.case',  w => w.map(x=>x.toLowerCase()).join('.')],
+  ['path/case', w => w.map(x=>x.toLowerCase()).join('/')],
+  ['Train-Case',w => w.map(x=>x[0].toUpperCase()+x.slice(1).toLowerCase()).join('-')],
+  ['inverse',   (w,raw) => raw.split('').map(c=>c===c.toLowerCase()?c.toUpperCase():c.toLowerCase()).join('')],
+  ['aLtErNaTe', (w,raw) => raw.split('').map((c,i)=>i%2?c.toUpperCase():c.toLowerCase()).join('')],
+];
+function ccCopy(text, btn){
+  navigator.clipboard.writeText(text);
+  const old = btn.textContent;
+  btn.textContent = '✓';
+  setTimeout(()=>btn.textContent = old, 900);
+}
+function ccRun(){
+  const raw = document.getElementById('cc-input').value;
+  const words = ccWords(raw);
+  const out = document.getElementById('cc-out');
+  out.innerHTML = '';
+  CC_FORMS.forEach(([label, fn]) => {
+    const val = fn(words, raw);
+    const row = document.createElement('div');
+    row.className = 'case-row';
+    const l = document.createElement('div'); l.className = 'lbl'; l.textContent = label;
+    const v = document.createElement('div'); v.className = 'val'; v.textContent = val || '—';
+    const b = document.createElement('button'); b.className = 'secondary'; b.textContent = 'Copier';
+    b.onclick = () => ccCopy(val, b);
+    row.appendChild(l); row.appendChild(v); row.appendChild(b);
+    out.appendChild(row);
+  });
+}
+document.addEventListener('DOMContentLoaded', ccRun);
+</script>
+
 </body>
 </html>
-
