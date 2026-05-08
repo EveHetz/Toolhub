@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/youtube-thumbnail/">
   <link rel="canonical" href="https://toolhub.software/fr/youtube-thumbnail/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/">
+  <meta property="og:locale" content="fr_FR">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Téléchargeur de Miniatures YouTube",
-    "description": "Téléchargeur gratuit de miniatures YouTube. Extrait l'ID vidéo de toute URL YouTube et affiche toutes les résolutions de miniatures avec liens de téléchargement directs.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/fr/youtube-thumbnail/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/fr/youtube-thumbnail/#tool",
+        "name": "Téléchargeur de Miniatures YouTube",
+        "description": "Téléchargeur gratuit de miniatures YouTube. Extrait l'ID vidéo de toute URL YouTube et affiche toutes les résolutions de miniatures avec liens de téléchargement directs.",
+        "url": "https://toolhub.software/fr/youtube-thumbnail/",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Media Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "fr",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["youtube", "thumbnail", "preview", "image", "download", "video"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Tous les outils", "item": "https://toolhub.software/fr/"},
+          {"@type": "ListItem", "position": 2, "name": "Téléchargeur de Miniatures YouTube", "item": "https://toolhub.software/fr/youtube-thumbnail/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

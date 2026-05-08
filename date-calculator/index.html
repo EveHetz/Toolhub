@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/date-calculator/">
   <link rel="canonical" href="https://toolhub.software/date-calculator/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/">
+  <meta property="og:locale" content="en_GB">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Date Calculator",
-    "description": "Free online date calculator. Compute the duration between two dates, add or subtract a span from any date, and work out exact age in years/months/days. All calculations run in your browser.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/date-calculator/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/date-calculator/#tool",
+        "name": "Date Calculator",
+        "description": "Free online date calculator. Compute the duration between two dates, add or subtract a span from any date, and work out exact age in years/months/days. All calculations run in your browser.",
+        "url": "https://toolhub.software/date-calculator/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Date & Time Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["date", "calculator", "duration", "between", "add", "subtract", "age", "weekday"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "All Tools", "item": "https://toolhub.software/"},
+          {"@type": "ListItem", "position": 2, "name": "Date Calculator", "item": "https://toolhub.software/date-calculator/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>
@@ -193,7 +226,7 @@
   <li><strong>Workdays</strong> counts Mon–Fri inclusive; it doesn't know about public holidays.</li>
   <li><strong>Total months</strong> in the age view is an approximation (years × 12 + months) — it ignores the trailing days.</li>
 </ul>
-<div class="related"><span class="meta">Related tools:</span> <a href="/timestamp-converter/">Unix Timestamp Converter</a> <a href="/timezone-converter/">Time Zone Converter</a> <a href="/cron-parser/">Cron Expression Parser</a></div></div>
+<div class="related"><span class="meta">Related tools:</span> <a href="/timestamp-converter/">Unix Timestamp Converter</a> <a href="/timezone-converter/">Time Zone Converter</a> <a href="/percentage-calculator/">Percentage Calculator</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>

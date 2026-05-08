@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/es/url-encoder/">
   <link rel="canonical" href="https://toolhub.software/es/url-encoder/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/">
+  <meta property="og:locale" content="es_ES">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Codificador / Decodificador URL",
-    "description": "Codificador y decodificador URL gratuito. Escapa caracteres especiales para URLs, query strings y datos de formulario.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/es/url-encoder/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/es/url-encoder/#tool",
+        "name": "Codificador / Decodificador URL",
+        "description": "Codificador y decodificador URL gratuito. Escapa caracteres especiales para URLs, query strings y datos de formulario.",
+        "url": "https://toolhub.software/es/url-encoder/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Encoding & Decoding",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "es",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["url", "encode", "decode", "percent", "querystring"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas las herramientas", "item": "https://toolhub.software/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Codificador / Decodificador URL", "item": "https://toolhub.software/es/url-encoder/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

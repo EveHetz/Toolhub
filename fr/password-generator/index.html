@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/password-generator/">
   <link rel="canonical" href="https://toolhub.software/fr/password-generator/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/">
+  <meta property="og:locale" content="fr_FR">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Générateur de Mots de Passe",
-    "description": "Générateur de mots de passe sécurisé et gratuit. Règles personnalisables, mode phrase secrète et génération par lot. Tout dans votre navigateur.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/fr/password-generator/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/fr/password-generator/#tool",
+        "name": "Générateur de Mots de Passe",
+        "description": "Générateur de mots de passe sécurisé et gratuit. Règles personnalisables, mode phrase secrète et génération par lot. Tout dans votre navigateur.",
+        "url": "https://toolhub.software/fr/password-generator/",
+        "applicationCategory": "SecurityApplication",
+        "applicationSubCategory": "Security Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "fr",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["password", "secure", "random", "generate", "passphrase"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Tous les outils", "item": "https://toolhub.software/fr/"},
+          {"@type": "ListItem", "position": 2, "name": "Générateur de Mots de Passe", "item": "https://toolhub.software/fr/password-generator/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

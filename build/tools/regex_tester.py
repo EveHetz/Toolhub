@@ -151,5 +151,5 @@ document.addEventListener('DOMContentLoaded', reRun);
 </ul>
 """,
     },
-    "related": ["json-formatter", "text-diff", "case-converter"],
+    "related": ["json-formatter", "text-diff", "email-validator"],
 }

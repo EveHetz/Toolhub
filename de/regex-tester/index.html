@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/regex-tester/">
   <link rel="canonical" href="https://toolhub.software/de/regex-tester/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/">
+  <meta property="og:locale" content="de_DE">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Regex-Tester",
-    "description": "Kostenloser JavaScript-Regex-Tester mit Live-Hervorhebung, Erfassungsgruppen und Ersetzungsmodus. PCRE-kompatible Flags.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/de/regex-tester/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/de/regex-tester/#tool",
+        "name": "Regex-Tester",
+        "description": "Kostenloser JavaScript-Regex-Tester mit Live-Hervorhebung, Erfassungsgruppen und Ersetzungsmodus. PCRE-kompatible Flags.",
+        "url": "https://toolhub.software/de/regex-tester/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "de",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["regex", "regular expression", "test", "match", "replace", "javascript"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle Tools", "item": "https://toolhub.software/de/"},
+          {"@type": "ListItem", "position": 2, "name": "Regex-Tester", "item": "https://toolhub.software/de/regex-tester/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>
@@ -155,7 +188,7 @@
   <li>Without <code>g</code> flag you get the first match only.</li>
   <li><code>$&amp;</code> is the whole match; <code>$1</code>, <code>$2</code>, ... are groups; <code>$$</code> is a literal $.</li>
 </ul>
-<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/json-formatter/">JSON-Formatter</a> <a href="/de/text-diff/">Text-Diff</a> <a href="/de/case-converter/">Schreibweisen-Konverter</a></div></div>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/json-formatter/">JSON-Formatter</a> <a href="/de/text-diff/">Text-Diff</a> <a href="/de/email-validator/">E-Mail-Validator</a></div></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>

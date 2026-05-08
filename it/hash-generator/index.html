@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/hash-generator/">
   <link rel="canonical" href="https://toolhub.software/it/hash-generator/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/">
+  <meta property="og:locale" content="it_IT">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Generatore di Hash",
-    "description": "Generatore di hash gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Output esadecimale, tutto nel browser.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/it/hash-generator/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/it/hash-generator/#tool",
+        "name": "Generatore di Hash",
+        "description": "Generatore di hash gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Output esadecimale, tutto nel browser.",
+        "url": "https://toolhub.software/it/hash-generator/",
+        "applicationCategory": "SecurityApplication",
+        "applicationSubCategory": "Security Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "it",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["hash", "md5", "sha", "sha-256", "sha-512", "checksum"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Tutti gli strumenti", "item": "https://toolhub.software/it/"},
+          {"@type": "ListItem", "position": 2, "name": "Generatore di Hash", "item": "https://toolhub.software/it/hash-generator/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

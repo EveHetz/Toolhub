@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/es/color-picker/">
   <link rel="canonical" href="https://toolhub.software/es/color-picker/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/">
+  <meta property="og:locale" content="es_ES">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Selector de Color",
-    "description": "Selector de color en línea gratuito. HEX, RGB(A), HSL(A), HSV y CMYK con vista previa y opacidad.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/es/color-picker/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/es/color-picker/#tool",
+        "name": "Selector de Color",
+        "description": "Selector de color en línea gratuito. HEX, RGB(A), HSL(A), HSV y CMYK con vista previa y opacidad.",
+        "url": "https://toolhub.software/es/color-picker/",
+        "applicationCategory": "DesignApplication",
+        "applicationSubCategory": "Design Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "es",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas las herramientas", "item": "https://toolhub.software/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Selector de Color", "item": "https://toolhub.software/es/color-picker/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/timezone-converter/">
   <link rel="canonical" href="https://toolhub.software/timezone-converter/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/">
+  <meta property="og:locale" content="en_GB">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Time Zone Converter",
-    "description": "Free online time zone converter. Convert between any IANA time zones with DST awareness. Pick from common zones or any of the ~400+ supported by your browser.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/timezone-converter/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/timezone-converter/#tool",
+        "name": "Time Zone Converter",
+        "description": "Free online time zone converter. Convert between any IANA time zones with DST awareness. Pick from common zones or any of the ~400+ supported by your browser.",
+        "url": "https://toolhub.software/timezone-converter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Data Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["timezone", "tz", "convert", "utc", "date", "time", "iana"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "All Tools", "item": "https://toolhub.software/"},
+          {"@type": "ListItem", "position": 2, "name": "Time Zone Converter", "item": "https://toolhub.software/timezone-converter/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

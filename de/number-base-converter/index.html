@@ -10,16 +10,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/number-base-converter/">
   <link rel="canonical" href="https://toolhub.software/de/number-base-converter/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/">
+  <meta property="og:locale" content="de_DE">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Zahlensystem-Konverter",
-    "description": "Kostenloser Zahlensystem-Konverter. Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebiger Basis 2-36. Auch negative und große Zahlen via BigInt.",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {"@type": "Offer", "price": "0"},
-    "url": "https://toolhub.software/de/number-base-converter/"
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/de/number-base-converter/#tool",
+        "name": "Zahlensystem-Konverter",
+        "description": "Kostenloser Zahlensystem-Konverter. Konvertiere zwischen binär, oktal, dezimal, hexadezimal und beliebiger Basis 2-36. Auch negative und große Zahlen via BigInt.",
+        "url": "https://toolhub.software/de/number-base-converter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "de",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["binary", "hex", "octal", "decimal", "base", "convert", "number"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle Tools", "item": "https://toolhub.software/de/"},
+          {"@type": "ListItem", "position": 2, "name": "Zahlensystem-Konverter", "item": "https://toolhub.software/de/number-base-converter/"}
+        ]
+      }
+    ]
   }
   </script>
   <style>

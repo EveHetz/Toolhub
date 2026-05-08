@@ -231,5 +231,5 @@ document.addEventListener('DOMContentLoaded', dcMode);
 </ul>
 """,
     },
-    "related": ["timestamp-converter", "timezone-converter", "cron-parser"],
+    "related": ["timestamp-converter", "timezone-converter", "percentage-calculator"],
 }

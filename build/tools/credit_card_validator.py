@@ -96,5 +96,5 @@ document.addEventListener('DOMContentLoaded', cvRun);
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },
-    "related": ["hash-generator", "uuid-generator", "regex-tester"],
+    "related": ["email-validator", "hash-generator", "regex-tester"],
 }

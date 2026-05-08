@@ -81,6 +81,47 @@ def fill_braces(text: str, mapping: dict) -> str:
     return text
 
 
+OG_LOCALES = {"en": "en_GB", "de": "de_DE", "es": "es_ES", "fr": "fr_FR", "it": "it_IT"}
+
+CATEGORY_TO_APP_CAT = {
+    # schema.org/SoftwareApplication applicationCategory enum-ish values
+    "developer":  "DeveloperApplication",
+    "encoding":   "DeveloperApplication",
+    "data":       "DeveloperApplication",
+    "validation": "DeveloperApplication",
+    "datetime":   "UtilityApplication",
+    "math":       "UtilityApplication",
+    "text":       "UtilityApplication",
+    "design":     "DesignApplication",
+    "security":   "SecurityApplication",
+    "media":      "MultimediaApplication",
+}
+
+SUBCATEGORY_LABELS = {
+    "developer":  "Developer Tools",
+    "text":       "Text Tools",
+    "encoding":   "Encoding & Decoding",
+    "data":       "Data Tools",
+    "security":   "Security Tools",
+    "media":      "Media Tools",
+    "validation": "Validation Tools",
+    "design":     "Design Tools",
+    "datetime":   "Date & Time Tools",
+    "math":       "Math Tools",
+}
+
+
+def alternate_links(slug: str) -> str:
+    """rel=alternate hreflang block — every lang + x-default pointing at EN."""
+    lines = []
+    for L in LANGS:
+        href = f"https://toolhub.software{lang_path(L, slug)}"
+        lines.append(f'<link rel="alternate" hreflang="{L}" href="{href}">')
+    # x-default → English
+    lines.append(f'<link rel="alternate" hreflang="x-default" href="https://toolhub.software{lang_path("en", slug)}">')
+    return "\n  ".join(lines)
+
+
 def render_tool(tool: dict, lang: str) -> str:
     slug = tool["slug"]
     ui = UI[lang]
@@ -147,6 +188,9 @@ def render_tool(tool: dict, lang: str) -> str:
 
     sel = {l: ('selected="selected"' if l == lang else "") for l in LANGS}
 
+    cat = tool.get("category", "developer")
+    feature_list_json = json.dumps(tool.get("tags", []), ensure_ascii=False)
+
     placeholders = {
         "LANG": lang if lang != "en" else "en",
         "TITLE": t_i18n["name"],
@@ -167,6 +211,12 @@ def render_tool(tool: dict, lang: str) -> str:
         "SEL_ES": sel["es"],
         "SEL_FR": sel["fr"],
         "SEL_IT": sel["it"],
+        "ALTERNATE_LINKS": alternate_links(slug),
+        "OG_LOCALE": OG_LOCALES.get(lang, "en_GB"),
+        "INLANG": lang,
+        "APP_CATEGORY": CATEGORY_TO_APP_CAT.get(cat, "UtilityApplication"),
+        "APP_SUBCATEGORY": SUBCATEGORY_LABELS.get(cat, cat.title()),
+        "FEATURE_LIST": feature_list_json,
     }
 
     return fill_placeholders(TEMPLATE, placeholders)
