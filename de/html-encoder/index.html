@@ -3,90 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Entity Encoder - Kostenloses Online-Entwicklerwerkzeug</title>
-  <meta name="description" content="Kodieren Sie HTML-Entities, entkomprimieren Sie besondere Zeichen in HTML mit diesem kostenlosen Online-Tool.">
-  <meta property="og:title" content="HTML Entity Encoder - Kostenloses Online-Werkzeug">
-  <meta property="og:description" content="Kodieren Sie HTML-Entities, entkomprimieren Sie besondere Zeichen in HTML mit diesem kostenlosen Online-Tool.">
+  <title>HTML Encoder / Decoder — Toolhub</title>
+  <meta name="description" content="Kostenloser HTML-Entity Encoder und Decoder. Escapet &amp; &lt; &gt; &quot; ' und benannte Entities.">
+  <meta property="og:title" content="HTML Encoder / Decoder — Toolhub">
+  <meta property="og:description" content="Kostenloser HTML-Entity Encoder und Decoder. Escapet &amp; &lt; &gt; &quot; ' und benannte Entities.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/de/html-encoder/">
+  <link rel="canonical" href="https://toolhub.software/de/html-encoder/">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "HTML Entity Encoder",
-      "description": "Kodieren Sie HTML-Entities, entkomprimieren Sie besondere Zeichen in HTML mit diesem kostenlosen Online-Tool.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0"}
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTML Encoder / Decoder",
+    "description": "Kostenloser HTML-Entity Encoder und Decoder. Escapet &amp; &lt; &gt; &quot; ' und benannte Entities.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/de/html-encoder/"
+  }
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
     }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    .input-group { margin-bottom: 20px; }
-    .input-group input { width: calc(100% - 42px); padding: 10px 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; }
-    .result { background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; padding: 15px; margin-top: 20px; white-space: pre-wrap; word-break: break-all; }
-    ol, ul { list-style-type: none; padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .features li { margin-bottom: 6px; }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>HTML Entity Encoder</h1>
-    <p class="description">Kodieren Sie HTML-Entities, entkomprimieren Sie besondere Zeichen in HTML mit diesem kostenlosen Online-Tool.</p>
+  <header class="header">
+    <a href="/de/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/html-encoder/'; else location.href='/html-encoder/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" selected="selected">🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / HTML Encoder / Decoder</div>
+    <h1>HTML Encoder / Decoder</h1>
+    <p class="tagline">HTML-Sonderzeichen escapen oder Entities zurück in Klartext.</p>
     
-    <form id="encoderForm" onsubmit="return false;">
-      <div class="input-group">
-        <label for="htmlInput" class="sr-only">Geben Sie Ihr HTML-Text ein</label>
-        <textarea id="htmlInput" placeholder="Hier geben Sie Ihren HTML-Text..." rows="5"></textarea>
-      </div>
-      <button type="button" onclick="encodeHTML()">Kodieren</button>
-    </form>
-
-    <pre id="result" class="result"></pre>
-
-    <div class="usage">
-      <h2>Wie Sie das Tool verwenden</h2>
-      <ol>
-        <li>Geben Sie Ihren HTML-Text in die Eingabefläche ein.</li>
-        <li>Auswählen und kopieren Sie den kodierten Wert aus der Ausgabefläche.</li>
-      </ol>
-    </div>
-
-    <div class="features">
-      <h2>Zukenntnisse</h2>
-      <ul>
-        <li>✓ Einfaches und effizientes Kodieren besonderer Zeichen.</li>
-        <li>✓ Realzeit-Feedback für sofortige Ergebnisse.</li>
-        <li>✓ Keine Registrierung oder Anmeldung erforderlich.</li>
-      </ul>
-    </div>
+<div class="tool-card">
+  <label>Mode</label>
+  <select id="he-mode" onchange="heRun()">
+    <option value="enc">Codieren (text → entities)</option>
+    <option value="dec">Decodieren (entities → text)</option>
+  </select>
+  <label style="margin-top:1rem">Eingabe</label>
+  <textarea id="he-in" oninput="heRun()" spellcheck="false"></textarea>
+</div>
+<div class="tool-card">
+  <label>Ausgabe</label>
+  <div class="output-row">
+    <pre class="output" id="he-out">Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('he-out', this)">Kopieren</button>
   </div>
+</div>
 
+    <div class="help">
+<h2>When to use it</h2>
+<ul>
+  <li>Embedding untrusted user content in HTML — encode first to avoid XSS.</li>
+  <li>Decoding scraped or copy-pasted markup that arrived with entities (<code>&amp;amp;</code>, <code>&amp;#x27;</code>).</li>
+  <li>Inspecting templates that have been double-escaped accidentally.</li>
+</ul>
+<h3>What gets escaped</h3>
+<p>The five SGML/HTML characters: <code>&amp;</code> <code>&lt;</code> <code>&gt;</code> <code>&quot;</code> <code>'</code>. Decoding handles those plus all named entities and numeric references (decimal and hex) via the browser's parser.</p>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/url-encoder/">URL Encoder / Decoder</a> <a href="/de/base64-encoder/">Base64 Encoder / Decoder</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    function encodeHTML() {
-      const input = document.getElementById('htmlInput').value;
-      if (!input) return;
-
-      try {
-        const encodedResult = encodeURIComponent(input).replace(/%u/gi, '%U');
-        document.getElementById('result').innerText = `&lt;pre&gt;\n${encodeURIComponent(encodedResult)}\n&lt;/pre&gt;`;
-      } catch (err) {
-        document.getElementById('result').innerText = 'Fehler beim Kodieren des Eingabewerts.';
-      }
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
     }
-
-    document.querySelector('#encoderForm button').addEventListener('click', encodeHTML);
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<script>
+function heEnc(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function heDec(s){
+  const t = document.createElement('textarea');
+  t.innerHTML = s;
+  return t.value;
+}
+function heRun(){
+  const mode = document.getElementById('he-mode').value;
+  const raw = document.getElementById('he-in').value;
+  const out = document.getElementById('he-out');
+  if (!raw){ out.textContent = 'Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.'; return; }
+  out.textContent = mode === 'enc' ? heEnc(raw) : heDec(raw);
+}
+document.addEventListener('DOMContentLoaded', heRun);
+</script>
+
 </body>
 </html>
-

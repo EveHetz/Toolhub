@@ -3,85 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Imagen a Base64 - Herramienta en Línea Gratuita</title>
-  <meta name="description" content="Convierte una imagen a base64 de manera rápida y fácil con nuestra herramienta en línea gratuita. Codifica imágenes usando URI de datos.">
-  <meta property="og:title" content="Imagen a Base64 - Herramienta en Línea Gratuita">
-  <meta property="og:description" content="Convierte una imagen a base64 de manera rápida y fácil con nuestra herramienta en línea gratuita. Codifica imágenes usando URI de datos.">
+  <title>Imagen a Base64 — Toolhub</title>
+  <meta name="description" content="Codificador gratuito de imágenes a data URI Base64. Selecciona una imagen y obtén la URL data: lista para pegar.">
+  <meta property="og:title" content="Imagen a Base64 — Toolhub">
+  <meta property="og:description" content="Codificador gratuito de imágenes a data URI Base64. Selecciona una imagen y obtén la URL data: lista para pegar.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/imagen-a-base64">
+  <meta property="og:url" content="https://toolhub.software/es/image-to-base64/">
+  <link rel="canonical" href="https://toolhub.software/es/image-to-base64/">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Imagen a Base64",
-      "description": "Convierte una imagen a base64 de manera rápida y fácil con nuestra herramienta en línea gratuita. Codifica imágenes usando URI de datos.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Any",
-      "offers": {"@type": "Offer", "price": "0"}
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Imagen a Base64",
+    "description": "Codificador gratuito de imágenes a data URI Base64. Selecciona una imagen y obtén la URL data: lista para pegar.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0"},
+    "url": "https://toolhub.software/es/image-to-base64/"
+  }
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-      padding: 20px;
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
     }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1 { color: #2c3e50; margin-bottom: 20px; font-size: 28px; }
-    .input-group { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-    input[type="file"] { width: 100%; height: 34px; padding-left: 10px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; }
-    textarea { width: 100%; min-height: 150px; padding: 10px; background-color: #fff; border: 1px solid #ddd; border-radius: 4px; resize: vertical; margin-bottom: 20px; }
-    .output { white-space: pre-wrap; word-break: break-word; min-height: 150px; padding: 10px; background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 20px; }
-    .usage, .features { margin-top: 30px; }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
-  <div class="container">
+  <header class="header">
+    <a href="/es/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/image-to-base64/'; else location.href='/image-to-base64/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" selected="selected">🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Imagen a Base64</div>
     <h1>Imagen a Base64</h1>
-    <p class="description">Convierte una imagen a base64 de manera rápida y fácil con nuestra herramienta en línea gratuita. Codifica imágenes usando URI de datos.</p>
+    <p class="tagline">Convierte cualquier imagen en un data URI Base64 para HTML, CSS o Markdown. El archivo nunca sale de tu navegador.</p>
     
-    <form id="uploadForm">
-      <label for="imageUpload" class="input-group">
-        <span>Elija una Imagen:</span>
-        <input type="file" id="imageUpload" accept="image/*">
-      </label>
-      <textarea id="output" placeholder="Su imagen codificada en Base64 aparecerá aquí..." readonly></textarea>
-    </form>
-    
-    <div class="usage">
-      <h2>Cómo Usar</h2>
-      <ol>
-        <li>Elija un archivo de imagen desde su dispositivo.</li>
-        <li>La herramienta convertirá automáticamente la imagen seleccionada a una cadena codificada en base64.</li>
-      </ol>
-    </div>
-    
-    <div class="features">
-      <h2>Características</h2>
-      <ul>
-        <li>✓ Interfaz simple e intuitiva.</li>
-        <li>✓ Conversión inmediata sin retrasos.</li>
-        <li>✓ Soporta todos los formatos de imagen comunes (JPEG, PNG, GIF).</li>
-      </ul>
-    </div>
+<div class="tool-card">
+  <label>Pick or drop an image</label>
+  <input type="file" id="i2b-file" accept="image/*" oninput="i2bRun()" style="padding:0.5rem;background:var(--code-bg);border:1px dashed var(--border);border-radius:6px">
+  <div class="meta" id="i2b-meta"></div>
+</div>
+<div class="tool-card">
+  <label>Preview</label>
+  <div id="i2b-prev" style="text-align:center;padding:1rem;background:var(--code-bg);border:1px solid var(--border);border-radius:6px;min-height:60px"><span style="color:var(--text-muted)">No image yet.</span></div>
+</div>
+<div class="tool-card">
+  <label>Data URI</label>
+  <div class="output-row">
+    <pre class="output" id="i2b-out" style="max-height:240px;overflow:auto;font-size:0.78rem">Introduce un valor arriba para ver el resultado.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('i2b-out', this)">Copiar</button>
   </div>
-  
+</div>
+<div class="tool-card">
+  <label>Snippets</label>
+  <div class="output-row"><pre class="output" id="i2b-html" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-html', this)">Copiar</button></div>
+  <div class="output-row" style="margin-top:0.5rem"><pre class="output" id="i2b-css" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-css', this)">Copiar</button></div>
+  <div class="output-row" style="margin-top:0.5rem"><pre class="output" id="i2b-md" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-md', this)">Copiar</button></div>
+</div>
+
+    <div class="help">
+<h2>When to use a data URI</h2>
+<ul>
+  <li>Tiny icons (&lt; 4 KB) inline in CSS — saves an HTTP request.</li>
+  <li>Self-contained HTML emails or single-file demos.</li>
+  <li>Quick pastes into Markdown notes that need to travel without a separate image file.</li>
+</ul>
+<h3>When NOT to use it</h3>
+<ul>
+  <li>Larger images — base64 is ~33% bigger than the binary, and inline data can't be cached separately.</li>
+  <li>Anything reused across pages — keep it as a real URL so it caches once.</li>
+</ul>
+<p>The image is read by your browser via <code>FileReader.readAsDataURL</code>. Nothing is uploaded.</p>
+<div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/base64-encoder/">Codificador / Decodificador Base64</a> <a href="/es/qr-code-generator/">Generador de Códigos QR</a> <a href="/es/url-encoder/">Codificador / Decodificador URL</a></div></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
   <script>
-    document.getElementById('uploadForm').addEventListener('change', function(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      
-      const reader = new FileReader();
-      reader.onloadend = function() {
-        document.getElementById('output').value = reader.result.split(',').pop().trim();
-      };
-      reader.readAsDataURL(file);
-    });
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
   </script>
+  
+<script>
+function i2bRun(){
+  const f = document.getElementById('i2b-file').files[0];
+  const out = document.getElementById('i2b-out');
+  const meta = document.getElementById('i2b-meta');
+  const prev = document.getElementById('i2b-prev');
+  if (!f){ out.textContent = 'Introduce un valor arriba para ver el resultado.'; meta.textContent=''; prev.innerHTML='<span style="color:var(--text-muted)">No image yet.</span>'; document.getElementById('i2b-html').textContent=''; document.getElementById('i2b-css').textContent=''; document.getElementById('i2b-md').textContent=''; return; }
+  if (f.size > 5 * 1024 * 1024){ out.classList.add('error'); out.textContent = '✗ File larger than 5 MB. Inline data URIs that big are usually a bad idea — use a real image URL.'; return; }
+  out.classList.remove('error');
+  const r = new FileReader();
+  r.onload = () => {
+    const uri = r.result;
+    out.textContent = uri;
+    meta.textContent = f.name + ' · ' + f.type + ' · ' + (f.size/1024).toFixed(1) + ' KB → ' + (uri.length/1024).toFixed(1) + ' KB encoded';
+    prev.innerHTML = '<img src="' + uri + '" style="max-width:100%;max-height:280px;border-radius:6px">';
+    document.getElementById('i2b-html').textContent = '<img src="' + uri.slice(0, 60) + '…" alt="">';
+    document.getElementById('i2b-css').textContent = 'background-image: url("' + uri.slice(0, 60) + '…");';
+    document.getElementById('i2b-md').textContent = '![alt](' + uri.slice(0, 60) + '…)';
+  };
+  r.readAsDataURL(f);
+}
+</script>
+
 </body>
 </html>
-
