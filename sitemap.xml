@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://toolhub.software/</loc>
+    <lastmod>2026-05-08</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/"/>
@@ -10,134 +10,2040 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/"/>
   </url>
-  <url><loc>https://toolhub.software/de/</loc><priority>0.9</priority></url>
-  <url><loc>https://toolhub.software/es/</loc><priority>0.9</priority></url>
-  <url><loc>https://toolhub.software/fr/</loc><priority>0.9</priority></url>
-  <url><loc>https://toolhub.software/it/</loc><priority>0.9</priority></url>
-  <url><loc>https://toolhub.software/json-formatter/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/password-generator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/qr-code-generator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/word-counter/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/base64-encoder/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/hash-generator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/url-encoder/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/html-encoder/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/css-minifier/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/js-minifier/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/regex-tester/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/timestamp-converter/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/uuid-generator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/color-picker/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/lorem-ipsum/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/case-converter/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/csv-to-json/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/json-to-csv/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/markdown-to-html/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/text-diff/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/image-to-base64/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/percentage-calculator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/email-validator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/credit-card-validator/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/youtube-thumbnail/</loc><priority>0.8</priority></url>
-  <url><loc>https://toolhub.software/de/json-formatter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/password-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/qr-code-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/word-counter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/base64-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/hash-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/url-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/html-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/css-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/js-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/regex-tester/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/timestamp-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/uuid-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/color-picker/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/lorem-ipsum/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/case-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/csv-to-json/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/json-to-csv/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/markdown-to-html/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/text-diff/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/image-to-base64/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/percentage-calculator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/email-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/credit-card-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/de/youtube-thumbnail/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/json-formatter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/password-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/qr-code-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/word-counter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/base64-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/hash-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/url-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/html-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/css-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/js-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/regex-tester/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/timestamp-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/uuid-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/color-picker/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/lorem-ipsum/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/case-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/csv-to-json/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/json-to-csv/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/markdown-to-html/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/text-diff/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/image-to-base64/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/percentage-calculator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/email-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/credit-card-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/es/youtube-thumbnail/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/json-formatter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/password-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/qr-code-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/word-counter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/base64-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/hash-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/url-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/html-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/css-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/js-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/regex-tester/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/timestamp-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/uuid-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/color-picker/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/lorem-ipsum/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/case-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/csv-to-json/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/json-to-csv/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/markdown-to-html/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/text-diff/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/image-to-base64/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/percentage-calculator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/email-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/credit-card-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/fr/youtube-thumbnail/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/json-formatter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/password-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/qr-code-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/word-counter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/base64-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/hash-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/url-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/html-encoder/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/css-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/js-minifier/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/regex-tester/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/timestamp-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/uuid-generator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/color-picker/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/lorem-ipsum/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/case-converter/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/csv-to-json/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/json-to-csv/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/markdown-to-html/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/text-diff/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/image-to-base64/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/percentage-calculator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/email-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/credit-card-validator/</loc><priority>0.7</priority></url>
-  <url><loc>https://toolhub.software/it/youtube-thumbnail/</loc><priority>0.7</priority></url>
+  <url>
+    <loc>https://toolhub.software/de/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/base64-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/base64-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/base64-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/base64-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/base64-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/base64-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/base64-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/base64-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/base64-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/base64-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/base64-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/case-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/case-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/case-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/case-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/case-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/case-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/case-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/case-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/case-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/case-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/case-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/color-picker/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/color-picker/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/color-picker/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/color-picker/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/color-picker/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/color-picker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/color-picker/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/credit-card-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/credit-card-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/credit-card-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/credit-card-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/credit-card-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/credit-card-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/credit-card-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/credit-card-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/credit-card-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/credit-card-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/credit-card-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cron-parser/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/cron-parser/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/cron-parser/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/cron-parser/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/cron-parser/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/cron-parser/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/cron-parser/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/cron-parser/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/cron-parser/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/cron-parser/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/cron-parser/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/css-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/css-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/css-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/css-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/css-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/css-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/css-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/css-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/css-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/css-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/css-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/csv-to-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/csv-to-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/csv-to-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/csv-to-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/csv-to-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/csv-to-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/csv-to-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/csv-to-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/csv-to-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/csv-to-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/csv-to-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/date-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/date-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/date-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/date-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/date-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/date-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/date-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/email-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/email-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/email-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/email-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/email-validator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hash-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/hash-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/hash-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/hash-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/hash-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/hash-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/hash-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/html-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/html-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/html-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/html-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/html-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/html-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/html-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/html-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/html-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/html-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/html-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/image-to-base64/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/image-to-base64/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/image-to-base64/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/image-to-base64/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/image-to-base64/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/js-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/js-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/js-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/js-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/js-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/js-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/js-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/js-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/js-minifier/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/js-minifier/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/js-minifier/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/json-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/json-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/json-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/json-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/json-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/json-formatter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/json-formatter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/json-formatter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/json-formatter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/json-formatter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/json-to-csv/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/json-to-csv/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/json-to-csv/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/json-to-csv/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/json-to-csv/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/jwt-decoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/jwt-decoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/jwt-decoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/jwt-decoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/jwt-decoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/jwt-decoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/jwt-decoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/jwt-decoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/jwt-decoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/jwt-decoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/jwt-decoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/lorem-ipsum/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/lorem-ipsum/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/lorem-ipsum/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/lorem-ipsum/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/lorem-ipsum/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/lorem-ipsum/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/lorem-ipsum/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/lorem-ipsum/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/lorem-ipsum/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/lorem-ipsum/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/lorem-ipsum/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/markdown-to-html/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/markdown-to-html/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/markdown-to-html/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/markdown-to-html/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/markdown-to-html/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/markdown-to-html/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/markdown-to-html/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/markdown-to-html/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/markdown-to-html/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/markdown-to-html/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/markdown-to-html/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/number-base-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/number-base-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/number-base-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/number-base-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/number-base-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/number-base-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/number-base-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/password-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/password-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/password-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/password-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/password-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/percentage-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/percentage-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/percentage-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/percentage-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/percentage-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/percentage-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/percentage-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/percentage-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/percentage-calculator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/percentage-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/percentage-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/qr-code-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/qr-code-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/qr-code-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/qr-code-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/qr-code-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/qr-code-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/qr-code-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/qr-code-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/qr-code-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/qr-code-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/qr-code-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/regex-tester/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/regex-tester/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/regex-tester/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/regex-tester/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/regex-tester/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/slug-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/slug-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/slug-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/slug-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/slug-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/text-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/text-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/text-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/text-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/text-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/text-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/text-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/text-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/text-diff/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/text-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/text-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/timestamp-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/timestamp-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/timestamp-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/timestamp-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/timestamp-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/timezone-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/timezone-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/timezone-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/timezone-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/timezone-converter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/timezone-converter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/timezone-converter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/url-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/url-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/url-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/url-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/url-encoder/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-encoder/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-encoder/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/uuid-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/uuid-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/uuid-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/uuid-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/uuid-generator/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/word-counter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/word-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/word-counter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/word-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/word-counter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/word-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/word-counter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/word-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/word-counter/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/word-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/word-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/yaml-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/yaml-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/yaml-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/yaml-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/yaml-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/yaml-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/yaml-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/yaml-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/yaml-json/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/yaml-json/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/yaml-json/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/youtube-thumbnail/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/youtube-thumbnail/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/youtube-thumbnail/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/youtube-thumbnail/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/youtube-thumbnail/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/youtube-thumbnail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/youtube-thumbnail/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/privacy/</loc>
+    <lastmod>2026-05-08</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 </urlset>
