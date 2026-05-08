@@ -64,18 +64,24 @@ function i2bRun(){
 """,
     "help": {
         "en": """
-<h2>When to use a data URI</h2>
+<h2>What is this for?</h2>
+<p>A <em>data URI</em> embeds the bytes of a file directly into a URL using Base64 — no separate request, no external file. This converter reads any image you drop on it and produces a <code>data:image/...;base64,...</code> string ready to paste into HTML, CSS, Markdown, or JSON. The file never leaves your browser; conversion happens via <code>FileReader.readAsDataURL</code>.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>Tiny icons (&lt; 4 KB) inline in CSS — saves an HTTP request.</li>
-  <li>Self-contained HTML emails or single-file demos.</li>
-  <li>Quick pastes into Markdown notes that need to travel without a separate image file.</li>
+  <li>Tiny icons (&lt; 4 KB) inline in CSS — saves an HTTP request and avoids a flash on first paint.</li>
+  <li>Self-contained HTML emails, single-file demos, or offline-capable PWAs.</li>
+  <li>Quick pastes into Markdown notes, Notion pages, or chat threads that need to travel with the image.</li>
+  <li>Test fixtures and snapshot files where you want the asset committed alongside the test.</li>
 </ul>
-<h3>When NOT to use it</h3>
+
+<h3>Common gotchas</h3>
 <ul>
-  <li>Larger images — base64 is ~33% bigger than the binary, and inline data can't be cached separately.</li>
-  <li>Anything reused across pages — keep it as a real URL so it caches once.</li>
+  <li><strong>Size penalty.</strong> Base64 inflates payload by ~33%. Above ~4–8 KB the embedding cost outweighs the saved request, especially since data URIs cannot be cached separately by the browser.</li>
+  <li><strong>No de-duplication across pages.</strong> Each page that embeds the URI ships the bytes again. For anything reused, keep it as a real URL so the browser caches it once.</li>
+  <li><strong>Email clients vary.</strong> Most modern clients render data URIs, but Outlook on Windows historically blocks them in <code>&lt;img src&gt;</code>. CID attachments are still safer for mass email.</li>
+  <li><strong>SVG ≠ raster.</strong> For SVG, embedding the markup directly (or url-encoding the SVG) is usually smaller than Base64.</li>
 </ul>
-<p>The image is read by your browser via <code>FileReader.readAsDataURL</code>. Nothing is uploaded.</p>
 """,
     },
     "related": ["base64-encoder", "qr-code-generator", "url-encoder"],

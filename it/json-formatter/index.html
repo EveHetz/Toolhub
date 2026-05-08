@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -170,22 +182,33 @@
   <div class="meta" id="json-meta"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
-<h2>How it works</h2>
-<p>This formatter runs entirely in your browser using the native <code>JSON.parse</code> and <code>JSON.stringify</code> APIs. Nothing is uploaded.</p>
-<h3>Tips</h3>
+<h2>What is this for?</h2>
+<p>JSON travels minified — every byte counts when an API response is being shipped. But minified JSON is unreadable. This tool round-trips through the browser's native <code>JSON.parse</code> / <code>JSON.stringify</code> to produce indented, copy-able output, validate the structure, or strip whitespace back out. Nothing is uploaded; everything happens in the page.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>Use <strong>Format</strong> for human-readable output (2 or 4 space indent).</li>
-  <li>Use <strong>Minify</strong> to strip whitespace before shipping JSON over the network.</li>
-  <li>If parsing fails, the error message points to the exact line and column.</li>
-  <li>JSON keys must be in double quotes — single quotes are not valid JSON.</li>
-  <li>No trailing commas: <code>[1,2,]</code> is invalid.</li>
+  <li>Pasting a minified API response and getting back something a human can scan.</li>
+  <li>Catching syntax errors — trailing commas, unquoted keys, smart quotes — with the exact line/column the parser tripped on.</li>
+  <li>Stripping whitespace before pasting JSON into a context where size matters (URL params, env vars, config files).</li>
+  <li>Confirming your hand-written JSON is valid before piping it into another tool.</li>
+</ul>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>JSON ≠ JavaScript object literal.</strong> Keys must be in double quotes. Single quotes, unquoted keys, and trailing commas all fail. If you've got JS object literals, run them through a converter first.</li>
+  <li><strong>Smart quotes from copy-paste.</strong> Word processors and chat apps love to "helpfully" replace <code>"</code> with <code>"</code> / <code>"</code>. Those aren't valid JSON delimiters.</li>
+  <li><strong>JSON has no comments.</strong> If your "JSON" has <code>//</code> or <code>/* */</code>, it's actually JSONC (used by VS Code config) — strip those before parsing.</li>
+  <li><strong>Numbers larger than 2⁵³.</strong> JavaScript can't represent integers above <code>9007199254740992</code> exactly. Twitter snowflake IDs and similar should be quoted as strings.</li>
 </ul>
 <div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/yaml-json/">Convertitore YAML ↔ JSON</a> <a href="/it/json-diff/">Diff JSON</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

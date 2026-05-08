@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -181,6 +193,7 @@
   <div class="meta" id="cm-stats" style="margin-top:0.6rem"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What gets removed</h2>
 <ul>
@@ -193,10 +206,12 @@
 <h3>What it doesn't do</h3>
 <p>This is a fast structural minify, not a full optimiser. It won't merge selectors, reorder rules, or rewrite shorthand — for that, use <code>cssnano</code> or <code>esbuild</code> in your build chain.</p>
 <div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/js-minifier/">JavaScript-Minifier</a> <a href="/de/html-encoder/">HTML Encoder / Decoder</a> <a href="/de/color-picker/">Farbwähler</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

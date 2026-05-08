@@ -125,6 +125,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -145,11 +157,14 @@
     <h1>{{TITLE}}</h1>
     <p class="tagline">{{TAGLINE}}</p>
     {{TOOL_BODY}}
+    <div class="ad-slot" data-slot="content"></div>
     {{HELP_BLOCK}}
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="{{PRIVACY}}">{{PRIVACY_LBL}}</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

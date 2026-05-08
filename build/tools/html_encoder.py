@@ -52,14 +52,24 @@ document.addEventListener('DOMContentLoaded', heRun);
 """,
     "help": {
         "en": """
-<h2>When to use it</h2>
+<h2>What is this for?</h2>
+<p>HTML reserves five characters with structural meaning — <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>'</code>. Putting any of those into a page as <em>content</em> requires escaping them as HTML entities so the browser doesn't interpret them as markup. This tool flips both directions: encode raw text into safe entities, or decode scraped HTML back to plain text.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>Embedding untrusted user content in HTML — encode first to avoid XSS.</li>
-  <li>Decoding scraped or copy-pasted markup that arrived with entities (<code>&amp;amp;</code>, <code>&amp;#x27;</code>).</li>
-  <li>Inspecting templates that have been double-escaped accidentally.</li>
+  <li>Embedding untrusted user content in HTML — encode first to prevent XSS.</li>
+  <li>Decoding scraped or copy-pasted markup that arrived with entities (<code>&amp;amp;</code>, <code>&amp;#x27;</code>, <code>&amp;ldquo;</code>).</li>
+  <li>Un-mangling templates that have been double-escaped accidentally.</li>
+  <li>Preparing snippets for JSDoc, CDATA-free XML, or markdown code fences that need literal angle brackets.</li>
 </ul>
-<h3>What gets escaped</h3>
-<p>The five SGML/HTML characters: <code>&amp;</code> <code>&lt;</code> <code>&gt;</code> <code>&quot;</code> <code>'</code>. Decoding handles those plus all named entities and numeric references (decimal and hex) via the browser's parser.</p>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Encoding is not sanitisation.</strong> Encoding makes text safe to display; if you also want to <em>strip</em> tags, you need an HTML sanitiser instead.</li>
+  <li><strong>Attributes vs body.</strong> Both contexts need the same five characters escaped, but JavaScript event handlers like <code>onclick</code> need additional escaping (which this tool doesn't do — keep untrusted data out of attributes).</li>
+  <li><strong>Decoder is permissive.</strong> Named entities (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>) and hex (<code>&amp;#x22;</code>) all decode via the browser's parser, so it accepts anything a real browser would.</li>
+  <li><strong>Don't double-encode.</strong> Encoding an already-encoded value gives you <code>&amp;amp;amp;</code>. Decode first if you see entities in your input.</li>
+</ul>
 """,
     },
     "related": ["url-encoder", "base64-encoder", "markdown-to-html"],

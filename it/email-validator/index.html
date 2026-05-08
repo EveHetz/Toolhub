@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -161,6 +173,7 @@
   <div id="ev-out" class="output">Inserisci un input sopra per vedere il risultato.</div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What this checks</h2>
 <ul>
@@ -173,10 +186,12 @@
 <h3>What it doesn't check</h3>
 <p>No DNS / MX lookup — that requires a server. The address can be syntactically valid but have no mailbox at the other end. Our disposable-domain list flags some common throwaway hosts.</p>
 <div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/regex-tester/">Tester Regex</a> <a href="/it/credit-card-validator/">Validatore Carta di Credito</a> <a href="/it/url-encoder/">Encoder / Decoder URL</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

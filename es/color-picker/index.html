@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -168,6 +180,7 @@
   <div id="cp-out" class="cp-vals"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>Use the native picker, or paste a HEX, <code>rgb()</code>, or <code>hsl()</code> value. The opacity slider applies an alpha channel that's reflected in <code>RGBA</code>, <code>HSLA</code>, and the 8-digit <code>HEX8</code> form.</p>
@@ -179,10 +192,12 @@
   <li><strong>CMYK</strong> — print-ready output. Note: screens are RGB, so CMYK here is an approximate conversion.</li>
 </ul>
 <div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/css-minifier/">Minificador CSS</a> <a href="/es/image-to-base64/">Imagen a Base64</a> <a href="/es/qr-code-generator/">Generador de Códigos QR</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

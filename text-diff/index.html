@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -188,6 +200,7 @@ A new line at the end.</textarea>
   <div class="meta" id="td-stats" style="margin-top:0.5rem"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>The diff is computed line-by-line using the Longest Common Subsequence algorithm — the same approach <code>diff</code> and Git use. Lines that match drop into the "unchanged" stream; everything else becomes an addition or removal.</p>
@@ -199,10 +212,12 @@ A new line at the end.</textarea>
   <li><strong>Unified</strong> — closer to <code>git diff</code> output; better for sharing or printing.</li>
 </ul>
 <div class="related"><span class="meta">Related tools:</span> <a href="/json-formatter/">JSON Formatter</a> <a href="/case-converter/">Case Converter</a> <a href="/regex-tester/">Regex Tester</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

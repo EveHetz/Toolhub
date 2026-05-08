@@ -18,26 +18,56 @@
     .back:hover { color: #58a6ff; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
   <div class="container">
     <a href="/" class="back">← Back to tools</a>
     <h1>Privacy Policy</h1>
-    <p><strong>Last updated:</strong> February 2026</p>
+    <p><strong>Last updated:</strong> 8 May 2026</p>
 
-    <h2>What We Collect</h2>
-    <p>Almost nothing.</p>
+    <h2>The short version</h2>
+    <p>Tools run entirely in your browser — nothing you type into them is sent anywhere. We measure aggregate, anonymous visits with <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> (no cookies). If you choose to opt in, we also serve display ads via Google AdSense, which DOES use cookies. You can decline ads at the consent banner; the rest of the site works identically either way.</p>
+
+    <h2>What we collect</h2>
     <ul>
-      <li>All tools run <strong>entirely in your browser</strong> — no data you type into any tool is sent to our server.</li>
-      <li>We don't use cookies. We don't track individuals.</li>
-      <li>We use <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> to count anonymous, aggregate visits — no cookies, no personal data, no cross-site tracking. This helps us understand which tools are useful and improve the site.</li>
+      <li><strong>Tool inputs:</strong> nothing. Everything you paste into a tool stays in your browser. No tool sends data to a server.</li>
+      <li><strong>Visit analytics:</strong> Plausible counts page views, referrer, country, and device type — anonymously, in aggregate, without cookies. <a href="https://plausible.io/data-policy" rel="noopener">Plausible's data policy</a> covers what they do and don't collect.</li>
+      <li><strong>If you accept ads:</strong> Google AdSense sets cookies and may use them to personalise ads. Google's practices are governed by <a href="https://policies.google.com/technologies/ads" rel="noopener">Google's advertising privacy policy</a>.</li>
+      <li><strong>If you decline ads:</strong> no advertising scripts are loaded, no advertising cookies are set, ad slots are removed from the page.</li>
     </ul>
 
-    <h2>Third-Party Services</h2>
-    <p>Plausible Analytics (privacy-friendly, GDPR-compliant, hosted in the EU). No personal data is collected or shared. If we add any other third-party services in future, this page will be updated.</p>
+    <h2>Cookies</h2>
+    <p>The site itself uses one localStorage entry (<code>toolhub:consent</code>) to remember your ad-consent choice, plus a <code>theme</code> entry for your dark/light preference. Neither leaves your browser.</p>
+    <p>Plausible uses no cookies.</p>
+    <p>Google AdSense uses cookies <em>only if</em> you accept them. You can change your choice anytime by clicking the link below.</p>
+    <p><a href="#" onclick="window.toolhubResetConsent && window.toolhubResetConsent(); return false;">Reset my ad consent choice</a></p>
 
-    <h2>Hosting</h2>
-    <p>This site is hosted on a private server. Standard web server logs (IP address, timestamp, requested URL) may be recorded and are deleted within 30 days.</p>
+    <h2>Third-party services</h2>
+    <ul>
+      <li><strong>Plausible Analytics</strong> — privacy-friendly, GDPR-compliant, EU-hosted. No personal data collected.</li>
+      <li><strong>Google AdSense</strong> — used only with explicit consent. Loads <code>pagead2.googlesyndication.com</code> and may set advertising cookies.</li>
+      <li><strong>GitHub Pages</strong> — site host. Standard server logs (IP, timestamp, URL) are kept by GitHub per <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">their privacy statement</a>.</li>
+    </ul>
+
+    <h2>Affiliate links</h2>
+    <p>Some links in the footer are affiliate links — if you click through and sign up to a service we recommend (e.g. hosting providers), Toolhub may earn a referral. The price you pay is unaffected. Affiliate links are always tagged with <code>rel="sponsored"</code>.</p>
+
+    <h2>Your rights</h2>
+    <p>Under GDPR / UK GDPR / CCPA you can request access to or deletion of any personal data we hold. We don't hold any (we don't run a backend). Plausible holds aggregated visit data only. Google's ad data is governed by their own request channels.</p>
 
     <h2>Contact</h2>
     <p>Questions? Reach out via <a href="https://github.com/EveHetz/Toolhub">GitHub</a>.</p>

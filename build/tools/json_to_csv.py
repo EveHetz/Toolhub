@@ -94,16 +94,23 @@ document.addEventListener('DOMContentLoaded', jcRun);
 """,
     "help": {
         "en": """
-<h2>What this handles</h2>
+<h2>What is this for?</h2>
+<p>The reverse trip: feed in a JSON array and get out a CSV ready for Excel, Google Sheets, or any data tool that prefers tabular formats. Headers are auto-detected from object keys; nested values get JSON-stringified into single cells so nothing silently disappears.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>Array of objects → header row + values per row.</li>
-  <li>Array of arrays → no header, one row per inner array.</li>
-  <li>Missing keys are filled with empty cells.</li>
-  <li>Nested objects/arrays are JSON-stringified into a single cell.</li>
-  <li>RFC 4180 escaping: cells with quotes, delimiters, or line breaks are wrapped in double quotes; literal quotes are doubled.</li>
+  <li>Turning an API response into a CSV for a stakeholder who only opens spreadsheets.</li>
+  <li>Exporting a pile of records from a JSON dump into something you can pivot/filter in Sheets.</li>
+  <li>Generating fixture rows for database imports that take CSV.</li>
 </ul>
-<h3>Excel / Sheets compatibility</h3>
-<p>For European locales that use semicolons in CSVs, switch the delimiter. For best Excel compatibility on macOS, save as UTF-8 with a BOM (this tool does not add BOM by default).</p>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Header inference uses the union of all object keys.</strong> A row missing a key becomes an empty cell; the column doesn't disappear.</li>
+  <li><strong>Nested objects/arrays are stringified.</strong> If you need a flattened CSV (one column per nested key), pre-flatten the JSON before feeding it in.</li>
+  <li><strong>Excel + delimiters.</strong> European locales default to semicolons; switch the delimiter so the file opens with columns instead of one giant line. RFC 4180 escaping is applied either way.</li>
+  <li><strong>UTF-8 BOM.</strong> Excel on macOS sometimes garbles non-ASCII without a BOM. This tool does NOT prepend one — paste the output through a BOM-adding step if you see mojibake.</li>
+</ul>
 """,
     },
     "related": ["csv-to-json", "json-formatter", "yaml-json"],

@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -190,6 +202,7 @@
   <div id="sg-meta" class="meta" style="margin-top:0.5rem"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What it does</h2>
 <ol>
@@ -202,10 +215,12 @@
 <h3>What it doesn't do</h3>
 <p>It doesn't romanize CJK, Cyrillic, Arabic, or other non-Latin scripts character-by-character — those need language-specific tables this tool deliberately keeps out of scope. Such characters are dropped after diacritic stripping.</p>
 <div class="related"><span class="meta">Related tools:</span> <a href="/case-converter/">Case Converter</a> <a href="/url-encoder/">URL Encoder / Decoder</a> <a href="/lorem-ipsum/">Lorem Ipsum Generator</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

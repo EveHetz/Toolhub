@@ -109,15 +109,22 @@ document.addEventListener('DOMContentLoaded', cjRun);
 """,
     "help": {
         "en": """
-<h2>How it works</h2>
-<p>The parser follows RFC 4180 conventions: fields can be wrapped in double quotes, embedded delimiters and newlines work inside quotes, and a literal quote inside a quoted field is escaped by doubling it (<code>""</code>).</p>
-<h3>Type coercion</h3>
-<p>When emitting objects, numeric values, <code>true</code>, <code>false</code>, and the literal string <code>null</code> are converted to the equivalent JSON types. Empty cells become empty strings.</p>
-<h3>Tips</h3>
+<h2>What is this for?</h2>
+<p>CSV is the lingua franca of spreadsheet exports; JSON is the lingua franca of APIs and config. This converter takes properly-quoted CSV (RFC 4180-compatible) and emits a JSON array — either an array of objects (when there's a header row) or an array of arrays. Useful when you've exported a sheet and need to feed it into something that talks JSON.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>If your file uses semicolons (common in EU locales), switch the delimiter dropdown.</li>
-  <li>For TSV files, choose tab.</li>
-  <li>To preserve everything as strings, post-process the output rather than relying on auto-coercion.</li>
+  <li>Turning a one-off Google Sheets / Excel export into seed data for an API mock or test fixture.</li>
+  <li>Loading reference tables (countries, currency codes, lookup data) into a frontend that consumes JSON.</li>
+  <li>Inspecting a CSV with embedded commas / newlines that gets misrendered everywhere except a real RFC 4180 parser.</li>
+</ul>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Delimiter detection isn't magic.</strong> If your file uses semicolons (common in EU locales) or tabs (TSV), switch the delimiter dropdown — auto-detection guesses but can be fooled by data containing the wrong character.</li>
+  <li><strong>Type coercion is opinionated.</strong> Numeric strings, <code>true</code>, <code>false</code>, and literal <code>null</code> are converted to JSON types. Things that look numeric but aren't (zip codes, ISBNs with leading zeros, phone numbers) lose leading zeros — disable coercion or post-process.</li>
+  <li><strong>Empty cells become empty strings, not <code>null</code>.</strong> Most APIs treat the two differently.</li>
+  <li><strong>BOMs in the wild.</strong> Excel often saves UTF-8 with a byte-order mark on Windows; the parser tolerates it but other consumers may not.</li>
 </ul>
 """,
     },

@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -169,6 +181,7 @@
   <div class="meta">This tool decodes only — it does not verify the signature against a key. Treat decoded payload as untrusted until verified.</div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>A JWT is three base64url-encoded parts joined by dots: <code>header.payload.signature</code>. This tool decodes the first two — the signature is shown raw because verification needs the original signing key.</p>
@@ -184,10 +197,12 @@
 <h3>Security note</h3>
 <p>A decoded JWT is <strong>not trustworthy</strong> until you verify the signature with the issuer's public key (RSA/EC) or shared secret (HMAC). Treat anything you decode here as an opaque blob until that step.</p>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/base64-encoder/">Encodeur / Décodeur Base64</a> <a href="/fr/json-formatter/">Formateur JSON</a> <a href="/fr/hash-generator/">Générateur de Hash</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

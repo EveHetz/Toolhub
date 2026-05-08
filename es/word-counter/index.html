@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -169,6 +181,7 @@
   <div class="wc-extra" id="wc-extra"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>Notes</h2>
 <ul>
@@ -179,10 +192,12 @@
   <li><strong>Most frequent</strong> — case-insensitive, includes letters / digits / apostrophes; no stop-word filtering.</li>
 </ul>
 <div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/lorem-ipsum/">Generador Lorem Ipsum</a> <a href="/es/case-converter/">Conversor de Mayúsculas</a> <a href="/es/text-diff/">Comparador de Texto</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

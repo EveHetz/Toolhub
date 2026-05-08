@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -207,6 +219,7 @@
   <div class="meta" id="pw-meta"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>This generator uses your browser's <code>crypto.getRandomValues</code> API — a cryptographically secure random source. Nothing is transmitted; the password never leaves your device.</p>
@@ -223,10 +236,12 @@
   <li>≥ 100 bits — high-value (financial, master password, root credential)</li>
 </ul>
 <div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/uuid-generator/">Generador UUID</a> <a href="/es/hash-generator/">Generador de Hash</a> <a href="/es/jwt-decoder/">Decodificador JWT</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

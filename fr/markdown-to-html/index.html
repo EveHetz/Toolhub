@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -187,6 +199,7 @@ console.log("hi");
   </div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>Supported syntax</h2>
 <ul>
@@ -202,10 +215,12 @@ console.log("hi");
 <h3>Caveat</h3>
 <p>This is a fast in-browser parser, not a CommonMark-spec conformance suite. For HTML embedded in Markdown, more exotic edge cases, or strict reference compliance, use <code>marked</code>, <code>markdown-it</code>, or <code>remark</code>.</p>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/html-encoder/">Encodeur / Décodeur HTML</a> <a href="/fr/lorem-ipsum/">Générateur de Lorem Ipsum</a> <a href="/fr/json-formatter/">Formateur JSON</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

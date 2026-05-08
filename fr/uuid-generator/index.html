@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -174,6 +186,7 @@
   <pre class="output" id="uuid-out"></pre>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>v4 vs v7 — which should I use?</h2>
 <ul>
@@ -183,10 +196,12 @@
 <h3>How it's generated</h3>
 <p>Both versions are RFC-compliant. Random bytes come from your browser's <code>crypto.getRandomValues</code> — never from <code>Math.random</code> or a server.</p>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/password-generator/">Générateur de Mots de Passe</a> <a href="/fr/hash-generator/">Générateur de Hash</a> <a href="/fr/timestamp-converter/">Convertisseur Timestamp Unix</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

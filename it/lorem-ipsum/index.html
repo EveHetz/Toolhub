@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -182,6 +194,7 @@
   </div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What is Lorem Ipsum?</h2>
 <p>Lorem ipsum is scrambled Latin text derived from Cicero's <em>De Finibus Bonorum et Malorum</em> (45 BC), used since the 1500s as filler in typography and printing because its character frequencies and word lengths roughly match real prose without being readable enough to distract.</p>
@@ -194,10 +207,12 @@
 <h3>When not to use it</h3>
 <p>Don't ship it to production. Lorem ipsum has been published live more than once because nobody swapped it for the real copy.</p>
 <div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/word-counter/">Contatore Parole</a> <a href="/it/case-converter/">Convertitore di Maiuscole/Minuscole</a> <a href="/it/markdown-to-html/">Markdown a HTML</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -173,6 +185,7 @@
   <pre class="output" id="ts-out">Introduce un valor arriba para ver el resultado.</pre>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What's a Unix timestamp?</h2>
 <p>The number of seconds since 1970-01-01 00:00:00 UTC. Stored as 32-bit signed in older systems (overflow at 03:14:08 UTC on 2038-01-19) or 64-bit signed everywhere modern.</p>
@@ -181,10 +194,12 @@
 <h3>ISO 8601</h3>
 <p>The recommended format for storing/exchanging dates as text: <code>2025-01-01T00:00:00.000Z</code>. Unambiguous, sortable as a string, supported by every database.</p>
 <div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/timezone-converter/">Conversor de Zonas Horarias</a> <a href="/es/cron-parser/">Analizador de Cron</a> <a href="/es/date-calculator/">Calculadora de Fechas</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

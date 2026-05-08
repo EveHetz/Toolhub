@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -184,6 +196,7 @@
   <div class="meta" id="nb-meta"></div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>Uses JavaScript <code>BigInt</code> internally so values aren't capped at 2<sup>53</sup>. Negative numbers carry through. Underscore digit grouping is accepted (<code>1_000_000</code>).</p>
@@ -196,10 +209,12 @@
 <h3>Bit width</h3>
 <p>The "bits" indicator shows the minimum number of bits needed to represent the absolute value (plus one sign bit for negatives in two's complement).</p>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/base64-encoder/">Encodeur / Décodeur Base64</a> <a href="/fr/hash-generator/">Générateur de Hash</a> <a href="/fr/uuid-generator/">Générateur UUID</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

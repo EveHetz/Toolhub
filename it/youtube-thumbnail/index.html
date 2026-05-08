@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -160,6 +172,7 @@
   <div id="yt-out" class="output">Inserisci un input sopra per vedere il risultato.</div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>YouTube exposes thumbnails on a predictable URL pattern: <code>https://i.ytimg.com/vi/&lt;VIDEO_ID&gt;/&lt;variant&gt;.jpg</code>. This tool just extracts the video ID and shows every variant. The browser fetches the images directly from YouTube — nothing routes through this site.</p>
@@ -180,10 +193,12 @@
   <li>Or just the 11-character video ID on its own.</li>
 </ul>
 <div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/qr-code-generator/">Generatore di Codici QR</a> <a href="/it/image-to-base64/">Immagine a Base64</a> <a href="/it/url-encoder/">Encoder / Decoder URL</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -180,6 +192,7 @@
   <pre class="output" id="re-replaced" style="margin-top:0.75rem;word-break:break-word;white-space:pre-wrap">Inserisci un input sopra per vedere il risultato.</pre>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>How it works</h2>
 <p>Uses the JavaScript engine's native <code>RegExp</code> — same flavour as Node.js and the browser. Patterns and inputs never leave your device.</p>
@@ -198,10 +211,12 @@
   <li><code>$&amp;</code> is the whole match; <code>$1</code>, <code>$2</code>, ... are groups; <code>$$</code> is a literal $.</li>
 </ul>
 <div class="related"><span class="meta">Strumenti correlati:</span> <a href="/it/json-formatter/">Formattatore JSON</a> <a href="/it/text-diff/">Confronto Testo</a> <a href="/it/email-validator/">Validatore Email</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -185,6 +197,7 @@
   <div id="jd-out" class="output">Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.</div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What it computes</h2>
 <p>A structural diff: walks both JSON trees and reports each path where they differ. Output paths use <a href="https://datatracker.ietf.org/doc/html/rfc6901" target="_blank" rel="noopener noreferrer">RFC 6901 JSON Pointer</a> syntax (<code>/users/0/name</code>).</p>
@@ -200,10 +213,12 @@
   <li><strong>By value</strong> — treats arrays as multisets; ignores order. Useful for tag lists, IDs, etc.</li>
 </ul>
 <div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/json-formatter/">JSON-Formatter</a> <a href="/de/text-diff/">Text-Diff</a> <a href="/de/yaml-json/">YAML ↔ JSON Konverter</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

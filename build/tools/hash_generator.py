@@ -61,14 +61,24 @@ document.addEventListener('DOMContentLoaded', hRun);
 """,
     "help": {
         "en": """
-<h2>Which hash should I use?</h2>
+<h2>What is this for?</h2>
+<p>A cryptographic hash takes any input and produces a fixed-length fingerprint. Two identical inputs always hash to the same digest; changing a single bit changes the digest entirely. Hashes underpin file-integrity checks, content-addressable storage, digital signatures, and password-hashing pipelines (where they're combined with a slow function like Argon2 or bcrypt).</p>
+<p>All hashing here uses the browser's <code>crypto.subtle.digest</code> — the same primitives that power TLS. Your input never leaves the page.</p>
+
+<h3>When to use which</h3>
 <ul>
-  <li><strong>SHA-256</strong> — sensible default for integrity checks, content addressing, signatures.</li>
-  <li><strong>SHA-384 / SHA-512</strong> — useful when you need a wider hash (e.g. PBKDF2/HKDF tuning, larger HMAC keys).</li>
-  <li><strong>SHA-1</strong> — shown for compatibility (Git object IDs, legacy CI checksums). Do not use for security-critical purposes — collision attacks are practical since 2017.</li>
-  <li><strong>MD5 is intentionally not offered here.</strong> It's been broken since the early 2000s. If you must check an MD5, use a separate dedicated tool.</li>
+  <li><strong>SHA-256</strong> — sensible default for integrity checks, content addressing (Git, IPFS-style), HMAC keys, and signatures.</li>
+  <li><strong>SHA-384 / SHA-512</strong> — useful when you need a wider digest (PBKDF2/HKDF tuning, larger HMAC keys, post-quantum-margin habits).</li>
+  <li><strong>SHA-1</strong> — for compatibility only (Git object IDs, legacy CI checksums). Don't use for security boundaries — practical collision attacks have existed since 2017.</li>
 </ul>
-<p>All hashing uses the browser's <code>crypto.subtle.digest</code> — same primitives that power TLS in your browser. Nothing is uploaded.</p>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Hashing is not encryption.</strong> Hashes are one-way; you can't get the original back. If you need confidentiality, encrypt.</li>
+  <li><strong>Don't hash passwords with raw SHA-256.</strong> Plain SHA is fast — that helps attackers brute-force. Use a slow KDF (Argon2id, bcrypt, scrypt) for password storage.</li>
+  <li><strong>MD5 is intentionally absent.</strong> Broken since the early 2000s. Anywhere you "need" MD5, you also need to flag a security review.</li>
+  <li><strong>Whitespace matters.</strong> A trailing newline produces a different hash than the same text without one. Compare hex output exactly.</li>
+</ul>
 """,
     },
     "related": ["password-generator", "uuid-generator", "jwt-decoder"],

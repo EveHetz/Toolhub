@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -178,6 +190,7 @@
   </div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What URL encoding does</h2>
 <p>URLs and HTTP headers are restricted to a small ASCII subset. Anything outside that set — including spaces, accented letters, emoji, and several reserved punctuation characters — has to be <em>percent-encoded</em>: replaced by <code>%</code> followed by two hex digits per byte. <code>café</code> becomes <code>caf%C3%A9</code> (UTF-8). Decoding reverses that.</p>
@@ -196,10 +209,12 @@
   <li><strong>Reserved characters are case-insensitive in the percent-escape but case-sensitive in the decoded result</strong> — <code>%2F</code> and <code>%2f</code> both decode to <code>/</code>, but the original character's case is preserved.</li>
 </ul>
 <div class="related"><span class="meta">Herramientas relacionadas:</span> <a href="/es/base64-encoder/">Codificador / Decodificador Base64</a> <a href="/es/html-encoder/">Codificador / Decodificador HTML</a> <a href="/es/qr-code-generator/">Generador de Códigos QR</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Privacidad</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

@@ -92,6 +92,18 @@
     }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -118,13 +130,16 @@
   </div>
 
   <div class="filters" id="filters"></div>
+  <div class="ad-slot" data-slot="indexTop"></div>
 
   <div class="grid" id="grid"></div>
+  <div class="ad-slot" data-slot="indexBottom"></div>
   <div class="no-results" id="no-results">Nessuno strumento trovato. Prova un'altra ricerca.</div>
 
   <footer class="footer">
     <p>© 2026 toolhub.software — Strumenti gratuiti per sviluppatori.</p>
     <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
 
   <script>

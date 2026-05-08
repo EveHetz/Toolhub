@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -167,6 +179,7 @@
   <pre class="output" id="cron-out">Saisissez une entrée ci-dessus pour voir le résultat.</pre>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>Cron field reference</h2>
 <table>
@@ -185,10 +198,12 @@
   <li>The next-fire calculation is in your browser's local timezone.</li>
 </ul>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/timestamp-converter/">Convertisseur Timestamp Unix</a> <a href="/fr/timezone-converter/">Convertisseur de Fuseaux</a> <a href="/fr/date-calculator/">Calculatrice de Dates</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

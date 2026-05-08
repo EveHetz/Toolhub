@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -182,22 +194,32 @@ Bob,25,"Vienna, Austria"'></textarea>
   </div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
-<h2>How it works</h2>
-<p>The parser follows RFC 4180 conventions: fields can be wrapped in double quotes, embedded delimiters and newlines work inside quotes, and a literal quote inside a quoted field is escaped by doubling it (<code>""</code>).</p>
-<h3>Type coercion</h3>
-<p>When emitting objects, numeric values, <code>true</code>, <code>false</code>, and the literal string <code>null</code> are converted to the equivalent JSON types. Empty cells become empty strings.</p>
-<h3>Tips</h3>
+<h2>What is this for?</h2>
+<p>CSV is the lingua franca of spreadsheet exports; JSON is the lingua franca of APIs and config. This converter takes properly-quoted CSV (RFC 4180-compatible) and emits a JSON array — either an array of objects (when there's a header row) or an array of arrays. Useful when you've exported a sheet and need to feed it into something that talks JSON.</p>
+
+<h3>When to use it</h3>
 <ul>
-  <li>If your file uses semicolons (common in EU locales), switch the delimiter dropdown.</li>
-  <li>For TSV files, choose tab.</li>
-  <li>To preserve everything as strings, post-process the output rather than relying on auto-coercion.</li>
+  <li>Turning a one-off Google Sheets / Excel export into seed data for an API mock or test fixture.</li>
+  <li>Loading reference tables (countries, currency codes, lookup data) into a frontend that consumes JSON.</li>
+  <li>Inspecting a CSV with embedded commas / newlines that gets misrendered everywhere except a real RFC 4180 parser.</li>
+</ul>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Delimiter detection isn't magic.</strong> If your file uses semicolons (common in EU locales) or tabs (TSV), switch the delimiter dropdown — auto-detection guesses but can be fooled by data containing the wrong character.</li>
+  <li><strong>Type coercion is opinionated.</strong> Numeric strings, <code>true</code>, <code>false</code>, and literal <code>null</code> are converted to JSON types. Things that look numeric but aren't (zip codes, ISBNs with leading zeros, phone numbers) lose leading zeros — disable coercion or post-process.</li>
+  <li><strong>Empty cells become empty strings, not <code>null</code>.</strong> Most APIs treat the two differently.</li>
+  <li><strong>BOMs in the wild.</strong> Excel often saves UTF-8 with a byte-order mark on Windows; the parser tolerates it but other consumers may not.</li>
 </ul>
 <div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/json-to-csv/">JSON zu CSV</a> <a href="/de/json-formatter/">JSON-Formatter</a> <a href="/de/yaml-json/">YAML ↔ JSON Konverter</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Datenschutz</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){

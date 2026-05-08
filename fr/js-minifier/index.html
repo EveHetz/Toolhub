@@ -130,6 +130,18 @@
     .copy-btn.copied { animation: flash 0.6s; }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
 </head>
 <body>
   <header class="header">
@@ -171,6 +183,7 @@ greet('World');</textarea>
   </div>
 </div>
 
+    <div class="ad-slot" data-slot="content"></div>
     <div class="help">
 <h2>What this minifier does</h2>
 <ul>
@@ -182,10 +195,12 @@ greet('World');</textarea>
 <h3>What it doesn't do</h3>
 <p>This isn't a full optimiser. It won't rename variables, dead-code eliminate, or tree-shake. For production builds use <code>terser</code>, <code>esbuild</code>, or <code>swc</code> in your pipeline.</p>
 <div class="related"><span class="meta">Outils similaires:</span> <a href="/fr/css-minifier/">Minificateur CSS</a> <a href="/fr/json-formatter/">Formateur JSON</a> <a href="/fr/regex-tester/">Testeur Regex</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
     <p><a href="/privacy/">Confidentialité</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
   </footer>
   <script>
     function toggleTheme(){
