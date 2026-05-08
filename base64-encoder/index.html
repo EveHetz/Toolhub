@@ -180,12 +180,29 @@
 </div>
 
     <div class="help">
-<h2>Standard vs base64url</h2>
+<h2>What Base64 actually does</h2>
+<p>Base64 turns arbitrary bytes into 64 ASCII characters (A–Z, a–z, 0–9 plus two extras). Three input bytes become four output characters, so the result is roughly 33% larger than the input. It's an <em>encoding</em>, not encryption — anyone can decode it.</p>
+
+<h3>When to use Base64</h3>
 <ul>
-  <li><strong>Standard</strong> uses <code>+</code>, <code>/</code>, <code>=</code> — works in email and most contexts.</li>
-  <li><strong>base64url</strong> uses <code>-</code>, <code>_</code>, drops trailing <code>=</code> — used in JWTs, URLs, and modern web tokens.</li>
+  <li>Embedding small binary data inside text-only formats: data URIs, JSON values, environment variables, YAML strings.</li>
+  <li>Encoding binary tokens (signatures, keys, hashes) for inclusion in URLs, headers, or cookies.</li>
+  <li>Email attachments and SMIME — historic but still alive.</li>
 </ul>
-<p>UTF-8 encode/decode is handled correctly — non-ASCII (é, 你好, 🚀) round-trips faithfully.</p>
+
+<h3>Standard vs base64url</h3>
+<ul>
+  <li><strong>Standard</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>) uses <code>+</code>, <code>/</code>, <code>=</code>. Fine in email, JSON values, most XML.</li>
+  <li><strong>base64url</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>) uses <code>-</code>, <code>_</code>, and typically drops trailing <code>=</code> padding. Used in JWTs, OAuth tokens, and anywhere the value lives in a URL where <code>+</code>/<code>/</code>/<code>=</code> would need extra escaping.</li>
+</ul>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Don't confuse it with encryption.</strong> Base64 is reversible by anyone. If the data is sensitive, encrypt it first.</li>
+  <li><strong>UTF-8 round-trips correctly here</strong> — non-ASCII (é, 你好, 🚀) goes through <code>TextEncoder</code>/<code>TextDecoder</code>, not <code>btoa</code>/<code>atob</code> directly. Naive <code>btoa(str)</code> in JavaScript breaks on non-Latin characters.</li>
+  <li><strong>Padding</strong> — standard Base64 always ends with 0/1/2 <code>=</code> characters depending on input length. base64url often omits them. Decoders that require padding will reject unpadded input; this tool re-adds it on decode if missing.</li>
+  <li><strong>Whitespace inside encoded strings</strong> — the decoder here strips spaces and line breaks (common from copy-paste), but some libraries don't, so re-encode if you're piping to one of those.</li>
+</ul>
 <div class="related"><span class="meta">Related tools:</span> <a href="/url-encoder/">URL Encoder / Decoder</a> <a href="/html-encoder/">HTML Encoder / Decoder</a> <a href="/jwt-decoder/">JWT Decoder</a> <a href="/image-to-base64/">Image to Base64</a></div></div>
   </main>
   <footer class="footer">

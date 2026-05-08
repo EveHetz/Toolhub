@@ -179,10 +179,21 @@
 </div>
 
     <div class="help">
-<h2>Component vs Full URI</h2>
+<h2>What URL encoding does</h2>
+<p>URLs and HTTP headers are restricted to a small ASCII subset. Anything outside that set — including spaces, accented letters, emoji, and several reserved punctuation characters — has to be <em>percent-encoded</em>: replaced by <code>%</code> followed by two hex digits per byte. <code>café</code> becomes <code>caf%C3%A9</code> (UTF-8). Decoding reverses that.</p>
+
+<h3>When to use which scope</h3>
 <ul>
-  <li><strong>Component</strong> — for individual query-string values. Encodes <code>/?#&amp;=</code>. Use this for values you'll plug into <code>?key=…</code>.</li>
-  <li><strong>Full URI</strong> — for whole URLs. Preserves URL structural characters. Use this when encoding a complete URL string.</li>
+  <li><strong>Component</strong> — pick this for individual <em>values</em> you'll splice into a URL: query-string values, path segments, fragment text, header values. Encodes the structural characters <code>/ ? # &amp; = +</code> so they don't accidentally end up parsed as URL syntax.</li>
+  <li><strong>Full URI</strong> — pick this for a whole URL you want to clean up. Preserves <code>/ ? # &amp; = +</code> as URL structure, only encodes <em>illegal</em> characters (spaces, non-ASCII, etc.).</li>
+</ul>
+
+<h3>Common gotchas</h3>
+<ul>
+  <li><strong>Don't double-encode.</strong> Encoding an already-encoded string turns <code>%20</code> into <code>%2520</code>. If your input shows <code>%XX</code> sequences, decode first.</li>
+  <li><strong>Spaces aren't always <code>%20</code>.</strong> In <em>application/x-www-form-urlencoded</em> bodies, spaces are <code>+</code>. This tool follows the JavaScript <code>encodeURIComponent</code> convention (always <code>%20</code>); decode handles both.</li>
+  <li><strong>UTF-8 vs Latin-1.</strong> Modern browsers and <code>encodeURIComponent</code> always use UTF-8. Some older systems still produce Latin-1 percent-escapes — those won't round-trip cleanly here.</li>
+  <li><strong>Reserved characters are case-insensitive in the percent-escape but case-sensitive in the decoded result</strong> — <code>%2F</code> and <code>%2f</code> both decode to <code>/</code>, but the original character's case is preserved.</li>
 </ul>
 <div class="related"><span class="meta">Related tools:</span> <a href="/base64-encoder/">Base64 Encoder / Decoder</a> <a href="/html-encoder/">HTML Encoder / Decoder</a> <a href="/qr-code-generator/">QR Code Generator</a></div></div>
   </main>
