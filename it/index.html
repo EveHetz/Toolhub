@@ -59,6 +59,8 @@
     .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.5rem 1.5rem 1rem; max-width: 800px; margin: 0 auto; }
     .filter-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.35rem 0.85rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.15s; }
     .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
+    .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
@@ -99,25 +101,17 @@
 
   <section class="hero">
     <h1>Strumenti di Sviluppo Gratuiti</h1>
-    <p>25+ strumenti — veloci, privati, senza registrazione.</p>
+    <p id="hero-sub"></p>
   </section>
 
   <div class="search-wrap">
-    <input type="text" id="search" placeholder="Cerca strumenti..." oninput="filterTools()">
+    <input type="text" id="search" placeholder="Cerca strumenti…  (premi /)" oninput="filterTools()">
   </div>
 
-  <div class="filters" id="filters">
-    <button class="filter-btn active" data-cat="all">Tutti</button>
-    <button class="filter-btn" data-cat="developer">Sviluppatore</button>
-    <button class="filter-btn" data-cat="text">Testo</button>
-    <button class="filter-btn" data-cat="encoding">Codifica</button>
-    <button class="filter-btn" data-cat="data">Dati</button>
-    <button class="filter-btn" data-cat="security">Sicurezza</button>
-    <button class="filter-btn" data-cat="media">Media</button>
-  </div>
+  <div class="filters" id="filters"></div>
 
   <div class="grid" id="grid"></div>
-  <div class="no-results" id="no-results">Nessun strumento trovato.</div>
+  <div class="no-results" id="no-results">Nessuno strumento trovato. Prova un'altra ricerca.</div>
 
   <footer class="footer">
     <p>© 2026 toolhub.software — Strumenti gratuiti per sviluppatori.</p>
@@ -160,6 +154,28 @@
       {"slug": "yaml-json", "name": "Convertitore YAML ↔ JSON", "desc": "Converti tra YAML e JSON in entrambe le direzioni. Utile per manifesti Kubernetes, config CI e specifiche OpenAPI.", "icon": "🔁", "cat": "data", "tags": ["yaml", "json", "convert", "kubernetes", "config", "data"]},
       {"slug": "youtube-thumbnail", "name": "Download Miniature YouTube", "desc": "Incolla qualsiasi URL YouTube o ID video e ottieni tutte le dimensioni di miniatura disponibili — link diretti, nessuna registrazione.", "icon": "▶", "cat": "media", "tags": ["youtube", "thumbnail", "preview", "image", "download", "video"]}
     ];
+
+    const LBL_ALL = "Tutti";
+    const HERO_SUB_POST = "strumenti — veloci, privati, senza registrazione.";
+    const CAT_LABELS = {"developer": "Sviluppatore", "text": "Testo", "encoding": "Codifica", "data": "Dati", "security": "Sicurezza", "media": "Media", "validation": "Validazione", "design": "Design", "datetime": "Data &amp; Ora", "math": "Matematica"};
+
+    function renderFilters() {
+      const counts = {};
+      for (const t of TOOLS) counts[t.cat] = (counts[t.cat] || 0) + 1;
+      const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const wrap = document.getElementById('filters');
+      let html = `<button class="filter-btn active" data-cat="all">${LBL_ALL} <span class="cnt">${TOOLS.length}</span></button>`;
+      for (const c of cats) {
+        const label = CAT_LABELS[c] || c.charAt(0).toUpperCase() + c.slice(1);
+        html += `<button class="filter-btn" data-cat="${c}">${label} <span class="cnt">${counts[c]}</span></button>`;
+      }
+      wrap.innerHTML = html;
+    }
+
+    function renderHero() {
+      document.getElementById('hero-sub').textContent = `${TOOLS.length} ${HERO_SUB_POST}`;
+    }
+
 
     function render(tools) {
       const grid = document.getElementById('grid');
@@ -208,8 +224,23 @@
 
     // Init
     const saved = localStorage.getItem('theme') || 'dark';
-    if (saved === 'light') { document.documentElement.setAttribute('data-theme', 'light'); document.querySelector('.theme-toggle').textContent = '🌙'; }
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '🌙';
+    } else {
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+    renderFilters();
+    renderHero();
     render(TOOLS);
+
+    // `/` keyboard shortcut to focus search
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        document.getElementById('search').focus();
+      }
+    });
   </script>
 </body>
 </html>
