@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "CSV a JSON", "tagline": "Convierte datos CSV en arrays JSON. Detección de cabeceras, separadores personalizados y campos entre comillas.", "description": "Conversor CSV a JSON gratuito. Detecta cabeceras automáticamente, soporta separadores personalizados y campos entre comillas multilínea."},
         "fr": {"name": "CSV vers JSON", "tagline": "Convertissez du CSV en tableaux JSON. Détection d'en-têtes, séparateurs personnalisés, champs avec guillemets et sauts de ligne.", "description": "Convertisseur CSV vers JSON gratuit. Détection automatique d'en-têtes, séparateurs personnalisés, champs entre guillemets multi-lignes."},
         "it": {"name": "CSV a JSON", "tagline": "Converti dati CSV in array JSON. Riconoscimento intestazioni, separatori personalizzati, campi tra virgolette e a capo.", "description": "Convertitore CSV-JSON gratuito. Rileva intestazioni, supporta separatori personalizzati e campi multi-riga tra virgolette."},
+        "pt": {"name": "CSV para JSON", "tagline": "Converta dados CSV em arrays JSON. Detecção de cabeçalho, delimitadores customizados, campos entre aspas e quebras de linha embutidas.", "description": "Conversor CSV para JSON online gratuito. Detecta cabeçalhos automaticamente, suporta delimitadores customizados e campos multilinha entre aspas. Roda no seu browser."},
     },
     "body": """
 <div class="tool-card">
@@ -125,6 +126,25 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>Type coercion is opinionated.</strong> Numeric strings, <code>true</code>, <code>false</code>, and literal <code>null</code> are converted to JSON types. Things that look numeric but aren't (zip codes, ISBNs with leading zeros, phone numbers) lose leading zeros — disable coercion or post-process.</li>
   <li><strong>Empty cells become empty strings, not <code>null</code>.</strong> Most APIs treat the two differently.</li>
   <li><strong>BOMs in the wild.</strong> Excel often saves UTF-8 with a byte-order mark on Windows; the parser tolerates it but other consumers may not.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>CSV é a língua franca dos exports de planilha; JSON é a língua franca de APIs e configs. Este conversor pega um CSV bem formatado com aspas (compatível com RFC 4180) e devolve um array JSON — seja um array de objects (quando há linha de cabeçalho) ou um array de arrays. Útil quando você exportou uma planilha e precisa alimentar algo que fala JSON.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Transformar um export pontual de Google Sheets / Excel em seed data para um mock de API ou fixture de teste.</li>
+  <li>Carregar tabelas de referência (países, códigos de moeda, dados de lookup) num frontend que consome JSON.</li>
+  <li>Inspecionar um CSV com vírgulas / quebras de linha embutidas que renderiza errado em todo lugar exceto num parser RFC 4180 de verdade.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Detecção de delimitador não é mágica.</strong> Se seu arquivo usa ponto e vírgula (comum em locales europeus) ou tabs (TSV), troque no dropdown — a auto-detecção chuta mas pode ser enganada por dados que contêm o caractere errado.</li>
+  <li><strong>Coerção de tipos é opinada.</strong> Strings numéricas, <code>true</code>, <code>false</code> e <code>null</code> literal são convertidos para tipos JSON. Coisas que parecem numéricas mas não são (CEPs, ISBNs com zero à esquerda, telefones) perdem os zeros — desabilite a coerção ou pós-processe.</li>
+  <li><strong>Células vazias viram strings vazias, não <code>null</code>.</strong> A maioria das APIs trata os dois de forma diferente.</li>
+  <li><strong>BOMs no mundo real.</strong> O Excel costuma salvar UTF-8 com byte-order mark no Windows; o parser tolera mas outros consumers podem não tolerar.</li>
 </ul>
 """,
     },

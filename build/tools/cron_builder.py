@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Constructor de Cron", "tagline": "Construye visualmente una expresión cron — minuto, hora, día, mes, día de semana — y previsualiza las próximas 5 ejecuciones.", "description": "Constructor de expresiones cron gratuito. Elige campos con desplegables, obtén el string cron y ve las próximas 5 ejecuciones en tu zona horaria. Crontab estándar de 5 campos."},
         "fr": {"name": "Constructeur Cron", "tagline": "Construisez visuellement une expression cron — minute, heure, jour, mois, jour-semaine — et prévisualisez les 5 prochaines exécutions.", "description": "Constructeur d'expression cron gratuit. Choisissez les champs via menus, récupérez la chaîne cron, voyez les 5 prochaines exécutions dans votre fuseau. Crontab standard 5 champs."},
         "it": {"name": "Costruttore Cron", "tagline": "Costruisci visivamente un'espressione cron — minuto, ora, giorno, mese, giorno-settimana — e anteprima delle prossime 5 esecuzioni.", "description": "Costruttore di espressioni cron gratuito. Scegli i campi con menu, ottieni la stringa cron e vedi le prossime 5 esecuzioni nel tuo fuso. Crontab standard a 5 campi."},
+        "pt": {"name": "Construtor de Expressões Cron", "tagline": "Monte uma expressão cron visualmente — minuto, hora, dia, mês, dia da semana — e veja os próximos 5 horários de execução.", "description": "Construtor online gratuito de expressões cron. Escolha os campos com dropdowns e presets, obtenha a string cron e veja os próximos 5 horários de execução no seu fuso local. Crontab padrão de 5 campos."},
     },
     "body": """
 <div class="tool-card">
@@ -312,6 +313,37 @@ document.addEventListener('DOMContentLoaded', cbBuild);
 <li><strong>Step+Range:</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30.</li>
 <li><strong>Quartz/systemd hanno formato diverso.</strong> Questo costruttore = crontab 5 campi.</li>
 <li><strong>Venerdì 13</strong> richiede script wrapper.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>A sintaxe cron é notoriamente densa — cinco campos, cada um aceitando wildcards, ranges, listas e steps. Escrever do zero toda vez convida ao erro de digitação. Este construtor deixa você partir de um preset (a-cada-5-minutos, dias-úteis-às-09:00, etc.) ou digitar nos campos individuais, ver a string cron resultante, ler um resumo em português claro e conferir contra os próximos cinco horários reais de execução no seu fuso local. O complemento desta ferramenta é o <a href="/cron-parser/">Cron Expression Parser</a>, que decodifica uma expressão existente no mesmo preview.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Configurar uma nova entrada de <code>crontab</code>, <code>CronJob</code> do Kubernetes, schedule do GitHub Actions ou regra do AWS EventBridge.</li>
+  <li>Traduzir um requisito tipo "rodar toda manhã de dia útil" para uma linha cron sintaticamente correta.</li>
+  <li>Conferir que uma expressão que você rascunhou vai realmente rodar quando você acha que vai, antes do deploy.</li>
+  <li>Onboarding de alguém novo em cron — deixe os dropdowns e o preview ensinarem a sintaxe.</li>
+</ul>
+
+<h3>Cola de sintaxe dos campos</h3>
+<ul>
+  <li><code>*</code> — todo valor dentro do range do campo.</li>
+  <li><code>*/N</code> — a cada N (começando no limite inferior).</li>
+  <li><code>A-B</code> — range inclusivo.</li>
+  <li><code>A,B,C</code> — lista de valores específicos.</li>
+  <li><code>A-B/N</code> — a cada N dentro do range A–B.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Dia do mês + dia da semana interagem.</strong> A maioria das implementações de cron usa OR entre os dois quando ambos estão restritos: <code>* * 15 * 1</code> dispara no dia 15 OU numa segunda-feira, não "no dia 15 se for segunda".</li>
+  <li><strong>O fuso horário aqui é o local do seu navegador.</strong> Daemons cron reais rodam no fuso do servidor (frequentemente UTC). Confirme antes de colar num servidor.</li>
+  <li><strong><code>*/N</code> não é exatamente "a cada N".</strong> <code>*/15</code> em minutos = 0,15,30,45 — não 12,27,42,57. Use uma lista se precisar de uma fase específica.</li>
+  <li><strong>Combinações step + range.</strong> <code>0-30/5</code> cobre só 0,5,10,15,20,25,30.</li>
+  <li><strong>Alguns dialetos de cron adicionam campos.</strong> O cron do Quartz tem 6 ou 7 campos (com segundos e ano). Timers do systemd usam um formato totalmente diferente. Este construtor visa o crontab padrão de 5 campos.</li>
+  <li><strong>Sexta-feira 13 é difícil de expressar em cron.</strong> O dia do mês e o dia da semana do cron interagem por OR, então combinar os dois estritamente exige um script wrapper.</li>
 </ul>
 """,
     },

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Calculadora CIDR / Subred", "tagline": "Calcula subredes IPv4 desde notación CIDR. Red, broadcast, máscara, rango de hosts y vista binaria.", "description": "Calculadora gratuita IPv4 CIDR / subred. Introduce un CIDR (p.ej. 10.0.0.0/16) y obtén dirección de red, broadcast, máscara, rango de hosts y representación binaria."},
         "fr": {"name": "Calculateur CIDR / Sous-réseau", "tagline": "Calculez les sous-réseaux IPv4 depuis la notation CIDR. Réseau, broadcast, masque, plage d'hôtes, vue binaire.", "description": "Calculateur gratuit IPv4 CIDR / sous-réseau. Entrez un CIDR (ex: 10.0.0.0/16) et obtenez adresse réseau, broadcast, masque, plage d'hôtes et représentation binaire."},
         "it": {"name": "Calcolatore CIDR / Subnet", "tagline": "Calcola subnet IPv4 dalla notazione CIDR. Rete, broadcast, maschera, intervallo host, vista binaria.", "description": "Calcolatore gratuito IPv4 CIDR / subnet. Inserisci un CIDR (es. 10.0.0.0/16) e ottieni indirizzo di rete, broadcast, maschera, intervallo host e rappresentazione binaria."},
+        "pt": {"name": "Calculadora CIDR / Subnet", "tagline": "Calcule subnets IPv4 a partir da notação CIDR. Network, broadcast, máscara, faixa de hosts e visão binária.", "description": "Calculadora gratuita de CIDR / subnet IPv4. Informe qualquer CIDR (ex.: 10.0.0.0/16) e veja o endereço de rede, broadcast, máscara de subnet, faixa de hosts, total de endereços e representação binária."},
     },
     "body": """
 <div class="tool-card">
@@ -135,6 +136,40 @@ document.addEventListener('DOMContentLoaded', cidrRun);
   <li><strong>Don't confuse class with CIDR.</strong> Classes A/B/C are a legacy concept (pre-1993). A /24 might fall inside a "class A" range and that's fine.</li>
   <li><strong>RFC 1918 private ranges:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Anything else is publicly-routable (or reserved).</li>
   <li><strong>This tool is IPv4 only.</strong> IPv6 CIDR is structurally similar but the prefix can go up to /128 and the address space is much bigger; not handled here.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>A notação CIDR (Classless Inter-Domain Routing) empacota um endereço IPv4 e o tamanho da sua subnet em uma única string: <code>192.168.1.0/24</code> significa "o endereço 192.168.1.0 com prefixo de rede de 24 bits" — a mesma rede que a antiga máscara <code>255.255.255.0</code>, mas escrita em 12 caracteres em vez de 30. Esta ferramenta decodifica qualquer CIDR nos valores legíveis para humanos: quais endereços estão <em>dentro</em> da subnet, o broadcast, a máscara em formato pontuado e a faixa de hosts que você de fato pode atribuir aos dispositivos.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Projetar uma VLAN ou VPC e descobrir quantos hosts um /22 vs /23 comporta (1.022 vs 510).</li>
+  <li>Ler uma regra de firewall como <code>allow 10.42.0.0/16</code> e confirmar a faixa exata que ela cobre.</li>
+  <li>Dividir um /24 em subnets menores e checar que os limites não se sobrepõem.</li>
+  <li>Conferir uma regra de security group de cloud antes de fazer deploy.</li>
+  <li>Traduzir entre CIDR e uma máscara pontuada legada <code>255.x.x.x</code> em configs de roteador.</li>
+</ul>
+
+<h3>Cola rápida de CIDR</h3>
+<ul>
+  <li><strong>/32</strong> — 1 endereço (uma rota de host único).</li>
+  <li><strong>/30</strong> — 4 endereços, 2 utilizáveis (links ponto a ponto).</li>
+  <li><strong>/29</strong> — 8 endereços, 6 utilizáveis (subnet de pequeno escritório).</li>
+  <li><strong>/24</strong> — 256 endereços, 254 utilizáveis (clássico Class C / LAN típica).</li>
+  <li><strong>/16</strong> — 65.536 endereços (rede típica de site ou VPC).</li>
+  <li><strong>/8</strong> — 16,7M endereços (toda uma organização).</li>
+  <li><strong>/0</strong> — todos os endereços IPv4 (a rota padrão).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>"Utilizáveis" exclui network e broadcast.</strong> Um /24 tem 256 endereços mas apenas 254 utilizáveis para hosts — o primeiro (.0) é a rede, o último (.255) é o broadcast.</li>
+  <li><strong>/31 e /32 são especiais.</strong> /31 é usado para links ponto a ponto pela RFC 3021 — ambos os endereços são utilizáveis. /32 é um host único (usado em entradas de roteamento).</li>
+  <li><strong>A parte do endereço não precisa ser o endereço de rede.</strong> <code>10.5.7.42/24</code> ainda significa o mesmo /24 que <code>10.5.7.0/24</code> — o que conta é o tamanho do prefixo. A ferramenta normaliza para o endereço de rede na saída.</li>
+  <li><strong>Não confunda classe com CIDR.</strong> Classes A/B/C são um conceito legado (pré-1993). Um /24 pode cair dentro de uma faixa "classe A" e tudo bem.</li>
+  <li><strong>Faixas privadas RFC 1918:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Qualquer coisa fora disso é roteável publicamente (ou reservada).</li>
+  <li><strong>Esta ferramenta é apenas IPv4.</strong> CIDR IPv6 é estruturalmente parecido mas o prefixo pode ir até /128 e o espaço de endereços é muito maior; não é tratado aqui.</li>
 </ul>
 """,
     },

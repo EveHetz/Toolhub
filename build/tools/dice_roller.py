@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Lanzador de Dados", "tagline": "Lanza dados con notación D&D estándar — 2d6+3, 1d20, 4d6 quedarse 3 más altos. RNG criptográfico.", "description": "Lanzador de dados gratuito con notación estándar de mesa: 1d20, 2d6+3, 4d6kh3, 3d8-1. Cada tirada y el total. Usa crypto.getRandomValues para tiradas justas."},
         "fr": {"name": "Lanceur de Dés", "tagline": "Lancez les dés avec la notation D&D standard — 2d6+3, 1d20, 4d6 garder les 3 plus hauts. RNG crypto-sûr.", "description": "Lanceur de dés gratuit avec notation standard de jeu de rôle : 1d20, 2d6+3, 4d6kh3, 3d8-1. Chaque dé et le total. Utilise crypto.getRandomValues pour des lancers équitables."},
         "it": {"name": "Lanciatore di Dadi", "tagline": "Lancia dadi con notazione D&D standard — 2d6+3, 1d20, 4d6 tieni i 3 più alti. RNG crittograficamente sicuro.", "description": "Lanciatore di dadi gratuito con notazione standard da tavolo: 1d20, 2d6+3, 4d6kh3, 3d8-1. Ogni dado e il totale. Usa crypto.getRandomValues per lanci equi."},
+        "pt": {"name": "Rolador de Dados", "tagline": "Role dados com notação padrão de D&D — 2d6+3, 1d20, 4d6 mantendo os 3 maiores. RNG criptograficamente seguro.", "description": "Rolador de dados online gratuito com notação padrão de RPG de mesa: 1d20, 2d6+3, 4d6kh3, 3d8-1. Veja cada dado individualmente e o total. Usa crypto.getRandomValues para rolagens justas e imprevisíveis."},
     },
     "body": """
 <div class="tool-card">
@@ -177,6 +178,40 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>This is not exploding dice.</strong> No <code>!</code>-style explosions, no rerolls (<code>r1</code>), no successes-counting (<code>3d10>=7</code>). The notation here is the simple "sum and modify" subset that covers ~95% of common rolls.</li>
   <li><strong>Crits are flagged for d20 only.</strong> A 20 highlights green, a 1 highlights red. Other dice sizes don't get the colouring.</li>
   <li><strong>Cap of 1000 dice per roll.</strong> Sane upper bound to keep the page responsive.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>RPGs de mesa (Dungeons & Dragons, Pathfinder, OSR e incontáveis outros) usam uma notação compacta para rolagens de dados: <code>NdL</code> significa "role N dados de L lados cada". <code>2d6+3</code> significa "role dois dados de seis lados e some 3". Esta ferramenta interpreta essa notação e rola os dados usando o RNG criptográfico do browser, que é imprevisível e imparcial — muito melhor que <code>Math.random()</code> para rolagens importantes.</p>
+
+<h3>Notação suportada</h3>
+<ul>
+  <li><code>1d20</code> — um dado de vinte lados.</li>
+  <li><code>2d6+3</code> — dois d6, somados, mais modificador 3.</li>
+  <li><code>3d8-1</code> — três d8, somados, menos 1.</li>
+  <li><code>4d6kh3</code> — quatro d6, <strong>k</strong>eep <strong>h</strong>ighest 3 (mantenha os 3 maiores — clássico para atributos em D&D 5e).</li>
+  <li><code>2d20kl1</code> — dois d20, mantenha o menor (desvantagem).</li>
+  <li><code>2d20kh1</code> — vantagem.</li>
+  <li><code>1d100</code> ou <code>1d%</code> — dado percentual.</li>
+  <li><code>d20</code> — N assume valor 1 por padrão.</li>
+</ul>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Você está jogando online, seus dados físicos estão fora de alcance ou está mestrando remotamente.</li>
+  <li>Precisa de uma rolagem com sensação reproduzível sem assinar app de dados.</li>
+  <li>Quer resolver um "vamos tirar na sorte" sem achar uma moeda (1d2).</li>
+  <li>Está prototipando uma probabilidade para design de jogo (tente um milhão de rolagens — mude a fórmula no código se quiser stats).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>A aba do browser é o limite de confiança.</strong> A rolagem acontece na sua aba, em JavaScript — qualquer um com devtools aberto pode burlar. Para jogo competitivo com estranhos, use um rolador arbitrado pelo servidor.</li>
+  <li><strong>RNG cripto é imprevisível, não "mais aleatório".</strong> Um bom PRNG e um RNG cripto produzem distribuições indistinguíveis para dados. A vantagem do cripto é que ninguém pode prever o próximo número a partir dos anteriores.</li>
+  <li><strong>Modificadores se aplicam uma vez, depois do keep.</strong> <code>4d6kh3+2</code> rola 4d6, mantém os 3 maiores e então soma 2 — não "soma 2 a cada dado".</li>
+  <li><strong>Não há exploding dice.</strong> Sem explosões estilo <code>!</code>, sem rerolls (<code>r1</code>), sem contagem de sucessos (<code>3d10>=7</code>). A notação aqui é o subset simples de "soma e modifica" que cobre ~95% das rolagens comuns.</li>
+  <li><strong>Críticos são sinalizados só para d20.</strong> Um 20 destaca em verde, um 1 destaca em vermelho. Outros tamanhos de dado não recebem essa cor.</li>
+  <li><strong>Limite de 1000 dados por rolagem.</strong> Limite razoável para manter a página responsiva.</li>
 </ul>
 """,
         "de": """

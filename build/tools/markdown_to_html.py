@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Markdown a HTML", "tagline": "Convierte Markdown a HTML limpio con vista previa en vivo. Encabezados, listas, código, tablas, imágenes y enlaces.", "description": "Conversor Markdown a HTML gratuito. Estilo CommonMark: encabezados, listas, código, tablas, imágenes, citas, formato en línea. Vista previa + copiar."},
         "fr": {"name": "Markdown vers HTML", "tagline": "Convertissez Markdown en HTML propre avec aperçu en direct. Titres, listes, code, tableaux, images et liens.", "description": "Convertisseur Markdown vers HTML gratuit. Style CommonMark : titres, listes, blocs code, tableaux, images, citations, format en ligne. Aperçu live + copier."},
         "it": {"name": "Markdown a HTML", "tagline": "Converti Markdown in HTML pulito con anteprima live. Intestazioni, liste, codice, tabelle, immagini e link.", "description": "Convertitore Markdown-HTML gratuito. Stile CommonMark: intestazioni, liste, blocchi codice, tabelle, immagini, citazioni, formattazione inline. Anteprima + copia."},
+        "pt": {"name": "Markdown para HTML", "tagline": "Converta Markdown em HTML limpo com preview ao vivo. Suporta cabeçalhos, listas, código, tabelas, imagens e links.", "description": "Conversor Markdown para HTML gratuito online. Estilo CommonMark: cabeçalhos, listas, blocos de código fenced, tabelas, imagens, blockquotes, formatação inline. Preview ao vivo + copiar."},
     },
     "body": """
 <div class="md-grid">
@@ -191,6 +192,28 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>Tables vs alignment.</strong> Pipe tables need a separator row (<code>|---|</code>) and use <code>:---:</code> / <code>:---</code> / <code>---:</code> for centre/left/right alignment. Forgetting the separator is the most common reason a "table" renders as one paragraph.</li>
   <li><strong>Smart punctuation.</strong> Some renderers convert <code>--</code> to en-dashes and straight quotes to curly. This tool doesn't — pass through a typography pass if you need that.</li>
   <li><strong>Round-tripping isn't lossless.</strong> Markdown → HTML → Markdown will normalise heading style, list spacing, and link form. The semantics survive; the exact bytes don't.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Markdown é o formato de autoria mais escrito do planeta — arquivos README, posts de blog, issues do GitHub, mensagens de chat, sites de documentação. HTML é o que os browsers renderizam. Esta ferramenta converte Markdown em HTML limpo com preview ao vivo, para você ver como o resultado renderizado vai ficar antes de colar num CMS, gerar uma página estática ou enviar como parte de um template de e-mail.</p>
+
+<h3>Sintaxe suportada</h3>
+<ul>
+  <li>Cabeçalhos <code>#</code> até <code>######</code>; bold, itálico, strike</li>
+  <li>Inline <code>`code`</code> e blocos fenced <code>```lang</code></li>
+  <li>Listas com bullet / numeradas / aninhadas</li>
+  <li>Links <code>[texto](url)</code> e imagens <code>![alt](url)</code></li>
+  <li>Blockquotes, tabelas com pipe e alinhamento, linhas horizontais</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Este é um parser rápido no browser, não uma suíte de conformidade.</strong> CommonMark e GFM têm casos extremos (ênfase aninhada, definições de referência de link, expansão de autolink) que divergem entre implementações. Para conformidade estrita, use <code>marked</code>, <code>markdown-it</code> ou <code>remark</code> num passo de build.</li>
+  <li><strong>HTML embutido dentro do Markdown</strong> em geral passa direto, mas algumas implementações sanitizam. Não confie nisso para segurança; trate markdown não confiável como HTML não confiável.</li>
+  <li><strong>Tabelas vs alinhamento.</strong> Tabelas com pipe precisam de uma linha separadora (<code>|---|</code>) e usam <code>:---:</code> / <code>:---</code> / <code>---:</code> para centralizar/esquerda/direita. Esquecer o separador é o motivo mais comum de uma "tabela" renderizar como um parágrafo.</li>
+  <li><strong>Smart punctuation.</strong> Alguns renderers convertem <code>--</code> em travessão e aspas retas em curvas. Esta ferramenta não — passe por um passo de tipografia se precisar disso.</li>
+  <li><strong>Round-trip não é lossless.</strong> Markdown → HTML → Markdown vai normalizar estilo de cabeçalho, espaçamento de lista e forma do link. A semântica sobrevive; os bytes exatos não.</li>
 </ul>
 """,
     },

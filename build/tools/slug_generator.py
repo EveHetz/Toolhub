@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Generador de Slug", "tagline": "Convierte cualquier título en un slug URL limpio — translitera acentos, elimina puntuación, une con guiones.", "description": "Generador de slugs URL gratuito. Minúsculas, transliteración de acentos (à → a, ñ → n), eliminación de puntuación y unión de palabras con separador."},
         "fr": {"name": "Générateur de Slug", "tagline": "Transformez tout titre en slug URL propre — translittère les accents, supprime la ponctuation, joint avec tirets.", "description": "Générateur de slug URL gratuit. Minuscules, translittération des accents (à → a, ñ → n), suppression de la ponctuation et jonction des mots."},
         "it": {"name": "Generatore di Slug", "tagline": "Trasforma qualsiasi titolo in uno slug URL pulito — translittera accenti, rimuove punteggiatura, unisce con trattini.", "description": "Generatore di slug URL gratuito. Minuscole, traslitterazione di accenti (à → a, ñ → n), rimozione punteggiatura e unione parole con separatore."},
+        "pt": {"name": "Gerador de Slug", "tagline": "Transforme qualquer título em um slug de URL limpo — translitera acentos, remove pontuação, une com hifens.", "description": "Gerador de slug de URL gratuito. Coloca em minúsculas, translitera caracteres acentuados (à → a, ñ → n), remove pontuação e une as palavras com o separador escolhido. Remoção opcional de stop words."},
     },
     "body": """
 <div class="tool-card">
@@ -127,6 +128,36 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>Truncation can change meaning.</strong> "introduction-to-rust-programming" cut to 20 chars becomes "introduction-to-rust" — fine; cut to 16 becomes "introduction-to" — clearly worse. Set the limit by hand for content where the tail matters.</li>
   <li><strong>Slugs aren't unique.</strong> Two different titles can collapse to the same slug ("Café" and "Cafe" both → <code>cafe</code>). If you're using slugs as URL keys, append a short ID or a suffix on collision.</li>
   <li><strong>Don't change shipped slugs.</strong> Once a URL is live and indexed, regenerating its slug breaks links and SEO. If a title changes, keep the old slug or set up a 301 redirect.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um slug de URL é o último segmento legível por humanos da URL — <code>/blog/the-quick-brown-fox</code> em vez de <code>/blog/post-4827</code>. Bons slugs são em minúsculas, separados por hifens, só ASCII e curtos o bastante para ler de relance, mas gerá-los a partir de títulos reais cheios de acentos, pontuação e emoji é chato de acertar. Esta ferramenta translitera acentos, remove lixo, une com o separador escolhido e trunca em um limite limpo, então a saída é segura para colar direto numa rota ou nome de arquivo.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Gerar URLs <code>/blog/&lt;slug&gt;</code> a partir de títulos de artigos — especialmente quando os títulos têm caracteres acentuados (à, ñ, ø) ou pontuação (dois-pontos, parênteses, travessões).</li>
+  <li>Produzir nomes de arquivo seguros a partir de nomes fornecidos pelo usuário — uploads, exports, relatórios gerados.</li>
+  <li>Criar identificadores estáveis para tags, categorias ou âncoras (<code>#getting-started</code>) a partir de rótulos humanos.</li>
+  <li>Converter em massa uma lista de títulos para kebab-case num build step de site estático.</li>
+</ul>
+
+<h3>Como funciona a conversão</h3>
+<ol>
+  <li>Normaliza Unicode para NFD e remove diacríticos combinantes (<code>café → cafe</code>).</li>
+  <li>Mapeia ligaturas europeias e letras especiais comuns: <code>ß → ss</code>, <code>æ → ae</code>, <code>ø → o</code>, <code>Ł → L</code>, mais alguns símbolos de moeda/matemática (<code>€ → eur</code>, <code>& → and</code>).</li>
+  <li>Substitui qualquer sequência não-alfanumérica por um único espaço.</li>
+  <li>Opcionalmente remove stop words comuns do inglês (<em>a, an, and, the, of, to, …</em>).</li>
+  <li>Coloca em minúsculas (ou preserva o case), une com seu separador e trunca no limite sem deixar separador solto.</li>
+</ol>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>Scripts não-latinos somem.</strong> A remoção de diacríticos lida com à/ñ/ø, mas não consegue romanizar chinês, japonês, cirílico, árabe ou hebraico caractere a caractere — esses precisam de tabelas específicas por idioma (Hanyu Pinyin, transliteração ICU) que estão deliberadamente fora do escopo aqui. Esses caracteres desaparecem após a etapa de remoção.</li>
+  <li><strong>Remoção de stop words é só em inglês.</strong> "El gato negro" não perde <em>el</em>; "Le chat noir" não perde <em>le</em>. Deixe a opção desligada para títulos não-ingleses.</li>
+  <li><strong>Truncamento pode mudar o sentido.</strong> "introduction-to-rust-programming" cortado em 20 caracteres vira "introduction-to-rust" — ok; cortado em 16 vira "introduction-to" — claramente pior. Defina o limite à mão para conteúdo onde a parte final importa.</li>
+  <li><strong>Slugs não são únicos.</strong> Dois títulos diferentes podem virar o mesmo slug ("Café" e "Cafe" ambos → <code>cafe</code>). Se você usa slugs como chave de URL, anexe um ID curto ou um sufixo em caso de colisão.</li>
+  <li><strong>Não mude slugs que já estão no ar.</strong> Uma vez que a URL está publicada e indexada, regerar o slug quebra links e SEO. Se o título muda, mantenha o slug antigo ou configure um redirect 301.</li>
 </ul>
 """,
     },

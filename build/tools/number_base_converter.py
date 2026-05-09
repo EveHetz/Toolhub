@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Converti tra binario, ottale, decimale, esadecimale e qualsiasi base da 2 a 36.",
             "description": "Convertitore gratuito di basi numeriche. Converti tra binario, ottale, decimale, esadecimale e basi arbitrarie 2-36. Supporta negativi e interi grandi con BigInt.",
         },
+        "pt": {
+            "name": "Conversor de Bases Numéricas",
+            "tagline": "Converta entre binary, octal, decimal, hexadecimal e qualquer base de 2 a 36.",
+            "description": "Conversor de bases numéricas gratuito online. Converta entre binary, octal, decimal, hex e bases arbitrárias de 2 a 36. Lida com números negativos e inteiros grandes via BigInt.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -157,6 +162,34 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>Big numbers don't lose precision here.</strong> JavaScript <code>Number</code> caps at 2<sup>53</sup>; this tool uses <code>BigInt</code>, so 64-bit integers, large hashes, and crypto values all round-trip exactly.</li>
   <li><strong>Don't confuse base with case.</strong> Base-16 letters can be upper or lower; the tool accepts both and emits uppercase. Base-32 / base-36 outputs are lowercase by convention.</li>
   <li><strong>Leading zeros are dropped.</strong> <code>0x000F</code> becomes <code>F</code>. If you need a fixed-width hex (e.g. for byte representations), pad in your code afterward.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Números são o mesmo número independentemente da base — <code>255</code>, <code>0xff</code>, <code>0b11111111</code> e <code>0o377</code> são idênticos. Mas em qual base você lê ou escreve faz diferença quando está traduzindo entre layouts de memória, fazendo parsing de códigos de cor, decodificando bit fields ou só lendo hex no debugger. Esta ferramenta converte entre binary, octal, decimal, hexadecimal e qualquer base de 2 a 36, usando BigInt por baixo dos panos para você não perder precisão em números grandes.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Lendo um valor em hex de uma stack trace e querendo saber o que é em decimal.</li>
+  <li>Convertendo cor CSS <code>0xff8800</code> em uma tripla RGB, ou o contrário.</li>
+  <li>Inspecionando um bitmask ou inteiro de flags em binary para ver quais bits estão setados.</li>
+  <li>Traduzindo entre IDs curtos em base 36 e contadores em decimal.</li>
+</ul>
+
+<h3>Prefixos reconhecidos</h3>
+<ul>
+  <li>Hex: <code>0x</code>, <code>0X</code>, <code>#</code></li>
+  <li>Binary: <code>0b</code>, <code>0B</code></li>
+  <li>Octal: <code>0o</code>, <code>0O</code></li>
+  <li>Underscore para agrupar dígitos: <code>1_000_000</code></li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Números negativos vêm com prefixo de sinal, não em complemento de dois.</strong> <code>-128</code> aparece como <code>-10000000</code> em binary, não <code>10000000</code>. A maioria das linguagens mostra do mesmo jeito para inteiros de precisão arbitrária.</li>
+  <li><strong>Números grandes não perdem precisão aqui.</strong> O <code>Number</code> do JavaScript trava em 2<sup>53</sup>; esta ferramenta usa <code>BigInt</code>, então inteiros de 64 bits, hashes grandes e valores de crypto fazem round-trip exato.</li>
+  <li><strong>Não confunda base com case.</strong> Letras de base 16 podem ser maiúsculas ou minúsculas; a ferramenta aceita ambas e emite em maiúsculas. Saídas em base 32 / base 36 são minúsculas por convenção.</li>
+  <li><strong>Zeros à esquerda são descartados.</strong> <code>0x000F</code> vira <code>F</code>. Se precisar de hex de largura fixa (por exemplo, para representação de bytes), faça o padding depois no seu código.</li>
 </ul>
 """,
     },

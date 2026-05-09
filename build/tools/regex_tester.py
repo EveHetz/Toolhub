@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Testa espressioni regolari JavaScript in tempo reale. Corrispondenze, gruppi di cattura e sostituzioni istantanee.",
             "description": "Tester regex JavaScript gratuito con evidenziazione live, gruppi di cattura e modalità sostituzione. Flag compatibili PCRE.",
         },
+        "pt": {
+            "name": "Testador de Regex",
+            "tagline": "Teste regex de JavaScript ao vivo. Veja matches, grupos de captura e aplique substituições enquanto digita.",
+            "description": "Testador de regex JavaScript gratuito com destaque ao vivo, grupos de captura e modo replace. Flags compatíveis com PCRE (g/i/m/s/u/y).",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -161,6 +166,37 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>Anchors at line vs string boundaries.</strong> <code>^</code> and <code>$</code> match string ends by default; with <code>m</code> flag they match each line.</li>
   <li><strong>Replacement specials.</strong> <code>$&amp;</code> is the whole match; <code>$1</code>, <code>$2</code>, … are capture groups; <code>$$</code> is a literal <code>$</code>. Forgetting that is a common source of "why is my regex eating my dollars".</li>
   <li><strong>Don't parse HTML with regex</strong> for anything serious. The classic warning is true: nested tags, comments, and CDATA need a real parser. Regex is fine for one-off log scraping or controlled inputs.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Regex é denso e implacável. A forma de escrever uma que realmente funcione é iterativa — pattern, texto de exemplo, ver o que casa, ajustar. Esta ferramenta te dá esse loop no navegador usando o <code>RegExp</code> nativo do JavaScript, mais inspeção de grupos de captura e preview de substituição. Patterns e entradas nunca saem da página.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Validar entrada do usuário (formato de e-mail, telefone, CEP) e ver exatamente quais entradas passam e quais falham.</li>
+  <li>Fazer parsing de linhas de log, extrair campos, montar filtros de log.</li>
+  <li>Desenhar patterns de find-and-replace antes de rodar contra um codebase de verdade.</li>
+  <li>Debugar uma regex que você copiou do Stack Overflow e não funciona — cole aqui, veja o que ela realmente casa.</li>
+</ul>
+
+<h3>Patterns comuns</h3>
+<ul>
+  <li><code>\\b\\w+@\\w+\\.\\w+\\b</code> — formato de e-mail</li>
+  <li><code>^\\s*$</code> — linha vazia/só whitespace (com flag <code>m</code>)</li>
+  <li><code>(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})</code> — grupos de captura nomeados</li>
+  <li><code>(?:.*)</code> — grupo não-capturante</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — lookahead / lookahead negativo</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>JavaScript ≠ PCRE.</strong> Sem <code>\\K</code>, sem patterns recursivos, lookbehind só desde ES2018. Patterns de Perl, PHP ou Python frequentemente precisam de ajuste.</li>
+  <li><strong>Sem a flag <code>g</code> você só pega o primeiro match.</strong> Adicione <code>g</code> para "encontrar todos"; combine com <code>m</code> se os anchors devem casar por linha.</li>
+  <li><strong>Greedy vs lazy.</strong> <code>.*</code> pega o máximo possível; <code>.*?</code> pega o mínimo. A diferença entre casar <code>&lt;b&gt;hi&lt;/b&gt; e &lt;i&gt;there&lt;/i&gt;</code> como um bloco ou como dois.</li>
+  <li><strong>Anchors em limites de linha vs string.</strong> <code>^</code> e <code>$</code> casam fim de string por padrão; com a flag <code>m</code> casam cada linha.</li>
+  <li><strong>Especiais de replacement.</strong> <code>$&amp;</code> é o match inteiro; <code>$1</code>, <code>$2</code>, … são grupos de captura; <code>$$</code> é um <code>$</code> literal. Esquecer disso é fonte clássica de "por que minha regex está comendo meus dólares".</li>
+  <li><strong>Não faça parsing de HTML com regex</strong> para nada sério. O aviso clássico é verdadeiro: tags aninhadas, comentários e CDATA precisam de um parser de verdade. Regex serve para scraping pontual ou entradas controladas.</li>
 </ul>
 """,
     },

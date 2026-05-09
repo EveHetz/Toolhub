@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Conversor de Unidades", "tagline": "Convierte entre unidades métricas e imperiales de longitud, peso, temperatura, volumen y área.", "description": "Conversor gratuito de unidades. Convierte longitud, peso, temperatura, volumen y área entre unidades métricas e imperiales."},
         "fr": {"name": "Convertisseur d'Unités", "tagline": "Convertissez entre unités métriques et impériales de longueur, poids, température, volume et surface.", "description": "Convertisseur d'unités gratuit. Conversion entre unités métriques et impériales de longueur, poids, température, volume et surface."},
         "it": {"name": "Convertitore di Unità", "tagline": "Converti tra unità metriche e imperiali di lunghezza, peso, temperatura, volume e area.", "description": "Convertitore di unità gratuito. Conversione tra unità metriche e imperiali di lunghezza, peso, temperatura, volume e area."},
+        "pt": {"name": "Conversor de Unidades", "tagline": "Converta entre unidades métricas e imperiais de comprimento, peso, temperatura, volume e área.", "description": "Conversor de unidades online gratuito. Converta comprimento (mm, cm, m, km, in, ft, yd, mi), peso (g, kg, lb, oz), temperatura (C, F, K), volume (mL, L, gal, fl oz) e área (m², ft², acre, ha)."},
     },
     "body": """
 <div class="tool-card">
@@ -217,6 +218,37 @@ document.addEventListener('DOMContentLoaded', () => { ucCatChanged(); ucRun(); }
   <li><strong>Mass vs weight.</strong> Strictly, kg is mass and pounds are mass too (despite the colloquial "I weigh 70 kg"). The tool treats them as a mass-to-mass conversion. For force (newtons, pound-force), you need a different category.</li>
   <li><strong>Round at the end, not the middle.</strong> Don't convert m → ft, round, then ft → in — accumulate errors. Go straight to the target unit.</li>
   <li><strong>Stones &amp; pounds.</strong> A British weight: 1 stone = 14 lb. The tool has stone (st) but you'll need to do the lb portion separately for "11 st 4 lb"-style entries.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>A maior parte do mundo usa o sistema métrico, os EUA usam o imperial, o Reino Unido mistura os dois, receitas vêm em xícaras quando deveriam estar em gramas, e em algum momento o trabalho escolar do seu filho pede "5 jardas em centímetros". Esta ferramenta faz as conversões para comprimento, peso, temperatura, volume, área, tempo e velocidade usando definições de alta precisão — e mostra o resultado em todas as unidades da categoria de uma vez, para você não ter que converter duas vezes.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Lendo uma receita em xícaras quando você cozinha em gramas (ou vice-versa).</li>
+  <li>Convertendo a distância de um voo em milhas náuticas para quilômetros.</li>
+  <li>Convertendo uma previsão de temperatura externa de °C para °F antes de viajar.</li>
+  <li>Medindo um móvel: 72 polegadas de largura → cabe numa porta de 1,9 m?</li>
+  <li>Lendo medidas em SI de um artigo científico quando você pensa em imperial.</li>
+</ul>
+
+<h3>O que é preciso e o que não é</h3>
+<ul>
+  <li><strong>Comprimento, peso, temperatura, área, velocidade</strong> usam as definições do SI e o acordo internacional de jarda e libra (1959), então são precisos até a precisão da sua entrada.</li>
+  <li><strong>Volume</strong> pode ser complicado: um "gallon" americano (3,785 L) e um "imperial gallon" britânico (4,546 L) são diferentes. A ferramenta indica qual é qual.</li>
+  <li><strong>Cup / tablespoon / teaspoon</strong> usam por padrão a medida americana aqui. Xícaras britânicas e australianas são ligeiramente diferentes (250 mL na AU, 240 mL nos EUA).</li>
+  <li><strong>"Mês" e "ano"</strong> na categoria tempo usam médias (30,44 dias / 365,25 dias). Não use isto para cálculos jurídicos ou contábeis em que meses exatos importam — use uma calculadora de datas.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Temperatura não é uma razão.</strong> 0°C não é "ausência de temperatura" — é um ponto de referência. Dobrar Celsius não dobra o calor. A conversão usa os deslocamentos aditivos (273,15 de/para Kelvin, 32 entre C e F) — por isso a ferramenta usa funções para temperatura, e não multiplicadores.</li>
+  <li><strong>Fluid ounces dos EUA e do Reino Unido são diferentes.</strong> 1 US fl oz = 29,57 mL, 1 UK fl oz = 28,41 mL. Sempre verifique qual padrão a receita usa.</li>
+  <li><strong>"Tonne" vs "ton".</strong> Tonelada métrica = 1000 kg. Short ton (EUA) = 907 kg. Long ton (UK) = 1016 kg. O "t" da ferramenta é a tonelada métrica.</li>
+  <li><strong>Massa vs peso.</strong> Estritamente, kg é massa e libras também são massa (apesar do coloquial "eu peso 70 kg"). A ferramenta trata como conversão de massa para massa. Para força (newtons, pound-force), você precisa de outra categoria.</li>
+  <li><strong>Arredonde no fim, não no meio.</strong> Não converta m → ft, arredonde, e depois ft → in — você acumula erros. Vá direto para a unidade alvo.</li>
+  <li><strong>Stones &amp; pounds.</strong> Uma medida britânica de peso: 1 stone = 14 lb. A ferramenta tem stone (st), mas você terá que fazer a parte das lb separadamente para entradas no estilo "11 st 4 lb".</li>
 </ul>
 """,
     },

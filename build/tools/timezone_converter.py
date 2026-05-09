@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Converti data e ora tra fusi orari IANA. Mostra offset, ora legale e giorno della settimana.",
             "description": "Convertitore di fusi orari gratuito. Conversione tra fusi IANA con consapevolezza dell'ora legale. Seleziona tra i fusi comuni o gli oltre 400 supportati dal browser.",
         },
+        "pt": {
+            "name": "Conversor de Fuso Horário",
+            "tagline": "Converta uma data e hora entre fusos horários IANA. Veja offsets, status de horário de verão e dia da semana dos dois lados.",
+            "description": "Conversor gratuito de fuso horário. Converta entre quaisquer fusos IANA com suporte a horário de verão. Escolha entre fusos comuns ou qualquer um dos 400+ suportados pelo seu navegador.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -171,6 +176,31 @@ document.addEventListener('DOMContentLoaded', () => { tzPopulate(); tzNow(); });
   <li><strong>Country abbreviations are not zones.</strong> "EST" is ambiguous (US vs Australian); "IST" can mean Indian, Irish, or Israeli. Always pick the IANA zone, not the abbreviation.</li>
   <li><strong>Historical accuracy</strong> is good for the modern era but breaks down for very old dates. Pre-1970 timestamps may use approximated offsets in some browsers.</li>
   <li><strong>Storing dates: always use UTC.</strong> Convert at display time. The UTC line in the output gives you the canonical value to write to your database.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Fusos horários são surpreendentemente irritantes. Uma reunião às "9h" significa momentos absolutos diferentes em São Paulo, Lisboa e Nova York — e o offset entre quaisquer dois deles muda duas vezes por ano por causa do horário de verão, em datas diferentes. Esta ferramenta pega uma hora de relógio em um fuso IANA e diz o equivalente exato em outro, com offsets atuais, o instante UTC e o dia da semana dos dois lados.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Agendar uma call entre continentes — confirmar o que "15h CET" é no fuso do seu colega.</li>
+  <li>Ler um timestamp de log gravado em UTC e traduzir para hora local em um relatório voltado ao usuário.</li>
+  <li>Verificar se uma janela de deploy ou slot de manutenção cruza a transição do horário de verão.</li>
+  <li>Conferir se uma expressão cron em <code>America/New_York</code> dispara no momento que você espera no seu próprio fuso.</li>
+  <li>Descobrir a mudança de dia da semana ao cruzar a linha internacional de mudança de data.</li>
+</ul>
+
+<h3>Por que fusos IANA (não "GMT+2")</h3>
+<p>Um fuso IANA como <code>America/Sao_Paulo</code> ou <code>America/New_York</code> codifica as regras históricas e atuais daquele lugar — datas de início e fim do horário de verão, mudanças de fuso (a Rússia aboliu o horário de verão em 2014; a Turquia largou em 2016), até Samoa pulando um dia inteiro em 2011. Um offset puro como "GMT+2" não te diz nada sobre se o horário de verão se aplica, qual era a regra ano passado ou qual será no próximo ano. Os navegadores trazem a base IANA (via ICU/CLDR) e atualizam automaticamente, então a conversão se mantém correta ao longo do tempo.</p>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>Transições de horário de verão criam horas ambíguas e inexistentes.</strong> Quando o relógio atrasa, 02:30 acontece duas vezes; quando adianta, 02:30 não existe. A ferramenta escolhe a interpretação de horário padrão por padrão; se você precisa do outro lado, desloque uma hora para qualquer direção.</li>
+  <li><strong>Offsets não são constantes.</strong> "CET" é UTC+1 no inverno e UTC+2 no verão (CEST). A saída sempre mostra o offset real para a data que você inseriu, então confie no offset exibido em vez da abreviação.</li>
+  <li><strong>Abreviações de país não são fusos.</strong> "EST" é ambíguo (EUA vs Austrália); "IST" pode ser indiano, irlandês ou israelense. Sempre escolha o fuso IANA, não a abreviação.</li>
+  <li><strong>A precisão histórica</strong> é boa para a era moderna, mas começa a falhar em datas muito antigas. Timestamps anteriores a 1970 podem usar offsets aproximados em alguns navegadores.</li>
+  <li><strong>Armazenando datas: sempre use UTC.</strong> Converta na hora de exibir. A linha UTC na saída te dá o valor canônico para gravar no seu banco.</li>
 </ul>
 """,
     },

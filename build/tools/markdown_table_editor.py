@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Editor de Tablas Markdown", "tagline": "Edita visualmente una tabla — filas, columnas, alineación por columna — y copia el Markdown estilo GitHub.", "description": "Editor de tablas Markdown gratuito. Haz clic en celdas para editar, añade/quita filas y columnas, define alineación por columna y copia el Markdown GFM. 100% en el navegador."},
         "fr": {"name": "Éditeur de Tableau Markdown", "tagline": "Éditez visuellement un tableau — lignes, colonnes, alignement par colonne — et copiez le Markdown GitHub.", "description": "Éditeur de tableau Markdown gratuit. Cliquez pour éditer, ajoutez/supprimez lignes et colonnes, alignement par colonne et copie du Markdown GFM. 100% dans le navigateur."},
         "it": {"name": "Editor di Tabelle Markdown", "tagline": "Modifica visualmente una tabella — righe, colonne, allineamento per colonna — e copia il Markdown stile GitHub.", "description": "Editor di tabelle Markdown gratuito. Clicca le celle per modificare, aggiungi/rimuovi righe e colonne, allineamento per colonna e copia il Markdown GFM. 100% nel browser."},
+        "pt": {"name": "Editor de Tabelas Markdown", "tagline": "Edite uma tabela visualmente — linhas, colunas, alinhamento por coluna — e copie o Markdown estilo GitHub.", "description": "Editor de tabelas Markdown gratuito online. Clique nas células para editar, adicione/remova linhas e colunas, defina alinhamento por coluna e copie o Markdown estilo GitHub (GFM). Roda inteiramente no seu navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -238,6 +239,28 @@ document.addEventListener('DOMContentLoaded', mtRender);
   <li><strong>The first row is always treated as the header.</strong> GFM tables have a mandatory header. If your data has no natural header, use blank cells in row 1.</li>
   <li><strong>Some Markdown flavours are stricter than GFM.</strong> CommonMark itself doesn't define tables; GFM, MultiMarkdown, and various others all support slightly different variants. The output here targets GFM (GitHub, GitLab, most modern renderers).</li>
   <li><strong>Pasting an unformatted CSV won't work.</strong> The "import" textarea expects a Markdown table (with the <code>|---|</code> separator). For CSV → Markdown, use the CSV-to-JSON tool first or hand-paste rows.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Tabelas Markdown ficam ótimas no resultado renderizado e são chatas de escrever na mão. Caracteres pipe, dois-pontos de alinhamento, o número certo de traços por coluna — quando você termina de ajustar tudo, podia ter escrito em HTML. Este editor te dá uma grade familiar: clique em qualquer célula para editar, use os botões para adicionar ou remover linhas e colunas, defina alinhamento por coluna num dropdown e copie o Markdown estilo GitHub quando terminar. Você também pode colar uma tabela Markdown existente embaixo e ela é carregada na grade para edição.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Criar uma tabela comparativa para um README, issue do GitHub ou descrição de PR.</li>
+  <li>Reeditar uma tabela de uma documentação — cole o Markdown existente, ajuste na grade, copie de volta.</li>
+  <li>Produzir uma tabela ASCII com padding alinhado (a saída tem padding à direita, então também é legível como texto puro).</li>
+  <li>Rascunhar uma tabela de release notes sem brigar com a sintaxe de pipes e traços.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Pipes inline quebram tabelas GFM.</strong> Um <code>|</code> literal dentro de uma célula encerra a célula. Faça escape como <code>\\|</code> quando precisar.</li>
+  <li><strong>Conteúdo da célula é de uma linha só.</strong> Tabelas Markdown não suportam quebras de linha dentro de células sem HTML (<code>&lt;br&gt;</code>). Para conteúdo multilinha, escreva a tabela em HTML.</li>
+  <li><strong>Alinhamento é renderizado, não forçado.</strong> A saída também aplica padding para alinhar no source, mas o alinhamento renderizado de fato vem dos dois-pontos na linha separadora, não do espaçamento.</li>
+  <li><strong>A primeira linha sempre é tratada como header.</strong> Tabelas GFM têm header obrigatório. Se seus dados não têm um header natural, use células em branco na linha 1.</li>
+  <li><strong>Algumas variantes Markdown são mais rígidas que GFM.</strong> O CommonMark em si não define tabelas; GFM, MultiMarkdown e várias outras suportam variantes ligeiramente diferentes. A saída aqui mira GFM (GitHub, GitLab, a maioria dos renderers modernos).</li>
+  <li><strong>Colar um CSV sem formatação não funciona.</strong> A textarea de "import" espera uma tabela Markdown (com o separador <code>|---|</code>). Para CSV → Markdown, use a ferramenta CSV-to-JSON primeiro ou cole as linhas na mão.</li>
 </ul>
 """,
         "de": """

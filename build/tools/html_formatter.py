@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Formateador HTML", "tagline": "Formatea y embellece HTML o minifícalo. Tamaño de indentación, eliminación de comentarios y reconocimiento de etiquetas auto-cerradas.", "description": "Formateador y minimizador HTML gratuito. Pretty-print con indentación configurable, eliminación opcional de comentarios y respeto a etiquetas void/auto-cerradas. 100% en el navegador."},
         "fr": {"name": "Formateur HTML", "tagline": "Formatez et embellissez du HTML ou minifiez-le. Taille d'indentation, suppression de commentaires, gestion des balises auto-fermantes.", "description": "Formateur et minifieur HTML gratuit. Pretty-print avec indentation configurable, suppression optionnelle des commentaires, respect des balises void/auto-fermantes. 100% dans le navigateur."},
         "it": {"name": "Formattatore HTML", "tagline": "Formatta e abbellisce HTML o minifica. Dimensione indentazione, rimozione commenti, consapevolezza tag auto-chiudenti.", "description": "Formattatore e minificatore HTML gratuito. Pretty-print con indentazione configurabile, rimozione opzionale dei commenti, rispetto dei tag void/auto-chiudenti. 100% nel browser."},
+        "pt": {"name": "Formatador HTML", "tagline": "Formata e embeleza HTML ou minifica. Tamanho de indentação, remoção de comentários e reconhecimento de tags auto-fechantes.", "description": "Formatador e minificador HTML grátis online. Pretty-print com indentação configurável, remoção opcional de comentários e respeito por tags void/auto-fechantes. Roda totalmente no seu browser."},
     },
     "body": """
 <div class="tool-card">
@@ -273,6 +274,28 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>"Collapse whitespace" changes the rendered output for some content.</strong> Two spaces become one. If your design relies on multiple spaces or non-breaking sequences, leave it off.</li>
   <li><strong>Self-closing notation in HTML is cosmetic.</strong> <code>&lt;br/&gt;</code> and <code>&lt;br&gt;</code> are equivalent in HTML5; this tool preserves whatever you wrote.</li>
   <li><strong>Minify is not a security boundary.</strong> Don't rely on stripping comments to hide secrets — they were already shipped to the client.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>O markup HTML chega no seu editor em todos os tipos de estado — minificado para produção, gerado por engines de template sem nenhum cuidado com whitespace, digitado à mão e indentado de forma inconsistente. Esta ferramenta reformata qualquer fragmento HTML com indentação consistente por elemento aninhado, reconhecendo elementos void (<code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;meta&gt;</code>) e elementos inline (<code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) para que o output pareça HTML de verdade, não algo formatado por regra cega. O modo minify remove whitespace entre tags e, opcionalmente, comentários. Tudo fica no seu browser.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Fazer pretty-print de um e-mail HTML minificado ou de uma cópia de "view source" para conseguir ler a estrutura.</li>
+  <li>Limpar um trecho vindo de CMS / editor WYSIWYG antes de colar num code review.</li>
+  <li>Minificar um asset HTML estático antes do deploy — menos bytes na rede, sem comentários vazando.</li>
+  <li>Remover comentários do autor de um template antes de publicar.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Este é um tokenizer pragmático, não um parser HTML5 completo.</strong> Funciona bem em fragmentos do mundo real, mas não recupera de input gravemente malformado como os browsers fazem (browsers rodam o algoritmo completo de parsing HTML e corrigem erros silenciosamente — esta ferramenta não).</li>
+  <li><strong>Whitespace dentro de <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code> é preservado.</strong> Esses elementos são tratados como raw e não são reindentados.</li>
+  <li><strong>Elementos inline ficam na mesma linha do texto pai</strong> — <code>&lt;p&gt;some &lt;b&gt;bold&lt;/b&gt; text&lt;/p&gt;</code> não é quebrado em várias linhas.</li>
+  <li><strong>"Colapsar whitespace" muda o output renderizado em alguns conteúdos.</strong> Dois espaços viram um. Se seu design depende de múltiplos espaços ou sequências non-breaking, deixe desligado.</li>
+  <li><strong>Notação self-closing em HTML é cosmética.</strong> <code>&lt;br/&gt;</code> e <code>&lt;br&gt;</code> são equivalentes em HTML5; esta ferramenta preserva o que você escreveu.</li>
+  <li><strong>Minify não é uma fronteira de segurança.</strong> Não confie em remoção de comentários para esconder segredos — eles já foram enviados pro cliente.</li>
 </ul>
 """,
         "de": """

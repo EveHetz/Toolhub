@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Analizador de URL", "tagline": "Pega cualquier URL — verás protocolo, host, puerto, ruta, parámetros de consulta (decodificados), hash y origen.", "description": "Analizador URL gratuito. Decodifica cualquier URL en protocolo, host, puerto, ruta, query, hash y origen; parámetros decodificados. 100% en el navegador."},
         "fr": {"name": "Analyseur d'URL", "tagline": "Collez une URL — protocole, hôte, port, chemin, paramètres de requête (décodés), fragment et origine.", "description": "Analyseur d'URL gratuit. Décode toute URL en protocole, hôte, port, chemin, query, fragment et origine ; paramètres décodés. 100% dans le navigateur."},
         "it": {"name": "Analizzatore URL", "tagline": "Incolla un URL — protocollo, host, porta, percorso, parametri query (decodificati), hash e origine.", "description": "Analizzatore URL gratuito. Decodifica qualsiasi URL in protocollo, host, porta, percorso, query, hash e origine; parametri decodificati. 100% nel browser."},
+        "pt": {"name": "Parser de URL", "tagline": "Cole qualquer URL — veja protocol, host, porta, path, query parameters (decodificados), hash e origin organizados.", "description": "Parser de URL online gratuito. Decodifica qualquer URL em protocol, host, porta, path, query string, hash e origin, com cada query parameter exibido decodificado. Roda inteiramente no seu navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -118,6 +119,29 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>Punycode hostnames.</strong> <code>example.中国</code> is stored as <code>xn--fiqs8s</code> internally; <code>hostname</code> may show the ASCII form depending on the browser.</li>
   <li><strong>Origin is sometimes "null".</strong> For <code>file://</code>, <code>data:</code>, or sandboxed contexts, origin is opaque.</li>
   <li><strong>This is parsing, not validation.</strong> A URL can parse cleanly and still be wrong for your application (e.g. wrong host, missing path).</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Uma URL é uma string estruturada com sete partes bem definidas (scheme, authority, host, porta, path, query, fragment) que você enxerga como um único bloco. Quando algo está errado — o parâmetro errado, uma porta inesperada, um caractere codificado a mais — é muito mais fácil identificar numa tabela parseada do que na string crua. Esta ferramenta usa o objeto <code>URL</code> nativo do navegador, então o parse corresponde exatamente ao que o JavaScript enxerga, e separa cada query parameter para que os valores decodificados fiquem visíveis ao lado da forma raw.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Debugando uma URL de callback OAuth onde o <code>state</code> ou <code>code</code> parece errado.</li>
+  <li>Inspecionando uma URL de tracking (UTM tags, click-tokens) e vendo os valores reais em vez do bloco codificado.</li>
+  <li>Confirmando que uma URL de webhook é parseada como o serviço receptor espera — em particular o path e qualquer query.</li>
+  <li>Investigando por que um deep link funciona em um app e não em outro (porta? scheme? authority?).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Chaves de query repetidas são reais.</strong> <code>?a=1&amp;a=2</code> são dois valores para <code>a</code>; ferramentas que leem só o primeiro perdem dados. O parser mostra todos os valores por chave.</li>
+  <li><strong>O fragment nunca chega ao servidor.</strong> Tudo depois de <code>#</code> fica no navegador. Se seu backend não está vendo dados que você colocou na URL, verifique se eles não estão no fragment.</li>
+  <li><strong>Encoding importa.</strong> <code>%20</code> em um valor de query decodifica para espaço; <code>+</code> em um valor de query <em>também</em> decodifica para espaço (segundo <code>application/x-www-form-urlencoded</code>). O <code>URL.searchParams</code> do navegador trata os dois.</li>
+  <li><strong>Portas padrão não aparecem em <code>port</code>.</strong> Uma URL como <code>https://example.com/</code> tem <code>port</code> vazio (a 443 padrão é implícita).</li>
+  <li><strong>Hostnames com Punycode.</strong> <code>example.中国</code> é armazenado internamente como <code>xn--fiqs8s</code>; <code>hostname</code> pode mostrar a forma ASCII dependendo do navegador.</li>
+  <li><strong>Origin às vezes é "null".</strong> Para <code>file://</code>, <code>data:</code> ou contextos sandboxed, origin é opaco.</li>
+  <li><strong>Isto é parsing, não validação.</strong> Uma URL pode parsear corretamente e ainda estar errada para sua aplicação (ex.: host errado, path faltando).</li>
 </ul>
 """,
         "de": """

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Formateador SQL", "tagline": "Formatea y embellece SQL con indentación, o minifícalo a una línea. Consciente del dialecto (ANSI / MySQL / Postgres).", "description": "Formateador SQL gratuito. Pretty-print de SELECT/INSERT/UPDATE/DDL con indentación consistente, mayúsculas de palabras clave y alineación de cláusulas. También minifica. 100% en el navegador."},
         "fr": {"name": "Formateur SQL", "tagline": "Formatez et embellissez du SQL avec indentation, ou minifiez sur une ligne. Conscient du dialecte (ANSI / MySQL / Postgres).", "description": "Formateur SQL gratuit. Pretty-print de SELECT/INSERT/UPDATE/DDL avec indentation cohérente, casse des mots-clés et alignement des clauses. Minify aussi. 100% dans le navigateur."},
         "it": {"name": "Formattatore SQL", "tagline": "Formatta e abbellisce SQL con indentazione corretta, o minifica su una riga. Consapevole del dialetto (ANSI / MySQL / Postgres).", "description": "Formattatore SQL gratuito. Pretty-print di SELECT/INSERT/UPDATE/DDL con indentazione coerente, maiuscole di parole chiave e allineamento clausole. Minifica anche. 100% nel browser."},
+        "pt": {"name": "Formatador SQL", "tagline": "Formate e embeleze SQL com indentação correta, ou minifique para uma linha. Reconhece dialetos (ANSI / MySQL / Postgres).", "description": "Formatador SQL gratuito. Pretty-print de qualquer SELECT/INSERT/UPDATE/DDL com indentação consistente, case de keywords e alinhamento de cláusulas. Também minifica para uma linha. Roda inteiramente no navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -329,6 +330,28 @@ document.addEventListener('DOMContentLoaded', sfRun);
   <li><strong>Comments survive but get isolated on their own lines.</strong> If you had a <code>-- inline comment</code> mid-line, it'll move to its own line during pretty-print.</li>
   <li><strong>Minify strips comments.</strong> If you need them, don't minify.</li>
   <li><strong>It's not a linter.</strong> Use a real SQL parser (e.g. <code>sqlfluff</code>) for validation, style enforcement, and dialect checking in CI.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>SQL vai do one-liner que você digitou no <code>psql</code> até a query analítica de 200 linhas que ninguém consegue ler até estar indentada direito. Este formatador pega qualquer SELECT, INSERT, UPDATE ou DDL e reescreve com indentação consistente, quebras de linha antes de cada cláusula e case uniforme das keywords. O modo minify faz o oposto — espreme tudo numa linha só para embutir em código ou scripts. Tudo roda no navegador; queries nunca saem da página.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Reformatar uma query que você copiou de um log, ORM ou mensagem de chat para algo revisável e diff-ável.</li>
+  <li>Normalizar convenções da equipe (keywords em UPPERCASE, indent de 2 espaços) antes de commitar um script de migration.</li>
+  <li>Comprimir uma query longa pretty-printed numa linha só para caber em um config YAML ou argumento de CLI.</li>
+  <li>Detectar problemas estruturais — parênteses desbalanceados, vírgula faltando na lista do SELECT ou um JOIN sem ON — que ficam óbvios quando a query está indentada.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>O formatador é estrutural, não semântico.</strong> Ele não vai te dizer se a query é SQL correto, só como indentar os tokens que vê. Um erro de sintaxe na entrada vira erro de sintaxe na saída.</li>
+  <li><strong>Keywords específicas de dialeto variam.</strong> <code>ILIKE</code>, <code>RETURNING</code>, <code>LATERAL</code> são Postgres; <code>STRAIGHT_JOIN</code>, <code>SQL_CALC_FOUND_ROWS</code> são MySQL. Escolha o dialeto certo ou essas palavras não serão reconhecidas como keywords.</li>
+  <li><strong>String literals são preservados literalmente.</strong> Uma string multi-linha entre aspas simples mantém suas quebras; o formatador não reflua texto dentro de <code>'...'</code>.</li>
+  <li><strong>Comentários sobrevivem mas ficam isolados em linhas próprias.</strong> Se você tinha um <code>-- comentário inline</code> no meio da linha, ele vai para a própria linha durante o pretty-print.</li>
+  <li><strong>Minify remove comentários.</strong> Se você precisa deles, não minifique.</li>
+  <li><strong>Não é um linter.</strong> Use um parser SQL de verdade (ex.: <code>sqlfluff</code>) para validação, enforcement de estilo e checagem de dialeto no CI.</li>
 </ul>
 """,
         "de": """

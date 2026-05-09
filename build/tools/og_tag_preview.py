@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Vista Previa de Etiquetas OG", "tagline": "Pega meta-tags OG o rellena título/descripción/imagen — previsualiza tarjetas de Twitter/X, Facebook, LinkedIn y Discord.", "description": "Vista previa Open Graph gratuita. Pega tus <meta> tags o rellena título/descripción/imagen y mira cómo se verá tu enlace en Twitter/X, Facebook, LinkedIn y Discord. 100% en el navegador."},
         "fr": {"name": "Aperçu des Balises OG", "tagline": "Collez des balises meta OG ou remplissez titre/description/image — aperçu des cartes Twitter/X, Facebook, LinkedIn et Discord.", "description": "Aperçu Open Graph gratuit. Collez vos balises <meta> ou remplissez titre/description/image et voyez le rendu sur Twitter/X, Facebook, LinkedIn et Discord. 100% dans le navigateur."},
         "it": {"name": "Anteprima Tag OG", "tagline": "Incolla meta tag OG o riempi titolo/descrizione/immagine — anteprima delle card Twitter/X, Facebook, LinkedIn e Discord.", "description": "Anteprima Open Graph gratuita. Incolla i tuoi <meta> tag o riempi titolo/descrizione/immagine e vedi come apparirà il link su Twitter/X, Facebook, LinkedIn e Discord. 100% nel browser."},
+        "pt": {"name": "Preview de Tags OG", "tagline": "Cole meta tags OG ou preencha título/descrição/imagem — visualize os share cards como aparecem no Twitter/X, Facebook, LinkedIn e Discord.", "description": "Preview de Open Graph tags gratuito. Cole seus <meta> tags ou preencha título/descrição/imagem e veja como seu link vai renderizar nos previews de compartilhamento do Twitter/X, Facebook, LinkedIn e Discord. Roda inteiramente no seu navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -205,6 +206,40 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>Cache invalidation is real.</strong> Once a platform has scraped your URL, it caches the card. Use the platform debuggers to force a re-scrape.</li>
   <li><strong>Title/description length limits vary.</strong> Twitter/X clips title around 70 chars; Facebook around 88; LinkedIn around 100. Front-load the important words.</li>
   <li><strong>Discord prefers <code>theme-color</code>.</strong> Adding <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> sets the left border colour on Discord embeds.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Quando você compartilha um link no Twitter/X, Facebook, LinkedIn, Discord, Slack ou qualquer chat ou app social moderno, o link é desdobrado em um "card" — título, descrição e imagem — com base nos meta tags <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> no head da página. Cada plataforma renderiza esses cards de um jeito diferente e corta o texto em comprimentos diferentes. Esta ferramenta te dá previews lado a lado de como o mesmo conteúdo vai aparecer em cada uma, sem você precisar compartilhar a URL em cada plataforma.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Você mudou a imagem OG ou o texto e quer confirmar que está certo antes de fazer o deploy.</li>
+  <li>Você está escolhendo uma imagem hero e quer ver se o ponto focal vai sobreviver ao crop 1.91:1.</li>
+  <li>Você está escrevendo o texto de título/descrição e quer saber onde cada plataforma vai cortar.</li>
+  <li>Você herdou uma página sem tags OG e quer rascunhá-las visualizando o card renderizado.</li>
+</ul>
+
+<h3>As tags mínimas</h3>
+<ul>
+  <li><code>&lt;meta property="og:title" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:description" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:image" content="https://…"&gt;</code> (URL absoluta, 1200×630 ideal)</li>
+  <li><code>&lt;meta property="og:url" content="https://…"&gt;</code></li>
+  <li><code>&lt;meta property="og:type" content="website"&gt;</code></li>
+  <li><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code> (para o estilo big-image do X/Twitter)</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Este é um preview estático, não um fetcher ao vivo.</strong> As plataformas reais raspam sua página dos servidores delas; se seu site real tiver outra imagem, esta ferramenta não pega. Use os debuggers oficiais (<a href="https://cards-dev.twitter.com/validator" target="_blank" rel="noopener noreferrer">card validator</a> do Twitter, Sharing Debugger do Facebook, Post Inspector do LinkedIn) para a checagem oficial.</li>
+  <li><strong>URLs de imagem precisam ser absolutas.</strong> <code>/og.png</code> não funciona — os scrapers não conhecem sua origem.</li>
+  <li><strong>A imagem precisa estar publicamente acessível.</strong> Paredes de autenticação, CDNs que exigem referer ou proteção contra hot-link vão te deixar com um card quebrado.</li>
+  <li><strong>Aspect ratio importa.</strong> 1.91:1 (1200×630 é o canônico) renderiza bem em todas as plataformas. Quadrado ou retrato sofre crop ruim.</li>
+  <li><strong>Tamanho de arquivo importa.</strong> Alguns scrapers rejeitam imagens acima de 8 MB; mire em &lt;1 MB para manter o first-load rápido.</li>
+  <li><strong>Invalidação de cache é real.</strong> Uma vez que uma plataforma raspou sua URL, ela faz cache do card. Use os debuggers da plataforma para forçar um re-scrape.</li>
+  <li><strong>Os limites de tamanho de título/descrição variam.</strong> Twitter/X corta título em torno de 70 caracteres; Facebook em torno de 88; LinkedIn em torno de 100. Coloque as palavras importantes no começo.</li>
+  <li><strong>Discord prefere <code>theme-color</code>.</strong> Adicionar <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> define a cor da borda esquerda nos embeds do Discord.</li>
 </ul>
 """,
         "de": """

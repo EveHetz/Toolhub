@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Calculadora de Fechas", "tagline": "Días entre dos fechas · suma o resta días/semanas/meses/años · edad exacta en años, meses y días.", "description": "Calculadora de fechas gratuita. Calcula la duración entre dos fechas, suma o resta un período y obtén la edad exacta en años/meses/días."},
         "fr": {"name": "Calculatrice de Dates", "tagline": "Jours entre deux dates · ajouter ou soustraire jours/semaines/mois/années · âge en années, mois et jours.", "description": "Calculatrice de dates gratuite. Calculez la durée entre deux dates, ajoutez ou soustrayez une période et obtenez l'âge exact."},
         "it": {"name": "Calcolatore di Date", "tagline": "Giorni tra due date · aggiungi o sottrai giorni/settimane/mesi/anni · età esatta in anni, mesi e giorni.", "description": "Calcolatore di date gratuito. Calcola la durata tra due date, aggiungi o sottrai un periodo e ottieni l'età esatta in anni/mesi/giorni."},
+        "pt": {"name": "Calculadora de Datas", "tagline": "Dias entre duas datas · somar ou subtrair dias/semanas/meses/anos · idade em anos, meses e dias.", "description": "Calculadora de datas online gratuita. Calcule a duração entre duas datas, some ou subtraia um período e descubra a idade exata em anos/meses/dias. Tudo roda no seu browser."},
     },
     "body": """
 <div class="tool-card">
@@ -240,6 +241,27 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>Workdays don't include holidays.</strong> The calculation knows weekends but not bank holidays — adjust manually if it matters.</li>
   <li><strong>"Total months" is approximate</strong> in the age view (years × 12 + months) — it ignores the trailing days. The Y/M/D figure is exact.</li>
   <li><strong>UTC anchoring trades off with locale.</strong> A date in your local timezone might map to a slightly different UTC day. For most uses (deadlines, ages) UTC noon is the safer anchor; for to-the-minute timezone work use the timezone converter.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Três coisas que as pessoas realmente querem de uma calculadora de datas: a diferença entre duas datas ("quantos dias até o lançamento?"), deslocar uma data por um período ("90 dias depois da nota fiscal") e uma idade precisa ("anos, meses e dias a partir de uma data de nascimento"). Esta ferramenta faz as três, no seu browser, ancorada em UTC ao meio-dia para que horário de verão e mudanças de fuso não bagunçem a resposta quando você viaja.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Calcular durações de contratos, timelines de projetos e prazos.</li>
+  <li>Descobrir exatamente quantos dias úteis (seg–sex) caem entre duas datas para faturamento ou estimativa de projeto.</li>
+  <li>Verificar cortes de idade (elegibilidade de visto, anos escolares, aniversários marcantes).</li>
+  <li>Adicionar períodos de "30 dias líquidos" ou "90 dias de carência" a uma data base, lidando corretamente com fim de mês.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Datas de fim inclusivas vs exclusivas.</strong> "Dias de seg até sex" é 4 se você conta intervalos, 5 se você conta dias. O toggle controla qual convenção; ambas estão certas, depende da pergunta.</li>
+  <li><strong>A ordem de soma/subtração importa.</strong> Anos e meses são aplicados primeiro, depois semanas e dias. Adicionar "1 mês + 1 dia" a 30 de janeiro dá 1 de março (Fev 30 → Fev 28/29 → +1), não 2 de março — que é a convenção segura para calendário usada por quase toda lib de datetime.</li>
+  <li><strong>Dias úteis não incluem feriados.</strong> O cálculo conhece fins de semana mas não feriados bancários — ajuste manualmente se importar.</li>
+  <li><strong>"Total de meses" é aproximado</strong> na visão de idade (anos × 12 + meses) — ignora os dias finais. O número Y/M/D é exato.</li>
+  <li><strong>Ancorar em UTC tem trade-off com locale.</strong> Uma data no seu fuso local pode mapear para um dia UTC ligeiramente diferente. Para a maioria dos usos (prazos, idades) UTC ao meio-dia é o ancoramento mais seguro; para trabalho de fuso ao minuto, use o conversor de fuso horário.</li>
 </ul>
 """,
     },

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Constructor de Query String", "tagline": "Añade filas clave/valor y obtén un query string correctamente codificado. Soporta arrays (a[]=1) y claves repetidas.", "description": "Constructor de query string gratuito. Añade pares clave/valor y obtén una cadena ?a=1&b=hello%20world correctamente percent-encoded, con notación opcional de corchetes para arrays. 100% en el navegador."},
         "fr": {"name": "Constructeur de Query String", "tagline": "Ajoutez des lignes clé/valeur ; obtenez un query string correctement encodé. Supporte les tableaux (a[]=1) et les clés répétées.", "description": "Constructeur de query string gratuit. Ajoutez des paires clé/valeur et obtenez une chaîne ?a=1&b=hello%20world correctement percent-encoded, avec notation crochets optionnelle. 100% dans le navigateur."},
         "it": {"name": "Costruttore Query String", "tagline": "Aggiungi righe chiave/valore; ottieni un query string correttamente URL-codificato. Supporta array (a[]=1) e chiavi ripetute.", "description": "Costruttore di query string gratuito. Aggiungi coppie chiave/valore e ottieni una stringa ?a=1&b=hello%20world correttamente percent-encoded, con notazione bracket opzionale per array. 100% nel browser."},
+        "pt": {"name": "Construtor de Query String", "tagline": "Adicione linhas de chave/valor; obtenha um query string corretamente URL-encoded. Suporta arrays (a[]=1) e chaves repetidas.", "description": "Construtor de query string gratuito. Adicione pares chave/valor e obtenha uma string ?a=1&b=hello%20world corretamente percent-encoded, com notação opcional de colchetes para arrays. 100% no navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -154,6 +155,29 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>Order can matter.</strong> Some signed-URL schemes (S3, Stripe webhooks, OAuth 1.0) require parameters in a specific order before signing. The tool preserves your row order.</li>
   <li><strong>Length limits.</strong> Browsers and servers cap query-string length around 2–8 KB. Stuffing JSON into a query parameter is a smell.</li>
   <li><strong>Don't put secrets in the query string.</strong> They show up in server logs, browser history, and Referer headers. Use the request body or an Authorization header instead.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um query string é só uma lista de pares chave/valor colados com <code>?</code>, <code>=</code> e <code>&amp;</code>, mas escrever um corretamente à mão é chato: espaços viram <code>%20</code> (ou <code>+</code>, dependendo), cada valor é percent-encoded e arrays têm pelo menos três convenções concorrentes. Esta ferramenta deixa você digitar as chaves e valores que quer, marcar "multi" para os que devem ser repetidos e produz a string corretamente codificada, pronta para colar depois do <code>?</code>.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Montar uma URL de API com vários parâmetros que incluem espaços, acentos ou pontuação.</li>
+  <li>Construir um link de tracking (UTM) sem erros de digitação nos valores codificados.</li>
+  <li>Construir um deep link ou URL de compartilhamento que vai passar por e-mail, chat ou redes sociais.</li>
+  <li>Confirmar a notação de array correta para uma API — <code>a[]=1</code>, <code>a=1&amp;a=2</code> ou <code>a=1,2</code> — testando cada uma.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>Convenções de array não são padronizadas.</strong> PHP e Rails usam <code>a[]=1&amp;a[]=2</code>; o <code>requests</code> do Python por padrão repete <code>a=1&amp;a=2</code>; ASP.NET costuma usar vírgulas. Combine com o que sua API espera.</li>
+  <li><strong><code>+</code> vs <code>%20</code>.</strong> <code>application/x-www-form-urlencoded</code> usa <code>+</code> para espaços; query strings de URI usam estritamente <code>%20</code>. A maioria dos servidores aceita os dois, mas alguns não — use o que sua API documenta.</li>
+  <li><strong>Valores vazios são diferentes de chaves ausentes.</strong> <code>?a=</code> significa "a é a string vazia"; omitir <code>a</code> significa "nenhum valor fornecido". Algumas APIs tratam diferente.</li>
+  <li><strong>Caracteres reservados.</strong> <code>=</code>, <code>&amp;</code>, <code>#</code>, <code>?</code> dentro de valores são codificados; versões literais em chaves/valores encerrariam o parâmetro ou a query inteira.</li>
+  <li><strong>A ordem pode importar.</strong> Alguns esquemas de URL assinada (S3, webhooks Stripe, OAuth 1.0) exigem parâmetros em ordem específica antes da assinatura. A ferramenta preserva a ordem das suas linhas.</li>
+  <li><strong>Limites de tamanho.</strong> Navegadores e servidores limitam o query string em torno de 2–8 KB. Enfiar JSON num parâmetro de query é sinal de problema.</li>
+  <li><strong>Não coloque segredos no query string.</strong> Eles aparecem em logs do servidor, histórico do navegador e headers Referer. Use o body da requisição ou um header Authorization.</li>
 </ul>
 """,
         "de": """

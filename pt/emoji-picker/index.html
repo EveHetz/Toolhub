@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seletor de Emoji — Toolhub</title>
+  <meta name="description" content="Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar.">
+  <meta property="og:title" content="Seletor de Emoji — Toolhub">
+  <meta property="og:description" content="Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/pt/emoji-picker/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/pt/emoji-picker/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/emoji-picker/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/emoji-picker/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/emoji-picker/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/emoji-picker/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/emoji-picker/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/emoji-picker/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/emoji-picker/">
+  <meta property="og:locale" content="pt_BR">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/pt/emoji-picker/#tool",
+        "name": "Seletor de Emoji",
+        "description": "Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar.",
+        "url": "https://toolhub.software/pt/emoji-picker/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Text Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "pt",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["emoji", "picker", "search", "copy", "unicode", "smiley", "symbol"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas as ferramentas", "item": "https://toolhub.software/pt/"},
+          {"@type": "ListItem", "position": 2, "name": "Seletor de Emoji", "item": "https://toolhub.software/pt/emoji-picker/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/pt/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/emoji-picker/'; else location.href='/emoji-picker/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" selected="selected">🇧🇷 PT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Seletor de Emoji</div>
+    <h1>Seletor de Emoji</h1>
+    <p class="tagline">Paleta de emojis pesquisável por nome e palavra-chave. Clique em qualquer emoji para copiar. Categorias: smileys, animais, comida, viagem, objetos, símbolos, bandeiras.</p>
+    
+<div class="tool-card">
+  <label>Search</label>
+  <input type="text" id="ep-q" oninput="epRun()" placeholder="Type to filter — 'happy', 'fire', 'pizza', 'rocket'…" autocomplete="off" spellcheck="false">
+  <div class="meta" id="ep-cats" style="margin-top:0.6rem;display:flex;flex-wrap:wrap;gap:0.3rem"></div>
+</div>
+<div class="tool-card">
+  <label id="ep-recent-lbl" style="display:none">Recent</label>
+  <div id="ep-recent" style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.5rem"></div>
+  <label>Resultado</label>
+  <div id="ep-grid"></div>
+  <div id="ep-toast" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:0.5rem 1rem;border-radius:6px;font-size:0.9rem;display:none;z-index:1000;font-family:ui-monospace,monospace"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Para que serve?</h2>
+<p>Sistemas operacionais todos têm seletores de emoji (Win+. no Windows, Cmd+Ctrl+Espaço no macOS, o teclado em celulares), mas eles são inconsistentes, às vezes escondidos e frequentemente lentos. Esta ferramenta dá uma grade curada dos emojis mais usados, organizada por categoria e pesquisável por palavra-chave. Clique em qualquer ladrilho para copiar o emoji para o clipboard. Os emojis copiados recentemente são lembrados entre visitas no localStorage do browser — nada é enviado a um servidor.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Você está num desktop sem um atalho rápido de emoji no nível do SO.</li>
+  <li>Quer uma busca por palavra-chave mais ampla do que o seletor do SO oferece.</li>
+  <li>Está usando um desktop remoto ou sistema antigo sem seletor nativo.</li>
+  <li>Precisa colar um emoji num campo de texto que não aceita seu IME.</li>
+</ul>
+
+<h3>Como funciona a renderização</h3>
+<p>Um emoji é apenas um ou mais code points Unicode. <em>Como</em> ele aparece depende da fonte que seu browser/SO escolhe: os emojis da Apple são diferentes dos do Google Noto, do Microsoft Segoe UI Emoji e do Twemoji do Twitter. Os bytes são idênticos — a imagem é local. Se um emoji aparece como um quadrado ou um fallback "não suportado", a fonte do seu sistema não tem glifo para ele; atualizar o SO ou instalar uma fonte como Noto Color Emoji resolve.</p>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Tons de pele e variantes de família/profissão são sequências.</strong> 👨‍🍳 é "homem" + ZWJ + "cozinhando" — cinco code points. Alguns sistemas mostram os componentes individualmente se não suportam a sequência.</li>
+  <li><strong>Bandeiras são indicadores regionais.</strong> 🇧🇷 é "🇧" + "🇷" — duas letras de indicador regional. Sequências para territórios (Escócia, Texas) precisam de caracteres tag extras e podem não renderizar em todo sistema.</li>
+  <li><strong>Esta ferramenta é curada, não exaustiva.</strong> O Unicode 15 tem 3.664 emojis incluindo centenas de variantes de tom de pele e gênero. O seletor foca nos ~600 que você provavelmente vai querer; para a lista completa, veja os dados de emoji do Unicode ou o seletor do seu SO.</li>
+  <li><strong>Alguns caracteres parecem emoji mas renderizam como texto.</strong> O "variation selector" (U+FE0F) diz ao renderizador "desenhe isso como emoji". Sem ele, ☂ pode aparecer como texto puro em vez de 🌂. A ferramenta inclui os selectors onde necessário.</li>
+  <li><strong>Suporte a clipboard varia.</strong> A clipboard API de alguns browsers precisa de um gesto do usuário (o clique faz isso), mas uma negação de permissão falha silenciosamente. Se copiar não funcionar, use o atalho de teclado para copiar da barra de endereços.</li>
+</ul>
+<div class="related"><span class="meta">Ferramentas relacionadas:</span> <a href="/pt/unicode-inspector/">Inspetor Unicode</a> <a href="/pt/ascii-table/">Tabela ASCII</a> <a href="/pt/lorem-ipsum/">Gerador de Lorem Ipsum</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacidade</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(2.6rem,1fr));gap:0.3rem}
+.ep-tile{display:flex;align-items:center;justify-content:center;font-size:1.5rem;padding:0.45rem 0.3rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.1s;line-height:1}
+.ep-tile:hover{background:var(--surface);border-color:var(--accent);transform:scale(1.1)}
+.ep-cat-btn{padding:0.25rem 0.7rem;font-size:0.78rem;background:var(--surface);color:var(--text-muted);border:1px solid var(--border);border-radius:14px;cursor:pointer}
+.ep-cat-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ep-empty{color:var(--text-muted);text-align:center;padding:1.5rem 0;grid-column:1/-1}
+.ep-section{margin-bottom:0.8rem}
+.ep-section h4{font-size:0.78rem;color:var(--text-muted);font-weight:600;margin:0.5rem 0 0.3rem;letter-spacing:0.04em;text-transform:uppercase}
+</style>
+<script>
+const EP_DATA = {
+  smileys: [
+    ['😀','grinning happy face'],['😃','smiley happy joy'],['😄','grinning eyes happy'],['😁','beaming grin smile'],
+    ['😆','laughing satisfied'],['😅','sweat smile relief'],['🤣','rofl laughing rolling'],['😂','tears joy laughing'],
+    ['🙂','slight smile happy'],['🙃','upside-down sarcasm silly'],['😉','wink playful'],['😊','blush smile happy'],
+    ['😇','innocent halo angel'],['🥰','smile hearts love'],['😍','heart eyes love admire'],['🤩','star eyes wow'],
+    ['😘','kiss face love'],['😋','yum tongue tasty'],['😛','tongue cheeky'],['🤪','zany silly crazy'],
+    ['😎','cool sunglasses'],['🤓','nerd geek glasses'],['🥳','party hat celebrate'],['😏','smirk sly'],
+    ['😞','disappointed sad'],['😟','worried concerned'],['😕','confused unsure'],['🙁','frown sad'],
+    ['☹️','frowning sad'],['😣','persevere strain'],['😖','confounded frustrated'],['😫','tired weary'],
+    ['😩','weary tired'],['😢','cry sad tear'],['😭','sob crying loud'],['😤','triumph annoyed steam'],
+    ['😡','angry mad red'],['😠','angry mad'],['🤬','curse swearing angry'],['😨','fearful afraid'],
+    ['😰','anxious sweat fear'],['😥','sad relieved'],['😓','sweat downcast'],['😱','scream shock fear'],
+    ['🥺','pleading puppy beg'],['😴','sleeping zzz'],['😪','sleepy drowsy'],['🤤','drool tasty'],
+    ['🤔','thinking pondering'],['🤨','raised eyebrow skeptical'],['😐','neutral expressionless'],['😑','expressionless meh'],
+    ['🙄','eye roll annoyed'],['😬','grimace awkward'],['🤐','zipper mouth quiet'],['🤫','shush quiet secret'],
+    ['🤥','liar pinocchio nose'],['😷','mask sick covid'],['🤒','thermometer sick fever'],['🤢','nauseated sick gross'],
+    ['🤮','vomit sick gross'],['🤧','sneeze cold'],['🥶','cold freezing blue'],['🥵','hot heat sweat'],
+    ['🥴','woozy dizzy drunk'],['😵','dizzy ko knocked'],['🤯','mind blown explode'],['🤠','cowboy hat'],
+    ['🤡','clown'],['👻','ghost halloween'],['💀','skull death dead'],['👽','alien et space'],
+    ['🤖','robot bot ai'],['😺','grinning cat'],['😸','smile cat'],['😻','heart eyes cat love'],
+    ['😼','smirk cat'],['🙀','scared cat'],['👍','thumbs up like ok'],['👎','thumbs down dislike'],
+    ['👌','ok perfect'],['✌️','peace victory'],['🤞','fingers crossed luck'],['🤟','love rock horns'],
+    ['🤘','rock metal horns'],['👊','fist punch'],['✊','fist solidarity'],['🤝','handshake deal'],
+    ['🙏','pray thanks please'],['👏','clap applause'],['🙌','raised hands celebrate'],['👋','wave hello bye'],
+    ['💪','muscle strong flex'],['🫶','heart hands love'],['🫡','salute respect'],['🤲','open hands prayer'],
+  ],
+  animals: [
+    ['🐶','dog puppy'],['🐱','cat kitten'],['🐭','mouse'],['🐹','hamster'],['🐰','rabbit bunny'],
+    ['🦊','fox'],['🐻','bear'],['🐼','panda'],['🐨','koala'],['🐯','tiger'],['🦁','lion'],
+    ['🐮','cow'],['🐷','pig'],['🐸','frog'],['🐵','monkey'],['🙈','see no evil monkey'],
+    ['🙉','hear no evil monkey'],['🙊','speak no evil monkey'],['🐒','monkey'],['🦍','gorilla'],
+    ['🦒','giraffe'],['🦓','zebra'],['🐴','horse'],['🦄','unicorn'],['🐔','chicken hen'],
+    ['🐧','penguin'],['🐦','bird'],['🐤','baby chick'],['🦆','duck'],['🦅','eagle'],['🦉','owl'],
+    ['🦇','bat'],['🐺','wolf'],['🐗','boar'],['🐴','horse face'],['🦌','deer'],
+    ['🐢','turtle'],['🐍','snake'],['🦎','lizard'],['🦖','t-rex dinosaur'],['🦕','sauropod dinosaur'],
+    ['🐙','octopus'],['🦑','squid'],['🦐','shrimp'],['🦞','lobster'],['🦀','crab'],
+    ['🐠','tropical fish'],['🐟','fish'],['🐬','dolphin'],['🐳','whale'],['🦈','shark'],
+    ['🐊','crocodile'],['🐅','tiger'],['🐆','leopard'],['🦏','rhino'],['🦛','hippo'],
+    ['🐂','ox'],['🐃','buffalo'],['🐎','horse'],['🐖','pig'],['🐑','sheep'],['🐐','goat'],
+    ['🐪','camel'],['🐘','elephant'],['🦘','kangaroo'],['🦡','badger'],['🐾','paw prints'],
+    ['🦋','butterfly'],['🐛','caterpillar bug'],['🐝','bee'],['🐞','ladybug'],['🐜','ant'],
+    ['🕷️','spider'],['🦂','scorpion'],['🐌','snail'],['🐚','shell'],['🌸','blossom'],
+    ['🌹','rose flower'],['🌻','sunflower'],['🌷','tulip'],['🌳','tree'],['🌴','palm'],
+    ['🌵','cactus'],['🍀','clover luck four-leaf'],['🍁','maple leaf'],
+  ],
+  food: [
+    ['🍎','apple'],['🍏','green apple'],['🍐','pear'],['🍊','orange tangerine'],['🍋','lemon'],
+    ['🍌','banana'],['🍉','watermelon'],['🍇','grapes'],['🍓','strawberry'],['🫐','blueberry'],
+    ['🍈','melon'],['🍒','cherry'],['🍑','peach'],['🥭','mango'],['🍍','pineapple'],
+    ['🥥','coconut'],['🥝','kiwi'],['🍅','tomato'],['🍆','eggplant'],['🥑','avocado'],
+    ['🥦','broccoli'],['🥬','leafy green'],['🥒','cucumber'],['🌶️','hot pepper chili'],['🫑','bell pepper'],
+    ['🌽','corn'],['🥕','carrot'],['🧄','garlic'],['🧅','onion'],['🥔','potato'],
+    ['🍠','sweet potato'],['🥐','croissant'],['🥯','bagel'],['🍞','bread'],['🥖','baguette'],
+    ['🧀','cheese'],['🥚','egg'],['🍳','fried egg'],['🥞','pancakes'],['🧇','waffle'],
+    ['🥓','bacon'],['🥩','steak meat'],['🍗','poultry leg'],['🍖','meat bone'],['🌭','hot dog'],
+    ['🍔','burger hamburger'],['🍟','fries'],['🍕','pizza'],['🥪','sandwich'],['🥙','wrap pita'],
+    ['🌮','taco'],['🌯','burrito'],['🫔','tamale'],['🥗','salad'],['🥘','paella'],
+    ['🍝','spaghetti pasta'],['🍜','ramen noodles'],['🍲','stew'],['🍛','curry'],['🍣','sushi'],
+    ['🍱','bento'],['🥟','dumpling'],['🍤','shrimp tempura'],['🍙','rice ball'],['🍚','rice bowl'],
+    ['🍘','rice cracker'],['🍡','dango skewer'],['🍦','soft serve ice cream'],['🍨','ice cream'],
+    ['🍧','shaved ice'],['🍰','cake slice'],['🎂','birthday cake'],['🧁','cupcake'],['🍮','custard pudding'],
+    ['🍭','lollipop'],['🍬','candy'],['🍫','chocolate bar'],['🍩','donut'],['🍪','cookie'],
+    ['🥛','milk'],['🍼','baby bottle'],['☕','coffee hot'],['🍵','tea'],['🧃','juice box'],
+    ['🥤','soft drink'],['🧋','bubble tea'],['🍺','beer'],['🍻','beers cheers'],['🍷','wine glass'],
+    ['🥂','champagne toast'],['🍸','cocktail martini'],['🍹','tropical drink'],['🍾','champagne bottle'],
+    ['🥃','whiskey'],['🧉','mate'],['🍴','fork knife'],['🥢','chopsticks'],['🥄','spoon'],
+  ],
+  travel: [
+    ['🚗','car'],['🚕','taxi'],['🚙','suv'],['🚌','bus'],['🚎','trolleybus'],['🏎️','race car'],
+    ['🚓','police car'],['🚑','ambulance'],['🚒','fire engine'],['🚐','minibus'],['🛻','pickup truck'],
+    ['🚚','delivery truck'],['🚛','articulated lorry'],['🚜','tractor'],['🏍️','motorcycle'],['🛵','scooter'],
+    ['🚲','bike bicycle'],['🛹','skateboard'],['🛼','roller skate'],['🚏','bus stop'],
+    ['🚂','steam locomotive'],['🚆','train'],['🚇','metro subway'],['🚊','tram'],['🚝','monorail'],
+    ['🚄','high-speed train'],['🚅','bullet train shinkansen'],['🚉','train station'],
+    ['✈️','airplane'],['🛫','takeoff plane'],['🛬','landing plane'],['🚀','rocket'],['🛸','flying saucer ufo'],
+    ['🚁','helicopter'],['🚢','ship'],['⛴️','ferry'],['🛥️','motor boat'],['🛳️','passenger ship'],
+    ['⛵','sailboat'],['🚤','speedboat'],['🛶','canoe'],['⚓','anchor'],
+    ['🏖️','beach'],['🏝️','desert island'],['⛰️','mountain'],['🏔️','snowy mountain'],['🌋','volcano'],
+    ['🏕️','camping'],['🏞️','national park'],['🛤️','railway track'],['🛣️','motorway'],
+    ['🏛️','classical building'],['🏟️','stadium'],['🏰','castle'],['🏯','japanese castle'],['🗽','statue of liberty'],
+    ['🗼','tokyo tower'],['🗻','mount fuji'],['🗿','moai'],['🌁','foggy bridge'],['🌃','city night'],
+    ['🌄','sunrise mountain'],['🌅','sunrise'],['🌆','dusk city'],['🌇','sunset city'],['🌉','bridge night'],
+    ['🎡','ferris wheel'],['🎢','roller coaster'],['🎠','carousel'],['⛲','fountain'],
+    ['🏨','hotel'],['🏩','love hotel'],['🏪','convenience store'],['🏫','school'],['🏬','department store'],
+    ['🏭','factory'],['🏥','hospital'],['🏦','bank'],['⛪','church'],['🕌','mosque'],['🛕','hindu temple'],
+    ['🕍','synagogue'],['🛤️','tracks'],['🌍','earth africa'],['🌎','earth americas'],['🌏','earth asia'],
+    ['🗺️','world map'],['🧭','compass'],['🧳','luggage suitcase'],
+  ],
+  objects: [
+    ['⌚','watch'],['📱','phone mobile'],['💻','laptop'],['⌨️','keyboard'],['🖥️','desktop computer'],
+    ['🖨️','printer'],['🖱️','mouse'],['💾','floppy save disk'],['💿','cd'],['📀','dvd'],
+    ['📷','camera'],['📸','camera flash'],['🎥','movie camera'],['📺','tv television'],['📻','radio'],
+    ['🎙️','microphone studio'],['🎚️','level slider'],['🎛️','control knobs'],['⏰','alarm clock'],
+    ['⏱️','stopwatch'],['🕰️','mantelpiece clock'],['⏳','hourglass'],['📡','satellite antenna'],
+    ['🔋','battery'],['🔌','plug power'],['💡','lightbulb idea'],['🔦','flashlight torch'],['🕯️','candle'],
+    ['🧯','fire extinguisher'],['🛢️','oil drum'],['💸','money flying'],['💵','dollar bill'],
+    ['💴','yen bill'],['💶','euro bill'],['💷','pound bill'],['💰','money bag'],['💳','credit card'],
+    ['🧾','receipt'],['💎','gem diamond'],['⚖️','balance scale'],['🧰','toolbox'],
+    ['🔧','wrench'],['🔨','hammer'],['⚒️','hammer pick'],['🛠️','tools'],['⛏️','pick'],
+    ['🪓','axe'],['🔩','nut bolt'],['⚙️','gear settings'],['🧲','magnet'],['🧪','test tube'],
+    ['🧫','petri dish'],['🧬','dna'],['🔬','microscope'],['🔭','telescope'],['📐','triangular ruler'],
+    ['📏','straight ruler'],['🧮','abacus'],['📌','pushpin'],['📍','round pushpin'],['🖇️','paperclip'],
+    ['📎','paperclip'],['✂️','scissors'],['🖊️','pen'],['🖋️','fountain pen'],['✒️','nib pen'],
+    ['🖌️','paintbrush'],['🖍️','crayon'],['📝','memo note'],['✏️','pencil'],['📓','notebook'],
+    ['📒','ledger'],['📔','decorative notebook'],['📕','closed book'],['📖','open book'],['📗','green book'],
+    ['📘','blue book'],['📙','orange book'],['📚','books library'],['📰','newspaper'],['📦','package box'],
+    ['📤','outbox'],['📥','inbox'],['📨','envelope incoming'],['✉️','envelope email'],['📧','email'],
+    ['📩','envelope arrow'],['📪','closed mailbox'],['📫','mailbox'],['📬','mailbox open'],
+    ['📭','mailbox empty'],['📮','postbox'],['🗳️','ballot box'],['🔒','lock'],['🔓','unlock'],
+    ['🔏','lock pen'],['🔐','lock key'],['🔑','key'],['🗝️','old key'],['🛎️','bellhop bell'],
+    ['🔔','bell'],['🔕','bell off mute'],['🎵','music note'],['🎶','music notes'],['🎼','musical score'],
+    ['🎹','piano keyboard'],['🥁','drum'],['🎷','saxophone'],['🎺','trumpet'],['🎸','guitar'],
+    ['🎻','violin'],['🎤','microphone'],['🎧','headphones'],['🎬','clapper'],['🎮','game controller'],
+    ['🕹️','joystick'],['🎲','dice'],['🧸','teddy bear'],['🎨','artist palette'],['🖼️','framed picture'],
+  ],
+  symbols: [
+    ['❤️','red heart love'],['🧡','orange heart'],['💛','yellow heart'],['💚','green heart'],
+    ['💙','blue heart'],['💜','purple heart'],['🖤','black heart'],['🤍','white heart'],['🤎','brown heart'],
+    ['💔','broken heart'],['❣️','heart exclamation'],['💕','two hearts'],['💞','revolving hearts'],
+    ['💓','beating heart'],['💗','growing heart'],['💖','sparkling heart'],['💘','arrow heart cupid'],
+    ['💝','heart ribbon'],['💟','heart decoration'],['☮️','peace'],['✝️','latin cross'],['☪️','star crescent'],
+    ['🕉️','om'],['☸️','wheel dharma'],['✡️','star david'],['🔯','six pointed star'],['🕎','menorah'],
+    ['☯️','yin yang'],['☦️','orthodox cross'],['🛐','place worship'],['⛎','ophiuchus'],['♈','aries'],
+    ['♉','taurus'],['♊','gemini'],['♋','cancer zodiac'],['♌','leo'],['♍','virgo'],['♎','libra'],
+    ['♏','scorpio'],['♐','sagittarius'],['♑','capricorn'],['♒','aquarius'],['♓','pisces'],
+    ['🆔','id'],['⚛️','atom science'],['☢️','radioactive'],['☣️','biohazard'],['📴','phone off'],
+    ['📳','vibration'],['🈶','japanese not free'],['🈚','japanese free'],['🆚','vs versus'],
+    ['🆎','blood type ab'],['🆑','cl symbol'],['🆘','sos help'],['🆔','id'],['🆕','new'],['🆓','free'],
+    ['🆖','ng'],['🆗','ok'],['🆙','up'],['🆒','cool'],['🆓','free'],['0️⃣','keycap zero'],
+    ['1️⃣','keycap one'],['2️⃣','keycap two'],['3️⃣','keycap three'],['4️⃣','keycap four'],
+    ['5️⃣','keycap five'],['6️⃣','keycap six'],['7️⃣','keycap seven'],['8️⃣','keycap eight'],
+    ['9️⃣','keycap nine'],['🔟','keycap ten'],['#️⃣','keycap hash'],['*️⃣','keycap asterisk'],
+    ['🔢','numbers'],['🔣','symbols'],['🔤','letters abc'],['🅰️','a button'],['🅱️','b button'],
+    ['🆎','ab button'],['🅾️','o button'],['💯','100 hundred'],['🔝','top'],['🔚','end'],
+    ['🔙','back'],['🔜','soon'],['🔛','on'],['🔃','clockwise vertical arrows'],['🔄','counterclockwise arrows'],
+    ['↩️','left arrow curved'],['↪️','right arrow curved'],['⬆️','up arrow'],['⬇️','down arrow'],
+    ['⬅️','left arrow'],['➡️','right arrow'],['↗️','up-right arrow'],['↘️','down-right arrow'],
+    ['↙️','down-left arrow'],['↖️','up-left arrow'],['↕️','up-down arrow'],['↔️','left-right arrow'],
+    ['🔀','shuffle'],['🔁','repeat'],['🔂','repeat single'],['▶️','play'],['⏸️','pause'],['⏹️','stop'],
+    ['⏺️','record'],['⏭️','next track'],['⏮️','previous track'],['⏩','fast forward'],['⏪','rewind'],
+    ['⏫','fast up'],['⏬','fast down'],['⏏️','eject'],['🔆','bright'],['🔅','dim'],['🔇','muted'],
+    ['🔈','speaker low'],['🔉','speaker medium'],['🔊','speaker loud'],['🔔','bell'],['🔕','bell off'],
+    ['💬','speech bubble'],['💭','thought bubble'],['🗯️','right anger bubble'],['♻️','recycle'],
+    ['✅','check mark'],['❎','x button'],['❌','cross x'],['❓','question'],['❔','white question'],
+    ['❗','exclamation'],['❕','white exclamation'],['‼️','double exclamation'],['⁉️','exclamation question'],
+    ['⭐','star'],['🌟','glowing star'],['✨','sparkles'],['⚡','lightning'],['🔥','fire'],['💥','collision boom'],
+    ['☀️','sun'],['🌤️','sun small cloud'],['⛅','sun behind cloud'],['🌥️','sun large cloud'],
+    ['☁️','cloud'],['🌦️','sun rain'],['🌧️','rain cloud'],['⛈️','thunderstorm'],['🌩️','lightning cloud'],
+    ['🌨️','snow cloud'],['❄️','snowflake'],['☃️','snowman'],['⛄','snowman no snow'],['🌬️','wind blowing'],
+    ['💨','dash wind'],['💧','droplet'],['💦','sweat droplets'],['🌊','wave'],['🌈','rainbow'],
+    ['🌚','new moon face'],['🌝','full moon face'],['🌞','sun face'],['🌛','crescent moon face'],
+    ['🌜','last quarter moon face'],['🌙','crescent moon'],['🪐','ringed planet'],['☄️','comet'],
+    ['💤','sleep zzz'],['🚫','prohibited'],['⛔','no entry'],['📛','name badge'],['🔰','japanese symbol beginner'],
+  ],
+  flags: [
+    ['🏳️','white flag'],['🏴','black flag'],['🏁','checkered flag'],['🚩','triangular flag'],
+    ['🏳️‍🌈','rainbow flag pride'],['🏳️‍⚧️','transgender flag'],['🏴‍☠️','pirate flag'],
+    ['🇦🇷','argentina'],['🇦🇺','australia'],['🇦🇹','austria'],['🇧🇪','belgium'],['🇧🇷','brazil'],
+    ['🇨🇦','canada'],['🇨🇳','china'],['🇨🇿','czech republic'],['🇩🇰','denmark'],['🇪🇬','egypt'],
+    ['🇫🇮','finland'],['🇫🇷','france'],['🇩🇪','germany'],['🇬🇷','greece'],['🇭🇰','hong kong'],
+    ['🇭🇺','hungary'],['🇮🇸','iceland'],['🇮🇳','india'],['🇮🇩','indonesia'],['🇮🇪','ireland'],
+    ['🇮🇱','israel'],['🇮🇹','italy'],['🇯🇵','japan'],['🇰🇷','south korea'],['🇲🇽','mexico'],
+    ['🇳🇱','netherlands'],['🇳🇿','new zealand'],['🇳🇴','norway'],['🇵🇱','poland'],['🇵🇹','portugal'],
+    ['🇷🇴','romania'],['🇷🇺','russia'],['🇸🇦','saudi arabia'],['🇸🇬','singapore'],['🇿🇦','south africa'],
+    ['🇪🇸','spain'],['🇸🇪','sweden'],['🇨🇭','switzerland'],['🇹🇼','taiwan'],['🇹🇭','thailand'],
+    ['🇹🇷','turkey'],['🇺🇦','ukraine'],['🇦🇪','united arab emirates'],['🇬🇧','united kingdom uk britain'],
+    ['🇺🇸','united states us america'],['🇻🇳','vietnam'],['🇪🇺','european union eu'],['🇺🇳','united nations un'],
+  ],
+};
+const EP_CAT_LABELS = {smileys:'Smileys & People', animals:'Animals & Nature', food:'Food & Drink', travel:'Travel & Places', objects:'Objects', symbols:'Symbols', flags:'Flags'};
+let EP_ACTIVE = 'all';
+let EP_RECENT = [];
+try { EP_RECENT = JSON.parse(localStorage.getItem('emoji-recent') || '[]'); } catch(e){ EP_RECENT = []; }
+function epToast(msg){
+  const t = document.getElementById('ep-toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=>{ t.style.display='none'; }, 1200);
+}
+function epCopy(emoji){
+  navigator.clipboard.writeText(emoji).then(()=>{
+    epToast('Copied: ' + emoji);
+    EP_RECENT = [emoji].concat(EP_RECENT.filter(e => e !== emoji)).slice(0, 12);
+    try { localStorage.setItem('emoji-recent', JSON.stringify(EP_RECENT)); } catch(e){}
+    epRenderRecent();
+  });
+}
+function epRenderCats(){
+  const cats = ['all'].concat(Object.keys(EP_DATA));
+  document.getElementById('ep-cats').innerHTML = cats.map(c => {
+    const lbl = c === 'all' ? 'All' : EP_CAT_LABELS[c];
+    const cls = c === EP_ACTIVE ? 'ep-cat-btn active' : 'ep-cat-btn';
+    return `<button type="button" class="${cls}" data-cat="${c}" onclick="epCat('${c}')">${lbl}</button>`;
+  }).join('');
+}
+function epCat(c){
+  EP_ACTIVE = c;
+  epRenderCats();
+  epRun();
+}
+function epRenderRecent(){
+  const wrap = document.getElementById('ep-recent');
+  const lbl = document.getElementById('ep-recent-lbl');
+  if(EP_RECENT.length === 0){ wrap.innerHTML = ''; lbl.style.display = 'none'; return; }
+  lbl.style.display = '';
+  wrap.innerHTML = EP_RECENT.map(e => `<button type="button" class="ep-tile" onclick="epCopy('${e.replace(/'/g,'\\\'')}')" title="${e}">${e}</button>`).join('');
+}
+function epRun(){
+  const q = (document.getElementById('ep-q').value || '').toLowerCase().trim();
+  const grid = document.getElementById('ep-grid');
+  const cats = EP_ACTIVE === 'all' ? Object.keys(EP_DATA) : [EP_ACTIVE];
+  let html = '';
+  let total = 0;
+  for(const cat of cats){
+    const matches = EP_DATA[cat].filter(([e, kw]) => !q || kw.toLowerCase().includes(q));
+    if(matches.length === 0) continue;
+    if(cats.length > 1) html += `<div class="ep-section"><h4>${EP_CAT_LABELS[cat]}</h4><div class="ep-grid">`;
+    else html += '<div class="ep-grid">';
+    for(const [e, kw] of matches){
+      const ej = e.replace(/'/g, "\\'");
+      html += `<button type="button" class="ep-tile" onclick="epCopy('${ej}')" title="${kw}">${e}</button>`;
+      total++;
+    }
+    html += cats.length > 1 ? '</div></div>' : '</div>';
+  }
+  if(total === 0) html = '<div class="ep-empty">No matching emoji.</div>';
+  grid.innerHTML = html;
+}
+document.addEventListener('DOMContentLoaded', () => { epRenderCats(); epRenderRecent(); epRun(); });
+</script>
+
+</body>
+</html>

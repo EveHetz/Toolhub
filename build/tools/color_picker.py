@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Selector de Color", "tagline": "Elige un color y míralo en HEX, RGB, RGBA, HSL, HSLA, HSV y CMYK. Ajusta la opacidad y copia.", "description": "Selector de color en línea gratuito. HEX, RGB(A), HSL(A), HSV y CMYK con vista previa y opacidad."},
         "fr": {"name": "Sélecteur de Couleur", "tagline": "Choisissez une couleur et voyez-la en HEX, RGB, RGBA, HSL, HSLA, HSV et CMJN. Ajustez l'opacité et copiez.", "description": "Sélecteur de couleur en ligne gratuit. HEX, RGB(A), HSL(A), HSV et CMJN avec aperçu et curseur d'opacité."},
         "it": {"name": "Selettore Colore", "tagline": "Scegli un colore e vedilo in HEX, RGB, RGBA, HSL, HSLA, HSV e CMYK. Regola l'opacità e copia.", "description": "Selettore colore online gratuito. HEX, RGB(A), HSL(A), HSV e CMYK con anteprima live e cursore opacità."},
+        "pt": {"name": "Seletor de Cores", "tagline": "Escolha uma cor e veja na hora em HEX, RGB, RGBA, HSL, HSLA, HSV e CMYK. Ajuste a opacidade e copie qualquer valor.", "description": "Seletor de cores online gratuito. Converta entre HEX, RGB(A), HSL(A), HSV e CMYK com preview ao vivo, slider de opacidade e botões de copiar."},
     },
     "body": """
 <div class="tool-card">
@@ -123,6 +124,26 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>HSL hue is in degrees.</strong> 0 = red, 120 = green, 240 = blue. CSS accepts <code>turn</code>, <code>rad</code>, <code>grad</code> too but the output here is degrees.</li>
   <li><strong>CMYK conversion is naive.</strong> Real print needs an ICC profile (sRGB → CMYK with rendering intent). This tool's output is fine for brand-deck mockups, not for press-ready files.</li>
   <li><strong>OKLCH and OKLAB</strong> (modern perceptually-uniform spaces) aren't shown here — they're newer and not yet broadly supported. Stick to HSL/HSV for design system tooling for now.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Escolha uma cor — ou cole qualquer valor HEX / <code>rgb()</code> / <code>hsl()</code> — e veja na hora em todas as notações comuns: HEX (3 e 8 dígitos com alpha), RGB(A), HSL(A), HSV e CMYK. Útil quando você tem um valor em um espaço e precisa em outro, quando precisa casar uma cor de marca entre CSS / ferramentas de design / impressão, ou quando está ajustando opacidade sem ficar olhando no olho o resultado.</p>
+
+<h3>Quando usar cada espaço</h3>
+<ul>
+  <li><strong>HEX / RGB</strong> — CSS, ferramentas de design, templates de e-mail. Universalmente suportado.</li>
+  <li><strong>HSL</strong> — paletas legíveis. Ajuste hue, saturação ou lightness independentemente sem que a cor desande nos outros eixos.</li>
+  <li><strong>HSV</strong> — software de design (Photoshop, Figma) para sombreamento; combina com a forma como a maioria dos seletores de cor pensa "essa cor, só que mais clara".</li>
+  <li><strong>CMYK</strong> — saída pronta para impressão. Apenas aproximado: telas são RGB e nem toda impressora compartilha um único perfil de cor.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>A codificação de alpha varia por espaço.</strong> CSS suporta <code>rgba()</code>, <code>hsla()</code> e HEX de 8 dígitos (<code>#RRGGBBAA</code>). Templates de e-mail mais antigos e algumas ferramentas de design não entendem <code>#RRGGBBAA</code> — caia para <code>rgba()</code>.</li>
+  <li><strong>O hue do HSL é em graus.</strong> 0 = vermelho, 120 = verde, 240 = azul. O CSS também aceita <code>turn</code>, <code>rad</code>, <code>grad</code>, mas a saída aqui é em graus.</li>
+  <li><strong>A conversão para CMYK é ingênua.</strong> Impressão de verdade precisa de um perfil ICC (sRGB → CMYK com rendering intent). A saída desta ferramenta serve para mockups de brand deck, não para arquivos prontos para a gráfica.</li>
+  <li><strong>OKLCH e OKLAB</strong> (espaços modernos perceptualmente uniformes) não são mostrados aqui — são mais novos e ainda não amplamente suportados. Por enquanto fique com HSL/HSV para tooling de design system.</li>
 </ul>
 """,
     },

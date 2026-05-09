@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Inspector Unicode", "tagline": "Pega texto → tabla de cada code point. Hex, decimal, bytes UTF-8, categoría. Detecta caracteres invisibles.", "description": "Inspector Unicode gratuito. Pega cualquier texto y ve cada code point: hex, decimal, secuencia de bytes UTF-8, categoría general. Resalta caracteres invisibles y confundibles."},
         "fr": {"name": "Inspecteur Unicode", "tagline": "Collez du texte → tableau de chaque point de code. Hex, décimal, octets UTF-8, catégorie. Repère les caractères invisibles.", "description": "Inspecteur Unicode gratuit. Collez du texte et voyez chaque point de code Unicode : hex, décimal, séquence d'octets UTF-8, catégorie générale. Met en évidence les caractères invisibles et confondants."},
         "it": {"name": "Ispettore Unicode", "tagline": "Incolla testo → tabella di ogni code point. Hex, decimale, byte UTF-8, categoria. Trova caratteri invisibili.", "description": "Ispettore Unicode gratuito. Incolla qualsiasi testo e vedi ogni code point Unicode: hex, decimale, sequenza di byte UTF-8, categoria. Evidenzia caratteri invisibili e confondibili."},
+        "pt": {"name": "Inspetor Unicode", "tagline": "Cole texto → tabela de cada code point. Hex, decimal, bytes UTF-8, categoria. Detecte caracteres invisíveis.", "description": "Inspetor Unicode gratuito. Cole qualquer texto e veja cada code point Unicode: hex, decimal, sequência de bytes UTF-8, categoria geral e o nome quando conhecido. Destaca caracteres invisíveis e confundíveis."},
     },
     "body": """
 <div class="tool-card">
@@ -180,6 +181,38 @@ document.addEventListener('DOMContentLoaded', uiRun);
   <li><strong>Right-to-left overrides are dangerous.</strong> A filename containing U+202E can flip its display order — making <code>resu&#x202E;txt.exe</code> look like <code>resuexe.txt</code> in a file browser. Used in phishing.</li>
   <li><strong>The name column is partial.</strong> A real Unicode database has names for every code point; the inspector only ships names for control characters and common format/whitespace characters where the name is the most useful diagnostic.</li>
   <li><strong>Surrogate halves shouldn't appear standalone.</strong> If you see U+D800–U+DFFF in the output, the input is a malformed UTF-16 string (lone surrogate). Most APIs will refuse to encode that to UTF-8.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>"Por que essa string não compara igual?" "Por que esse username é recusado como já existente quando parece livre?" "Por que esse nome de arquivo quebra meu shell?" A resposta é quase sempre: os bytes não batem com o que seus olhos veem. Dois caracteres podem <em>parecer</em> idênticos mas serem code points diferentes (o "a" latino vs o "а" cirílico); whitespace pode esconder no-break spaces, zero-width joiners ou overrides RTL; um emoji pode ser um code point ou quatro. Esta ferramenta decompõe qualquer texto até seus code points Unicode individuais, com hex, decimal, sequência de bytes UTF-8, categoria e um nome quando conhecido.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Diagnosticar um bug de string "parece igual mas não é igual".</li>
+  <li>Encontrar caracteres invisíveis (zero-width space, BOM, override RTL) escondidos em texto colado.</li>
+  <li>Contar bytes vs code points vs unidades UTF-16 antes de armazenar em uma coluna de largura fixa.</li>
+  <li>Inspecionar um emoji para ver qual sequência ZWJ ele usa.</li>
+  <li>Detectar ataques de homoglyph em domínios ou usernames.</li>
+  <li>Gerar sequências exatas de bytes UTF-8 para um hex dump.</li>
+</ul>
+
+<h3>Lendo a saída</h3>
+<ul>
+  <li><strong>Code point</strong> — o valor Unicode abstrato, escrito <code>U+XXXX</code>. Existem 1,1 milhão deles; o mais alto em uso é U+10FFFF.</li>
+  <li><strong>UTF-8</strong> — como aquele code point é codificado em bytes em arquivos modernos (1–4 bytes cada).</li>
+  <li><strong>Unidades UTF-16</strong> — o que strings JavaScript (<code>s.length</code>) e strings Java contam. Um code point acima de U+FFFF (a maioria dos emoji) ocupa <em>duas</em> unidades UTF-16 (um surrogate pair).</li>
+  <li><strong>Categoria</strong> — abreviação da categoria geral do Unicode: L=letra, N=número, P=pontuação, S=símbolo, Z=separador, C=control/format/private.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>O comprimento é ambíguo.</strong> "👨‍👩‍👧" tem 1 cluster de grafema, 5 code points, 11 unidades UTF-16 e 18 bytes UTF-8 — todos "tamanhos" que algum sistema pode reportar.</li>
+  <li><strong>Sequências zero-width joiner vs seletores de sequência.</strong> Muitos emoji são sequências ZWJ: família, profissão, variantes de tom de pele. Reordenar ou remover um ZWJ muda o que é renderizado.</li>
+  <li><strong>Normalização importa.</strong> "café" pode ser e+◌́ (NFD) ou é (NFC). Parecem idênticos mas são bytes diferentes; bancos de dados e código de comparação precisam normalizar para a mesma forma.</li>
+  <li><strong>Overrides right-to-left são perigosos.</strong> Um nome de arquivo contendo U+202E pode inverter sua ordem de exibição — fazendo <code>resu&#x202E;txt.exe</code> parecer <code>resuexe.txt</code> num gerenciador de arquivos. Usado em phishing.</li>
+  <li><strong>A coluna de nome é parcial.</strong> Uma base Unicode de verdade tem nomes para cada code point; o inspetor só traz nomes para caracteres de controle e caracteres comuns de format/whitespace, onde o nome é o diagnóstico mais útil.</li>
+  <li><strong>Metades de surrogate não devem aparecer sozinhas.</strong> Se você vê U+D800–U+DFFF na saída, a entrada é uma string UTF-16 malformada (lone surrogate). A maioria das APIs vai se recusar a codificar isso para UTF-8.</li>
 </ul>
 """,
         "de": """

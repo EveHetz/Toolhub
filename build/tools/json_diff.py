@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Diff JSON", "tagline": "Diff estructural entre dos documentos JSON — claves añadidas, eliminadas, modificadas y cambios de valor lado a lado.", "description": "Diff JSON gratuito. Calcula un delta estructural entre dos documentos JSON — claves añadidas/eliminadas, valores modificados. 100% en el navegador."},
         "fr": {"name": "Diff JSON", "tagline": "Diff structurel entre deux documents JSON — clés ajoutées, supprimées, modifiées et changements de valeur côte à côte.", "description": "Diff JSON gratuit. Calcule un delta structurel entre deux documents JSON — clés ajoutées/supprimées, valeurs modifiées. 100% dans le navigateur."},
         "it": {"name": "Diff JSON", "tagline": "Diff strutturale tra due documenti JSON — chiavi aggiunte, rimosse, modificate e cambi di valore affiancati.", "description": "Diff JSON gratuito. Calcola un delta strutturale tra due documenti JSON — chiavi aggiunte/rimosse, valori modificati. 100% nel browser."},
+        "pt": {"name": "Diff JSON", "tagline": "Diff estrutural de dois documentos JSON — chaves adicionadas, removidas, alteradas e mudanças de valor lado a lado.", "description": "Diff JSON grátis online. Calcula um delta estrutural entre dois documentos JSON — chaves adicionadas/removidas, valores alterados, e uma visão lado a lado limpa. Roda totalmente no seu browser."},
     },
     "body": """
 <div class="tool-card">
@@ -195,6 +196,26 @@ document.addEventListener('DOMContentLoaded', jdRun);
   <li><strong>Number-vs-string isn't structural.</strong> <code>{"id": 1}</code> and <code>{"id": "1"}</code> show as a change because the types differ. Normalise types before diffing if that matters.</li>
   <li><strong>RFC 6902 is a one-way patch, not a merge.</strong> Apply it with a real RFC 6902 implementation, not by string-replacement.</li>
   <li><strong>Big trees get noisy.</strong> If the diff is hundreds of operations long, you're probably comparing two unrelated documents — re-check the inputs.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um diff de texto puro em JSON te diz quais linhas mudaram; um diff estrutural te diz quais <em>pontos de dado</em> mudaram. Os dois costumam ser bem diferentes — um documento reformatado sem mudança semântica é "toda linha diferente" pra um text diff, mas "nenhuma mudança" aqui. Esta ferramenta percorre as duas árvores JSON e reporta cada path onde elas divergem, usando a sintaxe <a href="https://datatracker.ietf.org/doc/html/rfc6901" target="_blank" rel="noopener noreferrer">JSON Pointer da RFC 6901</a> (<code>/users/0/name</code>) pra que o output seja inequívoco independentemente da formatação.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Comparar duas respostas de API pra ver o que de fato mudou numa release, ignorando barulho de whitespace e ordem de chave.</li>
+  <li>Fazer diff de arquivos de config antes/depois de uma migração pra confirmar que só os campos pretendidos mudaram.</li>
+  <li>Gerar um documento JSON Patch da RFC 6902 pra enviar a um sistema que aceita (endpoints PATCH, fallbacks de JSON-Merge-Patch).</li>
+  <li>Olhar duas test fixtures pra ver o que faz uma falhar quando a outra passa.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>O modo de comparação de array importa.</strong> "By index" reporta um elemento inserido como remove+add em tudo depois dele. "By value" trata arrays como conjuntos, perdendo reordenações reais. Escolha o que casa com a forma como seus dados deveriam estar ordenados.</li>
+  <li><strong>Number-vs-string não é estrutural.</strong> <code>{"id": 1}</code> e <code>{"id": "1"}</code> aparecem como mudança porque os tipos diferem. Normalize tipos antes do diff se isso importa.</li>
+  <li><strong>RFC 6902 é um patch unidirecional, não um merge.</strong> Aplique com uma implementação real de RFC 6902, não por substituição de string.</li>
+  <li><strong>Árvores grandes ficam barulhentas.</strong> Se o diff tem centenas de operações, provavelmente você está comparando dois documentos sem relação — confira os inputs.</li>
 </ul>
 """,
     },

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Codificador / Decodificador Base64", "tagline": "Codifica texto a Base64 o decodifica Base64 a texto. Compatible con UTF-8 y variante base64url.", "description": "Codificador y decodificador Base64 gratuito. Compatible con UTF-8 y variante base64url para URLs y JWTs."},
         "fr": {"name": "Encodeur / Décodeur Base64", "tagline": "Encodez du texte en Base64 ou décodez du Base64 en texte. UTF-8 et variante base64url supportées.", "description": "Encodeur et décodeur Base64 gratuit. Compatible UTF-8 avec variante base64url pour URLs et JWTs."},
         "it": {"name": "Encoder / Decoder Base64", "tagline": "Codifica testo in Base64 o decodifica Base64 in testo. UTF-8 sicuro con variante base64url.", "description": "Encoder e decoder Base64 gratuito. UTF-8 sicuro con variante base64url per URL e JWT."},
+        "pt": {"name": "Codificador / Decodificador Base64", "tagline": "Codifique texto em Base64 ou decodifique Base64 de volta em texto. Seguro em UTF-8 e suporta a variante base64url.", "description": "Codificador e decodificador Base64 online gratuito. Seguro em UTF-8 com variante base64url opcional para URLs e JWTs. Roda no seu navegador."},
     },
     "body": """
 <div class="tool-card">
@@ -104,6 +105,31 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>UTF-8 round-trips correctly here</strong> — non-ASCII (é, 你好, 🚀) goes through <code>TextEncoder</code>/<code>TextDecoder</code>, not <code>btoa</code>/<code>atob</code> directly. Naive <code>btoa(str)</code> in JavaScript breaks on non-Latin characters.</li>
   <li><strong>Padding</strong> — standard Base64 always ends with 0/1/2 <code>=</code> characters depending on input length. base64url often omits them. Decoders that require padding will reject unpadded input; this tool re-adds it on decode if missing.</li>
   <li><strong>Whitespace inside encoded strings</strong> — the decoder here strips spaces and line breaks (common from copy-paste), but some libraries don't, so re-encode if you're piping to one of those.</li>
+</ul>
+""",
+        "pt": """
+<h2>O que o Base64 faz de verdade</h2>
+<p>Base64 transforma bytes arbitrários em 64 caracteres ASCII (A–Z, a–z, 0–9 mais dois extras). Três bytes de entrada viram quatro caracteres de saída, então o resultado fica cerca de 33% maior que a entrada. É um <em>encoding</em>, não criptografia — qualquer um consegue decodificar.</p>
+
+<h3>Quando usar Base64</h3>
+<ul>
+  <li>Embutir pequenos dados binários dentro de formatos só-texto: data URIs, valores JSON, variáveis de ambiente, strings YAML.</li>
+  <li>Codificar tokens binários (assinaturas, chaves, hashes) para incluir em URLs, headers ou cookies.</li>
+  <li>Anexos de e-mail e SMIME — histórico mas ainda em uso.</li>
+</ul>
+
+<h3>Standard vs base64url</h3>
+<ul>
+  <li><strong>Standard</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>) usa <code>+</code>, <code>/</code>, <code>=</code>. Funciona bem em e-mail, valores JSON, na maioria dos XML.</li>
+  <li><strong>base64url</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>) usa <code>-</code>, <code>_</code> e tipicamente descarta o padding <code>=</code> no final. Usado em JWTs, tokens OAuth e em qualquer lugar onde o valor mora numa URL e <code>+</code>/<code>/</code>/<code>=</code> precisariam de escape extra.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Não confunda com criptografia.</strong> Base64 é reversível por qualquer um. Se o dado é sensível, criptografe primeiro.</li>
+  <li><strong>UTF-8 faz round-trip corretamente aqui</strong> — caracteres não-ASCII (é, 你好, 🚀) passam por <code>TextEncoder</code>/<code>TextDecoder</code>, e não direto por <code>btoa</code>/<code>atob</code>. <code>btoa(str)</code> ingênuo em JavaScript quebra com caracteres não-latinos.</li>
+  <li><strong>Padding</strong> — Base64 standard sempre termina com 0/1/2 caracteres <code>=</code> dependendo do tamanho da entrada. base64url frequentemente os omite. Decoders que exigem padding rejeitam entrada sem padding; esta ferramenta readiciona o padding no decode se estiver faltando.</li>
+  <li><strong>Whitespace dentro de strings codificadas</strong> — o decoder aqui remove espaços e quebras de linha (comuns em copiar/colar), mas algumas bibliotecas não fazem isso, então recodifique se você for jogar o resultado numa delas.</li>
 </ul>
 """,
     },

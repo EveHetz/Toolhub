@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Comparador de Texto", "tagline": "Compara dos bloques de texto y ve adiciones, eliminaciones y contexto línea por línea. Vista lado a lado o unificada.", "description": "Comparador de texto en línea gratuito. Diff de Myers por línea con vista lado a lado y unificada, ignorar espacios y mayúsculas. En el navegador."},
         "fr": {"name": "Comparateur de Texte", "tagline": "Comparez deux blocs de texte ligne par ligne. Ajouts, suppressions, contexte. Vue côte à côte ou unifiée.", "description": "Comparateur de texte gratuit en ligne. Diff Myers par ligne avec vue côte-à-côte et unifiée, ignore les espaces ou la casse. Dans le navigateur."},
         "it": {"name": "Confronto Testo", "tagline": "Confronta due blocchi di testo e vedi aggiunte, rimozioni e contesto riga per riga. Vista affiancata o unificata.", "description": "Strumento di diff di testo gratuito online. Diff di Myers per riga con vista affiancata e unificata, ignora spazi e maiuscole. Nel browser."},
+        "pt": {"name": "Diff de Texto", "tagline": "Compare dois blocos de texto e veja adições, remoções e contexto inalterado linha a linha. Visão lado a lado ou unificada.", "description": "Ferramenta de diff de texto gratuita online. Diff de Myers em nível de linha com visão lado a lado e unificada, com toggles para ignorar whitespace e ignorar case. Roda no navegador."},
     },
     "body": """
 <div class="td-grid">
@@ -171,6 +172,35 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>Order matters.</strong> If you swap two lines, the diff shows both as removed-and-re-added, not as a "moved" pair. There's no move detection.</li>
   <li><strong>Big inputs (10k+ lines) can be slow.</strong> The LCS algorithm is O(m·n) — fine for typical files, sluggish for very large ones. Diff small chunks at a time.</li>
   <li><strong>Trailing newlines</strong> count as a line. Two inputs that differ only in whether they end with a newline will show one trailing addition or removal.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Comparar duas versões de um trecho de texto — um parágrafo, um arquivo de config, uma query SQL, uma lista — e ver exatamente quais linhas foram adicionadas, removidas ou ficaram iguais. Mesmo quando você não tem <code>git diff</code> à mão ou o texto não está em controle de versão. A saída é o mesmo diff em nível de linha que você veria num code review: verde para adições, vermelho para remoções, plano para contexto inalterado.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Detectar o que está diferente entre dois e-mails, contratos ou blocos colados que "parecem iguais".</li>
+  <li>Comparar arquivos de config ou variáveis de ambiente entre dois ambientes (staging vs prod).</li>
+  <li>Revisar mudanças num texto que foi editado no Word/Docs por outra pessoa.</li>
+  <li>Fazer diff de dois resultados de query, trechos de log ou blobs JSON (use o JSON Formatter primeiro para canonicalizar).</li>
+  <li>Verificação rápida de sanidade num search-and-replace antes de commitar.</li>
+</ul>
+
+<h3>Lado a lado vs unificada</h3>
+<ul>
+  <li><strong>Lado a lado</strong> — mais fácil de scanear pequenas mudanças linha a linha; o original fica à esquerda, a versão nova à direita.</li>
+  <li><strong>Unificada</strong> — mais próxima da saída do <code>git diff</code>; melhor para compartilhar ou imprimir, e mais fácil de acompanhar quando as mudanças são esparsas.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>Isto é diff de linha, não de palavra.</strong> Um caractere alterado no meio de uma linha longa marca a linha inteira como alterada. Para diff em nível de prosa de parágrafos, talvez você queira uma ferramenta que tokenize em palavras.</li>
+  <li><strong>"Ignorar whitespace" afeta só a comparação, não a exibição.</strong> Linhas que diferem apenas em espaços no fim ou indentação caem na coluna inalterada, mas o whitespace original continua sendo mostrado.</li>
+  <li><strong>"Ignorar case" do mesmo jeito.</strong> "TODO" e "todo" comparam iguais, mas o case original é renderizado.</li>
+  <li><strong>Ordem importa.</strong> Se você troca duas linhas de lugar, o diff mostra as duas como removidas-e-readicionadas, não como um par "movido". Não há detecção de movimento.</li>
+  <li><strong>Entradas grandes (10k+ linhas) podem ser lentas.</strong> O algoritmo LCS é O(m·n) — tudo bem para arquivos típicos, lento para muito grandes. Faça diff em pedaços pequenos.</li>
+  <li><strong>Newlines no final</strong> contam como linha. Duas entradas que diferem só em terminar ou não com newline vão mostrar uma adição ou remoção no final.</li>
 </ul>
 """,
     },

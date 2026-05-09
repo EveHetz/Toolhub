@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Conversor de Tamaño de Archivo", "tagline": "Convierte entre bytes, KB, MB, GB, TB y los binarios KiB, MiB, GiB, TiB. Decimal vs binario claros.", "description": "Conversor gratuito de tamaño de archivo. Convierte cualquier valor en bytes entre unidades decimales (B, KB, MB, GB, TB) y unidades binarias IEC (KiB, MiB, GiB, TiB)."},
         "fr": {"name": "Convertisseur de Taille de Fichier", "tagline": "Convertissez entre octets, Ko, Mo, Go, To et les binaires Kio, Mio, Gio, Tio. Décimal vs binaire clarifié.", "description": "Convertisseur gratuit de taille de fichier. Convertissez n'importe quel nombre d'octets entre unités décimales (B, KB, MB, GB, TB) et unités binaires IEC (KiB, MiB, GiB, TiB)."},
         "it": {"name": "Convertitore Dimensione File", "tagline": "Converti tra byte, KB, MB, GB, TB e i binari KiB, MiB, GiB, TiB. Decimale vs binario chiari.", "description": "Convertitore gratuito di dimensioni file. Converti qualsiasi quantità di byte tra unità decimali (B, KB, MB, GB, TB) e unità binarie IEC (KiB, MiB, GiB, TiB)."},
+        "pt": {"name": "Conversor de Tamanho de Arquivo", "tagline": "Converta entre bytes, KB, MB, GB, TB e os binários KiB, MiB, GiB, TiB. Decimal vs binário bem distinguidos.", "description": "Conversor gratuito de unidades de tamanho de arquivo. Converta qualquer quantidade de bytes entre unidades decimais (B, KB, MB, GB, TB, PB) e unidades binárias IEC (KiB, MiB, GiB, TiB, PiB). Veja os dois lado a lado, com a distinção exata."},
     },
     "body": """
 <div class="tool-card">
@@ -121,6 +122,33 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>Network speed is in bits, not bytes.</strong> 100 Mbps = 100 megabits per second = 12.5 MB/s peak. Your "100 Mbit fiber" doesn't download a 100 MB file in one second.</li>
   <li><strong>Some tools are inconsistent.</strong> macOS Finder switched from binary (with KB labels) to decimal in 10.6, then mostly stayed there. Windows Explorer still uses binary with KB labels — confusing but unchanged.</li>
   <li><strong>Browsers' <code>Content-Length</code> is bytes.</strong> Always exact, no SI/IEC ambiguity.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>"Quão grande são 4 GB?" depende de quem está perguntando. Fabricantes de HD, engenheiros de rede e padrões SI significam 4.000.000.000 bytes (potências de 1000). Sistemas operacionais, módulos de RAM e a maioria dos gerenciadores de arquivos historicamente significam 4.294.967.296 bytes (potências de 1024). Os dois números diferem em 7% na escala de gigabyte e 10% na escala de terabyte — o suficiente para você se sentir enganado quando um HD de "1 TB" aparece como "931 GiB" no seu computador. Esta ferramenta converte entre os dois sistemas para você sempre saber qual está vendo.</p>
+
+<h3>Os dois sistemas</h3>
+<ul>
+  <li><strong>SI / decimal</strong> — KB, MB, GB, TB. <code>1 KB = 1.000 bytes</code>. Usado por fabricantes de armazenamento, velocidades de rede (Mbps, Gbps) e o padrão SI desde 1960.</li>
+  <li><strong>IEC / binário</strong> — KiB, MiB, GiB, TiB. <code>1 KiB = 1.024 bytes</code>. A IEC introduziu essas unidades em 1998 para desambiguar. O <code>du</code> do Linux com <code>-h</code> usa essas, assim como o Finder do macOS para memória.</li>
+</ul>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Dimensionar um backup, um upload ou uma imagem Docker e bater com o que a ferramenta reporta.</li>
+  <li>Converter velocidade de download de "150 Mbps" para MB/s (divida por 8 — bits para bytes).</li>
+  <li>Estimar custo de cloud storage quando um provider cobra em GB e outro em GiB.</li>
+  <li>Descobrir quanto "1 GB" de email realmente ocupa em disco.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>HDs usam decimal.</strong> Um drive de "1 TB" guarda 1.000.000.000.000 bytes ≈ 931 GiB. O SO não está mentindo — o marketing está usando a unidade menor.</li>
+  <li><strong>RAM usa binário.</strong> "8 GB de RAM" é quase sempre 8 GiB (8.589.934.592 bytes). RAM é construída em potências de dois.</li>
+  <li><strong>Velocidade de rede é em bits, não bytes.</strong> 100 Mbps = 100 megabits por segundo = 12,5 MB/s no pico. Sua "fibra de 100 Mbit" não baixa um arquivo de 100 MB em um segundo.</li>
+  <li><strong>Algumas ferramentas são inconsistentes.</strong> O Finder do macOS migrou de binário (com labels KB) para decimal no 10.6 e ficou lá. O Windows Explorer ainda usa binário com labels KB — confuso mas inalterado.</li>
+  <li><strong>O <code>Content-Length</code> dos browsers é em bytes.</strong> Sempre exato, sem ambiguidade SI/IEC.</li>
 </ul>
 """,
         "de": """

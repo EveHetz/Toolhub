@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Validador de Tarjeta de Crédito", "tagline": "Valida un número de tarjeta con Luhn y detecta la marca. Funciona localmente — el número nunca se envía.", "description": "Validador de tarjeta de crédito gratuito. Suma de comprobación Luhn, detección de marca (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) y longitud. 100% en el navegador."},
         "fr": {"name": "Validateur de Carte Bancaire", "tagline": "Validez un numéro de carte avec Luhn et détectez la marque. Fonctionne localement — le numéro n'est jamais envoyé.", "description": "Validateur de carte bancaire gratuit. Somme de contrôle Luhn, détection de marque (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) et longueur. 100% dans le navigateur."},
         "it": {"name": "Validatore Carta di Credito", "tagline": "Valida un numero di carta con Luhn e rileva la marca. Funziona localmente — il numero non viene mai inviato.", "description": "Validatore di carta di credito gratuito. Checksum Luhn, rilevamento marca (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) e lunghezza. 100% nel browser."},
+        "pt": {"name": "Validador de Cartão de Crédito", "tagline": "Valide um número de cartão com a verificação de Luhn e detecte a bandeira. Roda localmente — seu número nunca é transmitido.", "description": "Validador de cartão de crédito online gratuito. Checksum de Luhn (mod-10), detecção de bandeira (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) e verificação de tamanho. 100% client-side."},
     },
     "body": """
 <div class="tool-card">
@@ -103,6 +104,28 @@ document.addEventListener('DOMContentLoaded', cvRun);
 </ul>
 
 <h3>Test numbers (safe to paste)</h3>
+<p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Números de cartão carregam um checksum embutido (o algoritmo de Luhn / mod-10) e começam com prefixos que identificam a bandeira emissora. Juntos, isso permite pegar erros de digitação e identificar a bandeira antes de enviar um número a um gateway de pagamento. Esta ferramenta roda os dois checks 100% no seu navegador — o número que você cola nunca sai da página. É validação estrutural de nível de desenvolvedor, não checagem de fraude nem consulta de cartão ao vivo.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Validar que um número de cartão de teste que você copiou está bem-formado (cartões de teste da <a href="https://docs.stripe.com/testing" rel="noopener">documentação da Stripe</a> ou similares passam todos no Luhn).</li>
+  <li>Conferir campos de input num formulário — o número satisfaz a estrutura básica antes de fazer round-trip a uma API de pagamentos que cobraria pela consulta?</li>
+  <li>Auditar um número de cartão que "parece errado" para ver se é erro de digitação (Luhn falha) ou bandeira incompatível (tamanho errado para o prefixo).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>"Estruturalmente válido" não significa "emitido" ou "ativo".</strong> Validação real exige um gateway de pagamento — o que custa dinheiro ou faz uma autorização. Esta ferramenta pega erros de digitação, não contas encerradas.</li>
+  <li><strong>Não cole números de cartão reais em lugar nenhum</strong> — incluindo esta ferramenta. O navegador não transmite, mas um gravador de tela, extensão de navegador ou painel de dev-tools aberto pode capturar. Use um número de teste conhecido.</li>
+  <li><strong>Alguns números de 16 dígitos não são cartões.</strong> Cartões fidelidade, gift cards e alguns SKUs pré-pagos reutilizam o formato; passar no Luhn + bater bandeira não garante que seja um meio de pagamento.</li>
+  <li><strong>Cartões co-branded.</strong> Cartões emitidos sob uma bandeira podem exibir o logo de outra. A detecção de bandeira aqui usa o prefixo canônico do emissor, não o logo impresso.</li>
+</ul>
+
+<h3>Números de teste (seguros para colar)</h3>
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Calculadora de IMC", "tagline": "Índice de Masa Corporal a partir de altura y peso. Métrico o imperial. Categoría OMS — no es consejo médico.", "description": "Calculadora gratuita de IMC. Introduce altura y peso en métrico (cm + kg) o imperial (pies/pulgadas + libras) y obtén el IMC y la clasificación de la OMS. Solo educativo — no es consejo médico."},
         "fr": {"name": "Calculateur d'IMC", "tagline": "Indice de Masse Corporelle à partir de la taille et du poids. Métrique ou impérial. Catégorie OMS — pas un avis médical.", "description": "Calculateur d'IMC gratuit. Saisissez la taille et le poids en métrique (cm + kg) ou impérial (pieds/pouces + livres) et obtenez l'IMC plus la classification OMS. À titre informatif — pas un avis médical."},
         "it": {"name": "Calcolatore BMI", "tagline": "Indice di Massa Corporea da altezza e peso. Metrico o imperiale. Categoria OMS — non è un consiglio medico.", "description": "Calcolatore BMI gratuito. Inserisci altezza e peso in metrico (cm + kg) o imperiale (piedi/pollici + libbre) e ottieni il BMI e la classificazione OMS. Solo informativo — non un consiglio medico."},
+        "pt": {"name": "Calculadora de IMC", "tagline": "Índice de Massa Corporal a partir de altura e peso. Métrico ou imperial. Mostra a categoria da OMS — não é orientação médica.", "description": "Calculadora gratuita de Índice de Massa Corporal. Informe altura e peso em métrico (cm + kg) ou imperial (pés/polegadas + libras) e veja o valor de IMC mais a classificação da OMS (abaixo do peso, normal, sobrepeso, obesidade). Apenas educacional — não é orientação médica."},
     },
     "body": """
 <div class="tool-card">
@@ -256,6 +257,34 @@ document.addEventListener('DOMContentLoaded', bmiRun);
 <li><strong>L'etnia conta.</strong> OMS Asia-Pacifico usa soglie più basse.</li>
 <li><strong>Alti vs bassi.</strong> La formula al quadrato sovrastima le persone alte.</li>
 <li><strong>Non è un consiglio medico.</strong> Consulta un medico in caso di dubbi.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>O Índice de Massa Corporal (IMC) é um número único — peso em quilogramas dividido pelo quadrado da altura em metros — usado pela Organização Mundial da Saúde e por muitos sistemas de saúde como uma triagem rápida para categorias de peso corporal. Não é diagnóstico; é um sinalizador. Os limites clássicos para adultos são: abaixo de 18,5 baixo peso, 18,5–24,9 normal, 25–29,9 sobrepeso, 30 ou mais obesidade (dividida em Classe I/II/III em 35 e 40). Esta ferramenta calcula o valor e a categoria a partir da altura e do peso em métrico ou imperial.</p>
+
+<h3>Como é calculado</h3>
+<ul>
+  <li><strong>Métrico:</strong> IMC = kg ÷ (m × m). 70 kg a 1,75 m → 70 / 3,0625 = 22,9.</li>
+  <li><strong>Imperial:</strong> IMC = (lb × 703) ÷ (in × in). A ferramenta converte para métrico internamente para garantir precisão.</li>
+  <li>As categorias da OMS são as mesmas independentemente do sistema de unidades — o IMC em si é adimensional.</li>
+</ul>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Autoavaliação rápida ou para preencher um formulário que pede o valor (seguro, apps de fitness, ficha de academia).</li>
+  <li>Comparar um valor entre populações ou estudos.</li>
+  <li>Acompanhar a direção da mudança ao longo do tempo (subindo, estável, caindo) — a tendência é mais útil que qualquer leitura isolada.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>O IMC não mede a composição corporal.</strong> Músculo pesa mais que gordura, então uma pessoa em forma e musculosa pode aparecer como "sobrepeso" tendo baixo percentual de gordura. Por outro lado, uma pessoa com pouca massa muscular pode aparecer como "normal" estando pouco saudável ("magro com gordura").</li>
+  <li><strong>É uma métrica para adultos.</strong> Para crianças e adolescentes (menores de 18) use as curvas de percentil de IMC específicas por idade e sexo.</li>
+  <li><strong>Gestação não é suportada.</strong> O IMC não se aplica durante a gravidez; converse com seu profissional de saúde.</li>
+  <li><strong>Etnia importa.</strong> Vários órgãos de saúde (NHS, orientação da OMS Ásia-Pacífico) usam limites mais baixos (sobrepeso ≥23, obesidade ≥27,5) para populações sul-asiáticas, chinesas e outras, porque o risco cardiovascular sobe em IMCs mais baixos.</li>
+  <li><strong>Pessoas altas vs baixas.</strong> A fórmula com altura ao quadrado sistematicamente classifica em excesso pessoas altas como "abaixo do peso" e pessoas baixas como "sobrepeso" — fórmulas alternativas (o BMI de Trefethen usa altura^2,5) tentam corrigir isso.</li>
+  <li><strong>Não é orientação médica.</strong> Se você está preocupado com seu peso, fale com um profissional. Ele tem o resto do quadro (circunferência abdominal, pressão arterial, exames de sangue, estilo de vida) que um número isolado não tem.</li>
 </ul>
 """,
     },

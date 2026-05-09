@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Formateador XML", "tagline": "Formatea y minimiza XML. Valida la buena forma con línea y columna en errores.", "description": "Formateador y minimizador XML gratuito. Pretty-print con sangría configurable o sin espacios. Valida buena forma con el parser XML del navegador — línea y columna en errores."},
         "fr": {"name": "Formateur XML", "tagline": "Formatez et minifiez du XML. Validez la bien-formation avec ligne et colonne en cas d'erreur.", "description": "Formateur et minifieur XML gratuit. Pretty-print avec indentation configurable ou suppression des espaces. Valide la bien-formation avec le parseur XML du navigateur — ligne et colonne en cas d'erreur."},
         "it": {"name": "Formattatore XML", "tagline": "Formatta e minifica XML. Valida la ben-formattezza con riga e colonna in caso di errori.", "description": "Formattatore e minificatore XML gratuito. Pretty-print con indentazione configurabile o rimozione spazi. Valida la ben-formattezza con il parser XML del browser — riga e colonna in caso di errori."},
+        "pt": {"name": "Formatador de XML", "tagline": "Formate e minifique XML. Valide se está bem-formado com linha e coluna em caso de erro.", "description": "Formatador e minificador de XML online gratuito. Pretty-print de XML com indentação configurável, ou remova whitespace para minificar. Valida well-formedness usando o parser XML do navegador — linha e coluna do erro são exibidos."},
     },
     "body": """
 <div class="tool-card">
@@ -234,6 +235,30 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>Namespaces survive.</strong> <code>xmlns:foo</code> declarations and <code>foo:bar</code> qualified names round-trip without modification.</li>
   <li><strong>Attribute order may shift.</strong> The XML parser doesn't strictly preserve attribute order across tools; if you're checksumming XML, canonicalise it first (XML C14N).</li>
   <li><strong>Browser parser quirks.</strong> Different browsers report parse errors with different formats. The line/column extraction is best-effort and may show only the message on some browsers.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>XML continua por toda parte — respostas SOAP, arquivos de configuração, feeds RSS/Atom, marcação SVG, internals de OOXML. Quando você precisa ler, comparar ou compartilhar um pedaço de XML, a diferença entre uma blob minificada de uma linha e uma árvore bem indentada é a diferença entre adivinhação e leitura. Esta ferramenta faz pretty-print de qualquer XML bem-formado com indentação configurável, ou minifica para transporte, e usa o parser XML nativo do navegador para sinalizar problemas de formação com linha e coluna quando possível.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Inspecionando um SOAP envelope ou uma config XML de um vendor que chegou como uma linha minificada.</li>
+  <li>Limpando um SVG para ter o path data um elemento por linha.</li>
+  <li>Removendo whitespace de pretty-print antes de enviar XML pela rede.</li>
+  <li>Validando rapidamente que um arquivo XML que você gerou está bem-formado antes de entregar a um parser estrito.</li>
+  <li>Comparando dois documentos XML — pretty-print primeiro, depois faça o diff das árvores lado a lado.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Bem-formado ≠ válido.</strong> "Bem-formado" significa que a sintaxe parseia (tags balanceadas, atributos com aspas, uma raiz). "Válido" significa que está em conformidade com um DTD ou schema. Esta ferramenta verifica apenas well-formedness — validação de schema precisa do arquivo de schema.</li>
+  <li><strong>Whitespace pode ser significativo.</strong> Em <code>&lt;name&gt; Alice &lt;/name&gt;</code> os espaços antes e depois fazem parte do valor (XML usa <code>xml:space="preserve"</code> por padrão). Re-indentar muda isso. Se seu XML é sensível a whitespace (XHTML <code>&lt;pre&gt;</code>, blocos de código embutidos), pretty-print é a ferramenta errada.</li>
+  <li><strong>Self-closing vs vazio explícito.</strong> <code>&lt;br/&gt;</code> e <code>&lt;br&gt;&lt;/br&gt;</code> são equivalentes em XML mas diferem em HTML. O formatador normaliza elementos vazios para a forma self-closing.</li>
+  <li><strong>CDATA, comentários e processing instructions são preservados.</strong> Seu conteúdo interno não é reformatado.</li>
+  <li><strong>Namespaces sobrevivem.</strong> Declarações <code>xmlns:foo</code> e nomes qualificados <code>foo:bar</code> fazem round-trip sem modificação.</li>
+  <li><strong>Ordem dos atributos pode mudar.</strong> O parser XML não preserva estritamente a ordem de atributos entre ferramentas; se você está fazendo checksum de XML, canonicalize antes (XML C14N).</li>
+  <li><strong>Peculiaridades do parser do browser.</strong> Browsers diferentes reportam erros de parse em formatos diferentes. A extração de linha/coluna é best-effort e pode mostrar só a mensagem em alguns browsers.</li>
 </ul>
 """,
         "de": """

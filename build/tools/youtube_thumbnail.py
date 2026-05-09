@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Descargador de Miniaturas de YouTube", "tagline": "Pega cualquier URL de YouTube o ID de vídeo y obtén todos los tamaños de miniatura disponibles — descarga directa, sin registro.", "description": "Descargador gratuito de miniaturas de YouTube. Extrae el ID de vídeo de cualquier URL de YouTube y muestra todas las resoluciones de miniaturas con enlaces de descarga directa."},
         "fr": {"name": "Téléchargeur de Miniatures YouTube", "tagline": "Collez n'importe quelle URL YouTube ou ID vidéo et obtenez toutes les tailles de miniatures disponibles — téléchargement direct, sans inscription.", "description": "Téléchargeur gratuit de miniatures YouTube. Extrait l'ID vidéo de toute URL YouTube et affiche toutes les résolutions de miniatures avec liens de téléchargement directs."},
         "it": {"name": "Download Miniature YouTube", "tagline": "Incolla qualsiasi URL YouTube o ID video e ottieni tutte le dimensioni di miniatura disponibili — link diretti, nessuna registrazione.", "description": "Download gratuito di miniature YouTube. Estrae l'ID video da qualsiasi URL YouTube e mostra tutte le risoluzioni di miniature con link di download diretti."},
+        "pt": {"name": "Baixar Thumbnail do YouTube", "tagline": "Cole qualquer URL ou ID de vídeo do YouTube e baixe todos os tamanhos de thumbnail disponíveis — links diretos, sem upload, sem cadastro.", "description": "Downloader de thumbnails do YouTube gratuito. Extrai o ID do vídeo de qualquer URL do YouTube (watch, youtu.be, shorts, embed, /v/) e mostra todas as resoluções de thumbnail disponíveis com links de download diretos."},
     },
     "body": """
 <div class="tool-card">
@@ -128,6 +129,37 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>It's still YouTube's image.</strong> Hot-linking is fine; rehosting on your own CDN is fine technically but check the licensing if you're using it commercially. The video creator may have copyright on the visual content of the frame.</li>
   <li><strong>WebP not supported here.</strong> YouTube also serves <code>.webp</code> versions (smaller files), but they're served from a different CDN path and not exposed by this tool.</li>
   <li><strong>Live streams and Shorts</strong> work fine — the URL parser handles all the modern forms — but live-stream thumbnails change while the stream is on air.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Todo vídeo do YouTube tem um pequeno conjunto de imagens de thumbnail pré-geradas em URLs previsíveis — o próprio YouTube as usa em resultados de busca, embeds e previews. Esta ferramenta extrai o ID de 11 caracteres do vídeo de qualquer formato de URL do YouTube (watch, youtu.be, Shorts, embed, /v/) e organiza todos os tamanhos disponíveis com links de download direto e botões para copiar a URL. Útil quando você precisa de um preview offline, uma imagem de destaque para um post de blog, um rich link no Discord/Slack ou um poster de fallback para um player de vídeo customizado.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Embedando um vídeo do YouTube em um post de blog e querendo o mesmo thumbnail que o YouTube mostra, hospedado localmente.</li>
+  <li>Fazendo um tile clicável de "assista este vídeo" no Notion / Slack / e-mail onde você precisa de uma imagem estática.</li>
+  <li>Construindo um player de vídeo customizado e precisando de uma imagem de poster antes do iframe carregar.</li>
+  <li>Salvando uma thumbnail para uso offline como referência, conteúdo ou material de moodboard.</li>
+  <li>Pegando a thumbnail de maior resolução sem ter que mexer com a YouTube Data API.</li>
+</ul>
+
+<h3>As variantes explicadas</h3>
+<ul>
+  <li><strong>maxresdefault</strong> (1280×720) — a thumbnail original em full-HD. Só existe para vídeos enviados em HD; caso contrário a URL retorna 404 e o preview fica em branco.</li>
+  <li><strong>sddefault</strong> (640×480) — gerada para a maioria dos vídeos da era moderna.</li>
+  <li><strong>hqdefault</strong> (480×360) — <strong>sempre existe</strong>, valendo desde os vídeos mais antigos do YouTube. Use como fallback.</li>
+  <li><strong>mqdefault</strong> (320×180) e <strong>default</strong> (120×90) — previews pequenos; úteis para renderização em listas.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>maxresdefault frequentemente dá 404.</strong> Uploads antigos ou de baixa resolução não têm. Monte sua cadeia de fallback: <code>maxresdefault → sddefault → hqdefault</code>.</li>
+  <li><strong>Barras pretas no hqdefault.</strong> A thumbnail 480×360 é letterboxed para fontes que não são 4:3 — há barras em cima e embaixo. O <code>mqdefault</code> (320×180) tem o aspect ratio 16:9 correto para uploads modernos.</li>
+  <li><strong>Frames 1/2/3.</strong> O YouTube também expõe <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code> no mesmo path — três frames auto-extraídos do vídeo. Às vezes um deles é o que você realmente quer para um poster customizado, e eles não estão na lista de variantes default.</li>
+  <li><strong>A imagem ainda é do YouTube.</strong> Hot-linking é OK; rehospedar no seu próprio CDN tecnicamente é OK, mas verifique o licenciamento se for uso comercial. O criador do vídeo pode ter copyright sobre o conteúdo visual do frame.</li>
+  <li><strong>WebP não é suportado aqui.</strong> O YouTube também serve versões <code>.webp</code> (arquivos menores), mas são servidas de um path de CDN diferente e não estão expostas por esta ferramenta.</li>
+  <li><strong>Live streams e Shorts</strong> funcionam bem — o parser de URL trata todas as formas modernas — mas thumbnails de live stream mudam enquanto o stream está no ar.</li>
 </ul>
 """,
     },

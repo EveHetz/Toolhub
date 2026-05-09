@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Chuleta Regex", "tagline": "Referencia rápida: anclas, clases de caracteres, cuantificadores, grupos, lookarounds, flags. Haz clic en cualquier patrón para copiarlo.", "description": "Chuleta de regex (expresiones regulares) gratuita. Anclas, clases, cuantificadores, grupos, lookarounds y flags — con copiar al clic y filtro. PCRE / JavaScript."},
         "fr": {"name": "Aide-mémoire Regex", "tagline": "Référence rapide : ancres, classes de caractères, quantificateurs, groupes, lookarounds, drapeaux. Cliquez pour copier un motif.", "description": "Aide-mémoire regex (expressions régulières) gratuit. Ancres, classes, quantificateurs, groupes, lookarounds et flags — avec copie au clic et filtre. PCRE / JavaScript."},
         "it": {"name": "Cheatsheet Regex", "tagline": "Riferimento rapido: ancore, classi di caratteri, quantificatori, gruppi, lookaround, flag. Clicca un pattern per copiarlo.", "description": "Cheatsheet regex (espressioni regolari) gratuito. Ancore, classi, quantificatori, gruppi, lookaround e flag — con copia al clic e filtro. PCRE / JavaScript."},
+        "pt": {"name": "Cheatsheet de Regex", "tagline": "Referência rápida: anchors, classes de caracteres, quantificadores, grupos, lookarounds, flags. Clique em qualquer pattern para copiar.", "description": "Cheatsheet de regex gratuito. Anchors, classes de caracteres, quantificadores, grupos, lookarounds e flags — com clique-para-copiar e filtro ao vivo. Sabor PCRE / JavaScript."},
     },
     "body": """
 <div class="tool-card">
@@ -195,6 +196,28 @@ document.addEventListener('DOMContentLoaded', rcRender);
   <li><strong>Regex isn't an HTML or JSON parser.</strong> The "common patterns" here are good for one-off scraping or validation hints, not for treating structured input as a string.</li>
   <li><strong>Email regexes are always wrong.</strong> The example here is a rough shape-check; for production validation, send a confirmation email instead.</li>
   <li><strong>Don't trust copy-pasted "perfect" regexes.</strong> Test them against your real data with the Regex Tester before deploying.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um resumo imprimível e pesquisável dos pedaços de sintaxe regex que você sempre lembra pela metade. As tabelas aqui cobrem as categorias principais — anchors, classes de caracteres, quantificadores, grupos, lookarounds, flags — além de um conjunto inicial de patterns comuns. Clique em qualquer pattern para copiar; digite no filtro para restringir. Combine com o <a href="/regex-tester/">Regex Tester</a> para realmente testar os patterns contra texto.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Você precisa de <code>(?&lt;=foo)</code> e não lembra se o <code>?</code> vai antes ou depois do <code>&lt;</code>.</li>
+  <li>Você está explicando regex para alguém e precisa de uma página de referência estável em vez de vasculhar abas do Stack Overflow.</li>
+  <li>Você quer um pattern inicial (UUID, e-mail, data ISO) para copiar e ajustar em vez de escrever do zero.</li>
+  <li>Você precisa saber qual flag faz o quê — em particular <code>s</code> (dotall) vs <code>m</code> (multi-line), que as pessoas misturam toda hora.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>O sabor importa.</strong> A maior parte aqui é JavaScript / PCRE moderno, mas as features diferem. Lookbehind só chegou no JavaScript com ES2018; <code>x</code> (extended) é PCRE/Python e não existe em JS; quantificadores possessivos <code>++</code> são só PCRE.</li>
+  <li><strong><code>m</code> ≠ "matching multi-linha".</strong> <code>m</code> muda o que <code>^</code> e <code>$</code> significam (por linha em vez de por string). Para que <code>.</code> bata em quebras de linha, você quer <code>s</code> (dotall).</li>
+  <li><strong>Greedy come demais.</strong> <code>&lt;.*&gt;</code> contra <code>&lt;a&gt;b&lt;/a&gt;</code> casa a coisa toda, não só <code>&lt;a&gt;</code>. Use <code>&lt;.*?&gt;</code> para a versão lazy, ou melhor ainda uma classe mais específica como <code>&lt;[^&gt;]+&gt;</code>.</li>
+  <li><strong>Regex não é parser de HTML ou JSON.</strong> Os "patterns comuns" aqui servem para scraping pontual ou dicas de validação, não para tratar entrada estruturada como string.</li>
+  <li><strong>Regex de e-mail estão sempre erradas.</strong> O exemplo aqui é uma checagem grosseira de formato; para validação em produção, mande um e-mail de confirmação.</li>
+  <li><strong>Não confie em regex "perfeitas" copiadas.</strong> Teste contra seus dados reais no Regex Tester antes de subir.</li>
 </ul>
 """,
         "de": """

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "JSON a CSV", "tagline": "Convierte arrays JSON de objetos en CSV. Detecta campos, soporta separadores personalizados, escapado para Excel y Google Sheets.", "description": "Conversor JSON a CSV gratuito. Aplana arrays de objetos en filas, escape conforme a RFC 4180, separadores coma/punto y coma/tab."},
         "fr": {"name": "JSON vers CSV", "tagline": "Convertissez des tableaux JSON d'objets en CSV. Détection des champs, séparateurs personnalisés, échappement compatible Excel et Google Sheets.", "description": "Convertisseur JSON vers CSV gratuit. Aplatit les tableaux d'objets en lignes, échappement RFC 4180, séparateurs virgule/point-virgule/tab."},
         "it": {"name": "JSON a CSV", "tagline": "Converti array JSON di oggetti in CSV. Rilevamento campi, separatori personalizzati, escape compatibile con Excel e Google Sheets.", "description": "Convertitore JSON-CSV gratuito. Appiattisce array di oggetti in righe, escape RFC 4180, separatori virgola/punto e virgola/tab."},
+        "pt": {"name": "JSON para CSV", "tagline": "Converte arrays JSON de objetos em CSV. Detecta os campos automaticamente, suporta delimitadores customizados e faz escape correto pra Excel e Google Sheets.", "description": "Conversor JSON para CSV grátis online. Achata arrays de objetos em linhas, faz escape de aspas conforme a RFC 4180, suporta delimitadores vírgula/ponto e vírgula/tab."},
     },
     "body": """
 <div class="tool-card">
@@ -110,6 +111,25 @@ document.addEventListener('DOMContentLoaded', jcRun);
   <li><strong>Nested objects/arrays are stringified.</strong> If you need a flattened CSV (one column per nested key), pre-flatten the JSON before feeding it in.</li>
   <li><strong>Excel + delimiters.</strong> European locales default to semicolons; switch the delimiter so the file opens with columns instead of one giant line. RFC 4180 escaping is applied either way.</li>
   <li><strong>UTF-8 BOM.</strong> Excel on macOS sometimes garbles non-ASCII without a BOM. This tool does NOT prepend one — paste the output through a BOM-adding step if you see mojibake.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>O caminho inverso: você joga um array JSON e recebe um CSV pronto pra Excel, Google Sheets ou qualquer ferramenta de dados que prefira formato tabular. Os headers são detectados automaticamente das chaves dos objetos; valores aninhados são serializados como JSON em células únicas, pra que nada suma silenciosamente.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Transformar uma resposta de API em CSV pra um stakeholder que só abre planilhas.</li>
+  <li>Exportar um monte de registros de um dump JSON pra algo que dê pra pivotar/filtrar no Sheets.</li>
+  <li>Gerar fixtures de linhas pra imports de banco de dados que aceitam CSV.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>A inferência de header usa a união de todas as chaves dos objetos.</strong> Uma linha sem uma chave vira célula vazia; a coluna não some.</li>
+  <li><strong>Objetos/arrays aninhados são serializados como string.</strong> Se você precisa de um CSV achatado (uma coluna por chave aninhada), achate o JSON antes de jogar aqui.</li>
+  <li><strong>Excel + delimitadores.</strong> Locales europeus usam ponto e vírgula por padrão; troque o delimitador pra que o arquivo abra com colunas em vez de uma linha gigantesca. O escape da RFC 4180 é aplicado de qualquer jeito.</li>
+  <li><strong>BOM UTF-8.</strong> O Excel no macOS às vezes embaralha não-ASCII sem BOM. Esta ferramenta NÃO adiciona um — passe o output por um passo que adiciona BOM se aparecer mojibake.</li>
 </ul>
 """,
     },

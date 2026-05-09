@@ -29,7 +29,7 @@ spec = importlib.util.spec_from_file_location("i18n", BUILD / "i18n.py")
 i18n_mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(i18n_mod)
 UI = i18n_mod.UI
-LANGS = i18n_mod.LANGS  # ["en", "de", "es", "fr", "it"]
+LANGS = i18n_mod.LANGS  # ["en", "de", "es", "fr", "it", "pt"]
 
 # Load all tool modules
 TOOLS = []
@@ -81,7 +81,7 @@ def fill_braces(text: str, mapping: dict) -> str:
     return text
 
 
-OG_LOCALES = {"en": "en_GB", "de": "de_DE", "es": "es_ES", "fr": "fr_FR", "it": "it_IT"}
+OG_LOCALES = {"en": "en_GB", "de": "de_DE", "es": "es_ES", "fr": "fr_FR", "it": "it_IT", "pt": "pt_BR"}
 
 CATEGORY_TO_APP_CAT = {
     # schema.org/SoftwareApplication applicationCategory enum-ish values
@@ -211,6 +211,7 @@ def render_tool(tool: dict, lang: str) -> str:
         "SEL_ES": sel["es"],
         "SEL_FR": sel["fr"],
         "SEL_IT": sel["it"],
+        "SEL_PT": sel["pt"],
         "ALTERNATE_LINKS": alternate_links(slug),
         "OG_LOCALE": OG_LOCALES.get(lang, "en_GB"),
         "INLANG": lang,

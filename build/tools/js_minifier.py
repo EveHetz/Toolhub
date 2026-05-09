@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Minificador de JavaScript", "tagline": "Minificación estructural rápida de JS — quita comentarios, colapsa espacios, elimina líneas vacías. Tamaño antes/después.", "description": "Minificador de JavaScript gratuito. Elimina comentarios de una línea y multilínea, espacios redundantes y líneas vacías sin romper strings, regex ni template literals."},
         "fr": {"name": "Minifieur JavaScript", "tagline": "Minification structurelle rapide du JS — suppression des commentaires, des espaces redondants et des lignes vides. Taille avant/après.", "description": "Minifieur JavaScript gratuit. Retire les commentaires mono- et multi-lignes, les espaces redondants et les lignes vides sans casser strings, regex et template literals."},
         "it": {"name": "Minificatore JavaScript", "tagline": "Minificazione strutturale rapida del JS — rimuove commenti, comprime spazi, elimina righe vuote. Dimensione prima/dopo.", "description": "Minificatore JavaScript gratuito. Rimuove commenti single-line e multi-line, spazi superflui e righe vuote preservando stringhe, regex e template literal."},
+        "pt": {"name": "Minificador JavaScript", "tagline": "Minify estrutural rápido de JavaScript — remove comentários, comprime whitespace, tira linhas em branco. Mostra tamanho antes/depois e o percentual economizado.", "description": "Minificador JavaScript grátis online. Remove comentários de uma e várias linhas, whitespace redundante e linhas em branco preservando strings, regex e template literals."},
     },
     "body": """
 <div class="tool-card">
@@ -187,6 +188,26 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>Source maps aren't generated.</strong> If you ship minified JS to production, generate source maps with a real toolchain so debugging is sane.</li>
   <li><strong>Modern compression dominates.</strong> Brotli/gzip on the wire does most of what minify does. The biggest wins come from removing unused code — that needs static analysis a structural minifier can't do.</li>
   <li><strong>Don't minify what you commit.</strong> Source goes in pretty; minify at build/deploy.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um minificador estrutural de JavaScript remove comentários e whitespace desnecessário sem mudar o que o código faz. O output é funcionalmente idêntico ao input — mesmos identificadores, mesma lógica — só que mais curto. Esta ferramenta roda esse passe no seu browser, incluindo as partes traiçoeiras: preserva o conteúdo de strings e literais regex intactos, e mantém quebras de linha onde o ASI (Automatic Semicolon Insertion) mudaria o comportamento.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Cortar rápido um trecho pra inclusão num bookmarklet HTML ou demo de arquivo único, em que você não tem build chain.</li>
+  <li>Verificar quanta "gordura" tem num script feito à mão antes de decidir se vale a pena montar um optimizer de verdade.</li>
+  <li>Fazer inline de uma biblioteca pequena num site estático sem trazer um bundler junto.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Isto é minify estrutural, não um compressor.</strong> Não renomeia variáveis, não faz dead-code elimination, não mangle de propriedades nem tree-shaking. Pra builds de produção, use <code>terser</code>, <code>esbuild</code> ou <code>swc</code> no seu pipeline — eles cortam mais 30–60% além do minify estrutural.</li>
+  <li><strong>Armadilhas do ASI.</strong> O JavaScript insere ponto-e-vírgula em lugares surpreendentes. O minificador preserva uma quebra de linha onde removê-la mudaria o significado (ex.: <code>return\\n{}</code> ≠ <code>return {}</code>). Use ponto-e-vírgula explícito no source quando puder — torna o minify mais seguro pra todo mundo.</li>
+  <li><strong>Source maps não são gerados.</strong> Se você for enviar JS minificado pra produção, gere source maps com uma toolchain de verdade pra que o debug seja viável.</li>
+  <li><strong>A compressão moderna domina.</strong> Brotli/gzip na rede faz a maior parte do que o minify faz. Os maiores ganhos vêm de remover código não usado — isso exige análise estática que um minificador estrutural não consegue fazer.</li>
+  <li><strong>Não minifique o que você commita.</strong> Source vai bonito; minify no build/deploy.</li>
 </ul>
 """,
     },

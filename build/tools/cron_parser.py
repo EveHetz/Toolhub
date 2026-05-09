@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Analizza espressioni cron e vedi le prossime 10 esecuzioni. Crontab standard a 5 campi.",
             "description": "Analizzatore di espressioni cron gratuito. Valida la sintassi crontab a 5 campi e mostra le prossime 10 esecuzioni nel tuo fuso orario.",
         },
+        "pt": {
+            "name": "Parser de Expressões Cron",
+            "tagline": "Faça o parse de expressões cron e veja os próximos 10 horários de execução. Crontab padrão de 5 campos.",
+            "description": "Parser online gratuito de expressões cron. Valida a sintaxe crontab de 5 campos e lista os próximos 10 horários de execução agendados no seu fuso local.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -177,6 +182,37 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>Step + range combos.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. The step applies inside the range only.</li>
   <li><strong>Timezone is browser-local here.</strong> Real cron daemons run in server time (often UTC). A schedule that looks fine in your browser may fire at a different wall-clock time on the server. Confirm timezone before pasting.</li>
   <li><strong>Some cron flavours add fields.</strong> Quartz cron has 6 or 7 fields (with seconds and year). systemd timers use a different format entirely. This tool parses standard 5-field crontab.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Expressões cron são poderosas e fáceis de escrever errado. <code>0 0 * * 1-5</code> parece um agendamento de meia-noite em dias úteis e é. <code>*/15 0-9 * * *</code> parece a cada quinze minutos durante o horário comercial e é. <code>0 0 1 */3 *</code> parece trimestral... se você lembrou que <code>*/3</code> significa "a cada terceiro mês". Esta ferramenta deixa você colar uma expressão, ver o que ela de fato significa em português claro e prever os próximos 10 horários de execução para confirmar antes do deploy.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Conferir uma linha cron em <code>crontab -e</code> antes de salvar.</li>
+  <li>Traduzir uma string de agendamento de <code>CronJob</code> do Kubernetes em "que horas isso vai rodar de verdade?".</li>
+  <li>Projetar um novo agendamento — comece em português ("toda manhã de dia útil") e itere a expressão até o preview bater.</li>
+  <li>Debugar um job que "não rodou quando eu esperava" — cole o schedule, olhe os próximos 10 horários e veja se a surpresa é a realidade ou a expressão.</li>
+</ul>
+
+<h3>Referência dos campos cron</h3>
+<table>
+  <tr><th>Campo</th><th>Range</th><th>Wildcards</th></tr>
+  <tr><td>Minuto</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>Hora</td><td>0-23</td><td>idem</td></tr>
+  <tr><td>Dia do mês</td><td>1-31</td><td>idem</td></tr>
+  <tr><td>Mês</td><td>1-12</td><td>idem</td></tr>
+  <tr><td>Dia da semana</td><td>0-6 (0 = domingo, 7 também = domingo)</td><td>idem</td></tr>
+</table>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Dia do mês + dia da semana interagem.</strong> Se ambos estão restritos (ex.: <code>15 * * * 1</code> significando "o dia 15 OU uma segunda-feira"), a maioria das implementações de cron faz OR. Esta ferramenta segue essa convenção.</li>
+  <li><strong><code>*/N</code> não é exatamente "a cada N".</strong> É "a cada N começando do limite inferior", então <code>*/15</code> em minuto = 0,15,30,45 (não 12,27,42,57). Para começar depois, use uma lista: <code>5,20,35,50</code>.</li>
+  <li><strong>Combinações step + range.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. O step se aplica só dentro do range.</li>
+  <li><strong>O fuso horário aqui é o local do navegador.</strong> Daemons cron reais rodam no horário do servidor (frequentemente UTC). Um agendamento que parece certo no seu navegador pode disparar num horário diferente no servidor. Confirme o fuso antes de colar.</li>
+  <li><strong>Alguns dialetos de cron adicionam campos.</strong> O cron do Quartz tem 6 ou 7 campos (com segundos e ano). Timers do systemd usam um formato totalmente diferente. Esta ferramenta faz o parse do crontab padrão de 5 campos.</li>
 </ul>
 """,
     },

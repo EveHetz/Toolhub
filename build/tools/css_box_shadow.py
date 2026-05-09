@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Generador de Box Shadow CSS", "tagline": "Crea sombras CSS de una o varias capas visualmente. Ajusta offset, blur, spread, color y copia el CSS.", "description": "Generador gratuito de box-shadow CSS. Apila varias sombras, alterna inset, afina blur y spread, copia CSS listo en un clic."},
         "fr": {"name": "Générateur Box Shadow CSS", "tagline": "Créez des ombres CSS simples ou multi-couches visuellement. Réglez offset, blur, spread, couleur, copiez le CSS.", "description": "Générateur gratuit de box-shadow CSS. Empilez plusieurs ombres, basculez inset, affinez blur et spread, copiez le CSS en un clic."},
         "it": {"name": "Generatore Box Shadow CSS", "tagline": "Crea ombre CSS singole o multi-livello visualmente. Regola offset, blur, spread, colore e copia il CSS.", "description": "Generatore gratuito di box-shadow CSS. Sovrapponi più ombre, alterna inset, regola blur e spread, copia CSS pronto in un clic."},
+        "pt": {"name": "Gerador de Box Shadow CSS", "tagline": "Crie sombras CSS de uma ou várias camadas visualmente. Ajuste offset, blur, spread, cor e copie o CSS.", "description": "Gerador gratuito de box-shadow CSS. Empilhe várias sombras, alterne inset, ajuste blur e spread, copie CSS pronto para produção em um clique."},
     },
     "body": """
 <div class="tool-card">
@@ -135,6 +136,38 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>Shadow on transparent background.</strong> If the box has no <code>background</code>, the shadow shows through the box itself — usually surprising.</li>
   <li><strong>Performance:</strong> very large blur on lots of elements can be expensive on low-end mobile. Test on a real device before shipping fancy glows.</li>
   <li><strong>Dark mode.</strong> Subtle dark-on-dark shadows almost disappear; consider a bright inner border or a light-tinted shadow in dark themes.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>A propriedade CSS <code>box-shadow</code> é o cavalo de batalha para adicionar profundidade — sombras em cards, destaques em botões, anéis de foco, brilhos, efeitos neon, até 3D falso. A sintaxe (<code>x y blur spread cor</code>, opcional <code>inset</code>, várias sombras separadas por vírgula) é fácil de ler mas chata de ajustar no escuro. Esta ferramenta dá sliders para cada valor com preview ao vivo, além de presets que combinam com elevações comuns de design system.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Desenhar elevação de card ou modal que não pareça "barata e dura".</li>
+  <li>Construir um estilo de focus-ring para acessibilidade (ex.: glow de outline 2px).</li>
+  <li>Criar um efeito neon ou glow para um CTA principal.</li>
+  <li>Replicar tokens de elevação Material Design ou estilo Apple para um design system.</li>
+  <li>Fazer profundidade "inset" falsa para efeito de botão pressionado ou recesso de card.</li>
+</ul>
+
+<h3>O que cada valor faz</h3>
+<ul>
+  <li><strong>Offset X / Y</strong> — direção em que a sombra cai (Y positivo = para baixo). Para sensação de "luz vinda de cima", use Y > 0 e X pequeno ou zero.</li>
+  <li><strong>Blur</strong> — quão suave é a borda. 0 = nítido; maior = desvanece mais suave.</li>
+  <li><strong>Spread</strong> — quanto a sombra é maior (ou menor, se negativo) que o próprio box.</li>
+  <li><strong>Cor e alpha</strong> — geralmente um preto com alpha parcial ou cor da marca. Preto puro <code>#000</code> fica pesado demais; tente <code>#0003</code> a <code>#0002</code> para profundidade natural.</li>
+  <li><strong>Inset</strong> — inverte a sombra para dentro, como um recesso.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Uma sombra grande sozinha parece artificial.</strong> Elevação real é duas ou três camadas empilhadas: uma sombra apertada, escura e próxima, mais uma larga, suave e distante. O preset "Material elevation" mostra o padrão.</li>
+  <li><strong>Preto puro é pesado demais.</strong> Use ~10–25% de alpha em preto, ou tinja a sombra com a cor complementar da superfície para dar calor.</li>
+  <li><strong>Sombras renderizam fora do box.</strong> Se o container tem <code>overflow: hidden</code>, a sombra é cortada. Use um wrapper ou mova o <code>overflow</code> para um filho.</li>
+  <li><strong>Sombra em fundo transparente.</strong> Se o box não tem <code>background</code>, a sombra aparece através do próprio box — geralmente surpreendente.</li>
+  <li><strong>Performance:</strong> blur muito grande em muitos elementos pode pesar em mobile de baixo desempenho. Teste num device real antes de enviar glows chiques.</li>
+  <li><strong>Dark mode.</strong> Sombras escuras sobre escuro praticamente somem; considere uma borda interna brilhante ou uma sombra com tom claro em temas escuros.</li>
 </ul>
 """,
     },

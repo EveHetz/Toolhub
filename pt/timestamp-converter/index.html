@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Timestamp Unix — Toolhub</title>
+  <meta name="description" content="Conversor gratuito de timestamp Unix. Converta entre segundos epoch, milissegundos, ISO 8601 e datas legíveis em UTC ou hora local.">
+  <meta property="og:title" content="Conversor de Timestamp Unix — Toolhub">
+  <meta property="og:description" content="Conversor gratuito de timestamp Unix. Converta entre segundos epoch, milissegundos, ISO 8601 e datas legíveis em UTC ou hora local.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/pt/timestamp-converter/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/pt/timestamp-converter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/timestamp-converter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/">
+  <meta property="og:locale" content="pt_BR">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/pt/timestamp-converter/#tool",
+        "name": "Conversor de Timestamp Unix",
+        "description": "Conversor gratuito de timestamp Unix. Converta entre segundos epoch, milissegundos, ISO 8601 e datas legíveis em UTC ou hora local.",
+        "url": "https://toolhub.software/pt/timestamp-converter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "pt",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas as ferramentas", "item": "https://toolhub.software/pt/"},
+          {"@type": "ListItem", "position": 2, "name": "Conversor de Timestamp Unix", "item": "https://toolhub.software/pt/timestamp-converter/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/pt/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/timestamp-converter/'; else location.href='/timestamp-converter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" selected="selected">🇧🇷 PT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Conversor de Timestamp Unix</div>
+    <h1>Conversor de Timestamp Unix</h1>
+    <p class="tagline">Converta entre timestamps Unix e datas legíveis. Segundos e milissegundos, UTC e local.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Unix timestamp</label>
+      <input type="text" id="ts-num" oninput="tsFromNum()" placeholder="1704067200 or 1704067200000" style="font-family:ui-monospace,monospace">
+      <div class="meta">Auto-detects seconds vs milliseconds</div>
+    </div>
+    <div>
+      <label>Date &amp; time</label>
+      <input type="datetime-local" id="ts-date" step="1" oninput="tsFromDate()">
+      <div class="meta">Local timezone</div>
+    </div>
+  </div>
+  <div class="button-row">
+    <button onclick="tsNow()">Now</button>
+    <button class="secondary" onclick="document.getElementById('ts-num').value=''; tsRender(null)">Limpar</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Result</label>
+  <pre class="output" id="ts-out">Digite uma entrada acima para ver o resultado.</pre>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Para que serve?</h2>
+<p>Um timestamp Unix é um único inteiro — o número de segundos (ou milissegundos) desde 1970-01-01 00:00:00 UTC. Eles estão em todo lugar: arquivos de log, respostas de API, claims <code>iat</code>/<code>exp</code> de JWT, colunas <code>created_at</code> em banco, headers de cache. São inequívocos e sem timezone, mas não são legíveis por humanos, então quando algo quebra em <code>1735689600</code>, você precisa saber se é 14h ou 4h da manhã, hoje ou ano passado. Esta ferramenta alterna entre a forma inteira e a forma legível nos dois sentidos, com auto-detecção de segundos/ms e uma dica de tempo relativo.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Decodificar um campo <code>"timestamp": 1735689600</code> de uma entrada de log ou resposta de API.</li>
+  <li>Verificar quando um JWT foi emitido ou quando expira (claims <code>iat</code> / <code>exp</code> são segundos-desde-epoch).</li>
+  <li>Calcular um timestamp futuro para um header <code>retry-after</code>, job agendado ou TTL de cache.</li>
+  <li>Verificação de sanidade se uma data armazenada num banco está em segundos, milissegundos ou microssegundos.</li>
+  <li>Converter "agora" no formato que sua ferramenta do momento espera.</li>
+</ul>
+
+<h3>Segundos, milissegundos, microssegundos</h3>
+<ul>
+  <li><strong>Segundos</strong> — a convenção Unix original; ~10 dígitos hoje (ex.: <code>1735689600</code>). Usado em C, Linux, JWT, na maioria das APIs e na maioria das colunas <code>integer</code> de banco.</li>
+  <li><strong>Milissegundos</strong> — <code>Date.now()</code> do JavaScript, <code>System.currentTimeMillis()</code> do Java, Kafka, muitas APIs JSON. ~13 dígitos.</li>
+  <li><strong>Microssegundos (16 dígitos) / nanossegundos (19 dígitos)</strong> — <code>time.time_ns()</code> do Python, <code>time.Now().UnixNano()</code> do Go, alguns sistemas de métricas. Esta ferramenta não trata automaticamente — divida por 1.000 ou 1.000.000 antes.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>O problema do ano 2038.</strong> Timestamps signed de 32 bits estouram em <code>2147483647</code> = <strong>03:14:07 UTC, 19 de janeiro de 2038</strong>. Código C antigo, colunas <code>TIMESTAMP</code> do MySQL e sistemas embarcados podem dar wrap para 1901. Sistemas modernos usam 64 bits e estão tranquilos até ~ano 292.277.026.596.</li>
+  <li><strong>Tempo Unix pula leap seconds.</strong> Um dia Unix tem exatamente 86.400 segundos, mesmo quando UTC tem 86.401. Isso é por design (mantém a aritmética simples), mas significa que você não pode usar timestamps Unix para astronomia ou GPS com precisão de sub-segundo.</li>
+  <li><strong>Timestamps negativos</strong> são válidos e representam datas anteriores a 1970. Algumas bibliotecas rejeitam — teste antes de confiar.</li>
+  <li><strong>A auto-detecção não é à prova de balas.</strong> Um valor de 10 dígitos <em>poderia</em> ser um timestamp em milissegundos de 1970 — extremamente improvável na prática, mas se você sabe a unidade, não dependa da heurística.</li>
+  <li><strong>Sempre armazene em UTC.</strong> Timestamps são sem timezone; "hora local" é só para exibição. A linha "Local" na saída usa o fuso do seu navegador, mas o inteiro subjacente é sempre UTC.</li>
+</ul>
+<div class="related"><span class="meta">Ferramentas relacionadas:</span> <a href="/pt/timezone-converter/">Conversor de Fuso Horário</a> <a href="/pt/cron-parser/">Parser de Expressões Cron</a> <a href="/pt/date-calculator/">Calculadora de Datas</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacidade</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function tsRender(d){
+  const out = document.getElementById('ts-out');
+  if (!d){ out.textContent = 'Digite uma entrada acima para ver o resultado.'; return; }
+  const ms = d.getTime();
+  const sec = Math.floor(ms / 1000);
+  const iso = d.toISOString();
+  const local = d.toLocaleString(undefined, { weekday:'long', year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  const utc = d.toUTCString();
+  // Relative
+  const now = Date.now();
+  const diffMs = ms - now;
+  const abs = Math.abs(diffMs);
+  let rel;
+  const sec_ = Math.floor(abs/1000), min = Math.floor(sec_/60), hr = Math.floor(min/60), day = Math.floor(hr/24), yr = Math.floor(day/365);
+  if (yr) rel = yr + 'y ' + (day - yr*365) + 'd';
+  else if (day) rel = day + 'd ' + (hr - day*24) + 'h';
+  else if (hr) rel = hr + 'h ' + (min - hr*60) + 'm';
+  else if (min) rel = min + 'm ' + (sec_ - min*60) + 's';
+  else rel = sec_ + 's';
+  rel += diffMs >= 0 ? ' from now' : ' ago';
+  out.textContent =
+    'Unix seconds:       ' + sec + '\n' +
+    'Unix milliseconds:  ' + ms + '\n' +
+    'ISO 8601 (UTC):     ' + iso + '\n' +
+    'UTC:                ' + utc + '\n' +
+    'Local:              ' + local + '\n' +
+    'Relative:           ' + rel;
+}
+function tsFromNum(){
+  const v = document.getElementById('ts-num').value.trim();
+  if (!v){ tsRender(null); return; }
+  const n = Number(v);
+  if (!isFinite(n)){ tsRender(null); return; }
+  // Heuristic: <= 10 digits = seconds, else ms
+  const ms = (Math.abs(n) >= 1e12) ? n : (Math.abs(n) >= 1e10 ? n : n * 1000);
+  const d = new Date(ms);
+  // Update date input
+  const pad = x => String(x).padStart(2,'0');
+  document.getElementById('ts-date').value = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  tsRender(d);
+}
+function tsFromDate(){
+  const v = document.getElementById('ts-date').value;
+  if (!v){ tsRender(null); return; }
+  const d = new Date(v);
+  if (isNaN(d.getTime())){ tsRender(null); return; }
+  document.getElementById('ts-num').value = Math.floor(d.getTime()/1000);
+  tsRender(d);
+}
+function tsNow(){
+  const d = new Date();
+  document.getElementById('ts-num').value = Math.floor(d.getTime()/1000);
+  const pad = x => String(x).padStart(2,'0');
+  document.getElementById('ts-date').value = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  tsRender(d);
+}
+document.addEventListener('DOMContentLoaded', tsNow);
+</script>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Tester JSONPath", "tagline": "Ejecuta consultas JSONPath contra cualquier documento JSON. Coincidencias y rutas en tiempo real.", "description": "Tester gratuito de JSONPath. Consulta JSON anidado con $.., comodines, cortes de array y filtros. Resultados en vivo."},
         "fr": {"name": "Testeur JSONPath", "tagline": "Exécutez des requêtes JSONPath sur tout document JSON. Résultats et chemins en temps réel.", "description": "Testeur JSONPath gratuit. Interrogez du JSON imbriqué avec $.., wildcards, slices, filtres. Résultats en direct."},
         "it": {"name": "Tester JSONPath", "tagline": "Esegui query JSONPath su qualsiasi documento JSON. Match e percorsi in tempo reale.", "description": "Tester JSONPath gratuito. Interroga JSON annidato con $.., wildcard, slice, filtri. Risultati live."},
+        "pt": {"name": "Testador JSONPath", "tagline": "Roda queries JSONPath contra qualquer documento JSON. Veja os nós correspondentes e seus paths em tempo real.", "description": "Testador JSONPath grátis online. Consulta JSON aninhado com $.., wildcards, array slices e expressões de filtro. Resultados ao vivo, cole seu JSON e comece a consultar."},
     },
     "body": """
 <div class="tool-card">
@@ -237,6 +238,40 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong><code>$..*</code></strong> returns every node in the tree (depth-first), which can be a lot. Useful for exploring an unfamiliar document.</li>
   <li><strong>Numeric strings.</strong> <code>{"1": "a"}</code> — accessing with <code>$['1']</code> works; <code>$.1</code> doesn't (numbers aren't valid as dot-property names).</li>
   <li><strong>Ordering.</strong> Object property order isn't guaranteed by JSON. If your filter depends on order, sort first.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>JSONPath está pra JSON assim como XPath está pra XML — uma linguagem de query pra extrair valores específicos de um documento aninhado sem escrever código sob medida. <code>$.store.books[*].title</code> diz "me dá todo título de livro abaixo de store"; <code>$..price</code> diz "todo <em>price</em> em qualquer lugar do documento". Esta ferramenta roda uma query ao vivo contra qualquer JSON que você colar, mostrando tanto os valores correspondentes quanto os paths de onde vieram, pra que você itere a query até retornar exatamente o que quer.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Rascunhar uma query para uma ferramenta que usa JSONPath: utilitários CLI estilo jq, testes do Postman, Stedi, n8n ou AWS CloudWatch / Step Functions.</li>
+  <li>Pescar campos específicos de uma resposta grande de API sem escrever script.</li>
+  <li>Filtrar um array por um valor de campo (ex.: "todas as orders onde total &gt; 100").</li>
+  <li>Verificar se um path muito aninhado de fato resolve pra um valor antes de plumbar isso no código.</li>
+</ul>
+
+<h3>Referência rápida de sintaxe</h3>
+<ul>
+  <li><strong><code>$</code></strong> — raiz do documento.</li>
+  <li><strong><code>.name</code></strong> ou <strong><code>['name']</code></strong> — filho por nome.</li>
+  <li><strong><code>..</code></strong> — descida recursiva (qualquer profundidade).</li>
+  <li><strong><code>*</code></strong> — wildcard (qualquer propriedade ou elemento de array).</li>
+  <li><strong><code>[n]</code></strong> — índice de array (negativo conta a partir do fim).</li>
+  <li><strong><code>[start:end:step]</code></strong> — slice de array (estilo Python).</li>
+  <li><strong><code>[a, b, c]</code></strong> — união de índices ou nomes.</li>
+  <li><strong><code>[?(@.field &gt; 5)]</code></strong> — expressão de filtro. <code>@</code> = item atual; suporta <code>== != &lt; &gt; &lt;= &gt;= &amp;&amp; ||</code> e <code>=~ /regex/</code>.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>JSONPath não tem uma única spec oficial.</strong> O draft original do Stefan Gössner foi a referência de fato por anos; a RFC 9535 (fev/2024) finalmente padronizou. As implementações divergem um pouco — o que funciona no Postman pode não funcionar no Jaeger.</li>
+  <li><strong>Ponto vs colchete.</strong> <code>$.foo-bar</code> parece "foo menos bar" pro parser; use <code>$['foo-bar']</code> para nomes de propriedade com hífen, ponto ou espaço.</li>
+  <li><strong>As expressões de filtro aqui têm sabor JavaScript</strong> — é uma conveniência deliberada, mas não bate exatamente com a RFC 9535. Não confie que os filtros desta ferramenta vão funcionar byte a byte numa outra implementação.</li>
+  <li><strong><code>$..*</code></strong> retorna todo nó da árvore (depth-first), o que pode ser muita coisa. Útil pra explorar um documento desconhecido.</li>
+  <li><strong>Strings numéricas.</strong> <code>{"1": "a"}</code> — acessar com <code>$['1']</code> funciona; <code>$.1</code> não (números não são válidos como nomes de propriedade com ponto).</li>
+  <li><strong>Ordenação.</strong> JSON não garante ordem de propriedades de objetos. Se seu filtro depende de ordem, ordene antes.</li>
 </ul>
 """,
     },

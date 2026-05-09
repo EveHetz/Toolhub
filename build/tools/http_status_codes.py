@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Códigos de Estado HTTP", "tagline": "Consulta cualquier código de estado HTTP (1xx–5xx). Significado, causas habituales y RFC.", "description": "Referencia gratuita de códigos HTTP. Busca cualquier código estándar (100–599) con su significado, causas habituales y RFC. Filtra al escribir."},
         "fr": {"name": "Codes HTTP", "tagline": "Recherchez n'importe quel code HTTP (1xx–5xx). Signification, causes courantes et référence RFC.", "description": "Référence gratuite des codes HTTP. Recherchez tout code standard (100–599) avec sa signification, ses causes courantes et la RFC. Filtrage en direct."},
         "it": {"name": "Codici di Stato HTTP", "tagline": "Cerca qualsiasi codice HTTP (1xx–5xx). Significato, cause comuni e riferimento RFC.", "description": "Riferimento gratuito per i codici HTTP. Cerca qualsiasi codice standard (100–599) con significato, cause comuni e RFC. Filtra mentre digiti."},
+        "pt": {"name": "Códigos de Status HTTP", "tagline": "Consulte qualquer código de status HTTP (1xx–5xx). Significado, causas comuns e a referência da RFC.", "description": "Referência grátis de códigos de status HTTP. Pesquise qualquer código padrão (100–599), veja seu significado, causas comuns e a RFC onde está definido. Filtra enquanto você digita."},
     },
     "body": """
 <div class="tool-card">
@@ -162,6 +163,29 @@ document.addEventListener('DOMContentLoaded', hsRun);
   <li><strong>200 with an error body is not "RESTful".</strong> If the request failed at the resource level, return a 4xx with the error in the body.</li>
   <li><strong>418 is a joke.</strong> Don't use I'm-a-teapot in production — clients and proxies treat it inconsistently.</li>
   <li><strong>RFC 9110 supersedes RFC 7231/7232/7233/7234/7235.</strong> If you're citing the spec, use 9110 (June 2022) unless you specifically need an older version.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Códigos de status HTTP são os números de três dígitos que um servidor devolve pra dizer ao cliente como a request foi. Eles se agrupam em cinco famílias: 1xx (informacional), 2xx (sucesso), 3xx (redirecionamento), 4xx (erro do cliente), 5xx (erro do servidor). A maioria dos devs conhece os códigos famosos — 200, 301, 404, 500 — mas é na cauda longa (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) que os bugs reais moram. Esta ferramenta dá a lista completa com significados e a RFC onde cada um está definido.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Lendo a doc de uma API que devolve um código que você não reconhece (425? 451?).</li>
+  <li>Escolhendo o código certo pra retornar da sua própria API — 404 vs 410, 401 vs 403, 422 vs 400.</li>
+  <li>Diagnosticando um 502/504 — o upstream está fora do ar ou só lento?</li>
+  <li>Decidindo se 200 com error body ou um 4xx de verdade é o caminho certo.</li>
+  <li>Procurando a referência da RFC pra um code review ou documento de design.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>401 significa não autenticado, 403 significa não autorizado.</strong> Os nomes confundem — 401 diz "não sei quem você é", 403 diz "sei quem você é e você não pode acessar isto". Use 403 só se uma re-autenticação não fosse ajudar.</li>
+  <li><strong>302 é ambíguo quanto ao método.</strong> Historicamente browsers mudavam POST→GET num redirect 302. Use 307 (preserva o método) ou 303 (sempre GET) para ser explícito.</li>
+  <li><strong>404 não é 410.</strong> 404 = "não sei"; 410 = "sei e foi embora pra sempre". Use 410 quando search engines deveriam descartar a URL.</li>
+  <li><strong>200 com error body não é "RESTful".</strong> Se a request falhou no nível do recurso, retorne um 4xx com o erro no body.</li>
+  <li><strong>418 é uma piada.</strong> Não use I'm-a-teapot em produção — clientes e proxies tratam de forma inconsistente.</li>
+  <li><strong>RFC 9110 substitui RFC 7231/7232/7233/7234/7235.</strong> Se vai citar a spec, use 9110 (junho de 2022) a menos que precise especificamente de uma versão mais antiga.</li>
 </ul>
 """,
         "de": """

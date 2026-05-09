@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Incolla un JWT per decodificare header e payload. Tutto viene eseguito nel browser — i token non lasciano la pagina.",
             "description": "Decoder JSON Web Token gratuito. Decodifica header e payload, verifica scadenza, ispeziona la firma. Funziona offline nel browser.",
         },
+        "pt": {
+            "name": "Decoder JWT",
+            "tagline": "Cole um JWT para decodificar header e payload. Tudo roda no seu browser — os tokens não saem da página.",
+            "description": "Decoder de JSON Web Token grátis online. Decodifica header e payload, verifica timestamps de expiração, inspeciona a signature. Funciona totalmente offline no seu browser.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -143,6 +148,36 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>Don't paste production tokens into anywhere.</strong> Anyone with a live JWT can impersonate the user until <code>exp</code>. The browser doesn't transmit it from this tool, but extensions, screen-recordings, and dev tools can. Use a fresh token from a test environment if you need to share.</li>
   <li><strong><code>alg: none</code> tokens are a known attack class.</strong> If a header has <code>alg: none</code> and your library accepts it, attackers can forge tokens. Reject this on the server.</li>
   <li><strong>Time skew matters.</strong> A token's <code>exp</code> is checked against the verifier's clock. Servers with drift fail tokens that look valid here.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um JWT (JSON Web Token) são três partes em base64url ligadas por pontos: <code>header.payload.signature</code>. O header e o payload são objetos JSON que você pode inspecionar; a signature prova que o token não foi adulterado depois de emitido. Esta ferramenta decodifica as duas primeiras partes pra você ver o que está dentro sem o barulho do base64 — útil pra debugar fluxos de auth, sessões expiradas ou "pra qual usuário é esse token, exatamente?".</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Debugar um login OAuth / OpenID Connect que está falhando — cole o access ou ID token e veja o que o IdP de fato emitiu.</li>
+  <li>Confirmar a expiração do token: a ferramenta decodifica <code>exp</code> como uma data real e marca se já passou.</li>
+  <li>Checar custom claims que um backend está afirmando (roles, permissões, tenant IDs).</li>
+  <li>Ler um token que sua biblioteca "rejeitou como inválido" pra ver se o problema é estrutural, de expiração ou de signature.</li>
+</ul>
+
+<h3>Claims comuns</h3>
+<ul>
+  <li><code>iss</code> — issuer (quem criou o token)</li>
+  <li><code>sub</code> — subject (o usuário/conta que ele representa)</li>
+  <li><code>aud</code> — audience (quem deveria aceitá-lo)</li>
+  <li><code>exp</code> — expiração (timestamp Unix)</li>
+  <li><code>iat</code> — issued-at (timestamp Unix)</li>
+  <li><code>nbf</code> — not-valid-before (timestamp Unix)</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Um JWT decodificado NÃO é um JWT verificado.</strong> A signature não é checada aqui — isso exige a chave pública do issuer (RSA/EC) ou o segredo compartilhado (HMAC). O conteúdo decodificado te diz o que o token <em>diz</em>, não se você deve confiar nele. Sempre verifique no servidor antes de honrar claims.</li>
+  <li><strong>Não cole tokens de produção em qualquer lugar.</strong> Qualquer um com um JWT vivo pode se passar pelo usuário até o <code>exp</code>. O browser não transmite o token a partir desta ferramenta, mas extensões, gravações de tela e dev tools podem. Use um token novo de um ambiente de teste se precisar compartilhar.</li>
+  <li><strong>Tokens com <code>alg: none</code> são uma classe conhecida de ataque.</strong> Se um header tem <code>alg: none</code> e sua biblioteca aceita, atacantes podem forjar tokens. Rejeite isso no servidor.</li>
+  <li><strong>Time skew importa.</strong> O <code>exp</code> de um token é checado contra o relógio do verificador. Servidores com drift falham tokens que parecem válidos aqui.</li>
 </ul>
 """,
     },

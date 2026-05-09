@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Conversor de Mayúsculas", "tagline": "Convierte texto entre MAYÚSCULAS, minúsculas, Título, Oración, camelCase, PascalCase, snake_case, kebab-case, CONSTANTE y dot.case.", "description": "Conversor de mayúsculas/minúsculas gratuito. MAYÚS, minús, título, oración, camel, pascal, snake, kebab, constante y punto."},
         "fr": {"name": "Convertisseur de Casse", "tagline": "Convertissez du texte entre MAJUSCULES, minuscules, Titre, Phrase, camelCase, PascalCase, snake_case, kebab-case, CONSTANTE et dot.case.", "description": "Convertisseur de casse gratuit. MAJ, min, titre, phrase, camel, pascal, snake, kebab, constante et point."},
         "it": {"name": "Convertitore di Maiuscole/Minuscole", "tagline": "Converti testo tra MAIUSCOLO, minuscolo, Titolo, Frase, camelCase, PascalCase, snake_case, kebab-case, COSTANTE e dot.case.", "description": "Convertitore di maiuscole/minuscole gratuito. MAIUSC, minusc, titolo, frase, camel, pascal, snake, kebab, costante e punto."},
+        "pt": {"name": "Conversor de Capitalização", "tagline": "Converta texto entre MAIÚSCULAS, minúsculas, Título, Frase, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE e dot.case.", "description": "Conversor de capitalização online gratuito. Alterne texto entre maiúsculas, minúsculas, título, frase, camel, pascal, snake, kebab, constant e dot case com um clique."},
     },
     "body": """
 <div class="tool-card">
@@ -104,6 +105,26 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>Numbers attach to the previous word.</strong> "Item2" becomes one word "item2", not two. Add a separator if you want them split.</li>
   <li><strong>"camelCase first letter"</strong> is always lowercase even if the input started with a capital. PascalCase preserves the capital.</li>
   <li><strong>Round-tripping isn't always lossless.</strong> Going camelCase → kebab-case → camelCase loses the original capitalisation hint at word boundaries; the case-detection heuristic does its best but can't recover what wasn't preserved.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Cada linguagem e plataforma tem suas próprias convenções para nomear coisas — JavaScript quer <code>camelCase</code>, Python quer <code>snake_case</code>, CSS quer <code>kebab-case</code>, variáveis de ambiente querem <code>CONSTANT_CASE</code>. Traduzir entre elas na mão é chato, especialmente com casos especiais (siglas, números, separadores já existentes). Esta ferramenta quebra qualquer entrada em palavras detectando transições de capitalização, separadores (<code>_ - . /</code>) e espaços em branco, e depois remonta em 14 estilos diferentes.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Renomear um campo de um JSON de API (camelCase) para uma coluna de ORM Python (snake_case).</li>
+  <li>Gerar nomes de classes CSS a partir de nomes de tokens de design-system que chegam em PascalCase.</li>
+  <li>Converter uma lista de títulos para slugs em kebab-case, ou nomes de variáveis de ambiente para CONSTANT_CASE.</li>
+  <li>Converter rapidamente "The Quick Brown Fox" para Title Case, Sentence case ou Train-Case para um título / rótulo de botão.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Siglas são complicadas.</strong> "XMLHttpRequest" deve virar "XML_Http_Request" ou "Xml_Http_Request"? Esta ferramenta trata letras maiúsculas consecutivas como um único limite de palavra (<code>xml http request</code>) e depois recapitaliza — o que combina com convenções Java/JS, mas não com todos os style guides.</li>
+  <li><strong>Números ficam grudados na palavra anterior.</strong> "Item2" vira uma palavra só "item2", não duas. Adicione um separador se quiser separar.</li>
+  <li><strong>"Primeira letra do camelCase"</strong> é sempre minúscula mesmo se a entrada começou com maiúscula. PascalCase preserva a maiúscula.</li>
+  <li><strong>Round-trip nem sempre é sem perdas.</strong> Ir de camelCase → kebab-case → camelCase perde a dica original de capitalização nos limites de palavra; a heurística de detecção faz o que pode, mas não consegue recuperar o que não foi preservado.</li>
 </ul>
 """,
     },

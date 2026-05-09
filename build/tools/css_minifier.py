@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Minificador CSS", "tagline": "Elimina comentarios, espacios y redundancia del CSS. Compara tamaños y porcentaje de ahorro.", "description": "Minificador CSS en línea gratuito. Elimina comentarios, comprime espacios, recorta puntos y comas y unidades cero. Muestra ratio de compresión."},
         "fr": {"name": "Minificateur CSS", "tagline": "Supprimez commentaires, espaces et redondances du CSS. Tailles avant/après et pourcentage d'économie.", "description": "Minificateur CSS gratuit. Supprime commentaires, espaces inutiles, point-virgules superflus et unités zéro. Affiche le taux de compression."},
         "it": {"name": "Minificatore CSS", "tagline": "Rimuovi commenti, spazi e ridondanza dal CSS. Vedi dimensione prima/dopo e percentuale di risparmio.", "description": "Minificatore CSS online gratuito. Rimuove commenti, comprime spazi, taglia punti e virgola e unità zero. Mostra il rapporto di compressione."},
+        "pt": {"name": "Minificador CSS", "tagline": "Remova comentários, espaços e redundância do CSS. Veja o tamanho antes/depois e o percentual de economia.", "description": "Minificador CSS online gratuito. Remove comentários, colapsa espaços, corta ponto e vírgula final e unidades zero. Mostra a taxa de compressão."},
     },
     "body": """
 <div class="tool-card">
@@ -118,6 +119,34 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>Source maps aren't generated.</strong> If you debug minified CSS in production, ship them separately.</li>
   <li><strong>Don't minify the CSS you commit.</strong> Commit pretty source; minify at build/deploy. Mixing the two makes diff review miserable.</li>
   <li><strong>Modern compression dominates.</strong> Brotli/gzip on the wire does much of what minification does. The biggest savings come from removing unused rules — a job for tree-shaking, not minification.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>CSS legível no código-fonte — com comentários, indentação e espaços significativos — incha o arquivo que seus usuários baixam. Um minificador estrutural retira todos os bytes cosméticos (comentários, sequências de espaços, zeros redundantes, códigos hex equivalentes mais curtos) sem mudar o significado das regras. Esta ferramenta roda essa passagem no seu browser e mostra o tamanho antes/depois para você ver a economia.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Enviar pontualmente um snippet de CSS inline num email HTML ou template de blog, onde quer encolher os bytes mas não tem cadeia de build.</li>
+  <li>Verificar rapidamente quanta "gordura" tem num stylesheet antes de decidir se vale a pena conectar um otimizador de verdade.</li>
+  <li>Colar um CSS pretty-printed de algum fornecedor para enxugá-lo e incluir num widget de terceiro.</li>
+</ul>
+
+<h3>O que ele faz</h3>
+<ul>
+  <li>Remove comentários de bloco (<code>/* … */</code>) — single-line <code>//</code> não é CSS válido puro mesmo.</li>
+  <li>Colapsa espaços ao redor de <code>{ } : ; ,</code> e combinadores (<code>&gt; ~ +</code>).</li>
+  <li>Tira ponto e vírgula final antes de <code>}</code>.</li>
+  <li>Remove zeros à esquerda (<code>0.5</code> → <code>.5</code>) e remove unidades de zero (<code>0px</code> → <code>0</code>).</li>
+  <li>Encurta cores hex onde for exato (<code>#aabbcc</code> → <code>#abc</code>).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Isto é uma minificação estrutural, não um otimizador completo.</strong> Não vai mesclar seletores duplicados, reordenar regras nem reescrever shorthands. Para isso, rode <code>cssnano</code> ou <code>esbuild</code> no seu pipeline de build.</li>
+  <li><strong>Source maps não são gerados.</strong> Se for fazer debug de CSS minificado em produção, envie-os separadamente.</li>
+  <li><strong>Não comite o CSS minificado.</strong> Comite o source bonito; minifique no build/deploy. Misturar os dois deixa o review de diff miserável.</li>
+  <li><strong>Compressão moderna domina.</strong> Brotli/gzip no fio faz boa parte do que a minificação faz. As maiores economias vêm de remover regras não usadas — trabalho de tree-shaking, não de minificação.</li>
 </ul>
 """,
     },

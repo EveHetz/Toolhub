@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Generador Lorem Ipsum", "tagline": "Genera párrafos, frases, palabras o elementos de lista en latín de relleno. Longitud y frase inicial configurables.", "description": "Generador de Lorem Ipsum gratuito. Párrafos, frases, palabras o listas HTML para maquetas y diseños."},
         "fr": {"name": "Générateur de Lorem Ipsum", "tagline": "Générez des paragraphes, phrases, mots ou éléments de liste en latin de remplissage. Longueur et phrase d'ouverture configurables.", "description": "Générateur de Lorem Ipsum gratuit. Paragraphes, phrases, mots ou listes HTML pour maquettes et designs."},
         "it": {"name": "Generatore di Lorem Ipsum", "tagline": "Genera paragrafi, frasi, parole o voci di elenco di testo segnaposto in latino. Lunghezza e frase iniziale configurabili.", "description": "Generatore di Lorem Ipsum gratuito. Paragrafi, frasi, parole o liste HTML per mockup e progetti grafici."},
+        "pt": {"name": "Gerador de Lorem Ipsum", "tagline": "Gere parágrafos, frases, palavras ou itens de lista de texto placeholder em latim. Tamanho e frase inicial configuráveis.", "description": "Gerador de Lorem Ipsum gratuito. Crie parágrafos, frases, palavras ou listas HTML para mockups e composições de design. Abertura clássica 'Lorem ipsum dolor sit amet…' opcional."},
     },
     "body": """
 <div class="tool-card">
@@ -131,6 +132,26 @@ document.addEventListener('DOMContentLoaded', liRun);
   <li><strong>Real copy is shorter or longer than placeholder.</strong> Real headlines are punchier. Real body copy varies wildly. A layout that looks balanced with lorem ipsum can fall apart with the actual content; verify with real text before sign-off.</li>
   <li><strong>Internationalisation reveals what lorem hides.</strong> Designs tested only with Latin filler often break with German compounds or Arabic right-to-left layouts. Test with multilingual placeholders for i18n-aware designs.</li>
   <li><strong>Convention matters.</strong> The first paragraph traditionally starts "Lorem ipsum dolor sit amet…" — designers recognise that as placeholder. Turning it off can mean someone misses the swap.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Lorem ipsum é latim embaralhado derivado de <em>De Finibus Bonorum et Malorum</em> de Cícero (45 a.C.), usado como texto de preenchimento desde os anos 1500 porque a frequência de caracteres e o tamanho das palavras lembram prosa real sem ser legível o bastante para distrair. Designers usam para que o cérebro processe blocos de texto como <em>forma</em> em vez de <em>significado</em> — exatamente o que você quer ao avaliar tipografia, layout ou ritmo de página.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li><strong>Mockups</strong> — placeholder para "as palavras não importam, o layout sim".</li>
+  <li><strong>Design comps</strong> — testar quebra de linha, comprimento de linha e font fallbacks em vários tamanhos.</li>
+  <li><strong>Teste de CMS / template</strong> — preencher campos antes do texto real chegar.</li>
+  <li><strong>Planejamento de capacidade</strong> — validar como um card / preview / resultado de busca lida com conteúdos longos.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Não publique em produção.</strong> Lorem ipsum já foi publicado ao vivo mais de uma vez porque ninguém trocou pelo texto real.</li>
+  <li><strong>Texto real é mais curto ou mais longo que o placeholder.</strong> Títulos reais são mais diretos. Corpo de texto real varia muito. Um layout que parece equilibrado com lorem ipsum pode desmoronar com o conteúdo de verdade; valide com texto real antes da aprovação.</li>
+  <li><strong>Internacionalização revela o que o lorem esconde.</strong> Designs testados apenas com preenchimento latino quebram com palavras compostas em alemão ou layouts da direita para a esquerda em árabe. Teste com placeholders multilíngues em designs com i18n.</li>
+  <li><strong>Convenção importa.</strong> O primeiro parágrafo tradicionalmente começa com "Lorem ipsum dolor sit amet…" — designers reconhecem isso como placeholder. Desativar pode fazer alguém esquecer de fazer a troca.</li>
 </ul>
 """,
     },

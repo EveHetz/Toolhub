@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Calculadora de Porcentajes", "tagline": "Cinco calculadoras de porcentaje en una: de, qué %, aumento/descuento, variación y propina/impuesto.", "description": "Calculadora de porcentajes gratuita en línea. X% de Y, qué % es X de Y, variación porcentual, aumento/descuento y propina o impuesto."},
         "fr": {"name": "Calculateur de Pourcentage", "tagline": "Cinq calculateurs de pourcentage en un : de, quel %, hausse/baisse, variation et pourboire/taxe.", "description": "Calculateur de pourcentage gratuit en ligne. X% de Y, quel % est X de Y, variation, hausse/baisse et pourboire ou taxe."},
         "it": {"name": "Calcolatore di Percentuale", "tagline": "Cinque calcolatori di percentuale in uno: di, quale %, aumento/sconto, variazione e mancia/IVA.", "description": "Calcolatore di percentuale gratuito online. X% di Y, quale % è X di Y, variazione, aumento/sconto e mancia o IVA."},
+        "pt": {"name": "Calculadora de Porcentagem", "tagline": "Cinco calculadoras de porcentagem em uma: de, qual %, aumento/desconto, variação e gorjeta/imposto.", "description": "Calculadora de porcentagem gratuita online. Calcule X% de Y, qual % X é de Y, variação percentual, aumento/desconto percentual e valores de gorjeta ou imposto."},
     },
     "body": """
 <div class="tool-card">
@@ -104,6 +105,27 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>Stacking percentages compounds.</strong> A 20% increase followed by a 20% decrease doesn't return you to the start (1.20 × 0.80 = 0.96, a net 4% loss). For sequential markups/discounts, calculate each step.</li>
   <li><strong>Tip on pre-tax vs post-tax.</strong> Convention varies by country and venue. The tool computes the percentage of the value you enter — pick which value you actually want as the base.</li>
   <li><strong>Rounding.</strong> Output is rounded to 6 decimals then trimmed; if you need legal/accounting precision (banker's rounding, currency-specific rules), do that step in your domain layer, not here.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Seis cálculos diferentes de "porcentagem" aparecem todo dia e são fáceis de confundir: quanto é X% de Y? Que porcentagem X é de Y? Qual a variação entre dois valores? Aplicar um markup ou desconto? Gorjeta ou imposto? Cada um é uma fórmula um pouco diferente, e confundi-las leva a notas fiscais erradas, descontos errados e reviews vergonhosos. Esta ferramenta roda os seis lado a lado com a fórmula explicitada, para você escolher o certo e conferir a conta.</p>
+
+<h3>O que cada modo faz</h3>
+<ul>
+  <li><strong>Quanto é X% de Y</strong> — para descontos, comissões, porcentagem de um total. <em>20% de 150 → 30</em>.</li>
+  <li><strong>X é qual % de Y</strong> — para razões do tipo "nota / máximo". <em>30 de 150 → 20%</em>.</li>
+  <li><strong>Variação %</strong> — com sinal: positivo é aumento, negativo é redução. <em>100 → 125 = +25%</em>.</li>
+  <li><strong>Aumentar / Diminuir</strong> — aplica um ajuste percentual a um valor inicial.</li>
+  <li><strong>Gorjeta / Imposto</strong> — atalho para somar uma porcentagem em cima de uma conta.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Variação percentual não é simétrica.</strong> Ir de 100 → 125 é +25%; ir de 125 → 100 é −20%, não −25%. O denominador é o valor inicial, que muda em cada direção.</li>
+  <li><strong>Empilhar porcentagens compõe.</strong> Um aumento de 20% seguido de uma redução de 20% não te leva de volta ao início (1.20 × 0.80 = 0.96, perda líquida de 4%). Para markups/descontos sequenciais, calcule cada passo.</li>
+  <li><strong>Gorjeta sobre valor antes ou depois do imposto.</strong> A convenção varia por país e estabelecimento. A ferramenta calcula a porcentagem do valor que você digita — escolha qual valor você de fato quer como base.</li>
+  <li><strong>Arredondamento.</strong> A saída é arredondada para 6 casas decimais e depois aparada; se você precisa de precisão legal/contábil (banker's rounding, regras específicas de moeda), faça esse passo na sua camada de domínio, não aqui.</li>
 </ul>
 """,
     },

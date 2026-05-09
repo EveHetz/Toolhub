@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Búsqueda de Tipos MIME", "tagline": "Busca tipos MIME por extensión o por tipo. ~120 tipos habituales — imagen, vídeo, audio, application, text, font.", "description": "Herramienta gratuita de búsqueda MIME. Busca por extensión (.pdf, .png, .json) o tipo MIME (image/jpeg, application/pdf) entre unos 120 tipos comunes."},
         "fr": {"name": "Recherche Type MIME", "tagline": "Cherchez les types MIME par extension ou par type. ~120 types courants — image, vidéo, audio, application, text, font.", "description": "Outil gratuit de recherche MIME. Cherchez par extension (.pdf, .png, .json) ou type MIME (image/jpeg, application/pdf) parmi environ 120 types courants."},
         "it": {"name": "Ricerca Tipi MIME", "tagline": "Cerca tipi MIME per estensione o per tipo. ~120 tipi comuni — immagini, video, audio, application, text, font.", "description": "Strumento gratuito di ricerca MIME. Cerca per estensione (.pdf, .png, .json) o tipo MIME (image/jpeg, application/pdf) fra circa 120 tipi comuni."},
+        "pt": {"name": "Consulta de MIME Types", "tagline": "Busque MIME types por extensão ou por tipo. ~120 tipos comuns — image, video, audio, application, text, font.", "description": "Ferramenta gratuita de consulta de MIME types. Busque por extensão de arquivo (.pdf, .png, .json) ou por MIME type (image/jpeg, application/pdf) entre cerca de 120 Internet media types comuns."},
     },
     "body": """
 <div class="tool-card">
@@ -197,6 +198,29 @@ document.addEventListener('DOMContentLoaded', mtRun);
   <li><strong><code>application/octet-stream</code> means "I don't know".</strong> If you control the type, use a real one — browsers may force-download octet-stream content even when it's renderable.</li>
   <li><strong>Charset matters for text types.</strong> <code>Content-Type: text/html; charset=utf-8</code> — without it, browsers guess and sometimes guess wrong (mojibake).</li>
   <li><strong>Magic-byte sniffing differs from the declared type.</strong> Browsers may second-guess <code>Content-Type</code> based on file contents (<code>X-Content-Type-Options: nosniff</code> disables this — set it for security).</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um MIME type (hoje chamado de Internet media type) é um rótulo em duas partes como <code>image/png</code> ou <code>application/json</code> que diz a um servidor, browser ou biblioteca como interpretar uma sequência de bytes. É o que vai no header HTTP <code>Content-Type</code>, o que partes Multipart declaram e o que <code>file --mime</code> reporta. O registry da IANA tem milhares de entradas; esta ferramenta cobre cerca de 120 que você realmente encontra em trabalho com web.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Definir <code>Content-Type</code> numa resposta de API e querer o correto para <code>.docx</code>, <code>.heic</code> ou <code>.webmanifest</code>.</li>
+  <li>Configurar o atributo <code>accept</code> de um campo de upload ou uma allow-list de bucket S3.</li>
+  <li>Lendo um hex dump ou um tcpdump e procurando o que <code>application/grpc-web</code> realmente é.</li>
+  <li>Montar um servidor de arquivos estáticos ou config de CDN e precisar do mapeamento extensão para MIME type.</li>
+  <li>Decidir entre usar <code>text/xml</code> ou <code>application/xml</code> (use o último para código novo, conforme RFC 7303).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Extensão não é igual a MIME type.</strong> <code>.json</code> normalmente mapeia para <code>application/json</code>, mas um servidor pode servir como <code>text/plain</code> e os browsers vão obedecer ao header. Sempre defina o header explicitamente.</li>
+  <li><strong>JavaScript é uma bagunça.</strong> RFC 9239 diz que <code>text/javascript</code> é o tipo preferido. <code>application/javascript</code>, <code>application/ecmascript</code> e outros são obsoletos mas ainda aparecem.</li>
+  <li><strong>MIME types OOXML são bem longos.</strong> <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code> para <code>.docx</code>. Não tente decorar — copie.</li>
+  <li><strong><code>application/octet-stream</code> significa "não sei".</strong> Se você controla o tipo, use um real — browsers podem forçar download de conteúdo octet-stream mesmo quando ele é renderizável.</li>
+  <li><strong>Charset importa para tipos de texto.</strong> <code>Content-Type: text/html; charset=utf-8</code> — sem isso, o browser adivinha e às vezes erra (mojibake).</li>
+  <li><strong>Magic-byte sniffing difere do tipo declarado.</strong> Browsers podem questionar o <code>Content-Type</code> com base no conteúdo do arquivo (<code>X-Content-Type-Options: nosniff</code> desativa isso — defina por segurança).</li>
 </ul>
 """,
         "de": """

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Conversor de Color", "tagline": "Convierte cualquier color entre hex, RGB, HSL y OKLCH. Vista previa en vivo, copiar con un clic.", "description": "Conversor de colores gratuito en línea. Convierte entre hex, rgb(), hsl() y el moderno formato oklch(). Vista previa en vivo, copiar con un clic."},
         "fr": {"name": "Convertisseur de Couleur", "tagline": "Convertissez toute couleur entre hex, RGB, HSL et OKLCH. Aperçu en direct, copier en un clic.", "description": "Convertisseur de couleur gratuit en ligne. Conversion entre hex, rgb(), hsl() et le format moderne oklch(). Aperçu en direct, copie en un clic."},
         "it": {"name": "Convertitore di Colori", "tagline": "Converti qualsiasi colore tra hex, RGB, HSL e OKLCH. Anteprima live, copia con un clic.", "description": "Convertitore di colori gratuito online. Conversione tra hex, rgb(), hsl() e il moderno formato oklch(). Anteprima live, copia con un clic."},
+        "pt": {"name": "Conversor de Cores", "tagline": "Converta qualquer cor entre hex, RGB, HSL e OKLCH. Preview ao vivo, copie com um clique.", "description": "Conversor de cores online gratuito. Traduza entre hex (#3498db), rgb(), hsl() e o formato moderno oklch(). Preview de amostra ao vivo, copie qualquer valor com um clique."},
     },
     "body": """
 <div class="tool-card">
@@ -196,6 +197,35 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
   <li><strong>HSL is not the same as HSV.</strong> HSV's "value" is the brightest channel; HSL's "lightness" is the midpoint of the brightest and darkest. They give different numbers for the same colour.</li>
   <li><strong>Round-tripping isn't always lossless.</strong> hex → hsl → hex can shift a single integer due to rounding. For exact reproduction, store hex.</li>
   <li><strong>Hex and RGB are sRGB by default,</strong> not Display P3 or Rec. 2020. If your design tool is in a wide-gamut profile, the same hex looks different.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Designers e desenvolvedores front-end ficam o tempo todo movendo cores entre formatos — o Figma te dá hex, a spec de design tokens quer OKLCH, seu CSS usa HSL, e a imagem que você capturou está em RGB. Esta ferramenta mantém todas as notações sincronizadas: edite uma, as outras atualizam ao vivo. Inclui o formato moderno <code>oklch()</code> adicionado no CSS Color Module 4 (e suportado em todos os navegadores principais desde 2023), que produz cores perceptualmente uniformes muito mais fáceis de raciocinar do que HSL.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Traduzir um código hex de marca para <code>rgb()</code> com alpha para um overlay CSS.</li>
+  <li>Converter entre HSL e OKLCH ao migrar um design system para cor perceptual.</li>
+  <li>Ler um <code>rgb(52, 152, 219)</code> colado de uma ferramenta de captura de tela de volta para um hex no seu stylesheet.</li>
+  <li>Conferir um valor de chroma OKLCH (qualquer coisa acima de ~0,4 provavelmente está fora do gamut sRGB).</li>
+</ul>
+
+<h3>Referência rápida dos formatos</h3>
+<ul>
+  <li><strong>Hex</strong> — <code>#RRGGBB</code> (ou shorthand de 3 dígitos <code>#RGB</code>). Universal, sem alpha a menos que use 8 dígitos (<code>#RRGGBBAA</code>).</li>
+  <li><strong>RGB</strong> — <code>rgb(0–255, 0–255, 0–255)</code>. Os valores reais de canal sRGB que sua tela recebe.</li>
+  <li><strong>HSL</strong> — hue/matiz (0–360°), saturação (0–100%), lightness/luminosidade (0–100%). Fácil para raciocinar sobre famílias de cor, mas a lightness não é perceptual: verde com HSL 50% parece mais brilhante que azul com HSL 50%.</li>
+  <li><strong>OKLCH</strong> — lightness perceptual (0–1), chroma (0–~0,4 em sRGB), hue (0–360°). Duas cores com o mesmo L parecem igualmente brilhantes; ideal para design systems e acessibilidade.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>A lightness do OKLCH usa 0–1, não 0–100.</strong> O CSS aceita ambos (<code>0.65</code> ou <code>65%</code>); esta ferramenta aceita as duas formas.</li>
+  <li><strong>Alguns valores OKLCH ficam fora do sRGB</strong> (ex.: chroma alto para azul). A ferramenta faz clamp para sRGB exibível na conversão — o resultado é aproximado, não exato.</li>
+  <li><strong>HSL não é o mesmo que HSV.</strong> O "value" do HSV é o canal mais brilhante; a "lightness" do HSL é o ponto médio entre o mais brilhante e o mais escuro. Eles dão números diferentes para a mesma cor.</li>
+  <li><strong>Round-trip nem sempre é sem perdas.</strong> hex → hsl → hex pode mudar um único inteiro por causa do arredondamento. Para reprodução exata, armazene hex.</li>
+  <li><strong>Hex e RGB são sRGB por padrão,</strong> não Display P3 nem Rec. 2020. Se sua ferramenta de design está num perfil de gamut amplo, o mesmo hex aparece diferente.</li>
 </ul>
 """,
     },

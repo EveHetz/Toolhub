@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Tabla ASCII", "tagline": "Referencia completa ASCII 0–127 con decimal, hex, binario, carácter y entidad HTML. Filtrable.", "description": "Tabla ASCII gratuita. Los 128 códigos ASCII con decimal, hex, octal, binario, carácter, entidad HTML y descripción de los caracteres de control. Filtra al escribir."},
         "fr": {"name": "Table ASCII", "tagline": "Référence ASCII complète 0–127 avec décimal, hex, binaire, caractère et entité HTML. Filtrable.", "description": "Table ASCII gratuite. Les 128 codes ASCII avec décimal, hex, octal, binaire, caractère, entité HTML et description des caractères de contrôle. Filtrage au fil de la frappe."},
         "it": {"name": "Tabella ASCII", "tagline": "Riferimento ASCII completo 0–127 con decimale, hex, binario, carattere ed entità HTML. Filtrabile.", "description": "Tabella ASCII gratuita. Tutti i 128 codici ASCII con decimale, hex, ottale, binario, carattere, entità HTML e descrizione dei caratteri di controllo. Filtra mentre digiti."},
+        "pt": {"name": "Tabela ASCII", "tagline": "Referência ASCII completa 0–127 com decimal, hex, binário, caractere e entidade HTML. Filtrável.", "description": "Tabela ASCII gratuita. Todos os 128 códigos ASCII com decimal, hex, octal, binário, caractere, entidade HTML e descrição dos caracteres de controle. Filtre enquanto digita."},
     },
     "body": """
 <div class="tool-card">
@@ -198,6 +199,28 @@ document.addEventListener('DOMContentLoaded', asciiRun);
 <li><strong>I caratteri di controllo sono invisibili.</strong> Il testo incollato può contenere caratteri invisibili che falliscono i confronti.</li>
 <li><strong>Le entità HTML servono raramente.</strong> In UTF-8 basta il carattere letterale — escape solo <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>.</li>
 <li><strong>NUL termina le stringhe C.</strong> Da evitare nei buffer C senza attenzione.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>ASCII (American Standard Code for Information Interchange) é o sistema de codificação de 128 caracteres que mapeia dígitos, letras, pontuação e alguns caracteres de controle nos inteiros 0–127. É a base que toda codificação de texto moderna (UTF-8, Latin-1, Windows-1252) estende, então conhecer os valores é ocasionalmente vital — diagnosticar um byte estranho num arquivo binário, montar uma regex para "qualquer caractere imprimível", ler um hex dump ou lembrar se 0x0A ou 0x0D é uma quebra de linha.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Ler um hex dump e tentar descobrir o que aqueles bytes <em>dizem</em>.</li>
+  <li>Escrever um parser e precisar dos valores-limite: <code>0x20</code> (espaço), <code>0x7E</code> (til) — a faixa imprimível.</li>
+  <li>Debugar um CSV que quebrou porque algo continha <code>0x09</code> (Tab) ou <code>0x1F</code> (Unit Separator).</li>
+  <li>Criar uma entidade HTML para um caractere complicado — <code>&amp;#65;</code> = <code>A</code>.</li>
+  <li>Resolver uma discussão sobre se <code>\\r</code> é 0x0D (sim — Carriage Return) e <code>\\n</code> é 0x0A (sim — Line Feed).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>ASCII tem 7 bits, não 8.</strong> Códigos 128–255 <em>não</em> são ASCII — pertencem a qualquer codificação de 8 bits (Latin-1, CP-1252, ...) que o documento declara, ou são bytes iniciais de uma sequência UTF-8.</li>
+  <li><strong>Quebras de linha variam por plataforma.</strong> Unix/macOS usam só <code>LF</code> (0x0A); o Mac Classic usava <code>CR</code> (0x0D); Windows usa <code>CRLF</code>. Arquivos que misturam isso quebram contagens ingênuas de linhas.</li>
+  <li><strong>Caracteres de controle podem ser sabotadores invisíveis.</strong> Um copiar/colar de um terminal ou PDF pode trazer <code>0x1F</code>, <code>0x07</code> (BEL — que de fato faz o terminal apitar), ou caracteres Unicode de largura zero que <em>nem</em> são ASCII. Se o texto "parece igual" mas a comparação falha, despeje em bytes.</li>
+  <li><strong>Entidades HTML nem sempre são necessárias.</strong> Em documentos UTF-8 modernos, <code>&amp;#65;</code> e o <code>A</code> literal são equivalentes. Só faça escape de caracteres com significado sintático em HTML: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> e <code>"</code> em atributos.</li>
+  <li><strong>NUL (<code>0x00</code>) termina strings em C.</strong> Não embuta isso em buffers de string C sem pensar — muitas APIs vão truncar silenciosamente no primeiro NUL.</li>
 </ul>
 """,
     },

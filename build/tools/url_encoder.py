@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Codificador / Decodificador URL", "tagline": "Codifica cadenas para URLs (porcentaje) o decodifica de vuelta a texto plano.", "description": "Codificador y decodificador URL gratuito. Escapa caracteres especiales para URLs, query strings y datos de formulario."},
         "fr": {"name": "Encodeur / Décodeur URL", "tagline": "Encodez en pourcentage pour URLs ou décodez vers texte brut.", "description": "Encodeur et décodeur URL gratuit. Échappe les caractères spéciaux pour URLs, query strings et formulaires."},
         "it": {"name": "Encoder / Decoder URL", "tagline": "Codifica stringhe per URL (percent-encoding) o decodifica in testo semplice.", "description": "Encoder e decoder URL gratuito. Escape di caratteri speciali per URL, query string e dati form."},
+        "pt": {"name": "Encoder / Decoder de URL", "tagline": "Faça percent-encoding de strings para URLs ou decodifique de volta para texto puro.", "description": "Encoder e decoder de URL online gratuito. Codifica caracteres especiais como percent-escapes para URLs, query strings e dados de formulário. Component-safe."},
     },
     "body": """
 <div class="tool-card">
@@ -79,6 +80,24 @@ document.addEventListener('DOMContentLoaded', urlRun);
   <li><strong>Spaces aren't always <code>%20</code>.</strong> In <em>application/x-www-form-urlencoded</em> bodies, spaces are <code>+</code>. This tool follows the JavaScript <code>encodeURIComponent</code> convention (always <code>%20</code>); decode handles both.</li>
   <li><strong>UTF-8 vs Latin-1.</strong> Modern browsers and <code>encodeURIComponent</code> always use UTF-8. Some older systems still produce Latin-1 percent-escapes — those won't round-trip cleanly here.</li>
   <li><strong>Reserved characters are case-insensitive in the percent-escape but case-sensitive in the decoded result</strong> — <code>%2F</code> and <code>%2f</code> both decode to <code>/</code>, but the original character's case is preserved.</li>
+</ul>
+""",
+        "pt": """
+<h2>O que o URL encoding faz</h2>
+<p>URLs e headers HTTP são restritos a um pequeno subconjunto do ASCII. Qualquer coisa fora desse conjunto — incluindo espaços, letras acentuadas, emoji e vários caracteres de pontuação reservados — precisa ser <em>percent-encoded</em>: substituída por <code>%</code> seguido de dois dígitos hex por byte. <code>café</code> vira <code>caf%C3%A9</code> (UTF-8). A decodificação reverte isso.</p>
+
+<h3>Quando usar cada scope</h3>
+<ul>
+  <li><strong>Component</strong> — escolha esta opção para <em>valores</em> individuais que você vai inserir em uma URL: valores de query string, segmentos de path, texto de fragment, valores de header. Codifica os caracteres estruturais <code>/ ? # &amp; = +</code> para que não sejam interpretados acidentalmente como sintaxe de URL.</li>
+  <li><strong>Full URI</strong> — escolha esta para uma URL inteira que você quer limpar. Preserva <code>/ ? # &amp; = +</code> como estrutura da URL, codificando apenas caracteres <em>ilegais</em> (espaços, não-ASCII, etc.).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Não codifique duas vezes.</strong> Codificar uma string já codificada transforma <code>%20</code> em <code>%2520</code>. Se sua entrada já tem sequências <code>%XX</code>, decodifique primeiro.</li>
+  <li><strong>Espaços nem sempre são <code>%20</code>.</strong> Em corpos <em>application/x-www-form-urlencoded</em>, espaços são <code>+</code>. Esta ferramenta segue a convenção do <code>encodeURIComponent</code> do JavaScript (sempre <code>%20</code>); a decodificação aceita os dois.</li>
+  <li><strong>UTF-8 vs Latin-1.</strong> Browsers modernos e <code>encodeURIComponent</code> sempre usam UTF-8. Alguns sistemas antigos ainda produzem percent-escapes em Latin-1 — esses não fazem round-trip corretamente aqui.</li>
+  <li><strong>Caracteres reservados são case-insensitive no percent-escape mas case-sensitive no resultado decodificado</strong> — <code>%2F</code> e <code>%2f</code> ambos decodificam para <code>/</code>, mas o case original do caractere é preservado.</li>
 </ul>
 """,
     },

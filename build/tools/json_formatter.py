@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Formatta, valida e minifica JSON all'istante. Gli errori sono evidenziati con riga e colonna.",
             "description": "Formattatore e validatore JSON gratuito online. Abbellisci, minifica e controlla la sintassi JSON.",
         },
+        "pt": {
+            "name": "Formatador JSON",
+            "tagline": "Formata, valida e minifica JSON na hora. Erros destacados com linha e coluna.",
+            "description": "Formatador e validador JSON grátis online. Pretty-print, minify e checagem da sintaxe JSON com mensagens de erro precisas.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -126,6 +131,26 @@ function jfValidate(){
   <li><strong>Smart quotes from copy-paste.</strong> Word processors and chat apps love to "helpfully" replace <code>"</code> with <code>"</code> / <code>"</code>. Those aren't valid JSON delimiters.</li>
   <li><strong>JSON has no comments.</strong> If your "JSON" has <code>//</code> or <code>/* */</code>, it's actually JSONC (used by VS Code config) — strip those before parsing.</li>
   <li><strong>Numbers larger than 2⁵³.</strong> JavaScript can't represent integers above <code>9007199254740992</code> exactly. Twitter snowflake IDs and similar should be quoted as strings.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>O JSON viaja minificado — cada byte conta quando uma resposta de API está sendo enviada. Mas JSON minificado é ilegível. Esta ferramenta faz round-trip pelo <code>JSON.parse</code> / <code>JSON.stringify</code> nativo do browser pra produzir output indentado e copiável, validar a estrutura ou tirar o whitespace de novo. Nada é enviado; tudo acontece na página.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Colar uma resposta de API minificada e receber algo que um humano consegue ler.</li>
+  <li>Pegar erros de sintaxe — vírgulas no final, chaves sem aspas, smart quotes — com linha/coluna exata onde o parser tropeçou.</li>
+  <li>Tirar whitespace antes de colar JSON num contexto onde tamanho importa (params de URL, env vars, arquivos de config).</li>
+  <li>Confirmar que seu JSON feito à mão é válido antes de mandar pra outra ferramenta.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>JSON ≠ object literal de JavaScript.</strong> Chaves precisam estar entre aspas duplas. Aspas simples, chaves sem aspas e vírgulas no final, tudo falha. Se você tem object literals de JS, passe por um conversor antes.</li>
+  <li><strong>Smart quotes vindas de copy-paste.</strong> Editores de texto e apps de chat adoram "ajudar" trocando <code>"</code> por <code>"</code> / <code>"</code>. Esses não são delimitadores JSON válidos.</li>
+  <li><strong>JSON não tem comentários.</strong> Se seu "JSON" tem <code>//</code> ou <code>/* */</code>, na verdade é JSONC (usado em config do VS Code) — remova antes de fazer parse.</li>
+  <li><strong>Números maiores que 2⁵³.</strong> O JavaScript não consegue representar inteiros acima de <code>9007199254740992</code> com exatidão. IDs snowflake do Twitter e similares devem vir entre aspas como strings.</li>
 </ul>
 """,
     },

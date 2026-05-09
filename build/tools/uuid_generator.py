@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Genera UUID RFC 4122 (v4 casuale o v7 ordinato per tempo). Fino a 100 per batch. Crittograficamente sicuro.",
             "description": "Generatore UUID gratuito online. RFC 4122 v4 (casuale) e v7 (ordinato per tempo, ordinabile). Uno o molti, tutto nel browser.",
         },
+        "pt": {
+            "name": "Gerador de UUID",
+            "tagline": "Gere UUIDs RFC 4122 (v4 aleatório ou v7 ordenado por tempo). Em lote de até 100. Criptograficamente seguro.",
+            "description": "Gerador de UUID online gratuito. RFC 4122 v4 (aleatório) e v7 (ordenado por tempo, sortable). Gere um ou vários de uma vez, tudo no seu navegador.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -117,6 +122,35 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>v4 fragments database indexes.</strong> Random IDs scatter writes across the index, hurting page cache hit rate and write throughput. This is the original argument for v7.</li>
   <li><strong>Don't use v1.</strong> The old time-and-MAC variant leaks the generating machine's MAC address. v7 is the modern replacement.</li>
   <li><strong>Use crypto-secure randomness.</strong> This tool uses <code>crypto.getRandomValues</code>; never roll your own with <code>Math.random</code> — it's not random enough and IDs become predictable.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Um UUID (ou GUID) é um identificador de 128 bits — escrito como 32 dígitos hex em 5 grupos, tipo <code>550e8400-e29b-41d4-a716-446655440000</code>. Eles são livres de colisão entre sistemas sem precisar de coordenação: qualquer processo em qualquer lugar pode gerar um e a chance de dois colidirem é praticamente zero. Útil quando você precisa de um ID antes de falar com o banco, quando quer evitar vazar contagem de linhas, ou quando o ID tem que ser gerado no cliente e sincronizado depois. Esta ferramenta gera UUIDs em conformidade com RFC 4122 / RFC 9562 na forma v4 (aleatória) ou v7 (ordenada por tempo), com aleatoriedade criptograficamente segura no seu navegador.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Primary keys para sistemas distribuídos quando você não quer fazer round-trip ao banco só para pegar um ID.</li>
+  <li>Idempotency keys para requisições de API (Stripe, processadores de pagamento, mensagens de fila).</li>
+  <li>Identificadores de upload de arquivo, session tokens, correlation IDs em logs.</li>
+  <li>Em qualquer lugar onde você expõe um ID auto-incrementado e acaba vazando quantos registros tem.</li>
+  <li>Dados de teste — semeie cem registros com identificadores realistas com um clique.</li>
+</ul>
+
+<h3>v4 vs v7 — qual usar?</h3>
+<ul>
+  <li><strong>v4 (aleatório)</strong> — 122 bits de aleatoriedade, sem timestamp embutido. Use quando quiser zero correlação entre IDs e ordem de criação, ou quando o ID vai viver em um hash map / índice não-clusterizado onde ordenação não importa.</li>
+  <li><strong>v7 (ordenado por tempo)</strong> — prefixo de timestamp Unix-ms de 48 bits + cauda aleatória. <strong>Use por padrão para novas primary keys de banco.</strong> O prefixo de timestamp dá localidade aos índices B-tree (inserts recentes vão para as mesmas páginas, comportamento de cache muito melhor que v4), e os IDs ordenam aproximadamente em ordem cronológica. Definido na RFC 9562 (maio de 2024) — substitui ULID e v1/v6 na maioria dos casos.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>UUIDs não são segredos.</strong> v4 tem 122 bits de entropia e é impossível de adivinhar, mas o formato em si não autoriza nada. Não use um UUID como session token ou token de reset de senha a menos que esteja tratando como segredo (HTTPS-only, com tempo limitado, single-use).</li>
+  <li><strong>v7 vaza tempo de criação.</strong> Os primeiros 48 bits codificam o milissegundo em que foi gerado. Tudo bem para IDs internos; ruim se você não quer que usuários descubram quando os registros foram criados. Use v4 nesse caso.</li>
+  <li><strong>Tamanho do índice importa.</strong> Um UUID tem 16 bytes vs 8 de um bigint — seus índices B-tree ficam maiores. Vale a pena para distribuído/sem coordenação, geralmente não vale para apps de servidor único com ID sequencial.</li>
+  <li><strong>v4 fragmenta índices de banco.</strong> IDs aleatórios espalham writes pelo índice, prejudicando a taxa de hit do cache de páginas e a vazão de escrita. Esse é o argumento original a favor do v7.</li>
+  <li><strong>Não use v1.</strong> A variante antiga de tempo-e-MAC vaza o endereço MAC da máquina geradora. v7 é o substituto moderno.</li>
+  <li><strong>Use aleatoriedade crypto-segura.</strong> Esta ferramenta usa <code>crypto.getRandomValues</code>; nunca implemente sua própria solução com <code>Math.random</code> — não é aleatório o suficiente e os IDs ficam previsíveis.</li>
 </ul>
 """,
     },

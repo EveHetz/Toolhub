@@ -29,6 +29,11 @@ TOOL = {
             "tagline": "Password casuali robuste o passphrase memorabili. Generate localmente, mai inviate altrove.",
             "description": "Generatore di password sicuro e gratuito. Regole personalizzabili, modalità passphrase e generazione in batch. Tutto nel browser.",
         },
+        "pt": {
+            "name": "Gerador de Senhas",
+            "tagline": "Senhas aleatórias fortes ou passphrases memorizáveis. Geradas localmente — nunca enviadas para lugar nenhum.",
+            "description": "Gerador de senhas seguro e gratuito. Regras de caracteres personalizadas, modo passphrase e geração em lote. Roda inteiramente no seu navegador.",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -203,6 +208,40 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>Don't write generated passwords down without protection.</strong> Use a password manager (1Password, Bitwarden, KeePass) — not a Notes app, not a text file, not an email draft.</li>
   <li><strong>Long &gt; complex.</strong> A 24-character password using only lowercase letters has more entropy than a 10-character one with every symbol class. Length wins.</li>
   <li><strong>Site-specific rules can break copy-paste.</strong> Some sites ban specific symbols or cap length at 16. Annoying but real — generate, then trim/swap to fit if needed (and then store the actual stored password in your manager).</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Uma boa senha é uma que o atacante não consegue adivinhar e que você não precisa lembrar (porque ela está guardada no seu password manager). Este gerador produz senhas aleatórias fortes ou passphrases memorizáveis inteiramente no seu navegador, usando <code>crypto.getRandomValues</code> — a mesma fonte aleatória criptograficamente segura que o TLS usa. Nada é transmitido; a senha nunca sai do seu dispositivo.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Criar uma senha única para qualquer conta nova que vá para um password manager.</li>
+  <li>Gerar uma master password ou uma passphrase de recuperação que você vai memorizar — o modo passphrase é mais fácil de digitar e lembrar.</li>
+  <li>Produzir um segredo não-humano para uma variável de CI, API token ou rede Wi-Fi.</li>
+  <li>Gerar senhas em lote para um batch novo de usuários (count até 50).</li>
+</ul>
+
+<h3>Caracteres aleatórios vs passphrases</h3>
+<ul>
+  <li><strong>Caracteres aleatórios</strong> — entropia máxima por comprimento. 20 caracteres misturados ≈ 130 bits. Bom para coisas que você cola, não digita.</li>
+  <li><strong>Passphrases</strong> — mais fáceis de digitar e lembrar. Quatro palavras ≈ 40 bits, seis palavras ≈ 60 bits. Bom para master passwords, desbloqueio de dispositivo e qualquer coisa que você vá digitar manualmente com frequência.</li>
+  <li>"Excluir ambíguos" remove <code>0/O/1/l/I</code> para leitura mais segura em telas ou anotações à mão.</li>
+</ul>
+
+<h3>De quanta entropia eu preciso?</h3>
+<ul>
+  <li>≥ 60 bits — ok para contas de baixo valor</li>
+  <li>≥ 80 bits — bom para a maioria das contas</li>
+  <li>≥ 100 bits — alto valor (financeiro, master password, credencial de root)</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Não reutilize senhas.</strong> O maior upgrade de segurança que você pode fazer é uma senha única por site, guardada num manager. A força do gerador é desperdiçada se a mesma senha está em cinco sites.</li>
+  <li><strong>Não anote senhas geradas sem proteção.</strong> Use um password manager (1Password, Bitwarden, KeePass) — não um app de Notas, não um arquivo de texto, não um rascunho de e-mail.</li>
+  <li><strong>Longa &gt; complexa.</strong> Uma senha de 24 caracteres só com letras minúsculas tem mais entropia que uma de 10 com todas as classes de símbolos. Comprimento ganha.</li>
+  <li><strong>Regras específicas do site podem quebrar copy-paste.</strong> Alguns sites proíbem símbolos específicos ou limitam o tamanho em 16. Chato mas real — gere, depois corte/troque para encaixar se precisar (e aí guarde a senha real no seu manager).</li>
 </ul>
 """,
     },

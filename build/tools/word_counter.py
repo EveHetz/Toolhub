@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Contador de Palabras", "tagline": "Cuenta palabras, caracteres, frases, párrafos y estima tiempo de lectura y habla en vivo mientras escribes.", "description": "Contador de palabras gratuito. Conteo en vivo de palabras, caracteres (con y sin espacios), frases, párrafos, sílabas y estimación de tiempo de lectura y habla."},
         "fr": {"name": "Compteur de Mots", "tagline": "Comptez mots, caractères, phrases, paragraphes et estimez le temps de lecture et de parole en direct.", "description": "Compteur de mots gratuit. Comptage en direct des mots, caractères (avec/sans espaces), phrases, paragraphes, syllabes, et estimation du temps de lecture et de parole."},
         "it": {"name": "Contatore Parole", "tagline": "Conta parole, caratteri, frasi, paragrafi e stima tempo di lettura e parlato in tempo reale.", "description": "Contatore di parole gratuito. Conteggio live di parole, caratteri (con/senza spazi), frasi, paragrafi, sillabe e stima del tempo di lettura e parlato."},
+        "pt": {"name": "Contador de Palavras", "tagline": "Conte palavras, caracteres, frases, parágrafos e estime tempo de leitura e fala enquanto você digita.", "description": "Contador de palavras online gratuito. Contagem ao vivo de palavras, caracteres (com e sem espaços), frases, parágrafos, sílabas, mais estimativas de tempo de leitura e fala."},
     },
     "body": """
 <div class="tool-card">
@@ -120,6 +121,39 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Word counts vary by tool.</strong> Word, Google Docs, and journal-submission systems can disagree by a few percent — they handle hyphens, em dashes, and numbers differently. If a hard limit matters, count in the same tool the gatekeeper uses.</li>
   <li><strong>"Most frequent" doesn't filter stop words.</strong> "the" and "a" almost always top the list. Look at the longer entries for actual signal.</li>
   <li><strong>Reading-time estimates are personal.</strong> 250 wpm is the median; technical content runs slower, fiction faster. Treat the number as a planning guide, not a prediction.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Contar palavras e caracteres na mão é tedioso e propenso a erros, mas os números importam o tempo todo: limites de tweet, segmentos de SMS, contagem de palavras de redação, meta descriptions de SEO, tamanhos de submissão para periódicos. Esta ferramenta dá contagens ao vivo enquanto você digita — palavras, caracteres (com e sem espaços), frases, parágrafos, linhas — mais estimativas de tempo de leitura e fala, e uma rápida análise de frequência das cinco palavras mais recorrentes.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Quando você tem que caber em 280 caracteres no X/Twitter, 160 num SMS, 155 numa meta description de SEO ou 100 palavras numa intro de LinkedIn.</li>
+  <li>Orçando palavras de uma redação, post de blog, resumo ou submissão de bolsa contra um limite rígido.</li>
+  <li>Estimando quanto tempo um roteiro vai levar para ler em voz alta (podcasts, apresentações, voice-overs).</li>
+  <li>Identificando palavras superusadas olhando a lista de "mais frequentes" antes de enviar.</li>
+  <li>Verificando se uma tradução ficou aproximadamente do mesmo tamanho da fonte.</li>
+</ul>
+
+<h3>O que cada número significa</h3>
+<ul>
+  <li><strong>Palavras</strong> — sequências de caracteres não-whitespace separadas por whitespace. "Vinte-e-um" conta como uma palavra; "vinte e um" conta como três.</li>
+  <li><strong>Caracteres</strong> vs <strong>caracteres (sem espaços)</strong> — ambos contam code points Unicode, não bytes. Um emoji pode ser 1–2 "caracteres" aqui mas ocupar mais bytes quando armazenado.</li>
+  <li><strong>Frases</strong> — segmentos terminando em <code>.</code>, <code>!</code> ou <code>?</code> (ou fim do texto). Heurística, veja os cuidados abaixo.</li>
+  <li><strong>Parágrafos</strong> — separados por linhas em branco.</li>
+  <li><strong>Tempo de leitura</strong> assume 250 wpm (leitura silenciosa de adulto).</li>
+  <li><strong>Tempo de fala</strong> assume 130 wpm (ritmo conversacional típico; locutores de notícias falam mais rápido, audiobooks mais devagar).</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Detecção de frase é ingênua.</strong> "Sr.", "EUA.", "ex.:", "3,14" e reticências podem inflar a contagem de frases. O número é uma estimativa útil, não uma garantia.</li>
+  <li><strong>Twitter/X conta code points, não caracteres.</strong> Um emoji de bandeira (🇸🇰) tem 2 code points mas renderiza como um símbolo — o Twitter trata como 2 caracteres. Esta ferramenta segue o mesmo critério.</li>
+  <li><strong>Limites de caractere de SMS dependem do encoding.</strong> ASCII puro cabe em 160 chars por segmento; quando você inclui um caractere não-GSM (travessão, aspa curva, letra acentuada), a mensagem inteira muda para UCS-2 e o limite cai para 70. A ferramenta reporta o limite GSM; confira o comportamento da sua operadora para o custo real.</li>
+  <li><strong>Contagens de palavras variam entre ferramentas.</strong> Word, Google Docs e sistemas de submissão de periódicos podem discordar em alguns por cento — eles tratam hifens, travessões e números de forma diferente. Se um limite rígido importa, conte na mesma ferramenta que o gatekeeper usa.</li>
+  <li><strong>"Mais frequente" não filtra stop words.</strong> "a" e "o" quase sempre lideram a lista. Olhe as entradas mais longas para o sinal real.</li>
+  <li><strong>Estimativas de tempo de leitura são pessoais.</strong> 250 wpm é a mediana; conteúdo técnico vai mais devagar, ficção mais rápido. Trate o número como guia de planejamento, não como previsão.</li>
 </ul>
 """,
     },

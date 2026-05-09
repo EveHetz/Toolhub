@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de UUID — Toolhub</title>
+  <meta name="description" content="Gerador de UUID online gratuito. RFC 4122 v4 (aleatório) e v7 (ordenado por tempo, sortable). Gere um ou vários de uma vez, tudo no seu navegador.">
+  <meta property="og:title" content="Gerador de UUID — Toolhub">
+  <meta property="og:description" content="Gerador de UUID online gratuito. RFC 4122 v4 (aleatório) e v7 (ordenado por tempo, sortable). Gere um ou vários de uma vez, tudo no seu navegador.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/pt/uuid-generator/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/pt/uuid-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/uuid-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/">
+  <meta property="og:locale" content="pt_BR">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/pt/uuid-generator/#tool",
+        "name": "Gerador de UUID",
+        "description": "Gerador de UUID online gratuito. RFC 4122 v4 (aleatório) e v7 (ordenado por tempo, sortable). Gere um ou vários de uma vez, tudo no seu navegador.",
+        "url": "https://toolhub.software/pt/uuid-generator/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "pt",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["uuid", "guid", "v4", "v7", "random", "unique", "identifier"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas as ferramentas", "item": "https://toolhub.software/pt/"},
+          {"@type": "ListItem", "position": 2, "name": "Gerador de UUID", "item": "https://toolhub.software/pt/uuid-generator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/pt/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/uuid-generator/'; else location.href='/uuid-generator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" selected="selected">🇧🇷 PT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Gerador de UUID</div>
+    <h1>Gerador de UUID</h1>
+    <p class="tagline">Gere UUIDs RFC 4122 (v4 aleatório ou v7 ordenado por tempo). Em lote de até 100. Criptograficamente seguro.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Version</label>
+      <select id="uuid-ver">
+        <option value="4">v4 (random)</option>
+        <option value="7">v7 (time-ordered, sortable)</option>
+      </select>
+    </div>
+    <div>
+      <label>Quantidade (1-100)</label>
+      <input type="number" id="uuid-count" value="1" min="1" max="100">
+    </div>
+  </div>
+  <div class="button-row">
+    <button onclick="uuidGen()">Gerar</button>
+    <button class="secondary" onclick="copyOutput('uuid-out', this)">Copiar</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Saída</label>
+  <pre class="output" id="uuid-out"></pre>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Para que serve?</h2>
+<p>Um UUID (ou GUID) é um identificador de 128 bits — escrito como 32 dígitos hex em 5 grupos, tipo <code>550e8400-e29b-41d4-a716-446655440000</code>. Eles são livres de colisão entre sistemas sem precisar de coordenação: qualquer processo em qualquer lugar pode gerar um e a chance de dois colidirem é praticamente zero. Útil quando você precisa de um ID antes de falar com o banco, quando quer evitar vazar contagem de linhas, ou quando o ID tem que ser gerado no cliente e sincronizado depois. Esta ferramenta gera UUIDs em conformidade com RFC 4122 / RFC 9562 na forma v4 (aleatória) ou v7 (ordenada por tempo), com aleatoriedade criptograficamente segura no seu navegador.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Primary keys para sistemas distribuídos quando você não quer fazer round-trip ao banco só para pegar um ID.</li>
+  <li>Idempotency keys para requisições de API (Stripe, processadores de pagamento, mensagens de fila).</li>
+  <li>Identificadores de upload de arquivo, session tokens, correlation IDs em logs.</li>
+  <li>Em qualquer lugar onde você expõe um ID auto-incrementado e acaba vazando quantos registros tem.</li>
+  <li>Dados de teste — semeie cem registros com identificadores realistas com um clique.</li>
+</ul>
+
+<h3>v4 vs v7 — qual usar?</h3>
+<ul>
+  <li><strong>v4 (aleatório)</strong> — 122 bits de aleatoriedade, sem timestamp embutido. Use quando quiser zero correlação entre IDs e ordem de criação, ou quando o ID vai viver em um hash map / índice não-clusterizado onde ordenação não importa.</li>
+  <li><strong>v7 (ordenado por tempo)</strong> — prefixo de timestamp Unix-ms de 48 bits + cauda aleatória. <strong>Use por padrão para novas primary keys de banco.</strong> O prefixo de timestamp dá localidade aos índices B-tree (inserts recentes vão para as mesmas páginas, comportamento de cache muito melhor que v4), e os IDs ordenam aproximadamente em ordem cronológica. Definido na RFC 9562 (maio de 2024) — substitui ULID e v1/v6 na maioria dos casos.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>UUIDs não são segredos.</strong> v4 tem 122 bits de entropia e é impossível de adivinhar, mas o formato em si não autoriza nada. Não use um UUID como session token ou token de reset de senha a menos que esteja tratando como segredo (HTTPS-only, com tempo limitado, single-use).</li>
+  <li><strong>v7 vaza tempo de criação.</strong> Os primeiros 48 bits codificam o milissegundo em que foi gerado. Tudo bem para IDs internos; ruim se você não quer que usuários descubram quando os registros foram criados. Use v4 nesse caso.</li>
+  <li><strong>Tamanho do índice importa.</strong> Um UUID tem 16 bytes vs 8 de um bigint — seus índices B-tree ficam maiores. Vale a pena para distribuído/sem coordenação, geralmente não vale para apps de servidor único com ID sequencial.</li>
+  <li><strong>v4 fragmenta índices de banco.</strong> IDs aleatórios espalham writes pelo índice, prejudicando a taxa de hit do cache de páginas e a vazão de escrita. Esse é o argumento original a favor do v7.</li>
+  <li><strong>Não use v1.</strong> A variante antiga de tempo-e-MAC vaza o endereço MAC da máquina geradora. v7 é o substituto moderno.</li>
+  <li><strong>Use aleatoriedade crypto-segura.</strong> Esta ferramenta usa <code>crypto.getRandomValues</code>; nunca implemente sua própria solução com <code>Math.random</code> — não é aleatório o suficiente e os IDs ficam previsíveis.</li>
+</ul>
+<div class="related"><span class="meta">Ferramentas relacionadas:</span> <a href="/pt/password-generator/">Gerador de Senhas</a> <a href="/pt/hash-generator/">Gerador de Hash</a> <a href="/pt/timestamp-converter/">Conversor de Timestamp Unix</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacidade</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function uuidV4(){
+  const b = new Uint8Array(16);
+  crypto.getRandomValues(b);
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  const h = [...b].map(x => x.toString(16).padStart(2,'0'));
+  return h.slice(0,4).join('') + '-' + h.slice(4,6).join('') + '-' + h.slice(6,8).join('') + '-' + h.slice(8,10).join('') + '-' + h.slice(10,16).join('');
+}
+function uuidV7(){
+  // RFC 9562 v7: 48-bit unix-ms timestamp + 12 bits rand_a + 62 bits rand_b + version/variant bits
+  const ts = BigInt(Date.now());
+  const r = new Uint8Array(10);
+  crypto.getRandomValues(r);
+  const b = new Uint8Array(16);
+  // 6 bytes of timestamp (big-endian)
+  for (let i = 0; i < 6; i++) b[i] = Number((ts >> BigInt(40 - 8*i)) & 0xffn);
+  for (let i = 0; i < 10; i++) b[i+6] = r[i];
+  b[6] = (b[6] & 0x0f) | 0x70;     // version 7
+  b[8] = (b[8] & 0x3f) | 0x80;     // variant 10
+  const h = [...b].map(x => x.toString(16).padStart(2,'0'));
+  return h.slice(0,4).join('') + '-' + h.slice(4,6).join('') + '-' + h.slice(6,8).join('') + '-' + h.slice(8,10).join('') + '-' + h.slice(10,16).join('');
+}
+function uuidGen(){
+  const ver = document.getElementById('uuid-ver').value;
+  const n = Math.max(1, Math.min(100, parseInt(document.getElementById('uuid-count').value, 10) || 1));
+  const out = [];
+  for (let i = 0; i < n; i++) out.push(ver === '7' ? uuidV7() : uuidV4());
+  document.getElementById('uuid-out').textContent = out.join('\n');
+}
+document.addEventListener('DOMContentLoaded', uuidGen);
+</script>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Codificador / Decodificador HTML", "tagline": "Escapa caracteres especiales HTML o decodifica entidades.", "description": "Codificador y decodificador de entidades HTML gratuito. Escapa &amp; &lt; &gt; &quot; ' y entidades con nombre."},
         "fr": {"name": "Encodeur / Décodeur HTML", "tagline": "Échappez les caractères spéciaux HTML ou décodez les entités.", "description": "Encodeur et décodeur d'entités HTML gratuit. Échappe &amp; &lt; &gt; &quot; ' et entités nommées."},
         "it": {"name": "Encoder / Decoder HTML", "tagline": "Escape di caratteri speciali HTML o decodifica delle entità.", "description": "Encoder e decoder di entità HTML gratuito. Escape di &amp; &lt; &gt; &quot; ' e entità con nome."},
+        "pt": {"name": "Encoder / Decoder HTML", "tagline": "Faz escape de caracteres especiais HTML ou decodifica entidades de volta. Útil para embutir input do usuário com segurança ou debugar markup escapado.", "description": "Encoder e decoder de entidades HTML grátis online. Faz escape de &amp; &lt; &gt; &quot; ' e entidades nomeadas. Decodifica entidades nomeadas, decimais e em hex."},
     },
     "body": """
 <div class="tool-card">
@@ -69,6 +70,26 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>Attributes vs body.</strong> Both contexts need the same five characters escaped, but JavaScript event handlers like <code>onclick</code> need additional escaping (which this tool doesn't do — keep untrusted data out of attributes).</li>
   <li><strong>Decoder is permissive.</strong> Named entities (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>) and hex (<code>&amp;#x22;</code>) all decode via the browser's parser, so it accepts anything a real browser would.</li>
   <li><strong>Don't double-encode.</strong> Encoding an already-encoded value gives you <code>&amp;amp;amp;</code>. Decode first if you see entities in your input.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>O HTML reserva cinco caracteres com significado estrutural — <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>'</code>. Colocar qualquer um deles na página como <em>conteúdo</em> exige escapá-los como entidades HTML para que o browser não os interprete como markup. Esta ferramenta vai nas duas direções: codifica texto puro em entidades seguras, ou decodifica HTML capturado de volta para texto plano.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Embutir conteúdo de usuário não confiável em HTML — codifique antes para evitar XSS.</li>
+  <li>Decodificar markup capturado ou colado que veio com entidades (<code>&amp;amp;</code>, <code>&amp;#x27;</code>, <code>&amp;ldquo;</code>).</li>
+  <li>Desfazer templates que foram escapados em dobro por acidente.</li>
+  <li>Preparar trechos para JSDoc, XML sem CDATA ou code fences de Markdown que precisam de sinais de menor/maior literais.</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Encoding não é sanitização.</strong> Codificar deixa o texto seguro para exibir; se você também quer <em>remover</em> tags, precisa de um sanitizer HTML.</li>
+  <li><strong>Atributos vs corpo.</strong> Os dois contextos precisam dos mesmos cinco caracteres escapados, mas event handlers JavaScript como <code>onclick</code> precisam de escape adicional (que esta ferramenta não faz — mantenha dados não confiáveis fora de atributos).</li>
+  <li><strong>O decoder é permissivo.</strong> Entidades nomeadas (<code>&amp;ldquo;</code>), decimais (<code>&amp;#34;</code>) e hex (<code>&amp;#x22;</code>) são todas decodificadas pelo parser do browser, então aceita qualquer coisa que um browser real aceitaria.</li>
+  <li><strong>Não codifique em dobro.</strong> Codificar um valor já codificado dá <code>&amp;amp;amp;</code>. Decodifique antes se vir entidades no input.</li>
 </ul>
 """,
     },

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Senhas — Toolhub</title>
+  <meta name="description" content="Gerador de senhas seguro e gratuito. Regras de caracteres personalizadas, modo passphrase e geração em lote. Roda inteiramente no seu navegador.">
+  <meta property="og:title" content="Gerador de Senhas — Toolhub">
+  <meta property="og:description" content="Gerador de senhas seguro e gratuito. Regras de caracteres personalizadas, modo passphrase e geração em lote. Roda inteiramente no seu navegador.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/pt/password-generator/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/pt/password-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/password-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/password-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/password-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/password-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/password-generator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/password-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/password-generator/">
+  <meta property="og:locale" content="pt_BR">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/pt/password-generator/#tool",
+        "name": "Gerador de Senhas",
+        "description": "Gerador de senhas seguro e gratuito. Regras de caracteres personalizadas, modo passphrase e geração em lote. Roda inteiramente no seu navegador.",
+        "url": "https://toolhub.software/pt/password-generator/",
+        "applicationCategory": "SecurityApplication",
+        "applicationSubCategory": "Security Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "pt",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["password", "secure", "random", "generate", "passphrase"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Todas as ferramentas", "item": "https://toolhub.software/pt/"},
+          {"@type": "ListItem", "position": 2, "name": "Gerador de Senhas", "item": "https://toolhub.software/pt/password-generator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/pt/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/password-generator/'; else location.href='/password-generator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" selected="selected">🇧🇷 PT</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Gerador de Senhas</div>
+    <h1>Gerador de Senhas</h1>
+    <p class="tagline">Senhas aleatórias fortes ou passphrases memorizáveis. Geradas localmente — nunca enviadas para lugar nenhum.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Tipo</label>
+      <select id="pw-mode" onchange="pwToggleMode()">
+        <option value="chars">Random characters</option>
+        <option value="phrase">Passphrase (words)</option>
+      </select>
+    </div>
+    <div>
+      <label>Quantidade (1-50)</label>
+      <input type="number" id="pw-count" value="1" min="1" max="50">
+    </div>
+  </div>
+  <div id="pw-chars-opts">
+    <div class="row-2col" style="margin-top:1rem">
+      <div>
+        <label>Comprimento: <span id="pw-len-display">20</span></label>
+        <input type="range" id="pw-length" min="6" max="128" value="20" oninput="document.getElementById('pw-len-display').textContent=this.value">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.4rem;font-size:0.9rem">
+        <label><input type="checkbox" id="pw-lower" checked> a-z lowercase</label>
+        <label><input type="checkbox" id="pw-upper" checked> A-Z uppercase</label>
+        <label><input type="checkbox" id="pw-digit" checked> 0-9 digits</label>
+        <label><input type="checkbox" id="pw-symbol" checked> Symbols !@#$…</label>
+        <label><input type="checkbox" id="pw-noambig"> Exclude ambiguous (0/O/1/l/I)</label>
+      </div>
+    </div>
+  </div>
+  <div id="pw-phrase-opts" style="display:none;margin-top:1rem">
+    <div class="row-2col">
+      <div>
+        <label>Words per phrase</label>
+        <input type="number" id="pw-words" value="4" min="2" max="12">
+      </div>
+      <div>
+        <label>Separator</label>
+        <select id="pw-sep">
+          <option value="-">- (hyphen)</option>
+          <option value=".">. (period)</option>
+          <option value="_">_ (underscore)</option>
+          <option value=" ">space</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="button-row">
+    <button onclick="pwGenerate()">Gerar</button>
+    <button class="secondary" onclick="pwCopy()">Copiar</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Saída</label>
+  <pre class="output" id="pw-out">Digite uma entrada acima para ver o resultado.</pre>
+  <div class="meta" id="pw-meta"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Para que serve?</h2>
+<p>Uma boa senha é uma que o atacante não consegue adivinhar e que você não precisa lembrar (porque ela está guardada no seu password manager). Este gerador produz senhas aleatórias fortes ou passphrases memorizáveis inteiramente no seu navegador, usando <code>crypto.getRandomValues</code> — a mesma fonte aleatória criptograficamente segura que o TLS usa. Nada é transmitido; a senha nunca sai do seu dispositivo.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Criar uma senha única para qualquer conta nova que vá para um password manager.</li>
+  <li>Gerar uma master password ou uma passphrase de recuperação que você vai memorizar — o modo passphrase é mais fácil de digitar e lembrar.</li>
+  <li>Produzir um segredo não-humano para uma variável de CI, API token ou rede Wi-Fi.</li>
+  <li>Gerar senhas em lote para um batch novo de usuários (count até 50).</li>
+</ul>
+
+<h3>Caracteres aleatórios vs passphrases</h3>
+<ul>
+  <li><strong>Caracteres aleatórios</strong> — entropia máxima por comprimento. 20 caracteres misturados ≈ 130 bits. Bom para coisas que você cola, não digita.</li>
+  <li><strong>Passphrases</strong> — mais fáceis de digitar e lembrar. Quatro palavras ≈ 40 bits, seis palavras ≈ 60 bits. Bom para master passwords, desbloqueio de dispositivo e qualquer coisa que você vá digitar manualmente com frequência.</li>
+  <li>"Excluir ambíguos" remove <code>0/O/1/l/I</code> para leitura mais segura em telas ou anotações à mão.</li>
+</ul>
+
+<h3>De quanta entropia eu preciso?</h3>
+<ul>
+  <li>≥ 60 bits — ok para contas de baixo valor</li>
+  <li>≥ 80 bits — bom para a maioria das contas</li>
+  <li>≥ 100 bits — alto valor (financeiro, master password, credencial de root)</li>
+</ul>
+
+<h3>Cuidados comuns</h3>
+<ul>
+  <li><strong>Não reutilize senhas.</strong> O maior upgrade de segurança que você pode fazer é uma senha única por site, guardada num manager. A força do gerador é desperdiçada se a mesma senha está em cinco sites.</li>
+  <li><strong>Não anote senhas geradas sem proteção.</strong> Use um password manager (1Password, Bitwarden, KeePass) — não um app de Notas, não um arquivo de texto, não um rascunho de e-mail.</li>
+  <li><strong>Longa &gt; complexa.</strong> Uma senha de 24 caracteres só com letras minúsculas tem mais entropia que uma de 10 com todas as classes de símbolos. Comprimento ganha.</li>
+  <li><strong>Regras específicas do site podem quebrar copy-paste.</strong> Alguns sites proíbem símbolos específicos ou limitam o tamanho em 16. Chato mas real — gere, depois corte/troque para encaixar se precisar (e aí guarde a senha real no seu manager).</li>
+</ul>
+<div class="related"><span class="meta">Ferramentas relacionadas:</span> <a href="/pt/uuid-generator/">Gerador de UUID</a> <a href="/pt/hash-generator/">Gerador de Hash</a> <a href="/pt/jwt-decoder/">Decoder JWT</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacidade</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+const PW_WORDS = ["able","acid","aged","also","area","army","away","baby","back","ball","band","bank","base","bath","bear","beat","been","beer","bell","belt","best","bike","bird","blow","blue","boat","body","bomb","bond","bone","book","boom","born","boss","both","bowl","bulk","burn","bush","busy","call","calm","came","camp","card","care","case","cash","cast","cell","chat","chip","city","club","coal","coat","code","cold","come","cook","cool","cope","copy","core","cost","crew","crop","dark","data","date","dawn","days","dead","deal","dean","dear","debt","deep","deny","desk","dial","dice","diet","disc","disk","does","done","door","dose","down","draw","drew","drop","drug","dual","duke","dust","duty","each","earn","ease","east","easy","edge","else","even","ever","evil","exit","face","fact","fail","fair","fall","farm","fast","fate","fear","feed","feel","feet","fell","felt","file","fill","film","find","fine","fire","firm","fish","five","flag","flat","flow","food","foot","fork","form","fort","four","free","from","fuel","full","fund","gain","game","gate","gave","gear","gene","gift","girl","give","glad","goal","goes","gold","golf","gone","good","gray","grew","grey","grow","gulf","hair","half","hall","hand","hang","hard","harm","hate","have","head","hear","heat","held","hell","help","here","hero","high","hill","hint","hire","hold","hole","holy","home","hope","host","hour","huge","hunt","hurt","idea","into","iron","item","jack","jane","java","jean","jess","jest","jets","john","join","jose","jude","jump","june","jury","just","keen","keep","kept","kick","kind","king","knee","knew","know","lack","lady","laid","lake","land","lane","last","late","lava","lawn","laws","lead","leaf","lean","leap","left","lend","less","life","lift","like","line","link","lion","list","live","load","loan","lock","lost","loud","love","luck","made","mail","main","make","male","many","mark","mass","matt","mean","meat","meet","menu","mere","mike","mile","milk","mill","mind","mine","miss","mode","mood","moon","more","most","move","much","must","name","navy","near","neck","need","news","next","nice","nine","none","nose","note","ohio","once","only","onto","open","oral","over","pace","pack","page","paid","pain","pair","palm","park","part","pass","past","path","peak","pick","pink","pipe","plan","play","plot","plug","plus","poll","pool","poor","port","post","pull","pure","push","race","rage","rail","rain","rank","rare","rate","read","real","rear","rely","rent","rest","rice","rich","ride","ring","rise","risk","road","rock","role","roll","roof","room","root","rose","rule","rush","ruth","safe","said","sake","sale","salt","same","sand","save","seal","seat","seed","seek","seem","seen","self","sell","send","sent","sept","sets","sext","shed","ship","shoe","shop","shot","show","shut","sick","side","sign","silk","sing","sink","site","size","skin","slip","slow","snap","snow","soft","soil","sold","sole","some","song","soon","sort","soul","soup","spot","star","stay","step","stir","stop","such","suit","sure","take","tale","talk","tall","tank","tape","task","team","tech","tell","tend","term","test","text","than","that","them","then","they","thin","this","thus","tide","tied","time","tiny","told","toll","tone","tony","took","tool","tops","tore","torn","tour","town","tree","trip","true","tube","tune","turn","twin","type","ugly","unit","upon","used","user","uses","vary","vast","very","vice","view","vote","wage","wait","wake","walk","wall","want","ward","warm","warn","wash","wave","ways","weak","wear","week","well","went","were","west","what","when","whom","wide","wife","wild","will","wind","wine","wing","wire","wise","wish","with","wood","word","wore","work","worn","yard","yeah","year","your","zero","zone"];
+
+function pwToggleMode(){
+  const m = document.getElementById('pw-mode').value;
+  document.getElementById('pw-chars-opts').style.display = m === 'chars' ? 'block' : 'none';
+  document.getElementById('pw-phrase-opts').style.display = m === 'phrase' ? 'block' : 'none';
+}
+
+function pwRandInt(max){
+  const u = new Uint32Array(1);
+  crypto.getRandomValues(u);
+  return u[0] % max;
+}
+
+function pwGenChars(){
+  let pool = '';
+  if (document.getElementById('pw-lower').checked) pool += 'abcdefghijklmnopqrstuvwxyz';
+  if (document.getElementById('pw-upper').checked) pool += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if (document.getElementById('pw-digit').checked) pool += '0123456789';
+  if (document.getElementById('pw-symbol').checked) pool += '!@#$%^&*()-_=+[]{};:,.<>?/~';
+  if (document.getElementById('pw-noambig').checked) pool = pool.replace(/[0O1lI]/g, '');
+  if (!pool) return 'Pick at least one character set.';
+  const len = parseInt(document.getElementById('pw-length').value, 10);
+  const out = new Array(len);
+  const rand = new Uint32Array(len);
+  crypto.getRandomValues(rand);
+  for (let i = 0; i < len; i++) out[i] = pool[rand[i] % pool.length];
+  return out.join('');
+}
+
+function pwGenPhrase(){
+  const n = parseInt(document.getElementById('pw-words').value, 10);
+  const sep = document.getElementById('pw-sep').value;
+  const words = [];
+  for (let i = 0; i < n; i++) words.push(PW_WORDS[pwRandInt(PW_WORDS.length)]);
+  return words.join(sep);
+}
+
+function pwEntropy(s, mode){
+  if (mode === 'phrase'){
+    const n = parseInt(document.getElementById('pw-words').value, 10);
+    return Math.round(n * Math.log2(PW_WORDS.length));
+  }
+  let pool = 0;
+  if (document.getElementById('pw-lower').checked) pool += 26;
+  if (document.getElementById('pw-upper').checked) pool += 26;
+  if (document.getElementById('pw-digit').checked) pool += 10;
+  if (document.getElementById('pw-symbol').checked) pool += 27;
+  if (!pool) return 0;
+  return Math.round(s.length * Math.log2(pool));
+}
+
+function pwGenerate(){
+  const mode = document.getElementById('pw-mode').value;
+  const count = parseInt(document.getElementById('pw-count').value, 10) || 1;
+  const lines = [];
+  let example = '';
+  for (let i = 0; i < count; i++){
+    const p = mode === 'phrase' ? pwGenPhrase() : pwGenChars();
+    if (i === 0) example = p;
+    lines.push(p);
+  }
+  document.getElementById('pw-out').textContent = lines.join('\n');
+  const bits = pwEntropy(example, mode);
+  let strength = 'weak';
+  if (bits >= 60) strength = 'fair';
+  if (bits >= 80) strength = 'strong';
+  if (bits >= 100) strength = 'very strong';
+  document.getElementById('pw-meta').textContent = '~' + bits + ' bits of entropy · ' + strength;
+}
+
+function pwCopy(){
+  const text = document.getElementById('pw-out').textContent;
+  if (!text || text === 'Digite uma entrada acima para ver o resultado.') return;
+  navigator.clipboard.writeText(text);
+}
+
+document.addEventListener('DOMContentLoaded', pwGenerate);
+</script>
+
+</body>
+</html>

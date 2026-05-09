@@ -13,6 +13,7 @@ TOOL = {
         "es": {"name": "Calculadora de Propina y División", "tagline": "Cuenta + propina % + personas = importe por persona. Opción de redondeo. Propina y total mostrados.", "description": "Calculadora gratuita de propina y división de cuenta. Introduce el total, el % de propina y el número de personas. Verás propina, total y reparto por persona. Redondeo opcional."},
         "fr": {"name": "Calculateur de Pourboire et Partage", "tagline": "Addition + pourboire % + personnes = montant par personne. Arrondi en option. Pourboire et total affichés.", "description": "Calculateur gratuit de pourboire et partage. Entrez l'addition, le pourcentage et le nombre de personnes. Pourboire, total et part par personne calculés. Arrondi en option."},
         "it": {"name": "Calcolatore Mancia e Conto Diviso", "tagline": "Conto + mancia % + persone = importo per persona. Arrotondamento opzionale. Mancia e totale mostrati.", "description": "Calcolatore gratuito mancia e divisione conto. Inserisci conto, percentuale di mancia e numero di persone. Mancia, totale e quota per persona calcolati. Arrotondamento opzionale."},
+        "pt": {"name": "Calculadora de Gorjeta e Rachar a Conta", "tagline": "Total da conta + gorjeta % + pessoas = valor por pessoa. Opção de arredondar para cima, mostra gorjeta e total geral.", "description": "Calculadora gratuita de gorjeta e divisão de conta. Informe a conta, a porcentagem de gorjeta e o número de pessoas. Veja o valor da gorjeta, o total geral e a parte de cada um. Arredondamento opcional para cima."},
     },
     "body": """
 <div class="tool-card">
@@ -125,6 +126,27 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>Service charge ≠ tip.</strong> If a "service charge" is already on the bill (common in UK groups of 6+ and most of continental Europe), additional tipping is optional. Some venues split service charges with the kitchen; tip cash directly if you want it to reach the server.</li>
   <li><strong>Per-person rounding can hide unequal eating.</strong> An even split is fastest but unfair if one person had wine and another had water — switch to itemised splitting in that case.</li>
   <li><strong>Cash vs card.</strong> Some staff prefer cash tips because card tips are pooled, taxed-immediately, or skimmed by the venue. If the per-person figure on this calculator includes the tip, decide whether you want to settle the tip in cash on top.</li>
+</ul>
+""",
+        "pt": """
+<h2>Para que serve?</h2>
+<p>Rachar a conta de um restaurante no fim do jantar é o caso clássico de "matemática fácil, mas o vinho rolou". Três números entram (conta, porcentagem de gorjeta, número de pessoas) e três saem (valor da gorjeta, total geral, parte por pessoa). Esta ferramenta faz isso sem mandar nada para um servidor, mais uma opção de arredondar para cima, para que o valor por pessoa caia em uma unidade inteira e você dê uma gorjeta um pouco maior em vez de ficar mexendo com troco.</p>
+
+<h3>Quando usar</h3>
+<ul>
+  <li>Fim de uma refeição em grupo — divisão igual.</li>
+  <li>Adicionar uma porcentagem de gorjeta conhecida a uma conta de serviço.</li>
+  <li>Testar rapidamente diferentes níveis de gorjeta (10/15/18/20/25) antes de decidir.</li>
+  <li>Acertar uma rodada de café, um táxi ou qualquer parte por cabeça.</li>
+</ul>
+
+<h3>Pegadinhas comuns</h3>
+<ul>
+  <li><strong>Costume de gorjeta varia muito.</strong> Estados Unidos: 18–22% é normal; abaixo de 15% é reclamação. Maior parte da Europa: arredondar ou 5–10%; serviço em geral incluso. Japão: não dê gorjeta — pode ser visto como rude. Brasil: 10% é o padrão e geralmente já vem na conta. Sempre confira o costume local em vez de aplicar uma porcentagem cegamente.</li>
+  <li><strong>Gorjeta sobre o valor antes ou depois de impostos?</strong> Nos EUA, dar gorjeta sobre o subtotal pré-imposto é etiqueta comum, mas a maioria das maquininhas oferece percentuais sobre o pós-imposto. A ferramenta calcula a porcentagem do total que você inserir — escolha a base de propósito.</li>
+  <li><strong>Taxa de serviço ≠ gorjeta.</strong> Se uma "taxa de serviço" já está na conta (comum em grupos de 6+ no Reino Unido e na maior parte da Europa continental), gorjeta adicional é opcional. Alguns lugares dividem a taxa de serviço com a cozinha; dê gorjeta em dinheiro direto se você quiser que chegue ao garçom.</li>
+  <li><strong>Arredondamento por pessoa pode esconder consumo desigual.</strong> Divisão igual é a mais rápida, mas injusta se uma pessoa tomou vinho e outra água — nesse caso, mude para divisão por item.</li>
+  <li><strong>Dinheiro vs cartão.</strong> Alguns funcionários preferem gorjeta em dinheiro porque gorjetas no cartão são divididas, tributadas na hora ou retidas pela casa. Se o valor por pessoa nesta calculadora inclui a gorjeta, decida se quer acertar a gorjeta em dinheiro por cima.</li>
 </ul>
 """,
         "de": """
