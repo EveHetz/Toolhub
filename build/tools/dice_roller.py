@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Lanciatore di Dadi", "tagline": "Lancia dadi con notazione D&D standard — 2d6+3, 1d20, 4d6 tieni i 3 più alti. RNG crittograficamente sicuro.", "description": "Lanciatore di dadi gratuito con notazione standard da tavolo: 1d20, 2d6+3, 4d6kh3, 3d8-1. Ogni dado e il totale. Usa crypto.getRandomValues per lanci equi."},
         "pt": {"name": "Rolador de Dados", "tagline": "Role dados com notação padrão de D&D — 2d6+3, 1d20, 4d6 mantendo os 3 maiores. RNG criptograficamente seguro.", "description": "Rolador de dados online gratuito com notação padrão de RPG de mesa: 1d20, 2d6+3, 4d6kh3, 3d8-1. Veja cada dado individualmente e o total. Usa crypto.getRandomValues para rolagens justas e imprevisíveis."},
         "pl": {"name": "Rzucacz Kości", "tagline": "Rzucaj kostkami w standardowej notacji D&D — 2d6+3, 1d20, 4d6 keep highest 3. Kryptograficznie bezpieczny RNG.", "description": "Darmowy online rzucacz kości w standardowej notacji RPG: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zobacz każdy rzut z osobna plus sumę. Używa crypto.getRandomValues dla uczciwych, nieprzewidywalnych rzutów."},
+        "ja": {"name": "ダイスローラー", "tagline": "標準 D&D 記法でダイスをロール — 2d6+3、1d20、4d6 keep highest 3 など。暗号論的に安全な RNG。", "description": "オンライン無料のダイスローラー。標準的な TRPG 記法（1d20、2d6+3、4d6kh3、3d8-1）に対応し、各ダイスの目と合計を表示します。crypto.getRandomValues を使用し、公平で予測不能なロールを行います。"},
     },
     "body": """
 <div class="tool-card">
@@ -352,6 +353,40 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>To nie są exploding dice.</strong> Brak eksplozji w stylu <code>!</code>, brak rerollów (<code>r1</code>), brak liczenia sukcesów (<code>3d10>=7</code>). Notacja tu to prosty subset "suma i modyfikuj", który pokrywa ~95% typowych rzutów.</li>
   <li><strong>Crity są oznaczane tylko dla d20.</strong> 20 podświetla się na zielono, 1 na czerwono. Inne rozmiary nie dostają koloru.</li>
   <li><strong>Limit 1000 kości na rzut.</strong> Rozsądna górna granica, żeby strona nie zamulała.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>テーブルトップ RPG（Dungeons & Dragons、Pathfinder、OSR、その他多数）では、ダイスロールにコンパクトな記法を使います。<code>NdS</code> は「S 面ダイスを N 個振る」、<code>2d6+3</code> は「6 面ダイス 2 個を振って 3 を足す」という意味です。本ツールはこの記法をパースし、ブラウザの暗号論的 RNG でロールします。<code>Math.random()</code> よりも予測不能でバイアスがなく、重要なロールに適しています。</p>
+
+<h3>サポートする記法</h3>
+<ul>
+  <li><code>1d20</code> — 20 面ダイス 1 個。</li>
+  <li><code>2d6+3</code> — d6 を 2 個、合計 +3。</li>
+  <li><code>3d8-1</code> — d8 を 3 個、合計 -1。</li>
+  <li><code>4d6kh3</code> — d6 を 4 個、上位 3 個を <strong>k</strong>eep <strong>h</strong>ighest（D&D 5e の能力値ロールの定番）。</li>
+  <li><code>2d20kl1</code> — d20 を 2 個、最低 1 個を残す（不利）。</li>
+  <li><code>2d20kh1</code> — 有利。</li>
+  <li><code>1d100</code> または <code>1d%</code> — パーセンタイルダイス。</li>
+  <li><code>d20</code> — N は省略時 1。</li>
+</ul>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>オンラインで遊んでいて、物理ダイスが手元にない、またはリモートで GM をしているとき。</li>
+  <li>ダイスアプリのサブスクなしで、再現可能な感覚のロールが欲しいとき。</li>
+  <li>コインがなくても「コイントス」を決めたいとき（1d2）。</li>
+  <li>ゲームデザインで確率をプロトタイピングしたいとき（100 万回振って統計が必要なら、コードでロジックを変更してください）。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>ブラウザのタブが信頼の境界です。</strong> ロールは JavaScript でタブ内で実行されるため、DevTools を開いている人は値を改ざんできます。見ず知らずの相手との競技プレイにはサーバーで仲裁するロールツールを使ってください。</li>
+  <li><strong>暗号論的 RNG は「より乱数」なのではなく、予測不能なのです。</strong> 良質な PRNG と暗号論的 RNG はダイスでは区別できない分布を生成します。crypto の利点は、過去の値から次の値を予測できないことにあります。</li>
+  <li><strong>修正値は keep の後に 1 度だけ適用されます。</strong> <code>4d6kh3+2</code> は 4d6 を振って上位 3 個を残し、最後に 2 を足します。「各ダイスに 2 を足す」のではありません。</li>
+  <li><strong>exploding dice には対応しません。</strong> <code>!</code> 系の爆発、リロール（<code>r1</code>）、成功カウント（<code>3d10>=7</code>）はありません。ここでの記法はよくあるロールの 95% をカバーする「合計と修正」のサブセットです。</li>
+  <li><strong>クリティカルは d20 でのみ表示されます。</strong> 20 は緑、1 は赤でハイライトされます。他のダイスサイズには色付けされません。</li>
+  <li><strong>1 ロールあたり 1000 個まで。</strong> ページがレスポンシブで動くための上限です。</li>
 </ul>
 """,
     },

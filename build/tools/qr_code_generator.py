@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Generuj kody QR dla dowolnego tekstu, URL-a, Wi-Fi albo vCard. Konfigurowalny rozmiar, kolory i korekcja błędów. Eksportuj PNG albo SVG.",
             "description": "Darmowy online generator kodów QR. Konfigurowalny rozmiar, kolory foreground/background i poziomy korekcji błędów. Pobierz jako PNG albo SVG. Bez znaków wodnych.",
         },
+        "ja": {
+            "name": "QR コードジェネレーター",
+            "tagline": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。",
+            "description": "オンライン無料の QR コードジェネレーター。サイズ、前景／背景色、誤り訂正レベルをカスタマイズし、PNG または SVG でダウンロード可能。透かしはありません。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -198,6 +203,27 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
   <li><strong>Długa zawartość wymusza gęstszy kod.</strong> Jeśli musisz zakodować 200-znakowy URL, wynikowy kod jest gęsty i trudniej go zeskanować z daleka. Skróć przez redirect, jeśli rozmiar ma znaczenie.</li>
   <li><strong>SVG vs PNG.</strong> SVG skaluje się bez utraty jakości — najlepsze do druku albo dużych ekranów. PNG jest powszechnie akceptowany, ale piksel się rozbiega przy powiększaniu; eksportuj w docelowym rozmiarze.</li>
   <li><strong>Format presetu Wi-Fi.</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;hasło&gt;;;</code> — nowoczesne iOS/Android skanują i łączą się automatycznie; bardzo stare telefony mogą nie wspierać.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>QR コードはスマホのカメラが瞬時に読み取れる小さな URL です。URL、Wi-Fi 設定、メール下書き、電話番号、その他短いテキストをエンコードしてポスター、名刺、メニューに印刷すれば、誰もがタイピングなしで操作できます。本ジェネレーターはオープンソースの <a href="https://github.com/soldair/node-qrcode" rel="noopener">qrcode</a> ライブラリを使い、すべてブラウザ内で動作します。入力テキストはページから外に出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>スライド、ポスター、名刺、パッケージ封入物に URL を載せたいとき。</li>
+  <li>ゲストにパスワードをタイピングさせずに Wi-Fi へ接続させたいとき（Wi-Fi プリセットを利用）。</li>
+  <li>店舗のサイネージに「スキャンして支払い／予約／注文」を貼り付けたいとき。</li>
+  <li>vCard をエンコードして、相手のスマホに連絡先カードを即インポートさせたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>誤り訂正は密度とのトレードオフです。</strong> Q、H など高めにすると傷やロゴ重ねに強くなりますが、コードは大きく密になります。L、M は小さくなり読み取りも速いです。ロゴを重ねるなら <strong>H</strong>、それ以外は <strong>M</strong> が無難です。</li>
+  <li><strong>コントラストが重要です。</strong> 凝ったカラーリングで前景／背景のコントラストを下げると、見た目はおしゃれでも暗所での読み取りが落ちます。出力後に印刷物や画面で必ずスキャン確認してください。</li>
+  <li><strong>長いコンテンツは密なコードを生みます。</strong> 200 文字の URL を入れると密度が上がり、遠距離では読み取りにくくなります。サイズが重要ならリダイレクト URL に短縮してから入れてください。</li>
+  <li><strong>SVG と PNG。</strong> SVG は無劣化でスケールでき、印刷や大画面に最適です。PNG はどこでも使えますが拡大すると荒くなります。実際に使うサイズで書き出してください。</li>
+  <li><strong>Wi-Fi プリセットの形式。</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — 最近の iOS/Android はスキャンで自動接続できます。古い端末では未対応の場合があります。</li>
 </ul>
 """,
     },

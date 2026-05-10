@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Encoder / Decoder Base64", "tagline": "Codifica testo in Base64 o decodifica Base64 in testo. UTF-8 sicuro con variante base64url.", "description": "Encoder e decoder Base64 gratuito. UTF-8 sicuro con variante base64url per URL e JWT."},
         "pt": {"name": "Codificador / Decodificador Base64", "tagline": "Codifique texto em Base64 ou decodifique Base64 de volta em texto. Seguro em UTF-8 e suporta a variante base64url.", "description": "Codificador e decodificador Base64 online gratuito. Seguro em UTF-8 com variante base64url opcional para URLs e JWTs. Roda no seu navegador."},
         "pl": {"name": "Encoder / Decoder Base64", "tagline": "Koduj tekst do Base64 albo dekoduj Base64 z powrotem na tekst. Bezpieczny dla UTF-8, wariant base64url.", "description": "Darmowy encoder i decoder Base64 online. Bezpieczny dla UTF-8 z opcjonalnym wariantem base64url dla URL-i i JWT. Działa w przeglądarce."},
+        "ja": {"name": "Base64 エンコーダー / デコーダー", "tagline": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "description": "オンライン無料の Base64 エンコーダー・デコーダー。UTF-8 安全で、URL や JWT 向けの base64url バリアントにも対応。すべてブラウザ内で処理されます。"},
     },
     "body": """
 <div class="tool-card">
@@ -156,6 +157,31 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>UTF-8 robi tu poprawny round-trip</strong> — znaki spoza ASCII (é, 你好, 🚀) idą przez <code>TextEncoder</code>/<code>TextDecoder</code>, nie bezpośrednio przez <code>btoa</code>/<code>atob</code>. Naiwne <code>btoa(str)</code> w JavaScripcie wywala się na znakach niełacińskich.</li>
   <li><strong>Padding</strong> — standardowy Base64 zawsze kończy się 0/1/2 znakami <code>=</code> w zależności od długości wejścia. base64url często go pomija. Dekodery wymagające paddingu odrzucają dane bez paddingu; to narzędzie sam dokleja go przy dekodowaniu, jeśli go brakuje.</li>
   <li><strong>Białe znaki w środku zakodowanego stringa</strong> — ten dekoder usuwa spacje i końce linii (typowe po copy-paste), ale niektóre biblioteki tego nie robią, więc przekoduj zanim wrzucisz to do takiej.</li>
+</ul>
+""",
+        "ja": """
+<h2>Base64 が実際にやっていること</h2>
+<p>Base64 は任意のバイト列を 64 個の ASCII 文字（A–Z、a–z、0–9 と 2 文字の追加文字）に変換します。入力 3 バイトが出力 4 文字になるため、結果は入力よりおよそ 33% 大きくなります。これは<em>エンコーディング</em>であり、暗号化ではありません。誰でもデコード可能です。</p>
+
+<h3>Base64 を使うべきタイミング</h3>
+<ul>
+  <li>テキスト形式の中に小さなバイナリデータを埋め込みたいとき：data URI、JSON 値、環境変数、YAML 文字列など。</li>
+  <li>バイナリトークン（署名、鍵、ハッシュ）を URL、ヘッダー、Cookie に含めたいとき。</li>
+  <li>メール添付や SMIME — 古いですが今も使われています。</li>
+</ul>
+
+<h3>Standard と base64url</h3>
+<ul>
+  <li><strong>Standard</strong>（<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>）は <code>+</code>、<code>/</code>、<code>=</code> を使います。メール、JSON 値、ほとんどの XML で問題ありません。</li>
+  <li><strong>base64url</strong>（<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>）は <code>-</code>、<code>_</code> を使い、通常は末尾の <code>=</code> パディングを省略します。JWT、OAuth トークン、URL に値が入る場面で <code>+</code>/<code>/</code>/<code>=</code> の追加エスケープを避けたいときに使われます。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>暗号化と混同しないこと。</strong> Base64 は誰でも復元できます。機密データならまず暗号化してください。</li>
+  <li><strong>UTF-8 はここで正しくラウンドトリップします</strong> — 非 ASCII 文字（é、你好、🚀）は <code>TextEncoder</code>/<code>TextDecoder</code> を経由し、<code>btoa</code>/<code>atob</code> を直接使うわけではありません。JavaScript で素朴に <code>btoa(str)</code> を呼ぶと非ラテン文字で壊れます。</li>
+  <li><strong>パディング</strong> — 標準 Base64 は入力長に応じて 0/1/2 個の <code>=</code> で終わります。base64url では省略されることが多いです。パディングを必須とするデコーダーは省略形を拒否しますが、このツールはデコード時に不足分を補います。</li>
+  <li><strong>エンコード文字列内の空白</strong> — このデコーダーはスペースや改行を取り除きます（コピペ時によく混入します）。一部のライブラリはこれを行わないため、そのようなライブラリに渡す場合は再エンコードしてください。</li>
 </ul>
 """,
     },

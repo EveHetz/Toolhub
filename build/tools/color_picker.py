@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Selettore Colore", "tagline": "Scegli un colore e vedilo in HEX, RGB, RGBA, HSL, HSLA, HSV e CMYK. Regola l'opacità e copia.", "description": "Selettore colore online gratuito. HEX, RGB(A), HSL(A), HSV e CMYK con anteprima live e cursore opacità."},
         "pt": {"name": "Seletor de Cores", "tagline": "Escolha uma cor e veja na hora em HEX, RGB, RGBA, HSL, HSLA, HSV e CMYK. Ajuste a opacidade e copie qualquer valor.", "description": "Seletor de cores online gratuito. Converta entre HEX, RGB(A), HSL(A), HSV e CMYK com preview ao vivo, slider de opacidade e botões de copiar."},
         "pl": {"name": "Color Picker", "tagline": "Wybierz kolor i zobacz go od razu w HEX, RGB, RGBA, HSL, HSLA, HSV i CMYK. Reguluj opacity i kopiuj dowolną wartość.", "description": "Darmowy color picker online. Konwertuj między HEX, RGB(A), HSL(A), HSV i CMYK z podglądem na żywo, suwakiem opacity i przyciskami kopiowania."},
+        "ja": {"name": "カラーピッカー", "tagline": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "description": "オンライン無料のカラーピッカー。HEX、RGB(A)、HSL(A)、HSV、CMYK の間をライブプレビュー・不透明度スライダー・コピーボタンで変換できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -165,6 +166,26 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>Hue w HSL jest w stopniach.</strong> 0 = czerwony, 120 = zielony, 240 = niebieski. CSS akceptuje też <code>turn</code>, <code>rad</code>, <code>grad</code>, ale tu wyjście jest w stopniach.</li>
   <li><strong>Konwersja na CMYK jest naiwna.</strong> Prawdziwy druk wymaga profilu ICC (sRGB → CMYK z rendering intent). Wyjście tego narzędzia nadaje się do mockupów brand decka, nie do plików gotowych do druku offsetowego.</li>
   <li><strong>OKLCH i OKLAB</strong> (nowoczesne przestrzenie percepcyjnie jednolite) nie są tu pokazane — są nowsze i jeszcze nie wszędzie wspierane. Na razie trzymaj się HSL/HSV w toolingu design systemowym.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>色を選ぶ、または HEX / <code>rgb()</code> / <code>hsl()</code> の値を貼り付けるだけで、よく使われるすべての記法で即座に確認できます。HEX（3 桁、アルファ付き 8 桁）、RGB(A)、HSL(A)、HSV、CMYK に対応。ある色空間で値を持っているのに別の空間が必要なとき、CSS / デザインツール / 印刷でブランドカラーを揃えたいとき、不透明度を変えながら結果を確認したいときに便利です。</p>
+
+<h3>各色空間の使いどころ</h3>
+<ul>
+  <li><strong>HEX / RGB</strong> — CSS、デザインツール、メールテンプレート。どこでもサポートされています。</li>
+  <li><strong>HSL</strong> — 読みやすいパレット作り。色相・彩度・明度を独立に調整しても、他の軸での色のズレが起きにくい。</li>
+  <li><strong>HSV</strong> — Photoshop や Figma などのデザインソフトで陰影付け。「この色をもう少し明るく」という多くのカラーピッカーの考え方と一致します。</li>
+  <li><strong>CMYK</strong> — 印刷向けの出力。あくまで近似値です。画面は RGB であり、プリンタごとにカラープロファイルも異なります。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>アルファのエンコードは色空間ごとに異なります。</strong> CSS は <code>rgba()</code>、<code>hsla()</code>、8 桁 HEX（<code>#RRGGBBAA</code>）に対応します。古いメールテンプレートや一部のデザインツールは <code>#RRGGBBAA</code> を解釈できないため、その場合は <code>rgba()</code> を使ってください。</li>
+  <li><strong>HSL の色相は度数です。</strong> 0 = 赤、120 = 緑、240 = 青。CSS では <code>turn</code>、<code>rad</code>、<code>grad</code> も使えますが、ここでの出力は度数です。</li>
+  <li><strong>CMYK 変換は素朴な近似です。</strong> 実際の印刷では ICC プロファイル（sRGB → CMYK、レンダリングインテント付き）が必要です。本ツールの出力はブランドデックのモックには十分ですが、印刷入稿用ファイルには適しません。</li>
+  <li><strong>OKLCH と OKLAB</strong>（モダンで知覚的に均一な色空間）はここには表示しません。新しく、まだ広くはサポートされていません。デザインシステムのツールでは当面 HSL/HSV を中心に使うのが無難です。</li>
 </ul>
 """,
     },

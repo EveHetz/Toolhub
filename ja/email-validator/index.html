@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メールアドレス検証ツール — Toolhub</title>
+  <meta name="description" content="オンライン無料のメールアドレス検証ツール。RFC 5322 準拠の構文チェック、ローカル部とドメインの解析、使い捨てドメインの検出、長さ検証を行います。">
+  <meta property="og:title" content="メールアドレス検証ツール — Toolhub">
+  <meta property="og:description" content="オンライン無料のメールアドレス検証ツール。RFC 5322 準拠の構文チェック、ローカル部とドメインの解析、使い捨てドメインの検出、長さ検証を行います。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/email-validator/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/email-validator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/email-validator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/email-validator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/email-validator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/email-validator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/email-validator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/email-validator/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/email-validator/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/email-validator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/email-validator/">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/ja/email-validator/#tool",
+        "name": "メールアドレス検証ツール",
+        "description": "オンライン無料のメールアドレス検証ツール。RFC 5322 準拠の構文チェック、ローカル部とドメインの解析、使い捨てドメインの検出、長さ検証を行います。",
+        "url": "https://toolhub.software/ja/email-validator/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Validation Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["email", "validate", "rfc", "syntax", "mx", "domain"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "すべてのツール", "item": "https://toolhub.software/ja/"},
+          {"@type": "ListItem", "position": 2, "name": "メールアドレス検証ツール", "item": "https://toolhub.software/ja/email-validator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/ja/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/email-validator/'; else location.href='/email-validator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" selected="selected">🇯🇵 JA</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / メールアドレス検証ツール</div>
+    <h1>メールアドレス検証ツール</h1>
+    <p class="tagline">メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。</p>
+    
+<div class="tool-card">
+  <label>Email address</label>
+  <input type="text" id="ev-input" oninput="evRun()" placeholder="hello@example.com" autocomplete="off" spellcheck="false">
+  <div class="meta" style="margin-top:0.5rem">Or paste a list (one per line) below to bulk-check.</div>
+  <textarea id="ev-bulk" oninput="evRun()" placeholder="Optional: bulk check, one address per line" spellcheck="false" style="margin-top:0.6rem"></textarea>
+</div>
+<div class="tool-card">
+  <label>結果</label>
+  <div id="ev-out" class="output">上に入力すると結果が表示されます。</div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>用途</h2>
+<p>大半の「メール検証ツール」は <code>not@an.email</code> を通し、<code>edge@case.io</code> を弾く 1 行の正規表現にすぎません。本ツールは RFC 5321 / 5322 が実際に求める構造的チェック（ローカル部の文字種、ドット規則、ラベル長、TLD の形、絶対長制限）に加え、使い捨てドメインの検出も行います。アドレスが<em>整形式</em>かどうかは判定できますが、メールボックスが実在するかは別問題で、それにはサーバー側の MX/SMTP プローブが必要です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>有料の検証 API やメール一斉送信サービスに送る前に、リストを事前チェックしたい（タイポを無料で捕まえてクレジット節約）。</li>
+  <li>サインアップフォームで明らかなゴミ入力をフィールド単位で弾きたい。</li>
+  <li>連絡先 CSV をインポート前に監査して、タイポを発見したい。</li>
+  <li>「変に見える」アドレス（国際 TLD、プラスアドレッシング、サブアドレッシング）が本当に有効なのかを確かめたい。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>構文的に有効 ≠ 配信可能。</strong> <code>does-not-exist@gmail.com</code> は構造チェックを全部通ります。本物の検証には MX サーバーの応答が必要です。本ツールはあくまで一次フィルターとして使い、配信可否の根拠にはしないでください。</li>
+  <li><strong>プラスアドレッシングは有効です。</strong> <code>name+tag@gmail.com</code> は有効で、<code>name@gmail.com</code> にルーティングされます。剥がさないでください。これは仕様の機能です。</li>
+  <li><strong>国際化メール（IDN）。</strong> <code>用户@例.中国</code> は RFC 6530 上は有効ですが、SMTP サーバーの対応はまだ広くありません。本ツールは保守的な ASCII ルールに従います。本当に IDN が必要な場合は緩めてください。</li>
+  <li><strong>使い捨てドメイン検出はあくまでヒントです。</strong> リストは性質上不完全ですし、フラグが立ったドメインでも実在ユーザーである可能性があります。</li>
+  <li><strong>大文字小文字の差で弾かないでください。</strong> RFC 5321 上はローカル部は case-sensitive ですが、実際のプロバイダはすべて case-insensitive に扱います。保存時に小文字化はしないでください。</li>
+</ul>
+<div class="related"><span class="meta">関連ツール:</span> <a href="/ja/regex-tester/">正規表現テスター</a> <a href="/ja/credit-card-validator/">クレジットカード検証ツール</a> <a href="/ja/url-encoder/">URL エンコーダー / デコーダー</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.ev-result{display:grid;gap:0.5rem}
+.ev-row{display:grid;grid-template-columns:140px 1fr;gap:0.6rem;align-items:center;padding:0.45rem 0.7rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;font-size:0.88rem}
+.ev-row .lbl{color:var(--text-muted);font-size:0.78rem;font-family:ui-monospace,monospace}
+.ev-pass{color:#10b981;font-weight:600}
+.ev-fail{color:#ef4444;font-weight:600}
+.ev-warn{color:#f59e0b;font-weight:600}
+.ev-bulk-row{display:grid;grid-template-columns:1fr 90px;gap:0.5rem;padding:0.4rem 0.7rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:6px;font-family:ui-monospace,monospace;font-size:0.85rem;margin-bottom:0.3rem;word-break:break-all}
+</style>
+<script>
+const EV_DISPOSABLE = new Set(['mailinator.com','tempmail.com','10minutemail.com','guerrillamail.com','yopmail.com','throwawaymail.com','trashmail.com','maildrop.cc','sharklasers.com','dispostable.com','fakeinbox.com','getnada.com']);
+const EV_LOCAL_RX = /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]+(\.[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]+)*$/;
+const EV_DOMAIN_LABEL_RX = /^[A-Za-z0-9](?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?$/;
+function evCheck(addr){
+  const r = {addr, valid:false, problems:[], warnings:[]};
+  if(!addr) return r;
+  if(addr.length > 254) r.problems.push('Total length over 254 chars (RFC 5321 limit)');
+  const at = addr.lastIndexOf('@');
+  if(at <= 0 || at === addr.length-1){ r.problems.push('Missing local part or domain (no @ separator)'); return r; }
+  const local = addr.slice(0, at);
+  const domain = addr.slice(at+1);
+  r.local = local; r.domain = domain;
+  if(local.length > 64) r.problems.push('Local part over 64 chars (RFC 5321 limit)');
+  if(local.startsWith('.') || local.endsWith('.')) r.problems.push('Local part cannot start or end with a dot');
+  if(local.includes('..')) r.problems.push('Local part contains consecutive dots');
+  if(!EV_LOCAL_RX.test(local) && !(local.startsWith('"') && local.endsWith('"'))) r.problems.push('Local part has invalid characters');
+  if(!domain.includes('.')) r.problems.push('Domain has no TLD (no dot)');
+  const labels = domain.split('.');
+  for(const lab of labels){
+    if(!lab){ r.problems.push('Empty label in domain (consecutive dots?)'); continue; }
+    if(lab.length > 63){ r.problems.push('Domain label "'+lab+'" over 63 chars'); continue; }
+    if(!EV_DOMAIN_LABEL_RX.test(lab)) r.problems.push('Invalid domain label "'+lab+'"');
+  }
+  const tld = labels[labels.length-1] || '';
+  if(tld.length < 2) r.problems.push('TLD too short');
+  if(/^\d+$/.test(tld)) r.problems.push('TLD cannot be all-numeric');
+  if(EV_DISPOSABLE.has(domain.toLowerCase())) r.warnings.push('Disposable / throwaway domain');
+  if(domain.toLowerCase()==='gmail.com' && local.includes('+')) r.warnings.push('Gmail "+" alias — routes to base address');
+  r.valid = r.problems.length === 0;
+  return r;
+}
+function evRow(label, val){return `<div class="ev-row"><div class="lbl">${label}</div><div>${val}</div></div>`}
+function evRender(c){
+  if(!c.local && !c.domain) return `<div class="ev-result">${evRow('Status','<span class="ev-fail">'+c.problems.join('; ')+'</span>')}</div>`;
+  const verdict = c.valid ? '<span class="ev-pass">✓ Syntactically valid</span>' : '<span class="ev-fail">✗ Invalid</span>';
+  let html = '<div class="ev-result">';
+  html += evRow('Verdict', verdict);
+  html += evRow('Local part', '<code>'+c.local+'</code>');
+  html += evRow('Domain', '<code>'+c.domain+'</code>');
+  if(c.problems.length) html += evRow('Problems', '<span class="ev-fail">'+c.problems.join('<br>')+'</span>');
+  if(c.warnings.length) html += evRow('Notes', '<span class="ev-warn">'+c.warnings.join('<br>')+'</span>');
+  html += '</div>';
+  return html;
+}
+function evRun(){
+  const single = document.getElementById('ev-input').value.trim();
+  const bulk = document.getElementById('ev-bulk').value.trim();
+  const out = document.getElementById('ev-out');
+  out.classList.remove('error');
+  if(!single && !bulk){ out.textContent = '上に入力すると結果が表示されます。'; return; }
+  if(single && !bulk){
+    out.innerHTML = evRender(evCheck(single));
+    return;
+  }
+  const list = (bulk || single).split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+  let html = '';
+  let pass = 0, fail = 0;
+  for(const a of list){
+    const c = evCheck(a);
+    if(c.valid) pass++; else fail++;
+    const cls = c.valid ? 'ev-pass' : 'ev-fail';
+    html += `<div class="ev-bulk-row"><div>${a}</div><div class="${cls}">${c.valid?'✓ valid':'✗ invalid'}</div></div>`;
+  }
+  out.innerHTML = `<div class="meta" style="margin-bottom:0.6rem">${pass} valid · ${fail} invalid · ${list.length} total</div>` + html;
+}
+document.addEventListener('DOMContentLoaded', evRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

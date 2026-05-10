@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Calcolatore Mancia e Conto Diviso", "tagline": "Conto + mancia % + persone = importo per persona. Arrotondamento opzionale. Mancia e totale mostrati.", "description": "Calcolatore gratuito mancia e divisione conto. Inserisci conto, percentuale di mancia e numero di persone. Mancia, totale e quota per persona calcolati. Arrotondamento opzionale."},
         "pt": {"name": "Calculadora de Gorjeta e Rachar a Conta", "tagline": "Total da conta + gorjeta % + pessoas = valor por pessoa. Opção de arredondar para cima, mostra gorjeta e total geral.", "description": "Calculadora gratuita de gorjeta e divisão de conta. Informe a conta, a porcentagem de gorjeta e o número de pessoas. Veja o valor da gorjeta, o total geral e a parte de cada um. Arredondamento opcional para cima."},
         "pl": {"name": "Kalkulator Napiwku i Podziału Rachunku", "tagline": "Rachunek + napiwek % + liczba osób = kwota na osobę. Opcja zaokrąglenia w górę, pokazuje napiwek i sumę całkowitą.", "description": "Darmowy kalkulator napiwku i podziału rachunku. Wpisz rachunek, procent napiwku i liczbę osób. Zobacz kwotę napiwku, sumę całkowitą i udział na osobę. Opcjonalne zaokrąglenie w górę."},
+        "ja": {"name": "チップ＆割り勘計算機", "tagline": "請求額 + チップ % + 人数 = 1 人あたり。切り上げオプションあり、チップ額と合計を表示。", "description": "無料のチップ・割り勘計算ツール。請求額、チップ率、人数を入力すると、チップ額、合計、1 人あたりの支払額が表示されます。切り上げオプションも利用可能です。"},
     },
     "body": """
 <div class="tool-card">
@@ -245,6 +246,27 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>Service charge ≠ napiwek.</strong> Jeśli "service charge" jest już w rachunku (typowe w UK przy 6+ osobach i większości kontynentalnej Europy), dodatkowy napiwek jest opcjonalny. Niektóre lokale dzielą service charge z kuchnią; daj napiwek gotówką wprost, jeśli chcesz, żeby trafił do kelnera.</li>
   <li><strong>Zaokrąglenie na osobę może ukryć nierówne jedzenie.</strong> Równy podział jest najszybszy, ale niesprawiedliwy, gdy jedna osoba miała wino, a druga wodę — w takim wypadku przejdź na podział pozycyjny.</li>
   <li><strong>Gotówka vs karta.</strong> Niektóra obsługa woli napiwki w gotówce, bo karciane są dzielone, opodatkowane od razu albo skubane przez lokal. Jeśli kwota na osobę w tym kalkulatorze zawiera napiwek, zdecyduj, czy chcesz dorzucić napiwek w gotówce na wierzch.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>食事の終わりにレストランの会計を割るのは、「計算は簡単だがワインが入ったあと」の典型例です。3 つの数（請求額、チップ率、人数）を入れて、3 つの数（チップ額、合計、1 人あたり）を出します。本ツールはサーバーに何も送らずにこれを行い、1 人あたりが端数なくキリの良い金額になるよう切り上げるオプションもあります。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>グループ食事の最後に、均等割で分けたいとき。</li>
+  <li>サービス料金に既知のチップ率を上乗せしたいとき。</li>
+  <li>10/15/18/20/25 など複数のチップ率を素早く比較したいとき。</li>
+  <li>コーヒー代、タクシー代など、人数で割りたい場面。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>チップの慣習は地域差が大きいです。</strong> 米国は 18〜22% が普通、15% 未満は不満の意思表示。欧州の多くは切り上げか 5〜10%、サービス料込みのことも多い。日本ではチップは不要で、むしろ失礼に取られることもあります。安易にパーセンテージを当てる前に、現地の慣習を確認してください。</li>
+  <li><strong>税抜き／税込みのどちらに対するチップ？</strong> 米国では税抜き小計に対するのが一般的ですが、カード端末は税込みでパーセンテージを提示しがちです。本ツールは入力した金額に対する % を計算するので、基準値は意図して選んでください。</li>
+  <li><strong>サービス料 ≠ チップ。</strong> イギリスの 6 名以上のグループ、欧州大陸の多くで会計に「サービス料」が含まれている場合、追加チップは任意です。サービス料の一部を厨房に分配する店もあるので、サーバー本人へ確実に渡したいなら現金で直接渡してください。</li>
+  <li><strong>1 人あたり丸め込みは食事量の差を覆い隠します。</strong> 均等割は早いですが、ワインを飲んだ人と水だけの人がいる場合は不公平です。その場合は項目別の割り勘に切り替えてください。</li>
+  <li><strong>現金とカード。</strong> カードでのチップはプール、即時課税、店側のピンハネが起きる場合があるため、現金チップを好むスタッフもいます。本ツールの 1 人あたり額にチップが含まれているかどうかを確認し、必要なら現金で別に渡すことを検討してください。</li>
 </ul>
 """,
     },

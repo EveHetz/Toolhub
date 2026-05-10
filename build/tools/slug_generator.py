@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore di Slug", "tagline": "Trasforma qualsiasi titolo in uno slug URL pulito — translittera accenti, rimuove punteggiatura, unisce con trattini.", "description": "Generatore di slug URL gratuito. Minuscole, traslitterazione di accenti (à → a, ñ → n), rimozione punteggiatura e unione parole con separatore."},
         "pt": {"name": "Gerador de Slug", "tagline": "Transforme qualquer título em um slug de URL limpo — translitera acentos, remove pontuação, une com hifens.", "description": "Gerador de slug de URL gratuito. Coloca em minúsculas, translitera caracteres acentuados (à → a, ñ → n), remove pontuação e une as palavras com o separador escolhido. Remoção opcional de stop words."},
         "pl": {"name": "Generator Slugów", "tagline": "Zamień dowolny tytuł w czysty slug URL — translikuje znaki diakrytyczne, wycina interpunkcję, łączy myślnikami.", "description": "Darmowy online generator slugów URL. Zamienia na małe litery, translikuje znaki diakrytyczne (à → a, ń → n, ż → z), wycina interpunkcję i łączy słowa wybranym separatorem. Opcjonalne usuwanie stop words."},
+        "ja": {"name": "スラグ生成ツール", "tagline": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "description": "オンライン無料の URL スラグ生成ツール。小文字化、アクセント文字の翻字（à → a、ñ → n）、句読点除去、選択した区切り文字での連結を実行します。ストップワードの除去もオプションで利用可能です。"},
     },
     "body": """
 <div class="tool-card">
@@ -189,6 +190,36 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>Ucinanie może zmienić znaczenie.</strong> "introduction-to-rust-programming" obcięte do 20 znaków staje się "introduction-to-rust" — OK; obcięte do 16 to "introduction-to" — wyraźnie gorzej. Ustaw limit ręcznie dla treści, gdzie ogon ma znaczenie.</li>
   <li><strong>Slugi nie są unikalne.</strong> Dwa różne tytuły mogą zwinąć się do tego samego slugu ("Café" i "Cafe" oba → <code>cafe</code>). Jeśli używasz slugów jako kluczy URL, dokleej krótkie ID albo suffix przy kolizji.</li>
   <li><strong>Nie zmieniaj slugów już opublikowanych.</strong> Gdy URL jest live i zindeksowany, regenerowanie slugu psuje linki i SEO. Jeśli tytuł się zmienia, zachowaj stary slug albo ustaw redirect 301.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>URL スラグは、<code>/blog/post-4827</code> ではなく <code>/blog/the-quick-brown-fox</code> のような、人が読める URL の最後のセグメントです。良いスラグは小文字、ハイフンつなぎ、ASCII のみ、ぱっと見て分かる短さですが、アクセント、句読点、絵文字を含む実際のタイトルから作るのは結構面倒です。本ツールはアクセントを翻字し、不要な記号を取り除き、選んだ区切り文字でつなぎ、上限文字数で末尾区切りが残らないように切り詰めるため、出力をそのままルートやファイル名に使えます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>記事タイトルから <code>/blog/&lt;slug&gt;</code> URL を生成するとき。特にアクセント（à、ñ、ø）や句読点（コロン、括弧、ダッシュ）を含む場合。</li>
+  <li>ユーザー入力名から安全なファイル名（アップロード、エクスポート、生成レポート）を作るとき。</li>
+  <li>人間が読めるラベルから、タグ／カテゴリ／アンカー（<code>#getting-started</code>）の安定した識別子を作るとき。</li>
+  <li>静的サイトのビルドステップで、見出しのリストを kebab-case に一括変換するとき。</li>
+</ul>
+
+<h3>変換の流れ</h3>
+<ol>
+  <li>NFD で正規化し、結合用ダイアクリティカル記号を除去（<code>café → cafe</code>）。</li>
+  <li>典型的なヨーロッパのリガチャや特殊文字をマッピング：<code>ß → ss</code>、<code>æ → ae</code>、<code>ø → o</code>、<code>Ł → L</code>、加えて通貨／数学記号の一部（<code>€ → eur</code>、<code>& → and</code>）。</li>
+  <li>非英数字の連続を 1 個のスペースに置換。</li>
+  <li>オプションで一般的な英語のストップワード（<em>a, an, and, the, of, to, …</em>）を除去。</li>
+  <li>小文字化（または大文字保持）し、選んだ区切り文字で連結し、上限で切り詰めます。末尾に区切り文字は残しません。</li>
+</ol>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>非ラテン文字は落ちます。</strong> ダイアクリティカル除去は à/ñ/ø は扱えますが、中国語・日本語・キリル・アラビア・ヘブライなどを 1 文字ずつローマ字化することはできません。これらは Hanyu Pinyin や ICU 翻字のような言語別テーブルが必要で、本ツールの対象外です。除去ステップで消えます。</li>
+  <li><strong>ストップワード除去は英語のみです。</strong> "El gato negro" の <em>el</em>、"Le chat noir" の <em>le</em> は落ちません。英語以外のタイトルではトグルをオフにしてください。</li>
+  <li><strong>切り詰めで意味が変わることがあります。</strong> "introduction-to-rust-programming" を 20 文字で切ると "introduction-to-rust"（OK）。16 文字だと "introduction-to"（明らかに悪い）。末尾の語が重要な場合は手で長さを設定してください。</li>
+  <li><strong>スラグは一意ではありません。</strong> 「Café」と「Cafe」はどちらも <code>cafe</code> になります。URL キーとして使うなら、衝突時には短い ID やサフィックスを付けてください。</li>
+  <li><strong>公開済みのスラグは変えないこと。</strong> URL がインデックスされた後にスラグを再生成するとリンクと SEO が壊れます。タイトル変更時は旧スラグを残すか、301 リダイレクトを設定してください。</li>
 </ul>
 """,
     },

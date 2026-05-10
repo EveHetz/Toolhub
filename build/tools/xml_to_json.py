@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore XML ↔ JSON", "tagline": "Converti XML in JSON o JSON in XML. Gestisce attributi, nodi testo e array sensibilmente.", "description": "Convertitore XML a JSON gratuito (e JSON a XML). Usa il parser XML del browser; attributi con prefisso configurabile; elementi ripetuti diventano array. 100% nel browser."},
         "pt": {"name": "Conversor XML ↔ JSON", "tagline": "Converta XML para JSON ou JSON de volta para XML. Lida com attributes, text nodes e arrays de forma sensata.", "description": "Conversor XML para JSON online gratuito (e JSON de volta para XML). Usa o parser XML nativo do navegador; attributes vão para um prefixo configurável; elementos repetidos viram arrays. Roda inteiramente no seu navegador."},
         "pl": {"name": "Konwerter XML ↔ JSON", "tagline": "Konwertuj XML na JSON albo JSON z powrotem na XML. Sensownie obsługuje atrybuty, węzły tekstowe i tablice.", "description": "Darmowy online konwerter XML do JSON (i JSON z powrotem na XML). Używa natywnego parsera XML przeglądarki; atrybuty trafiają z konfigurowalnym prefiksem; powtórzone elementy zwijają się do tablic. Działa w całości w przeglądarce."},
+        "ja": {"name": "XML ↔ JSON コンバーター", "tagline": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。", "description": "オンライン無料の XML → JSON（および JSON → XML）コンバーター。ブラウザの XML パーサを使用し、属性は設定可能なプレフィックス付き、繰り返し要素は配列にまとめます。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -336,6 +337,29 @@ document.addEventListener('DOMContentLoaded', xjRun);
   <li><strong>Namespace'y są trzymane dosłownie.</strong> <code>ns:tag</code> zostaje jako klucz JSON <code>"ns:tag"</code>. Atrybuty <code>xmlns:</code> tak samo.</li>
   <li><strong>Liczby i boole nie są auto-konwertowane.</strong> Tekst XML zawsze jest stringiem; <code>"1"</code> zostaje <code>"1"</code> w JSON. Konwertuj typy w kodzie aplikacji, jeśli ich potrzebujesz.</li>
   <li><strong>JSON → XML wymaga jednego klucza root.</strong> XML wymaga dokładnie jednego elementu root; wejściowy JSON musi być obiektem z jednym kluczem na top-level.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>XML と JSON は二大データ交換形式で、SOAP API から REST への移行、レガシーフィードのモダンスタックへの取り込み、JSON しか扱えないツールでの XML 閲覧など、相互変換は日常です。マッピングは標準化されておらず慣例的です（XML の属性、混在コンテンツ、順序付き子要素は JSON にそのまま対応する概念がないため）。本ツールは <a href="https://www.npmjs.com/package/fast-xml-parser" target="_blank" rel="noopener noreferrer">fast-xml-parser</a> 風のマッピングを採用します。属性はプレフィックス付き（既定 <code>@</code>）、テキストノードは固定キー（既定 <code>#text</code>）、繰り返しの子要素は配列にまとめます。両方向ともブラウザ内で動作します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>RSS / Atom / SOAP のレスポンスを JS アプリで使えるよう JSON に変換するとき。</li>
+  <li>JSON テンプレートから XML 設定（ビルド設定、Spring Bean、OOXML 雛形）を生成するとき。</li>
+  <li>ネストされた値を素早く取り出したい — XML を JSON に変換してから、JSON 用の好みのツールで処理。</li>
+  <li>変換でデータ形状が壊れないかラウンドトリップを確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>子要素 1 つと配列で形が変わります。</strong> <code>&lt;item&gt;</code> が 1 個なら <code>{"item": {...}}</code>、2 個以上なら <code>{"item": [..., ...]}</code> になります。コンシューマは両方の形を扱うか、出力時に正規化してください。</li>
+  <li><strong>要素の順序は保証されません。</strong> JSON のキー順はパーサや伝送経路で必ずしも保たれません。順序が意味を持つ XML の兄弟要素には JSON は不向きです。</li>
+  <li><strong>混在コンテンツは潰れます。</strong> <code>&lt;p&gt;hello &lt;b&gt;world&lt;/b&gt;!&lt;/p&gt;</code> のようなテキストとインライン要素の織り交ぜは綺麗にラウンドトリップしません。</li>
+  <li><strong>属性プレフィックスの衝突。</strong> 子要素名が <code>@</code> から始まる場合、属性プレフィックスを別の文字に変更してください。</li>
+  <li><strong>名前空間はそのまま保持。</strong> <code>ns:tag</code> は JSON キーでも <code>"ns:tag"</code>。<code>xmlns:</code> 属性も同様です。</li>
+  <li><strong>数値や真偽値の自動変換は行いません。</strong> XML テキストは常に文字列であり、<code>"1"</code> は JSON でも <code>"1"</code> のまま。必要ならアプリ側で型変換してください。</li>
+  <li><strong>JSON → XML には単一ルートキーが必要。</strong> XML はルート要素がちょうど 1 つ必要です。入力 JSON はトップレベルにキーが 1 つだけのオブジェクトでなければなりません。</li>
 </ul>
 """,
     },

@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore di Colori", "tagline": "Converti qualsiasi colore tra hex, RGB, HSL e OKLCH. Anteprima live, copia con un clic.", "description": "Convertitore di colori gratuito online. Conversione tra hex, rgb(), hsl() e il moderno formato oklch(). Anteprima live, copia con un clic."},
         "pt": {"name": "Conversor de Cores", "tagline": "Converta qualquer cor entre hex, RGB, HSL e OKLCH. Preview ao vivo, copie com um clique.", "description": "Conversor de cores online gratuito. Traduza entre hex (#3498db), rgb(), hsl() e o formato moderno oklch(). Preview de amostra ao vivo, copie qualquer valor com um clique."},
         "pl": {"name": "Konwerter Kolorów", "tagline": "Konwertuj dowolny kolor między hex, RGB, HSL i OKLCH. Podgląd na żywo, kopia jednym kliknięciem.", "description": "Darmowy online konwerter kolorów. Tłumacz między hex (#3498db), rgb(), hsl() i nowoczesnym formatem oklch(). Podgląd próbki na żywo, kopiuj dowolną wartość jednym kliknięciem."},
+        "ja": {"name": "カラー変換ツール", "tagline": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "description": "オンライン無料のカラー変換ツール。hex（#3498db）、rgb()、hsl()、そしてモダンな oklch() 形式の間で変換できます。スウォッチのライブプレビューと、ワンクリックでの値コピーに対応。"},
     },
     "body": """
 <div class="tool-card">
@@ -256,6 +257,35 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
   <li><strong>HSL to nie to samo co HSV.</strong> "Value" w HSV to najjaśniejszy kanał; "lightness" w HSL to środek między najjaśniejszym a najciemniejszym. Dają różne liczby dla tego samego koloru.</li>
   <li><strong>Round-trip nie zawsze jest bezstratny.</strong> hex → hsl → hex może przesunąć jeden integer przez zaokrąglenie. Dla dokładnej reprodukcji trzymaj hex.</li>
   <li><strong>Hex i RGB są domyślnie w sRGB,</strong> nie Display P3 ani Rec. 2020. Jeśli twoje narzędzie projektowe jest w profilu wide-gamut, ten sam hex wygląda inaczej.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>デザイナーやフロントエンド開発者は、色をフォーマット間で頻繁に行き来させます。Figma は hex、デザイントークンの仕様は OKLCH、CSS は HSL、キャプチャした画像は RGB といった具合です。このツールはすべての記法を同期させ、1 つを編集すれば他がライブで更新されます。CSS Color Module 4 で追加され、2023 年以降すべての主要ブラウザで対応している <code>oklch()</code> も含みます。OKLCH は知覚的に均一な色を生成し、HSL より遥かに扱いやすい形式です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ブランドの hex コードを CSS のオーバーレイ用に <code>rgb()</code> ＋アルファに変換するとき。</li>
+  <li>デザインシステムを知覚的カラーへ移行する際に、HSL と OKLCH の間で変換するとき。</li>
+  <li>スクリーンショットツールから貼られた <code>rgb(52, 152, 219)</code> をスタイルシート用の hex に戻すとき。</li>
+  <li>OKLCH の chroma 値の妥当性確認（およそ 0.4 を超える値は sRGB ガマットの外にある可能性が高い）。</li>
+</ul>
+
+<h3>形式のクイックリファレンス</h3>
+<ul>
+  <li><strong>Hex</strong> — <code>#RRGGBB</code>（または 3 桁の短縮形 <code>#RGB</code>）。汎用的で、8 桁形式（<code>#RRGGBBAA</code>）にしない限りアルファなし。</li>
+  <li><strong>RGB</strong> — <code>rgb(0–255, 0–255, 0–255)</code>。画面が実際に受け取る sRGB チャンネル値そのもの。</li>
+  <li><strong>HSL</strong> — 色相（0–360°）、彩度（0–100%）、明度（0–100%）。色のファミリーは扱いやすい一方、明度は知覚的ではありません。HSL 50% の緑は HSL 50% の青より明るく見えます。</li>
+  <li><strong>OKLCH</strong> — 知覚的明度（0–1）、chroma（sRGB では 0–約 0.4）、色相（0–360°）。同じ L の色は同じ明るさに見えます。デザインシステムやアクセシビリティに最適です。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>OKLCH の明度は 0–1 で、0–100 ではありません。</strong> CSS は両方を受け付けます（<code>0.65</code> または <code>65%</code>）。本ツールも両形式に対応します。</li>
+  <li><strong>OKLCH の値の一部は sRGB の外側に落ちます</strong>（例：青の高 chroma）。変換時に表示可能な sRGB へクランプしますので、結果は近似であり厳密ではありません。</li>
+  <li><strong>HSL と HSV は別物です。</strong> HSV の "value" は最も明るいチャンネル、HSL の "lightness" は最明・最暗の中点です。同じ色でも異なる数値になります。</li>
+  <li><strong>ラウンドトリップは必ずしも無損失ではありません。</strong> hex → hsl → hex で丸め誤差により整数 1 つ分ズレることがあります。厳密に再現したい場合は hex で保存してください。</li>
+  <li><strong>Hex と RGB はデフォルトで sRGB です</strong>（Display P3 や Rec. 2020 ではありません）。デザインツールが広色域プロファイルなら、同じ hex でも見た目は異なります。</li>
 </ul>
 """,
     },

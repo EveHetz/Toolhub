@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Encoder / Decoder HTML", "tagline": "Escape di caratteri speciali HTML o decodifica delle entità.", "description": "Encoder e decoder di entità HTML gratuito. Escape di &amp; &lt; &gt; &quot; ' e entità con nome."},
         "pt": {"name": "Encoder / Decoder HTML", "tagline": "Faz escape de caracteres especiais HTML ou decodifica entidades de volta. Útil para embutir input do usuário com segurança ou debugar markup escapado.", "description": "Encoder e decoder de entidades HTML grátis online. Faz escape de &amp; &lt; &gt; &quot; ' e entidades nomeadas. Decodifica entidades nomeadas, decimais e em hex."},
         "pl": {"name": "Encoder / Decoder HTML", "tagline": "Escape'uj znaki specjalne HTML albo dekoduj encje z powrotem. Przydatne do bezpiecznego osadzania inputu użytkownika albo debugowania zescape'owanego markupu.", "description": "Darmowy online encoder i decoder encji HTML. Escape'uje &amp; &lt; &gt; &quot; ' oraz nazwane encje. Dekoduje nazwane, dziesiętne i szesnastkowe odwołania do encji."},
+        "ja": {"name": "HTML エンコーダー / デコーダー", "tagline": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "description": "オンライン無料の HTML エンティティエンコーダー / デコーダー。&amp; &lt; &gt; &quot; ' と名前付きエンティティをエスケープし、名前付き・10 進・16 進のエンティティ参照をデコードします。"},
     },
     "body": """
 <div class="tool-card">
@@ -111,6 +112,26 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>Atrybuty vs treść.</strong> Oba konteksty wymagają tych samych pięciu znaków escape'owanych, ale handlery JS typu <code>onclick</code> potrzebują dodatkowego escape'owania (czego to narzędzie nie robi — trzymaj nieufne dane z dala od atrybutów).</li>
   <li><strong>Decoder jest permisywny.</strong> Encje nazwane (<code>&amp;ldquo;</code>), dziesiętne (<code>&amp;#34;</code>) i hex (<code>&amp;#x22;</code>) — wszystko dekoduje przez parser przeglądarki, więc akceptuje wszystko, co przyjąłby prawdziwy browser.</li>
   <li><strong>Nie koduj podwójnie.</strong> Zakodowanie już zakodowanej wartości daje <code>&amp;amp;amp;</code>. Najpierw zdekoduj, jeśli widzisz encje w inpucie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>HTML には構造的な意味を持つ 5 文字 — <code>&amp;</code>、<code>&lt;</code>、<code>&gt;</code>、<code>&quot;</code>、<code>'</code> — が予約されています。これらをページに<em>コンテンツ</em>として表示するには、ブラウザがマークアップとして解釈しないように HTML エンティティへエスケープする必要があります。本ツールは双方向に対応しており、生テキストを安全なエンティティへエンコード、または取得した HTML をプレーンテキストへデコードできます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>信頼できないユーザー入力を HTML に埋め込むとき — XSS 対策のため、まずエンコードしてください。</li>
+  <li>スクレイピングやコピーで取得した、エンティティ（<code>&amp;amp;</code>、<code>&amp;#x27;</code>、<code>&amp;ldquo;</code>）混じりのマークアップをデコードしたいとき。</li>
+  <li>誤って二重エスケープされたテンプレートを元に戻したいとき。</li>
+  <li>JSDoc、CDATA を使わない XML、Markdown のコードフェンスなど、リテラルな山括弧が必要な場面のスニペット作成。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>エンコードはサニタイズではありません。</strong> エンコードは表示用に安全化するだけです。タグを<em>除去</em>したいなら、別途 HTML サニタイザーが必要です。</li>
+  <li><strong>属性とボディ。</strong> どちらも同じ 5 文字をエスケープしますが、<code>onclick</code> のような JavaScript イベントハンドラは追加のエスケープが必要です（本ツールは行いません。信頼できないデータを属性に入れないでください）。</li>
+  <li><strong>デコーダは寛容です。</strong> 名前付きエンティティ（<code>&amp;ldquo;</code>）、10 進（<code>&amp;#34;</code>）、16 進（<code>&amp;#x22;</code>）はすべてブラウザのパーサーで復号されるため、本物のブラウザが受け入れるものはすべて受け入れます。</li>
+  <li><strong>二重エンコードに注意。</strong> 既にエンコード済みの値を再度エンコードすると <code>&amp;amp;amp;</code> になります。入力にエンティティが見える場合はまずデコードしてください。</li>
 </ul>
 """,
     },

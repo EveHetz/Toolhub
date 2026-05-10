@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Costruttore Query String", "tagline": "Aggiungi righe chiave/valore; ottieni un query string correttamente URL-codificato. Supporta array (a[]=1) e chiavi ripetute.", "description": "Costruttore di query string gratuito. Aggiungi coppie chiave/valore e ottieni una stringa ?a=1&b=hello%20world correttamente percent-encoded, con notazione bracket opzionale per array. 100% nel browser."},
         "pt": {"name": "Construtor de Query String", "tagline": "Adicione linhas de chave/valor; obtenha um query string corretamente URL-encoded. Suporta arrays (a[]=1) e chaves repetidas.", "description": "Construtor de query string gratuito. Adicione pares chave/valor e obtenha uma string ?a=1&b=hello%20world corretamente percent-encoded, com notação opcional de colchetes para arrays. 100% no navegador."},
         "pl": {"name": "Builder Query Stringów", "tagline": "Dodawaj wiersze key/value; dostań poprawnie URL-encodowanego query stringa. Wspiera tablice (a[]=1) i powtarzane klucze.", "description": "Darmowy builder query stringów online. Dodawaj pary key/value i dostań poprawnie percent-encodowany ciąg ?a=1&b=hello%20world, z opcjonalną notacją tablic w nawiasach. Działa w całości w przeglądarce."},
+        "ja": {"name": "クエリ文字列ビルダー", "tagline": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "description": "オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -286,6 +287,29 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>Kolejność może mieć znaczenie.</strong> Niektóre schematy podpisanych URL-i (S3, webhooki Stripe, OAuth 1.0) wymagają parametrów w konkretnej kolejności przed podpisem. Narzędzie zachowuje kolejność twoich wierszy.</li>
   <li><strong>Limity długości.</strong> Przeglądarki i serwery ograniczają długość query stringa w okolicach 2–8 KB. Wciskanie JSON-a w parametr query to smell.</li>
   <li><strong>Nie wstawiaj sekretów do query stringa.</strong> Wpadną w logi serwera, historię przeglądarki i nagłówki Referer. Używaj body requesta albo nagłówka Authorization.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>クエリ文字列は <code>?</code>、<code>=</code>、<code>&amp;</code> でつないだ key/value のリストにすぎませんが、手書きで正しく作るのは面倒です。スペースは <code>%20</code>（場合によっては <code>+</code>）に、各値は percent-encode され、配列にも 3 通り以上の慣習があります。本ツールは入力した key と value、必要なら「multi」をチェックすると、<code>?</code> の後にそのまま貼り付けられる正しくエンコード済みの文字列を生成します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>スペース、アクセント、記号を含む複数パラメータの API URL を作成するとき。</li>
+  <li>UTM タグの追跡用リンクをエンコードミスなく組み立てたいとき。</li>
+  <li>メール、チャット、SNS を経由するディープリンクや共有 URL を作るとき。</li>
+  <li>API がどの配列記法を期待するか — <code>a[]=1</code>、<code>a=1&amp;a=2</code>、<code>a=1,2</code> — を試して確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>配列の慣習は標準化されていません。</strong> PHP や Rails は <code>a[]=1&amp;a[]=2</code>、Python の <code>requests</code> はデフォルトで <code>a=1&amp;a=2</code> を繰り返し、ASP.NET はカンマ区切りが多いです。API の期待形式に合わせてください。</li>
+  <li><strong><code>+</code> と <code>%20</code>。</strong> <code>application/x-www-form-urlencoded</code> はスペースに <code>+</code>、URI のクエリは厳密には <code>%20</code> です。両方受け付けるサーバーが多いものの、API のドキュメントに従うのが無難です。</li>
+  <li><strong>空値とキー欠落は別物。</strong> <code>?a=</code> は「a は空文字」、<code>a</code> 自体を省略するのは「値が無い」。両者を区別する API もあります。</li>
+  <li><strong>予約文字の取り扱い。</strong> 値内の <code>=</code>、<code>&amp;</code>、<code>#</code>、<code>?</code> はエンコードされます。生のままだとパラメータやクエリ全体が打ち切られる原因になります。</li>
+  <li><strong>順序が重要なことがあります。</strong> S3、Stripe Webhook、OAuth 1.0 などの署名付き URL は署名前にパラメータの並び順が決まっています。本ツールは入力行の順序を保持します。</li>
+  <li><strong>長さ制限。</strong> ブラウザやサーバーはおおむね 2〜8 KB でクエリを切ります。JSON をクエリパラメータに詰め込むのは設計上のサインです。</li>
+  <li><strong>クエリに秘密情報を入れないこと。</strong> サーバーログ、ブラウザ履歴、Referer ヘッダーに残ります。リクエストボディや Authorization ヘッダーを使ってください。</li>
 </ul>
 """,
     },

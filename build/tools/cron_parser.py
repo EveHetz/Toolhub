@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Sparsuj wyrażenia cron i zobacz 10 najbliższych odpaleń. Standardowy 5-polowy crontab.",
             "description": "Darmowy online parser wyrażeń cron. Waliduje składnię 5-polowego crontaba i listuje 10 najbliższych zaplanowanych odpaleń w twojej lokalnej strefie czasowej.",
         },
+        "ja": {
+            "name": "cron 式パーサー",
+            "tagline": "cron 式をパースし、次の 10 回の発火時刻を表示。標準 5 フィールドの crontab。",
+            "description": "オンライン無料の cron 式パーサー。5 フィールドの crontab 構文を検証し、ローカルタイムゾーンで次の 10 回の予定実行時刻を一覧表示します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -249,6 +254,37 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>Kombinacje step + range.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. Krok działa tylko wewnątrz zakresu.</li>
   <li><strong>Strefa czasowa to tu lokalna strefa przeglądarki.</strong> Prawdziwe demony cron działają w czasie serwera (często UTC). Schedule, który wygląda OK w przeglądarce, może odpalić o innej godzinie ściennej na serwerze. Zweryfikuj strefę przed wklejeniem.</li>
   <li><strong>Niektóre dialekty crona dodają pola.</strong> Quartz cron ma 6 albo 7 pól (z sekundami i rokiem). Timery systemd używają zupełnie innego formatu. To narzędzie parsuje standardowy 5-polowy crontab.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>cron 式は強力ですが、書き間違いも起こしやすい構文です。<code>0 0 * * 1-5</code> は「平日の真夜中」に見えますし、実際にそうです。<code>*/15 0-9 * * *</code> は「営業時間中の 15 分ごと」に見えますし、実際にそうです。<code>0 0 1 */3 *</code> は四半期ごとに見えますが、それは <code>*/3</code> が「3 か月ごと」を意味することを覚えていればの話です。本ツールは式を貼り付けると、その実際の意味を平易な言葉で示し、次の 10 回の発火時刻をプレビューしてデプロイ前に確認できるようにします。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li><code>crontab -e</code> で書いた cron 行を保存前にサニティチェックしたいとき。</li>
+  <li>Kubernetes の <code>CronJob</code> のスケジュール文字列を「実際に何時に走るか？」に翻訳したいとき。</li>
+  <li>新しいスケジュールの設計 — 「平日の朝」のような言葉から始めて、プレビューが一致するまで式を反復するとき。</li>
+  <li>「思った時刻に実行されなかった」ジョブのデバッグ — スケジュールを貼り、次の 10 回を見比べて、現実と式のどちらが意外なのかを切り分けます。</li>
+</ul>
+
+<h3>cron フィールドリファレンス</h3>
+<table>
+  <tr><th>フィールド</th><th>範囲</th><th>ワイルドカード</th></tr>
+  <tr><td>分</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>時</td><td>0-23</td><td>同じ</td></tr>
+  <tr><td>日</td><td>1-31</td><td>同じ</td></tr>
+  <tr><td>月</td><td>1-12</td><td>同じ</td></tr>
+  <tr><td>曜日</td><td>0-6（0 = 日曜、7 も日曜）</td><td>同じ</td></tr>
+</table>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>day-of-month と day-of-week は相互作用します。</strong> 両方が制限されている場合（例：<code>15 * * * 1</code> は「15 日 OR 月曜」）、多くの cron 実装は OR で結合します。本ツールもこれに従います。</li>
+  <li><strong><code>*/N</code> は「N ごと」とは少し異なります。</strong> 「下限から N 刻み」なので、分の <code>*/15</code> は 0,15,30,45 になります（12,27,42,57 ではありません）。後ろから始めたい場合はリストを使ってください：<code>5,20,35,50</code>。</li>
+  <li><strong>step + range の組み合わせ。</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30。step は範囲内のみに適用されます。</li>
+  <li><strong>タイムゾーンはブラウザのローカルです。</strong> 実際の cron デーモンはサーバー時間（多くは UTC）で動きます。ブラウザでは正しく見えても、サーバーでは別の壁時計時刻に発火することがあります。貼り付ける前に確認してください。</li>
+  <li><strong>cron の方言にはフィールドが多いものがあります。</strong> Quartz cron は秒と年を含む 6〜7 フィールド、systemd タイマーは全く別の形式です。本ツールは標準 5 フィールドの crontab を解析します。</li>
 </ul>
 """,
     },

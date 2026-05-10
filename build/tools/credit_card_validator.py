@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Validatore Carta di Credito", "tagline": "Valida un numero di carta con Luhn e rileva la marca. Funziona localmente — il numero non viene mai inviato.", "description": "Validatore di carta di credito gratuito. Checksum Luhn, rilevamento marca (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) e lunghezza. 100% nel browser."},
         "pt": {"name": "Validador de Cartão de Crédito", "tagline": "Valide um número de cartão com a verificação de Luhn e detecte a bandeira. Roda localmente — seu número nunca é transmitido.", "description": "Validador de cartão de crédito online gratuito. Checksum de Luhn (mod-10), detecção de bandeira (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) e verificação de tamanho. 100% client-side."},
         "pl": {"name": "Walidator Karty Kredytowej", "tagline": "Sprawdź numer karty algorytmem Luhna i wykryj wystawcę. Działa lokalnie — twój numer nigdy nie jest wysyłany.", "description": "Darmowy walidator kart kredytowych online. Checksum Luhna (mod-10), wykrywanie wystawcy (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) i sprawdzanie długości. 100% po stronie klienta."},
+        "ja": {"name": "クレジットカード検証ツール", "tagline": "Luhn チェックでカード番号を検証し、ブランドを検出。ローカル動作で、番号は送信されません。", "description": "オンライン無料のクレジットカード検証ツール。Luhn (mod-10) チェックサム、ブランド検出（Visa、Mastercard、Amex、Discover、JCB、Diners、UnionPay）、桁数検証を行います。100% クライアントサイドで動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -149,6 +150,28 @@ document.addEventListener('DOMContentLoaded', cvRun);
 </ul>
 
 <h3>Numery testowe (bezpieczne do wklejenia)</h3>
+<p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>カード番号には組み込みのチェックサム（Luhn / mod-10 アルゴリズム）があり、先頭桁の接頭辞は発行ブランドを示します。これらを使うと、決済プロセッサに番号を送る前にタイプミスを検出し、ブランドを判定できます。本ツールはこの 2 つのチェックを 100% ブラウザ内で実行します。貼り付けた番号はページから外に出ません。これは開発者向けの構造的検証であり、不正検知や有効カードの照会ではありません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>コピーしたテストカード番号が形式的に正しいか確認する（<a href="https://docs.stripe.com/testing" rel="noopener">Stripe のドキュメント</a>などのテストカードはすべて Luhn を通ります）。</li>
+  <li>フォームの入力値のサニティチェック — 課金される決済 API に投げる前に、番号が基本構造を満たしているか確認したいとき。</li>
+  <li>「何か変だ」と感じる番号の監査 — タイプミス（Luhn が失敗）か、ブランド不一致（接頭辞に対する桁数の誤り）かを切り分けたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>「構造的に有効」は「発行済み」「有効」と同じではありません。</strong> 本物の検証には決済プロセッサが必要で、コストや与信枠の確保が伴います。本ツールはタイプミスを捕まえますが、解約済みアカウントは判定できません。</li>
+  <li><strong>本物のカード番号はどこにも貼り付けないこと</strong> — 本ツールも例外ではありません。ブラウザは送信しませんが、画面録画ツール、ブラウザ拡張、開いた DevTools パネルなどから漏洩する可能性があります。既知のテスト番号を使ってください。</li>
+  <li><strong>16 桁の番号がすべてクレカとは限りません。</strong> ポイントカード、ギフトカード、一部のプリペイド SKU も同じ形式を再利用しています。Luhn 通過 + ブランド一致でも、決済可能な手段である保証はありません。</li>
+  <li><strong>コブランドカード。</strong> あるブランドで発行されたカードに別ブランドのロゴが印字されていることがあります。本ツールのブランド検出は印字ロゴではなく、発行元のカノニカル接頭辞に基づきます。</li>
+</ul>
+
+<h3>テスト用番号（貼り付けても安全）</h3>
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },

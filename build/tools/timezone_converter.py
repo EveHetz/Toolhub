@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Konwertuj datę i godzinę między strefami czasowymi IANA. Zobacz offsety, status DST i dzień tygodnia po obu stronach.",
             "description": "Darmowy online konwerter stref czasowych. Konwertuj między dowolnymi strefami IANA ze świadomością DST. Wybierz spośród typowych stref albo dowolnej z 400+ obsługiwanych przez przeglądarkę.",
         },
+        "ja": {
+            "name": "タイムゾーン変換",
+            "tagline": "IANA タイムゾーン間で日時を変換。両端のオフセット、DST の有無、曜日も表示。",
+            "description": "オンライン無料のタイムゾーン変換ツール。任意の IANA タイムゾーン間で DST を考慮しながら変換できます。よく使うゾーンから、ブラウザがサポートする 400 以上のゾーンまで選択可能です。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -231,6 +236,31 @@ document.addEventListener('DOMContentLoaded', () => { tzPopulate(); tzNow(); });
   <li><strong>Skróty krajów to nie strefy.</strong> "EST" jest dwuznaczne (US vs Australian); "IST" może znaczyć indyjską, irlandzką albo izraelską. Zawsze wybieraj strefę IANA, nie skrót.</li>
   <li><strong>Dokładność historyczna</strong> jest dobra dla nowoczesnej ery, ale rozjeżdża się dla bardzo starych dat. Timestampy sprzed 1970 mogą używać przybliżonych offsetów w niektórych przeglądarkach.</li>
   <li><strong>Zapisywanie dat: zawsze używaj UTC.</strong> Konwertuj przy wyświetlaniu. Linia UTC na wyjściu daje ci kanoniczną wartość do zapisu w bazie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>タイムゾーンは見た目より厄介です。「9:00」の会議は東京・ロンドン・ニューヨークでそれぞれ別の絶対時刻を意味し、しかも 2 つの間のオフセットは年に 2 回、しかも別々の日にサマータイムで変わります。本ツールはある IANA タイムゾーンの壁時計時刻を別のゾーンの正確な時刻に変換し、両端の現在オフセット、UTC 瞬時、曜日まで表示します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>大陸をまたぐ会議調整 — 「CET 15:00」が同僚のゾーンで何時かを確認したいとき。</li>
+  <li>UTC で記録されたログタイムスタンプを、ユーザー向けレポート用にローカル時刻に変換したいとき。</li>
+  <li>デプロイウィンドウやメンテ枠が DST 境界をまたいでいないか確認したいとき。</li>
+  <li><code>America/New_York</code> の cron 式が、自分のゾーンで期待通りの時刻に発火するかサニティチェックしたいとき。</li>
+  <li>国際日付変更線をまたぐときの曜日変化を計算したいとき。</li>
+</ul>
+
+<h3>なぜ IANA ゾーンか（「GMT+2」ではなく）</h3>
+<p><code>Asia/Tokyo</code> や <code>America/New_York</code> のような IANA ゾーンは、その地域の歴史的・現在のルール（DST の開始終了日、タイムゾーン変更：ロシアは 2014 年に DST 廃止、トルコは 2016 年に DST 廃止、サモアは 2011 年に丸 1 日スキップなど）を網羅しています。「GMT+2」のような単純なオフセットでは、DST の有無、昨年のルール、来年のルールは分かりません。ブラウザは ICU/CLDR 経由で IANA データベースを内蔵し、自動更新されるため、変換は時間が経っても正しいままです。</p>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>DST の切り替え時には曖昧な時刻と存在しない時刻が生まれます。</strong> 時計が戻る時には 02:30 が 2 回、進む時には 02:30 が存在しません。本ツールはデフォルトで標準時の解釈を選びます。逆側が必要なら 1 時間ずらしてください。</li>
+  <li><strong>オフセットは定数ではありません。</strong> 「CET」は冬は UTC+1、夏は UTC+2（CEST）です。出力には入力した日時に対する実オフセットが表示されるため、略称ではなく表示中のオフセットを信用してください。</li>
+  <li><strong>国の略称はゾーンではありません。</strong> 「EST」は米国とオーストラリアで意味が違い、「IST」はインド・アイルランド・イスラエルで違います。略称ではなく必ず IANA ゾーンを選んでください。</li>
+  <li><strong>歴史的精度</strong> は近代以降は良好ですが、非常に古い日付では崩れることがあります。1970 年以前のタイムスタンプはブラウザによって近似オフセットが使われることがあります。</li>
+  <li><strong>日時の保存は常に UTC で。</strong> 表示時にローカルへ変換します。出力の UTC 行が DB に書き込むべき正準値です。</li>
 </ul>
 """,
     },

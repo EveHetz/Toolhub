@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Testuj regex JavaScript na żywo. Zobacz matche, grupy przechwytujące i aplikuj zamiany w trakcie pisania.",
             "description": "Darmowy online tester regex JavaScript z podświetlaniem na żywo, grupami przechwytującymi i trybem replace. Flagi zgodne z PCRE (g/i/m/s/u/y).",
         },
+        "ja": {
+            "name": "正規表現テスター",
+            "tagline": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。",
+            "description": "オンライン無料の JavaScript 正規表現テスター。ライブハイライト、キャプチャグループ表示、置換モードに対応。PCRE 互換のフラグ（g/i/m/s/u/y）。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -233,6 +238,37 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>Anchory na granicach linii vs stringa.</strong> <code>^</code> i <code>$</code> matchują końce stringa domyślnie; z flagą <code>m</code> matchują każdą linię.</li>
   <li><strong>Specjalne znaki w replacement.</strong> <code>$&amp;</code> to cały match; <code>$1</code>, <code>$2</code>, … to grupy przechwytujące; <code>$$</code> to literalny <code>$</code>. Zapomnienie tego to klasyczne źródło "dlaczego mój regex zżera moje dolary".</li>
   <li><strong>Nie parsuj HTML-a regexem</strong> w niczym poważnym. Klasyczne ostrzeżenie jest prawdziwe: zagnieżdżone tagi, komentarze i CDATA wymagają prawdziwego parsera. Regex jest OK do jednorazowego scrapingu logów albo kontrolowanych inputów.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>正規表現は密度が高く、容赦のない表現言語です。実用に耐えるパターンを書く近道は反復作業です。パターンを書き、サンプルテキストを見て、マッチを確認し、調整する、その繰り返しです。本ツールはこのループをブラウザ内で提供し、JavaScript エンジンの <code>RegExp</code> をそのまま使い、キャプチャグループの中身や置換のプレビューも確認できます。パターンも入力もページの外には出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ユーザー入力（メール風、電話番号風、郵便番号風など）の検証で、どの入力が通り、どれが落ちるかを正確に確認したいとき。</li>
+  <li>ログ行のパース、フィールド抽出、ログフィルタの作成。</li>
+  <li>実コードベースに find-and-replace を流す前にパターンを下書きしたいとき。</li>
+  <li>Stack Overflow からコピペした正規表現がうまく動かないときに、何が実際にマッチしているかを確認するとき。</li>
+</ul>
+
+<h3>よく使うパターン</h3>
+<ul>
+  <li><code>\\b\\w+@\\w+\\.\\w+\\b</code> — メール風</li>
+  <li><code>^\\s*$</code> — 空白だけの行（<code>m</code> フラグと併用）</li>
+  <li><code>(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})</code> — 名前付きキャプチャ</li>
+  <li><code>(?:.*)</code> — 非キャプチャグループ</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — 先読み／否定先読み</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>JavaScript は PCRE と同じではありません。</strong> <code>\\K</code> や再帰パターンはなく、後読みが入ったのは ES2018 以降です。Perl、PHP、Python のパターンは調整が必要なことがあります。</li>
+  <li><strong><code>g</code> フラグなしでは最初のマッチしか得られません。</strong> 「全部見つける」なら <code>g</code>、行ごとのアンカーが要るなら <code>m</code> も併用します。</li>
+  <li><strong>greedy と lazy。</strong> <code>.*</code> は最大一致、<code>.*?</code> は最小一致です。<code>&lt;b&gt;hi&lt;/b&gt; and &lt;i&gt;there&lt;/i&gt;</code> を 1 ブロックとマッチするか、2 ブロックに分けるかが変わります。</li>
+  <li><strong>アンカーは行か文字列か。</strong> 既定では <code>^</code> と <code>$</code> は文字列の先頭・末尾です。<code>m</code> フラグで行ごとに切り替わります。</li>
+  <li><strong>置換の特殊シーケンス。</strong> <code>$&amp;</code> はマッチ全体、<code>$1</code>、<code>$2</code> … はキャプチャグループ、<code>$$</code> はリテラルの <code>$</code>。これを忘れると「正規表現がドル記号を食う」現象に悩まされがちです。</li>
+  <li><strong>真面目な用途で HTML を正規表現でパースしないこと。</strong> 入れ子タグ、コメント、CDATA は真のパーサーが必要です。一回限りのログスクレイピングや管理された入力では正規表現でも問題ありません。</li>
 </ul>
 """,
     },

@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore di Lorem Ipsum", "tagline": "Genera paragrafi, frasi, parole o voci di elenco di testo segnaposto in latino. Lunghezza e frase iniziale configurabili.", "description": "Generatore di Lorem Ipsum gratuito. Paragrafi, frasi, parole o liste HTML per mockup e progetti grafici."},
         "pt": {"name": "Gerador de Lorem Ipsum", "tagline": "Gere parágrafos, frases, palavras ou itens de lista de texto placeholder em latim. Tamanho e frase inicial configuráveis.", "description": "Gerador de Lorem Ipsum gratuito. Crie parágrafos, frases, palavras ou listas HTML para mockups e composições de design. Abertura clássica 'Lorem ipsum dolor sit amet…' opcional."},
         "pl": {"name": "Generator Lorem Ipsum", "tagline": "Generuj akapity, zdania, słowa albo elementy listy tekstu placeholder po łacinie. Konfigurowalny rozmiar i fraza otwierająca.", "description": "Darmowy generator Lorem Ipsum. Buduj akapity, zdania, słowa albo listy HTML do mockupów i komp designerskich. Opcjonalna klasyczna otwarka 'Lorem ipsum dolor sit amet…'."},
+        "ja": {"name": "Lorem Ipsum ジェネレーター", "tagline": "段落・文・単語・リスト項目の単位でラテン語のプレースホルダーテキストを生成。長さと冒頭フレーズを設定可能。", "description": "無料の Lorem Ipsum ジェネレーター。モックアップやデザインカンプ用に、段落・文・単語・HTML リストを生成できます。古典的な「Lorem ipsum dolor sit amet…」で始める設定もオプションで利用可能です。"},
     },
     "body": """
 <div class="tool-card">
@@ -173,6 +174,26 @@ document.addEventListener('DOMContentLoaded', liRun);
   <li><strong>Prawdziwa treść jest krótsza albo dłuższa od placeholdera.</strong> Prawdziwe nagłówki są bardziej dosadne. Prawdziwy korpus tekstu szaleje. Layout, który wygląda zrównoważenie z lorem ipsum, może się rozsypać przy faktycznej treści; weryfikuj na prawdziwym tekście przed sign-offem.</li>
   <li><strong>Internacjonalizacja ujawnia to, co lorem ukrywa.</strong> Designy testowane tylko z łacińskim wypełniaczem często padają przy niemieckich złożeniach albo arabskich layoutach right-to-left. Testuj wielojęzycznymi placeholderami w designach świadomych i18n.</li>
   <li><strong>Konwencja ma znaczenie.</strong> Pierwszy akapit tradycyjnie zaczyna się "Lorem ipsum dolor sit amet…" — designerzy rozpoznają to jako placeholder. Wyłączenie tego może oznaczać, że ktoś przeoczy podmianę.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>Lorem ipsum はキケロの『善と悪の究極について』（紀元前 45 年）に由来する崩したラテン語で、1500 年代から穴埋め用テキストとして使われてきました。文字の出現頻度や単語長が実文に近い一方、読めるほどではないため意識を散らしません。デザイナーは脳がテキスト塊を<em>意味</em>ではなく<em>かたち</em>として処理できるように、これを使います。タイポグラフィやレイアウト、ページのリズムを評価するのにちょうどよい性質です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li><strong>モックアップ</strong> — 「言葉は重要ではなく、レイアウトが重要」の場面に。</li>
+  <li><strong>デザインカンプ</strong> — 折り返し、行長、フォントフォールバックを各サイズで検証。</li>
+  <li><strong>CMS / テンプレートのテスト</strong> — 実コピーが届くまでフィールドを埋めるため。</li>
+  <li><strong>キャパシティの検証</strong> — カード／プレビュー／検索結果が長文で破綻しないかの確認。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>本番に出さないこと。</strong> 「実コピーに差し替える」のを忘れて Lorem ipsum がそのまま公開された事例は何度も起きています。</li>
+  <li><strong>実コピーはプレースホルダーより短かったり長かったりします。</strong> 実際の見出しはもっと簡潔、本文は大きくばらつきます。lorem ipsum で整って見えるレイアウトは、実コンテンツで崩れることがあります。サインオフ前に実テキストで検証してください。</li>
+  <li><strong>国際化は lorem が隠していたものを露わにします。</strong> ラテン語の穴埋めだけでテストしたデザインは、ドイツ語の複合語やアラビア語の右から左のレイアウトで破綻しがちです。i18n を意識する場合は多言語のプレースホルダーで検証してください。</li>
+  <li><strong>慣習も大事です。</strong> 最初の段落は伝統的に「Lorem ipsum dolor sit amet…」で始まり、デザイナーはこれをプレースホルダーと認識します。これを外すと差し替え漏れに気づきにくくなります。</li>
 </ul>
 """,
     },

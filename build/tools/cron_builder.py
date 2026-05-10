@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Costruttore Cron", "tagline": "Costruisci visivamente un'espressione cron — minuto, ora, giorno, mese, giorno-settimana — e anteprima delle prossime 5 esecuzioni.", "description": "Costruttore di espressioni cron gratuito. Scegli i campi con menu, ottieni la stringa cron e vedi le prossime 5 esecuzioni nel tuo fuso. Crontab standard a 5 campi."},
         "pt": {"name": "Construtor de Expressões Cron", "tagline": "Monte uma expressão cron visualmente — minuto, hora, dia, mês, dia da semana — e veja os próximos 5 horários de execução.", "description": "Construtor online gratuito de expressões cron. Escolha os campos com dropdowns e presets, obtenha a string cron e veja os próximos 5 horários de execução no seu fuso local. Crontab padrão de 5 campos."},
         "pl": {"name": "Builder Wyrażeń Cron", "tagline": "Zbuduj wyrażenie cron wizualnie — minuta, godzina, dzień, miesiąc, dzień tygodnia — i zobacz 5 najbliższych odpaleń.", "description": "Darmowy online builder wyrażeń cron. Wybieraj pola z dropdownów i presetów, dostań string crona i zobacz 5 najbliższych odpaleń w twojej lokalnej strefie czasowej. Standardowy 5-polowy crontab."},
+        "ja": {"name": "cron 式ビルダー", "tagline": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。", "description": "オンライン無料の cron 式ビルダー。ドロップダウンとプリセットでフィールドを選び、cron 文字列を生成。あなたのローカルタイムゾーンで次の 5 回の実行時刻まで確認できます。標準 5 フィールドの crontab です。"},
     },
     "body": """
 <div class="tool-card">
@@ -376,6 +377,37 @@ document.addEventListener('DOMContentLoaded', cbBuild);
   <li><strong>Kombinacje step + range.</strong> <code>0-30/5</code> obejmuje tylko 0,5,10,15,20,25,30.</li>
   <li><strong>Niektóre dialekty crona dodają pola.</strong> Quartz cron ma 6 albo 7 pól (z sekundami i rokiem). Timery systemd używają zupełnie innego formatu. Ten builder celuje w standardowy 5-polowy crontab.</li>
   <li><strong>Piątek 13. trudno wyrazić w cronie.</strong> Day-of-month i day-of-week w cronie łączą się przez OR, więc ścisłe ich połączenie wymaga skryptu opakowującego.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>cron の構文は有名なほど詰め込み型で、5 つのフィールドそれぞれにワイルドカード、範囲、リスト、ステップを書けます。毎回ゼロから書くと typo を招きがちです。このビルダーではプリセット（5 分ごと、平日 09:00 など）から始めるか、各フィールドに直接入力でき、生成された cron 文字列、平易な説明、ローカルタイムゾーンでの次の 5 回の発火時刻を確認できます。対になるツールが <a href="/cron-parser/">cron 式パーサー</a>で、既存の式を同じプレビュー形式にデコードします。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>新しい <code>crontab</code> エントリ、Kubernetes <code>CronJob</code>、GitHub Actions のスケジュール、AWS EventBridge ルールを作成するとき。</li>
+  <li>「平日の朝に実行」のような要件を、構文的に正しい cron 行に翻訳したいとき。</li>
+  <li>下書きした式が、思ったタイミングで本当に走るかをデプロイ前にサニティチェックしたいとき。</li>
+  <li>cron 初心者のオンボーディング — ドロップダウンとプレビューが構文を教えてくれます。</li>
+</ul>
+
+<h3>フィールド構文チートシート</h3>
+<ul>
+  <li><code>*</code> — フィールドの範囲内すべての値。</li>
+  <li><code>*/N</code> — N 刻み（下限から開始）。</li>
+  <li><code>A-B</code> — 両端を含む範囲。</li>
+  <li><code>A,B,C</code> — 個別の値のリスト。</li>
+  <li><code>A-B/N</code> — A–B 範囲内で N 刻み。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>day-of-month と day-of-week は相互作用します。</strong> 多くの cron 実装は両方を制限したとき OR で結合します。<code>* * 15 * 1</code> は「15 日 OR 月曜」に発火し、「15 日かつ月曜」ではありません。</li>
+  <li><strong>ここでのタイムゾーンはブラウザのローカルです。</strong> 実際の cron デーモンはサーバーのタイムゾーン（多くの場合 UTC）で動きます。サーバーに貼る前に確認してください。</li>
+  <li><strong><code>*/N</code> は完全な「N ごと」ではありません。</strong> 分での <code>*/15</code> は 0,15,30,45 になり、12,27,42,57 にはなりません。位相を指定したい場合はリストを使います。</li>
+  <li><strong>step + range の組み合わせ。</strong> <code>0-30/5</code> は 0,5,10,15,20,25,30 のみをカバーします。</li>
+  <li><strong>cron の方言によってフィールドが増えます。</strong> Quartz cron は秒と年を含む 6〜7 フィールド、systemd タイマーは全く別形式です。本ビルダーは標準 5 フィールドの crontab を対象とします。</li>
+  <li><strong>「13 日の金曜日」を cron だけで表すのは困難です。</strong> day-of-month と day-of-week は OR で結合されるため、厳密な AND を行うにはラッパースクリプトが必要です。</li>
 </ul>
 """,
     },

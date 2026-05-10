@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Mocne losowe hasła albo łatwe do zapamiętania passphrase'y. Generowane lokalnie — nigdzie nie wysyłane.",
             "description": "Darmowy bezpieczny generator haseł. Konfigurowalne reguły znaków, tryb passphrase i generowanie batch. Działa w całości w przeglądarce.",
         },
+        "ja": {
+            "name": "パスワード生成ツール",
+            "tagline": "強力なランダムパスワード、または覚えやすいパスフレーズを生成。ローカル動作で送信されません。",
+            "description": "無料で安全なパスワード生成ツール。文字種ルールのカスタマイズ、パスフレーズモード、まとめて生成に対応。すべてブラウザ内で動作します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -281,6 +286,40 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>Nie zapisuj wygenerowanych haseł bez ochrony.</strong> Używaj menedżera haseł (1Password, Bitwarden, KeePass) — nie aplikacji Notatki, nie pliku tekstowego, nie kopii roboczej maila.</li>
   <li><strong>Długie &gt; skomplikowane.</strong> 24-znakowe hasło tylko z małych liter ma więcej entropii niż 10-znakowe ze wszystkimi klasami symboli. Długość wygrywa.</li>
   <li><strong>Reguły konkretnych stron potrafią zepsuć copy-paste.</strong> Niektóre serwisy zakazują konkretnych symboli albo ograniczają długość do 16. Upierdliwe, ale realne — wygeneruj, potem przytnij/podmień, żeby zmieścić (a faktyczne zapisane hasło wrzuć do menedżera).</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>良いパスワードとは、攻撃者が推測できず、自分は覚えなくてよいもの（パスワードマネージャーに保管）です。本ジェネレーターは、TLS と同じ暗号論的乱数源 <code>crypto.getRandomValues</code> を使い、ブラウザ内で完結して強力なランダムパスワードや覚えやすいパスフレーズを生成します。送信は一切なく、パスワードはデバイスから外に出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>新規アカウントごとに、パスワードマネージャーに入れる固有パスワードを作成するとき。</li>
+  <li>マスターパスワードや、暗記する復元用パスフレーズを作るとき — パスフレーズモードはタイプも記憶もしやすいです。</li>
+  <li>CI 変数、API トークン、Wi-Fi など、人が覚えなくてよいシークレットを生成したいとき。</li>
+  <li>新規ユーザーに配布するパスワードをまとめて生成したいとき（最大 50 件）。</li>
+</ul>
+
+<h3>ランダム文字 vs パスフレーズ</h3>
+<ul>
+  <li><strong>ランダム文字</strong> — 長さあたりのエントロピー最大。20 文字混在で約 130 ビット。貼り付けて使う用途に向きます。</li>
+  <li><strong>パスフレーズ</strong> — タイプも記憶も容易。4 単語で約 40 ビット、6 単語で約 60 ビット。マスターパスワード、デバイスのアンロック、頻繁に手入力するものに向きます。</li>
+  <li>「曖昧な文字を除外」では <code>0/O/1/l/I</code> を取り除き、画面や手書きメモから読み違えにくくします。</li>
+</ul>
+
+<h3>必要なエントロピー</h3>
+<ul>
+  <li>60 ビット以上 — 重要度の低いアカウントには十分</li>
+  <li>80 ビット以上 — 多くのアカウントに適切</li>
+  <li>100 ビット以上 — 重要度の高い用途（金融、マスターパスワード、root クレデンシャル）</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>使い回しは厳禁。</strong> 最大のセキュリティ向上は、サイトごとに固有のパスワードをマネージャーに保管することです。同じパスワードが 5 サイトで生きていたら、ジェネレーターの強さは無意味になります。</li>
+  <li><strong>生成したパスワードを保護なしで控えないこと。</strong> 1Password、Bitwarden、KeePass などのパスワードマネージャーを使い、メモアプリ、テキストファイル、メールの下書きなどに置かないでください。</li>
+  <li><strong>長い方が複雑より勝ります。</strong> 小文字のみの 24 文字は、全記号クラスの 10 文字よりエントロピーが高いです。長さが正義です。</li>
+  <li><strong>サイト固有ルールでコピペが壊れることがあります。</strong> 特定記号を禁止したり、16 文字までに制限したりするサイトがあります。生成→必要に応じてトリム／差し替え、最終形をマネージャーに保存してください。</li>
 </ul>
 """,
     },

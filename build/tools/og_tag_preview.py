@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Anteprima Tag OG", "tagline": "Incolla meta tag OG o riempi titolo/descrizione/immagine — anteprima delle card Twitter/X, Facebook, LinkedIn e Discord.", "description": "Anteprima Open Graph gratuita. Incolla i tuoi <meta> tag o riempi titolo/descrizione/immagine e vedi come apparirà il link su Twitter/X, Facebook, LinkedIn e Discord. 100% nel browser."},
         "pt": {"name": "Preview de Tags OG", "tagline": "Cole meta tags OG ou preencha título/descrição/imagem — visualize os share cards como aparecem no Twitter/X, Facebook, LinkedIn e Discord.", "description": "Preview de Open Graph tags gratuito. Cole seus <meta> tags ou preencha título/descrição/imagem e veja como seu link vai renderizar nos previews de compartilhamento do Twitter/X, Facebook, LinkedIn e Discord. Roda inteiramente no seu navegador."},
         "pl": {"name": "Podgląd Tagów OG", "tagline": "Wklej meta tagi OG albo wpisz title/description/image — zobacz, jak share cardy wyglądają na Twitter/X, Facebook, LinkedIn i Discord.", "description": "Darmowy podgląd Open Graph tagów. Wklej swoje <meta> tagi albo po prostu wpisz title/description/image i zobacz, jak twój link wyrenderuje się w podglądach udostępnień na Twitter/X, Facebook, LinkedIn i Discord. Działa w całości w przeglądarce."},
+        "ja": {"name": "OG タグプレビュー", "tagline": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。", "description": "無料の Open Graph タグプレビュー。<meta> タグの貼り付けか、タイトル／説明／画像の入力で、リンクが Twitter/X、Facebook、LinkedIn、Discord でどう見えるかを確認できます。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -383,6 +384,40 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>Inwalidacja cache jest realna.</strong> Gdy platforma raz zescrape'uje twój URL, zacache'uje carda. Używaj debuggerów platform, żeby wymusić re-scrape.</li>
   <li><strong>Limity długości title/description się różnią.</strong> Twitter/X ucina tytuł około 70 znaków; Facebook około 88; LinkedIn około 100. Stawiaj ważne słowa na początku.</li>
   <li><strong>Discord lubi <code>theme-color</code>.</strong> Dodanie <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> ustawia kolor lewej krawędzi w embedach Discorda.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>Twitter/X、Facebook、LinkedIn、Discord、Slack などにリンクを共有すると、ページの head にある <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> メタタグに基づいて「カード」（タイトル・説明・画像）に展開されます。各プラットフォームでカードのレンダリングや文字数のクリップは異なります。本ツールは、各プラットフォームに実際に投稿することなく、同じ内容がどう見えるかをサイドバイサイドでプレビューします。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>OG 画像やコピーを変更し、デプロイ前に問題ないか確認したいとき。</li>
+  <li>ヒーロー画像を選ぶ際、1.91:1 のクロップで主要部分が残るか確認したいとき。</li>
+  <li>タイトルや説明文を書く際、各プラットフォームでどこが切られるかを確認したいとき。</li>
+  <li>OG タグがないページを引き継ぎ、レンダリング結果を見ながら下書きしたいとき。</li>
+</ul>
+
+<h3>最小限のタグ</h3>
+<ul>
+  <li><code>&lt;meta property="og:title" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:description" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:image" content="https://…"&gt;</code>（絶対 URL、1200×630 が理想）</li>
+  <li><code>&lt;meta property="og:url" content="https://…"&gt;</code></li>
+  <li><code>&lt;meta property="og:type" content="website"&gt;</code></li>
+  <li><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code>（X/Twitter の大きな画像表示用）</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これは静的なプレビューであり、ライブフェッチではありません。</strong> 実際のプラットフォームは自分のサーバーからページをスクレイピングします。本番サイトに別の画像が出ても本ツールでは捕捉できません。最終確認は各プラットフォームの公式デバッガ（Twitter <a href="https://cards-dev.twitter.com/validator" target="_blank" rel="noopener noreferrer">card validator</a>、Facebook Sharing Debugger、LinkedIn Post Inspector）で行ってください。</li>
+  <li><strong>画像 URL は絶対 URL である必要があります。</strong> <code>/og.png</code> ではダメで、スクレイパーはあなたのオリジンを知りません。</li>
+  <li><strong>画像は公開アクセス可能でなければなりません。</strong> 認証ウォール、リファラを要求する CDN、ホットリンク防止が有効だとカードが壊れます。</li>
+  <li><strong>アスペクト比が重要です。</strong> 1.91:1（標準は 1200×630）はどのプラットフォームでも綺麗に表示されます。正方形やポートレートはクロップで損をします。</li>
+  <li><strong>ファイルサイズも重要。</strong> 8 MB を超える画像を拒否するスクレイパーもあります。初回読み込みを軽くするため 1 MB 未満を狙ってください。</li>
+  <li><strong>キャッシュ無効化は現実問題です。</strong> 一度スクレイピングされるとカードがキャッシュされます。再スクレイプにはプラットフォームのデバッガを使ってください。</li>
+  <li><strong>タイトル／説明の文字数上限はばらつきます。</strong> Twitter/X はおおむね 70、Facebook は 88、LinkedIn は 100 文字付近で切れます。重要語は前に置きましょう。</li>
+  <li><strong>Discord は <code>theme-color</code> を好みます。</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> を追加すると、Discord の左ボーダーの色になります。</li>
 </ul>
 """,
     },

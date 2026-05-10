@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正規表現テスター — Toolhub</title>
+  <meta name="description" content="オンライン無料の JavaScript 正規表現テスター。ライブハイライト、キャプチャグループ表示、置換モードに対応。PCRE 互換のフラグ（g/i/m/s/u/y）。">
+  <meta property="og:title" content="正規表現テスター — Toolhub">
+  <meta property="og:description" content="オンライン無料の JavaScript 正規表現テスター。ライブハイライト、キャプチャグループ表示、置換モードに対応。PCRE 互換のフラグ（g/i/m/s/u/y）。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/regex-tester/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/regex-tester/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/regex-tester/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/regex-tester/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/regex-tester/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/regex-tester/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/regex-tester/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/regex-tester/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/regex-tester/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/regex-tester/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/regex-tester/">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/ja/regex-tester/#tool",
+        "name": "正規表現テスター",
+        "description": "オンライン無料の JavaScript 正規表現テスター。ライブハイライト、キャプチャグループ表示、置換モードに対応。PCRE 互換のフラグ（g/i/m/s/u/y）。",
+        "url": "https://toolhub.software/ja/regex-tester/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["regex", "regular expression", "test", "match", "replace", "javascript"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "すべてのツール", "item": "https://toolhub.software/ja/"},
+          {"@type": "ListItem", "position": 2, "name": "正規表現テスター", "item": "https://toolhub.software/ja/regex-tester/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/ja/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/regex-tester/'; else location.href='/regex-tester/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" selected="selected">🇯🇵 JA</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 正規表現テスター</div>
+    <h1>正規表現テスター</h1>
+    <p class="tagline">JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。</p>
+    
+<div class="tool-card">
+  <label>Pattern</label>
+  <div style="display:flex;gap:0.5rem;align-items:center">
+    <span style="color:var(--text-muted);font-family:ui-monospace,monospace">/</span>
+    <input type="text" id="re-pattern" placeholder="\b(\w+)@(\w+\.\w+)\b" oninput="reRun()" style="flex:1">
+    <span style="color:var(--text-muted);font-family:ui-monospace,monospace">/</span>
+    <input type="text" id="re-flags" value="g" oninput="reRun()" style="width:90px" placeholder="gimsuy">
+  </div>
+  <div class="meta" style="margin-top:0.5rem">Flags: <code>g</code> global · <code>i</code> case-insensitive · <code>m</code> multi-line · <code>s</code> dotAll · <code>u</code> unicode · <code>y</code> sticky</div>
+</div>
+<div class="tool-card">
+  <label>Test string</label>
+  <textarea id="re-input" oninput="reRun()" placeholder="Reach me at hello@example.com or admin@toolhub.software" spellcheck="false">Reach me at hello@example.com or admin@toolhub.software</textarea>
+</div>
+<div class="tool-card">
+  <label>Highlighted matches</label>
+  <pre class="output" id="re-highlight" style="word-break:break-word;white-space:pre-wrap"></pre>
+  <div class="meta" id="re-meta"></div>
+</div>
+<div class="tool-card">
+  <label>Capture groups</label>
+  <div id="re-groups" class="output" style="font-size:0.88rem">上に入力すると結果が表示されます。</div>
+</div>
+<div class="tool-card">
+  <label>Replace</label>
+  <input type="text" id="re-replace" placeholder="<a href=&quot;mailto:$&amp;&quot;>$&amp;</a>" oninput="reRun()">
+  <div class="meta" style="margin-top:0.5rem">Use <code>$1</code>, <code>$2</code> for groups · <code>$&amp;</code> for the whole match · <code>$$</code> for literal $</div>
+  <pre class="output" id="re-replaced" style="margin-top:0.75rem;word-break:break-word;white-space:pre-wrap">上に入力すると結果が表示されます。</pre>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>用途</h2>
+<p>正規表現は密度が高く、容赦のない表現言語です。実用に耐えるパターンを書く近道は反復作業です。パターンを書き、サンプルテキストを見て、マッチを確認し、調整する、その繰り返しです。本ツールはこのループをブラウザ内で提供し、JavaScript エンジンの <code>RegExp</code> をそのまま使い、キャプチャグループの中身や置換のプレビューも確認できます。パターンも入力もページの外には出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ユーザー入力（メール風、電話番号風、郵便番号風など）の検証で、どの入力が通り、どれが落ちるかを正確に確認したいとき。</li>
+  <li>ログ行のパース、フィールド抽出、ログフィルタの作成。</li>
+  <li>実コードベースに find-and-replace を流す前にパターンを下書きしたいとき。</li>
+  <li>Stack Overflow からコピペした正規表現がうまく動かないときに、何が実際にマッチしているかを確認するとき。</li>
+</ul>
+
+<h3>よく使うパターン</h3>
+<ul>
+  <li><code>\b\w+@\w+\.\w+\b</code> — メール風</li>
+  <li><code>^\s*$</code> — 空白だけの行（<code>m</code> フラグと併用）</li>
+  <li><code>(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})</code> — 名前付きキャプチャ</li>
+  <li><code>(?:.*)</code> — 非キャプチャグループ</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — 先読み／否定先読み</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>JavaScript は PCRE と同じではありません。</strong> <code>\K</code> や再帰パターンはなく、後読みが入ったのは ES2018 以降です。Perl、PHP、Python のパターンは調整が必要なことがあります。</li>
+  <li><strong><code>g</code> フラグなしでは最初のマッチしか得られません。</strong> 「全部見つける」なら <code>g</code>、行ごとのアンカーが要るなら <code>m</code> も併用します。</li>
+  <li><strong>greedy と lazy。</strong> <code>.*</code> は最大一致、<code>.*?</code> は最小一致です。<code>&lt;b&gt;hi&lt;/b&gt; and &lt;i&gt;there&lt;/i&gt;</code> を 1 ブロックとマッチするか、2 ブロックに分けるかが変わります。</li>
+  <li><strong>アンカーは行か文字列か。</strong> 既定では <code>^</code> と <code>$</code> は文字列の先頭・末尾です。<code>m</code> フラグで行ごとに切り替わります。</li>
+  <li><strong>置換の特殊シーケンス。</strong> <code>$&amp;</code> はマッチ全体、<code>$1</code>、<code>$2</code> … はキャプチャグループ、<code>$$</code> はリテラルの <code>$</code>。これを忘れると「正規表現がドル記号を食う」現象に悩まされがちです。</li>
+  <li><strong>真面目な用途で HTML を正規表現でパースしないこと。</strong> 入れ子タグ、コメント、CDATA は真のパーサーが必要です。一回限りのログスクレイピングや管理された入力では正規表現でも問題ありません。</li>
+</ul>
+<div class="related"><span class="meta">関連ツール:</span> <a href="/ja/json-formatter/">JSON フォーマッター</a> <a href="/ja/text-diff/">テキスト差分</a> <a href="/ja/email-validator/">メールアドレス検証ツール</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function reEsc(s){ return s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function reRun(){
+  const pat = document.getElementById('re-pattern').value;
+  const flags = document.getElementById('re-flags').value;
+  const input = document.getElementById('re-input').value;
+  const replaceWith = document.getElementById('re-replace').value;
+  const hi = document.getElementById('re-highlight');
+  const groupsEl = document.getElementById('re-groups');
+  const meta = document.getElementById('re-meta');
+  const repl = document.getElementById('re-replaced');
+  if (!pat){ hi.textContent = ''; meta.textContent = ''; groupsEl.textContent = '上に入力すると結果が表示されます。'; repl.textContent = ''; return; }
+  let regex;
+  try { regex = new RegExp(pat, flags); }
+  catch(e){ hi.classList.add('error'); hi.textContent = '✗ ' + e.message; meta.textContent = ''; groupsEl.textContent = ''; repl.textContent = ''; return; }
+  hi.classList.remove('error');
+  // Highlight matches
+  let out = '';
+  let last = 0;
+  let count = 0;
+  const groups = [];
+  const useGlobal = regex.global;
+  if (useGlobal){
+    let m;
+    while ((m = regex.exec(input)) !== null){
+      out += reEsc(input.slice(last, m.index));
+      out += '<mark style="background:var(--accent);color:#fff;padding:0 2px;border-radius:2px">' + reEsc(m[0] || '') + '</mark>';
+      last = m.index + (m[0]?.length || 0);
+      count++;
+      groups.push({index: m.index, match: m[0], groups: m.slice(1)});
+      if (m[0] === '') { regex.lastIndex++; if (regex.lastIndex > input.length) break; }
+      if (count > 10000) break;
+    }
+    out += reEsc(input.slice(last));
+  } else {
+    const m = regex.exec(input);
+    if (m){
+      out = reEsc(input.slice(0, m.index)) + '<mark style="background:var(--accent);color:#fff;padding:0 2px;border-radius:2px">' + reEsc(m[0]) + '</mark>' + reEsc(input.slice(m.index + m[0].length));
+      count = 1;
+      groups.push({index: m.index, match: m[0], groups: m.slice(1)});
+    } else {
+      out = reEsc(input);
+    }
+  }
+  hi.innerHTML = out || '<span style="color:var(--text-muted)">(no matches)</span>';
+  meta.textContent = count + ' match' + (count === 1 ? '' : 'es');
+  // Capture groups
+  if (groups.length === 0){
+    groupsEl.textContent = '(no matches)';
+  } else {
+    groupsEl.innerHTML = groups.slice(0, 50).map((g, i) =>
+      'Match ' + (i+1) + ' at index ' + g.index + ':\n' +
+      '  full: ' + reEsc(g.match) +
+      (g.groups.length ? '\n' + g.groups.map((cg, j) => '  $' + (j+1) + ': ' + reEsc(cg ?? '<undefined>')).join('\n') : '')
+    ).join('\n\n');
+  }
+  // Replace
+  if (replaceWith !== ''){
+    try {
+      const replaced = input.replace(new RegExp(pat, flags), replaceWith);
+      repl.textContent = replaced;
+    } catch(e){ repl.textContent = '✗ ' + e.message; }
+  } else {
+    repl.textContent = '(enter a replacement above)';
+  }
+}
+document.addEventListener('DOMContentLoaded', reRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

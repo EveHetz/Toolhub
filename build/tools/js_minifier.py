@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Minificatore JavaScript", "tagline": "Minificazione strutturale rapida del JS — rimuove commenti, comprime spazi, elimina righe vuote. Dimensione prima/dopo.", "description": "Minificatore JavaScript gratuito. Rimuove commenti single-line e multi-line, spazi superflui e righe vuote preservando stringhe, regex e template literal."},
         "pt": {"name": "Minificador JavaScript", "tagline": "Minify estrutural rápido de JavaScript — remove comentários, comprime whitespace, tira linhas em branco. Mostra tamanho antes/depois e o percentual economizado.", "description": "Minificador JavaScript grátis online. Remove comentários de uma e várias linhas, whitespace redundante e linhas em branco preservando strings, regex e template literals."},
         "pl": {"name": "Minifikator JavaScript", "tagline": "Szybka strukturalna minifikacja JavaScriptu — wytnij komentarze, zwiń białe znaki, usuń puste linie. Pokazuje rozmiar przed/po i procent oszczędności.", "description": "Darmowy online minifikator JavaScriptu. Usuwa jedno- i wieloliniowe komentarze, nadmiarowe białe znaki i puste linie, zachowując stringi, literały regex i template literale."},
+        "ja": {"name": "JavaScript ミニファイア", "tagline": "高速で構造的な JavaScript ミニファイ — コメント除去、空白圧縮、空行削除。ビフォア／アフターのサイズと節約率を表示。", "description": "オンライン無料の JavaScript ミニファイア。1 行コメント・複数行コメント・冗長な空白・空行を除去しつつ、文字列、正規表現リテラル、テンプレートリテラルは正確に保持します。"},
     },
     "body": """
 <div class="tool-card">
@@ -229,6 +230,26 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>Source mapy nie są generowane.</strong> Jeśli wysyłasz zminifikowany JS na produkcję, generuj source mapy prawdziwym toolchainem, żeby debug był sensowny.</li>
   <li><strong>Nowoczesna kompresja dominuje.</strong> Brotli/gzip na drucie robi większość tego, co minify. Największe wygrane biorą się z usuwania nieużywanego kodu — to wymaga statycznej analizy, której strukturalny minifikator nie zrobi.</li>
   <li><strong>Nie minifikuj tego, co commitujesz.</strong> Źródło wchodzi ładne; minify na buildzie/deployu.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>構造的な JavaScript ミニファイアは、コードの動作を変えずにコメントと不要な空白を取り除きます。出力は入力と機能的に同一で、識別子もロジックも同じまま、長さだけが短くなります。本ツールはこの処理をブラウザ内で実行します。文字列の中身や正規表現リテラルは触らず、ASI（自動セミコロン挿入）が動作を変えてしまう箇所では改行を保持します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>HTML ブックマークレットや単一ファイルのデモのために、ビルドチェーンなしでスニペットをサクッと圧縮したいとき。</li>
+  <li>本格的なオプティマイザを導入する価値があるか判断する前に、手書きスクリプトの「贅肉」を見積もりたいとき。</li>
+  <li>バンドラを引っ張ってこずに、静的サイトに小さなライブラリをインライン化したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これは構造的ミニファイで、コンプレッサではありません。</strong> 変数のリネーム、デッドコード除去、プロパティのマングル、ツリーシェイクは行いません。本番ビルドではパイプラインで <code>terser</code>、<code>esbuild</code>、<code>swc</code> を使ってください。構造的ミニファイの上にさらに 30〜60% の削減を期待できます。</li>
+  <li><strong>ASI のトラップ。</strong> JavaScript は思いがけない場所にセミコロンを挿入します。本ミニファイアは、改行を取り除くと意味が変わってしまう箇所（例：<code>return\\n{}</code> ≠ <code>return {}</code>）では改行を保持します。可能ならソースで明示的にセミコロンを書く方がミニファイにとって安全です。</li>
+  <li><strong>ソースマップは生成しません。</strong> 本番に圧縮 JS を出すなら、デバッグのために本物のツールチェーンでソースマップを併せて出力してください。</li>
+  <li><strong>現代では転送時の圧縮が支配的です。</strong> ワイヤ上の Brotli/gzip がミニファイの大半の効果を担います。最大の削減は未使用コードの除去から得られ、これは構造的ミニファイヤだけでは達成できない静的解析を要します。</li>
+  <li><strong>ミニファイ済みをコミットしないこと。</strong> ソースは整形済みでコミットし、ビルド／デプロイ時にミニファイします。</li>
 </ul>
 """,
     },

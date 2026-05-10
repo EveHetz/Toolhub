@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Calcolatore BMI", "tagline": "Indice di Massa Corporea da altezza e peso. Metrico o imperiale. Categoria OMS — non è un consiglio medico.", "description": "Calcolatore BMI gratuito. Inserisci altezza e peso in metrico (cm + kg) o imperiale (piedi/pollici + libbre) e ottieni il BMI e la classificazione OMS. Solo informativo — non un consiglio medico."},
         "pt": {"name": "Calculadora de IMC", "tagline": "Índice de Massa Corporal a partir de altura e peso. Métrico ou imperial. Mostra a categoria da OMS — não é orientação médica.", "description": "Calculadora gratuita de Índice de Massa Corporal. Informe altura e peso em métrico (cm + kg) ou imperial (pés/polegadas + libras) e veja o valor de IMC mais a classificação da OMS (abaixo do peso, normal, sobrepeso, obesidade). Apenas educacional — não é orientação médica."},
         "pl": {"name": "Kalkulator BMI", "tagline": "Wskaźnik masy ciała z wzrostu i wagi. Metryczny lub imperialny. Pokazuje kategorię WHO — nie jest poradą medyczną.", "description": "Darmowy kalkulator BMI (Body Mass Index). Wpisz wzrost i wagę w jednostkach metrycznych (cm + kg) albo imperialnych (stopy/cale + funty) i zobacz wartość BMI oraz klasyfikację WHO (niedowaga, prawidłowa, nadwaga, otyłość). Tylko cele edukacyjne — nie jest poradą medyczną."},
+        "ja": {"name": "BMI 計算機", "tagline": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "description": "無料の BMI（体格指数）計算ツール。身長と体重をメートル法（cm + kg）またはヤード・ポンド法（フィート/インチ + ポンド）で入力すると、BMI 値と WHO 分類（低体重・標準・肥満気味・肥満）が表示されます。教育目的のみで、医療助言ではありません。"},
     },
     "body": """
 <div class="tool-card">
@@ -314,6 +315,34 @@ document.addEventListener('DOMContentLoaded', bmiRun);
   <li><strong>Pochodzenie etniczne ma znaczenie.</strong> Kilka instytucji (NHS, wytyczne WHO Asia-Pacific) używa niższych progów (nadwaga ≥23, otyłość ≥27,5) dla populacji południowoazjatyckich, chińskich i innych, bo ryzyko sercowo-naczyniowe rośnie u nich przy niższym BMI.</li>
   <li><strong>Wysocy vs niscy.</strong> Wzór z kwadratem wzrostu systematycznie klasyfikuje wysokich jako "niedowaga", a niskich jako "nadwaga" — alternatywne wzory (BMI Trefethena używa wzrost^2,5) próbują to skorygować.</li>
   <li><strong>To nie porada medyczna.</strong> Jeśli martwisz się swoją wagą, pogadaj z lekarzem. Ma resztę obrazu (obwód talii, ciśnienie, badania krwi, styl życia), której pojedyncza liczba nie pokaże.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>BMI（Body Mass Index、体格指数）は、体重（kg）を身長（m）の 2 乗で割った 1 つの数値で、WHO や多くの保健機関が体重区分のスクリーニング指標として使用しています。診断ではなく、あくまで目安です。成人の代表的な閾値は次のとおりです：18.5 未満は低体重、18.5–24.9 は標準、25–29.9 は肥満気味（過体重）、30 以上は肥満（35・40 でクラス I/II/III に細分）。このツールは身長と体重から、メートル法またはヤード・ポンド法で BMI と区分を計算します。</p>
+
+<h3>計算方法</h3>
+<ul>
+  <li><strong>メートル法：</strong> BMI = kg ÷ (m × m)。70 kg、1.75 m なら 70 / 3.0625 = 22.9。</li>
+  <li><strong>ヤード・ポンド法：</strong> BMI = (lb × 703) ÷ (in × in)。本ツールは精度のため内部でメートル法に変換します。</li>
+  <li>WHO の区分は単位系に依存しません。BMI 自体は無次元です。</li>
+</ul>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>簡易セルフチェックや、フォーム入力（保険、フィットネスアプリ、ジムの問診票）のとき。</li>
+  <li>集団間や研究間で値を比較したいとき。</li>
+  <li>時間経過での変化の方向（増加・横ばい・減少）を追うとき。単発の数値より傾向のほうが有用です。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>BMI は身体組成を測りません。</strong> 筋肉は脂肪より重いため、体脂肪が低くても筋肉質の人は「肥満気味」と判定されることがあります。逆に筋肉量が少ない人は「標準」でも実は不健康（いわゆる "skinny fat"）ということもあります。</li>
+  <li><strong>これは成人向けの指標です。</strong> 18 歳未満の子どもや思春期の場合は、年齢・性別ごとの BMI パーセンタイル曲線を使ってください。</li>
+  <li><strong>妊娠中は対象外です。</strong> 妊娠中は BMI は当てはまりません。担当医に相談してください。</li>
+  <li><strong>人種・民族による違いがあります。</strong> NHS や WHO のアジア太平洋ガイドラインなど、いくつかの保健機関は南アジア、中国系、その他の集団に対して、より低い閾値（過体重 ≥23、肥満 ≥27.5）を採用しています。これらの集団では低い BMI でも心血管リスクが上がるためです。</li>
+  <li><strong>身長が高い人と低い人。</strong> 身長の 2 乗を使う式は、構造的に背の高い人を「低体重」、背の低い人を「過体重」と過大に分類しがちです。代替式（Trefethen の BMI は身長^2.5 を使用）はこれを補正しようとします。</li>
+  <li><strong>医療助言ではありません。</strong> 体重について不安がある場合は専門家に相談してください。ウエスト周囲径、血圧、血液検査、生活習慣など、単一の数値では分からない情報を併せて評価してくれます。</li>
 </ul>
 """,
     },

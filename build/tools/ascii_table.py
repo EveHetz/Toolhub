@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Tabella ASCII", "tagline": "Riferimento ASCII completo 0–127 con decimale, hex, binario, carattere ed entità HTML. Filtrabile.", "description": "Tabella ASCII gratuita. Tutti i 128 codici ASCII con decimale, hex, ottale, binario, carattere, entità HTML e descrizione dei caratteri di controllo. Filtra mentre digiti."},
         "pt": {"name": "Tabela ASCII", "tagline": "Referência ASCII completa 0–127 com decimal, hex, binário, caractere e entidade HTML. Filtrável.", "description": "Tabela ASCII gratuita. Todos os 128 códigos ASCII com decimal, hex, octal, binário, caractere, entidade HTML e descrição dos caracteres de controle. Filtre enquanto digita."},
         "pl": {"name": "Tabela ASCII", "tagline": "Pełna referencja ASCII 0–127 z wartościami dec, hex, bin, znakiem i encją HTML. Z filtrem.", "description": "Darmowa tabela ASCII. Wszystkie 128 kodów ASCII z wartościami decimal, hex, octal, binary, znakiem, encją HTML i opisem znaków sterujących. Filtruj w trakcie pisania."},
+        "ja": {"name": "ASCII テーブル", "tagline": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "description": "無料の ASCII テーブルリファレンス。128 個の標準 ASCII コードすべてを 10 進・16 進・8 進・2 進・文字・HTML エンティティ付きで表示し、制御文字には説明も併記。入力に応じてリアルタイムにフィルタリングできます。"},
     },
     "body": """
 <div class="tool-card">
@@ -244,6 +245,28 @@ document.addEventListener('DOMContentLoaded', asciiRun);
   <li><strong>Znaki sterujące to niewidzialni sabotażyści.</strong> Skopiowanie z terminala albo PDF-a może wciągnąć <code>0x1F</code>, <code>0x07</code> (BEL — naprawdę pika w terminalu), albo unicode'owe znaki o zerowej szerokości, które <em>w ogóle</em> nie są ASCII. Jeśli tekst "wygląda OK" ale nie pasuje przy porównaniu — wyrzuć go w bajtach.</li>
   <li><strong>Encje HTML nie zawsze są potrzebne.</strong> W nowoczesnych dokumentach UTF-8 <code>&amp;#65;</code> i literalne <code>A</code> są równoważne. Escape'uj tylko znaki ze znaczeniem składniowym w HTML: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> oraz <code>"</code> w atrybutach.</li>
   <li><strong>NUL (<code>0x00</code>) kończy stringi w C.</strong> Nie wsadzaj go bezmyślnie do buforów C-stringów — wiele API po cichu utnie wszystko po pierwszym NUL.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>ASCII（American Standard Code for Information Interchange）は、数字・アルファベット・記号・少数の制御コードを 0–127 の整数にマッピングする 128 文字の符号化方式です。現代のすべてのテキストエンコーディング（UTF-8、Latin-1、Windows-1252）が拡張する基盤であり、値を知っておくと役立つ場面は意外と多くあります。たとえばバイナリファイル中の不審なバイトの調査、「印字可能文字」用の正規表現の作成、hex ダンプの読解、改行が 0x0A か 0x0D かを思い出すときなどです。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>hex ダンプを読み、それらのバイトが何を<em>表している</em>か特定したいとき。</li>
+  <li>パーサを書いていて、境界値が必要なとき：<code>0x20</code>（スペース）、<code>0x7E</code>（チルダ）— 印字可能範囲。</li>
+  <li><code>0x09</code>（タブ）や <code>0x1F</code>（Unit Separator）が混入して壊れた CSV をデバッグするとき。</li>
+  <li>扱いにくい文字に対する HTML エンティティを作りたいとき —— <code>&amp;#65;</code> = <code>A</code>。</li>
+  <li><code>\\r</code> が 0x0D（はい、Carriage Return）で <code>\\n</code> が 0x0A（はい、Line Feed）かどうかの議論を決着させたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>ASCII は 7 ビットであり、8 ビットではありません。</strong> 128–255 のコードは ASCII では<em>ありません</em>。文書が宣言する 8 ビットエンコーディング（Latin-1、CP-1252 など）に属するか、UTF-8 シーケンスの先頭バイトです。</li>
+  <li><strong>改行はプラットフォームによって異なります。</strong> Unix/macOS は <code>LF</code>（0x0A）のみ、旧 Mac Classic は <code>CR</code>（0x0D）、Windows は <code>CRLF</code>。これらが混在するファイルでは単純な行カウントが破綻します。</li>
+  <li><strong>制御文字は見えない妨害者になり得ます。</strong> ターミナルや PDF からのコピペで <code>0x1F</code>、<code>0x07</code>（BEL — 実際にターミナルが鳴ります）、ASCII ですらないゼロ幅 Unicode 文字が混入することがあります。テキストが「見た目は同じ」なのに比較で一致しないときは、バイト列にダンプして確認しましょう。</li>
+  <li><strong>HTML エンティティは常に必要なわけではありません。</strong> 現代の UTF-8 文書では <code>&amp;#65;</code> とリテラルの <code>A</code> は等価です。エスケープが必要なのは HTML で構文的意味を持つ文字だけ：<code>&amp;</code>、<code>&lt;</code>、<code>&gt;</code>、属性値の中の <code>"</code>。</li>
+  <li><strong>NUL（<code>0x00</code>）は C 文字列の終端です。</strong> C 文字列バッファに何も考えずに埋め込まないでください。多くの API は最初の NUL で黙って切り捨てます。</li>
 </ul>
 """,
     },

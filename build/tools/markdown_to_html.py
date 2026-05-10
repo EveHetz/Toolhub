@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Markdown a HTML", "tagline": "Converti Markdown in HTML pulito con anteprima live. Intestazioni, liste, codice, tabelle, immagini e link.", "description": "Convertitore Markdown-HTML gratuito. Stile CommonMark: intestazioni, liste, blocchi codice, tabelle, immagini, citazioni, formattazione inline. Anteprima + copia."},
         "pt": {"name": "Markdown para HTML", "tagline": "Converta Markdown em HTML limpo com preview ao vivo. Suporta cabeçalhos, listas, código, tabelas, imagens e links.", "description": "Conversor Markdown para HTML gratuito online. Estilo CommonMark: cabeçalhos, listas, blocos de código fenced, tabelas, imagens, blockquotes, formatação inline. Preview ao vivo + copiar."},
         "pl": {"name": "Markdown do HTML", "tagline": "Konwertuj Markdowna na czysty HTML z podglądem na żywo. Wspiera nagłówki, listy, kod, tabele, obrazki i linki.", "description": "Darmowy online konwerter Markdown do HTML. W smaku CommonMark: nagłówki, listy, fenced bloki kodu, tabele, obrazki, blockquote'y, formatowanie inline. Podgląd na żywo + kopia."},
+        "ja": {"name": "Markdown から HTML", "tagline": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。", "description": "オンライン無料の Markdown → HTML コンバーター。CommonMark 風に対応：見出し、リスト、フェンス付きコード、テーブル、画像、ブロッククォート、インライン書式。ライブプレビューとコピーに対応。"},
     },
     "body": """
 <div class="md-grid">
@@ -237,6 +238,28 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>Tabele vs wyrównanie.</strong> Tabele z pipe'ami potrzebują wiersza separatora (<code>|---|</code>) i używają <code>:---:</code> / <code>:---</code> / <code>---:</code> dla wyśrodkowania/lewej/prawej. Pominięcie separatora to najczęstszy powód, dla którego "tabela" renderuje się jako jeden akapit.</li>
   <li><strong>Smart punctuation.</strong> Niektóre renderery konwertują <code>--</code> na półpauzę i proste cudzysłowy na drukarskie. To narzędzie tego nie robi — przepuść przez krok typograficzny, jeśli tego potrzebujesz.</li>
   <li><strong>Round-trip nie jest bezstratny.</strong> Markdown → HTML → Markdown znormalizuje styl nagłówków, odstępy w listach i formę linków. Semantyka przeżyje; dokładne bajty nie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>Markdown は世界で最も多く書かれるオーサリング形式です。README ファイル、ブログ記事、GitHub issue、チャットメッセージ、ドキュメントサイトに至るまで広く使われています。一方、ブラウザがレンダリングするのは HTML です。本ツールは Markdown をクリーンな HTML に変換し、ライブプレビューを表示します。CMS への貼り付け、静的ページ生成、メールテンプレートへの組み込み前に、レンダリング結果を確認できます。</p>
+
+<h3>サポートする構文</h3>
+<ul>
+  <li>見出し <code>#</code> から <code>######</code>、太字、斜体、取り消し線</li>
+  <li>インライン <code>`code`</code> とフェンス付き <code>```lang</code> ブロック</li>
+  <li>箇条書き／番号付き／ネストリスト</li>
+  <li>リンク <code>[text](url)</code> と画像 <code>![alt](url)</code></li>
+  <li>ブロッククォート、揃え対応のパイプテーブル、水平線</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これはブラウザ内の高速パーサで、仕様適合スイートではありません。</strong> CommonMark や GFM にはネストされた強調、リンク参照定義、自動リンク展開などのエッジケースがあり、実装ごとに差があります。厳密な準拠が必要なら、ビルド工程で <code>marked</code>、<code>markdown-it</code>、<code>remark</code> を使ってください。</li>
+  <li><strong>Markdown 内に埋め込まれた HTML</strong> は基本そのまま通りますが、サニタイズする実装もあります。セキュリティをこれに頼らないでください。信頼できない Markdown は信頼できない HTML として扱います。</li>
+  <li><strong>テーブルと揃え。</strong> パイプテーブルには区切り行（<code>|---|</code>）が必須で、<code>:---:</code> / <code>:---</code> / <code>---:</code> で中央／左／右揃えを指定します。区切り行を忘れると「テーブル」が 1 つの段落としてレンダリングされる典型的な原因です。</li>
+  <li><strong>スマートパンクチュエーション。</strong> 一部のレンダラは <code>--</code> を en-dash に、ストレートクォートをカーリーに変換します。本ツールは行いません。必要なら別途タイポグラフィの処理を挟んでください。</li>
+  <li><strong>ラウンドトリップは無損失ではありません。</strong> Markdown → HTML → Markdown は見出しスタイル、リストの間隔、リンク表記を正規化します。意味は保たれますが、バイト列までは戻りません。</li>
 </ul>
 """,
     },

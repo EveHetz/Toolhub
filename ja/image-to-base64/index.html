@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>画像から Base64 へ — Toolhub</title>
+  <meta name="description" content="オンライン無料の画像 → Base64 データ URI エンコーダー。画像をドロップまたは選択すると、HTML インライン・CSS の background-image・メール用に貼り付け可能な data: URL を得られます。">
+  <meta property="og:title" content="画像から Base64 へ — Toolhub">
+  <meta property="og:description" content="オンライン無料の画像 → Base64 データ URI エンコーダー。画像をドロップまたは選択すると、HTML インライン・CSS の background-image・メール用に貼り付け可能な data: URL を得られます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/image-to-base64/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/image-to-base64/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/image-to-base64/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-to-base64/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-to-base64/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-to-base64/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-to-base64/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/image-to-base64/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/image-to-base64/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/image-to-base64/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-to-base64/">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/ja/image-to-base64/#tool",
+        "name": "画像から Base64 へ",
+        "description": "オンライン無料の画像 → Base64 データ URI エンコーダー。画像をドロップまたは選択すると、HTML インライン・CSS の background-image・メール用に貼り付け可能な data: URL を得られます。",
+        "url": "https://toolhub.software/ja/image-to-base64/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Encoding & Decoding",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["image", "base64", "data-uri", "convert", "embed"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "すべてのツール", "item": "https://toolhub.software/ja/"},
+          {"@type": "ListItem", "position": 2, "name": "画像から Base64 へ", "item": "https://toolhub.software/ja/image-to-base64/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/ja/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/image-to-base64/'; else location.href='/image-to-base64/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" selected="selected">🇯🇵 JA</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 画像から Base64 へ</div>
+    <h1>画像から Base64 へ</h1>
+    <p class="tagline">任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。</p>
+    
+<div class="tool-card">
+  <label>Pick or drop an image</label>
+  <input type="file" id="i2b-file" accept="image/*" oninput="i2bRun()" style="padding:0.5rem;background:var(--code-bg);border:1px dashed var(--border);border-radius:6px">
+  <div class="meta" id="i2b-meta"></div>
+</div>
+<div class="tool-card">
+  <label>Preview</label>
+  <div id="i2b-prev" style="text-align:center;padding:1rem;background:var(--code-bg);border:1px solid var(--border);border-radius:6px;min-height:60px"><span style="color:var(--text-muted)">No image yet.</span></div>
+</div>
+<div class="tool-card">
+  <label>Data URI</label>
+  <div class="output-row">
+    <pre class="output" id="i2b-out" style="max-height:240px;overflow:auto;font-size:0.78rem">上に入力すると結果が表示されます。</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('i2b-out', this)">コピー</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Snippets</label>
+  <div class="output-row"><pre class="output" id="i2b-html" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-html', this)">コピー</button></div>
+  <div class="output-row" style="margin-top:0.5rem"><pre class="output" id="i2b-css" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-css', this)">コピー</button></div>
+  <div class="output-row" style="margin-top:0.5rem"><pre class="output" id="i2b-md" style="font-size:0.85rem"></pre><button class="copy-btn secondary" onclick="copyOutput('i2b-md', this)">コピー</button></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>用途</h2>
+<p><em>Data URI</em> は Base64 を使ってファイルのバイト列を URL に直接埋め込む仕組みで、別リクエストや外部ファイルを使わずに済みます。本コンバーターはドロップした画像を読み込み、HTML、CSS、Markdown、JSON に貼り付けられる <code>data:image/...;base64,...</code> 文字列を生成します。ファイルはブラウザから外に出ず、変換は <code>FileReader.readAsDataURL</code> で行います。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>CSS にインライン化する小さなアイコン（4 KB 未満）。HTTP リクエストを節約し、初回ペイント時のフラッシュを避けられます。</li>
+  <li>自己完結型の HTML メール、シングルファイルのデモ、オフライン対応の PWA。</li>
+  <li>Markdown ノート、Notion ページ、画像と一緒に流通させたいチャットスレッドへの貼り付け。</li>
+  <li>テストフィクスチャやスナップショットファイルで、アセットをテストと一緒にコミットしたい場合。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>サイズが膨らみます。</strong> Base64 はおよそ 33% ペイロードが増えます。4〜8 KB を超えると、リクエスト節約の利点を埋め込みコストが上回ります。data URI はブラウザに別個にキャッシュされない点も影響します。</li>
+  <li><strong>ページ間で重複排除されません。</strong> URI を埋め込むページごとにバイト列が再送されます。再利用するアセットは実 URL のままにし、ブラウザに 1 度だけキャッシュさせてください。</li>
+  <li><strong>メールクライアントの対応はまちまちです。</strong> 多くのモダンクライアントは data URI を表示しますが、Windows 版 Outlook は歴史的に <code>&lt;img src&gt;</code> でブロックしてきました。大量配信は CID 添付の方が安全です。</li>
+  <li><strong>SVG はラスタとは別です。</strong> SVG はマークアップ直挿し（または URL エンコード）の方が Base64 より小さくなることが多いです。</li>
+</ul>
+<div class="related"><span class="meta">関連ツール:</span> <a href="/ja/base64-encoder/">Base64 エンコーダー / デコーダー</a> <a href="/ja/qr-code-generator/">QR コードジェネレーター</a> <a href="/ja/url-encoder/">URL エンコーダー / デコーダー</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function i2bRun(){
+  const f = document.getElementById('i2b-file').files[0];
+  const out = document.getElementById('i2b-out');
+  const meta = document.getElementById('i2b-meta');
+  const prev = document.getElementById('i2b-prev');
+  if (!f){ out.textContent = '上に入力すると結果が表示されます。'; meta.textContent=''; prev.innerHTML='<span style="color:var(--text-muted)">No image yet.</span>'; document.getElementById('i2b-html').textContent=''; document.getElementById('i2b-css').textContent=''; document.getElementById('i2b-md').textContent=''; return; }
+  if (f.size > 5 * 1024 * 1024){ out.classList.add('error'); out.textContent = '✗ File larger than 5 MB. Inline data URIs that big are usually a bad idea — use a real image URL.'; return; }
+  out.classList.remove('error');
+  const r = new FileReader();
+  r.onload = () => {
+    const uri = r.result;
+    out.textContent = uri;
+    meta.textContent = f.name + ' · ' + f.type + ' · ' + (f.size/1024).toFixed(1) + ' KB → ' + (uri.length/1024).toFixed(1) + ' KB encoded';
+    prev.innerHTML = '<img src="' + uri + '" style="max-width:100%;max-height:280px;border-radius:6px">';
+    document.getElementById('i2b-html').textContent = '<img src="' + uri.slice(0, 60) + '…" alt="">';
+    document.getElementById('i2b-css').textContent = 'background-image: url("' + uri.slice(0, 60) + '…");';
+    document.getElementById('i2b-md').textContent = '![alt](' + uri.slice(0, 60) + '…)';
+  };
+  r.readAsDataURL(f);
+}
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

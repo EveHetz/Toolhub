@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Formattatore SQL", "tagline": "Formatta e abbellisce SQL con indentazione corretta, o minifica su una riga. Consapevole del dialetto (ANSI / MySQL / Postgres).", "description": "Formattatore SQL gratuito. Pretty-print di SELECT/INSERT/UPDATE/DDL con indentazione coerente, maiuscole di parole chiave e allineamento clausole. Minifica anche. 100% nel browser."},
         "pt": {"name": "Formatador SQL", "tagline": "Formate e embeleze SQL com indentação correta, ou minifique para uma linha. Reconhece dialetos (ANSI / MySQL / Postgres).", "description": "Formatador SQL gratuito. Pretty-print de qualquer SELECT/INSERT/UPDATE/DDL com indentação consistente, case de keywords e alinhamento de cláusulas. Também minifica para uma linha. Roda inteiramente no navegador."},
         "pl": {"name": "Formatter SQL", "tagline": "Sformatuj i upiększ SQL z porządną indentacją albo zminifikuj do jednej linii. Świadom dialektu (ANSI / MySQL / Postgres).", "description": "Darmowy formatter SQL. Pretty-print dowolnego SELECT/INSERT/UPDATE/DDL ze spójną indentacją, wielkością keywordów i wyrównaniem klauzul. Minifikuje też do jednej linii. Działa w całości w przeglądarce."},
+        "ja": {"name": "SQL フォーマッター", "tagline": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。", "description": "オンライン無料の SQL フォーマッター。SELECT / INSERT / UPDATE / DDL を一貫したインデント、キーワード大文字小文字、句の整列で整形できます。1 行へのミニファイにも対応。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -455,6 +456,28 @@ document.addEventListener('DOMContentLoaded', sfRun);
   <li><strong>Komentarze przeżywają, ale lądują na własnych liniach.</strong> Jeśli miałeś <code>-- inline komentarz</code> w środku linii, przeniesie się na własną linię podczas pretty-printu.</li>
   <li><strong>Minify wycina komentarze.</strong> Jeśli ich potrzebujesz, nie minifikuj.</li>
   <li><strong>To nie linter.</strong> Do walidacji, egzekwowania stylu i sprawdzania dialektu w CI używaj prawdziwego parsera SQL (np. <code>sqlfluff</code>).</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>SQL は <code>psql</code> で打った 1 行から、誰も読めない 200 行のアナリティクスクエリまで幅広く存在します。本フォーマッターは SELECT、INSERT、UPDATE、DDL を一貫したインデント、句ごとの改行、キーワードの大文字小文字統一で書き換えます。ミニファイモードはその逆で、コードやスクリプトに埋め込みやすいよう 1 行に圧縮します。すべてブラウザ内で動作し、クエリはページから外に出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ログ、ORM、チャットメッセージから取り出したクエリを、レビューしやすく diff しやすい形に整えたいとき。</li>
+  <li>マイグレーションをコミットする前に、チームの慣習（UPPERCASE キーワード、2 スペース）に揃えたいとき。</li>
+  <li>長くて整形済みのクエリを 1 行に圧縮し、YAML 設定や CLI 引数に収めたいとき。</li>
+  <li>不揃いの括弧、SELECT リスト内のカンマ抜け、ON のない JOIN など、構造上の問題を整形してから目視で発見したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>本フォーマッターは構造的で、意味的ではありません。</strong> SQL として正しいかは判定しません。入力に構文エラーがあれば、出力にも構文エラーが残ります。</li>
+  <li><strong>方言固有のキーワードは異なります。</strong> <code>ILIKE</code>、<code>RETURNING</code>、<code>LATERAL</code> は Postgres、<code>STRAIGHT_JOIN</code>、<code>SQL_CALC_FOUND_ROWS</code> は MySQL です。方言を正しく選ばないとキーワードと認識されません。</li>
+  <li><strong>文字列リテラルはそのまま保持されます。</strong> シングルクォートで囲まれた複数行文字列は改行を維持します。<code>'...'</code> 内のテキストはリフローされません。</li>
+  <li><strong>コメントは残りますが独立行に切り出されます。</strong> 行内に <code>-- inline comment</code> があると、整形時に独立行に移動します。</li>
+  <li><strong>ミニファイはコメントを削除します。</strong> 必要な場合はミニファイしないでください。</li>
+  <li><strong>これは linter ではありません。</strong> CI での検証、スタイル強制、方言チェックには <code>sqlfluff</code> のような本格 SQL パーサを使ってください。</li>
 </ul>
 """,
     },

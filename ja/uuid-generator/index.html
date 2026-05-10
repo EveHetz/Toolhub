@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID 生成ツール — Toolhub</title>
+  <meta name="description" content="オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。">
+  <meta property="og:title" content="UUID 生成ツール — Toolhub">
+  <meta property="og:description" content="オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/uuid-generator/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/uuid-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/uuid-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/uuid-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/uuid-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/uuid-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/uuid-generator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/uuid-generator/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/uuid-generator/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/uuid-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/uuid-generator/">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/ja/uuid-generator/#tool",
+        "name": "UUID 生成ツール",
+        "description": "オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。",
+        "url": "https://toolhub.software/ja/uuid-generator/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["uuid", "guid", "v4", "v7", "random", "unique", "identifier"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "すべてのツール", "item": "https://toolhub.software/ja/"},
+          {"@type": "ListItem", "position": 2, "name": "UUID 生成ツール", "item": "https://toolhub.software/ja/uuid-generator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/ja/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/uuid-generator/'; else location.href='/uuid-generator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" selected="selected">🇯🇵 JA</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / UUID 生成ツール</div>
+    <h1>UUID 生成ツール</h1>
+    <p class="tagline">RFC 4122 の UUID（v4 ランダム または v7 時刻順）を生成。最大 100 件まで一括生成。暗号論的に安全。</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Version</label>
+      <select id="uuid-ver">
+        <option value="4">v4 (random)</option>
+        <option value="7">v7 (time-ordered, sortable)</option>
+      </select>
+    </div>
+    <div>
+      <label>数 (1-100)</label>
+      <input type="number" id="uuid-count" value="1" min="1" max="100">
+    </div>
+  </div>
+  <div class="button-row">
+    <button onclick="uuidGen()">生成</button>
+    <button class="secondary" onclick="copyOutput('uuid-out', this)">コピー</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>出力</label>
+  <pre class="output" id="uuid-out"></pre>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>用途</h2>
+<p>UUID（または GUID）は 128 bit の識別子で、5 つに区切られた 32 桁の hex 文字列で表記します（例：<code>550e8400-e29b-41d4-a716-446655440000</code>）。システム間で調整なしに衝突なく発行でき、衝突確率は実質ゼロです。DB に問い合わせる前に ID が必要なとき、行数の漏洩を避けたいとき、クライアント側で発行して後から同期したいときなどに有用です。本ツールは RFC 4122 / RFC 9562 準拠の UUID を v4（ランダム）または v7（時刻順）で、ブラウザ内の暗号論的乱数を使って生成します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>分散システムのプライマリキーで、DB 往復なしに ID を確定させたいとき。</li>
+  <li>API リクエストの冪等性キー（Stripe、決済プロバイダ、キューメッセージ）。</li>
+  <li>ファイルアップロード ID、セッショントークン、ログのコリレーション ID。</li>
+  <li>オートインクリメント ID を露出させて件数を漏らしたくない場面。</li>
+  <li>テストデータ — 100 件のレコードに現実的な識別子をワンクリックで付与。</li>
+</ul>
+
+<h3>v4 と v7、どちらを使うか</h3>
+<ul>
+  <li><strong>v4（ランダム）</strong> — 122 bit のランダム値、生成時刻の埋め込みなし。ID と作成順の相関を完全にゼロにしたいときや、ハッシュマップ／非クラスタ化インデックスのように順序が無関係な場面に向きます。</li>
+  <li><strong>v7（時刻順）</strong> — 先頭 48 bit に Unix ミリ秒タイムスタンプ、残りはランダム。<strong>新規 DB プライマリキーには基本これを推奨します。</strong> 時刻プレフィックスにより B-tree インデックスの局所性が高まり（最近の挿入が同じページに集中するため、v4 よりキャッシュ効率が大幅に向上）、ID はおおむね時系列順にソートされます。RFC 9562（2024 年 5 月）で定義され、多くのユースケースで ULID や v1/v6 を置き換えています。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>UUID は秘密ではありません。</strong> v4 は 122 bit のエントロピーを持ち推測不能ですが、フォーマット自体に認可機能はありません。セッションや再設定リンクの token に使う場合、HTTPS のみ・期限付き・使い切りのような扱いをしてください。</li>
+  <li><strong>v7 は作成時刻を漏らします。</strong> 先頭 48 bit が発行時のミリ秒を表します。内部 ID には問題ありませんが、ユーザに作成時刻を知られたくない場合は v4 を選んでください。</li>
+  <li><strong>インデックスサイズに注意。</strong> UUID は 16 バイトで、bigint の 8 バイトの倍。B-tree インデックスは大きくなります。分散・無調整の場面では割に合いますが、シングルサーバーの順序付き ID で済むなら多くの場合得をしません。</li>
+  <li><strong>v4 はインデックスを断片化します。</strong> ランダム ID は書き込みをインデックス全体に散らし、ページキャッシュのヒット率と書き込みスループットを下げます。これが v7 を推す根拠です。</li>
+  <li><strong>v1 は使わないこと。</strong> 旧来の time-and-MAC 方式は生成マシンの MAC アドレスを漏らします。現代的な置き換えが v7 です。</li>
+  <li><strong>暗号論的に安全な乱数を使ってください。</strong> 本ツールは <code>crypto.getRandomValues</code> を使用します。<code>Math.random</code> 自前は乱数として弱く、ID が予測可能になります。</li>
+</ul>
+<div class="related"><span class="meta">関連ツール:</span> <a href="/ja/password-generator/">パスワード生成ツール</a> <a href="/ja/hash-generator/">ハッシュ生成ツール</a> <a href="/ja/timestamp-converter/">Unix タイムスタンプ変換</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function uuidV4(){
+  const b = new Uint8Array(16);
+  crypto.getRandomValues(b);
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  const h = [...b].map(x => x.toString(16).padStart(2,'0'));
+  return h.slice(0,4).join('') + '-' + h.slice(4,6).join('') + '-' + h.slice(6,8).join('') + '-' + h.slice(8,10).join('') + '-' + h.slice(10,16).join('');
+}
+function uuidV7(){
+  // RFC 9562 v7: 48-bit unix-ms timestamp + 12 bits rand_a + 62 bits rand_b + version/variant bits
+  const ts = BigInt(Date.now());
+  const r = new Uint8Array(10);
+  crypto.getRandomValues(r);
+  const b = new Uint8Array(16);
+  // 6 bytes of timestamp (big-endian)
+  for (let i = 0; i < 6; i++) b[i] = Number((ts >> BigInt(40 - 8*i)) & 0xffn);
+  for (let i = 0; i < 10; i++) b[i+6] = r[i];
+  b[6] = (b[6] & 0x0f) | 0x70;     // version 7
+  b[8] = (b[8] & 0x3f) | 0x80;     // variant 10
+  const h = [...b].map(x => x.toString(16).padStart(2,'0'));
+  return h.slice(0,4).join('') + '-' + h.slice(4,6).join('') + '-' + h.slice(6,8).join('') + '-' + h.slice(8,10).join('') + '-' + h.slice(10,16).join('');
+}
+function uuidGen(){
+  const ver = document.getElementById('uuid-ver').value;
+  const n = Math.max(1, Math.min(100, parseInt(document.getElementById('uuid-count').value, 10) || 1));
+  const out = [];
+  for (let i = 0; i < n; i++) out.push(ver === '7' ? uuidV7() : uuidV4());
+  document.getElementById('uuid-out').textContent = out.join('\n');
+}
+document.addEventListener('DOMContentLoaded', uuidGen);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

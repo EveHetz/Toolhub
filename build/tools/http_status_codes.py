@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Codici di Stato HTTP", "tagline": "Cerca qualsiasi codice HTTP (1xx–5xx). Significato, cause comuni e riferimento RFC.", "description": "Riferimento gratuito per i codici HTTP. Cerca qualsiasi codice standard (100–599) con significato, cause comuni e RFC. Filtra mentre digiti."},
         "pt": {"name": "Códigos de Status HTTP", "tagline": "Consulte qualquer código de status HTTP (1xx–5xx). Significado, causas comuns e a referência da RFC.", "description": "Referência grátis de códigos de status HTTP. Pesquise qualquer código padrão (100–599), veja seu significado, causas comuns e a RFC onde está definido. Filtra enquanto você digita."},
         "pl": {"name": "Kody Statusu HTTP", "tagline": "Sprawdź dowolny kod statusu HTTP (1xx–5xx). Znaczenie, typowe przyczyny i odwołanie do RFC.", "description": "Darmowa referencja kodów statusu HTTP. Wyszukaj dowolny standardowy kod (100–599), zobacz jego znaczenie, typowe przyczyny i RFC, w którym jest zdefiniowany. Filtruj podczas pisania."},
+        "ja": {"name": "HTTP ステータスコード", "tagline": "任意の HTTP ステータスコード（1xx–5xx）を検索。意味、よくある原因、RFC 参照を表示。", "description": "無料の HTTP ステータスコードリファレンス。標準のすべての HTTP ステータスコード（100–599）を検索し、意味・よくある原因・定義元の RFC を確認できます。入力に応じてリアルタイムフィルタ。"},
     },
     "body": """
 <div class="tool-card">
@@ -290,6 +291,29 @@ document.addEventListener('DOMContentLoaded', hsRun);
   <li><strong>200 z error body to nie "RESTowo".</strong> Jeśli request padł na poziomie zasobu, zwracaj 4xx z błędem w body.</li>
   <li><strong>418 to żart.</strong> Nie używaj I'm-a-teapot na produkcji — klienci i proxy traktują to niespójnie.</li>
   <li><strong>RFC 9110 zastępuje RFC 7231/7232/7233/7234/7235.</strong> Jeśli cytujesz spec, użyj 9110 (czerwiec 2022), chyba że specjalnie potrzebujesz starszej wersji.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>HTTP ステータスコードはサーバーがクライアントにリクエスト結果を伝える 3 桁の数字です。1xx（情報）、2xx（成功）、3xx（リダイレクト）、4xx（クライアントエラー）、5xx（サーバーエラー）の 5 系統に分かれます。多くの開発者は 200、301、404、500 など見出し的なコードは知っていますが、実際のバグは 409 Conflict、422 Unprocessable、504 Gateway Timeout などのロングテールに潜んでいます。本ツールはコードの意味と、それぞれが定義されている RFC を含めた完全なリストを提供します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>API ドキュメントに見覚えのないコード（425？ 451？）が出てきたとき。</li>
+  <li>自前の API から返すコードを選びたいとき — 404 か 410、401 か 403、422 か 400。</li>
+  <li>502 / 504 を切り分けたい — upstream がダウンか、ただ遅いだけか。</li>
+  <li>「200 でエラーボディ」と「ちゃんとした 4xx」のどちらが正解か決めたいとき。</li>
+  <li>コードレビューや設計ドキュメントのために RFC 参照を引きたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>401 は「未認証」、403 は「権限なし」です。</strong> 名前が紛らわしいですが、401 は「あなたが誰か分からない」、403 は「あなたが誰か分かっていて、それでもダメ」です。再認証で解決しないなら 403 を使います。</li>
+  <li><strong>302 はメソッドに対して曖昧です。</strong> ブラウザは歴史的に 302 で POST→GET へ変えてきました。明示したければ 307（メソッド保持）か 303（常に GET）を使ってください。</li>
+  <li><strong>404 と 410 は別物です。</strong> 404 = 「分からない」、410 = 「永久に消えた」。検索エンジンに URL を捨てさせたいときは 410 を返してください。</li>
+  <li><strong>200 + エラーボディは「RESTful」ではありません。</strong> リソースレベルで失敗したなら 4xx を返し、ボディにエラー情報を入れてください。</li>
+  <li><strong>418 はジョークです。</strong> 本番で I'm a teapot を使わないでください。クライアントやプロキシで扱いがバラバラです。</li>
+  <li><strong>RFC 9110 が RFC 7231/7232/7233/7234/7235 を統合・更新しています。</strong> 仕様を引用するときは特に古い版が必要でない限り 9110（2022 年 6 月）を引いてください。</li>
 </ul>
 """,
     },

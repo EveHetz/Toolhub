@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Confronto Testo", "tagline": "Confronta due blocchi di testo e vedi aggiunte, rimozioni e contesto riga per riga. Vista affiancata o unificata.", "description": "Strumento di diff di testo gratuito online. Diff di Myers per riga con vista affiancata e unificata, ignora spazi e maiuscole. Nel browser."},
         "pt": {"name": "Diff de Texto", "tagline": "Compare dois blocos de texto e veja adições, remoções e contexto inalterado linha a linha. Visão lado a lado ou unificada.", "description": "Ferramenta de diff de texto gratuita online. Diff de Myers em nível de linha com visão lado a lado e unificada, com toggles para ignorar whitespace e ignorar case. Roda no navegador."},
         "pl": {"name": "Diff Tekstu", "tagline": "Porównaj dwa bloki tekstu i zobacz dodania, usunięcia i niezmieniony kontekst linia po linii. Widok side-by-side albo unified.", "description": "Darmowe narzędzie do diffowania tekstu online. Myers diff na poziomie linii z widokiem side-by-side i unified, togle do ignorowania białych znaków i wielkości liter. Działa w przeglądarce."},
+        "ja": {"name": "テキスト差分", "tagline": "2 つのテキストブロックを比較し、行単位で追加・削除・変更されない部分を表示。並列または統合表示。", "description": "オンライン無料のテキスト差分ツール。Myers アルゴリズムによる行単位の差分を、並列／統合ビューで表示。空白無視、大小無視のトグルにも対応します。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="td-grid">
@@ -231,6 +232,35 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>Kolejność ma znaczenie.</strong> Jeśli zamienisz dwie linie miejscami, diff pokaże obie jako usunięte-i-dodane-na-nowo, nie jako parę "przeniesioną". Nie ma detekcji przenosin.</li>
   <li><strong>Duże inputy (10k+ linii) bywają wolne.</strong> Algorytm LCS jest O(m·n) — OK dla typowych plików, ślamazarny dla bardzo dużych. Diffuj małymi kawałkami.</li>
   <li><strong>Końcowe newliny</strong> liczą się jako linia. Dwa inputy różniące się tylko tym, czy kończą się newlinem, pokażą jedno końcowe dodanie albo usunięcie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>段落、設定ファイル、SQL クエリ、リストなど、テキストの 2 バージョンを比較し、追加・削除・変更なしの行を正確に確認するツールです。<code>git diff</code> がすぐに使えない場面や、テキストがバージョン管理下にない場面でも使えます。出力はコードレビューでお馴染みの行単位 diff で、追加は緑、削除は赤、変更なしはプレーンに表示されます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>「同じに見える」2 つのメール、契約書、貼り付けテキストの違いを把握したいとき。</li>
+  <li>2 つの環境（staging vs prod）の設定ファイルや環境変数を比較したいとき。</li>
+  <li>他者が Word/Docs で編集したコピーの変更点をレビューしたいとき。</li>
+  <li>2 つのクエリ結果、ログ抜粋、JSON ブロブを diff したいとき（必要に応じて先に JSON Formatter で正規化）。</li>
+  <li>コミット前の検索置換のサニティチェック。</li>
+</ul>
+
+<h3>並列表示と統合表示</h3>
+<ul>
+  <li><strong>並列表示</strong> — 小さな差分を行単位でスキャンしやすい。左に元、右に新版。</li>
+  <li><strong>統合表示</strong> — <code>git diff</code> に近く、共有・印刷向き。差分が散らばっているときに追いやすい。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これは行単位 diff であり、語単位ではありません。</strong> 長い行の中で 1 文字変わっただけでも行全体が変更扱いになります。文章レベルの細かな差分が必要なら、語単位にトークナイズするツールを使ってください。</li>
+  <li><strong>「空白を無視」は比較のみに影響し、表示は変えません。</strong> 末尾スペースやインデントだけが違う行は変更なしとして扱われますが、表示は元の空白のままです。</li>
+  <li><strong>「大小を無視」も同様。</strong> 「TODO」と「todo」は同一視されますが、表示は元の大小です。</li>
+  <li><strong>順序が重要です。</strong> 2 行を入れ替えると、両方とも削除＋追加として表示されます。「移動」検出はありません。</li>
+  <li><strong>巨大な入力（1 万行超）は遅くなります。</strong> LCS は O(m·n) です。通常のファイルなら問題ありませんが、巨大データでは小分けで diff してください。</li>
+  <li><strong>末尾改行は 1 行と数えます。</strong> 末尾に改行があるかないかだけが違う 2 入力では、末尾に追加か削除が 1 件出ます。</li>
 </ul>
 """,
     },

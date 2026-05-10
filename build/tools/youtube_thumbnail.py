@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Download Miniature YouTube", "tagline": "Incolla qualsiasi URL YouTube o ID video e ottieni tutte le dimensioni di miniatura disponibili — link diretti, nessuna registrazione.", "description": "Download gratuito di miniature YouTube. Estrae l'ID video da qualsiasi URL YouTube e mostra tutte le risoluzioni di miniature con link di download diretti."},
         "pt": {"name": "Baixar Thumbnail do YouTube", "tagline": "Cole qualquer URL ou ID de vídeo do YouTube e baixe todos os tamanhos de thumbnail disponíveis — links diretos, sem upload, sem cadastro.", "description": "Downloader de thumbnails do YouTube gratuito. Extrai o ID do vídeo de qualquer URL do YouTube (watch, youtu.be, shorts, embed, /v/) e mostra todas as resoluções de thumbnail disponíveis com links de download diretos."},
         "pl": {"name": "Pobieranie Miniatur YouTube", "tagline": "Wklej dowolny URL albo ID wideo YouTube i pobierz każdy dostępny rozmiar miniatury — bezpośrednie linki, bez uploadu, bez rejestracji.", "description": "Darmowy downloader miniatur YouTube. Wyciąga ID wideo z dowolnej formy URL YouTube (watch, youtu.be, shorts, embed, /v/) i pokazuje wszystkie dostępne rozdzielczości miniatur z bezpośrednimi linkami do pobrania."},
+        "ja": {"name": "YouTube サムネイルダウンローダー", "tagline": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。", "description": "無料の YouTube サムネイルダウンローダー。YouTube の各種 URL 形式（watch、youtu.be、shorts、embed、/v/）から動画 ID を抽出し、利用可能なすべての解像度のサムネイルを直接ダウンロードリンクとともに表示します。"},
     },
     "body": """
 <div class="tool-card">
@@ -192,6 +193,37 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>To wciąż obrazek YouTube'a.</strong> Hot-linking jest OK; rehosting na własnym CDN-ie technicznie też, ale sprawdź licencjonowanie, jeśli używasz komercyjnie. Twórca wideo może mieć copyright na wizualną treść klatki.</li>
   <li><strong>WebP nieobsługiwany tutaj.</strong> YouTube serwuje też wersje <code>.webp</code> (mniejsze pliki), ale są podawane z innej ścieżki CDN i nie są wystawione przez to narzędzie.</li>
   <li><strong>Live streamy i Shortsy</strong> działają dobrze — parser URL obsługuje wszystkie nowoczesne formy — ale miniatury live streamu zmieniają się, gdy stream jest na żywo.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>YouTube のすべての動画には、予測可能な URL に置かれた事前生成のサムネイル画像があります。YouTube 自身も検索結果、埋め込み、プレビューに使っています。本ツールは YouTube のあらゆる URL 形式（watch、youtu.be、Shorts、embed、/v/）から 11 文字の動画 ID を取り出し、利用可能なすべてのサイズを直接ダウンロードリンクと URL コピーボタン付きで並べます。オフラインのプレビュー、ブログ記事のヒーロー画像、Discord/Slack のリッチリンク、自前プレイヤーのフォールバックポスターなどに便利です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ブログ記事に YouTube 動画を埋め込み、YouTube が表示するのと同じサムネイルを自前ホスティングしたいとき。</li>
+  <li>Notion / Slack / メールで「この動画を見る」のクリック可能タイル用に静止画が欲しいとき。</li>
+  <li>iframe 読み込み前のポスター画像が必要な、自前ビデオプレイヤーを作るとき。</li>
+  <li>参考、コンテンツ、ムードボード用にサムネイルをオフライン保存したいとき。</li>
+  <li>YouTube Data API を使わず最高解像度のサムネイルを取得したいとき。</li>
+</ul>
+
+<h3>各バリアントの説明</h3>
+<ul>
+  <li><strong>maxresdefault</strong>（1280×720） — オリジナルのフル HD サムネイル。HD でアップロードされた動画にのみ存在。なければ URL は 404 で、プレビューが空になります。</li>
+  <li><strong>sddefault</strong>（640×480） — 比較的近年の動画では大抵生成されています。</li>
+  <li><strong>hqdefault</strong>（480×360） — <strong>常に存在</strong>。最初期の YouTube 動画にもあります。フォールバックの定番。</li>
+  <li><strong>mqdefault</strong>（320×180）と <strong>default</strong>（120×90） — 小さなプレビュー。リスト表示などに有用。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>maxresdefault はしばしば 404 です。</strong> 古い動画や低解像度動画には存在しません。フォールバック連鎖を組みましょう：<code>maxresdefault → sddefault → hqdefault</code>。</li>
+  <li><strong>hqdefault は黒帯が付きます。</strong> 480×360 サムネイルは 4:3 以外のソースをレターボックス化するため、上下に帯が入ります。<code>mqdefault</code>（320×180）はモダンな動画と合った 16:9 です。</li>
+  <li><strong>フレーム 1/2/3。</strong> YouTube は同じパスに <code>1.jpg</code>、<code>2.jpg</code>、<code>3.jpg</code> も公開しており、動画から自動抽出された 3 フレームです。カスタムポスターにはこれが向くこともあります。デフォルトのバリアント一覧には含まれません。</li>
+  <li><strong>画像は YouTube のものです。</strong> ホットリンクは問題ありません。自前 CDN への再ホスティングも技術的には可能ですが、商用利用ならライセンスを確認してください。動画フレームの視覚内容に作者の著作権がある場合があります。</li>
+  <li><strong>本ツールは WebP に対応しません。</strong> YouTube は <code>.webp</code> 版（より小さい）も配信していますが、別の CDN パスから提供されており、本ツールでは扱いません。</li>
+  <li><strong>ライブ配信や Shorts</strong> も問題なく動作します（URL パーサが現代的な形式を網羅）。ただしライブ配信のサムネイルは配信中に変化します。</li>
 </ul>
 """,
     },

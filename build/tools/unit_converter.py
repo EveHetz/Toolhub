@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore di Unità", "tagline": "Converti tra unità metriche e imperiali di lunghezza, peso, temperatura, volume e area.", "description": "Convertitore di unità gratuito. Conversione tra unità metriche e imperiali di lunghezza, peso, temperatura, volume e area."},
         "pt": {"name": "Conversor de Unidades", "tagline": "Converta entre unidades métricas e imperiais de comprimento, peso, temperatura, volume e área.", "description": "Conversor de unidades online gratuito. Converta comprimento (mm, cm, m, km, in, ft, yd, mi), peso (g, kg, lb, oz), temperatura (C, F, K), volume (mL, L, gal, fl oz) e área (m², ft², acre, ha)."},
         "pl": {"name": "Konwerter Jednostek", "tagline": "Konwertuj między metrycznymi i imperialnymi jednostkami długości, wagi, temperatury, objętości i powierzchni.", "description": "Darmowy online konwerter jednostek. Konwertuj długość (mm, cm, m, km, in, ft, yd, mi), wagę (g, kg, lb, oz), temperaturę (C, F, K), objętość (mL, L, gal, fl oz) i powierzchnię (m², ft², acre, ha)."},
+        "ja": {"name": "単位変換ツール", "tagline": "メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。", "description": "オンライン無料の単位変換ツール。長さ（mm、cm、m、km、in、ft、yd、mi）、重さ（g、kg、lb、oz）、温度（C、F、K）、体積（mL、L、gal、fl oz）、面積（m²、ft²、acre、ha）を相互変換できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -281,6 +282,37 @@ document.addEventListener('DOMContentLoaded', () => { ucCatChanged(); ucRun(); }
   <li><strong>Masa vs waga.</strong> Ściśle, kg to masa, a funty to też masa (mimo potocznego "ważę 70 kg"). Narzędzie traktuje to jako konwersję masa-do-masy. Do siły (newtony, pound-force) potrzeba innej kategorii.</li>
   <li><strong>Zaokrąglaj na końcu, nie w środku.</strong> Nie konwertuj m → ft, zaokrąglaj, potem ft → in — kumulujesz błędy. Idź wprost do docelowej jednostki.</li>
   <li><strong>Stones &amp; pounds.</strong> Brytyjska waga: 1 stone = 14 lb. Narzędzie ma stone (st), ale część w lb musisz zrobić osobno dla wpisów typu "11 st 4 lb".</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>世界の多くはメートル法、米国はヤード・ポンド法、英国は半々、レシピはグラムで欲しいのにカップで書かれていて、子どもの宿題には「5 ヤードを cm で」と出ます。本ツールは長さ、重さ、温度、体積、面積、時間、速度の変換を高精度の定義に基づいて計算し、同一カテゴリ内のすべての単位を一度に表示するため、二度手間の変換が不要です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>レシピがカップ表記なのに、自分はグラムで料理するとき（あるいはその逆）。</li>
+  <li>飛行距離の海里をキロメートルに変換したいとき。</li>
+  <li>旅行前に屋外気温の予報を °C ↔ °F で見たいとき。</li>
+  <li>家具の寸法を比較：72 インチ幅は 1.9 m のドアを通れるか？</li>
+  <li>ヤード・ポンドで考えがちな人が論文の SI 単位を読みたいとき。</li>
+</ul>
+
+<h3>精度の高いところと注意点</h3>
+<ul>
+  <li><strong>長さ、重さ、温度、面積、速度</strong> は SI 定義と 1959 年の international yard-and-pound に基づいており、入力精度に従って正確です。</li>
+  <li><strong>体積</strong> は厄介。米ガロン（3.785 L）と英 imperial gallon（4.546 L）は別物です。本ツールはどちらかを明示します。</li>
+  <li><strong>カップ／テーブルスプーン／ティースプーン</strong> はここでは米計量がデフォルト。英・豪のカップは少し違います（豪 250 mL、米 240 mL）。</li>
+  <li><strong>「月」「年」</strong>（時間カテゴリ）は平均値（30.44 日／365.25 日）を用います。法務・会計で正確な月数が必要な場合は、本ツールではなく日付計算を使ってください。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>温度は比率ではありません。</strong> 0°C は「温度なし」ではなく基準点に過ぎず、°C を倍にしても熱量は倍になりません。Kelvin との 273.15 のオフセット、C↔F の 32 のオフセットが加算的に必要なため、温度には倍率ではなく関数を使います。</li>
+  <li><strong>米／英の fluid ounce は別物です。</strong> 1 米 fl oz = 29.57 mL、1 英 fl oz = 28.41 mL。レシピがどちらの規格か必ず確認しましょう。</li>
+  <li><strong>「tonne」と「ton」。</strong> メトリックトン = 1000 kg、米 short ton = 907 kg、英 long ton = 1016 kg。本ツールの「t」はメトリックトンです。</li>
+  <li><strong>質量と重量。</strong> 厳密には kg もポンドも質量です（口語では「体重 70 kg」と言いますが）。本ツールは質量↔質量の変換として扱います。力（ニュートン、pound-force）には別カテゴリが必要です。</li>
+  <li><strong>丸めは最後に、途中ではしない。</strong> m → ft で丸めて、さらに ft → in と進めると誤差が積み重なります。直接ターゲット単位に変換してください。</li>
+  <li><strong>ストーンとポンド。</strong> 英国の重量で 1 stone = 14 lb。本ツールは stone（st）を持ちますが、「11 st 4 lb」のような表記の lb 部分は別途処理してください。</li>
 </ul>
 """,
     },

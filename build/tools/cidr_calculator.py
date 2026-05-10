@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Calcolatore CIDR / Subnet", "tagline": "Calcola subnet IPv4 dalla notazione CIDR. Rete, broadcast, maschera, intervallo host, vista binaria.", "description": "Calcolatore gratuito IPv4 CIDR / subnet. Inserisci un CIDR (es. 10.0.0.0/16) e ottieni indirizzo di rete, broadcast, maschera, intervallo host e rappresentazione binaria."},
         "pt": {"name": "Calculadora CIDR / Subnet", "tagline": "Calcule subnets IPv4 a partir da notação CIDR. Network, broadcast, máscara, faixa de hosts e visão binária.", "description": "Calculadora gratuita de CIDR / subnet IPv4. Informe qualquer CIDR (ex.: 10.0.0.0/16) e veja o endereço de rede, broadcast, máscara de subnet, faixa de hosts, total de endereços e representação binária."},
         "pl": {"name": "Kalkulator CIDR / Subnet", "tagline": "Liczy podsieci IPv4 z notacji CIDR. Sieć, broadcast, maska, zakres hostów i widok binarny.", "description": "Darmowy kalkulator CIDR / podsieci IPv4. Wpisz dowolny CIDR (np. 10.0.0.0/16) i zobacz adres sieci, broadcast, maskę podsieci, zakres hostów, łączną liczbę adresów i reprezentację binarną."},
+        "ja": {"name": "CIDR / サブネット計算機", "tagline": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "description": "無料の IPv4 CIDR / サブネット計算ツール。任意の CIDR（例：10.0.0.0/16）を入力すると、ネットワークアドレス、ブロードキャスト、サブネットマスク、ホスト範囲、総アドレス数、バイナリ表現が確認できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -205,6 +206,40 @@ document.addEventListener('DOMContentLoaded', cidrRun);
   <li><strong>Nie myl klasy z CIDR.</strong> Klasy A/B/C to koncept legacy (sprzed 1993). /24 może wpaść w zakres "klasy A" i to jest OK.</li>
   <li><strong>Prywatne zakresy RFC 1918:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Wszystko poza nimi jest publicznie routowalne (albo zarezerwowane).</li>
   <li><strong>To narzędzie obsługuje tylko IPv4.</strong> CIDR IPv6 jest strukturalnie podobny, ale prefiks może iść aż do /128 i przestrzeń adresowa jest znacznie większa; tu nie jest obsługiwane.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>CIDR（Classless Inter-Domain Routing）表記は、IPv4 アドレスとそのサブネットサイズを 1 つの文字列にまとめます。<code>192.168.1.0/24</code> は「アドレス 192.168.1.0 とネットワークプレフィックス 24 ビット」を意味し、従来の <code>255.255.255.0</code> マスクと同じネットワークを 30 文字ではなく 12 文字で表現できます。このツールは任意の CIDR を、人間が理解しやすい値にデコードします。サブネットに<em>含まれる</em>アドレス、ブロードキャスト、ドット表記のマスク、そして実際にデバイスに割り当てられるホスト範囲です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>VLAN や VPC を設計し、/22 と /23 で何台のホストを収容できるかを確認するとき（1022 対 510）。</li>
+  <li><code>allow 10.42.0.0/16</code> のようなファイアウォールルールを読んで、カバーする範囲を正確に把握したいとき。</li>
+  <li>/24 を小さなサブネットに分割し、境界が重ならないか確認するとき。</li>
+  <li>クラウドのセキュリティグループルールをデプロイ前にサニティチェックするとき。</li>
+  <li>ルーター設定で、CIDR と従来の <code>255.x.x.x</code> ドット表記マスクを相互に変換するとき。</li>
+</ul>
+
+<h3>CIDR クイックチートシート</h3>
+<ul>
+  <li><strong>/32</strong> — 1 アドレス（単一ホストルート）。</li>
+  <li><strong>/30</strong> — 4 アドレス、使用可能 2（ポイント・ツー・ポイントリンク）。</li>
+  <li><strong>/29</strong> — 8 アドレス、使用可能 6（小規模オフィスのサブネット）。</li>
+  <li><strong>/24</strong> — 256 アドレス、使用可能 254（典型的なクラス C / 一般的な LAN）。</li>
+  <li><strong>/16</strong> — 65,536 アドレス（拠点ネットワークや VPC によくあるサイズ）。</li>
+  <li><strong>/8</strong> — 1,670 万アドレス（組織全体規模）。</li>
+  <li><strong>/0</strong> — すべての IPv4 アドレス（デフォルトルート）。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>「使用可能」にはネットワークとブロードキャストは含まれません。</strong> /24 は 256 アドレスありますが、ホスト用に使えるのは 254 だけです。最初（.0）はネットワーク、最後（.255）はブロードキャストです。</li>
+  <li><strong>/31 と /32 は特別です。</strong> /31 は RFC 3021 によりポイント・ツー・ポイントリンクで使われ、両方のアドレスが使用可能です。/32 は単一ホストで、ルーティングエントリで使われます。</li>
+  <li><strong>アドレス部分はネットワークアドレスである必要はありません。</strong> <code>10.5.7.42/24</code> は <code>10.5.7.0/24</code> と同じ /24 を意味します。重要なのはプレフィックス長です。このツールは出力時にネットワークアドレスへ正規化します。</li>
+  <li><strong>クラスと CIDR を混同しないこと。</strong> クラス A/B/C は 1993 年以前の古い概念です。/24 が「クラス A」の範囲に含まれていても問題ありません。</li>
+  <li><strong>RFC 1918 のプライベート範囲：</strong> <code>10.0.0.0/8</code>、<code>172.16.0.0/12</code>、<code>192.168.0.0/16</code>。これら以外はパブリックにルーティング可能（または予約済み）です。</li>
+  <li><strong>このツールは IPv4 専用です。</strong> IPv6 CIDR は構造的には似ていますが、プレフィックスは /128 まで可能でアドレス空間も格段に大きく、ここでは扱いません。</li>
 </ul>
 """,
     },

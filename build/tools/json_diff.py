@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Diff JSON", "tagline": "Diff strutturale tra due documenti JSON — chiavi aggiunte, rimosse, modificate e cambi di valore affiancati.", "description": "Diff JSON gratuito. Calcola un delta strutturale tra due documenti JSON — chiavi aggiunte/rimosse, valori modificati. 100% nel browser."},
         "pt": {"name": "Diff JSON", "tagline": "Diff estrutural de dois documentos JSON — chaves adicionadas, removidas, alteradas e mudanças de valor lado a lado.", "description": "Diff JSON grátis online. Calcula um delta estrutural entre dois documentos JSON — chaves adicionadas/removidas, valores alterados, e uma visão lado a lado limpa. Roda totalmente no seu browser."},
         "pl": {"name": "Diff JSON", "tagline": "Strukturalny diff dwóch dokumentów JSON — dodane, usunięte, zmienione klucze i zmiany wartości obok siebie.", "description": "Darmowy online diff JSON. Liczy strukturalną deltę między dwoma dokumentami JSON — dodane/usunięte klucze, zmienione wartości i czysty widok side-by-side. Działa w całości w przeglądarce."},
+        "ja": {"name": "JSON 差分", "tagline": "2 つの JSON ドキュメントの構造的差分 — 追加・削除・変更されたキーと値の変化を並べて表示。", "description": "オンライン無料の JSON 差分ツール。2 つの JSON ドキュメントの構造的なデルタ（追加／削除されたキー、値の変化）を計算し、見やすい並列表示を提供します。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -237,6 +238,26 @@ document.addEventListener('DOMContentLoaded', jdRun);
   <li><strong>Number-vs-string nie jest strukturalne.</strong> <code>{"id": 1}</code> i <code>{"id": "1"}</code> pokazują się jako zmiana, bo typy się różnią. Znormalizuj typy przed diffem, jeśli to ważne.</li>
   <li><strong>RFC 6902 to jednokierunkowy patch, nie merge.</strong> Aplikuj go prawdziwą implementacją RFC 6902, nie podstawianiem stringów.</li>
   <li><strong>Duże drzewa robią szum.</strong> Jeśli diff ma setki operacji, prawdopodobnie porównujesz dwa niepowiązane dokumenty — sprawdź wejście jeszcze raz.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>JSON に対してプレーンテキスト diff をかけると「どの行が変わったか」しか分かりません。構造的 diff は「どの<em>データポイント</em>が変わったか」を教えてくれます。同じ意味で再フォーマットしただけのドキュメントは、テキスト diff では「全行が違う」になりますが、構造的には「変更なし」です。本ツールは両方の JSON ツリーを巡回し、差分のあるパスを <a href="https://datatracker.ietf.org/doc/html/rfc6901" target="_blank" rel="noopener noreferrer">RFC 6901 JSON Pointer</a>（<code>/users/0/name</code>）で報告するため、フォーマットに左右されない明確な出力になります。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>2 つの API レスポンスを比較し、空白やキー順序のノイズを無視して、リリースで実際に何が変わったか確認したいとき。</li>
+  <li>マイグレーション前後の設定ファイルを比較し、意図したフィールドだけ動いたか確認したいとき。</li>
+  <li>RFC 6902 の JSON Patch を生成し、それを受け付けるシステム（PATCH エンドポイント、JSON-Merge-Patch のフォールバック）に送りたいとき。</li>
+  <li>2 つのテストフィクスチャを見比べ、片方だけ落ちる原因を推測したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>配列比較モードは大事です。</strong> 「by index」は要素を 1 つ挿入すると以後の全要素が remove+add になります。「by value」は集合扱いなので、本物の並び替えを見落とします。データの想定順序に合うほうを選んでください。</li>
+  <li><strong>数値と文字列は構造的には別物です。</strong> <code>{"id": 1}</code> と <code>{"id": "1"}</code> は型が違うため変更として表示されます。気になる場合は事前に型を正規化してください。</li>
+  <li><strong>RFC 6902 は一方向のパッチであり、マージではありません。</strong> 本物の RFC 6902 実装で適用してください。文字列置換で適用してはいけません。</li>
+  <li><strong>巨大なツリーはノイジーになります。</strong> 数百件もの差分が出るなら、関係のない 2 つのドキュメントを比べている可能性が高いので、入力を確認してください。</li>
 </ul>
 """,
     },

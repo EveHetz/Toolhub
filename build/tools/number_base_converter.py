@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Konwertuj między binarnym, oktalnym, dziesiętnym, szesnastkowym i dowolną bazą od 2 do 36.",
             "description": "Darmowy online konwerter systemów liczbowych. Konwertuj między binary, octal, decimal, hex i dowolną bazą 2-36. Obsługuje liczby ujemne i duże integery przez BigInt.",
         },
+        "ja": {
+            "name": "進数変換ツール",
+            "tagline": "2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換。",
+            "description": "オンライン無料の進数変換ツール。2 進、8 進、10 進、16 進、そして 2〜36 の任意の基数を相互変換できます。負数や大きな整数も BigInt によって扱えます。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -223,6 +228,34 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>Duże liczby nie tracą tu precyzji.</strong> JS-owy <code>Number</code> ma kres w 2<sup>53</sup>; to narzędzie używa <code>BigInt</code>, więc 64-bitowe integery, duże hashe i wartości kryptograficzne robią dokładny round-trip.</li>
   <li><strong>Nie myl bazy z wielkością liter.</strong> Litery base-16 mogą być wielkie albo małe; narzędzie akceptuje obie i emituje wielkie. Wyjścia base-32 / base-36 są małe z konwencji.</li>
   <li><strong>Wiodące zera są usuwane.</strong> <code>0x000F</code> staje się <code>F</code>. Jeśli potrzebujesz hex stałej szerokości (np. do reprezentacji bajtów), dopadduj potem w swoim kodzie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>数は基数によらず同じ数です。<code>255</code>、<code>0xff</code>、<code>0b11111111</code>、<code>0o377</code> はすべて等価です。とはいえ、メモリレイアウト間の翻訳、カラーコードのパース、ビットフィールドのデコード、デバッガでの hex の読み取りなど、どの基数で読み書きするかは重要です。本ツールは 2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換します。内部で BigInt を使うため、大きな数値でも精度は失われません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>スタックトレースに出てきた hex 値を 10 進で確認したいとき。</li>
+  <li>CSS の色 <code>0xff8800</code> を RGB トリプルに、あるいはその逆に変換したいとき。</li>
+  <li>ビットマスクやフラグ整数を 2 進で見て、どのビットが立っているかを確認したいとき。</li>
+  <li>base-36 の短い ID と 10 進カウンタの間で変換したいとき。</li>
+</ul>
+
+<h3>認識される接頭辞</h3>
+<ul>
+  <li>Hex: <code>0x</code>、<code>0X</code>、<code>#</code></li>
+  <li>2 進: <code>0b</code>、<code>0B</code></li>
+  <li>8 進: <code>0o</code>、<code>0O</code></li>
+  <li>桁区切りのアンダースコア：<code>1_000_000</code></li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>負数は符号付き表示で、2 の補数ではありません。</strong> <code>-128</code> は 2 進で <code>-10000000</code> と表示されます（<code>10000000</code> ではありません）。任意精度整数を扱う言語の多くも同様です。</li>
+  <li><strong>大きな数で精度を失いません。</strong> JavaScript の <code>Number</code> は 2<sup>53</sup> で頭打ちになりますが、本ツールは <code>BigInt</code> を使うため、64 bit 整数や大きなハッシュ、暗号値も正確にラウンドトリップします。</li>
+  <li><strong>基数と大文字小文字を混同しないでください。</strong> 16 進の文字は大文字でも小文字でも受け付け、出力は大文字。32 進・36 進は慣例で小文字です。</li>
+  <li><strong>先頭のゼロは落ちます。</strong> <code>0x000F</code> は <code>F</code> になります。固定幅の hex（バイト表現など）が必要なら、後続のコードでパディングしてください。</li>
 </ul>
 """,
     },

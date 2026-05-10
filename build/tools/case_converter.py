@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore di Maiuscole/Minuscole", "tagline": "Converti testo tra MAIUSCOLO, minuscolo, Titolo, Frase, camelCase, PascalCase, snake_case, kebab-case, COSTANTE e dot.case.", "description": "Convertitore di maiuscole/minuscole gratuito. MAIUSC, minusc, titolo, frase, camel, pascal, snake, kebab, costante e punto."},
         "pt": {"name": "Conversor de Capitalização", "tagline": "Converta texto entre MAIÚSCULAS, minúsculas, Título, Frase, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE e dot.case.", "description": "Conversor de capitalização online gratuito. Alterne texto entre maiúsculas, minúsculas, título, frase, camel, pascal, snake, kebab, constant e dot case com um clique."},
         "pl": {"name": "Konwerter Wielkości Liter", "tagline": "Konwertuj tekst między WIELKIMI, małymi, Tytułowymi, Zdaniowymi, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE i dot.case.", "description": "Darmowy konwerter wielkości liter online. Zmień tekst między upper, lower, title, sentence, camel, pascal, snake, kebab, constant i dot case jednym kliknięciem."},
+        "ja": {"name": "ケース変換ツール", "tagline": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "description": "オンライン無料のケース変換ツール。upper、lower、title、sentence、camel、pascal、snake、kebab、constant、dot ケースをワンクリックで切り替えできます。"},
     },
     "body": """
 <div class="tool-card">
@@ -146,6 +147,26 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>Liczby przyklejają się do poprzedniego słowa.</strong> "Item2" staje się jednym słowem "item2", nie dwoma. Dodaj separator, jeśli chcesz je rozdzielić.</li>
   <li><strong>"Pierwsza litera camelCase"</strong> jest zawsze mała, nawet jeśli wejście zaczynało się od wielkiej. PascalCase zachowuje wielką.</li>
   <li><strong>Round-trip nie zawsze jest bezstratny.</strong> Przejście camelCase → kebab-case → camelCase gubi oryginalną informację o wielkości liter na granicach słów; heurystyka robi co może, ale nie odtworzy tego, czego nie zachowano.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>言語やプラットフォームごとに命名規則は異なります。JavaScript は <code>camelCase</code>、Python は <code>snake_case</code>、CSS は <code>kebab-case</code>、環境変数は <code>CONSTANT_CASE</code>。これらを手作業で変換するのは手間がかかり、特に頭字語、数字、既存の区切り記号があると面倒です。このツールは大文字・小文字の変化、区切り記号（<code>_ - . /</code>）、空白を検出して入力を単語に分割し、14 種類のスタイルで再構成します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>API JSON のフィールド名（camelCase）を Python ORM のカラム名（snake_case）にリネームするとき。</li>
+  <li>PascalCase で渡されるデザインシステムのトークン名から CSS クラス名を生成するとき。</li>
+  <li>見出しのリストを kebab-case のスラグや、環境変数名を CONSTANT_CASE に変換するとき。</li>
+  <li>"The Quick Brown Fox" を Title Case、Sentence case、Train-Case にサッと変換して見出しやボタンラベルを作りたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>頭字語は厄介です。</strong> "XMLHttpRequest" は "XML_Http_Request" にすべきか、"Xml_Http_Request" にすべきか？ このツールは連続する大文字を 1 つの境界として扱い（<code>xml http request</code>）、再キャピタライズします。Java/JS の慣習には合いますが、すべてのスタイルガイドに合うわけではありません。</li>
+  <li><strong>数字は前の単語にくっつきます。</strong> "Item2" は "item2" 1 単語になり、2 つには分かれません。分けたい場合は区切り記号を入れてください。</li>
+  <li><strong>"camelCase の最初の文字"</strong> は、入力が大文字で始まっていても常に小文字になります。PascalCase は大文字を保持します。</li>
+  <li><strong>ラウンドトリップは必ずしも無損失ではありません。</strong> camelCase → kebab-case → camelCase と変換すると、元の単語境界の大文字情報は失われます。検出ヒューリスティックは可能な限り頑張りますが、保持されていない情報は復元できません。</li>
 </ul>
 """,
     },

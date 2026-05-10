@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Formattatore HTML", "tagline": "Formatta e abbellisce HTML o minifica. Dimensione indentazione, rimozione commenti, consapevolezza tag auto-chiudenti.", "description": "Formattatore e minificatore HTML gratuito. Pretty-print con indentazione configurabile, rimozione opzionale dei commenti, rispetto dei tag void/auto-chiudenti. 100% nel browser."},
         "pt": {"name": "Formatador HTML", "tagline": "Formata e embeleza HTML ou minifica. Tamanho de indentação, remoção de comentários e reconhecimento de tags auto-fechantes.", "description": "Formatador e minificador HTML grátis online. Pretty-print com indentação configurável, remoção opcional de comentários e respeito por tags void/auto-fechantes. Roda totalmente no seu browser."},
         "pl": {"name": "Formatter HTML", "tagline": "Sformatuj i upiększ HTML albo zminifikuj. Rozmiar wcięcia, usuwanie komentarzy i świadomość tagów samozamykających.", "description": "Darmowy online formatter i minifikator HTML. Pretty-print z konfigurowalnym wcięciem, opcjonalne usuwanie komentarzy i respektowanie tagów void/samozamykających. Działa w całości w przeglądarce."},
+        "ja": {"name": "HTML フォーマッター", "tagline": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "description": "オンライン無料の HTML フォーマッター / ミニファイア。設定可能なインデントでの整形、コメントの任意除去、void / 自己終了タグの認識に対応。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -399,6 +400,28 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>"Collapse whitespace" zmienia renderowany wynik dla niektórych treści.</strong> Dwie spacje stają się jedną. Jeśli design polega na wielu spacjach albo non-breaking sequence'ach, zostaw wyłączone.</li>
   <li><strong>Notacja samozamykająca w HTML jest kosmetyczna.</strong> <code>&lt;br/&gt;</code> i <code>&lt;br&gt;</code> są równoważne w HTML5; narzędzie zachowuje to, co napisałeś.</li>
   <li><strong>Minify to nie granica bezpieczeństwa.</strong> Nie polegaj na usuwaniu komentarzy do ukrywania sekretów — i tak były wysłane do klienta.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>HTML マークアップは、本番向けにミニファイされたもの、テンプレートエンジンが空白を気にせず生成したもの、手書きで一貫しないインデントのものなど、いろいろな状態でやってきます。本ツールは任意の HTML を、ネスト要素ごとに一貫したインデントで整形します。void 要素（<code>&lt;img&gt;</code>、<code>&lt;br&gt;</code>、<code>&lt;meta&gt;</code>）やインライン要素（<code>&lt;a&gt;</code>、<code>&lt;span&gt;</code>、<code>&lt;strong&gt;</code>）を識別するため、出力は機械的でなく自然な HTML になります。Minify モードはタグ間の空白を削除し、必要に応じてコメントも除去します。すべてブラウザ内で完結します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ミニファイ済みの HTML メールやページの「ソース表示」コピーを、構造を読み取れるよう整形したいとき。</li>
+  <li>CMS や WYSIWYG のスニペットをコードレビュー前に綺麗にしたいとき。</li>
+  <li>静的 HTML のアセットをデプロイ前にミニファイし、転送量を減らしたい・コメントの漏洩を防ぎたいとき。</li>
+  <li>テンプレートから著者コメントを除去して公開したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これは実用本位のトークナイザで、完全な HTML5 パーサーではありません。</strong> 実際のフラグメントには十分強いですが、ひどく壊れた入力からの復元はブラウザほど巧みには行いません（ブラウザは完全な HTML パースアルゴリズムでエラーを黙って修復しますが、本ツールはそこまで行いません）。</li>
+  <li><strong><code>&lt;pre&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;script&gt;</code>、<code>&lt;style&gt;</code> 内の空白は保持されます。</strong> これらの要素は raw として扱われ、再インデントは行いません。</li>
+  <li><strong>インライン要素は親テキストと同じ行に置かれます。</strong> <code>&lt;p&gt;some &lt;b&gt;bold&lt;/b&gt; text&lt;/p&gt;</code> は改行されません。</li>
+  <li><strong>「空白の圧縮」は一部のコンテンツでレンダリング結果を変えます。</strong> 連続スペースが 1 つにまとまります。複数スペースや non-breaking 系列に依存するデザインでは無効にしてください。</li>
+  <li><strong>HTML での自己終了表記は装飾的です。</strong> HTML5 では <code>&lt;br/&gt;</code> と <code>&lt;br&gt;</code> は等価であり、本ツールは入力どおりを保持します。</li>
+  <li><strong>Minify はセキュリティ境界ではありません。</strong> コメント除去で秘密を隠そうとしないでください。それらは既にクライアントに配信されています。</li>
 </ul>
 """,
     },

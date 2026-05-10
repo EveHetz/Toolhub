@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クエリ文字列ビルダー — Toolhub</title>
+  <meta name="description" content="オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。">
+  <meta property="og:title" content="クエリ文字列ビルダー — Toolhub">
+  <meta property="og:description" content="オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/query-string-builder/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/query-string-builder/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/query-string-builder/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/query-string-builder/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/query-string-builder/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/query-string-builder/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/query-string-builder/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/query-string-builder/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/query-string-builder/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/query-string-builder/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/query-string-builder/">
+  <meta property="og:locale" content="ja_JP">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/ja/query-string-builder/#tool",
+        "name": "クエリ文字列ビルダー",
+        "description": "オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。",
+        "url": "https://toolhub.software/ja/query-string-builder/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["query string", "url", "params", "encode", "build", "key value"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "すべてのツール", "item": "https://toolhub.software/ja/"},
+          {"@type": "ListItem", "position": 2, "name": "クエリ文字列ビルダー", "item": "https://toolhub.software/ja/query-string-builder/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .row-2col { grid-template-columns: 1fr; } }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/ja/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/query-string-builder/'; else location.href='/query-string-builder/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" selected="selected">🇯🇵 JA</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / クエリ文字列ビルダー</div>
+    <h1>クエリ文字列ビルダー</h1>
+    <p class="tagline">key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。</p>
+    
+<div class="tool-card">
+  <label>Base URL (optional)</label>
+  <input type="text" id="qs-base" oninput="qsBuild()" placeholder="https://api.example.com/search" autocomplete="off" spellcheck="false" style="font-family:ui-monospace,monospace">
+</div>
+<div class="tool-card">
+  <label>Parameters</label>
+  <div id="qs-rows"></div>
+  <div class="button-row">
+    <button class="secondary" onclick="qsAdd()">+ Add row</button>
+    <button class="secondary" onclick="qsClear()">Reset</button>
+  </div>
+  <div class="row-2col" style="margin-top:0.7rem">
+    <div>
+      <label>Array notation</label>
+      <select id="qs-array" onchange="qsBuild()">
+        <option value="brackets" selected>a[]=1&amp;a[]=2 (PHP / Rails)</option>
+        <option value="repeat">a=1&amp;a=2 (repeat key)</option>
+        <option value="comma">a=1,2 (comma-separated)</option>
+      </select>
+    </div>
+    <div>
+      <label>Space encoding</label>
+      <select id="qs-space" onchange="qsBuild()">
+        <option value="percent" selected>%20 (URI standard)</option>
+        <option value="plus">+ (form data)</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Query string</label>
+  <div class="output-row">
+    <pre class="output" id="qs-out" style="margin:0;flex:1">上に入力すると結果が表示されます。</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('qs-out', this)">コピー</button>
+  </div>
+  <div class="meta" id="qs-full" style="margin-top:0.5rem;font-family:ui-monospace,monospace;font-size:0.82rem"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>用途</h2>
+<p>クエリ文字列は <code>?</code>、<code>=</code>、<code>&amp;</code> でつないだ key/value のリストにすぎませんが、手書きで正しく作るのは面倒です。スペースは <code>%20</code>（場合によっては <code>+</code>）に、各値は percent-encode され、配列にも 3 通り以上の慣習があります。本ツールは入力した key と value、必要なら「multi」をチェックすると、<code>?</code> の後にそのまま貼り付けられる正しくエンコード済みの文字列を生成します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>スペース、アクセント、記号を含む複数パラメータの API URL を作成するとき。</li>
+  <li>UTM タグの追跡用リンクをエンコードミスなく組み立てたいとき。</li>
+  <li>メール、チャット、SNS を経由するディープリンクや共有 URL を作るとき。</li>
+  <li>API がどの配列記法を期待するか — <code>a[]=1</code>、<code>a=1&amp;a=2</code>、<code>a=1,2</code> — を試して確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>配列の慣習は標準化されていません。</strong> PHP や Rails は <code>a[]=1&amp;a[]=2</code>、Python の <code>requests</code> はデフォルトで <code>a=1&amp;a=2</code> を繰り返し、ASP.NET はカンマ区切りが多いです。API の期待形式に合わせてください。</li>
+  <li><strong><code>+</code> と <code>%20</code>。</strong> <code>application/x-www-form-urlencoded</code> はスペースに <code>+</code>、URI のクエリは厳密には <code>%20</code> です。両方受け付けるサーバーが多いものの、API のドキュメントに従うのが無難です。</li>
+  <li><strong>空値とキー欠落は別物。</strong> <code>?a=</code> は「a は空文字」、<code>a</code> 自体を省略するのは「値が無い」。両者を区別する API もあります。</li>
+  <li><strong>予約文字の取り扱い。</strong> 値内の <code>=</code>、<code>&amp;</code>、<code>#</code>、<code>?</code> はエンコードされます。生のままだとパラメータやクエリ全体が打ち切られる原因になります。</li>
+  <li><strong>順序が重要なことがあります。</strong> S3、Stripe Webhook、OAuth 1.0 などの署名付き URL は署名前にパラメータの並び順が決まっています。本ツールは入力行の順序を保持します。</li>
+  <li><strong>長さ制限。</strong> ブラウザやサーバーはおおむね 2〜8 KB でクエリを切ります。JSON をクエリパラメータに詰め込むのは設計上のサインです。</li>
+  <li><strong>クエリに秘密情報を入れないこと。</strong> サーバーログ、ブラウザ履歴、Referer ヘッダーに残ります。リクエストボディや Authorization ヘッダーを使ってください。</li>
+</ul>
+<div class="related"><span class="meta">関連ツール:</span> <a href="/ja/url-parser/">URL パーサー</a> <a href="/ja/url-encoder/">URL エンコーダー / デコーダー</a> <a href="/ja/json-formatter/">JSON フォーマッター</a> <a href="/ja/jwt-decoder/">JWT デコーダー</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.qs-row { display: grid; grid-template-columns: 1fr 1fr auto auto; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+.qs-row input { font-family: ui-monospace, monospace; font-size: 0.88rem; }
+.qs-row button { padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+.qs-row label.qs-multi { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; cursor: pointer; }
+@media (max-width: 600px){ .qs-row { grid-template-columns: 1fr 1fr; } .qs-row > :nth-child(3), .qs-row > :nth-child(4) { grid-column: span 1; } }
+</style>
+<script>
+let QS_ROWS = [
+  {key: 'q', val: 'hello world', multi: false},
+  {key: 'lang', val: 'en', multi: false},
+  {key: 'tags', val: 'fast,minimal', multi: true}
+];
+
+function qsRender(){
+  const wrap = document.getElementById('qs-rows');
+  wrap.innerHTML = '';
+  QS_ROWS.forEach((row, i) => {
+    const div = document.createElement('div');
+    div.className = 'qs-row';
+    div.innerHTML = `
+      <input type="text" placeholder="key" value="">
+      <input type="text" placeholder="value" value="">
+      <label class="qs-multi"><input type="checkbox"> multi</label>
+      <button class="secondary">×</button>
+    `;
+    const inputs = div.querySelectorAll('input');
+    inputs[0].value = row.key;
+    inputs[1].value = row.val;
+    inputs[2].checked = !!row.multi;
+    inputs[0].oninput = () => { QS_ROWS[i].key = inputs[0].value; qsBuild(); };
+    inputs[1].oninput = () => { QS_ROWS[i].val = inputs[1].value; qsBuild(); };
+    inputs[2].onchange = () => { QS_ROWS[i].multi = inputs[2].checked; qsBuild(); };
+    div.querySelector('button').onclick = () => { QS_ROWS.splice(i, 1); qsRender(); qsBuild(); };
+    wrap.appendChild(div);
+  });
+}
+
+function qsAdd(){ QS_ROWS.push({key:'', val:'', multi:false}); qsRender(); qsBuild(); }
+function qsClear(){ QS_ROWS = [{key:'', val:'', multi:false}]; qsRender(); qsBuild(); }
+
+function qsEncode(s, spaceMode){
+  let out = encodeURIComponent(s);
+  if(spaceMode === 'plus') out = out.replace(/%20/g, '+');
+  return out;
+}
+
+function qsBuild(){
+  const arrayMode = document.getElementById('qs-array').value;
+  const spaceMode = document.getElementById('qs-space').value;
+  const parts = [];
+  for(const row of QS_ROWS){
+    if(!row.key) continue;
+    if(row.multi){
+      const values = row.val.split(',').map(s => s.trim()).filter(s => s !== '');
+      if(values.length === 0){ parts.push(qsEncode(row.key, spaceMode) + '='); continue; }
+      if(arrayMode === 'comma'){
+        parts.push(qsEncode(row.key, spaceMode) + '=' + values.map(v => qsEncode(v, spaceMode)).join(','));
+      } else if(arrayMode === 'brackets'){
+        for(const v of values) parts.push(qsEncode(row.key, spaceMode) + '[]=' + qsEncode(v, spaceMode));
+      } else {
+        for(const v of values) parts.push(qsEncode(row.key, spaceMode) + '=' + qsEncode(v, spaceMode));
+      }
+    } else {
+      parts.push(qsEncode(row.key, spaceMode) + '=' + qsEncode(row.val, spaceMode));
+    }
+  }
+  const qs = parts.length ? '?' + parts.join('&') : '';
+  const out = document.getElementById('qs-out');
+  if(!qs){ out.textContent = '(no parameters)'; }
+  else out.textContent = qs;
+  const base = document.getElementById('qs-base').value.trim();
+  document.getElementById('qs-full').textContent = base ? base + qs : '';
+}
+
+document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

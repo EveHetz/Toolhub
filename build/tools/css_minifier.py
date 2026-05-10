@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Minificatore CSS", "tagline": "Rimuovi commenti, spazi e ridondanza dal CSS. Vedi dimensione prima/dopo e percentuale di risparmio.", "description": "Minificatore CSS online gratuito. Rimuove commenti, comprime spazi, taglia punti e virgola e unità zero. Mostra il rapporto di compressione."},
         "pt": {"name": "Minificador CSS", "tagline": "Remova comentários, espaços e redundância do CSS. Veja o tamanho antes/depois e o percentual de economia.", "description": "Minificador CSS online gratuito. Remove comentários, colapsa espaços, corta ponto e vírgula final e unidades zero. Mostra a taxa de compressão."},
         "pl": {"name": "Minifikator CSS", "tagline": "Usuń komentarze, białe znaki i nadmiarowość z CSS. Zobacz rozmiar przed/po i procent oszczędności.", "description": "Darmowy online minifikator CSS. Usuwa komentarze, zwija białe znaki, ucina końcowe średniki i jednostki zero. Pokazuje współczynnik kompresji."},
+        "ja": {"name": "CSS ミニファイア", "tagline": "CSS からコメント・空白・冗長な記述を除去。ビフォア／アフターのサイズと圧縮率を表示。", "description": "オンライン無料の CSS ミニファイア。コメント除去、空白の圧縮、末尾セミコロンとゼロ単位のトリミングを実施し、圧縮率を表示します。"},
     },
     "body": """
 <div class="tool-card">
@@ -176,6 +177,34 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>Source mapy nie są generowane.</strong> Jeśli debugujesz zminifikowany CSS na produkcji, wysyłaj je osobno.</li>
   <li><strong>Nie commituj zminifikowanego CSS-a.</strong> Commituj ładne źródło; minifikuj na buildzie/deployu. Mieszanie tych dwóch sprawia, że review diffów staje się męką.</li>
   <li><strong>Nowoczesna kompresja dominuje.</strong> Brotli/gzip na drucie robi większość tego, co minifikacja. Największe oszczędności biorą się z usuwania nieużywanych reguł — to robota dla tree-shakingu, nie minifikacji.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>ソース上で読みやすい CSS（コメント、インデント、意味のある空白を伴うもの）は、ユーザーがダウンロードするファイルを肥大化させます。構造的なミニファイアは、ルールの意味を変えずに見た目用のバイト（コメント、空白の連続、冗長なゼロ、より短い等価な hex コード）をすべて取り除きます。本ツールはその処理をブラウザ内で実行し、ビフォア／アフターのサイズを表示して節約量を確認できます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>HTML メールやブログテンプレートにインラインで CSS スニペットを単発で送りたいときに、ビルドチェーンなしでバイトを削減したい。</li>
+  <li>本格的なオプティマイザを導入する価値があるか判断する前に、スタイルシートの「贅肉」がどの程度かを素早く確認したい。</li>
+  <li>サードパーティのウィジェット用に、配布されている整形済み CSS を圧縮して組み込みたい。</li>
+</ul>
+
+<h3>処理内容</h3>
+<ul>
+  <li>ブロックコメント（<code>/* … */</code>）を削除します。<code>//</code> はそもそも素の CSS としては有効ではありません。</li>
+  <li><code>{ } : ; ,</code> や結合子（<code>&gt; ~ +</code>）まわりの空白を圧縮します。</li>
+  <li><code>}</code> の前の末尾セミコロンを削除します。</li>
+  <li>先頭の 0 を削除（<code>0.5</code> → <code>.5</code>）し、ゼロからは単位を削除（<code>0px</code> → <code>0</code>）します。</li>
+  <li>等価で短く書ける場合は hex 色を短縮（<code>#aabbcc</code> → <code>#abc</code>）します。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>これは構造的なミニファイで、フルオプティマイザではありません。</strong> 重複セレクタの統合、ルールの並び替え、shorthand への書き換えは行いません。それらは <code>cssnano</code> や <code>esbuild</code> をビルドパイプラインで使ってください。</li>
+  <li><strong>ソースマップは生成しません。</strong> 本番でミニファイ後の CSS をデバッグする場合は別途配布してください。</li>
+  <li><strong>ミニファイ済み CSS をコミットしないこと。</strong> ソースは整形済みでコミットし、ビルド／デプロイ時にミニファイします。両者を混ぜると差分レビューが地獄になります。</li>
+  <li><strong>現代では転送時の圧縮が支配的です。</strong> ワイヤ上の Brotli/gzip がミニファイの大部分の効果を担います。最大の削減は未使用ルールの除去から得られ、これはミニファイではなく tree-shaking の仕事です。</li>
 </ul>
 """,
     },

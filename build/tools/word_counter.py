@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Contatore Parole", "tagline": "Conta parole, caratteri, frasi, paragrafi e stima tempo di lettura e parlato in tempo reale.", "description": "Contatore di parole gratuito. Conteggio live di parole, caratteri (con/senza spazi), frasi, paragrafi, sillabe e stima del tempo di lettura e parlato."},
         "pt": {"name": "Contador de Palavras", "tagline": "Conte palavras, caracteres, frases, parágrafos e estime tempo de leitura e fala enquanto você digita.", "description": "Contador de palavras online gratuito. Contagem ao vivo de palavras, caracteres (com e sem espaços), frases, parágrafos, sílabas, mais estimativas de tempo de leitura e fala."},
         "pl": {"name": "Licznik Słów", "tagline": "Licz słowa, znaki, zdania, akapity i estymuj czas czytania + mówienia w trakcie pisania.", "description": "Darmowy online licznik słów. Liczenie na żywo słów, znaków (ze spacjami i bez), zdań, akapitów, sylab plus estymacja czasu czytania i mówienia."},
+        "ja": {"name": "ワードカウンター", "tagline": "単語数・文字数・文数・段落数を数え、入力中に読了時間と発話時間を概算。", "description": "オンライン無料のワードカウンター。単語数、文字数（スペース含む／含まない）、文数、段落数、音節数のライブカウントに加え、読了時間と発話時間の概算を提供します。"},
     },
     "body": """
 <div class="tool-card">
@@ -188,6 +189,39 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Liczenie słów różni się między narzędziami.</strong> Word, Google Docs i systemy submisji journali potrafią różnić się o kilka procent — inaczej traktują myślniki, pauzy i liczby. Jeśli twardy limit ma znaczenie, licz w tym samym narzędziu, którego używa gatekeeper.</li>
   <li><strong>"Najczęstsze" nie filtruje stop words.</strong> "i", "w", "na" prawie zawsze lecą na czoło. Patrz na dłuższe wpisy po realny sygnał.</li>
   <li><strong>Estymaty czasu czytania są osobiste.</strong> 250 wpm to mediana; treść techniczna idzie wolniej, fikcja szybciej. Traktuj liczbę jako wskazówkę planowania, nie predykcję.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>単語数や文字数を手で数えるのは面倒で間違いやすい一方、これらは常に意味を持ちます。Tweet の上限、SMS のセグメント、エッセイの語数、SEO のメタディスクリプション、ジャーナル投稿の長さなど。本ツールは入力に応じてライブで集計します。単語、文字（スペース込み／なし）、文、段落、行数のほか、読了時間・発話時間の概算と、頻出単語トップ 5 のクイック頻度分析を提供します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>X/Twitter の 280 字、SMS の 160 字、SEO メタディスクリプションの 155 字、LinkedIn 紹介の 100 ワードに収めたいとき。</li>
+  <li>エッセイ、ブログ、要旨、申請書を厳格な語数制限内にバジェットしたいとき。</li>
+  <li>原稿の朗読時間を見積もりたいとき（ポッドキャスト、プレゼン、ナレーション）。</li>
+  <li>提出前に「最頻出」リストから過剰使用語を見つけたいとき。</li>
+  <li>翻訳が原文と概ね同じ長さになっているか確認したいとき。</li>
+</ul>
+
+<h3>各指標の意味</h3>
+<ul>
+  <li><strong>単語</strong> — 空白で区切られた非空白文字の連続。「twenty-one」は 1 単語、「twenty one」は 2 単語。</li>
+  <li><strong>文字</strong> と <strong>文字（スペース除く）</strong> — どちらも Unicode コードポイント数（バイトではない）。絵文字はここでは 1〜2「文字」でも、保存時にはより多くのバイトを使います。</li>
+  <li><strong>文</strong> — <code>.</code>、<code>!</code>、<code>?</code>（または末尾）で終わるセグメント。ヒューリスティックです。</li>
+  <li><strong>段落</strong> — 空行で区切られた塊。</li>
+  <li><strong>読了時間</strong> は 250 wpm（成人の黙読）を仮定。</li>
+  <li><strong>発話時間</strong> は 130 wpm（典型的な会話速度。ニュース読みは速く、オーディオブックは遅め）を仮定。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>文の検出は素朴です。</strong> "Mr."、"U.S."、"e.g."、"3.14"、三点リーダーで文数が水増しされることがあります。あくまで参考値です。</li>
+  <li><strong>Twitter/X は文字ではなくコードポイントで数えます。</strong> 国旗絵文字 🇯🇵 は 2 コードポイントで 1 シンボルとして表示されますが、Twitter は 2 文字としてカウントします。本ツールも同じ挙動です。</li>
+  <li><strong>SMS の文字数上限はエンコーディング次第です。</strong> 純粋 ASCII ならセグメント 160 字、GSM 外の文字（em-dash、スマートクォート、アクセント文字など）が 1 文字でも入ると UCS-2 に切り替わり、上限は 70 字になります。本ツールは GSM の上限を表示します。実コストはキャリアの仕様も確認してください。</li>
+  <li><strong>単語数はツールごとに数 % 違います。</strong> Word、Google Docs、ジャーナル投稿システムはハイフン、ダッシュ、数字の扱いが異なります。厳格な制限に合わせるなら、ゲートキーパーが使うのと同じツールで数えてください。</li>
+  <li><strong>「最頻出」はストップワードを除外しません。</strong> "the" や "a" がほぼ常にトップに来ます。実質的なシグナルは長めの単語を見るとよいです。</li>
+  <li><strong>読了時間の概算は人によって異なります。</strong> 250 wpm は中央値。技術文章は遅く、フィクションは速く読まれます。計画の目安として使ってください。</li>
 </ul>
 """,
     },

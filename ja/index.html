@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toolhub.software — 開発者向け無料オンラインツール</title>
+  <meta name="description" content="60+ 個の開発者向け無料オンラインツール — JSON フォーマッター、パスワード生成、Base64 エンコードなど。登録不要・追跡なし。">
+  <meta property="og:title" content="toolhub.software — 開発者向け無料オンラインツール">
+  <meta property="og:description" content="60+ 個の開発者向け無料オンラインツール — JSON フォーマッター、パスワード生成、Base64 エンコードなど。登録不要・追跡なし。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/ja/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/ja/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "toolhub.software",
+    "url": "https://toolhub.software/ja",
+    "description": "60+ 個の開発者向け無料オンラインツール — JSON フォーマッター、パスワード生成、Base64 エンコードなど。登録不要・追跡なし。",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://toolhub.software/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --card-hover: #1c2129;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --card-hover: #f3f4f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+
+    .header { padding: 2rem 1.5rem 1rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .lang-select { background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+    .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    .install-btn { display: none; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero { text-align: center; padding: 2rem 1.5rem 1.5rem; max-width: 700px; margin: 0 auto; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; }
+
+    .search-wrap { max-width: 600px; margin: 1.5rem auto; padding: 0 1.5rem; }
+    .search-wrap input { width: 100%; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; outline: none; }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+
+    .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.5rem 1.5rem 1rem; max-width: 800px; margin: 0 auto; }
+    .filter-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.35rem 0.85rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.15s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
+    .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
+    .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text); }
+    .card p { font-size: 0.85rem; color: var(--text-muted); }
+    .card-meta { margin-top: 0.6rem; display: flex; gap: 0.5rem; }
+    .tag { font-size: 0.7rem; background: var(--bg); padding: 0.15rem 0.5rem; border-radius: 10px; color: var(--text-muted); }
+
+    .footer { text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+
+    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.6rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><span>Tool</span>hub</div>
+    <div class="header-actions">
+      <select class="lang-select" onchange="switchLang(this.value)">
+        <option value="">🇬🇧 English</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇧🇷 Português</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="ja" selected>🇯🇵 日本語</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">アプリをインストール</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>開発者向け無料オンラインツール</h1>
+    <p id="hero-sub"></p>
+  </section>
+
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="ツールを検索…  (/ キーでフォーカス)" oninput="filterTools()">
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="ad-slot" data-slot="indexTop"></div>
+
+  <div class="grid" id="grid"></div>
+  <div class="ad-slot" data-slot="indexBottom"></div>
+  <div class="no-results" id="no-results">該当するツールが見つかりません。別のキーワードでお試しください。</div>
+
+  <footer class="footer">
+    <p>© 2026 toolhub.software — 開発者向け無料ツール。</p>
+    <p><a href="/privacy/">プライバシー</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+
+  <script>
+        const TOOLS = [
+      {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
+      {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
+      {"slug": "bmi-calculator", "name": "BMI 計算機", "desc": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "icon": "⚖️", "cat": "math", "tags": ["bmi", "body mass index", "health", "weight", "height", "metric", "imperial"]},
+      {"slug": "case-converter", "name": "ケース変換ツール", "desc": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "icon": "Aa", "cat": "text", "tags": ["case", "convert", "camel", "snake", "kebab", "pascal", "title", "upper", "lower"]},
+      {"slug": "cidr-calculator", "name": "CIDR / サブネット計算機", "desc": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
+      {"slug": "color-converter", "name": "カラー変換ツール", "desc": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
+      {"slug": "color-picker", "name": "カラーピッカー", "desc": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
+      {"slug": "credit-card-validator", "name": "クレジットカード検証ツール", "desc": "Luhn チェックでカード番号を検証し、ブランドを検出。ローカル動作で、番号は送信されません。", "icon": "💳", "cat": "validation", "tags": ["credit card", "validate", "luhn", "visa", "mastercard", "amex", "discover"]},
+      {"slug": "cron-builder", "name": "cron 式ビルダー", "desc": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。", "icon": "⏱", "cat": "developer", "tags": ["cron", "schedule", "builder", "crontab", "next run"]},
+      {"slug": "cron-parser", "name": "cron 式パーサー", "desc": "cron 式をパースし、次の 10 回の発火時刻を表示。標準 5 フィールドの crontab。", "icon": "🕒", "cat": "developer", "tags": ["cron", "schedule", "crontab", "next run", "expression"]},
+      {"slug": "css-box-shadow", "name": "CSS box-shadow ジェネレーター", "desc": "1 層または多層の CSS box-shadow をビジュアルに作成。オフセット・ぼかし・広がり・色を調整し、CSS をコピー。", "icon": "▣", "cat": "design", "tags": ["css", "shadow", "box-shadow", "design", "depth", "elevation"]},
+      {"slug": "css-gradient", "name": "CSS グラデーションジェネレーター", "desc": "線形・放射状の CSS グラデーションをビジュアルに作成。カラーストップを編集して、貼り付けるだけの CSS をコピー。", "icon": "🌈", "cat": "design", "tags": ["css", "gradient", "linear", "radial", "design", "background"]},
+      {"slug": "css-minifier", "name": "CSS ミニファイア", "desc": "CSS からコメント・空白・冗長な記述を除去。ビフォア／アフターのサイズと圧縮率を表示。", "icon": "{}", "cat": "developer", "tags": ["css", "minify", "compress", "optimize", "stylesheet"]},
+      {"slug": "csv-to-json", "name": "CSV から JSON", "desc": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。", "icon": "📊", "cat": "data", "tags": ["csv", "json", "convert", "data", "import"]},
+      {"slug": "date-calculator", "name": "日付計算機", "desc": "2 つの日付の差・日付に対する日／週／月／年の加減・年齢を年・月・日で算出。", "icon": "📅", "cat": "datetime", "tags": ["date", "calculator", "duration", "between", "add", "subtract", "age", "weekday"]},
+      {"slug": "dice-roller", "name": "ダイスローラー", "desc": "標準 D&D 記法でダイスをロール — 2d6+3、1d20、4d6 keep highest 3 など。暗号論的に安全な RNG。", "icon": "🎲", "cat": "utility", "tags": ["dice", "roll", "d20", "rpg", "dnd", "random", "tabletop", "notation"]},
+      {"slug": "email-validator", "name": "メールアドレス検証ツール", "desc": "メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。", "icon": "✉", "cat": "validation", "tags": ["email", "validate", "rfc", "syntax", "mx", "domain"]},
+      {"slug": "emoji-picker", "name": "絵文字ピッカー", "desc": "名前とキーワードで検索できる絵文字パレット。クリックでコピー。カテゴリ：スマイリー、動物、食べ物、旅行、オブジェクト、記号、国旗。", "icon": "😀", "cat": "text", "tags": ["emoji", "picker", "search", "copy", "unicode", "smiley", "symbol"]},
+      {"slug": "file-size-converter", "name": "ファイルサイズコンバーター", "desc": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。", "icon": "📦", "cat": "math", "tags": ["file size", "convert", "byte", "kilobyte", "megabyte", "gigabyte", "kib", "mib", "binary", "decimal"]},
+      {"slug": "hash-generator", "name": "ハッシュ生成ツール", "desc": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。", "icon": "🔑", "cat": "security", "tags": ["hash", "md5", "sha", "sha-256", "sha-512", "checksum"]},
+      {"slug": "html-encoder", "name": "HTML エンコーダー / デコーダー", "desc": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "icon": "&lt;&gt;", "cat": "encoding", "tags": ["html", "encode", "entities", "escape", "xss"]},
+      {"slug": "html-formatter", "name": "HTML フォーマッター", "desc": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "icon": "</>", "cat": "developer", "tags": ["html", "format", "beautify", "minify", "indent", "tidy"]},
+      {"slug": "http-status-codes", "name": "HTTP ステータスコード", "desc": "任意の HTTP ステータスコード（1xx–5xx）を検索。意味、よくある原因、RFC 参照を表示。", "icon": "🌐", "cat": "developer", "tags": ["http", "status", "code", "rest", "api", "response", "rfc"]},
+      {"slug": "image-to-base64", "name": "画像から Base64 へ", "desc": "任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。", "icon": "🖼️", "cat": "encoding", "tags": ["image", "base64", "data-uri", "convert", "embed"]},
+      {"slug": "js-minifier", "name": "JavaScript ミニファイア", "desc": "高速で構造的な JavaScript ミニファイ — コメント除去、空白圧縮、空行削除。ビフォア／アフターのサイズと節約率を表示。", "icon": "{}", "cat": "developer", "tags": ["javascript", "js", "minify", "compress", "optimize"]},
+      {"slug": "json-diff", "name": "JSON 差分", "desc": "2 つの JSON ドキュメントの構造的差分 — 追加・削除・変更されたキーと値の変化を並べて表示。", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
+      {"slug": "json-formatter", "name": "JSON フォーマッター", "desc": "JSON を即座に整形・検証・圧縮。エラー位置を行と列でハイライト。", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
+      {"slug": "json-path", "name": "JSONPath テスター", "desc": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
+      {"slug": "json-to-csv", "name": "JSON から CSV", "desc": "JSON のオブジェクト配列を CSV に変換。フィールド自動検出、カスタム区切り、Excel・Google Sheets 向けに正しくエスケープ。", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
+      {"slug": "jwt-decoder", "name": "JWT デコーダー", "desc": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
+      {"slug": "lorem-ipsum", "name": "Lorem Ipsum ジェネレーター", "desc": "段落・文・単語・リスト項目の単位でラテン語のプレースホルダーテキストを生成。長さと冒頭フレーズを設定可能。", "icon": "¶", "cat": "text", "tags": ["lorem", "ipsum", "placeholder", "filler", "dummy", "text"]},
+      {"slug": "markdown-table-editor", "name": "Markdown テーブルエディター", "desc": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。", "icon": "▦", "cat": "text", "tags": ["markdown", "table", "editor", "github", "gfm", "alignment"]},
+      {"slug": "markdown-to-html", "name": "Markdown から HTML", "desc": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。", "icon": "M↓", "cat": "text", "tags": ["markdown", "md", "html", "convert", "preview", "render"]},
+      {"slug": "mime-type-lookup", "name": "MIME タイプ検索", "desc": "拡張子やタイプから MIME タイプを検索。image・video・audio・application・text・font の約 120 種を収録。", "icon": "📎", "cat": "developer", "tags": ["mime", "type", "extension", "content-type", "file", "media"]},
+      {"slug": "number-base-converter", "name": "進数変換ツール", "desc": "2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換。", "icon": "0b", "cat": "developer", "tags": ["binary", "hex", "octal", "decimal", "base", "convert", "number"]},
+      {"slug": "og-tag-preview", "name": "OG タグプレビュー", "desc": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。", "icon": "🪟", "cat": "design", "tags": ["og", "open graph", "twitter", "facebook", "linkedin", "discord", "preview", "social"]},
+      {"slug": "password-generator", "name": "パスワード生成ツール", "desc": "強力なランダムパスワード、または覚えやすいパスフレーズを生成。ローカル動作で送信されません。", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
+      {"slug": "percentage-calculator", "name": "パーセンテージ計算機", "desc": "5 つの百分率計算をひとつに：%、何%、増加／減少、変化、チップ／税。", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
+      {"slug": "placeholder-image", "name": "プレースホルダー画像ジェネレーター", "desc": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
+      {"slug": "qr-code-generator", "name": "QR コードジェネレーター", "desc": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
+      {"slug": "query-string-builder", "name": "クエリ文字列ビルダー", "desc": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
+      {"slug": "regex-cheatsheet", "name": "正規表現チートシート", "desc": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
+      {"slug": "regex-tester", "name": "正規表現テスター", "desc": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
+      {"slug": "slug-generator", "name": "スラグ生成ツール", "desc": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
+      {"slug": "sql-formatter", "name": "SQL フォーマッター", "desc": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
+      {"slug": "text-diff", "name": "テキスト差分", "desc": "2 つのテキストブロックを比較し、行単位で追加・削除・変更されない部分を表示。並列または統合表示。", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
+      {"slug": "timestamp-converter", "name": "Unix タイムスタンプ変換", "desc": "Unix タイムスタンプと人間可読な日時を相互変換。秒・ミリ秒、UTC・ローカルに対応。", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
+      {"slug": "timezone-converter", "name": "タイムゾーン変換", "desc": "IANA タイムゾーン間で日時を変換。両端のオフセット、DST の有無、曜日も表示。", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
+      {"slug": "tip-split-calculator", "name": "チップ＆割り勘計算機", "desc": "請求額 + チップ % + 人数 = 1 人あたり。切り上げオプションあり、チップ額と合計を表示。", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
+      {"slug": "unicode-inspector", "name": "Unicode インスペクター", "desc": "テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
+      {"slug": "unit-converter", "name": "単位変換ツール", "desc": "メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
+      {"slug": "url-encoder", "name": "URL エンコーダー / デコーダー", "desc": "URL 用に文字列を percent-encode、または percent-encoded をテキストにデコード。", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
+      {"slug": "url-parser", "name": "URL パーサー", "desc": "URL を貼ると、protocol・host・port・path・query パラメータ（デコード済み）・hash・origin に分解して表示。", "icon": "🔍", "cat": "developer", "tags": ["url", "parse", "query", "host", "path", "fragment", "search params"]},
+      {"slug": "uuid-generator", "name": "UUID 生成ツール", "desc": "RFC 4122 の UUID（v4 ランダム または v7 時刻順）を生成。最大 100 件まで一括生成。暗号論的に安全。", "icon": "🆔", "cat": "developer", "tags": ["uuid", "guid", "v4", "v7", "random", "unique", "identifier"]},
+      {"slug": "wcag-contrast", "name": "WCAG コントラストチェッカー", "desc": "2 色のコントラスト比をチェック。各テキストサイズの WCAG AA／AAA で合否を判定。", "icon": "◐", "cat": "design", "tags": ["wcag", "contrast", "accessibility", "a11y", "color", "ratio"]},
+      {"slug": "word-counter", "name": "ワードカウンター", "desc": "単語数・文字数・文数・段落数を数え、入力中に読了時間と発話時間を概算。", "icon": "#", "cat": "text", "tags": ["word", "count", "character", "sentence", "paragraph", "reading", "writing"]},
+      {"slug": "xml-formatter", "name": "XML フォーマッター", "desc": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。", "icon": "&lt;/&gt;", "cat": "developer", "tags": ["xml", "format", "beautify", "minify", "validate", "well-formed"]},
+      {"slug": "xml-to-json", "name": "XML ↔ JSON コンバーター", "desc": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。", "icon": "⇄", "cat": "data", "tags": ["xml", "json", "convert", "transform", "attributes", "data"]},
+      {"slug": "yaml-json", "name": "YAML ↔ JSON コンバーター", "desc": "YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。", "icon": "🔁", "cat": "data", "tags": ["yaml", "json", "convert", "kubernetes", "config", "data"]},
+      {"slug": "youtube-thumbnail", "name": "YouTube サムネイルダウンローダー", "desc": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。", "icon": "▶", "cat": "media", "tags": ["youtube", "thumbnail", "preview", "image", "download", "video"]}
+    ];
+
+    const LBL_ALL = "すべて";
+    const HERO_SUB_POST = "個のツール — 高速・プライベート・登録不要。すぐに使えます。";
+    const CAT_LABELS = {"developer": "開発", "text": "テキスト", "encoding": "エンコード", "data": "データ", "security": "セキュリティ", "media": "メディア", "validation": "検証", "design": "デザイン", "datetime": "日時", "math": "計算"};
+
+    function renderFilters() {
+      const counts = {};
+      for (const t of TOOLS) counts[t.cat] = (counts[t.cat] || 0) + 1;
+      const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const wrap = document.getElementById('filters');
+      let html = `<button class="filter-btn active" data-cat="all">${LBL_ALL} <span class="cnt">${TOOLS.length}</span></button>`;
+      for (const c of cats) {
+        const label = CAT_LABELS[c] || c.charAt(0).toUpperCase() + c.slice(1);
+        html += `<button class="filter-btn" data-cat="${c}">${label} <span class="cnt">${counts[c]}</span></button>`;
+      }
+      wrap.innerHTML = html;
+    }
+
+    function renderHero() {
+      document.getElementById('hero-sub').textContent = `${TOOLS.length} ${HERO_SUB_POST}`;
+    }
+
+
+    function render(tools) {
+      const grid = document.getElementById('grid');
+      const noResults = document.getElementById('no-results');
+      if (tools.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
+      noResults.style.display = 'none';
+      grid.innerHTML = tools.map(t => `
+        <a class="card" href="/ja/${t.slug}/" data-cat="${t.cat}">
+          <div class="card-icon">${t.icon}</div>
+          <h3>${t.name}</h3>
+          <p>${t.desc}</p>
+          <div class="card-meta"><span class="tag">${t.cat}</span></div>
+        </a>
+      `).join('');
+    }
+
+    function filterTools() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const activeCat = document.querySelector('.filter-btn.active')?.dataset.cat || 'all';
+      const filtered = TOOLS.filter(t => {
+        const matchQ = !q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.tags.some(tag => tag.includes(q));
+        const matchCat = activeCat === 'all' || t.cat === activeCat;
+        return matchQ && matchCat;
+      });
+      render(filtered);
+    }
+
+    document.getElementById('filters').addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      filterTools();
+    });
+
+    function switchLang(lang) {
+      window.location.href = lang ? `/${lang}/` : '/';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+    }
+
+    // Init
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '🌙';
+    } else {
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+    renderFilters();
+    renderHero();
+    render(TOOLS);
+
+    // `/` keyboard shortcut to focus search
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        document.getElementById('search').focus();
+      }
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Cheatsheet Regex", "tagline": "Riferimento rapido: ancore, classi di caratteri, quantificatori, gruppi, lookaround, flag. Clicca un pattern per copiarlo.", "description": "Cheatsheet regex (espressioni regolari) gratuito. Ancore, classi, quantificatori, gruppi, lookaround e flag — con copia al clic e filtro. PCRE / JavaScript."},
         "pt": {"name": "Cheatsheet de Regex", "tagline": "Referência rápida: anchors, classes de caracteres, quantificadores, grupos, lookarounds, flags. Clique em qualquer pattern para copiar.", "description": "Cheatsheet de regex gratuito. Anchors, classes de caracteres, quantificadores, grupos, lookarounds e flags — com clique-para-copiar e filtro ao vivo. Sabor PCRE / JavaScript."},
         "pl": {"name": "Ściąga Regex", "tagline": "Szybka referencja: anchory, klasy znaków, kwantyfikatory, grupy, lookaroundy, flagi. Kliknij dowolny pattern, by skopiować.", "description": "Darmowa ściąga regex (wyrażenia regularne). Anchory, klasy znaków, kwantyfikatory, grupy, lookaroundy i flagi — z klikaniem do skopiowania i filtrem na żywo. Smak PCRE / JavaScript."},
+        "ja": {"name": "正規表現チートシート", "tagline": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "description": "無料の正規表現チートシート。アンカー、文字クラス、量指定子、グループ、ルックアラウンド、フラグを網羅し、クリックでコピー、ライブフィルタにも対応。PCRE / JavaScript 風です。"},
     },
     "body": """
 <div class="tool-card">
@@ -321,6 +322,28 @@ document.addEventListener('DOMContentLoaded', rcRender);
   <li><strong>Regex nie jest parserem HTML ani JSON.</strong> "Typowe patterny" tu są dobre do jednorazowego scrapingu albo wskazówek walidacyjnych, nie do traktowania strukturalnego inputu jak stringa.</li>
   <li><strong>Regexy do emaili są zawsze złe.</strong> Przykład tu jest grubym sprawdzeniem kształtu; do walidacji produkcyjnej lepiej wyślij maila potwierdzającego.</li>
   <li><strong>Nie ufaj skopiowanym "idealnym" regexom.</strong> Przetestuj je na swoich realnych danych w Regex Testerze przed deployem.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>正規表現でいつもなんとなくしか思い出せない構文を、検索・印刷可能な形でまとめたチートシートです。アンカー、文字クラス、量指定子、グループ、ルックアラウンド、フラグの主要カテゴリに加え、よくあるパターンの例も用意しています。任意のパターンをクリックでコピーでき、フィルタ入力で絞り込めます。実際にテキストに対して試したいときは <a href="/regex-tester/">正規表現テスター</a>と組み合わせてください。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li><code>(?&lt;=foo)</code> が必要なときに、<code>?</code> が <code>&lt;</code> の前か後ろか思い出したいとき。</li>
+  <li>誰かに正規表現を説明する場面で、Stack Overflow のタブを漁るより、安定した参照ページがほしいとき。</li>
+  <li>UUID、メール、ISO 日付のような出発点となるパターンをコピーして調整したいとき。</li>
+  <li>各フラグの違いを確認したいとき — 特に <code>s</code>（dotall）と <code>m</code>（multi-line）の混同を解きたい場面。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>方言に注意。</strong> ここの内容はほぼ JavaScript／現代の PCRE ですが、機能差があります。lookbehind が JS に入ったのは ES2018、<code>x</code>（extended）は PCRE/Python であり JS にはなく、possessive 量指定子 <code>++</code> は PCRE 限定です。</li>
+  <li><strong><code>m</code> は「複数行マッチ」ではありません。</strong> <code>m</code> は <code>^</code> と <code>$</code> の意味（行単位 or 文字列単位）を変えます。改行をまたいで <code>.</code> を当てたいなら <code>s</code>（dotall）が必要です。</li>
+  <li><strong>greedy は食べすぎます。</strong> <code>&lt;.*&gt;</code> を <code>&lt;a&gt;b&lt;/a&gt;</code> に当てると全体にマッチします。lazy 版 <code>&lt;.*?&gt;</code> か、より具体的な <code>&lt;[^&gt;]+&gt;</code> を使ってください。</li>
+  <li><strong>正規表現は HTML や JSON のパーサではありません。</strong> ここでの「よくあるパターン」は単発のスクレイピングや簡易検証向けで、構造化入力を文字列として扱うのには向きません。</li>
+  <li><strong>メールの正規表現は常に「外れ」です。</strong> ここの例はおおまかな形チェックです。本番の検証はメールでの確認に頼ってください。</li>
+  <li><strong>コピペした「完璧な」正規表現を信用しないこと。</strong> デプロイ前に Regex Tester で実データに対して試してください。</li>
 </ul>
 """,
     },

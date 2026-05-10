@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore Immagine Placeholder", "tagline": "Genera immagini SVG placeholder di qualsiasi dimensione con testo e colori personalizzati. Output come data URI o SVG scaricabile.", "description": "Generatore di immagini placeholder gratuito. Specifica larghezza × altezza, testo e colori; ottieni un SVG inline da incollare — data URI, markup o download. 100% nel browser."},
         "pt": {"name": "Gerador de Imagem Placeholder", "tagline": "Gere imagens placeholder em SVG inline em qualquer tamanho com texto e cores personalizados. Saída como data URI ou SVG para download.", "description": "Gerador de imagens placeholder gratuito. Especifique width × height, texto do label e cores; receba um SVG inline para colar onde quiser — data URI, markup puro ou download. Roda inteiramente no seu navegador."},
         "pl": {"name": "Generator Placeholder Image", "tagline": "Generuj placeholderowe obrazki inline-SVG w dowolnym rozmiarze z własnym tekstem i kolorami. Wyjście jako data URI albo SVG do pobrania.", "description": "Darmowy generator placeholder imageów. Podaj width × height, tekst labela i kolory; dostaniesz inline-SVG do wklejenia gdziekolwiek — data URI, surowy markup albo download. Działa w całości w przeglądarce."},
+        "ja": {"name": "プレースホルダー画像ジェネレーター", "tagline": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。", "description": "無料のプレースホルダー画像ジェネレーター。横×高さ、ラベルテキスト、配色を指定し、貼り付けに使えるインライン SVG（data URI、生のマークアップ、ダウンロード）を取得できます。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -260,6 +261,28 @@ document.addEventListener('DOMContentLoaded', phRun);
   <li><strong>Kolory tylko HTML hex.</strong> Color pickery produkują <code>#rrggbb</code>. Jeśli chcesz <code>rgba()</code>, edytuj markup SVG po skopiowaniu.</li>
   <li><strong>Width/height są intrinsic, nie display.</strong> Ustawienie CSS na inny rozmiar przeskaluje SVG — wizualnie OK, ale osadzony tekst może wyglądać rozciągnięty, jeśli aspect ratio się zmieni; używamy <code>preserveAspectRatio="none"</code> dla przewidywalnego skalowania.</li>
   <li><strong>Nie wysyłaj placeholdera na produkcję.</strong> Łatwo zapomnieć — podmień na prawdziwy asset przed go-live.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>ページ設計中、本物の画像が用意される前に特定サイズの画像が必要になる場面はよくあります。ヒーローバナー、カードのサムネイル、アバター、OG カードなど。<code>via.placeholder.com</code> や <code>placehold.co</code> も使えますが、外部リクエストとサードパーティ依存が増えます。本ツールは指定サイズとラベルを持つ自己完結型のインライン SVG を生成し、HTML、CSS の <code>background-image</code>、React コンポーネントの data URI などにそのまま貼り付けられます。データはブラウザの外に出ません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>本物のアセットが揃う前に、形のあるプレースホルダでワイヤーフレームを作りたいとき。</li>
+  <li>Storybook や Figma エクスポートで、コンポーネントごとのプレースホルダ画像が必要なとき。</li>
+  <li>画像読み込みコード、レイジーロードのしきい値、aspect-ratio CSS をテストしたいとき。</li>
+  <li>厳しい CSP やオフライン要件のあるプロジェクトで、外部のプレースホルダサービスを置き換えたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>SVG はラスタではありません。</strong> data URI は SVG 文字列で、無限に拡大しても滲みませんが、デザイナーが PNG を期待しているとは限りません。ラスタが必要ならプレビューを画面キャプチャするか、SVG→PNG コンバータを使ってください。</li>
+  <li><strong>長い data URI は <code>img src</code> に貼ると扱いにくいです。</strong> ブラウザは扱えますが、リンタや検索置換、diff ツールが詰まることがあります。大きなモックアップでは SVG ファイルでのダウンロードを推奨します。</li>
+  <li><strong>ラベルテキストはローカライズされません。</strong> 自動ラベルは「WxH」（×は乗算記号）です。翻訳が必要ならカスタム文字列を入力してください。</li>
+  <li><strong>色は HTML の hex のみ。</strong> カラーピッカーは <code>#rrggbb</code> を返します。<code>rgba()</code> が必要ならコピー後に SVG マークアップを直接編集してください。</li>
+  <li><strong>幅・高さは intrinsic で、display ではありません。</strong> CSS で別サイズに指定すると SVG はスケールされます。アスペクト比が変わるとテキストが伸縮して見えるため、予測可能なスケーリングのために <code>preserveAspectRatio="none"</code> を使用しています。</li>
+  <li><strong>本番にプレースホルダを残さないこと。</strong> 忘れがちなので、公開前に実アセットへ差し替えてください。</li>
 </ul>
 """,
     },

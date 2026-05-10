@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Tester JSONPath", "tagline": "Esegui query JSONPath su qualsiasi documento JSON. Match e percorsi in tempo reale.", "description": "Tester JSONPath gratuito. Interroga JSON annidato con $.., wildcard, slice, filtri. Risultati live."},
         "pt": {"name": "Testador JSONPath", "tagline": "Roda queries JSONPath contra qualquer documento JSON. Veja os nós correspondentes e seus paths em tempo real.", "description": "Testador JSONPath grátis online. Consulta JSON aninhado com $.., wildcards, array slices e expressões de filtro. Resultados ao vivo, cole seu JSON e comece a consultar."},
         "pl": {"name": "Tester JSONPath", "tagline": "Uruchamiaj zapytania JSONPath na dowolnym dokumencie JSON. Zobacz dopasowane węzły i ich ścieżki w czasie rzeczywistym.", "description": "Darmowy online tester JSONPath. Odpytuj zagnieżdżony JSON za pomocą $.., wildcardów, slice'ów tablic i wyrażeń filtrujących. Wyniki na żywo, wklej swój JSON i zacznij szukać."},
+        "ja": {"name": "JSONPath テスター", "tagline": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。", "description": "オンライン無料の JSONPath テスター。$.. やワイルドカード、配列スライス、フィルタ式を使ってネストされた JSON を検索できます。結果はライブ表示。JSON を貼り付けてすぐに使い始められます。"},
     },
     "body": """
 <div class="tool-card">
@@ -307,6 +308,40 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong><code>$..*</code></strong> zwraca każdy węzeł w drzewie (depth-first), co może być sporo. Przydaje się do eksploracji nieznanego dokumentu.</li>
   <li><strong>Numeryczne stringi.</strong> <code>{"1": "a"}</code> — dostęp przez <code>$['1']</code> działa; <code>$.1</code> nie (liczby nie są poprawne jako nazwy properties po kropce).</li>
   <li><strong>Kolejność.</strong> JSON nie gwarantuje kolejności properties obiektów. Jeśli filtr zależy od kolejności, najpierw posortuj.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>JSONPath は JSON にとっての XPath のようなもので、カスタムコードを書かずにネストされたドキュメントから特定の値を抜き出すクエリ言語です。<code>$.store.books[*].title</code> は「store の下にあるすべての書籍タイトル」、<code>$..price</code> は「ドキュメント中の任意の場所にある <em>price</em>」を意味します。本ツールは貼り付けた JSON にクエリをライブで実行し、マッチした値とそのパスを同時に表示します。狙い通りの結果になるまでクエリを反復できます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>JSONPath を使うツール向けにクエリを下書きするとき：jq 系 CLI、Postman のテスト、Stedi、n8n、AWS CloudWatch / Step Functions など。</li>
+  <li>大きな API レスポンスから特定フィールドだけをスクリプトを書かずに抜き出したいとき。</li>
+  <li>配列をフィールド値で絞り込みたいとき（例：「total &gt; 100 のすべての注文」）。</li>
+  <li>深くネストされたパスが本当に値に到達するか、コードに組み込む前に確認したいとき。</li>
+</ul>
+
+<h3>クイック構文リファレンス</h3>
+<ul>
+  <li><strong><code>$</code></strong> — ドキュメントのルート。</li>
+  <li><strong><code>.name</code></strong> または <strong><code>['name']</code></strong> — 名前による子参照。</li>
+  <li><strong><code>..</code></strong> — 再帰的下降（任意の深さ）。</li>
+  <li><strong><code>*</code></strong> — ワイルドカード（任意のプロパティまたは配列要素）。</li>
+  <li><strong><code>[n]</code></strong> — 配列のインデックス（負数で末尾から）。</li>
+  <li><strong><code>[start:end:step]</code></strong> — 配列スライス（Python 形式）。</li>
+  <li><strong><code>[a, b, c]</code></strong> — インデックスや名前のユニオン。</li>
+  <li><strong><code>[?(@.field &gt; 5)]</code></strong> — フィルタ式。<code>@</code> は現在の要素。<code>== != &lt; &gt; &lt;= &gt;= &amp;&amp; ||</code> と <code>=~ /regex/</code> をサポート。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>JSONPath には公式な単一仕様が長らくありませんでした。</strong> Stefan Gössner のオリジナルドラフトが事実上の参照として長年使われ、2024 年 2 月の RFC 9535 で初めて標準化されました。実装によって細部は異なります。Postman で動くものが Jaeger で動くとは限りません。</li>
+  <li><strong>ドット vs ブラケット。</strong> <code>$.foo-bar</code> はパーサには「foo マイナス bar」に見えます。ハイフン、ドット、スペースを含むプロパティ名には <code>$['foo-bar']</code> を使います。</li>
+  <li><strong>本ツールのフィルタ式は JavaScript 寄りです。</strong> あえての利便性ですが RFC 9535 と完全一致はしません。本ツールのフィルタが他実装でビット同一に動くと信用しないでください。</li>
+  <li><strong><code>$..*</code></strong> は深さ優先でツリー内の全ノードを返すため、結果は膨大になり得ます。未知のドキュメントを探索する用途に向きます。</li>
+  <li><strong>数字の文字列キー。</strong> <code>{"1": "a"}</code> に対して <code>$['1']</code> は動きますが、<code>$.1</code> は動きません（数字はドットプロパティ名として無効）。</li>
+  <li><strong>順序。</strong> JSON はオブジェクトのプロパティ順を保証しません。フィルタが順序に依存するなら、先にソートしてください。</li>
 </ul>
 """,
     },

@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "JSON a CSV", "tagline": "Converti array JSON di oggetti in CSV. Rilevamento campi, separatori personalizzati, escape compatibile con Excel e Google Sheets.", "description": "Convertitore JSON-CSV gratuito. Appiattisce array di oggetti in righe, escape RFC 4180, separatori virgola/punto e virgola/tab."},
         "pt": {"name": "JSON para CSV", "tagline": "Converte arrays JSON de objetos em CSV. Detecta os campos automaticamente, suporta delimitadores customizados e faz escape correto pra Excel e Google Sheets.", "description": "Conversor JSON para CSV grátis online. Achata arrays de objetos em linhas, faz escape de aspas conforme a RFC 4180, suporta delimitadores vírgula/ponto e vírgula/tab."},
         "pl": {"name": "JSON do CSV", "tagline": "Konwertuj tablice obiektów JSON na CSV. Auto-wykrywanie pól, własne delimitery, poprawny escape pod Excela i Google Sheets.", "description": "Darmowy online konwerter JSON do CSV. Spłaszcza tablice obiektów w wiersze, escape'uje cudzysłowy wg RFC 4180, wspiera delimitery przecinek/średnik/tab."},
+        "ja": {"name": "JSON から CSV", "tagline": "JSON のオブジェクト配列を CSV に変換。フィールド自動検出、カスタム区切り、Excel・Google Sheets 向けに正しくエスケープ。", "description": "オンライン無料の JSON → CSV コンバーター。オブジェクト配列を行に展開し、RFC 4180 に従って引用符をエスケープ。カンマ／セミコロン／タブの区切り文字に対応します。"},
     },
     "body": """
 <div class="tool-card">
@@ -150,6 +151,25 @@ document.addEventListener('DOMContentLoaded', jcRun);
   <li><strong>Zagnieżdżone obiekty/tablice są stringifikowane.</strong> Jeśli potrzebujesz spłaszczonego CSV (jedna kolumna na zagnieżdżony klucz), spłaszcz JSON-a, zanim go tu wrzucisz.</li>
   <li><strong>Excel + delimitery.</strong> Lokalizacje europejskie domyślnie używają średnika; przełącz delimiter, żeby plik otworzył się w kolumnach zamiast jednej olbrzymiej linii. Escape wg RFC 4180 jest aplikowany tak czy siak.</li>
   <li><strong>BOM UTF-8.</strong> Excel na macOS czasem psuje znaki spoza ASCII bez BOM. To narzędzie NIE dodaje go — przepuść wyjście przez krok dodający BOM, jeśli widzisz mojibake.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>逆方向の変換です。JSON 配列を入力すると、Excel、Google Sheets、その他の表形式を好むデータツール向けの CSV を出力します。ヘッダーはオブジェクトのキーから自動検出され、ネストされた値は単一セルに JSON 文字列化されるため、データが静かに失われることはありません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>API レスポンスを、スプレッドシートしか開かないステークホルダーに渡す CSV に変換するとき。</li>
+  <li>JSON ダンプの大量レコードを Sheets でピボット／フィルタできる形に変換したいとき。</li>
+  <li>CSV を受け付けるデータベースインポート用のフィクスチャ行を生成したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>ヘッダーは全オブジェクトのキー和集合から推論します。</strong> あるキーを持たない行は空セルになり、列自体は消えません。</li>
+  <li><strong>ネストされたオブジェクトや配列は文字列化されます。</strong> フラットな CSV（ネストキーごとに 1 列）が必要な場合は、入力前に JSON を平坦化してください。</li>
+  <li><strong>Excel と区切り文字。</strong> ヨーロッパロケールはセミコロン区切りがデフォルトです。区切りを切り替えて、1 行になってしまうのを避けてください。RFC 4180 のエスケープはどちらの場合も適用されます。</li>
+  <li><strong>UTF-8 BOM。</strong> macOS の Excel は BOM がないと非 ASCII を化けさせることがあります。本ツールは BOM を付与しません。文字化けが見えたら BOM を付ける処理を別途挟んでください。</li>
 </ul>
 """,
     },

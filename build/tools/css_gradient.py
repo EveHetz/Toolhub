@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore di Gradienti CSS", "tagline": "Crea gradienti CSS lineari e radiali visualmente. Modifica i punti colore, copia CSS pronto.", "description": "Generatore gratuito di gradienti CSS. Crea gradienti lineari o radiali con quanti punti vuoi, copia CSS pronto in un clic."},
         "pt": {"name": "Gerador de Gradiente CSS", "tagline": "Crie gradientes CSS lineares e radiais visualmente. Edite paradas de cor, copie CSS pronto para colar.", "description": "Gerador gratuito de gradiente CSS. Crie gradientes lineares ou radiais com quantas paradas quiser, copie CSS pronto para produção em um clique."},
         "pl": {"name": "Generator Gradientów CSS", "tagline": "Buduj liniowe i radialne gradienty CSS wizualnie. Edytuj color stopy, kopiuj CSS gotowy do wklejenia.", "description": "Darmowy generator gradientów CSS. Buduj linear lub radial gradienty z dowolną liczbą color stopów, dostosuj kąt i kształt, kopiuj produkcyjny CSS jednym kliknięciem."},
+        "ja": {"name": "CSS グラデーションジェネレーター", "tagline": "線形・放射状の CSS グラデーションをビジュアルに作成。カラーストップを編集して、貼り付けるだけの CSS をコピー。", "description": "無料の CSS グラデーションジェネレーター。任意の数のカラーストップで線形・放射状グラデーションを作成し、角度と形状を調整して、本番投入できる CSS をワンクリックでコピーできます。"},
     },
     "body": """
 <div class="tool-card">
@@ -214,6 +215,34 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
   <li><strong>Banding na dużych powierzchniach.</strong> Długie, niskokontrastowe gradienty mogą pokazywać widoczne "pasy" na 8-bitowych ekranach. Dodaj subtelny overlay SVG noise (<code>filter: url(#noise)</code>) albo lekko przesuń stopy.</li>
   <li><strong>Wydajność.</strong> Przeglądarki malują gradienty szybko, ale animowanie <code>background-image</code> wywołuje paint co klatkę — animuj <code>transform</code> na warstwie nad, zamiast tego.</li>
   <li><strong>Dostępność.</strong> Jeśli tekst leży na gradiencie, sprawdź współczynnik kontrastu w <em>najgorszym</em> punkcie gradientu, gdzie tekst się pojawia, nie średnią.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>CSS グラデーションは、画像アセットを使わずに背景・ボタン・ヒーローパネル・オーバーレイで滑らかな色の変化を描ける 1 行の CSS です。構文は強力ですが手書きには面倒で、角度、% でのストップ、繰り返しバリアント、線形と放射状の混在などを扱う必要があります。本ツールはビジュアルなビルダーで、CSS をリアルタイムにミラー表示します。ストップを所定位置にドラッグして、正確な <code>linear-gradient(...)</code> や <code>radial-gradient(...)</code> 文字列をコピーできます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ヒーローや CTA セクションの背景を、画像に焼き込まずに作りたいとき。</li>
+  <li>ボタンやカードのホバーステートを「モダン」に見せつつ、画像アセットなしで作りたいとき。</li>
+  <li>ブランドカラーのオーバーレイ（テキスト可読性のためにグラデーション + 低不透明度ベタ）を作るとき。</li>
+  <li>装飾的なディバイダ、メッシュ風背景、アニメーション付き SVG 塗りを生成したいとき。</li>
+</ul>
+
+<h3>線形と放射状</h3>
+<ul>
+  <li><strong>線形（linear）</strong> — 指定した角度の直線に沿って色が遷移します（0° = 下から上、90° = 左から右、180° = 上から下）。</li>
+  <li><strong>放射状（radial）</strong> — 中心点から円または楕円形に外側へ広がります。スポットライトやビネット効果に最適です。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong><code>background-color</code> ではなく <code>background</code> として使用してください。</strong> グラデーションは色ではなく画像です。<code>background-color</code> は無視されます。</li>
+  <li><strong>ストップは順序通りに</strong>。予測可能な描画のため、本ツールは自動でソートしますが、CSS をコピー後に手で編集する場合は %値を単調に保ってください。</li>
+  <li><strong>ハードストップ</strong>（同じ % に 2 つのストップ）は、フェードではなく境界線になります。ストライプやバンド効果に便利です。</li>
+  <li><strong>大面積でのバンディング。</strong> 長くて低コントラストなグラデーションは、8-bit ディスプレイで段差が見えることがあります。微小な SVG ノイズオーバーレイ（<code>filter: url(#noise)</code>）を重ねるか、ストップを少しずらしてください。</li>
+  <li><strong>パフォーマンス。</strong> グラデーションの描画自体は速いですが、<code>background-image</code> をアニメーションするとフレームごとに paint が走ります。代わりに上のレイヤーで <code>transform</code> をアニメーションしてください。</li>
+  <li><strong>アクセシビリティ。</strong> グラデーション上にテキストを置く場合、平均ではなく、テキストが乗る最も<em>悪い</em>箇所のコントラスト比を確認してください。</li>
 </ul>
 """,
     },

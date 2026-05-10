@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore Box Shadow CSS", "tagline": "Crea ombre CSS singole o multi-livello visualmente. Regola offset, blur, spread, colore e copia il CSS.", "description": "Generatore gratuito di box-shadow CSS. Sovrapponi più ombre, alterna inset, regola blur e spread, copia CSS pronto in un clic."},
         "pt": {"name": "Gerador de Box Shadow CSS", "tagline": "Crie sombras CSS de uma ou várias camadas visualmente. Ajuste offset, blur, spread, cor e copie o CSS.", "description": "Gerador gratuito de box-shadow CSS. Empilhe várias sombras, alterne inset, ajuste blur e spread, copie CSS pronto para produção em um clique."},
         "pl": {"name": "Generator CSS Box Shadow", "tagline": "Buduj jedno- lub wielowarstwowe cienie CSS wizualnie. Dostosuj offset, blur, spread, kolor i kopiuj CSS.", "description": "Darmowy generator box-shadow CSS. Stackuj wiele cieni dla realistycznej elewacji, włączaj inset, dostrajaj blur i spread, kopiuj produkcyjny CSS jednym kliknięciem."},
+        "ja": {"name": "CSS box-shadow ジェネレーター", "tagline": "1 層または多層の CSS box-shadow をビジュアルに作成。オフセット・ぼかし・広がり・色を調整し、CSS をコピー。", "description": "無料の CSS box-shadow ジェネレーター。複数のシャドウを重ねてリアルな立体感を表現でき、inset の切り替え、blur と spread の微調整、本番投入できる CSS のワンクリックコピーに対応します。"},
     },
     "body": """
 <div class="tool-card">
@@ -201,6 +202,38 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>Cień na przezroczystym tle.</strong> Jeśli box nie ma <code>background</code>, cień przebija przez sam box — zwykle zaskakuje.</li>
   <li><strong>Wydajność:</strong> bardzo duży blur na wielu elementach potrafi obciążyć słabsze mobilki. Testuj na realnym sprzęcie przed wypuszczeniem fancy glowów.</li>
   <li><strong>Dark mode.</strong> Subtelne ciemne cienie na ciemnym tle prawie znikają; rozważ jasny inner border albo cień z jasnym podtonem w ciemnych motywach.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>CSS の <code>box-shadow</code> プロパティは、奥行きを表現する万能ツールです。カードのドロップシャドウ、ボタンのハイライト、フォーカスリング、グロー、ネオン効果、簡易的な 3D まで、これ一つでこなせます。構文（<code>x y blur spread color</code>、オプションの <code>inset</code>、カンマ区切りで複数）は読みやすい一方、目視で調整するのは面倒です。本ツールは各値のスライダーとライブプレビューに加え、よくあるデザインシステムのエレベーションに合うプリセットを提供します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>カードやモーダルのエレベーションを「安っぽく」「硬く」見えないように設計したいとき。</li>
+  <li>アクセシビリティ向けのフォーカスリング（例：2px のアウトライングロー）を作るとき。</li>
+  <li>ヒーローの CTA にネオン／グロー効果を作るとき。</li>
+  <li>Material Design や Apple 風のエレベーショントークンをデザインシステム用に再現するとき。</li>
+  <li>押下されたボタンや凹んだカードを表現する偽の "inset" 奥行きを作るとき。</li>
+</ul>
+
+<h3>各値の意味</h3>
+<ul>
+  <li><strong>X / Y オフセット</strong> — 影が落ちる方向（Y が正なら下方向）。「上から光」の雰囲気には Y > 0 と X 小さめ（または 0）が合います。</li>
+  <li><strong>Blur</strong> — エッジの柔らかさ。0 = シャープ、大きいほど柔らかいフェードに。</li>
+  <li><strong>Spread</strong> — シャドウがボックス自体よりどれだけ大きい（または負なら小さい）か。</li>
+  <li><strong>色とアルファ</strong> — 通常は半透明の黒、またはブランドカラー。純粋な <code>#000</code> は重すぎるので、自然な奥行きには <code>#0002</code>〜<code>#0003</code> あたりが有効です。</li>
+  <li><strong>Inset</strong> — シャドウを内側に反転させ、凹みのように見せます。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>大きなシャドウ 1 枚は不自然に見えます。</strong> 本物のエレベーションは、近くて濃く絞ったシャドウと、遠くて柔らかく広いシャドウを 2〜3 枚重ねます。「Material elevation」プリセットがその典型です。</li>
+  <li><strong>純黒は重すぎます。</strong> 黒のアルファ 10–25% 程度を使うか、表面の補色で温かみを足すといい感じになります。</li>
+  <li><strong>シャドウはボックスの外側に描画されます。</strong> コンテナに <code>overflow: hidden</code> があるとクリップされます。ラッパーを使うか、<code>overflow</code> を子要素に移してください。</li>
+  <li><strong>背景が透明なボックスのシャドウ。</strong> ボックスに <code>background</code> がないと、シャドウがボックスを透過して見えてしまいます（だいたい意図しない結果）。</li>
+  <li><strong>パフォーマンス：</strong> 大きな blur を多数の要素に適用すると、低スペックモバイルで重くなることがあります。派手なグローを出す前に実機で確認しましょう。</li>
+  <li><strong>ダークモード。</strong> 暗背景に微妙な暗いシャドウはほとんど見えません。明るいインナーボーダーや、明色寄りのシャドウを検討してください。</li>
 </ul>
 """,
     },

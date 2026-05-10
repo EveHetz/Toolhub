@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Editor di Tabelle Markdown", "tagline": "Modifica visualmente una tabella — righe, colonne, allineamento per colonna — e copia il Markdown stile GitHub.", "description": "Editor di tabelle Markdown gratuito. Clicca le celle per modificare, aggiungi/rimuovi righe e colonne, allineamento per colonna e copia il Markdown GFM. 100% nel browser."},
         "pt": {"name": "Editor de Tabelas Markdown", "tagline": "Edite uma tabela visualmente — linhas, colunas, alinhamento por coluna — e copie o Markdown estilo GitHub.", "description": "Editor de tabelas Markdown gratuito online. Clique nas células para editar, adicione/remova linhas e colunas, defina alinhamento por coluna e copie o Markdown estilo GitHub (GFM). Roda inteiramente no seu navegador."},
         "pl": {"name": "Edytor Tabel Markdown", "tagline": "Edytuj tabelę wizualnie — wiersze, kolumny, wyrównanie per kolumna — i skopiuj Markdown w stylu GitHuba.", "description": "Darmowy online edytor tabel Markdown. Klikaj komórki, by edytować, dodawaj/usuwaj wiersze i kolumny, ustaw wyrównanie per kolumna i skopiuj wyjście Markdown w stylu GitHuba (GFM). Działa w całości w przeglądarce."},
+        "ja": {"name": "Markdown テーブルエディター", "tagline": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。", "description": "オンライン無料の Markdown テーブルエディター。セルをクリックして編集、行や列を追加／削除、列ごとの揃えを設定し、GitHub 風 Markdown 出力をコピーできます。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -364,6 +365,28 @@ document.addEventListener('DOMContentLoaded', mtRender);
   <li><strong>Pierwszy wiersz zawsze jest traktowany jako nagłówek.</strong> Tabele GFM mają obowiązkowy header. Jeśli twoje dane nie mają naturalnego nagłówka, używaj pustych komórek w wierszu 1.</li>
   <li><strong>Niektóre dialekty Markdowna są surowsze niż GFM.</strong> CommonMark sam nie definiuje tabel; GFM, MultiMarkdown i kilka innych wspierają lekko różne warianty. Wyjście tu celuje w GFM (GitHub, GitLab, większość nowoczesnych rendererów).</li>
   <li><strong>Wklejenie niezformatowanego CSV nie zadziała.</strong> Textarea "import" oczekuje tabeli Markdown (z separatorem <code>|---|</code>). Do CSV → Markdown użyj najpierw narzędzia CSV-to-JSON albo wklej wiersze ręcznie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>Markdown のテーブルはレンダリング後の見た目は良い一方、手書きは面倒です。パイプ、揃えのコロン、列ごとに必要なハイフン数 — 全部を整える頃には HTML で書いた方が早かった、ということになりがちです。本エディターは見慣れたグリッドを提供します。セルをクリックして編集、ボタンで行・列の追加削除、列単位の揃えをドロップダウンから設定、最後に GitHub 風 Markdown をコピーできます。下部に既存の Markdown テーブルを貼ると、グリッドにロードして編集を続けられます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>README、GitHub issue、PR の説明用に比較表を作りたいとき。</li>
+  <li>ドキュメントの既存テーブルを編集したいとき — 既存 Markdown を貼ってグリッドで調整、コピーして戻せます。</li>
+  <li>桁を揃えた ASCII テーブルとしても読める出力（右パディングされるので素のテキストでも読みやすい）が必要なとき。</li>
+  <li>パイプとハイフンの構文と戦わずにリリースノートのテーブルを下書きしたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>セル内のパイプは GFM テーブルを壊します。</strong> セル内のリテラル <code>|</code> はセルを終端させます。必要なら <code>\\|</code> でエスケープしてください。</li>
+  <li><strong>セルは 1 行のみ。</strong> Markdown テーブルは HTML（<code>&lt;br&gt;</code>）なしではセル内改行に対応しません。複数行が必要なら HTML テーブルで書きましょう。</li>
+  <li><strong>揃えは描画されますが強制ではありません。</strong> 出力はソース上も整えるためにパディングしますが、レンダリングでの揃えはあくまで区切り行のコロンに依存し、空白の数ではありません。</li>
+  <li><strong>1 行目は常にヘッダーとして扱われます。</strong> GFM テーブルにはヘッダーが必須です。自然なヘッダーがない場合は 1 行目を空セルにしてください。</li>
+  <li><strong>Markdown 方言によっては GFM より厳しいです。</strong> CommonMark はそもそもテーブルを定義していません。GFM、MultiMarkdown などで微妙に異なる方言があります。本ツールの出力は GFM（GitHub、GitLab、ほとんどのモダンレンダラー）を対象としています。</li>
+  <li><strong>素の CSV は読み込めません。</strong> インポート用テキストエリアは <code>|---|</code> 区切りを含む Markdown テーブルを期待します。CSV → Markdown 変換が必要なら、CSV-to-JSON ツールを経由するか、手で行を貼り付けてください。</li>
 </ul>
 """,
     },

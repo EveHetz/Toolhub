@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Verificatore Contrasto WCAG", "tagline": "Controlla il rapporto di contrasto tra due colori. Verdetto pass/fail per WCAG AA e AAA a ogni dimensione.", "description": "Verificatore gratuito di contrasto WCAG. Scegli colori di primo piano e sfondo, ottieni il rapporto (1:1 a 21:1) e verdetto pass/fail secondo WCAG 2.1 AA e AAA."},
         "pt": {"name": "Verificador de Contraste WCAG", "tagline": "Verifique a razão de contraste entre duas cores. Veredito pass/fail para WCAG AA e AAA em qualquer tamanho de texto.", "description": "Verificador de contraste WCAG gratuito. Escolha as cores de foreground e background, obtenha a razão (1:1 a 21:1) e o veredito pass/fail para WCAG 2.1 AA e AAA — para texto normal, texto grande e componentes de UI."},
         "pl": {"name": "Sprawdzacz Kontrastu WCAG", "tagline": "Sprawdź współczynnik kontrastu między dwoma kolorami. Werdykt pass/fail dla WCAG AA i AAA przy każdym rozmiarze tekstu.", "description": "Darmowy sprawdzacz kontrastu WCAG. Wybierz kolor tekstu i tła, dostań współczynnik (1:1 do 21:1) i werdykt pass/fail dla WCAG 2.1 AA i AAA — dla normalnego tekstu, dużego tekstu i komponentów UI."},
+        "ja": {"name": "WCAG コントラストチェッカー", "tagline": "2 色のコントラスト比をチェック。各テキストサイズの WCAG AA／AAA で合否を判定。", "description": "無料の WCAG コントラスト比チェッカー。前景色と背景色を選ぶと比率（1:1〜21:1）と、WCAG 2.1 AA／AAA の合否（通常テキスト、大きい文字、UI コンポーネント別）を判定します。"},
     },
     "body": """
 <div class="tool-card">
@@ -223,6 +224,36 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Stany hover i focus się liczą.</strong> Jeśli twój przycisk przechodzi AA w spoczynku, ale pada na hover, to prawdziwy bug dostępności.</li>
   <li><strong>WCAG 2.1 vs APCA.</strong> Nowy APCA (Accessible Perceptual Contrast Algorithm), proponowany do WCAG 3, daje inne i prawdopodobnie lepsze liczby — ale WCAG 2.1 jest standardem prawnym, do którego nadal odnosi się większość jurysdykcji. Używaj liczb tego narzędzia przy spełnianiu EN 301 549, ADA albo claimów zgodności AA.</li>
   <li><strong>Nie kombinuj z przezroczystością.</strong> Foreground z 50% alpha na znanym tle ma inny efektywny kontrast — licz przeciwko faktycznie wyrenderowanemu kolorowi, nie oryginałowi.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>WCAG（ウェブアクセシビリティガイドライン）は、ロービジョン、色覚特性、ギラつく光環境のユーザーでもテキストを読めるよう、テキストと背景の最低コントラスト比を定義しています。本ツールは比率（1:1 = 同色、21:1 = 純黒×純白）を計算し、WCAG 2.1 の AA／AAA に通るかを通常テキスト、大きい文字、UI コンポーネントごとに判定します。計算は W3C の輝度公式に厳密に従います。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>白カードに乗せたブランドカラーがアクセシビリティを満たすか確認したいとき。</li>
+  <li>ブランドカラー背景のボタンに対して、AA を満たす文字色を選びたいとき。</li>
+  <li>デザインシステムのトークンを 1 つずつ監査して出荷前に揃えたいとき。</li>
+  <li>具体的な合否を提示してステークホルダーに色変更を提案したいとき。</li>
+  <li>低コントラスト設定のユーザーに実際にどう見えるか確認したいとき。</li>
+</ul>
+
+<h3>閾値</h3>
+<ul>
+  <li><strong>通常テキスト</strong>（18pt 未満／14pt 太字未満）：AA は <strong>4.5:1</strong>、AAA は <strong>7:1</strong>。</li>
+  <li><strong>大きい文字</strong>（18pt 以上または 14pt 太字以上）：AA は <strong>3:1</strong>、AAA は <strong>4.5:1</strong>。</li>
+  <li><strong>UI コンポーネントとグラフィック</strong>（アイコン、フォーカスリング、フォーム枠、情報を伝えるグラフ要素）：AA は <strong>3:1</strong>（WCAG 2.1 §1.4.11）。AAA 規定はありません。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>「大きい文字」は思ったより大きいです。</strong> 18pt はおよそ 24px、14pt 太字はおよそ 19px 太字。16px の本文は<em>大きい文字ではありません</em>。4.5:1 の閾値が必要です。</li>
+  <li><strong>賑やかな写真の上の明るい文字は失格しがち。</strong> コントラスト比は具体的なピクセル間で決まるため、暗いグラデーションを重ねるか、無地パネルで背景を整えてください。</li>
+  <li><strong>アンチエイリアシングはコントラストを弱めます。</strong> 4.5:1 は床であって目標ではありません。本文では 7:1 以上を狙うと読みやすくなります。</li>
+  <li><strong>ホバーとフォーカスも対象です。</strong> 静止状態で AA を通り、ホバー状態で落ちるなら、それは現実のアクセシビリティバグです。</li>
+  <li><strong>WCAG 2.1 と APCA。</strong> WCAG 3 へ提案中の APCA は別の（おそらく改善された）数値を出しますが、ほとんどの法令で参照されるのは依然として WCAG 2.1 です。EN 301 549、ADA、AA 適合主張で使うのは本ツールの数値です。</li>
+  <li><strong>透明度で誤魔化さないこと。</strong> 既知の背景に乗せたアルファ 50% の前景は実効コントラストが変わります。元の色ではなく、実際にレンダリングされる色で計算してください。</li>
 </ul>
 """,
     },

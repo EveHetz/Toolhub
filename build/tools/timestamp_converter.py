@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore Timestamp Unix", "tagline": "Converti tra timestamp Unix e date leggibili. Secondi e millisecondi, UTC e locale.", "description": "Convertitore gratuito di timestamp Unix. Conversione tra secondi epoch, millisecondi, ISO 8601 e date leggibili."},
         "pt": {"name": "Conversor de Timestamp Unix", "tagline": "Converta entre timestamps Unix e datas legíveis. Segundos e milissegundos, UTC e local.", "description": "Conversor gratuito de timestamp Unix. Converta entre segundos epoch, milissegundos, ISO 8601 e datas legíveis em UTC ou hora local."},
         "pl": {"name": "Konwerter Unix Timestamp", "tagline": "Konwertuj między Unix timestampami a datami czytelnymi dla człowieka. Sekundy i milisekundy, UTC i lokalna.", "description": "Darmowy online konwerter Unix timestampów. Konwertuj między epoch w sekundach, milisekundach, ISO 8601 i datami czytelnymi dla człowieka w UTC albo czasie lokalnym."},
+        "ja": {"name": "Unix タイムスタンプ変換", "tagline": "Unix タイムスタンプと人間可読な日時を相互変換。秒・ミリ秒、UTC・ローカルに対応。", "description": "オンライン無料の Unix タイムスタンプ変換ツール。エポック秒、ミリ秒、ISO 8601、UTC およびローカル時刻の人間可読な日時間で変換できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -187,6 +188,35 @@ document.addEventListener('DOMContentLoaded', tsNow);
   <li><strong>Ujemne timestampy</strong> są poprawne i reprezentują daty sprzed 1970. Niektóre biblioteki je odrzucają — przetestuj zanim na tym polegniesz.</li>
   <li><strong>Auto-detekcja nie jest niezawodna.</strong> 10-cyfrowa wartość <em>mogłaby</em> być milisekundowym timestampem z 1970 — w praktyce nieprawdopodobnie, ale jeśli wiesz, którą jednostkę masz, nie polegaj na heurystyce.</li>
   <li><strong>Zawsze zapisuj UTC.</strong> Timestampy są wolne od strefy; "czas lokalny" jest tylko do wyświetlania. Linia "Local" na wyjściu używa strefy twojej przeglądarki, ale integer pod spodem to zawsze UTC.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>Unix タイムスタンプは 1 つの整数で、1970-01-01 00:00:00 UTC からの秒数（またはミリ秒数）を表します。ログ、API レスポンス、JWT の <code>iat</code>/<code>exp</code>、DB の <code>created_at</code>、キャッシュヘッダなど至る所で使われます。曖昧さがなくタイムゾーン非依存ですが、人には読めないため、何かが <code>1735689600</code> で壊れたとき、それが今日の 14 時か早朝 4 時か、今年か昨年かを知る必要があります。本ツールは整数表現と可読表現を双方向に変換し、秒／ミリ秒の自動判定と相対時間の表示も行います。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ログや API レスポンスの <code>"timestamp": 1735689600</code> をデコードしたいとき。</li>
+  <li>JWT の発行日時や有効期限を確認したいとき（<code>iat</code> / <code>exp</code> はエポック秒）。</li>
+  <li><code>retry-after</code> ヘッダ、スケジュールジョブ、キャッシュ TTL のために未来のタイムスタンプを計算したいとき。</li>
+  <li>DB に保存された値が秒なのかミリ秒なのかマイクロ秒なのかをサニティチェックしたいとき。</li>
+  <li>「今」を、いま使っているツールが要求する形式に変換したいとき。</li>
+</ul>
+
+<h3>秒・ミリ秒・マイクロ秒</h3>
+<ul>
+  <li><strong>秒</strong> — Unix の本来の慣例。現在およそ 10 桁（例：<code>1735689600</code>）。C、Linux、JWT、多くの API、整数カラムでよく使われます。</li>
+  <li><strong>ミリ秒</strong> — JavaScript の <code>Date.now()</code>、Java の <code>System.currentTimeMillis()</code>、Kafka、多くの JSON API。約 13 桁。</li>
+  <li><strong>マイクロ秒（16 桁）／ナノ秒（19 桁）</strong> — Python の <code>time.time_ns()</code>、Go の <code>time.Now().UnixNano()</code>、一部のメトリクス基盤。本ツールは自動処理しません。先に 1,000 や 1,000,000 で割ってから入力してください。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>2038 年問題。</strong> 32 ビット符号付きタイムスタンプは <code>2147483647</code> = <strong>2038 年 1 月 19 日 03:14:07 UTC</strong> でオーバーフローします。古い C コード、MySQL の <code>TIMESTAMP</code> 型、組み込み機器は 1901 年に巻き戻ることがあります。現代のシステムは 64 ビットなので、約西暦 292,277,026,596 年まで問題ありません。</li>
+  <li><strong>Unix 時刻は閏秒を飛ばします。</strong> Unix の 1 日は常に 86,400 秒ですが、UTC は 86,401 秒の日が稀にあります。これは設計上の選択（演算が単純になる）ですが、サブ秒精度の天文計算や GPS には Unix 時刻は使えません。</li>
+  <li><strong>負のタイムスタンプ</strong> は有効で、1970 年以前を表します。一部ライブラリは拒否するため、依存する前に検証してください。</li>
+  <li><strong>自動判定は完全ではありません。</strong> 10 桁の値は理論上は 1970 年のミリ秒タイムスタンプであり得ます（実用上は皆無）。単位が分かっているなら自動判定に頼らず明示してください。</li>
+  <li><strong>常に UTC で保存しましょう。</strong> タイムスタンプにタイムゾーンはありません。「ローカル時刻」は表示専用です。出力の "Local" 行はブラウザのタイムゾーンを使いますが、整数自体は常に UTC です。</li>
 </ul>
 """,
     },

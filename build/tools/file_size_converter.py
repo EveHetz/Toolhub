@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Convertitore Dimensione File", "tagline": "Converti tra byte, KB, MB, GB, TB e i binari KiB, MiB, GiB, TiB. Decimale vs binario chiari.", "description": "Convertitore gratuito di dimensioni file. Converti qualsiasi quantità di byte tra unità decimali (B, KB, MB, GB, TB) e unità binarie IEC (KiB, MiB, GiB, TiB)."},
         "pt": {"name": "Conversor de Tamanho de Arquivo", "tagline": "Converta entre bytes, KB, MB, GB, TB e os binários KiB, MiB, GiB, TiB. Decimal vs binário bem distinguidos.", "description": "Conversor gratuito de unidades de tamanho de arquivo. Converta qualquer quantidade de bytes entre unidades decimais (B, KB, MB, GB, TB, PB) e unidades binárias IEC (KiB, MiB, GiB, TiB, PiB). Veja os dois lado a lado, com a distinção exata."},
         "pl": {"name": "Konwerter Rozmiaru Plików", "tagline": "Konwertuj między bajtami, KB, MB, GB, TB a binarnymi KiB, MiB, GiB, TiB. Decimal vs binary jasno rozdzielone.", "description": "Darmowy konwerter jednostek rozmiaru pliku. Przelicz dowolną liczbę bajtów między jednostkami dziesiętnymi (B, KB, MB, GB, TB, PB) i binarnymi IEC (KiB, MiB, GiB, TiB, PiB). Zobacz obie naraz, z dokładnym rozróżnieniem."},
+        "ja": {"name": "ファイルサイズコンバーター", "tagline": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。", "description": "無料のファイルサイズ単位変換ツール。任意のバイト値を、10 進系単位（B、KB、MB、GB、TB、PB）と IEC バイナリ単位（KiB、MiB、GiB、TiB、PiB）の間で変換し、両方を同時に表示します。違いを正確に把握できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -265,6 +266,33 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>Prędkość sieci jest w bitach, nie bajtach.</strong> 100 Mbps = 100 megabitów na sekundę = 12,5 MB/s w szczycie. Twoja "100 Mbit fiber" nie ściągnie pliku 100 MB w sekundę.</li>
   <li><strong>Niektóre narzędzia są niespójne.</strong> macOS Finder przeszedł z binarnego (z labelami KB) na dziesiętny w 10.6 i tam głównie został. Eksplorator Windows nadal używa binarnego z labelami KB — myląco, ale niezmiennie.</li>
   <li><strong><code>Content-Length</code> przeglądarek jest w bajtach.</strong> Zawsze dokładny, bez dwuznaczności SI/IEC.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>「4 GB ってどれくらい？」は、聞く相手で答えが変わります。HDD メーカー、ネットワーク技術者、SI に従う規格は 4,000,000,000 バイト（1000 のべき乗）を意味します。OS、RAM、多くのファイルマネージャは歴史的に 4,294,967,296 バイト（1024 のべき乗）を意味してきました。GB スケールで両者は約 7%、TB スケールで約 10% ずれます。「1 TB」のドライブが PC で「931 GiB」と表示されて損した気分になるのに十分な差です。本ツールは両系統を相互変換し、いま見ているのがどちらかを常に把握できるようにします。</p>
+
+<h3>2 つの体系</h3>
+<ul>
+  <li><strong>SI / 10 進</strong> — KB、MB、GB、TB。<code>1 KB = 1,000 バイト</code>。ストレージメーカー、ネットワーク速度（Mbps、Gbps）、1960 年以来の SI 規格で使用されます。</li>
+  <li><strong>IEC / 2 進</strong> — KiB、MiB、GiB、TiB。<code>1 KiB = 1,024 バイト</code>。IEC が 1998 年に曖昧さを解消するため導入。Linux の <code>du -h</code> やメモリ表示の macOS Finder などで採用されています。</li>
+</ul>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>バックアップ、アップロード、Docker イメージのサイズを見積もり、ツールの表示と突き合わせるとき。</li>
+  <li>「150 Mbps」のダウンロード速度を MB/s に換算するとき（8 で割る — ビットからバイトへ）。</li>
+  <li>あるクラウドプロバイダが GB、別のプロバイダが GiB を使う場合のコスト比較。</li>
+  <li>「1 GB のメール」が実際にディスクで何バイト占めるかを把握したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>HDD は 10 進です。</strong> 「1 TB」ドライブは 1,000,000,000,000 バイト ≈ 931 GiB です。OS が嘘をついているのではなく、マーケティングが小さい単位を使っています。</li>
+  <li><strong>RAM は 2 進です。</strong> 「8 GB RAM」はほぼ常に 8 GiB（8,589,934,592 バイト）です。RAM は 2 のべき乗で構成されます。</li>
+  <li><strong>ネットワーク速度はビット単位です。</strong> 100 Mbps = 100 メガビット/秒 = 最大 12.5 MB/s。「100 Mbit 光」が 100 MB のファイルを 1 秒でダウンロードするわけではありません。</li>
+  <li><strong>ツールの一貫性に乏しいことがあります。</strong> macOS Finder は 10.6 で 2 進（KB ラベル）から 10 進に切り替え、おおむね 10 進のままです。Windows Explorer は依然として 2 進を KB ラベルで表示しており、紛らわしいですが変わっていません。</li>
+  <li><strong>ブラウザの <code>Content-Length</code> はバイトです。</strong> 常に厳密で、SI/IEC の曖昧さはありません。</li>
 </ul>
 """,
     },

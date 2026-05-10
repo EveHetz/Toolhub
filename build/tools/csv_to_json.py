@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "CSV a JSON", "tagline": "Converti dati CSV in array JSON. Riconoscimento intestazioni, separatori personalizzati, campi tra virgolette e a capo.", "description": "Convertitore CSV-JSON gratuito. Rileva intestazioni, supporta separatori personalizzati e campi multi-riga tra virgolette."},
         "pt": {"name": "CSV para JSON", "tagline": "Converta dados CSV em arrays JSON. Detecção de cabeçalho, delimitadores customizados, campos entre aspas e quebras de linha embutidas.", "description": "Conversor CSV para JSON online gratuito. Detecta cabeçalhos automaticamente, suporta delimitadores customizados e campos multilinha entre aspas. Roda no seu browser."},
         "pl": {"name": "CSV do JSON", "tagline": "Konwertuj dane CSV na tablice JSON. Wykrywanie nagłówka, własne delimitery, pola w cudzysłowach i osadzone końce linii.", "description": "Darmowy online konwerter CSV do JSON. Auto-wykrywanie nagłówków, wsparcie dla własnych delimiterów i wielowierszowych pól w cudzysłowach. Działa w przeglądarce."},
+        "ja": {"name": "CSV から JSON", "tagline": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。", "description": "オンライン無料の CSV → JSON コンバーター。ヘッダーの自動検出、カスタム区切り文字、引用符で囲まれた複数行フィールドに対応。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -165,6 +166,25 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>Konwersja typów jest opiniotwórcza.</strong> Stringi liczbowe, <code>true</code>, <code>false</code> i literalny <code>null</code> są konwertowane na typy JSON. Rzeczy, które wyglądają na liczbowe, ale nie są (kody pocztowe, ISBN-y z wiodącymi zerami, numery telefonów) tracą wiodące zera — wyłącz konwersję albo dopracuj po.</li>
   <li><strong>Puste komórki stają się pustymi stringami, nie <code>null</code>.</strong> Większość API traktuje to jako dwie różne rzeczy.</li>
   <li><strong>BOM-y w plikach z dzikiej.</strong> Excel zapisuje na Windowsie UTF-8 z byte-order markiem; parser to toleruje, ale inni konsumenci mogą nie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>CSV はスプレッドシート出力の共通語、JSON は API や設定の共通語です。このコンバーターは適切に引用された CSV（RFC 4180 準拠）を入力として受け取り、JSON 配列を返します。ヘッダー行があるならオブジェクトの配列、そうでなければ配列の配列です。シートをエクスポートして JSON を扱う何かに食わせたいときに便利です。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>Google Sheets / Excel の単発エクスポートを、API モックやテストフィクスチャの seed データに変換するとき。</li>
+  <li>参照テーブル（国コード、通貨コード、ルックアップデータ）を JSON 消費型のフロントエンドに読み込ませるとき。</li>
+  <li>埋め込みカンマや改行を含む CSV で、ちゃんとした RFC 4180 パーサー以外では正しく開けないファイルを確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>区切り文字の自動検出は魔法ではありません。</strong> ファイルがセミコロン（EU ロケールに多い）やタブ（TSV）を使うなら、ドロップダウンで切り替えてください。データに該当文字が含まれていると自動推定が騙されることがあります。</li>
+  <li><strong>型推論には方針があります。</strong> 数値文字列、<code>true</code>、<code>false</code>、リテラル <code>null</code> は JSON の型に変換されます。郵便番号、ISBN、電話番号など、見た目は数値だが実は違うデータは先頭の 0 が落ちます。型変換を無効にするか、変換後に補正してください。</li>
+  <li><strong>空セルは <code>null</code> ではなく空文字列になります。</strong> 多くの API はこの 2 つを区別します。</li>
+  <li><strong>実際のファイルにある BOM。</strong> Excel は Windows で UTF-8 をバイトオーダーマーク付きで保存することがあります。パーサーは許容しますが、他のコンシューマは許容しない場合があります。</li>
 </ul>
 """,
     },

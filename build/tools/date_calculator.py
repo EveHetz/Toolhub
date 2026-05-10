@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Calcolatore di Date", "tagline": "Giorni tra due date · aggiungi o sottrai giorni/settimane/mesi/anni · età esatta in anni, mesi e giorni.", "description": "Calcolatore di date gratuito. Calcola la durata tra due date, aggiungi o sottrai un periodo e ottieni l'età esatta in anni/mesi/giorni."},
         "pt": {"name": "Calculadora de Datas", "tagline": "Dias entre duas datas · somar ou subtrair dias/semanas/meses/anos · idade em anos, meses e dias.", "description": "Calculadora de datas online gratuita. Calcule a duração entre duas datas, some ou subtraia um período e descubra a idade exata em anos/meses/dias. Tudo roda no seu browser."},
         "pl": {"name": "Kalkulator Dat", "tagline": "Dni między dwiema datami · dodaj/odejmij dni/tygodnie/miesiące/lata · wiek w latach, miesiącach i dniach.", "description": "Darmowy online kalkulator dat. Policz różnicę między dwiema datami, dodaj lub odejmij okres od dowolnej daty i wylicz dokładny wiek w latach/miesiącach/dniach. Wszystko liczy się w przeglądarce."},
+        "ja": {"name": "日付計算機", "tagline": "2 つの日付の差・日付に対する日／週／月／年の加減・年齢を年・月・日で算出。", "description": "オンライン無料の日付計算機。2 つの日付の期間を計算し、任意の日付に対して期間を加減算し、年・月・日で正確な年齢を算出します。すべてブラウザ内で実行されます。"},
     },
     "body": """
 <div class="tool-card">
@@ -284,6 +285,27 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>Dni robocze nie obejmują świąt.</strong> Liczenie zna weekendy, ale nie święta państwowe — popraw ręcznie, jeśli to ważne.</li>
   <li><strong>"Łączne miesiące" są przybliżone</strong> w widoku wieku (lata × 12 + miesiące) — ignoruje końcowe dni. Liczba R/M/D jest dokładna.</li>
   <li><strong>Kotwiczenie w UTC ma trade-off z lokalizacją.</strong> Data w twojej strefie lokalnej może zmapować na nieco inny dzień UTC. W większości zastosowań (deadline'y, wiek) UTC w południe jest bezpieczniejsze; do pracy ze strefami z dokładnością do minut użyj konwertera stref czasowych.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>日付計算機に求められるのは大きく 3 つです。2 つの日付の差（「ローンチまであと何日？」）、ある日付からの期間シフト（「請求日から 90 日後」）、正確な年齢（「生年月日から年・月・日まで」）。本ツールはこの 3 つすべてをブラウザ内で実行します。基準を UTC 正午にアンカーしているため、出張や旅行中でも DST やタイムゾーンの差で答えが静かにズレることはありません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>契約期間、プロジェクトのタイムライン、締切の計算。</li>
+  <li>請求や見積のために、2 日付間の営業日（月〜金）数を正確に求めたいとき。</li>
+  <li>年齢の境界線（ビザ要件、学年、節目の誕生日）の確認。</li>
+  <li>基準日に「30 日 net」や「90 日のクーリングオフ」を月末を考慮して安全に加算したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>終了日を含めるか含めないか。</strong> 「月→金」は間隔を数えれば 4、日数を数えれば 5 です。トグルでどちらの慣習を使うかを切り替えます。問いに応じてどちらも正解です。</li>
+  <li><strong>加減算の順序が重要。</strong> 年と月が先に適用され、その後に週と日が適用されます。1 月 30 日に「1 か月 + 1 日」を足すと 3 月 1 日になります（2 月 30 日 → 2 月 28/29 日 → +1）。3 月 2 日にはなりません。これがほとんどの datetime ライブラリで採用されているカレンダー安全な慣習です。</li>
+  <li><strong>営業日に祝日は含まれません。</strong> この計算機は週末は把握しますが、祝日は把握しないため、必要に応じて手動で調整してください。</li>
+  <li><strong>「合計月数」は近似です。</strong> 年齢ビューでは「年×12+月」を用い、末尾の日数を無視します。Y/M/D の数値は厳密です。</li>
+  <li><strong>UTC アンカーはロケールとのトレードオフがあります。</strong> ローカルタイムゾーンでの日付は、UTC ではわずかに別の日にマップされることがあります。締切や年齢といった用途では UTC 正午が安全です。分単位のタイムゾーン業務にはタイムゾーンコンバーターを使ってください。</li>
 </ul>
 """,
     },

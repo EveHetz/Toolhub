@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Ricerca Tipi MIME", "tagline": "Cerca tipi MIME per estensione o per tipo. ~120 tipi comuni — immagini, video, audio, application, text, font.", "description": "Strumento gratuito di ricerca MIME. Cerca per estensione (.pdf, .png, .json) o tipo MIME (image/jpeg, application/pdf) fra circa 120 tipi comuni."},
         "pt": {"name": "Consulta de MIME Types", "tagline": "Busque MIME types por extensão ou por tipo. ~120 tipos comuns — image, video, audio, application, text, font.", "description": "Ferramenta gratuita de consulta de MIME types. Busque por extensão de arquivo (.pdf, .png, .json) ou por MIME type (image/jpeg, application/pdf) entre cerca de 120 Internet media types comuns."},
         "pl": {"name": "Wyszukiwarka MIME Types", "tagline": "Wyszukuj MIME types po rozszerzeniu albo po typie. ~120 typowych — image, video, audio, application, text, font.", "description": "Darmowe narzędzie do wyszukiwania MIME types. Szukaj po rozszerzeniu pliku (.pdf, .png, .json) albo po MIME type (image/jpeg, application/pdf) wśród około 120 typowych Internet media types."},
+        "ja": {"name": "MIME タイプ検索", "tagline": "拡張子やタイプから MIME タイプを検索。image・video・audio・application・text・font の約 120 種を収録。", "description": "無料の MIME タイプ検索ツール。ファイル拡張子（.pdf、.png、.json）や MIME タイプ（image/jpeg、application/pdf）から、よく使われる約 120 種のインターネットメディアタイプを検索できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -325,6 +326,29 @@ document.addEventListener('DOMContentLoaded', mtRun);
   <li><strong><code>application/octet-stream</code> znaczy "nie wiem".</strong> Jeśli kontrolujesz typ, użyj prawdziwego — przeglądarki mogą wymusić download contentu octet-stream, nawet jeśli da się go wyrenderować.</li>
   <li><strong>Charset ma znaczenie dla typów tekstowych.</strong> <code>Content-Type: text/html; charset=utf-8</code> — bez tego przeglądarki zgadują i czasem zgadują źle (mojibake).</li>
   <li><strong>Magic-byte sniffing różni się od deklarowanego typu.</strong> Przeglądarki mogą zakwestionować <code>Content-Type</code> na bazie zawartości pliku (<code>X-Content-Type-Options: nosniff</code> to wyłącza — ustaw dla bezpieczeństwa).</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>MIME タイプ（現在は Internet media type）は、<code>image/png</code> や <code>application/json</code> のような 2 部構成のラベルで、サーバー、ブラウザ、ライブラリにバイト列の解釈方法を伝えます。HTTP の <code>Content-Type</code> ヘッダ、Multipart メッセージのパート、<code>file --mime</code> の出力に現れます。IANA のレジストリには数千件あり、本ツールはウェブで実際に出会う約 120 種を収録しています。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>API レスポンスに <code>Content-Type</code> を設定するとき、<code>.docx</code>、<code>.heic</code>、<code>.webmanifest</code> 用の正しいタイプが知りたい。</li>
+  <li>アップロードフィールドの <code>accept</code> 属性や、S3 バケットの許可リストを設定するとき。</li>
+  <li>hex ダンプや tcpdump で <code>application/grpc-web</code> が何かを調べたいとき。</li>
+  <li>静的ファイルサーバーや CDN の設定で、拡張子→MIME のマッピングを作りたいとき。</li>
+  <li><code>text/xml</code> と <code>application/xml</code> のどちらを使うか決めたいとき（新規コードでは RFC 7303 に従い後者を推奨）。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>拡張子は MIME タイプと等価ではありません。</strong> <code>.json</code> は通常 <code>application/json</code> にマップされますが、サーバーが <code>text/plain</code> として配信すれば、ブラウザはヘッダに従います。常にヘッダを明示してください。</li>
+  <li><strong>JavaScript は混乱しがちです。</strong> RFC 9239 では <code>text/javascript</code> が推奨です。<code>application/javascript</code>、<code>application/ecmascript</code> などは廃止予定ですが、まだ目にします。</li>
+  <li><strong>OOXML タイプは非常に長いです。</strong> <code>.docx</code> は <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>。覚えようとせず、コピーしましょう。</li>
+  <li><strong><code>application/octet-stream</code> は「分からない」の意味です。</strong> タイプを制御できるなら本物のタイプを使ってください。レンダリング可能なコンテンツでも、ブラウザがダウンロード扱いにすることがあります。</li>
+  <li><strong>テキスト系では charset が重要です。</strong> <code>Content-Type: text/html; charset=utf-8</code>。これがないとブラウザは推測し、時々間違えて文字化けします。</li>
+  <li><strong>マジックバイトのスニッフィングが宣言型と違うことがあります。</strong> ブラウザは <code>Content-Type</code> をファイル内容で再判定することがあります。<code>X-Content-Type-Options: nosniff</code> でこれを無効化できます。セキュリティのため設定を推奨します。</li>
 </ul>
 """,
     },

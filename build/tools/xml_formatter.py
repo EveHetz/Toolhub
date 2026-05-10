@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Formattatore XML", "tagline": "Formatta e minifica XML. Valida la ben-formattezza con riga e colonna in caso di errori.", "description": "Formattatore e minificatore XML gratuito. Pretty-print con indentazione configurabile o rimozione spazi. Valida la ben-formattezza con il parser XML del browser — riga e colonna in caso di errori."},
         "pt": {"name": "Formatador de XML", "tagline": "Formate e minifique XML. Valide se está bem-formado com linha e coluna em caso de erro.", "description": "Formatador e minificador de XML online gratuito. Pretty-print de XML com indentação configurável, ou remova whitespace para minificar. Valida well-formedness usando o parser XML do navegador — linha e coluna do erro são exibidos."},
         "pl": {"name": "Formatter XML", "tagline": "Sformatuj i zminifikuj XML. Waliduj poprawność (well-formed) z linią i kolumną przy błędach.", "description": "Darmowy online formatter i minifikator XML. Pretty-print XML z konfigurowalnym wcięciem albo wycinanie białych znaków do minifikacji. Waliduje well-formedness parserem XML przeglądarki — linia i kolumna błędu pokazane."},
+        "ja": {"name": "XML フォーマッター", "tagline": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。", "description": "オンライン無料の XML フォーマッター／ミニファイア。設定可能なインデントでの整形、または空白除去によるミニファイに対応します。ブラウザの XML パーサで well-formed を検証し、エラー時は行と列を表示します。"},
     },
     "body": """
 <div class="tool-card">
@@ -372,6 +373,30 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>Namespace'y przeżywają.</strong> Deklaracje <code>xmlns:foo</code> i kwalifikowane nazwy <code>foo:bar</code> robią round-trip bez modyfikacji.</li>
   <li><strong>Kolejność atrybutów może się zmienić.</strong> Parser XML nie zachowuje ściśle kolejności atrybutów między narzędziami; jeśli liczysz checksum z XML-a, najpierw kanonikalizuj (XML C14N).</li>
   <li><strong>Dziwactwa parserów przeglądarek.</strong> Różne przeglądarki raportują błędy parsowania w różnych formatach. Wyciąganie linia/kolumna jest best-effort i w niektórych przeglądarkach pokaże tylko komunikat.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>XML はいまだに至るところで使われています。SOAP レスポンス、設定ファイル、RSS/Atom フィード、SVG、OOXML の中身など。XML を読み、差分を取り、共有する場面では、1 行に圧縮された塊と整形済みのツリーの差は「読める」と「推測する」の違いに直結します。本ツールは well-formed な XML を任意のインデントで整形、または転送用にミニファイし、ブラウザの XML パーサで構文を検証して、可能な場合は行と列でエラー位置を表示します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>1 行で送られてきた SOAP エンベロープやベンダー XML 設定の中身を確認したいとき。</li>
+  <li>SVG を整形して、path データを 1 要素 1 行で読めるようにしたいとき。</li>
+  <li>転送前に整形用の空白を除去したいとき。</li>
+  <li>厳密パーサに渡す前に、自分が生成した XML が well-formed か確認したいとき。</li>
+  <li>2 つの XML を整形してから並べて diff を取りたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>well-formed ≠ valid。</strong> 「well-formed」は構文（タグの対応、属性のクォート、ルートが 1 つ）が成立すること。「valid」は DTD やスキーマに従うこと。本ツールは well-formed のみ検証します。スキーマ検証にはスキーマファイルが必要です。</li>
+  <li><strong>空白は意味を持つことがあります。</strong> <code>&lt;name&gt; Alice &lt;/name&gt;</code> の前後の空白は値の一部です（XML はデフォルト <code>xml:space="preserve"</code>）。再インデントで変わります。XHTML の <code>&lt;pre&gt;</code> や埋め込みコードのように空白が重要な XML では pretty-print は不向きです。</li>
+  <li><strong>self-closing と明示的に空のタグ。</strong> XML では <code>&lt;br/&gt;</code> と <code>&lt;br&gt;&lt;/br&gt;</code> は等価ですが、HTML では異なります。本フォーマッターは空要素を self-closing 形式へ正規化します。</li>
+  <li><strong>CDATA、コメント、processing instruction は保持されます。</strong> 内部内容は再整形しません。</li>
+  <li><strong>名前空間は維持されます。</strong> <code>xmlns:foo</code> 宣言や <code>foo:bar</code> の修飾名はそのままラウンドトリップします。</li>
+  <li><strong>属性順は変わることがあります。</strong> XML パーサはツール間で属性順を厳密には維持しません。チェックサムを取るなら先に正規化（XML C14N）してください。</li>
+  <li><strong>ブラウザのパーサ差異。</strong> ブラウザによってエラー報告のフォーマットが異なります。行・列の抽出はベストエフォートで、ブラウザによってはメッセージのみ表示されます。</li>
 </ul>
 """,
     },

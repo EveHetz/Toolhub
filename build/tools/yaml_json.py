@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Konwertuj między YAML a JSON w obie strony. Przydatne do manifestów Kubernetes, configów CI i speców OpenAPI.",
             "description": "Darmowy online konwerter YAML do JSON i JSON do YAML. Dwukierunkowy, działa w całości w przeglądarce. Obsługuje anchory, aliasy i wielodokumentowy YAML.",
         },
+        "ja": {
+            "name": "YAML ↔ JSON コンバーター",
+            "tagline": "YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。",
+            "description": "オンライン無料の YAML → JSON / JSON → YAML コンバーター。双方向で、すべてブラウザ内で動作。アンカー、エイリアス、複数ドキュメント YAML にも対応します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -168,6 +173,26 @@ document.addEventListener('DOMContentLoaded', yjConv);
   <li><strong>Custom tagi</strong> (<code>!!python/object</code>, <code>!Ref</code> itd.) łamią ścisły YAML 1.2. YAML CloudFormation i dumpy pickle z PyYAML padną; najpierw posprzątaj tagi.</li>
   <li><strong>Anchory i aliasy są rozwijane</strong> przy YAML→JSON. JSON nie ma referencji, więc nody <code>*ref</code> są inline. Round-trip daje YAML równoważny wartością, ale tekstowo większy.</li>
   <li><strong>Liczby vs stringi.</strong> Niezacudzysłowione YAML-owe <code>3.14</code> to float; <code>"3.14"</code> to string.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>YAML と JSON は同じものを表現できます（ネストしたマップ、リスト、プリミティブ）が、可読性と厳密さのトレードオフが異なります。YAML は人間に優しく（Kubernetes マニフェスト、GitHub Actions、OpenAPI、多くの CI 設定）、JSON は API や機械可読フォーマットの定番です。本コンバーターは双方が表現可能な構造について、損失なく変換します。YAML には <a href="https://github.com/nodeca/js-yaml" rel="noopener">js-yaml</a>（YAML 1.2）、JSON にはネイティブ API を使用し、両方向ともブラウザ内で動作します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>OpenAPI / k8s / docker-compose の YAML を、JSON が必要なツールに渡したいとき。</li>
+  <li>API レスポンス（JSON）を設定ファイル用に YAML に変換したいとき。</li>
+  <li>あいまいなインデントで親子関係が分かりにくい YAML の実構造を確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>「ノルウェー問題」。</strong> YAML 1.1 は <code>NO</code>、<code>YES</code>、<code>ON</code>、<code>OFF</code> をブール値に強制変換しました。YAML 1.2 は変換しませんが、下流の古いパーサが変換することがあります。曖昧な文字列は引用しておくのが安全です。</li>
+  <li><strong>複数ドキュメント YAML</strong>（<code>---</code> 区切り） — 最初のドキュメントだけが変換されます。</li>
+  <li><strong>独自タグ</strong>（<code>!!python/object</code>、<code>!Ref</code> など）は厳格な YAML 1.2 を破ります。CloudFormation の YAML や PyYAML の pickle ダンプは失敗するので、先にタグを整理してください。</li>
+  <li><strong>アンカーとエイリアスは展開されます。</strong> JSON には参照がないため、YAML→JSON 時に <code>*ref</code> はインライン化されます。再変換した YAML は値としては等価ですが、テキストが冗長になります。</li>
+  <li><strong>数値と文字列。</strong> 引用なしの YAML <code>3.14</code> は float、<code>"3.14"</code> は string です。</li>
 </ul>
 """,
     },

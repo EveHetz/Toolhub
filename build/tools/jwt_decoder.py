@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Wklej JWT, żeby zdekodować header i payload. Wszystko liczy się w przeglądarce — tokeny nie opuszczają strony.",
             "description": "Darmowy online decoder JSON Web Token. Dekoduje header i payload, weryfikuje timestamp wygaśnięcia, pokazuje signature. Działa w pełni offline w przeglądarce.",
         },
+        "ja": {
+            "name": "JWT デコーダー",
+            "tagline": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。",
+            "description": "オンライン無料の JSON Web Token デコーダー。ヘッダーとペイロードのデコード、有効期限のタイムスタンプ確認、署名の表示まで対応。完全にオフライン（ブラウザ内）で動作します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -213,6 +218,36 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>Nie wklejaj tokenów produkcyjnych nigdzie.</strong> Każdy z żywym JWT może podszyć się pod użytkownika do <code>exp</code>. Przeglądarka go z tego narzędzia nie wysyła, ale rozszerzenia, screen recordingi i dev tools mogą podejrzeć. Użyj świeżego tokenu z testowego środowiska, jeśli musisz się podzielić.</li>
   <li><strong>Tokeny z <code>alg: none</code> to znana klasa ataków.</strong> Jeśli header ma <code>alg: none</code> i twoja biblioteka to akceptuje, atakujący mogą podrabiać tokeny. Odrzucaj to na serwerze.</li>
   <li><strong>Time skew ma znaczenie.</strong> <code>exp</code> tokenu jest sprawdzane przeciw zegarowi weryfikatora. Serwery z driftem padają na tokenach, które tu wyglądają na poprawne.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>JWT（JSON Web Token）は、ドットでつながれた 3 つの base64url パート <code>header.payload.signature</code> から成ります。ヘッダーとペイロードは検査可能な JSON オブジェクトで、署名は発行後に改ざんされていないことを示します。本ツールは前 2 つをデコードして、base64 のノイズを除いた中身を確認できるようにします。認証フローのデバッグ、セッションの期限切れ調査、「このトークンは結局どのユーザーのもの？」を素早く確認するのに役立ちます。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>失敗している OAuth / OpenID Connect ログインのデバッグ — アクセストークンや ID トークンを貼り付けて、IdP が実際に何を発行したかを確認するとき。</li>
+  <li>有効期限の確認 — <code>exp</code> を実際の日時にデコードし、過去日であればフラグを立てます。</li>
+  <li>バックエンドが主張するカスタムクレーム（ロール、権限、テナント ID）の妥当性確認。</li>
+  <li>ライブラリが「無効」と判断したトークンを読んで、構造の問題か、期限切れか、署名の問題かを切り分けるとき。</li>
+</ul>
+
+<h3>主なクレーム</h3>
+<ul>
+  <li><code>iss</code> — issuer（トークンを作ったエンティティ）</li>
+  <li><code>sub</code> — subject（対象のユーザー／アカウント）</li>
+  <li><code>aud</code> — audience（受け取るべき相手）</li>
+  <li><code>exp</code> — 有効期限（Unix タイムスタンプ）</li>
+  <li><code>iat</code> — 発行日時（Unix タイムスタンプ）</li>
+  <li><code>nbf</code> — 有効開始前（Unix タイムスタンプ）</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>デコード済み JWT は、検証済み JWT ではありません。</strong> 署名はここでは検証していません。検証には発行元の公開鍵（RSA/EC）または共有シークレット（HMAC）が必要です。デコードした内容は「トークンが何を主張しているか」しか教えません。クレームを信用する前に必ずサーバー側で検証してください。</li>
+  <li><strong>本番のトークンを貼り付けないこと。</strong> 有効な JWT を持つ者は <code>exp</code> までユーザーになりすませます。本ツールはブラウザから外に送信しませんが、拡張機能、画面録画、開発者ツールから漏れる可能性はあります。共有が必要なら、テスト環境の新しいトークンを使ってください。</li>
+  <li><strong><code>alg: none</code> のトークンは既知の攻撃クラスです。</strong> ヘッダに <code>alg: none</code> があり、ライブラリがそれを受け入れると、攻撃者がトークンを偽造できます。サーバー側で必ず拒否してください。</li>
+  <li><strong>クロックスキューに注意。</strong> <code>exp</code> は検証側の時計と比較されます。時刻ずれのあるサーバーでは、ここで有効に見えるトークンが落ちることがあります。</li>
 </ul>
 """,
     },

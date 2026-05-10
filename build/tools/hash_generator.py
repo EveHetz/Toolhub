@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Generatore di Hash", "tagline": "Genera hash SHA-1, SHA-256, SHA-384 o SHA-512 con WebCrypto. Calcolato localmente — l'input non lascia la pagina.", "description": "Generatore di hash gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Output esadecimale, tutto nel browser."},
         "pt": {"name": "Gerador de Hash", "tagline": "Gere hash de texto com SHA-1, SHA-256, SHA-384 ou SHA-512 usando WebCrypto do browser. Calculado localmente — o input nunca sai da página.", "description": "Gerador de hash online gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Saída em hex, fácil de copiar. Roda inteiramente no seu browser."},
         "pl": {"name": "Generator Hashy", "tagline": "Hashuj tekst za pomocą SHA-1, SHA-256, SHA-384 lub SHA-512 używając WebCrypto przeglądarki. Liczone lokalnie — input nigdy nie opuszcza strony.", "description": "Darmowy online generator hashy. SHA-1, SHA-256, SHA-384, SHA-512 przez WebCrypto. Wyjście hex, łatwe do skopiowania. Działa w całości w przeglądarce."},
+        "ja": {"name": "ハッシュ生成ツール", "tagline": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。", "description": "オンライン無料のハッシュ生成ツール。WebCrypto を用いて SHA-1、SHA-256、SHA-384、SHA-512 を計算します。hex 出力でコピーしやすく、すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -120,6 +121,26 @@ document.addEventListener('DOMContentLoaded', hRun);
   <li><strong>Nie hashuj haseł czystym SHA-256.</strong> Czysty SHA jest szybki — to pomaga atakującym brute-force'ować. Do przechowywania haseł użyj wolnego KDF (Argon2id, bcrypt, scrypt).</li>
   <li><strong>MD5 jest celowo nieobecny.</strong> Złamany od początku lat 2000. Wszędzie tam, gdzie "potrzebujesz" MD5, musisz też zgłosić review bezpieczeństwa.</li>
   <li><strong>Białe znaki mają znaczenie.</strong> Końcowy newline daje inny hash niż ten sam tekst bez niego. Porównuj wyjście hex dokładnie.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>暗号学的ハッシュは、任意の入力を固定長のフィンガープリントに変換します。同じ入力からは常に同じダイジェストが得られ、1 ビットでも変えれば全く別のダイジェストになります。ハッシュはファイル整合性検査、コンテンツアドレッサブルストレージ、デジタル署名、パスワードハッシュ（Argon2 や bcrypt のような遅い関数と併用）など、多くの場面で基盤となっています。</p>
+<p>本ツールは TLS と同じプリミティブであるブラウザの <code>crypto.subtle.digest</code> を使用します。入力はページから外に出ません。</p>
+
+<h3>どれを使うか</h3>
+<ul>
+  <li><strong>SHA-256</strong> — 整合性検査、コンテンツアドレッシング（Git、IPFS 系）、HMAC キー、署名のデフォルトとして妥当。</li>
+  <li><strong>SHA-384 / SHA-512</strong> — より広いダイジェストが必要な場合（PBKDF2/HKDF のチューニング、より大きな HMAC キー、ポスト量子のマージン）に有用。</li>
+  <li><strong>SHA-1</strong> — 互換性目的のみ（Git のオブジェクト ID、レガシー CI のチェックサム）。セキュリティ境界には使用しないこと。2017 年以降、現実的な衝突攻撃が存在します。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>ハッシュは暗号化ではありません。</strong> ハッシュは一方向で、元には戻せません。機密性が必要なら暗号化を使ってください。</li>
+  <li><strong>パスワードを生の SHA-256 でハッシュしないこと。</strong> 素の SHA は高速で、攻撃側のブルートフォースに有利です。パスワード保管には遅い KDF（Argon2id、bcrypt、scrypt）を使ってください。</li>
+  <li><strong>MD5 は意図的に提供していません。</strong> 2000 年代初頭から破られています。「MD5 が必要」と思った場面では、まずセキュリティレビューを検討してください。</li>
+  <li><strong>空白文字は重要です。</strong> 末尾の改行があるかないかでハッシュは変わります。hex 出力を厳密に比較してください。</li>
 </ul>
 """,
     },

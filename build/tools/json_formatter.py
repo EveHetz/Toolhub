@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Formatuj, waliduj i minifikuj JSON od ręki. Błędy podświetlone z numerem linii i kolumny.",
             "description": "Darmowy online formatter i walidator JSON. Pretty-print, minify i sprawdzanie składni JSON z precyzyjnymi komunikatami błędów.",
         },
+        "ja": {
+            "name": "JSON フォーマッター",
+            "tagline": "JSON を即座に整形・検証・圧縮。エラー位置を行と列でハイライト。",
+            "description": "オンライン無料の JSON フォーマッター・バリデーター。整形（pretty-print）、ミニファイ、構文検証を行い、正確なエラー位置を表示します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -176,6 +181,26 @@ function jfValidate(){
   <li><strong>Smart quotes z copy-paste.</strong> Edytory tekstu i czaty uwielbiają "pomocnie" zamieniać <code>"</code> na <code>"</code> / <code>"</code>. To nie są poprawne delimitery JSON.</li>
   <li><strong>JSON nie ma komentarzy.</strong> Jeśli twój "JSON" ma <code>//</code> albo <code>/* */</code>, to faktycznie JSONC (używany w configu VS Code) — wytnij je przed parsem.</li>
   <li><strong>Liczby większe niż 2⁵³.</strong> JavaScript nie potrafi dokładnie reprezentować integerów powyżej <code>9007199254740992</code>. Snowflake'i z Twittera i podobne powinny być cytowane jako stringi.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>JSON は配信時にミニファイされて流れます。API レスポンスではバイトが命だからです。しかしミニファイされた JSON は人には読みづらいものです。本ツールはブラウザネイティブの <code>JSON.parse</code> / <code>JSON.stringify</code> を経由してラウンドトリップし、インデント付きでコピーしやすい出力を生成、構造を検証、または空白を再度除去できます。アップロードはなく、すべてページ内で完結します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>ミニファイされた API レスポンスを貼り付けて、人が読める形に整形したいとき。</li>
+  <li>末尾カンマ、引用符なしキー、スマートクォートといった構文エラーを、パーサが落ちた行・列付きで把握したいとき。</li>
+  <li>サイズが重要な場面（URL パラメータ、環境変数、設定ファイル）に貼り付ける前に空白を取り除きたいとき。</li>
+  <li>手書きの JSON を別ツールに渡す前に有効性を確認したいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>JSON は JavaScript のオブジェクトリテラルとは別物です。</strong> キーは必ず二重引用符。シングルクォート、引用符なしのキー、末尾カンマはすべてエラーです。JS のオブジェクトリテラルがあるなら、まず JSON にコンバートしてください。</li>
+  <li><strong>コピペで入るスマートクォート。</strong> ワープロやチャットアプリは「親切に」<code>"</code> を <code>“</code>／<code>”</code> に置き換えます。これらは JSON では有効な区切り文字ではありません。</li>
+  <li><strong>JSON にコメントはありません。</strong> 「JSON」に <code>//</code> や <code>/* */</code> が含まれているなら、それは実は JSONC（VS Code 設定で使われる）です。パース前に取り除いてください。</li>
+  <li><strong>2⁵³ を超える数値。</strong> JavaScript は <code>9007199254740992</code> を超える整数を厳密に表現できません。Twitter のスノーフレーク ID などは文字列で扱ってください。</li>
 </ul>
 """,
     },

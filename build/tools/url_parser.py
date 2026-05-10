@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Analizzatore URL", "tagline": "Incolla un URL — protocollo, host, porta, percorso, parametri query (decodificati), hash e origine.", "description": "Analizzatore URL gratuito. Decodifica qualsiasi URL in protocollo, host, porta, percorso, query, hash e origine; parametri decodificati. 100% nel browser."},
         "pt": {"name": "Parser de URL", "tagline": "Cole qualquer URL — veja protocol, host, porta, path, query parameters (decodificados), hash e origin organizados.", "description": "Parser de URL online gratuito. Decodifica qualquer URL em protocol, host, porta, path, query string, hash e origin, com cada query parameter exibido decodificado. Roda inteiramente no seu navegador."},
         "pl": {"name": "Parser URL", "tagline": "Wklej dowolny URL — zobacz protocol, host, port, path, query parameters (zdekodowane), hash i origin rozłożone na części.", "description": "Darmowy online parser URL. Dekoduje dowolny URL na protocol, host, port, path, query string, hash i origin, z każdym query parameterem wyświetlonym zdekodowanym. Działa w całości w przeglądarce."},
+        "ja": {"name": "URL パーサー", "tagline": "URL を貼ると、protocol・host・port・path・query パラメータ（デコード済み）・hash・origin に分解して表示。", "description": "オンライン無料の URL パーサー。任意の URL を protocol、host、port、path、query string、hash、origin に分解し、各クエリパラメータをデコード済みで表示します。すべてブラウザ内で動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -250,6 +251,29 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>Hostname'y w Punycode.</strong> <code>example.中国</code> jest wewnętrznie trzymane jako <code>xn--fiqs8s</code>; <code>hostname</code> może pokazać formę ASCII, zależnie od przeglądarki.</li>
   <li><strong>Origin bywa "null".</strong> Dla <code>file://</code>, <code>data:</code> albo sandboxowanych kontekstów origin jest opaque.</li>
   <li><strong>To parsowanie, nie walidacja.</strong> URL może parsować się czysto i dalej być zły dla twojej aplikacji (np. zły host, brakujący path).</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>URL は scheme、authority、host、port、path、query、fragment の 7 つの構成要素を持つ構造化文字列ですが、見た目は 1 本の文字列です。何かが間違っているとき（パラメータ、ポート、余分なエンコード文字など）、生の文字列より分解されたテーブルの方がはるかに気付きやすくなります。本ツールはブラウザ標準の <code>URL</code> オブジェクトを使うため、JavaScript が見るのと同じパース結果を表示し、各クエリパラメータを raw とデコード済みの両方で表示します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>OAuth コールバック URL の <code>state</code> や <code>code</code> がおかしいときのデバッグ。</li>
+  <li>トラッキング URL（UTM タグ、クリックトークン）の実値をエンコードされた塊ではなく素のまま確認したいとき。</li>
+  <li>Webhook URL が受け側サービスの期待通りにパースされるか確認したいとき（特に path とクエリ）。</li>
+  <li>あるアプリでは動くディープリンクが別アプリで動かない原因（port？ scheme？ authority？）を見つけたいとき。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>同じキーの複数値は実在します。</strong> <code>?a=1&amp;a=2</code> は <code>a</code> に 2 つの値があります。最初しか読まないツールはデータを取りこぼします。本パーサはキーごとの全値を表示します。</li>
+  <li><strong>fragment はサーバーに到達しません。</strong> <code>#</code> 以降はブラウザ内で完結します。バックエンドに届かないデータがあれば、fragment に入っていないか確認してください。</li>
+  <li><strong>エンコーディングが重要。</strong> クエリ値の <code>%20</code> も <code>+</code> も（<code>application/x-www-form-urlencoded</code> 上は）スペースにデコードされます。ブラウザの <code>URL.searchParams</code> は両方を扱います。</li>
+  <li><strong>デフォルトポートは <code>port</code> に出ません。</strong> <code>https://example.com/</code> の <code>port</code> は空文字列です（443 は暗黙）。</li>
+  <li><strong>Punycode のホスト名。</strong> <code>example.中国</code> は内部的に <code>xn--fiqs8s</code>。ブラウザによって ASCII 表記で表示されることがあります。</li>
+  <li><strong>origin が "null" のことがあります。</strong> <code>file://</code>、<code>data:</code>、サンドボックスコンテキストでは origin は不透明値です。</li>
+  <li><strong>これはパースであって検証ではありません。</strong> パースに成功しても、アプリにとって正しい URL とは限りません（host が違う、path が抜けているなど）。</li>
 </ul>
 """,
     },

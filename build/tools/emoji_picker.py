@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Selettore di Emoji", "tagline": "Tavolozza di emoji con ricerca per nome e parola chiave. Clicca per copiare. Categorie: faccine, animali, cibo, viaggi, oggetti, simboli, bandiere.", "description": "Selettore gratuito di emoji con ricerca per parole chiave. Clicca per copiare. Set curato: faccine, persone, animali, cibo, viaggi, oggetti, simboli, bandiere. Unicode puro."},
         "pt": {"name": "Seletor de Emoji", "tagline": "Paleta de emojis pesquisável por nome e palavra-chave. Clique em qualquer emoji para copiar. Categorias: smileys, animais, comida, viagem, objetos, símbolos, bandeiras.", "description": "Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar."},
         "pl": {"name": "Picker Emoji", "tagline": "Paleta emoji z wyszukiwaniem po nazwie i słowach kluczowych. Kliknij dowolne emoji, aby skopiować. Kategorie: smileys, zwierzęta, jedzenie, podróże, obiekty, symbole, flagi.", "description": "Darmowy picker emoji z wyszukiwaniem po słowach kluczowych. Kliknij, aby skopiować dowolne emoji. Wyselekcjonowany zestaw: smileys, ludzie, zwierzęta, jedzenie, podróże, obiekty, symbole i flagi. Czysty Unicode — działa wszędzie."},
+        "ja": {"name": "絵文字ピッカー", "tagline": "名前とキーワードで検索できる絵文字パレット。クリックでコピー。カテゴリ：スマイリー、動物、食べ物、旅行、オブジェクト、記号、国旗。", "description": "キーワード検索付きの無料絵文字ピッカー。クリックして絵文字をコピーできます。スマイリー、人物、動物、食べ物、旅行、オブジェクト、記号、国旗をカバーする厳選セットです。Unicode のみなのでどこでも動作します。"},
     },
     "body": """
 <div class="tool-card">
@@ -426,6 +427,30 @@ document.addEventListener('DOMContentLoaded', () => { epRenderCats(); epRenderRe
   <li><strong>To narzędzie jest wyselekcjonowane, nie wyczerpujące.</strong> Unicode 15 ma 3664 emoji wliczając setki wariantów tonów skóry i płci. Picker skupia się na ~600, których prawdopodobnie chcesz; po pełną listę zerknij w dane emoji Unicode albo picker OS.</li>
   <li><strong>Niektóre znaki wyglądają jak emoji, ale renderują się jako tekst.</strong> "Variation selector" (U+FE0F) mówi rendererowi "narysuj to jako emoji". Bez tego ☂ może wyświetlić się jako zwykły tekst zamiast 🌂. Narzędzie dodaje selektory tam, gdzie trzeba.</li>
   <li><strong>Wsparcie schowka się różni.</strong> Clipboard API niektórych przeglądarek wymaga gestu użytkownika (kliknięcie to robi), ale odmowa uprawnień zawodzi po cichu. Jeśli kopiowanie nie działa, użyj skrótu klawiaturowego z paska adresu.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>OS には絵文字ピッカーが用意されています（Windows は Win+.、macOS は Cmd+Ctrl+Space、スマホはキーボード）が、挙動が一貫しなかったり、隠れていたり、遅かったりします。本ツールは、よく使われる絵文字をカテゴリ別に整理し、キーワードで検索できる厳選グリッドを提供します。タイルをクリックすればクリップボードにコピーされます。最近コピーした絵文字はブラウザの localStorage に保存され、再訪時にも残ります。サーバーには何も送信されません。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>OS レベルの絵文字ショートカットがすぐに使えないデスクトップにいるとき。</li>
+  <li>OS のピッカーより広いキーワード検索が欲しいとき。</li>
+  <li>リモートデスクトップやネイティブピッカーがない古いシステムを使っているとき。</li>
+  <li>IME が使えないテキストフィールドに絵文字を貼り付けたいとき。</li>
+</ul>
+
+<h3>レンダリングの仕組み</h3>
+<p>絵文字は 1 つ以上の Unicode コードポイントです。<em>見た目</em>は、ブラウザや OS が選ぶフォントに依存します。Apple、Google Noto、Microsoft Segoe UI Emoji、Twitter の Twemoji ではそれぞれ異なります。バイトは同一で、画像はローカルで描画されます。もし絵文字が四角形や「未対応」のフォールバックで表示されるなら、システムフォントにグリフがありません。OS をアップデートするか、Noto Color Emoji のようなフォントをインストールしてください。</p>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>肌色や家族・職業のバリエーションはシーケンスです。</strong> 👨‍🍳 は「男性」+ ZWJ +「料理」など計 5 つのコードポイントから成ります。シーケンス未対応のシステムでは構成要素が個別に表示されることがあります。</li>
+  <li><strong>国旗は Regional Indicator です。</strong> 🇯🇵 は「🇯」+「🇵」の 2 つの Regional Indicator 文字です。地域旗（スコットランド、テキサスなど）は追加のタグ文字が必要で、すべてのシステムで描画されるとは限りません。</li>
+  <li><strong>本ツールは厳選版で、網羅していません。</strong> Unicode 15 には肌色や性別バリアントを含めて 3,664 個の絵文字があります。本ピッカーは使用頻度の高い約 600 個に絞っています。フルセットは Unicode の絵文字データや OS のピッカーをご覧ください。</li>
+  <li><strong>絵文字に見えるが文字として描画される文字があります。</strong> "Variation Selector"（U+FE0F）が「絵文字として描画」を指示します。これがないと ☂ がプレーンテキストとして描画されます（🌂 にはなりません）。本ツールは必要な箇所でセレクタを付与します。</li>
+  <li><strong>クリップボードのサポートはまちまちです。</strong> 一部ブラウザの Clipboard API はユーザー操作（クリックは該当）を要求しますが、権限拒否時には黙って失敗することがあります。コピーに失敗する場合はアドレスバーから手動コピーをお試しください。</li>
 </ul>
 """,
     },

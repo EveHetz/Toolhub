@@ -39,6 +39,11 @@ TOOL = {
             "tagline": "Generuj UUID-y RFC 4122 (v4 losowy albo v7 uporządkowany czasem). Hurtowo do 100. Kryptograficznie bezpieczny.",
             "description": "Darmowy online generator UUID. RFC 4122 v4 (losowy) i v7 (uporządkowany czasem, sortowalny). Generuj jeden albo wiele naraz, wszystko w przeglądarce.",
         },
+        "ja": {
+            "name": "UUID 生成ツール",
+            "tagline": "RFC 4122 の UUID（v4 ランダム または v7 時刻順）を生成。最大 100 件まで一括生成。暗号論的に安全。",
+            "description": "オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。",
+        },
     },
     "body": """
 <div class="tool-card">
@@ -185,6 +190,35 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>v4 fragmentuje indeksy bazy.</strong> Losowe ID rozsiewają zapisy po indeksie, psując hit rate cache stron i przepustowość zapisu. To oryginalny argument za v7.</li>
   <li><strong>Nie używaj v1.</strong> Stary wariant time-and-MAC wycieka adres MAC maszyny generującej. v7 to nowoczesny zamiennik.</li>
   <li><strong>Używaj kryptograficznie bezpiecznej losowości.</strong> To narzędzie używa <code>crypto.getRandomValues</code>; nigdy nie pisz własnego z <code>Math.random</code> — nie jest wystarczająco losowy i ID-ki stają się przewidywalne.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>UUID（または GUID）は 128 bit の識別子で、5 つに区切られた 32 桁の hex 文字列で表記します（例：<code>550e8400-e29b-41d4-a716-446655440000</code>）。システム間で調整なしに衝突なく発行でき、衝突確率は実質ゼロです。DB に問い合わせる前に ID が必要なとき、行数の漏洩を避けたいとき、クライアント側で発行して後から同期したいときなどに有用です。本ツールは RFC 4122 / RFC 9562 準拠の UUID を v4（ランダム）または v7（時刻順）で、ブラウザ内の暗号論的乱数を使って生成します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>分散システムのプライマリキーで、DB 往復なしに ID を確定させたいとき。</li>
+  <li>API リクエストの冪等性キー（Stripe、決済プロバイダ、キューメッセージ）。</li>
+  <li>ファイルアップロード ID、セッショントークン、ログのコリレーション ID。</li>
+  <li>オートインクリメント ID を露出させて件数を漏らしたくない場面。</li>
+  <li>テストデータ — 100 件のレコードに現実的な識別子をワンクリックで付与。</li>
+</ul>
+
+<h3>v4 と v7、どちらを使うか</h3>
+<ul>
+  <li><strong>v4（ランダム）</strong> — 122 bit のランダム値、生成時刻の埋め込みなし。ID と作成順の相関を完全にゼロにしたいときや、ハッシュマップ／非クラスタ化インデックスのように順序が無関係な場面に向きます。</li>
+  <li><strong>v7（時刻順）</strong> — 先頭 48 bit に Unix ミリ秒タイムスタンプ、残りはランダム。<strong>新規 DB プライマリキーには基本これを推奨します。</strong> 時刻プレフィックスにより B-tree インデックスの局所性が高まり（最近の挿入が同じページに集中するため、v4 よりキャッシュ効率が大幅に向上）、ID はおおむね時系列順にソートされます。RFC 9562（2024 年 5 月）で定義され、多くのユースケースで ULID や v1/v6 を置き換えています。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>UUID は秘密ではありません。</strong> v4 は 122 bit のエントロピーを持ち推測不能ですが、フォーマット自体に認可機能はありません。セッションや再設定リンクの token に使う場合、HTTPS のみ・期限付き・使い切りのような扱いをしてください。</li>
+  <li><strong>v7 は作成時刻を漏らします。</strong> 先頭 48 bit が発行時のミリ秒を表します。内部 ID には問題ありませんが、ユーザに作成時刻を知られたくない場合は v4 を選んでください。</li>
+  <li><strong>インデックスサイズに注意。</strong> UUID は 16 バイトで、bigint の 8 バイトの倍。B-tree インデックスは大きくなります。分散・無調整の場面では割に合いますが、シングルサーバーの順序付き ID で済むなら多くの場合得をしません。</li>
+  <li><strong>v4 はインデックスを断片化します。</strong> ランダム ID は書き込みをインデックス全体に散らし、ページキャッシュのヒット率と書き込みスループットを下げます。これが v7 を推す根拠です。</li>
+  <li><strong>v1 は使わないこと。</strong> 旧来の time-and-MAC 方式は生成マシンの MAC アドレスを漏らします。現代的な置き換えが v7 です。</li>
+  <li><strong>暗号論的に安全な乱数を使ってください。</strong> 本ツールは <code>crypto.getRandomValues</code> を使用します。<code>Math.random</code> 自前は乱数として弱く、ID が予測可能になります。</li>
 </ul>
 """,
     },

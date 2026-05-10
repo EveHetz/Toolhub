@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Ispettore Unicode", "tagline": "Incolla testo → tabella di ogni code point. Hex, decimale, byte UTF-8, categoria. Trova caratteri invisibili.", "description": "Ispettore Unicode gratuito. Incolla qualsiasi testo e vedi ogni code point Unicode: hex, decimale, sequenza di byte UTF-8, categoria. Evidenzia caratteri invisibili e confondibili."},
         "pt": {"name": "Inspetor Unicode", "tagline": "Cole texto → tabela de cada code point. Hex, decimal, bytes UTF-8, categoria. Detecte caracteres invisíveis.", "description": "Inspetor Unicode gratuito. Cole qualquer texto e veja cada code point Unicode: hex, decimal, sequência de bytes UTF-8, categoria geral e o nome quando conhecido. Destaca caracteres invisíveis e confundíveis."},
         "pl": {"name": "Inspektor Unicode", "tagline": "Wklej tekst → tabela każdego code pointa. Hex, decimal, bajty UTF-8, kategoria. Wyłapuj niewidzialne znaki.", "description": "Darmowy inspektor Unicode. Wklej dowolny tekst i zobacz każdy code point Unicode: hex, decimal, sekwencję bajtów UTF-8, kategorię ogólną i nazwę, gdy znana. Podświetla znaki niewidzialne i zwodnicze."},
+        "ja": {"name": "Unicode インスペクター", "tagline": "テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。", "description": "無料の Unicode インスペクター。任意のテキストを貼り付けると、各 Unicode コードポイントを hex、10 進、UTF-8 バイト列、一般カテゴリ、既知の名称付きで表示します。不可視文字や紛らわしい文字をハイライトします。"},
     },
     "body": """
 <div class="tool-card">
@@ -350,6 +351,38 @@ document.addEventListener('DOMContentLoaded', uiRun);
   <li><strong>Right-to-left override'y są niebezpieczne.</strong> Nazwa pliku zawierająca U+202E może odwrócić swoje wyświetlanie — sprawiając, że <code>resu&#x202E;txt.exe</code> wygląda jak <code>resuexe.txt</code> w eksploratorze plików. Używane w phishingu.</li>
   <li><strong>Kolumna nazw jest częściowa.</strong> Prawdziwa baza Unicode ma nazwy dla każdego code pointa; inspektor podaje nazwy tylko dla znaków sterujących i typowych znaków format/whitespace, gdzie nazwa jest najbardziej użyteczną diagnostyką.</li>
   <li><strong>Połówki surrogate'ów nie powinny pojawiać się samodzielnie.</strong> Jeśli widzisz U+D800–U+DFFF w wyjściu, wejście to zniekształcony string UTF-16 (lone surrogate). Większość API odmówi zakodowania tego do UTF-8.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>「なぜ等しいはずの文字列が一致しない？」「空いてそうなのに既存と判定されるユーザー名」「ファイル名がシェルで壊れる理由は？」 答えはたいてい、目には同じに見えてもバイトが違うからです。ラテンの "a" とキリルの "а" は同じに見えても別のコードポイントです。空白には no-break space、zero-width joiner、right-to-left override が混じることがあります。絵文字は 1 個のコードポイントで構成されることもあれば、4 個のこともあります。本ツールは任意のテキストを各 Unicode コードポイントに分解し、hex、10 進、UTF-8 バイト列、カテゴリ、既知ならば名称も表示します。</p>
+
+<h3>使うべきタイミング</h3>
+<ul>
+  <li>「同じに見えるのに等しくない」文字列バグの診断。</li>
+  <li>コピペで紛れ込んだ不可視文字（ゼロ幅スペース、BOM、RTL オーバーライド）の発見。</li>
+  <li>固定幅カラムに格納する前に、バイト数・コードポイント数・UTF-16 単位を比較したいとき。</li>
+  <li>絵文字がどの ZWJ シーケンスを使っているか確認したいとき。</li>
+  <li>ドメイン名やユーザー名のホモグリフ攻撃の検出。</li>
+  <li>hex ダンプ用に正確な UTF-8 バイト列を生成したいとき。</li>
+</ul>
+
+<h3>出力の読み方</h3>
+<ul>
+  <li><strong>コードポイント</strong> — Unicode の抽象値。<code>U+XXXX</code> の表記。約 110 万種、最大は U+10FFFF。</li>
+  <li><strong>UTF-8</strong> — そのコードポイントのバイトエンコーディング（1〜4 バイト）。</li>
+  <li><strong>UTF-16 単位</strong> — JavaScript の <code>s.length</code> や Java 文字列がカウントする単位。U+FFFF を超える（多くの絵文字）と <em>2</em> 単位（サロゲートペア）になります。</li>
+  <li><strong>カテゴリ</strong> — Unicode 一般カテゴリの略号：L=文字、N=数字、P=句読点、S=記号、Z=分離、C=制御／フォーマット／私用。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>「長さ」は曖昧です。</strong> "👨‍👩‍👧" は 1 grapheme cluster、5 コードポイント、11 UTF-16 単位、18 UTF-8 バイト — どれも「長さ」を返し得ます。</li>
+  <li><strong>ZWJ シーケンスとバリエーションセレクタ。</strong> 多くの絵文字は ZWJ シーケンス（家族、職業、肌色）です。ZWJ を並べ替えたり外したりすると描画が変わります。</li>
+  <li><strong>正規化が重要。</strong> "café" は e+◌́（NFD）や é（NFC）として表現できます。見た目は同じでもバイトは異なるため、DB や比較コードは同じ正規化形に揃える必要があります。</li>
+  <li><strong>RTL オーバーライドは危険です。</strong> ファイル名に U+202E が入ると表示順が反転し、<code>resu&#x202E;txt.exe</code> がファイラ上で <code>resuexe.txt</code> のように見えることがあります。フィッシングで悪用されます。</li>
+  <li><strong>名称欄は限定的です。</strong> 完全な Unicode データベースは全コードポイントに名称を持ちますが、本インスペクターは制御文字や典型的なフォーマット／空白文字など、診断に有用なものに限定して名称を表示します。</li>
+  <li><strong>サロゲートの片割れは単独では現れません。</strong> 出力に U+D800〜U+DFFF があれば、入力は壊れた UTF-16（lone surrogate）です。多くの API は UTF-8 へのエンコードを拒否します。</li>
 </ul>
 """,
     },

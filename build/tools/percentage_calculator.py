@@ -15,6 +15,7 @@ TOOL = {
         "it": {"name": "Calcolatore di Percentuale", "tagline": "Cinque calcolatori di percentuale in uno: di, quale %, aumento/sconto, variazione e mancia/IVA.", "description": "Calcolatore di percentuale gratuito online. X% di Y, quale % è X di Y, variazione, aumento/sconto e mancia o IVA."},
         "pt": {"name": "Calculadora de Porcentagem", "tagline": "Cinco calculadoras de porcentagem em uma: de, qual %, aumento/desconto, variação e gorjeta/imposto.", "description": "Calculadora de porcentagem gratuita online. Calcule X% de Y, qual % X é de Y, variação percentual, aumento/desconto percentual e valores de gorjeta ou imposto."},
         "pl": {"name": "Kalkulator Procentów", "tagline": "Pięć kalkulatorów procentów w jednym: ile %, ile to %, zmiana, wzrost/spadek i napiwek/podatek.", "description": "Darmowy online kalkulator procentów. Policz X% z Y, ile % X stanowi Y, zmianę procentową, procentowy wzrost/spadek oraz wartość napiwku albo podatku."},
+        "ja": {"name": "パーセンテージ計算機", "tagline": "5 つの百分率計算をひとつに：%、何%、増加／減少、変化、チップ／税。", "description": "オンライン無料のパーセンテージ計算機。Y の X%、X は Y の何 %、パーセンテージ変化、増加／減少、チップや税の金額を計算できます。"},
     },
     "body": """
 <div class="tool-card">
@@ -148,6 +149,27 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>Stackowanie procentów się składa.</strong> 20% wzrost, a po nim 20% spadek nie wraca cię do startu (1.20 × 0.80 = 0.96, netto strata 4%). Dla sekwencyjnych narzutów/rabatów licz każdy krok.</li>
   <li><strong>Napiwek od kwoty przed czy po podatku.</strong> Konwencja różni się krajem i lokalem. Narzędzie liczy procent od wartości, którą wpisujesz — wybierz, którą wartość faktycznie chcesz jako bazę.</li>
   <li><strong>Zaokrąglanie.</strong> Wyjście jest zaokrąglane do 6 miejsc po przecinku i przycinane; jeśli potrzebujesz precyzji prawnej/księgowej (banker's rounding, walutowe reguły), zrób to w warstwie domeny, nie tutaj.</li>
+</ul>
+""",
+        "ja": """
+<h2>用途</h2>
+<p>日常的によく出てくる「パーセンテージ」計算は 6 種類あり、どれも混同しがちです。Y の X% は？ X は Y の何 %？ 2 値の変化率は？ 値上げ・値引きの適用は？ チップや税は？ それぞれ式が微妙に違い、混同すると請求書の誤り、誤った割引、恥ずかしいレビューにつながります。本ツールは 6 つを並べて式を明示するため、適切な計算を選び、結果を見直しできます。</p>
+
+<h3>各モードの動作</h3>
+<ul>
+  <li><strong>Y の X% は</strong> — 値引き、コミッション、合計の何%。<em>150 の 20% → 30</em>。</li>
+  <li><strong>X は Y の何 %</strong> — 「得点／満点」型の比率。<em>150 のうち 30 → 20%</em>。</li>
+  <li><strong>% 変化</strong> — 符号付き：正なら増加、負なら減少。<em>100 → 125 = +25%</em>。</li>
+  <li><strong>増加 / 減少</strong> — 開始値に対してパーセンテージで補正します。</li>
+  <li><strong>チップ / 税</strong> — 請求金額に上乗せするパーセンテージの便利機能。</li>
+</ul>
+
+<h3>よくある注意点</h3>
+<ul>
+  <li><strong>パーセンテージ変化は対称ではありません。</strong> 100 → 125 は +25% ですが、125 → 100 は −20% であって −25% ではありません。分母が「開始値」で、向きによって変わるからです。</li>
+  <li><strong>パーセンテージは合成されます。</strong> 20% 上げて 20% 下げても元には戻りません（1.20 × 0.80 = 0.96、4% の純減）。連続した値上げ・値引きはステップごとに計算してください。</li>
+  <li><strong>税抜き／税込みのチップ。</strong> 慣習は国や店によって異なります。本ツールは入力した値に対する % を計算しますので、基準としたい値を選んで入力してください。</li>
+  <li><strong>丸め。</strong> 出力は小数 6 桁で丸めて末尾を整理します。法務／会計上の正確さ（銀行家丸め、通貨別ルール）が必要な場合は、本ツールではなくドメイン層で処理してください。</li>
 </ul>
 """,
     },
