@@ -50,10 +50,14 @@ TOOL = {
     "script": """
 <style>
 #mt-table th, #mt-table td { border: 1px solid var(--border); padding: 0; min-width: 70px; }
-#mt-table input { width: 100%; padding: 0.4rem 0.5rem; background: transparent; border: none; color: var(--text); font-family: inherit; font-size: 0.88rem; }
+#mt-table input { width: 100%; padding: 0.4rem 0.5rem; background: transparent; border: none; color: var(--text); font-family: inherit; font-size: 0.88rem; min-height: auto; }
 #mt-table input:focus { background: var(--surface); outline: 2px solid var(--accent); }
-#mt-table select { width: 100%; padding: 0.3rem 0.5rem; background: var(--surface); border: none; color: var(--text-muted); font-size: 0.78rem; border-radius: 0; }
+#mt-table select { width: 100%; padding: 0.3rem 0.5rem; background: var(--surface); border: none; color: var(--text-muted); font-size: 0.78rem; border-radius: 0; min-height: auto; }
 #mt-table thead tr:first-child input { font-weight: 600; }
+@media (max-width: 600px) {
+  #mt-table input { font-size: 16px; padding: 0.55rem 0.5rem; }
+  #mt-table select { font-size: 0.85rem; padding: 0.45rem 0.5rem; }
+}
 </style>
 <script>
 let MT = {

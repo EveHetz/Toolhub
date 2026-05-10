@@ -39,6 +39,14 @@ TOOL = {
 .rc-pat.copied { background: var(--green); color: #fff; border-color: var(--green); }
 .rc-section.hidden { display: none; }
 .rc-row.hidden { display: none; }
+@media (max-width: 600px) {
+  .rc-section { padding: 0.9rem 0.75rem; }
+  .rc-section table, .rc-section thead, .rc-section tbody, .rc-section tr { display: block; width: 100%; }
+  .rc-section td { display: block; width: 100% !important; padding: 0.2rem 0; border-bottom: none; }
+  .rc-section tr { padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+  .rc-section tr:last-child { border-bottom: none; }
+  .rc-section td:nth-child(3) { font-size: 0.78rem; }
+}
 </style>
 <script>
 const RC_DATA = [

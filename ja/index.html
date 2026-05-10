@@ -92,9 +92,31 @@
 
     .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
 
+    @media (max-width: 768px) {
+      .hero { padding: 1.5rem 1rem 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .header { padding: 1.25rem 1rem 0.75rem; }
+    }
     @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .header { padding: 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.25rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      .hero { padding: 1.25rem 1rem 1rem; }
       .hero h1 { font-size: 1.6rem; }
-      .grid { grid-template-columns: 1fr; }
+      .hero p { font-size: 1rem; }
+      .search-wrap { padding: 0 1rem; margin: 1rem auto; }
+      .search-wrap input { padding: 0.75rem 1rem; font-size: 1rem; min-height: 44px; }
+      .filters { padding: 0.5rem 1rem 1rem; }
+      .filter-btn { padding: 0.5rem 0.85rem; font-size: 0.85rem; min-height: 36px; }
+      .grid { grid-template-columns: 1fr; padding: 0 1rem 2rem; }
+      .card { padding: 1rem; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
     }
   </style>
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
@@ -153,7 +175,7 @@
   </footer>
 
   <script>
-        const TOOLS = [
+            const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "bmi-calculator", "name": "BMI 計算機", "desc": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "icon": "⚖️", "cat": "math", "tags": ["bmi", "body mass index", "health", "weight", "height", "metric", "imperial"]},
