@@ -144,6 +144,13 @@ def render_tool(tool: dict, lang: str) -> str:
         "LBL_COPY": ui["copy"],
         "LBL_CLEAR": ui["clear"],
         "LBL_DOWNLOAD": ui["download"],
+        "LBL_RESET": ui["reset"],
+        "LBL_SWAP": ui["swap"],
+        "LBL_NOW": ui["now"],
+        "LBL_REMOVE": ui["remove"],
+        "LBL_ADD": ui["add"],
+        "LBL_ALL": ui["all"],
+        "LBL_ROLL": ui["roll"],
         "LBL_OPTIONS": ui["options"],
         "LBL_LENGTH": ui["length"],
         "LBL_COUNT": ui["count"],
@@ -228,6 +235,46 @@ def render_tool(tool: dict, lang: str) -> str:
     return fill_placeholders(TEMPLATE, placeholders)
 
 
+def assert_translations_complete():
+    """Verify every tool has all LANGS in i18n, and every UI key has all LANGS.
+
+    Hard-fail on i18n / UI gaps (visible name/tagline/button strings).
+    Warn-only on help gaps (long-form help falls back to English at render time).
+    """
+    problems = []
+    # UI dict completeness — every key must appear in every lang
+    en_keys = set(UI["en"].keys())
+    for lang in LANGS:
+        if lang not in UI:
+            problems.append(f"UI dict missing entire lang: {lang}")
+            continue
+        missing = en_keys - set(UI[lang].keys())
+        extra = set(UI[lang].keys()) - en_keys
+        for k in sorted(missing):
+            problems.append(f"UI[{lang}] missing key: {k}")
+        for k in sorted(extra):
+            problems.append(f"UI[{lang}] has extra key not in UI[en]: {k}")
+    # Per-tool i18n completeness (name / tagline / description — directly user-visible)
+    help_warnings = []
+    for tool in TOOLS:
+        slug = tool["slug"]
+        i18n_langs = set(tool.get("i18n", {}).keys())
+        help_langs = set(tool.get("help", {}).keys())
+        for lang in LANGS:
+            if lang not in i18n_langs:
+                problems.append(f"{slug}: i18n missing lang: {lang}")
+            if lang not in help_langs:
+                help_warnings.append(f"{slug}:{lang}")
+    if problems:
+        print("  ✗ Translation completeness check FAILED:")
+        for p in problems:
+            print(f"    - {p}")
+        sys.exit(1)
+    if help_warnings:
+        print(f"  ⚠ {len(help_warnings)} help-translation gaps (English fallback used; non-fatal)")
+    print(f"  ✓ i18n + UI completeness OK ({len(TOOLS)} tools × {len(LANGS)} langs, {len(en_keys)} UI keys)")
+
+
 def write_tool_pages():
     written = 0
     for tool in TOOLS:
@@ -289,6 +336,7 @@ if __name__ == "__main__":
         wanted = set(args.only.split(","))
         TOOLS[:] = [t for t in TOOLS if t["slug"] in wanted]
     print(f"Toolhub generator — {len(TOOLS)} tools × {len(LANGS)} languages")
+    assert_translations_complete()
     write_tool_pages()
     if args.update_index:
         update_index_tools_arrays()

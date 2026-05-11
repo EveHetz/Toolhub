@@ -52,7 +52,7 @@ TOOL = {
   <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
   <div class="button-row">
     <button onclick="jfFormat(2)">{LBL_FORMAT}</button>
-    <button class="secondary" onclick="jfFormat(4)">Format (4-space)</button>
+    <button class="secondary" onclick="jfFormat(4)">{LBL_FORMAT} (4)</button>
     <button class="secondary" onclick="jfMinify()">{LBL_MINIFY}</button>
     <button class="secondary" onclick="jfValidate()">{LBL_VALIDATE}</button>
     <button class="secondary" onclick="document.getElementById('json-input').value=''">{LBL_CLEAR}</button>

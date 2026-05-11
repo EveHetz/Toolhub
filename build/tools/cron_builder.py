@@ -63,7 +63,7 @@ TOOL = {
     </div>
     <div>
       <label>&nbsp;</label>
-      <button class="secondary" onclick="cbReset()" style="width:100%">Reset to */5 every minute</button>
+      <button class="secondary" onclick="cbReset()" style="width:100%">{LBL_RESET} → */5 * * * *</button>
     </div>
   </div>
 </div>

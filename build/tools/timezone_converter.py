@@ -65,7 +65,7 @@ TOOL = {
     </div>
     <div>
       <label>&nbsp;</label>
-      <button class="secondary" onclick="tzNow()" style="width:100%">Now</button>
+      <button class="secondary" onclick="tzNow()" style="width:100%">{LBL_NOW}</button>
     </div>
   </div>
 </div>

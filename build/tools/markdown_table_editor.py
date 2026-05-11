@@ -21,11 +21,11 @@ TOOL = {
     "body": """
 <div class="tool-card">
   <div class="button-row">
-    <button class="secondary" onclick="mtAddRow()">+ Row</button>
-    <button class="secondary" onclick="mtAddCol()">+ Column</button>
-    <button class="secondary" onclick="mtDelRow()">− Row</button>
-    <button class="secondary" onclick="mtDelCol()">− Column</button>
-    <button class="secondary" onclick="mtClear()">Reset</button>
+    <button class="secondary" onclick="mtAddRow()" aria-label="Add row">+ Row</button>
+    <button class="secondary" onclick="mtAddCol()" aria-label="Add column">+ Column</button>
+    <button class="secondary" onclick="mtDelRow()" aria-label="Remove row">− Row</button>
+    <button class="secondary" onclick="mtDelCol()" aria-label="Remove column">− Column</button>
+    <button class="secondary" onclick="mtClear()">{LBL_RESET}</button>
   </div>
   <div style="overflow-x:auto;border:1px solid var(--border);border-radius:6px;background:var(--code-bg);padding:0.4rem">
     <table id="mt-table" style="border-collapse:collapse;width:100%;min-width:300px">

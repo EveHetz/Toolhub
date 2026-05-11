@@ -24,14 +24,14 @@ TOOL = {
   <input type="text" id="dr-notation" value="2d6+3" oninput="drValidate()" placeholder="e.g. 1d20, 2d6+3, 4d6kh3, 3d8-1" autocomplete="off" spellcheck="false" style="font-family:ui-monospace,monospace">
   <div class="meta" style="margin-top:0.4rem">Examples: <code>1d20</code> · <code>2d6+3</code> · <code>4d6kh3</code> (drop lowest) · <code>3d8-1</code> · <code>d100</code> · <code>2d20kl1</code> (disadvantage)</div>
   <div class="button-row" style="margin-top:0.7rem;flex-wrap:wrap">
-    <button type="button" onclick="drRoll()">🎲 Roll</button>
+    <button type="button" onclick="drRoll()">🎲 {LBL_ROLL}</button>
     <button type="button" class="secondary" onclick="drPreset('1d20')" style="padding:0.4rem 0.8rem;font-size:0.85rem">1d20</button>
     <button type="button" class="secondary" onclick="drPreset('2d6')" style="padding:0.4rem 0.8rem;font-size:0.85rem">2d6</button>
     <button type="button" class="secondary" onclick="drPreset('4d6kh3')" style="padding:0.4rem 0.8rem;font-size:0.85rem">4d6kh3</button>
     <button type="button" class="secondary" onclick="drPreset('1d100')" style="padding:0.4rem 0.8rem;font-size:0.85rem">d100</button>
     <button type="button" class="secondary" onclick="drPreset('2d20kh1')" style="padding:0.4rem 0.8rem;font-size:0.85rem">Adv (2d20kh1)</button>
     <button type="button" class="secondary" onclick="drPreset('2d20kl1')" style="padding:0.4rem 0.8rem;font-size:0.85rem">Dis (2d20kl1)</button>
-    <button type="button" class="secondary" onclick="drClear()" style="padding:0.4rem 0.8rem;font-size:0.85rem">Clear log</button>
+    <button type="button" class="secondary" onclick="drClear()" style="padding:0.4rem 0.8rem;font-size:0.85rem">{LBL_CLEAR}</button>
   </div>
 </div>
 <div class="tool-card">

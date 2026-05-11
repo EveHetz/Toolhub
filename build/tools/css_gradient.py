@@ -43,7 +43,7 @@ TOOL = {
   <label style="margin-top:0.7rem">Color stops</label>
   <div id="gr-stops" class="gr-stops"></div>
   <div class="button-row" style="margin-top:0.6rem">
-    <button class="secondary" onclick="grAddStop()">+ Add stop</button>
+    <button class="secondary" onclick="grAddStop()">+ {LBL_ADD}</button>
     <button class="secondary" onclick="grPreset('sunset')">Sunset</button>
     <button class="secondary" onclick="grPreset('ocean')">Ocean</button>
     <button class="secondary" onclick="grPreset('candy')">Candy</button>
@@ -91,7 +91,7 @@ function grRender(){
       <input type="color" value="${s.color}" oninput="grStops[${i}].color = this.value; grRun()">
       <input type="range" min="0" max="100" value="${s.pos}" oninput="grStops[${i}].pos = +this.value; this.nextElementSibling.value = +this.value; grRun()">
       <input type="number" min="0" max="100" value="${s.pos}" oninput="grStops[${i}].pos = +this.value; this.previousElementSibling.value = +this.value; grRun()">
-      <button onclick="grRemove(${i})" title="Remove">×</button>
+      <button onclick="grRemove(${i})" title="{LBL_REMOVE}" aria-label="{LBL_REMOVE}">×</button>
     `;
     wrap.appendChild(row);
   });

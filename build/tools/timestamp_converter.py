@@ -33,7 +33,7 @@ TOOL = {
     </div>
   </div>
   <div class="button-row">
-    <button onclick="tsNow()">Now</button>
+    <button onclick="tsNow()">{LBL_NOW}</button>
     <button class="secondary" onclick="document.getElementById('ts-num').value=''; tsRender(null)">{LBL_CLEAR}</button>
   </div>
 </div>

@@ -27,8 +27,8 @@ TOOL = {
   <label>Parameters</label>
   <div id="qs-rows"></div>
   <div class="button-row">
-    <button class="secondary" onclick="qsAdd()">+ Add row</button>
-    <button class="secondary" onclick="qsClear()">Reset</button>
+    <button class="secondary" onclick="qsAdd()" aria-label="Add row">+ {LBL_ADD}</button>
+    <button class="secondary" onclick="qsClear()">{LBL_RESET}</button>
   </div>
   <div class="row-2col" style="margin-top:0.7rem">
     <div>
@@ -82,7 +82,7 @@ function qsRender(){
       <input type="text" placeholder="key" value="">
       <input type="text" placeholder="value" value="">
       <label class="qs-multi"><input type="checkbox"> multi</label>
-      <button class="secondary">×</button>
+      <button class="secondary" aria-label="Remove row">×</button>
     `;
     const inputs = div.querySelectorAll('input');
     inputs[0].value = row.key;

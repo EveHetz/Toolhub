@@ -47,7 +47,7 @@ TOOL = {
     </div>
   </div>
   <div class="button-row" style="margin-top:0.6rem">
-    <button class="secondary" onclick="ucSwap()">⇄ Swap</button>
+    <button class="secondary" onclick="ucSwap()">⇄ {LBL_SWAP}</button>
   </div>
 </div>
 <div class="tool-card">

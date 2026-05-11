@@ -98,8 +98,8 @@
     .install-btn:hover { border-color: var(--accent); color: var(--accent); }
     .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
     .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
-    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
-    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
     .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
     label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
     textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
@@ -121,7 +121,7 @@
     .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
     .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
     .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
-    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
     .help ul, .help ol { padding-left: 1.25rem; }
     .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
     .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
@@ -146,6 +146,7 @@
     }
     @media (max-width: 600px) {
       html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
       .container { padding: 0.75rem; }
       .header { padding: 0.75rem 1rem; gap: 0.5rem; }
       .logo { font-size: 1.2rem; }
@@ -153,7 +154,7 @@
       button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
       textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
       .tool-card { padding: 1rem; }
-      h1 { font-size: 1.35rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
       pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
       table { display: block; overflow-x: auto; max-width: 100%; }
       .button-row { gap: 0.4rem; }
@@ -208,7 +209,7 @@
   <label>Shadow layers</label>
   <div id="bs-layers" class="bs-layers"></div>
   <div class="button-row" style="margin-top:0.6rem">
-    <button class="secondary" onclick="bsAddLayer()">+ Add layer</button>
+    <button class="secondary" onclick="bsAddLayer()">+ Add</button>
     <button class="secondary" onclick="bsPreset('soft')">Soft</button>
     <button class="secondary" onclick="bsPreset('elevation')">Material elevation</button>
     <button class="secondary" onclick="bsPreset('glow')">Glow</button>

@@ -37,7 +37,7 @@ TOOL = {
     </div>
   </div>
   <div class="button-row" style="margin-top:0.6rem">
-    <button class="secondary" onclick="wcSwap()">Swap</button>
+    <button class="secondary" onclick="wcSwap()">{LBL_SWAP}</button>
   </div>
 </div>
 <div class="tool-card">

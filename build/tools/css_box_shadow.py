@@ -23,7 +23,7 @@ TOOL = {
   <label>Shadow layers</label>
   <div id="bs-layers" class="bs-layers"></div>
   <div class="button-row" style="margin-top:0.6rem">
-    <button class="secondary" onclick="bsAddLayer()">+ Add layer</button>
+    <button class="secondary" onclick="bsAddLayer()">+ {LBL_ADD}</button>
     <button class="secondary" onclick="bsPreset('soft')">Soft</button>
     <button class="secondary" onclick="bsPreset('elevation')">Material elevation</button>
     <button class="secondary" onclick="bsPreset('glow')">Glow</button>
@@ -81,7 +81,7 @@ function bsRender(){
       </div>
       <div class="bs-actions">
         <label><input type="checkbox" ${L.inset?'checked':''} onchange="bsLayers[${i}].inset = this.checked; bsRun()"> inset</label>
-        <button class="secondary" onclick="bsRemove(${i})" ${bsLayers.length<=1?'disabled':''}>Remove</button>
+        <button class="secondary" onclick="bsRemove(${i})" ${bsLayers.length<=1?'disabled':''}>{LBL_REMOVE}</button>
       </div>
     `;
     wrap.appendChild(card);

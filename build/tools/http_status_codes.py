@@ -23,7 +23,7 @@ TOOL = {
   <label>Filter</label>
   <input type="text" id="hs-q" oninput="hsRun()" placeholder="Type a code or phrase — '404', 'auth', 'redirect', 'gateway'…" autocomplete="off" spellcheck="false">
   <div class="meta" style="margin-top:0.5rem">
-    <button class="filter-btn" data-cls="all" onclick="hsCls('all')" style="padding:0.3rem 0.7rem;border:1px solid var(--border);background:var(--accent);color:#fff;border-radius:14px;cursor:pointer;font-size:0.8rem">All</button>
+    <button class="filter-btn" data-cls="all" onclick="hsCls('all')" style="padding:0.3rem 0.7rem;border:1px solid var(--border);background:var(--accent);color:#fff;border-radius:14px;cursor:pointer;font-size:0.8rem">{LBL_ALL}</button>
     <button class="filter-btn" data-cls="1" onclick="hsCls('1')" style="padding:0.3rem 0.7rem;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);border-radius:14px;cursor:pointer;font-size:0.8rem">1xx Info</button>
     <button class="filter-btn" data-cls="2" onclick="hsCls('2')" style="padding:0.3rem 0.7rem;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);border-radius:14px;cursor:pointer;font-size:0.8rem">2xx Success</button>
     <button class="filter-btn" data-cls="3" onclick="hsCls('3')" style="padding:0.3rem 0.7rem;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);border-radius:14px;cursor:pointer;font-size:0.8rem">3xx Redirect</button>
