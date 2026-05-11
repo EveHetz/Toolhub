@@ -1,10 +1,10 @@
 # toolhub.software — ads.txt
 #
-# Once Google AdSense has approved the site, replace pub-XXXXXXXXXXXXXXXX
-# with your real publisher ID. Until then this file is a placeholder so the
-# domain has the right structure when crawlers come looking.
+# Publisher ID issued by Google AdSense 2026-05-11 (application
+# pending review). This file authorises google.com to sell ads
+# on the toolhub.software domain.
 #
 # Format: <ad system domain>, <publisher ID>, <relationship>, <auth ID>
 # Spec: https://iabtechlab.com/wp-content/uploads/2017/09/IABOpenRTBAds.txt-Public-Spec-1.0.2.pdf
 
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-7632777524243165, DIRECT, f08c47fec0942fa0
