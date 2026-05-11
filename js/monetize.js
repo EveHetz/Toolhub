@@ -8,6 +8,7 @@
  *   adSlotIds          { content, footer, indexTop, indexBottom }
  *   digitalOceanRef    'https://m.do.co/c/XXXX'    // empty = no affiliate
  *   githubSponsorsUrl  'https://github.com/sponsors/EveHetz'
+ *   buyMeACoffeeUrl    'https://www.buymeacoffee.com/XXXX'
  *
  * Behaviour:
  *   - deploy_env === 'sandbox': adsbygoogle.js is NEVER loaded. Ad slots
@@ -40,6 +41,7 @@
     },
     digitalOceanRef: "",                                   // e.g. 'https://m.do.co/c/abc123def456'
     githubSponsorsUrl: "",                                 // e.g. 'https://github.com/sponsors/EveHetz'
+    buyMeACoffeeUrl: "",                                   // e.g. 'https://www.buymeacoffee.com/Tool_hub'
   };
   const cfg = Object.assign({}, DEFAULTS, window.TOOLHUB_CONFIG || {});
   cfg.adSlotIds = Object.assign({}, DEFAULTS.adSlotIds, (window.TOOLHUB_CONFIG || {}).adSlotIds || {});
@@ -66,7 +68,10 @@
       reject: "Reject",
       learn:  "Privacy",
       sponsor: "Sponsor on GitHub",
-      hosting: "Hosting recommendation",
+      hosting: "DigitalOcean hosting",
+      tip:     "Buy me a coffee",
+      affiliate: "affiliate",
+      supportIntro: "Built by an indie maintainer. If Toolhub saved you time:",
       adLabel: "Advertisement",
     },
     de: {
@@ -75,7 +80,10 @@
       reject: "Ablehnen",
       learn:  "Datenschutz",
       sponsor: "Auf GitHub sponsern",
-      hosting: "Hosting-Empfehlung",
+      hosting: "DigitalOcean Hosting",
+      tip:     "Spendier mir einen Kaffee",
+      affiliate: "Affiliate",
+      supportIntro: "Von einem unabhängigen Maintainer gebaut. Wenn Toolhub dir Zeit gespart hat:",
       adLabel: "Werbung",
     },
     es: {
@@ -84,7 +92,10 @@
       reject: "Rechazar",
       learn:  "Privacidad",
       sponsor: "Patrocinar en GitHub",
-      hosting: "Recomendación de hosting",
+      hosting: "Hosting DigitalOcean",
+      tip:     "Invítame un café",
+      affiliate: "afiliado",
+      supportIntro: "Construido por un mantenedor independiente. Si Toolhub te ahorró tiempo:",
       adLabel: "Publicidad",
     },
     fr: {
@@ -93,7 +104,10 @@
       reject: "Refuser",
       learn:  "Confidentialité",
       sponsor: "Sponsoriser sur GitHub",
-      hosting: "Recommandation d'hébergement",
+      hosting: "Hébergement DigitalOcean",
+      tip:     "Offre-moi un café",
+      affiliate: "affiliation",
+      supportIntro: "Construit par un mainteneur indépendant. Si Toolhub t'a fait gagner du temps :",
       adLabel: "Publicité",
     },
     it: {
@@ -102,8 +116,59 @@
       reject: "Rifiuta",
       learn:  "Privacy",
       sponsor: "Sponsorizza su GitHub",
-      hosting: "Hosting consigliato",
+      hosting: "Hosting DigitalOcean",
+      tip:     "Offrimi un caffè",
+      affiliate: "affiliato",
+      supportIntro: "Costruito da un manutentore indipendente. Se Toolhub ti ha fatto risparmiare tempo:",
       adLabel: "Pubblicità",
+    },
+    pt: {
+      banner: "Usamos cookies para exibir anúncios relevantes. As estatísticas anônimas do Plausible funcionam sem cookies.",
+      accept: "Aceitar",
+      reject: "Recusar",
+      learn:  "Privacidade",
+      sponsor: "Apoiar no GitHub",
+      hosting: "Hospedagem DigitalOcean",
+      tip:     "Me paga um café",
+      affiliate: "afiliado",
+      supportIntro: "Construído por um mantenedor independente. Se o Toolhub te economizou tempo:",
+      adLabel: "Publicidade",
+    },
+    pl: {
+      banner: "Używamy plików cookie, aby pokazywać dopasowane reklamy. Anonimowe statystyki Plausible działają bez cookies.",
+      accept: "Akceptuj",
+      reject: "Odrzuć",
+      learn:  "Prywatność",
+      sponsor: "Wesprzyj na GitHub",
+      hosting: "Hosting DigitalOcean",
+      tip:     "Postaw mi kawę",
+      affiliate: "partner",
+      supportIntro: "Stworzone przez niezależnego maintainera. Jeśli Toolhub oszczędził Ci czas:",
+      adLabel: "Reklama",
+    },
+    ja: {
+      banner: "関連性の高い広告を配信するためにクッキーを使用します。匿名の Plausible 統計はクッキーを使わずに動作します。",
+      accept: "同意する",
+      reject: "拒否する",
+      learn:  "プライバシー",
+      sponsor: "GitHub でスポンサー",
+      hosting: "DigitalOcean ホスティング",
+      tip:     "コーヒーをおごる",
+      affiliate: "アフィリエイト",
+      supportIntro: "個人メンテナによる開発です。Toolhub が時短に役立ったら：",
+      adLabel: "広告",
+    },
+    nl: {
+      banner: "We gebruiken cookies om relevante advertenties te tonen. Anonieme Plausible-statistieken werken zonder cookies.",
+      accept: "Accepteren",
+      reject: "Weigeren",
+      learn:  "Privacy",
+      sponsor: "Sponsor op GitHub",
+      hosting: "DigitalOcean-hosting",
+      tip:     "Trakteer me op een koffie",
+      affiliate: "affiliate",
+      supportIntro: "Gemaakt door een onafhankelijke maintainer. Als Toolhub je tijd heeft bespaard:",
+      adLabel: "Advertentie",
     },
   };
   const t = I18N[LANG] || I18N.en;
@@ -119,7 +184,10 @@
   window.toolhubConsentGiven = function () { return getConsent() === "granted"; };
   window.toolhubResetConsent = function () { setConsent(""); location.reload(); };
 
-  // ----- Footer extras (sponsor + affiliate) ---------------------------
+  // ----- Footer extras (Support Toolhub block) -------------------------
+  // Renders an intro line + three optional links: GitHub Sponsors, DigitalOcean
+  // (affiliate, FTC-marked), Buy Me a Coffee. Each link is only rendered if its
+  // URL is configured. Affiliate links carry rel="sponsored" per Google's spec.
   function renderFooterExtras() {
     const slot = document.querySelector("[data-toolhub-footer-extras]");
     if (!slot) return;
@@ -128,9 +196,18 @@
       parts.push(`<a href="${cfg.githubSponsorsUrl}" target="_blank" rel="noopener noreferrer">♥ ${t.sponsor}</a>`);
     }
     if (cfg.digitalOceanRef) {
-      parts.push(`<a href="${cfg.digitalOceanRef}" target="_blank" rel="noopener sponsored" data-affiliate="digitalocean">${t.hosting}</a>`);
+      parts.push(
+        `<a href="${cfg.digitalOceanRef}" target="_blank" rel="noopener sponsored" data-affiliate="digitalocean">${t.hosting}</a>` +
+        ` <span class="toolhub-affiliate-tag">(${t.affiliate})</span>`
+      );
     }
-    if (parts.length) slot.innerHTML = parts.join(" · ");
+    if (cfg.buyMeACoffeeUrl) {
+      parts.push(`<a href="${cfg.buyMeACoffeeUrl}" target="_blank" rel="noopener noreferrer">☕ ${t.tip}</a>`);
+    }
+    if (!parts.length) return;
+    slot.innerHTML =
+      `<span class="toolhub-support-intro">${t.supportIntro}</span> ` +
+      parts.join(" · ");
   }
 
   // ----- Consent banner -------------------------------------------------

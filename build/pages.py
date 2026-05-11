@@ -1723,11 +1723,11 @@ PAGES = {
 <p>This page exists because the US Federal Trade Commission's endorsement guides and EU consumer-protection rules both require content creators to disclose when they have a financial relationship with a linked product. The disclosure has to be clear and up-front — hence a top-level page, hence linked from every page footer.</p>
 
 <h2>Specific affiliates</h2>
-<p>Toolhub's affiliate accounts are not all live at the time of writing — this is a placeholder list. Once each account is approved, the operator (JXXR1) will populate the link URLs here:</p>
+<p>Toolhub currently uses these affiliate and support accounts (operator: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (cloud hosting) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (cloud hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>If/when other affiliate relationships are added, they will be listed here and the page will be redated.</p>
 
@@ -1766,11 +1766,11 @@ PAGES = {
 <p>Diese Seite existiert, weil sowohl die Endorsement Guides der US-amerikanischen Federal Trade Commission als auch die EU-Verbraucherschutzregeln verlangen, dass Content-Ersteller offenlegen, wenn sie zu einem verlinkten Produkt eine wirtschaftliche Beziehung haben. Die Offenlegung muss klar und im Voraus erfolgen — daher eine Top-Level-Seite, daher die Verlinkung im Footer jeder Seite.</p>
 
 <h2>Konkrete Affiliates</h2>
-<p>Nicht alle Affiliate-Konten von Toolhub sind zum Zeitpunkt der Erstellung live — das hier ist eine Platzhalter-Liste. Sobald die einzelnen Konten freigegeben sind, trägt der Betreiber (JXXR1) die URLs hier ein:</p>
+<p>Toolhub nutzt derzeit die folgenden Affiliate- und Support-Konten (Betreiber: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (Cloud-Hosting) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (Cloud-Hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Falls weitere Affiliate-Beziehungen hinzukommen, werden sie hier gelistet und die Seite neu datiert.</p>
 
@@ -1809,11 +1809,11 @@ PAGES = {
 <p>Esta página existe porque tanto las guías de la Federal Trade Commission de EE. UU. como las normas de protección al consumidor de la UE exigen que los creadores de contenido divulguen si tienen una relación financiera con un producto enlazado. La divulgación tiene que ser clara y por adelantado — de ahí una página de nivel superior, de ahí el enlace desde el pie de cada página.</p>
 
 <h2>Afiliados concretos</h2>
-<p>No todas las cuentas de afiliado de Toolhub están activas en el momento de escribir esto — esta es una lista de reserva. En cuanto cada cuenta sea aprobada, el operador (JXXR1) rellenará las URL aquí:</p>
+<p>Toolhub utiliza actualmente las siguientes cuentas de afiliado y de apoyo (operador: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (alojamiento en la nube) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (alojamiento en la nube) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Si se añaden otras relaciones de afiliado, se listarán aquí y se actualizará la fecha de la página.</p>
 
@@ -1852,11 +1852,11 @@ PAGES = {
 <p>Cette page existe parce que les <em>endorsement guides</em> de la FTC américaine et les règles européennes de protection du consommateur exigent toutes deux que les créateurs de contenu divulguent une relation financière avec un produit lié. La divulgation doit être claire et en amont — d'où une page de premier niveau, d'où le lien dans le pied de chaque page.</p>
 
 <h2>Affiliations spécifiques</h2>
-<p>Les comptes d'affiliation de Toolhub ne sont pas tous actifs au moment de la rédaction — voici une liste provisoire. Dès que chaque compte sera validé, l'opérateur (JXXR1) renseignera les URLs ici :</p>
+<p>Toolhub utilise actuellement ces comptes d'affiliation et de soutien (opérateur : JXXR1) :</p>
 <ul>
-<li><strong>DigitalOcean</strong> (hébergement cloud) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (hébergement cloud) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Si d'autres relations d'affiliation s'ajoutent, elles seront listées ici et la page sera redatée.</p>
 
@@ -1895,11 +1895,11 @@ PAGES = {
 <p>Questa pagina esiste perché sia le linee guida della Federal Trade Commission statunitense sia le regole di tutela del consumatore della UE richiedono che chi produce contenuti dichiari una relazione finanziaria con un prodotto collegato. La dichiarazione deve essere chiara e in anticipo — da qui una pagina di primo livello, da qui il link nel footer di ogni pagina.</p>
 
 <h2>Affiliati specifici</h2>
-<p>Non tutti gli account affiliato di Toolhub sono attivi al momento — questa è una lista segnaposto. Appena ogni account viene approvato, l'operatore (JXXR1) compilerà gli URL qui:</p>
+<p>Toolhub utilizza attualmente questi account di affiliazione e di supporto (operatore: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (hosting cloud) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (hosting cloud) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Se/quando si aggiungeranno altre relazioni di affiliazione, saranno elencate qui e la pagina verrà ridatata.</p>
 
@@ -1938,11 +1938,11 @@ PAGES = {
 <p>Essa página existe porque tanto os guias de endosso da FTC dos EUA quanto as regras de defesa do consumidor da UE exigem que criadores de conteúdo divulguem quando têm relação financeira com um produto linkado. A divulgação tem que ser clara e antecipada — daí uma página de primeiro nível, daí o link no rodapé de cada página.</p>
 
 <h2>Afiliados específicos</h2>
-<p>Nem todas as contas de afiliado do Toolhub estão ativas no momento — essa é uma lista placeholder. Assim que cada conta for aprovada, o operador (JXXR1) preenche as URLs aqui:</p>
+<p>O Toolhub usa atualmente estas contas de afiliado e de apoio (operador: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (hospedagem em nuvem) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (hospedagem em nuvem) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Se / quando outras relações de afiliado forem adicionadas, vão entrar nessa lista e a página vai ser redatada.</p>
 
@@ -1981,11 +1981,11 @@ PAGES = {
 <p>Ta strona istnieje, bo zarówno wytyczne dotyczące rekomendacji amerykańskiej Federal Trade Commission, jak i unijne przepisy o ochronie konsumentów wymagają, żeby twórcy treści ujawniali relację finansową z linkowanym produktem. Ujawnienie ma być jasne i z góry — stąd osobna strona najwyższego poziomu i link w stopce na każdej podstronie.</p>
 
 <h2>Konkretni partnerzy</h2>
-<p>Nie wszystkie konta partnerskie Toolhub są aktywne w momencie pisania — to jest lista zastępcza. Po zatwierdzeniu każdego konta operator (JXXR1) uzupełni tu adresy URL:</p>
+<p>Toolhub korzysta obecnie z następujących kont partnerskich i wsparcia (operator: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (hosting w chmurze) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (hosting w chmurze) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Jeśli/gdy dojdą kolejne relacje partnerskie, zostaną tu wymienione, a strona dostanie nową datę.</p>
 
@@ -2024,11 +2024,11 @@ PAGES = {
 <p>本ページは、米連邦取引委員会（FTC）の Endorsement Guides と EU の消費者保護規則が、リンク先製品との金銭的関係があるコンテンツ制作者に対して、その関係を開示することを求めているために用意しています。開示は明確で、かつ事前に行う必要があるため、トップレベルの独立ページを設け、フッターから常にリンクしています。</p>
 
 <h2>個別のアフィリエイト</h2>
-<p>執筆時点で、Toolhub のすべてのアフィリエイトアカウントが有効になっているわけではありません — 以下は仮の一覧です。各アカウントの承認後、運用者（JXXR1）がリンク URL を埋めていきます：</p>
+<p>Toolhub は現在、以下のアフィリエイトおよびサポートアカウントを利用しています（運用者：JXXR1）：</p>
 <ul>
-<li><strong>DigitalOcean</strong>（クラウドホスティング） — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong>（クラウドホスティング） — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>新たなアフィリエイト関係が追加された場合は、この一覧に追記し、ページの更新日も改訂します。</p>
 
@@ -2067,11 +2067,11 @@ PAGES = {
 <p>Deze pagina bestaat omdat zowel de endorsement guides van de Amerikaanse Federal Trade Commission als de EU-regels voor consumentenbescherming vereisen dat contentmakers een financiële relatie met een gelinkt product openbaar maken. De openbaarmaking moet helder en vooraf zijn — vandaar een aparte top-level pagina, vandaar de link in elke pagina-footer.</p>
 
 <h2>Specifieke affiliates</h2>
-<p>Niet alle affiliate-accounts van Toolhub zijn al actief op het moment van schrijven — dit is een placeholder-lijst. Zodra elk account is goedgekeurd, vult de operator (JXXR1) hier de URLs in:</p>
+<p>Toolhub gebruikt momenteel deze affiliate- en support-accounts (operator: JXXR1):</p>
 <ul>
-<li><strong>DigitalOcean</strong> (cloud-hosting) — <code>&lt;DO ref link TBD&gt;</code></li>
-<li><strong>GitHub Sponsors</strong> — <code>&lt;URL TBD&gt;</code></li>
-<li><strong>Buy Me a Coffee</strong> — <code>&lt;URL TBD&gt;</code></li>
+<li><strong>DigitalOcean</strong> (cloud-hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
 </ul>
 <p>Als/wanneer er andere affiliate-relaties bijkomen, worden ze hier vermeld en wordt de paginadatum bijgewerkt.</p>
 
