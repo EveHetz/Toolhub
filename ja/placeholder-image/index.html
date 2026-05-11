@@ -170,9 +170,23 @@
   <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
   <link rel="stylesheet" href="/js/monetize.css">
   <script>
-    /* Toolhub monetization config — fill these in once you have the IDs.
-       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
     window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
       adsenseClientId: "",
       adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
       digitalOceanRef: "",

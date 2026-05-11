@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+"""
+removetool — cleanly delete a Toolhub tool.
+
+Owns the full reversal of addtool: removes the manifest, every rendered
+per-language directory, scrubs sitemap.xml entries that reference the slug,
+removes the slug from other tools' `related` arrays, then re-runs
+build/build.py --update-index so the home-page TOOLS array is refreshed.
+
+Idempotent — re-running with the same slug is a no-op.
+
+Usage:
+  bin/removetool <slug> [--dry-run]
+"""
+import argparse
+import importlib.util
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BUILD = ROOT / "build"
+TOOLS_DIR = BUILD / "tools"
+SITEMAP = ROOT / "sitemap.xml"
+
+SLUG_RE = re.compile(r"^[a-z][a-z0-9-]*[a-z0-9]$")
+
+
+def slug_to_module(slug: str) -> str:
+    return slug.replace("-", "_")
+
+
+def load_langs() -> list:
+    spec = importlib.util.spec_from_file_location("i18n", BUILD / "i18n.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return list(mod.LANGS)
+
+
+def rendered_dirs(slug: str, langs: list) -> list[Path]:
+    """Per-language rendered output directories for a slug."""
+    dirs = []
+    for L in langs:
+        if L == "en":
+            dirs.append(ROOT / slug)
+        else:
+            dirs.append(ROOT / L / slug)
+    return dirs
+
+
+def sitemap_blocks_for(slug: str) -> list[tuple[int, int]]:
+    """Return (start_line, end_line) tuples (1-indexed, inclusive) for every
+    <url>...</url> block whose <loc> ends with /<slug>/ or /<lang>/<slug>/."""
+    if not SITEMAP.exists():
+        return []
+    lines = SITEMAP.read_text().splitlines()
+    target = f"/{slug}/"
+    blocks = []
+    i = 0
+    while i < len(lines):
+        if lines[i].strip().startswith("<url>"):
+            start = i
+            end = i
+            j = i + 1
+            while j < len(lines):
+                if lines[j].strip().startswith("</url>"):
+                    end = j
+                    break
+                j += 1
+            block = "\n".join(lines[start:end + 1])
+            m = re.search(r"<loc>([^<]+)</loc>", block)
+            if m and m.group(1).rstrip().endswith(target):
+                blocks.append((start, end))
+            i = end + 1
+        else:
+            i += 1
+    return blocks
+
+
+def strip_sitemap_blocks(slug: str, dry_run: bool) -> int:
+    if not SITEMAP.exists():
+        return 0
+    lines = SITEMAP.read_text().splitlines(keepends=True)
+    blocks = sitemap_blocks_for(slug)
+    if not blocks:
+        return 0
+    if dry_run:
+        return len(blocks)
+    # Build a keep-mask
+    drop = set()
+    for s, e in blocks:
+        for k in range(s, e + 1):
+            drop.add(k)
+    # Also drop a single trailing blank line right after each block if present
+    new_lines = []
+    skip_next_blank = False
+    for idx, line in enumerate(lines):
+        if idx in drop:
+            skip_next_blank = True
+            continue
+        if skip_next_blank and line.strip() == "":
+            skip_next_blank = False
+            continue
+        skip_next_blank = False
+        new_lines.append(line)
+    SITEMAP.write_text("".join(new_lines))
+    return len(blocks)
+
+
+def scrub_related(slug: str, dry_run: bool) -> list[Path]:
+    """Remove the slug from any other tool's `related` list (string match)."""
+    edited = []
+    needle_dq = f'"{slug}"'
+    needle_sq = f"'{slug}'"
+    own_manifest = TOOLS_DIR / f"{slug_to_module(slug)}.py"
+    for f in sorted(TOOLS_DIR.glob("*.py")):
+        if f.name.startswith("_"):
+            continue
+        if f == own_manifest:
+            # Skip the tool's own manifest — the slug appears as its own
+            # "slug" value there, which isn't a cross-reference.
+            continue
+        text = f.read_text()
+        if needle_dq not in text and needle_sq not in text:
+            continue
+        # Only touch occurrences inside a `related` list — heuristic: a slug
+        # mention as a quoted string. Tools reference each other only there.
+        new_text = re.sub(r',\s*"' + re.escape(slug) + r'"', "", text)
+        new_text = re.sub(r'"' + re.escape(slug) + r'"\s*,\s*', "", new_text)
+        new_text = re.sub(r'"' + re.escape(slug) + r'"', "", new_text)
+        new_text = re.sub(r",\s*'" + re.escape(slug) + r"'", "", new_text)
+        new_text = re.sub(r"'" + re.escape(slug) + r"'\s*,\s*", "", new_text)
+        new_text = re.sub(r"'" + re.escape(slug) + r"'", "", new_text)
+        if new_text != text:
+            edited.append(f)
+            if not dry_run:
+                f.write_text(new_text)
+    return edited
+
+
+def run_build(extra_args: list[str]) -> int:
+    cmd = [sys.executable, str(BUILD / "build.py"), *extra_args]
+    proc = subprocess.run(cmd, cwd=str(ROOT))
+    return proc.returncode
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(prog="removetool", description="Delete a Toolhub tool cleanly.")
+    p.add_argument("slug", help="kebab-case slug")
+    p.add_argument("--dry-run", action="store_true", help="show plan, do not change anything")
+    args = p.parse_args()
+
+    slug = args.slug
+    if not SLUG_RE.match(slug):
+        print(f'ERROR: slug "{slug}" must be kebab-case')
+        return 2
+
+    manifest_path = TOOLS_DIR / f"{slug_to_module(slug)}.py"
+    langs = load_langs()
+    dirs = rendered_dirs(slug, langs)
+    blocks_n = len(sitemap_blocks_for(slug))
+    related_edits = scrub_related(slug, dry_run=True)
+
+    existing_dirs = [d for d in dirs if d.exists()]
+
+    if not manifest_path.exists() and not existing_dirs and blocks_n == 0 and not related_edits:
+        print(f"  ℹ tool {slug!r} not found (no manifest, no rendered output, no sitemap entries) — nothing to do")
+        return 0
+
+    print(f"  Plan for removing tool: {slug}")
+    print(f"    manifest:        {manifest_path.relative_to(ROOT) if manifest_path.exists() else '(none)'}")
+    print(f"    rendered dirs:   {len(existing_dirs)}")
+    for d in existing_dirs:
+        print(f"      - {d.relative_to(ROOT)}/")
+    print(f"    sitemap blocks:  {blocks_n}")
+    print(f"    related-array references in other manifests: {len(related_edits)}")
+    for f in related_edits:
+        print(f"      - {f.relative_to(ROOT)}")
+
+    if args.dry_run:
+        print("DRY RUN — no changes made")
+        return 0
+
+    if manifest_path.exists():
+        manifest_path.unlink()
+        print(f"  ✓ removed {manifest_path.relative_to(ROOT)}")
+        # Also drop any compiled bytecode so a stale module can't be re-imported.
+        for pyc in (TOOLS_DIR / "__pycache__").glob(f"{slug_to_module(slug)}.cpython-*.pyc"):
+            pyc.unlink(missing_ok=True)
+    for d in existing_dirs:
+        shutil.rmtree(d)
+        print(f"  ✓ removed {d.relative_to(ROOT)}/")
+    if blocks_n:
+        removed = strip_sitemap_blocks(slug, dry_run=False)
+        print(f"  ✓ stripped {removed} sitemap block(s)")
+    if related_edits:
+        scrub_related(slug, dry_run=False)
+        print(f"  ✓ scrubbed {slug!r} from {len(related_edits)} related arrays")
+
+    # Refresh home-page TOOLS arrays now that the manifest is gone
+    rc = run_build(["--update-index"])
+    if rc != 0:
+        print("ERROR: build/build.py --update-index failed")
+        return rc
+
+    print(f"\n  ✓ Removed tool: {slug}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

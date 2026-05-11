@@ -3,12 +3,18 @@
  *
  * Edit window.TOOLHUB_CONFIG (set on the page before this loads, OR fill the
  * defaults in this file once you have your IDs):
+ *   deploy_env         'sandbox' | 'production' (default: 'sandbox')
  *   adsenseClientId    'ca-pub-XXXXXXXXXXXXXXXX'   // empty = no ads
  *   adSlotIds          { content, footer, indexTop, indexBottom }
  *   digitalOceanRef    'https://m.do.co/c/XXXX'    // empty = no affiliate
  *   githubSponsorsUrl  'https://github.com/sponsors/EveHetz'
  *
  * Behaviour:
+ *   - deploy_env === 'sandbox': adsbygoogle.js is NEVER loaded. Ad slots
+ *     render as placeholder boxes and a small SANDBOX badge is shown.
+ *   - deploy_env === 'production': AdSense loads only if adsenseClientId
+ *     matches /^ca-pub-\d{16}$/. Invalid config falls back to placeholders
+ *     and logs to console — broken config can't accidentally load ads.
  *   - No third-party requests until the visitor explicitly consents
  *     (or the site has no AdSense client configured, in which case
  *     consent is irrelevant and the banner doesn't appear).
@@ -24,6 +30,7 @@
 
   // ----- Defaults — overwrite these once you have real IDs --------------
   const DEFAULTS = {
+    deploy_env: "sandbox",                                 // 'sandbox' | 'production'
     adsenseClientId: "",                                   // e.g. 'ca-pub-1234567890123456'
     adSlotIds: {                                           // AdSense slot IDs (data-ad-slot)
       content: "",
@@ -37,6 +44,18 @@
   const cfg = Object.assign({}, DEFAULTS, window.TOOLHUB_CONFIG || {});
   cfg.adSlotIds = Object.assign({}, DEFAULTS.adSlotIds, (window.TOOLHUB_CONFIG || {}).adSlotIds || {});
   window.TOOLHUB_CONFIG = cfg;
+
+  const ADSENSE_CLIENT_RE = /^ca-pub-\d{16}$/;
+  const IS_SANDBOX = cfg.deploy_env !== "production";
+  const CLIENT_OK = !IS_SANDBOX && ADSENSE_CLIENT_RE.test(cfg.adsenseClientId || "");
+  if (!IS_SANDBOX && cfg.adsenseClientId && !CLIENT_OK) {
+    try {
+      console.warn(
+        "[toolhub] deploy_env=production but adsenseClientId does not match ca-pub-NNNNNNNNNNNNNNNN; " +
+        "falling back to placeholder ad slots."
+      );
+    } catch (_) {}
+  }
 
   // ----- i18n strings ----------------------------------------------------
   const LANG = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
@@ -149,7 +168,7 @@
   // ----- AdSense bootstrap ---------------------------------------------
   let adsenseLoaded = false;
   function bootAdsense() {
-    if (adsenseLoaded || !cfg.adsenseClientId) return;
+    if (adsenseLoaded || !CLIENT_OK) return;
     const s = document.createElement("script");
     s.async = true;
     s.crossOrigin = "anonymous";
@@ -158,8 +177,34 @@
     adsenseLoaded = true;
   }
 
+  function renderPlaceholder(el) {
+    if (el.dataset.rendered) return;
+    el.innerHTML =
+      '<div class="ad-label">' + t.adLabel + "</div>" +
+      '<div class="ad-placeholder">SANDBOX MODE — no real ads</div>';
+    el.dataset.rendered = "placeholder";
+  }
+
+  function renderSandboxBadge() {
+    if (document.getElementById("toolhub-sandbox-badge")) return;
+    const b = document.createElement("div");
+    b.id = "toolhub-sandbox-badge";
+    b.textContent = "SANDBOX";
+    b.title = "deploy_env=sandbox — no real ads are loaded";
+    document.body.appendChild(b);
+  }
+
   function renderAdSlots() {
-    if (!cfg.adsenseClientId) return;
+    // Sandbox: render placeholder boxes, never load AdSense.
+    if (IS_SANDBOX) {
+      document.querySelectorAll(".ad-slot[data-slot]").forEach(renderPlaceholder);
+      return;
+    }
+    // Production but client ID invalid/missing: same placeholder fallback.
+    if (!CLIENT_OK) {
+      document.querySelectorAll(".ad-slot[data-slot]").forEach(renderPlaceholder);
+      return;
+    }
     document.querySelectorAll(".ad-slot[data-slot]").forEach(function (el) {
       if (el.dataset.rendered) return;
       const slotKey = el.getAttribute("data-slot");
@@ -183,11 +228,19 @@
   function boot() {
     renderFooterExtras();
 
-    // No AdSense client → nothing to consent to. Just remove ad slots.
-    if (!cfg.adsenseClientId) {
-      removeAdSlots();
+    // Sandbox: render placeholders + badge, no consent banner, no AdSense.
+    if (IS_SANDBOX) {
+      renderAdSlots();
+      renderSandboxBadge();
       return;
     }
+
+    // Production with no/invalid AdSense client → nothing to consent to.
+    if (!CLIENT_OK) {
+      renderAdSlots(); // placeholders
+      return;
+    }
+
     const consent = getConsent();
     if (consent === "granted") {
       bootAdsense();

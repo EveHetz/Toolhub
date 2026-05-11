@@ -24,6 +24,56 @@ ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 TEMPLATE = (BUILD / "template.html").read_text()
 
+ADSENSE_CLIENT_RE = re.compile(r"^ca-pub-\d{16}$")
+
+
+def assert_deploy_config_coherent():
+    """Refuse to ship a production build with broken AdSense config.
+
+    Parses the TOOLHUB_CONFIG object literal out of template.html and, when
+    deploy_env=="production", asserts:
+      - adsenseClientId matches /^ca-pub-\\d{16}$/
+      - at least one of adSlotIds.content/footer/indexTop/indexBottom is set
+
+    sandbox mode is always allowed regardless of AdSense fields.
+    """
+    m = re.search(
+        r"window\.TOOLHUB_CONFIG\s*=\s*\{([\s\S]*?)\};",
+        TEMPLATE,
+    )
+    if not m:
+        print("ERROR: could not find window.TOOLHUB_CONFIG in template.html")
+        sys.exit(1)
+    body = m.group(1)
+
+    def field(name):
+        mm = re.search(name + r"\s*:\s*\"([^\"]*)\"", body)
+        return mm.group(1) if mm else ""
+
+    deploy_env = field("deploy_env") or "sandbox"
+    if deploy_env not in ("sandbox", "production"):
+        print(f'ERROR: TOOLHUB_CONFIG.deploy_env="{deploy_env}" — expected "sandbox" or "production"')
+        sys.exit(1)
+    if deploy_env == "sandbox":
+        print(f'  ✓ deploy_env="sandbox" — AdSense gated off, ad slots will render as placeholders')
+        return
+
+    client = field("adsenseClientId")
+    # Pull adSlotIds sub-object
+    sm = re.search(r"adSlotIds\s*:\s*\{([^}]*)\}", body)
+    slots_blob = sm.group(1) if sm else ""
+    slots = dict(re.findall(r"(\w+)\s*:\s*\"([^\"]*)\"", slots_blob))
+    any_slot = any(slots.get(k) for k in ("content", "footer", "indexTop", "indexBottom"))
+
+    if not ADSENSE_CLIENT_RE.match(client) or not any_slot:
+        print('ERROR: deploy_env="production" but AdSense config is incomplete or invalid')
+        if not ADSENSE_CLIENT_RE.match(client):
+            print(f'  - adsenseClientId="{client}" does not match ca-pub-NNNNNNNNNNNNNNNN (16 digits)')
+        if not any_slot:
+            print('  - adSlotIds.{content,footer,indexTop,indexBottom} are all empty')
+        sys.exit(1)
+    print(f'  ✓ deploy_env="production" — AdSense config validated ({client})')
+
 # Load i18n
 spec = importlib.util.spec_from_file_location("i18n", BUILD / "i18n.py")
 i18n_mod = importlib.util.module_from_spec(spec)
@@ -336,6 +386,7 @@ if __name__ == "__main__":
         wanted = set(args.only.split(","))
         TOOLS[:] = [t for t in TOOLS if t["slug"] in wanted]
     print(f"Toolhub generator — {len(TOOLS)} tools × {len(LANGS)} languages")
+    assert_deploy_config_coherent()
     assert_translations_complete()
     write_tool_pages()
     if args.update_index:

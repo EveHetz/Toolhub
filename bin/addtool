@@ -1,0 +1,233 @@
+#!/usr/bin/env python3
+"""
+addtool — create a new Toolhub tool end-to-end.
+
+Owns the full lifecycle: validates the slug, writes a skeleton manifest at
+build/tools/<slug>.py with placeholder i18n entries for every supported
+language, then re-runs build/build.py (with --update-index) so the rendered
+tool pages and the home-page TOOLS array are refreshed in one shot.
+
+Idempotent — re-running with the same slug is a no-op.
+
+Usage:
+  bin/addtool <slug> --cat <category> [--icon <emoji>] [--from <existing-slug>] [--dry-run]
+
+Examples:
+  bin/addtool json-sorter --cat data
+  bin/addtool color-blender --cat design --icon 🎨 --from color-converter
+  bin/addtool json-sorter --cat data --dry-run    # show plan, do nothing
+"""
+import argparse
+import importlib.util
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BUILD = ROOT / "build"
+TOOLS_DIR = BUILD / "tools"
+
+SLUG_RE = re.compile(r"^[a-z][a-z0-9-]*[a-z0-9]$")
+
+# Placeholder translations for the tool *name*. Operator must replace.
+# Keys must match LANGS in build/i18n.py.
+NAME_PLACEHOLDERS = {
+    "en": "New Tool",
+    "de": "Neues Tool",
+    "es": "Nueva herramienta",
+    "fr": "Nouvel outil",
+    "it": "Nuovo strumento",
+    "pt": "Nova ferramenta",
+    "pl": "Nowe narzędzie",
+    "ja": "新しいツール",
+    "nl": "Nieuwe tool",
+}
+
+
+def slug_to_module(slug: str) -> str:
+    """kebab-case slug → snake_case Python filename stem."""
+    return slug.replace("-", "_")
+
+
+def load_langs() -> list:
+    spec = importlib.util.spec_from_file_location("i18n", BUILD / "i18n.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return list(mod.LANGS)
+
+
+def load_tool(slug: str) -> dict | None:
+    """Load a single tool manifest by slug, or None."""
+    path = TOOLS_DIR / f"{slug_to_module(slug)}.py"
+    if not path.exists():
+        return None
+    spec = importlib.util.spec_from_file_location(path.stem, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return getattr(mod, "TOOL", None)
+
+
+def collect_categories() -> set:
+    """All distinct `category` values currently in use, derived from manifests."""
+    cats = set()
+    for f in sorted(TOOLS_DIR.glob("*.py")):
+        if f.name.startswith("_"):
+            continue
+        spec = importlib.util.spec_from_file_location(f.stem, f)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        tool = getattr(mod, "TOOL", None)
+        if tool and "category" in tool:
+            cats.add(tool["category"])
+    return cats
+
+
+def build_skeleton(slug: str, category: str, icon: str, langs: list) -> str:
+    """Render a skeleton tool manifest as a Python source string."""
+    # Defaults: tags derived from slug words, name placeholders TODO-translated
+    tag_seed = [w for w in slug.split("-") if len(w) > 1][:4]
+    if not tag_seed:
+        tag_seed = [slug]
+
+    i18n_entries = []
+    help_entries = []
+    for L in langs:
+        nm = NAME_PLACEHOLDERS.get(L, "New Tool")
+        i18n_entries.append(
+            f'        "{L}": {{"name": "{nm}", '
+            f'"tagline": "TODO: translate tagline ({L})", '
+            f'"description": "TODO: translate description ({L})"}},'
+        )
+        help_entries.append(
+            f'        "{L}": """\n'
+            f"<h2>TODO: translate help heading ({L})</h2>\n"
+            f"<p>TODO: translate intro paragraph ({L}).</p>\n"
+            f"<h3>TODO: subsection heading ({L})</h3>\n"
+            f"<p>TODO: subsection body ({L}).</p>\n"
+            f"<h3>TODO: another subsection ({L})</h3>\n"
+            f"<p>TODO: subsection body ({L}).</p>\n"
+            f'""",'
+        )
+
+    return (
+        "TOOL = {\n"
+        f'    "slug": "{slug}",\n'
+        f'    "category": "{category}",\n'
+        f'    "icon": "{icon}",\n'
+        f'    "tags": {tag_seed!r},\n'
+        '    "i18n": {\n'
+        + "\n".join(i18n_entries)
+        + "\n    },\n"
+        '    "body": """\n'
+        "<!-- TODO: add tool UI -->\n"
+        '<div class="tool-card">\n'
+        f"  <p>TODO: build the UI for {slug}.</p>\n"
+        "</div>\n"
+        '""",\n'
+        '    "script": """\n'
+        "<script>\n"
+        f"// TODO: add tool JS for {slug}\n"
+        "</script>\n"
+        '""",\n'
+        '    "help": {\n'
+        + "\n".join(help_entries)
+        + "\n    },\n"
+        '    "related": [],\n'
+        "}\n"
+    )
+
+
+def derive_from_existing(slug: str, source: dict, category: str | None, icon: str | None) -> str:
+    """Render a manifest cloned from an existing tool, with slug/name swapped."""
+    # We copy the runtime dict and re-emit it as Python source via repr.
+    # The original module's body/script/help strings round-trip safely.
+    import copy
+    new_tool = copy.deepcopy(source)
+    new_tool["slug"] = slug
+    if category:
+        new_tool["category"] = category
+    if icon:
+        new_tool["icon"] = icon
+    # Make every visible name explicitly TODO so the operator must edit it.
+    for L, entry in new_tool.get("i18n", {}).items():
+        original = entry.get("name", "")
+        entry["name"] = f"TODO rename: {original}"
+        entry["tagline"] = f"TODO translate tagline ({L})"
+        entry["description"] = f"TODO translate description ({L})"
+    new_tool["related"] = []
+    return "TOOL = " + repr(new_tool) + "\n"
+
+
+def run_build(extra_args: list[str]) -> int:
+    cmd = [sys.executable, str(BUILD / "build.py"), *extra_args]
+    proc = subprocess.run(cmd, cwd=str(ROOT))
+    return proc.returncode
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(prog="addtool", description="Create a new Toolhub tool.")
+    p.add_argument("slug", help="kebab-case slug, 3-40 chars, e.g. json-sorter")
+    p.add_argument("--cat", required=True, help="category (must already exist in build/tools/*.py)")
+    p.add_argument("--icon", default="🛠", help="emoji icon (default: 🛠)")
+    p.add_argument("--from", dest="from_slug", default=None,
+                   help="copy an existing tool's manifest as a starting template")
+    p.add_argument("--dry-run", action="store_true", help="show plan, do not change anything")
+    args = p.parse_args()
+
+    slug = args.slug
+    if not SLUG_RE.match(slug) or not (3 <= len(slug) <= 40):
+        print(f'ERROR: slug "{slug}" must be kebab-case ([a-z][a-z0-9-]*[a-z0-9]), 3-40 chars')
+        return 2
+
+    categories = collect_categories()
+    if args.cat not in categories:
+        print(f'ERROR: category "{args.cat}" not in use. Existing: {sorted(categories)}')
+        return 2
+
+    manifest_path = TOOLS_DIR / f"{slug_to_module(slug)}.py"
+    if manifest_path.exists():
+        print(f"  ℹ tool already exists: {manifest_path.relative_to(ROOT)} — nothing to do")
+        return 0
+
+    if args.from_slug:
+        source = load_tool(args.from_slug)
+        if source is None:
+            print(f'ERROR: --from source tool "{args.from_slug}" not found')
+            return 2
+        source_str = derive_from_existing(slug, source, args.cat, args.icon)
+    else:
+        langs = load_langs()
+        source_str = build_skeleton(slug, args.cat, args.icon, langs)
+
+    if args.dry_run:
+        print(f"DRY RUN — would create: {manifest_path.relative_to(ROOT)}")
+        print(f"DRY RUN — would run: python3 build/build.py")
+        print(f"DRY RUN — would run: python3 build/build.py --update-index")
+        print("--- manifest preview (first 20 lines) ---")
+        for line in source_str.splitlines()[:20]:
+            print(line)
+        print("--- end preview ---")
+        return 0
+
+    manifest_path.write_text(source_str)
+    print(f"  ✓ wrote {manifest_path.relative_to(ROOT)}")
+
+    rc = run_build([])
+    if rc != 0:
+        print("ERROR: build/build.py failed — rolling back manifest")
+        manifest_path.unlink(missing_ok=True)
+        return rc
+    rc = run_build(["--update-index"])
+    if rc != 0:
+        print("ERROR: build/build.py --update-index failed")
+        return rc
+
+    print(f"\n  ✓ Created tool: {slug}")
+    print(f"    Manifest: {manifest_path.relative_to(ROOT)}")
+    print(f"    Next: fill in i18n / body / script / help / related, then re-run build/build.py")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
