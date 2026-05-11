@@ -8790,4 +8790,436 @@
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
+  <url>
+    <loc>https://toolhub.software/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/about/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/about/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/about/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/about/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/about/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/about/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/about/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/about/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/about/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/contact/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/contact/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/contact/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/for-schools/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/"/>
+  </url>
 </urlset>

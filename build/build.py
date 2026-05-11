@@ -23,6 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BUILD = ROOT / "build"
 TEMPLATE = (BUILD / "template.html").read_text()
+PAGE_TEMPLATE = (BUILD / "page_template.html").read_text()
 
 ADSENSE_CLIENT_RE = re.compile(r"^ca-pub-\d{16}$")
 
@@ -81,6 +82,12 @@ spec.loader.exec_module(i18n_mod)
 UI = i18n_mod.UI
 LANGS = i18n_mod.LANGS  # ["en", "de", "es", "fr", "it", "pt", "pl", "ja", "nl"]
 
+# Load static content pages (about, contact, for-schools)
+spec = importlib.util.spec_from_file_location("pages", BUILD / "pages.py")
+pages_mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(pages_mod)
+PAGES = pages_mod.PAGES
+
 # Load all tool modules
 TOOLS = []
 for tool_file in sorted((BUILD / "tools").glob("*.py")):
@@ -108,6 +115,13 @@ def home_path(lang: str) -> str:
 
 def privacy_path(lang: str) -> str:
     return "/privacy/" if lang == "en" else "/privacy/"
+
+
+def page_path(lang: str, slug: str) -> str:
+    """URL path for a static content page in a given language."""
+    if lang == "en":
+        return f"/{slug}/"
+    return f"/{lang}/{slug}/"
 
 
 def output_path(lang: str, slug: str) -> Path:
@@ -258,6 +272,12 @@ def render_tool(tool: dict, lang: str) -> str:
         "HOME": home_path(lang),
         "PRIVACY": privacy_path(lang),
         "PRIVACY_LBL": ui["privacy"],
+        "ABOUT": page_path(lang, "about"),
+        "ABOUT_LBL": ui["about"],
+        "CONTACT": page_path(lang, "contact"),
+        "CONTACT_LBL": ui["contact"],
+        "FOR_SCHOOLS": page_path(lang, "for-schools"),
+        "FOR_SCHOOLS_LBL": ui["for_schools"],
         "ALL_TOOLS": ui["all_tools"],
         "THEME_TIP": ui["theme_tip"],
         "INSTALL_APP": ui["install_app"],
@@ -315,6 +335,17 @@ def assert_translations_complete():
                 problems.append(f"{slug}: i18n missing lang: {lang}")
             if lang not in help_langs:
                 help_warnings.append(f"{slug}:{lang}")
+    # Static pages — name/h1/body must exist for every lang
+    for slug, page in PAGES.items():
+        page_langs = set(page.get("i18n", {}).keys())
+        for lang in LANGS:
+            if lang not in page_langs:
+                problems.append(f"page {slug}: i18n missing lang: {lang}")
+                continue
+            entry = page["i18n"][lang]
+            for key in ("title", "h1", "description", "body"):
+                if not entry.get(key):
+                    problems.append(f"page {slug}:{lang} missing {key}")
     if problems:
         print("  ✗ Translation completeness check FAILED:")
         for p in problems:
@@ -322,7 +353,7 @@ def assert_translations_complete():
         sys.exit(1)
     if help_warnings:
         print(f"  ⚠ {len(help_warnings)} help-translation gaps (English fallback used; non-fatal)")
-    print(f"  ✓ i18n + UI completeness OK ({len(TOOLS)} tools × {len(LANGS)} langs, {len(en_keys)} UI keys)")
+    print(f"  ✓ i18n + UI completeness OK ({len(TOOLS)} tools × {len(LANGS)} langs, {len(en_keys)} UI keys, {len(PAGES)} static pages)")
 
 
 def write_tool_pages():
@@ -334,6 +365,58 @@ def write_tool_pages():
             out.write_text(render_tool(tool, lang))
             written += 1
     print(f"  ✓ Rendered {written} pages ({len(TOOLS)} tools × {len(LANGS)} languages)")
+
+
+def render_page(page: dict, lang: str) -> str:
+    slug = page["slug"]
+    ui = UI[lang]
+    p_i18n = page["i18n"][lang]
+    sel = {l: ('selected="selected"' if l == lang else "") for l in LANGS}
+    placeholders = {
+        "LANG": lang,
+        "TITLE": p_i18n["title"],
+        "H1": p_i18n["h1"],
+        "DESCRIPTION": p_i18n["description"],
+        "BODY": p_i18n["body"],
+        "PATH": page_path(lang, slug),
+        "HOME": home_path(lang),
+        "PRIVACY": privacy_path(lang),
+        "PRIVACY_LBL": ui["privacy"],
+        "ABOUT": page_path(lang, "about"),
+        "ABOUT_LBL": ui["about"],
+        "CONTACT": page_path(lang, "contact"),
+        "CONTACT_LBL": ui["contact"],
+        "FOR_SCHOOLS": page_path(lang, "for-schools"),
+        "FOR_SCHOOLS_LBL": ui["for_schools"],
+        "ALL_TOOLS": ui["all_tools"],
+        "THEME_TIP": ui["theme_tip"],
+        "SLUG": slug,
+        "SEL_EN": sel["en"],
+        "SEL_DE": sel["de"],
+        "SEL_ES": sel["es"],
+        "SEL_FR": sel["fr"],
+        "SEL_IT": sel["it"],
+        "SEL_PT": sel["pt"],
+        "SEL_PL": sel["pl"],
+        "SEL_JA": sel["ja"],
+        "SEL_NL": sel["nl"],
+        "ALTERNATE_LINKS": alternate_links(slug),
+        "OG_LOCALE": OG_LOCALES.get(lang, "en_GB"),
+        "INLANG": lang,
+        "SCHEMA_TYPE": page.get("schema", "WebPage"),
+    }
+    return fill_placeholders(PAGE_TEMPLATE, placeholders)
+
+
+def write_static_pages():
+    written = 0
+    for page in PAGES.values():
+        for lang in LANGS:
+            out = output_path(lang, page["slug"])
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(render_page(page, lang))
+            written += 1
+    print(f"  ✓ Rendered {written} static-page files ({len(PAGES)} pages × {len(LANGS)} languages)")
 
 
 def update_index_tools_arrays():
@@ -385,10 +468,11 @@ if __name__ == "__main__":
     if args.only:
         wanted = set(args.only.split(","))
         TOOLS[:] = [t for t in TOOLS if t["slug"] in wanted]
-    print(f"Toolhub generator — {len(TOOLS)} tools × {len(LANGS)} languages")
+    print(f"Toolhub generator — {len(TOOLS)} tools × {len(LANGS)} languages ({len(PAGES)} static pages)")
     assert_deploy_config_coherent()
     assert_translations_complete()
     write_tool_pages()
+    write_static_pages()
     if args.update_index:
         update_index_tools_arrays()
     else:

@@ -41,6 +41,9 @@ UI = {
         "no_input": "Enter input above to see the result.",
         "invalid_input": "Invalid input.",
         "install_app": "Install app",
+        "about": "About",
+        "contact": "Contact",
+        "for_schools": "For Schools",
     },
     "de": {
         "all_tools": "Alle Tools",
@@ -81,6 +84,9 @@ UI = {
         "no_input": "Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.",
         "invalid_input": "Ungültige Eingabe.",
         "install_app": "App installieren",
+        "about": "Über uns",
+        "contact": "Kontakt",
+        "for_schools": "Für Schulen",
     },
     "es": {
         "all_tools": "Todas las herramientas",
@@ -121,6 +127,9 @@ UI = {
         "no_input": "Introduce un valor arriba para ver el resultado.",
         "invalid_input": "Entrada no válida.",
         "install_app": "Instalar app",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "for_schools": "Para escuelas",
     },
     "fr": {
         "all_tools": "Tous les outils",
@@ -161,6 +170,9 @@ UI = {
         "no_input": "Saisissez une entrée ci-dessus pour voir le résultat.",
         "invalid_input": "Entrée invalide.",
         "install_app": "Installer l'app",
+        "about": "À propos",
+        "contact": "Contact",
+        "for_schools": "Pour les écoles",
     },
     "it": {
         "all_tools": "Tutti gli strumenti",
@@ -201,6 +213,9 @@ UI = {
         "no_input": "Inserisci un input sopra per vedere il risultato.",
         "invalid_input": "Input non valido.",
         "install_app": "Installa app",
+        "about": "Chi siamo",
+        "contact": "Contatti",
+        "for_schools": "Per le scuole",
     },
     "pt": {
         "all_tools": "Todas as ferramentas",
@@ -241,6 +256,9 @@ UI = {
         "no_input": "Digite uma entrada acima para ver o resultado.",
         "invalid_input": "Entrada inválida.",
         "install_app": "Instalar app",
+        "about": "Sobre",
+        "contact": "Contato",
+        "for_schools": "Para escolas",
     },
     "pl": {
         "all_tools": "Wszystkie narzędzia",
@@ -281,6 +299,9 @@ UI = {
         "no_input": "Wpisz dane powyżej, aby zobaczyć wynik.",
         "invalid_input": "Nieprawidłowe dane.",
         "install_app": "Zainstaluj aplikację",
+        "about": "O nas",
+        "contact": "Kontakt",
+        "for_schools": "Dla szkół",
     },
     "ja": {
         "all_tools": "すべてのツール",
@@ -321,6 +342,9 @@ UI = {
         "no_input": "上に入力すると結果が表示されます。",
         "invalid_input": "入力が無効です。",
         "install_app": "アプリをインストール",
+        "about": "概要",
+        "contact": "お問い合わせ",
+        "for_schools": "学校向け",
     },
     "nl": {
         "all_tools": "Alle tools",
@@ -361,6 +385,9 @@ UI = {
         "no_input": "Geef hierboven invoer om het resultaat te zien.",
         "invalid_input": "Ongeldige invoer.",
         "install_app": "App installeren",
+        "about": "Over",
+        "contact": "Contact",
+        "for_schools": "Voor scholen",
     },
 }
 

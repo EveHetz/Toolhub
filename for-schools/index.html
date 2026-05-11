@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toolhub for Schools — Toolhub</title>
+  <meta name="description" content="Privacy-first developer and utility tools for classrooms. No signup, no tracking, multilingual, self-hostable. Filter-friendly and safe to share with students.">
+  <meta property="og:title" content="Toolhub for Schools — Toolhub">
+  <meta property="og:description" content="Privacy-first developer and utility tools for classrooms. No signup, no tracking, multilingual, self-hostable. Filter-friendly and safe to share with students.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/for-schools/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/for-schools/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/for-schools/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/for-schools/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/for-schools/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/for-schools/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/for-schools/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/for-schools/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/for-schools/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/for-schools/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/for-schools/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/for-schools/">
+  <meta property="og:locale" content="en_GB">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://toolhub.software/for-schools/#page",
+        "name": "Toolhub for Schools",
+        "description": "Privacy-first developer and utility tools for classrooms. No signup, no tracking, multilingual, self-hostable. Filter-friendly and safe to share with students.",
+        "url": "https://toolhub.software/for-schools/",
+        "inLanguage": "en",
+        "isPartOf": {"@id": "https://toolhub.software#site"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://toolhub.software#site",
+        "url": "https://toolhub.software",
+        "name": "Toolhub",
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "All Tools", "item": "https://toolhub.software/"},
+          {"@type": "ListItem", "position": 2, "name": "Toolhub for Schools", "item": "https://toolhub.software/for-schools/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; color: var(--text); }
+    h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; color: var(--text); }
+    p, li { color: var(--text-muted); margin-bottom: 0.8rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.4rem; }
+    code { background: var(--code-bg); padding: 0.1rem 0.35rem; border-radius: 3px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; color: var(--text); }
+    strong { color: var(--text); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.4rem; }
+    .footer a:hover { color: var(--accent); }
+    @media (max-width: 600px) {
+      .container { padding: 1.25rem 1rem; }
+      .header { padding: 0.75rem 1rem; }
+      .logo { font-size: 1.2rem; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.1rem; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/for-schools/'; else location.href='/for-schools/'">
+        <option value="" selected="selected">🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/">All Tools</a> / Toolhub for Schools</div>
+    <h1>Toolhub for Schools</h1>
+    <h2>Toolhub for classrooms</h2>
+<p>Toolhub is a set of small in-browser tools that students can use without creating an account, without being tracked, and without being redirected to ads or affiliate funnels. Every tool runs entirely in the browser, which means student input never leaves the school network — there is no backend to call.</p>
+<p>If you teach in a primary, secondary or tertiary setting and need a quick utility (a regex tester, a colour converter, a Base64 encoder, a password generator for a security lesson), Toolhub is built to be safe to put on the projector and safe to send to a class.</p>
+
+<h2>Curriculum tie-ins</h2>
+<ul>
+<li><strong>Computer science:</strong> the <a href="/regex-tester/">regex tester</a> for pattern matching, the <a href="/base64-encoder/">Base64 encoder</a> for data lessons, the <a href="/hash-generator/">hash generator</a> for talking about integrity, the <a href="/cidr-calculator/">CIDR calculator</a> for networking units.</li>
+<li><strong>Design and digital media:</strong> the <a href="/color-converter/">colour converter</a> and <a href="/color-picker/">colour picker</a> for talking about colour models, the <a href="/wcag-contrast/">WCAG contrast checker</a> for accessibility.</li>
+<li><strong>Security awareness:</strong> the <a href="/password-generator/">password generator</a> for talking about entropy and password strength, the <a href="/jwt-decoder/">JWT decoder</a> for showing what's actually inside a token.</li>
+<li><strong>Maths and health:</strong> the <a href="/percentage-calculator/">percentage calculator</a>, <a href="/unit-converter/">unit converter</a>, and <a href="/bmi-calculator/">BMI calculator</a> (the BMI page carries its own "not medical advice" notice).</li>
+</ul>
+
+<h2>Languages supported</h2>
+<p>Every tool is translated into nine languages so students can work in their first language:</p>
+<ul>
+<li>English</li>
+<li>Deutsch (German)</li>
+<li>Español (Spanish)</li>
+<li>Français (French)</li>
+<li>Italiano (Italian)</li>
+<li>Português (Portuguese)</li>
+<li>Polski (Polish)</li>
+<li>日本語 (Japanese)</li>
+<li>Nederlands (Dutch)</li>
+</ul>
+
+<h2>Self-hosted option</h2>
+<p>If your school network blocks external sites or you'd rather have full control, the entire site is around 5 MB and works offline as a Progressive Web App. You can mirror it on a school intranet — it's a static folder of HTML, CSS and JavaScript with no build step required to serve, just put the files behind any web server.</p>
+<p>The full source is at <a href="https://github.com/JXXR1/Toolhub">https://github.com/JXXR1/Toolhub</a>.</p>
+
+<h2>Filter-friendly</h2>
+<p>Toolhub is designed to play nicely with school web filters:</p>
+<ul>
+<li>No embedded social media widgets.</li>
+<li>No chat widgets or live-chat overlays.</li>
+<li>No auto-redirects to other sites.</li>
+<li>No video or audio that auto-plays.</li>
+<li>SafeSearch-friendly content — no adult tools, no gambling, no crypto-bro affiliate placements.</li>
+</ul>
+
+<h2>Contact for educators</h2>
+<p>If you're using Toolhub in a classroom and want to tell me about it, suggest a tool for your subject, or contribute a translation for a language we don't yet cover well, please get in touch via <a href="/contact/">the contact page</a>. Bulk-translation contributions from native speakers — especially for less-served languages — are very welcome.</p>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/for-schools/">For Schools</a> · <a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
