@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML continua por toda parte — respostas SOAP, arquivos de configuração, feeds RSS/Atom, marcação SVG, internals de OOXML. Quando você precisa ler, comparar ou compartilhar um pedaço de XML, a diferença entre uma blob minificada de uma linha e uma árvore bem indentada é a diferença entre adivinhação e leitura. Esta ferramenta faz pretty-print de qualquer XML bem-formado com indentação configurável, ou minifica para transporte, e usa o parser XML nativo do navegador para sinalizar problemas de formação com linha e coluna quando possível."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inspecionando um SOAP envelope ou uma config XML de um vendor que chegou como uma linha minificada. Limpando um SVG para ter o path data um elemento por linha. Removendo whitespace de pretty-print antes de enviar XML pela rede. Validando rapidamente que um arquivo XML que você gerou está bem-formado antes de entregar a um parser estrito. Comparando dois documentos XML — pretty-print primeiro, depois faça o diff das árvores lado a lado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bem-formado ≠ válido. \"Bem-formado\" significa que a sintaxe parseia (tags balanceadas, atributos com aspas, uma raiz). \"Válido\" significa que está em conformidade com um DTD ou schema. Esta ferramenta verifica apenas well-formedness — validação de schema precisa do arquivo de schema. Whitespace pode ser significativo. Em <name> Alice </name> os espaços antes e depois fazem parte do valor (XML usa xml:space=\"preserve\" por padrão). Re-indentar muda isso. Se seu XML é sensível a whitespace (XHTML <pre> , blocos de código embutidos), pretty-print é a ferramenta errada. Self-closing vs vazio explícito. <br/> e <br></br> são equivalentes em XML mas diferem em HTML. O formatador normaliza elementos vazios para a forma self-closing. CDATA, comentários e processing instructions são preservados. Seu conteúdo interno não é reformatado. Namespaces sobrevivem. Declarações xmlns:foo e nomes qualificados foo:bar fazem round-trip sem modificação. Ordem dos atributos pode mudar. O parser XML não preserva estritamente a ordem de atributos entre ferramentas; se você está fazendo checksum de XML, canonicalize antes (XML C14N). Peculiaridades do parser do browser. Browsers diferentes reportam erros de parse em formatos diferentes. A extração de linha/coluna é best-effort e pode mostrar só a mensagem em alguns browsers."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatador de XML",
+  "description": "Formate e minifique XML. Valide se está bem-formado com linha e coluna em caso de erro.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu XML",
+      "text": "Coloque seu XML no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

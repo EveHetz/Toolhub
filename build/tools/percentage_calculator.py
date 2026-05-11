@@ -196,4 +196,5 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
 """,
     },
     "related": ["number-base-converter", "timestamp-converter", "json-formatter"],
+    "howto": {"flow": "calculate", "action": "format",  "noun": "percentage"},
 }

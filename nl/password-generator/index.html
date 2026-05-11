@@ -72,6 +72,79 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een goed wachtwoord is er één dat een aanvaller niet kan raden en jij niet hoeft te onthouden (omdat het in je password manager staat). Deze generator produceert sterke random wachtwoorden of memorabele passphrases volledig in je browser, met crypto.getRandomValues — dezelfde cryptografisch veilige random-bron die TLS gebruikt. Niets wordt verzonden; het wachtwoord verlaat je apparaat nooit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een uniek wachtwoord maken voor elke nieuwe account dat in een password manager terechtkomt. Een masterwachtwoord of recovery-passphrase genereren die je uit het hoofd moet onthouden — passphrase-mode is makkelijker te typen en onthouden. Een niet-menselijk secret produceren voor een CI-variable, API-token of Wi-Fi-netwerk. In bulk wachtwoorden genereren voor een fresh user-batch (zet count tot 50)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Random karakters vs passphrases",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Random karakters — meeste entropie per lengte. 20 mixed karakters ≈ 130 bits. Goed voor dingen die je plakt, niet typt. Passphrases — makkelijker te typen en onthouden. Vier woorden ≈ 40 bits, zes woorden ≈ 60 bits. Goed voor masterwachtwoorden, device unlock en alles dat je vaak handmatig zal invoeren. \"Exclude ambiguous\" dropt 0/O/1/l/I voor veiliger lezen van schermen of handgeschreven notities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel entropie heb ik nodig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "≥ 60 bits — prima voor low-value accounts ≥ 80 bits — goed voor de meeste accounts ≥ 100 bits — high-value (financieel, masterwachtwoord, root credential)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hergebruik geen wachtwoorden. De enkele grootste security-upgrade die je kunt doen is één uniek wachtwoord per site, opgeslagen in een manager. Generator-sterkte is verspild als hetzelfde wachtwoord op vijf sites leeft. Schrijf gegenereerde wachtwoorden niet op zonder bescherming. Gebruik een password manager (1Password, Bitwarden, KeePass) — geen Notes-app, geen tekstbestand, geen email-concept. Lang > complex. Een 24-karakter wachtwoord met alleen lowercase letters heeft meer entropie dan een 10-karakter met elke symboolklasse. Lengte wint. Site-specifieke regels kunnen copy-paste breken. Sommige sites verbieden specifieke symbolen of kappen lengte af op 16. Vervelend maar echt — genereer, trim/swap dan om te passen indien nodig (en sla dan het daadwerkelijk opgeslagen wachtwoord op in je manager)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Wachtwoord-generator",
+  "description": "Sterke random wachtwoorden of memorabele passphrases. Lokaal gegenereerd — nergens heen gestuurd.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de wachtwoord-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe wachtwoord te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde wachtwoord te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

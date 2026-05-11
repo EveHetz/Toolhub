@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML is still everywhere — SOAP responses, configuration files, RSS/Atom feeds, SVG markup, OOXML innards. When you need to read, diff, or share a chunk of XML, the difference between a one-line minified blob and a properly indented tree is the difference between guesswork and reading. This tool pretty-prints any well-formed XML with configurable indentation, or minifies it for transport, and uses the browser's native XML parser to flag malformedness with a line and column where possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inspecting a SOAP envelope or a vendor's XML config that arrived as one minified line. Cleaning up an SVG so the path data is one element per line. Stripping pretty-print whitespace before sending XML over the wire. Sanity-checking that an XML file you generated is well-formed before handing it to a strict parser. Diffing two XML documents — pretty-print first, then diff the trees side by side."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Well-formed ≠ valid. \"Well-formed\" means the syntax parses (tags balance, attributes quoted, one root). \"Valid\" means it conforms to a DTD or schema. This tool checks well-formedness only — schema validation needs the schema file. Whitespace can be significant. In <name> Alice </name> the leading/trailing spaces are part of the value (XML defaults to xml:space=\"preserve\" ). Re-indenting changes them. If your XML is whitespace-sensitive (XHTML <pre> , embedded code blocks), pretty-print is the wrong tool. Self-closing vs explicit empty. <br/> and <br></br> are equivalent in XML but differ in HTML. The formatter normalises empty elements to self-closing form. CDATA, comments, and processing instructions are preserved. Their inner content isn't reformatted. Namespaces survive. xmlns:foo declarations and foo:bar qualified names round-trip without modification. Attribute order may shift. The XML parser doesn't strictly preserve attribute order across tools; if you're checksumming XML, canonicalise it first (XML C14N). Browser parser quirks. Different browsers report parse errors with different formats. The line/column extraction is best-effort and may show only the message on some browsers."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use XML Formatter",
+  "description": "Format and minify XML. Validate well-formedness with line and column on errors.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your XML",
+      "text": "Drop your XML into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Format",
+      "text": "Press the Format button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

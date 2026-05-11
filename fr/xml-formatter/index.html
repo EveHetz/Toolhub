@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML est encore partout : SOAP, configurations, RSS/Atom, SVG, OOXML. Une représentation indentée fait la différence entre lire et deviner. Cet outil formate ou minifie du XML bien formé et utilise le parser XML du navigateur pour signaler les erreurs avec ligne et colonne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inspecter une enveloppe SOAP ou une config XML. Nettoyer un SVG. Supprimer les espaces avant envoi. Vérifier la bien-formation. Diffuser entre deux XML."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bien formé ≠ valide. La validation de schéma nécessite le schéma. L'espace peut être significatif. Par défaut xml:space=\"preserve\" — pas de pretty-print sur du XML sensible aux espaces. Auto-fermant vs vide explicite. L'outil normalise en auto-fermant. CDATA, commentaires et PI sont préservés. Les namespaces sont préservés. Ordre des attributs. Pour un checksum, canoniser (XML C14N). Différences entre parseurs. Ligne/colonne best-effort."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formateur XML",
+  "description": "Formatez et minifiez du XML. Validez la bien-formation avec ligne et colonne en cas d'erreur.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre XML",
+      "text": "Placez votre XML dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Formater",
+      "text": "Appuyez sur le bouton Formater pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

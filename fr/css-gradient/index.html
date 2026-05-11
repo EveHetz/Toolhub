@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS gradients are a single line of CSS that draws smooth color transitions for backgrounds, buttons, hero panels, and overlays — without any image asset. The syntax is powerful but fiddly to write by hand: angles, percentage stops, repeating variants, mixing linear with radial. This tool gives you a visual builder that mirrors the CSS in real time, so you can drag a stop into place and copy the exact linear-gradient(...) or radial-gradient(...) string."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Building a hero or call-to-action section background without burning into an image. Creating button or card hover states that look \"modern\" without an image asset. Mocking a brand-coloured overlay (gradient + low-opacity solid for text legibility). Generating decorative dividers, mesh-style backgrounds, or animated SVG fills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Linear vs radial",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linear — colors transition along a straight line at a chosen angle (0° = bottom-to-top, 90° = left-to-right, 180° = top-to-bottom). Radial — colors spread from a center point outward as a circle or ellipse. Great for spotlight or vignette effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use as background , not background-color . Gradients are images, not colors. background-color is ignored. Stops must be in order for predictable rendering. The tool sorts them automatically — if you copy CSS and edit by hand, keep the percentages monotonic. Hard stops (two stops at the same percentage) make a sharp boundary instead of a fade — useful for striped or band effects. Banding on big areas. Long, low-contrast gradients can show visible \"bands\" on 8-bit screens. Add a tiny SVG noise overlay ( filter: url(#noise) ) or move the stops slightly. Performance. Browsers paint gradients quickly, but animating background-image triggers paint on every frame — animate transform on a layer above instead. Accessibility. If text sits on a gradient, check the contrast ratio against the worst point along the gradient where the text appears, not the average."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Générateur de Dégradé CSS",
+  "description": "Créez des dégradés CSS linéaires et radiaux visuellement. Éditez les couleurs, copiez le CSS prêt à coller.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choisissez vos options",
+      "text": "Sélectionnez les options de dégradé dont vous avez besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Générer",
+      "text": "Appuyez sur Générer pour produire un nouveau dégradé."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier le dégradé généré."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

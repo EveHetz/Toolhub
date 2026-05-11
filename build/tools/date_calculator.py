@@ -332,4 +332,5 @@ document.addEventListener('DOMContentLoaded', dcMode);
 """,
     },
     "related": ["timestamp-converter", "timezone-converter", "percentage-calculator"],
+    "howto": {"flow": "calculate", "action": "format",  "noun": "date"},
 }

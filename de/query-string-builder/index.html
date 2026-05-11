@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Query-String ist eine Liste von Schlüssel/Wert-Paaren mit ? , = , & verbunden — von Hand fehleranfällig zu schreiben. Dieses Tool nimmt deine Eingaben und erzeugt den korrekt codierten String."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API-URL mit mehreren Parametern. Tracking-Link (UTM) tippfehlerfrei. Deep Link / Share-URL für E-Mail/Chat. Array-Notation der API ausprobieren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Array-Konventionen sind nicht standardisiert. PHP/Rails: a[]=1 ; Python: a=1&a=2 ; ASP.NET: Komma. + vs %20 . Form-Encoding vs URI. Leer ≠ fehlend. ?a= ≠ kein a . Reservierte Zeichen. =&#? in Werten müssen codiert werden. Reihenfolge kann zählen (signierte URLs). Längenlimit. Browser/Server bei 2–8 KB. Keine Geheimnisse — landen in Logs/History/Referer."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Query-String-Builder",
+  "description": "Schlüssel/Wert-Zeilen hinzufügen; korrekt URL-codierten Query-String erhalten. Unterstützt Arrays (a[]=1) und wiederholte Schlüssel.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Optionen wählen",
+      "text": "Wähle die gewünschten Query-String-Optionen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generieren klicken",
+      "text": "Drücke Generieren, um ein neues Query-String zu erzeugen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um das erzeugte Query-String zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

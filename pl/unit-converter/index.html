@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Większość świata jest metryczna, USA jest imperialne, UK jest pół na pół, przepisy są w cupach, kiedy powinny być w gramach, a gdzieś pomiędzy szkolny projekt dziecka pyta o \"5 yardów w centymetrach\". To narzędzie liczy konwersje długości, wagi, temperatury, objętości, powierzchni, czasu i prędkości używając wysokiej precyzji definicji — i rozkłada wynik na każdą jednostkę kategorii naraz, żebyś nie musiał konwertować dwa razy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Czytanie przepisu w cupach, gdy gotujesz w gramach (albo na odwrót). Tłumaczenie odległości lotu w milach morskich na kilometry. Konwersja prognozy temperatury z °C na °F przed podróżą. Wymiarowanie mebla: 72 cale szerokości → zmieści się w drzwiach 1,9 m? Czytanie pomiarów z papera naukowego w SI, gdy myślisz w imperialnym."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co jest dokładne, a co nie",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Długość, waga, temperatura, powierzchnia, prędkość używają definicji SI i międzynarodowego porozumienia yard-and-pound (1959), więc są dokładne do precyzji twojego wejścia. Objętość bywa upierdliwa: amerykański \"gallon\" (3,785 L) i brytyjski \"imperial gallon\" (4,546 L) to różne rzeczy. Narzędzie podaje, który jest który. Cup / tablespoon / teaspoon domyślnie są tu w mierze amerykańskiej. Brytyjskie i australijskie cupy są lekko inne (250 mL w AU, 240 mL w US). \"Miesiąc\" i \"rok\" w kategorii czasu używają średnich (30,44 dnia / 365,25 dnia). Nie używaj tego do prawnych albo księgowych obliczeń, gdzie liczą się dokładne miesiące — użyj kalkulatora dat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Temperatura nie jest stosunkiem. 0°C to nie \"brak temperatury\" — to punkt odniesienia. Podwojenie Celsjuszy nie podwaja ciepła. Konwersja używa addytywnych przesunięć (273,15 do/z Kelvinów, 32 między C a F) — dlatego narzędzie używa funkcji do temperatury, nie mnożników. US i UK fluid ounces są różne. 1 US fl oz = 29,57 mL, 1 UK fl oz = 28,41 mL. Zawsze sprawdzaj, którego standardu używa przepis. \"Tonne\" vs \"ton\". Tona metryczna = 1000 kg. US short ton = 907 kg. UK long ton = 1016 kg. \"t\" w narzędziu to tona metryczna. Masa vs waga. Ściśle, kg to masa, a funty to też masa (mimo potocznego \"ważę 70 kg\"). Narzędzie traktuje to jako konwersję masa-do-masy. Do siły (newtony, pound-force) potrzeba innej kategorii. Zaokrąglaj na końcu, nie w środku. Nie konwertuj m → ft, zaokrąglaj, potem ft → in — kumulujesz błędy. Idź wprost do docelowej jednostki. Stones & pounds. Brytyjska waga: 1 stone = 14 lb. Narzędzie ma stone (st), ale część w lb musisz zrobić osobno dla wpisów typu \"11 st 4 lb\"."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Jednostek",
+  "description": "Konwertuj między metrycznymi i imperialnymi jednostkami długości, wagi, temperatury, objętości i powierzchni.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wpisz swoje wartości",
+      "text": "Wpisz dane jednostka, których potrzebuje narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj wynik",
+      "text": "Wynik jednostka aktualizuje się natychmiast — bez przycisku."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Użyj lub skopiuj wynik",
+      "text": "Naciśnij Kopiuj, jeśli potrzebujesz wartości jednostka gdzie indziej."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

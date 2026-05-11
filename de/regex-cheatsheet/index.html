@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine durchsuchbare Zusammenfassung der Regex-Syntax, die man immer halb vergisst. Tabellen für Anker, Zeichenklassen, Quantoren, Gruppen, Lookarounds, Flags — plus Beispielmuster. Muster anklicken zum Kopieren; Filter zum Eingrenzen. Mit dem Regex-Tester kombinieren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wenn man die exakte Lookbehind-Syntax vergessen hat. Als stabile Referenz beim Erklären. Startmuster (UUID/E-Mail/ISO-Datum) zum Anpassen. Klärung welcher Flag was tut — besonders s vs m ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Variante zählt. Meist JS/PCRE, aber Features unterscheiden sich. Lookbehind erst seit ES2018; x nicht in JS. m ist nicht \"mehrzeiliges Matching\". Es ändert ^ / $ ; für . über Zeilen s . Greedy frisst zu viel. <.*> matched alles; Lazy <.*?> oder besser <[^>]+> . Regex ist kein HTML/JSON-Parser. E-Mail-Regexes sind immer falsch. Für Produktion eine Bestätigungsmail. Kopierten \"perfekten\" Regexes nicht trauen."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

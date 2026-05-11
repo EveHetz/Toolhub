@@ -310,4 +310,5 @@ document.addEventListener('DOMContentLoaded', phRun);
 """,
     },
     "related": ["color-picker", "color-converter", "image-to-base64", "qr-code-generator"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "image"},
 }

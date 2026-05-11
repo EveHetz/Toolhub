@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O HTML reserva cinco caracteres com significado estrutural — & , < , > , \" , ' . Colocar qualquer um deles na página como conteúdo exige escapá-los como entidades HTML para que o browser não os interprete como markup. Esta ferramenta vai nas duas direções: codifica texto puro em entidades seguras, ou decodifica HTML capturado de volta para texto plano."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embutir conteúdo de usuário não confiável em HTML — codifique antes para evitar XSS. Decodificar markup capturado ou colado que veio com entidades ( &amp; , &#x27; , &ldquo; ). Desfazer templates que foram escapados em dobro por acidente. Preparar trechos para JSDoc, XML sem CDATA ou code fences de Markdown que precisam de sinais de menor/maior literais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Encoding não é sanitização. Codificar deixa o texto seguro para exibir; se você também quer remover tags, precisa de um sanitizer HTML. Atributos vs corpo. Os dois contextos precisam dos mesmos cinco caracteres escapados, mas event handlers JavaScript como onclick precisam de escape adicional (que esta ferramenta não faz — mantenha dados não confiáveis fora de atributos). O decoder é permissivo. Entidades nomeadas ( &ldquo; ), decimais ( &#34; ) e hex ( &#x22; ) são todas decodificadas pelo parser do browser, então aceita qualquer coisa que um browser real aceitaria. Não codifique em dobro. Codificar um valor já codificado dá &amp;amp; . Decodifique antes se vir entidades no input."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder HTML",
+  "description": "Faz escape de caracteres especiais HTML ou decodifica entidades de volta. Útil para embutir input do usuário com segurança ou debugar markup escapado.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Codificar",
+      "text": "Pressione o botão Codificar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

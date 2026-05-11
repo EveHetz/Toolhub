@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma URL é uma string estruturada com sete partes bem definidas (scheme, authority, host, porta, path, query, fragment) que você enxerga como um único bloco. Quando algo está errado — o parâmetro errado, uma porta inesperada, um caractere codificado a mais — é muito mais fácil identificar numa tabela parseada do que na string crua. Esta ferramenta usa o objeto URL nativo do navegador, então o parse corresponde exatamente ao que o JavaScript enxerga, e separa cada query parameter para que os valores decodificados fiquem visíveis ao lado da forma raw."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debugando uma URL de callback OAuth onde o state ou code parece errado. Inspecionando uma URL de tracking (UTM tags, click-tokens) e vendo os valores reais em vez do bloco codificado. Confirmando que uma URL de webhook é parseada como o serviço receptor espera — em particular o path e qualquer query. Investigando por que um deep link funciona em um app e não em outro (porta? scheme? authority?)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaves de query repetidas são reais. ?a=1&a=2 são dois valores para a ; ferramentas que leem só o primeiro perdem dados. O parser mostra todos os valores por chave. O fragment nunca chega ao servidor. Tudo depois de # fica no navegador. Se seu backend não está vendo dados que você colocou na URL, verifique se eles não estão no fragment. Encoding importa. %20 em um valor de query decodifica para espaço; + em um valor de query também decodifica para espaço (segundo application/x-www-form-urlencoded ). O URL.searchParams do navegador trata os dois. Portas padrão não aparecem em port . Uma URL como https://example.com/ tem port vazio (a 443 padrão é implícita). Hostnames com Punycode. example.中国 é armazenado internamente como xn--fiqs8s ; hostname pode mostrar a forma ASCII dependendo do navegador. Origin às vezes é \"null\". Para file:// , data: ou contextos sandboxed, origin é opaco. Isto é parsing, não validação. Uma URL pode parsear corretamente e ainda estar errada para sua aplicação (ex.: host errado, path faltando)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Parser de URL",
+  "description": "Cole qualquer URL — veja protocol, host, porta, path, query parameters (decodificados), hash e origin organizados.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu URL",
+      "text": "Coloque seu URL no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

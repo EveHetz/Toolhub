@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you share a link in Twitter/X, Facebook, LinkedIn, Discord, Slack or any modern chat or social app, the link is unfurled into a \"card\" — title, description, and image — based on the Open Graph meta tags in the page head. The various platforms render these cards differently and clip text at different lengths. This tool gives you side-by-side previews of how the same content will appear in each, without having to actually share the URL on every platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You changed the OG image or copy and want to confirm it looks right before deploying. You're choosing a hero image and want to see whether the focal point will survive the 1.91:1 crop. You're writing the title/description copy and want to know where each platform will clip it. You inherited a page with no OG tags and want to draft them by previewing the rendered card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The minimum tags",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<meta property=\"og:title\" content=\"…\"> <meta property=\"og:description\" content=\"…\"> <meta property=\"og:image\" content=\"https://…\"> (absolute URL, 1200×630 ideal) <meta property=\"og:url\" content=\"https://…\"> <meta property=\"og:type\" content=\"website\"> <meta name=\"twitter:card\" content=\"summary_large_image\"> (for the X/Twitter big-image style)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a static preview, not a live fetcher. Real platforms scrape your page from their servers; if your real site has a different image, this tool won't catch it. Use the platforms' own debuggers (Twitter's card validator , Facebook's Sharing Debugger, LinkedIn's Post Inspector) for the authoritative check. Image URLs must be absolute. /og.png won't work — scrapers don't know your origin. Image must be publicly reachable. Authentication walls, CDNs that require referer, or hot-link protection will leave you with a broken card. Aspect ratio matters. 1.91:1 (1200×630 is canonical) renders well on every platform. Square or portrait crops badly. File size matters. Some scrapers reject images over 8 MB; aim for <1 MB to keep first-load snappy. Cache invalidation is real. Once a platform has scraped your URL, it caches the card. Use the platform debuggers to force a re-scrape. Title/description length limits vary. Twitter/X clips title around 70 chars; Facebook around 88; LinkedIn around 100. Front-load the important words. Discord prefers theme-color . Adding <meta name=\"theme-color\" content=\"#xxxxxx\"> sets the left border colour on Discord embeds."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use OG Tag Preview",
+  "description": "Paste OG meta tags or fill title/description/image — preview share cards as they look on Twitter/X, Facebook, LinkedIn, and Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your URL",
+      "text": "Drop your URL into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

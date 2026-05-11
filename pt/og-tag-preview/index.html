@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando você compartilha um link no Twitter/X, Facebook, LinkedIn, Discord, Slack ou qualquer chat ou app social moderno, o link é desdobrado em um \"card\" — título, descrição e imagem — com base nos meta tags Open Graph no head da página. Cada plataforma renderiza esses cards de um jeito diferente e corta o texto em comprimentos diferentes. Esta ferramenta te dá previews lado a lado de como o mesmo conteúdo vai aparecer em cada uma, sem você precisar compartilhar a URL em cada plataforma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Você mudou a imagem OG ou o texto e quer confirmar que está certo antes de fazer o deploy. Você está escolhendo uma imagem hero e quer ver se o ponto focal vai sobreviver ao crop 1.91:1. Você está escrevendo o texto de título/descrição e quer saber onde cada plataforma vai cortar. Você herdou uma página sem tags OG e quer rascunhá-las visualizando o card renderizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "As tags mínimas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<meta property=\"og:title\" content=\"…\"> <meta property=\"og:description\" content=\"…\"> <meta property=\"og:image\" content=\"https://…\"> (URL absoluta, 1200×630 ideal) <meta property=\"og:url\" content=\"https://…\"> <meta property=\"og:type\" content=\"website\"> <meta name=\"twitter:card\" content=\"summary_large_image\"> (para o estilo big-image do X/Twitter)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Este é um preview estático, não um fetcher ao vivo. As plataformas reais raspam sua página dos servidores delas; se seu site real tiver outra imagem, esta ferramenta não pega. Use os debuggers oficiais ( card validator do Twitter, Sharing Debugger do Facebook, Post Inspector do LinkedIn) para a checagem oficial. URLs de imagem precisam ser absolutas. /og.png não funciona — os scrapers não conhecem sua origem. A imagem precisa estar publicamente acessível. Paredes de autenticação, CDNs que exigem referer ou proteção contra hot-link vão te deixar com um card quebrado. Aspect ratio importa. 1.91:1 (1200×630 é o canônico) renderiza bem em todas as plataformas. Quadrado ou retrato sofre crop ruim. Tamanho de arquivo importa. Alguns scrapers rejeitam imagens acima de 8 MB; mire em <1 MB para manter o first-load rápido. Invalidação de cache é real. Uma vez que uma plataforma raspou sua URL, ela faz cache do card. Use os debuggers da plataforma para forçar um re-scrape. Os limites de tamanho de título/descrição variam. Twitter/X corta título em torno de 70 caracteres; Facebook em torno de 88; LinkedIn em torno de 100. Coloque as palavras importantes no começo. Discord prefere theme-color . Adicionar <meta name=\"theme-color\" content=\"#xxxxxx\"> define a cor da borda esquerda nos embeds do Discord."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Preview de Tags OG",
+  "description": "Cole meta tags OG ou preencha título/descrição/imagem — visualize os share cards como aparecem no Twitter/X, Facebook, LinkedIn e Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu URL",
+      "text": "Coloque seu URL no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

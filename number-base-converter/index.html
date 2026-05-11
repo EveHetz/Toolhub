@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numbers are the same number regardless of base — 255 , 0xff , 0b11111111 , and 0o377 are identical. But which base you read or write in matters when you're translating between memory layouts, parsing colour codes, decoding bit fields, or just reading hex from a debugger. This tool converts between binary, octal, decimal, hexadecimal, and any base from 2 to 36, using BigInt under the hood so you don't lose precision on large numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reading a hex value from a stack trace and figuring out what it is in decimal. Converting CSS colour 0xff8800 into an RGB triple, or vice versa. Inspecting a bitmask or flags integer in binary to see which bits are set. Translating between base-36 short IDs and decimal counters."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Recognised prefixes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex: 0x , 0X , # Binary: 0b , 0B Octal: 0o , 0O Underscore digit grouping: 1_000_000"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Negative numbers are sign-prefixed, not two's complement. -128 is shown as -10000000 in binary, not 10000000 . Most languages display the same way for arbitrary-precision integers. Big numbers don't lose precision here. JavaScript Number caps at 2 53 ; this tool uses BigInt , so 64-bit integers, large hashes, and crypto values all round-trip exactly. Don't confuse base with case. Base-16 letters can be upper or lower; the tool accepts both and emits uppercase. Base-32 / base-36 outputs are lowercase by convention. Leading zeros are dropped. 0x000F becomes F . If you need a fixed-width hex (e.g. for byte representations), pad in your code afterward."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Number Base Converter",
+  "description": "Convert between binary, octal, decimal, hexadecimal, and any base from 2 to 36.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your number",
+      "text": "Drop your number into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

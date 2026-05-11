@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Números de cartão carregam um checksum embutido (o algoritmo de Luhn / mod-10) e começam com prefixos que identificam a bandeira emissora. Juntos, isso permite pegar erros de digitação e identificar a bandeira antes de enviar um número a um gateway de pagamento. Esta ferramenta roda os dois checks 100% no seu navegador — o número que você cola nunca sai da página. É validação estrutural de nível de desenvolvedor, não checagem de fraude nem consulta de cartão ao vivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Validar que um número de cartão de teste que você copiou está bem-formado (cartões de teste da documentação da Stripe ou similares passam todos no Luhn). Conferir campos de input num formulário — o número satisfaz a estrutura básica antes de fazer round-trip a uma API de pagamentos que cobraria pela consulta? Auditar um número de cartão que \"parece errado\" para ver se é erro de digitação (Luhn falha) ou bandeira incompatível (tamanho errado para o prefixo)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Estruturalmente válido\" não significa \"emitido\" ou \"ativo\". Validação real exige um gateway de pagamento — o que custa dinheiro ou faz uma autorização. Esta ferramenta pega erros de digitação, não contas encerradas. Não cole números de cartão reais em lugar nenhum — incluindo esta ferramenta. O navegador não transmite, mas um gravador de tela, extensão de navegador ou painel de dev-tools aberto pode capturar. Use um número de teste conhecido. Alguns números de 16 dígitos não são cartões. Cartões fidelidade, gift cards e alguns SKUs pré-pagos reutilizam o formato; passar no Luhn + bater bandeira não garante que seja um meio de pagamento. Cartões co-branded. Cartões emitidos sob uma bandeira podem exibir o logo de outra. A detecção de bandeira aqui usa o prefixo canônico do emissor, não o logo impresso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Números de teste (seguros para colar)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visa 4242 4242 4242 4242 · Mastercard 5555 5555 5555 4444 · Amex 3782 822463 10005 · Discover 6011 1111 1111 1117"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Validador de Cartão de Crédito",
+  "description": "Valide um número de cartão com a verificação de Luhn e detecte a bandeira. Roda localmente — seu número nunca é transmitido.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu número do cartão",
+      "text": "Coloque seu número do cartão no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Validar",
+      "text": "Pressione o botão Validar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

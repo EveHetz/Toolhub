@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML y JSON son los dos formatos dominantes y traducir entre ellos es habitual. El mapeo es convencional: atributos con prefijo ( @ ), nodos de texto con clave ( #text ), elementos hijos repetidos se vuelven arrays. Ambas direcciones en el navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convertir RSS/Atom/SOAP a JSON para apps JS. Generar XML config desde plantillas JSON. Extraer valores anidados más fácil. Verificar round-trip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Único vs array. Un <item> es objeto, dos son array — los consumidores deben manejar ambas formas. Orden no garantizado. Las claves JSON no preservan orden de manera fiable. Contenido mixto colapsa. No hace round-trip limpio. Colisiones de prefijo. Si una etiqueta empieza con @ , cambia el prefijo. Namespaces literales. ns:tag permanece como \"ns:tag\" . Sin inferencia de tipos. El texto XML siempre es string. JSON → XML necesita exactamente una clave raíz."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor XML ↔ JSON",
+  "description": "Convierte XML a JSON o JSON de vuelta a XML. Maneja atributos, nodos de texto y arrays correctamente.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu XML",
+      "text": "Coloca tu XML en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Convertir",
+      "text": "Pulsa el botón Convertir para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

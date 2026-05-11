@@ -289,4 +289,5 @@ document.addEventListener('DOMContentLoaded', wcRun);
 """,
     },
     "related": ["color-picker", "color-converter", "css-gradient"],
+    "howto": {"flow": "calculate", "action": "format",  "noun": "color pair"},
 }

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "URL エンコードの仕組み",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL や HTTP ヘッダはごく一部の ASCII しか許容しません。空白、アクセント文字、絵文字、いくつかの予約された記号を含めて、それ以外はすべて パーセントエンコード （バイトごとに % + 16 進 2 桁）が必要です。 café は UTF-8 で caf%C3%A9 になります。デコードはその逆です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "スコープの使い分け",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Component — URL に差し込む個別の 値 （クエリ値、パスセグメント、フラグメント、ヘッダ値）はこちらを選びます。 / ? # & = + も含めて構造記号もエンコードし、URL 構文として誤解釈されないようにします。 Full URI — URL 全体を整えたいときに使います。 / ? # & = + は URL 構造として保持し、不正文字（空白、非 ASCII など）だけをエンコードします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "二重エンコードに注意。 エンコード済みを再度エンコードすると %20 が %2520 になります。 %XX が見えるならまずデコードしてください。 空白は常に %20 ではありません。 application/x-www-form-urlencoded ボディでは空白は + です。本ツールは JS の encodeURIComponent 慣習（常に %20 ）に従い、デコードはどちらも受け付けます。 UTF-8 と Latin-1。 モダンブラウザや encodeURIComponent は常に UTF-8。古いシステムが Latin-1 percent-escape を生成する場合、ここでは綺麗にラウンドトリップしないことがあります。 予約文字の percent-escape は大小無視ですが、デコード結果は大小区別あり。 %2F も %2f も / にデコードされますが、元の文字の大小は保持されます。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "URL エンコーダー / デコーダー",
+  "description": "URL 用に文字列を percent-encode、または percent-encoded をテキストにデコード。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "テキスト を貼り付け",
+      "text": "テキスト を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "エンコード をクリック",
+      "text": "エンコード ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

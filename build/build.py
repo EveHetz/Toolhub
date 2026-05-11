@@ -175,6 +175,275 @@ SUBCATEGORY_LABELS = {
 }
 
 
+# --- FAQPage extraction ---------------------------------------------------
+# Pull (question, answer) pairs out of the help block. Each <h2>/<h3> heading
+# becomes the question; everything between that heading and the next heading
+# becomes the answer (HTML stripped, whitespace collapsed).
+_HEADING_RE = re.compile(r"<(h[23])\b[^>]*>(.*?)</\1>", re.DOTALL | re.IGNORECASE)
+_TAG_RE = re.compile(r"<[^>]+>")
+_ENTITY_REPLACEMENTS = (
+    ("&amp;", "&"), ("&lt;", "<"), ("&gt;", ">"),
+    ("&quot;", '"'), ("&#39;", "'"), ("&nbsp;", " "),
+)
+
+
+def _strip_html(s: str) -> str:
+    s = _TAG_RE.sub(" ", s)
+    for a, b in _ENTITY_REPLACEMENTS:
+        s = s.replace(a, b)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def extract_faq_pairs(help_html: str):
+    """Return [(question, answer_text), ...] from H2/H3 sections in help_html."""
+    matches = list(_HEADING_RE.finditer(help_html))
+    pairs = []
+    for i, m in enumerate(matches):
+        q = _strip_html(m.group(2))
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(help_html)
+        a = _strip_html(help_html[start:end])
+        if q and a:
+            pairs.append((q, a))
+    return pairs
+
+
+def render_faq_schema(tool: dict, lang: str) -> str:
+    help_html = tool.get("help", {}).get(lang) or tool.get("help", {}).get("en", "")
+    if not help_html:
+        return ""
+    pairs = extract_faq_pairs(help_html)
+    if not pairs:
+        return ""
+    doc = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in pairs
+        ],
+    }
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(doc, ensure_ascii=False, indent=2)
+        + "\n</script>"
+    )
+
+
+# --- HowTo schema ---------------------------------------------------------
+# Tool manifests declare a compact `howto` field:
+#   "howto": {"flow": "transform", "action": "format", "noun": "JSON"}
+# where flow ∈ {transform, generate, calculate, compare} and action is a key
+# in i18n.UI (format/encode/decode/convert/generate/validate/compare/...).
+# noun is either a string (used across all languages — e.g. "JSON", "URL")
+# or a {lang: str} dict for translation.
+#
+# Tools without a `howto` field emit no HowTo schema (pure-reference tools).
+
+# 3-step (name_tpl, text_tpl) pairs per flow per language.
+# Placeholders: {noun} {action} {input} {output} {copy}
+HOWTO_TEMPLATES = {
+    "transform": {
+        "en": [("Paste your {noun}",          "Drop your {noun} into the {input} field."),
+               ("Click {action}",             "Press the {action} button to run the tool."),
+               ("Copy the result",            "Hit {copy} to copy the {output}.")],
+        "de": [("{noun} einfügen",            "Füge dein {noun} in das {input}-Feld ein."),
+               ("{action} klicken",           "Drücke {action}, um das Tool auszuführen."),
+               ("Ergebnis kopieren",          "Drücke {copy}, um die {output} zu kopieren.")],
+        "es": [("Pega tu {noun}",             "Coloca tu {noun} en el campo {input}."),
+               ("Haz clic en {action}",       "Pulsa el botón {action} para ejecutar la herramienta."),
+               ("Copia el resultado",         "Pulsa {copy} para copiar la {output}.")],
+        "fr": [("Collez votre {noun}",        "Placez votre {noun} dans le champ {input}."),
+               ("Cliquez sur {action}",       "Appuyez sur le bouton {action} pour exécuter l'outil."),
+               ("Copiez le résultat",         "Appuyez sur {copy} pour copier la {output}.")],
+        "it": [("Incolla il {noun}",          "Metti il {noun} nel campo {input}."),
+               ("Clicca {action}",            "Premi il pulsante {action} per eseguire lo strumento."),
+               ("Copia il risultato",         "Premi {copy} per copiare l'{output}.")],
+        "pt": [("Cole seu {noun}",            "Coloque seu {noun} no campo {input}."),
+               ("Clique em {action}",         "Pressione o botão {action} para rodar a ferramenta."),
+               ("Copie o resultado",          "Pressione {copy} para copiar a {output}.")],
+        "pl": [("Wklej {noun}",               "Umieść {noun} w polu {input}."),
+               ("Kliknij {action}",           "Naciśnij przycisk {action}, aby uruchomić narzędzie."),
+               ("Skopiuj wynik",              "Naciśnij {copy}, aby skopiować {output}.")],
+        "ja": [("{noun} を貼り付け",            "{noun} を {input} 欄に貼り付けます。"),
+               ("{action} をクリック",          "{action} ボタンを押してツールを実行します。"),
+               ("結果をコピー",                "{copy} を押して {output} をコピーします。")],
+        "nl": [("Plak je {noun}",             "Zet je {noun} in het {input}-veld."),
+               ("Klik op {action}",           "Druk op de {action}-knop om de tool te draaien."),
+               ("Kopieer het resultaat",      "Druk op {copy} om de {output} te kopiëren.")],
+    },
+    "generate": {
+        "en": [("Set your options",           "Pick the {noun} options you need."),
+               ("Click {action}",             "Press {action} to produce a fresh {noun}."),
+               ("Copy the result",            "Hit {copy} to copy the generated {noun}.")],
+        "de": [("Optionen wählen",            "Wähle die gewünschten {noun}-Optionen."),
+               ("{action} klicken",           "Drücke {action}, um ein neues {noun} zu erzeugen."),
+               ("Ergebnis kopieren",          "Drücke {copy}, um das erzeugte {noun} zu kopieren.")],
+        "es": [("Elige las opciones",         "Selecciona las opciones de {noun} que necesitas."),
+               ("Haz clic en {action}",       "Pulsa {action} para producir un nuevo {noun}."),
+               ("Copia el resultado",         "Pulsa {copy} para copiar el {noun} generado.")],
+        "fr": [("Choisissez vos options",     "Sélectionnez les options de {noun} dont vous avez besoin."),
+               ("Cliquez sur {action}",       "Appuyez sur {action} pour produire un nouveau {noun}."),
+               ("Copiez le résultat",         "Appuyez sur {copy} pour copier le {noun} généré.")],
+        "it": [("Imposta le opzioni",         "Scegli le opzioni di {noun} che ti servono."),
+               ("Clicca {action}",            "Premi {action} per produrre un nuovo {noun}."),
+               ("Copia il risultato",         "Premi {copy} per copiare il {noun} generato.")],
+        "pt": [("Defina as opções",           "Escolha as opções de {noun} que precisar."),
+               ("Clique em {action}",         "Pressione {action} para gerar um novo {noun}."),
+               ("Copie o resultado",          "Pressione {copy} para copiar o {noun} gerado.")],
+        "pl": [("Ustaw opcje",                "Wybierz opcje {noun}, jakich potrzebujesz."),
+               ("Kliknij {action}",           "Naciśnij {action}, aby wygenerować nowy {noun}."),
+               ("Skopiuj wynik",              "Naciśnij {copy}, aby skopiować wygenerowany {noun}.")],
+        "ja": [("オプションを設定",            "必要な {noun} のオプションを選びます。"),
+               ("{action} をクリック",         "{action} を押して新しい {noun} を生成します。"),
+               ("結果をコピー",                "{copy} を押して生成された {noun} をコピーします。")],
+        "nl": [("Stel je opties in",          "Kies de {noun}-opties die je nodig hebt."),
+               ("Klik op {action}",           "Druk op {action} om een nieuwe {noun} te produceren."),
+               ("Kopieer het resultaat",      "Druk op {copy} om de gegenereerde {noun} te kopiëren.")],
+    },
+    "calculate": {
+        "en": [("Enter your values",          "Type the {noun} inputs the tool needs."),
+               ("Read the calculation",       "The {noun} result updates instantly — no button needed."),
+               ("Use or copy the result",     "Hit {copy} if you need the {noun} value somewhere else.")],
+        "de": [("Werte eingeben",             "Tippe die {noun}-Eingaben ein, die das Tool braucht."),
+               ("Berechnung ablesen",         "Das {noun}-Ergebnis aktualisiert sich sofort — kein Klick nötig."),
+               ("Ergebnis nutzen oder kopieren", "Drücke {copy}, falls du den {noun}-Wert woanders brauchst.")],
+        "es": [("Introduce tus valores",      "Escribe los datos de {noun} que necesita la herramienta."),
+               ("Mira el cálculo",            "El resultado de {noun} se actualiza al instante — sin botón."),
+               ("Usa o copia el resultado",   "Pulsa {copy} si necesitas el valor de {noun} en otro sitio.")],
+        "fr": [("Saisissez vos valeurs",      "Tapez les entrées de {noun} dont l'outil a besoin."),
+               ("Lisez le calcul",            "Le résultat de {noun} se met à jour instantanément — pas de bouton."),
+               ("Utilisez ou copiez le résultat", "Appuyez sur {copy} si vous avez besoin de la valeur de {noun} ailleurs.")],
+        "it": [("Inserisci i valori",         "Digita gli input di {noun} che lo strumento richiede."),
+               ("Leggi il calcolo",           "Il risultato di {noun} si aggiorna subito — senza pulsanti."),
+               ("Usa o copia il risultato",   "Premi {copy} se ti serve il valore di {noun} altrove.")],
+        "pt": [("Digite seus valores",        "Insira os dados de {noun} que a ferramenta precisa."),
+               ("Leia o cálculo",             "O resultado de {noun} atualiza na hora — sem botão."),
+               ("Use ou copie o resultado",   "Pressione {copy} se precisar do valor de {noun} em outro lugar.")],
+        "pl": [("Wpisz swoje wartości",       "Wpisz dane {noun}, których potrzebuje narzędzie."),
+               ("Odczytaj wynik",             "Wynik {noun} aktualizuje się natychmiast — bez przycisku."),
+               ("Użyj lub skopiuj wynik",     "Naciśnij {copy}, jeśli potrzebujesz wartości {noun} gdzie indziej.")],
+        "ja": [("値を入力",                   "ツールが必要とする {noun} の入力を打ち込みます。"),
+               ("計算結果を確認",              "{noun} の結果はその場で更新されます — ボタン不要です。"),
+               ("結果を使うかコピー",           "他の場所で {noun} の値が必要なら {copy} を押します。")],
+        "nl": [("Voer je waarden in",         "Typ de {noun}-invoer in die de tool nodig heeft."),
+               ("Lees de berekening",         "Het {noun}-resultaat werkt direct bij — geen knop nodig."),
+               ("Gebruik of kopieer het resultaat", "Druk op {copy} als je de {noun}-waarde ergens anders nodig hebt.")],
+    },
+    "compare": {
+        "en": [("Paste both {noun} versions", "Drop each version of your {noun} into the two input fields."),
+               ("Click {action}",             "Press {action} to spot the differences."),
+               ("Read the diff",              "Scan the highlighted differences in the {output}.")],
+        "de": [("Beide {noun}-Versionen einfügen", "Füge jede Version deines {noun} in eines der beiden Felder ein."),
+               ("{action} klicken",           "Drücke {action}, um die Unterschiede zu finden."),
+               ("Diff ablesen",               "Lies die hervorgehobenen Unterschiede in der {output} ab.")],
+        "es": [("Pega las dos versiones de {noun}", "Coloca cada versión de tu {noun} en uno de los dos campos."),
+               ("Haz clic en {action}",       "Pulsa {action} para detectar las diferencias."),
+               ("Lee la diferencia",          "Revisa las diferencias resaltadas en la {output}.")],
+        "fr": [("Collez les deux versions de {noun}", "Placez chaque version de votre {noun} dans l'un des deux champs."),
+               ("Cliquez sur {action}",       "Appuyez sur {action} pour repérer les différences."),
+               ("Lisez le diff",              "Parcourez les différences surlignées dans la {output}.")],
+        "it": [("Incolla entrambe le versioni di {noun}", "Metti ciascuna versione del tuo {noun} in uno dei due campi."),
+               ("Clicca {action}",            "Premi {action} per individuare le differenze."),
+               ("Leggi il diff",              "Scorri le differenze evidenziate nell'{output}.")],
+        "pt": [("Cole as duas versões do {noun}", "Coloque cada versão do seu {noun} em um dos dois campos."),
+               ("Clique em {action}",         "Pressione {action} para encontrar as diferenças."),
+               ("Leia o diff",                "Veja as diferenças destacadas na {output}.")],
+        "pl": [("Wklej obie wersje {noun}",   "Umieść każdą wersję {noun} w jednym z dwóch pól."),
+               ("Kliknij {action}",           "Naciśnij {action}, aby znaleźć różnice."),
+               ("Odczytaj diff",              "Przejrzyj podświetlone różnice w {output}.")],
+        "ja": [("両方の {noun} を貼り付け",     "それぞれの {noun} を 2 つの入力欄に貼り付けます。"),
+               ("{action} をクリック",         "{action} を押して違いを検出します。"),
+               ("差分を確認",                  "{output} のハイライト済みの差分を確認します。")],
+        "nl": [("Plak beide {noun}-versies",  "Zet elke versie van je {noun} in een van de twee invoervelden."),
+               ("Klik op {action}",           "Druk op {action} om de verschillen op te sporen."),
+               ("Lees de diff",               "Bekijk de gemarkeerde verschillen in de {output}.")],
+    },
+}
+
+
+# Pre-translated nouns used across many manifests. Tools reference these by key
+# (e.g. "noun": "text") to avoid duplicating translations.
+NOUNS = {
+    "text":     {"en": "text",     "de": "Text",     "es": "texto",    "fr": "texte",    "it": "testo",    "pt": "texto",    "pl": "tekst",    "ja": "テキスト",   "nl": "tekst"},
+    "password": {"en": "password", "de": "Passwort", "es": "contraseña","fr": "mot de passe","it": "password","pt": "senha",  "pl": "hasło",    "ja": "パスワード", "nl": "wachtwoord"},
+    "image":    {"en": "image",    "de": "Bild",     "es": "imagen",   "fr": "image",    "it": "immagine", "pt": "imagem",   "pl": "obraz",    "ja": "画像",       "nl": "afbeelding"},
+    "color":    {"en": "color",    "de": "Farbe",    "es": "color",    "fr": "couleur",  "it": "colore",   "pt": "cor",      "pl": "kolor",    "ja": "色",         "nl": "kleur"},
+    "date":     {"en": "date",     "de": "Datum",    "es": "fecha",    "fr": "date",     "it": "data",     "pt": "data",     "pl": "data",     "ja": "日付",       "nl": "datum"},
+    "time":     {"en": "time",     "de": "Zeit",     "es": "hora",     "fr": "heure",    "it": "ora",      "pt": "hora",     "pl": "czas",     "ja": "時刻",       "nl": "tijd"},
+    "timestamp":{"en": "timestamp","de": "Timestamp","es": "timestamp","fr": "timestamp","it": "timestamp","pt": "timestamp","pl": "znacznik czasu","ja": "タイムスタンプ","nl": "timestamp"},
+    "number":   {"en": "number",   "de": "Zahl",     "es": "número",   "fr": "nombre",   "it": "numero",   "pt": "número",   "pl": "liczba",   "ja": "数値",       "nl": "getal"},
+    "shadow":   {"en": "shadow",   "de": "Schatten", "es": "sombra",   "fr": "ombre",    "it": "ombra",    "pt": "sombra",   "pl": "cień",     "ja": "シャドウ",   "nl": "schaduw"},
+    "gradient": {"en": "gradient", "de": "Verlauf",  "es": "degradado","fr": "dégradé",  "it": "gradiente","pt": "gradiente","pl": "gradient", "ja": "グラデーション","nl": "gradiënt"},
+    "file size":{"en": "file size","de": "Dateigröße","es": "tamaño de archivo","fr": "taille de fichier","it": "dimensione file","pt": "tamanho de arquivo","pl": "rozmiar pliku","ja": "ファイルサイズ","nl": "bestandsgrootte"},
+    "unit":     {"en": "unit",     "de": "Einheit",  "es": "unidad",   "fr": "unité",    "it": "unità",    "pt": "unidade",  "pl": "jednostka","ja": "単位",       "nl": "eenheid"},
+    "percentage":{"en":"percentage","de":"Prozentwert","es":"porcentaje","fr":"pourcentage","it":"percentuale","pt":"porcentagem","pl":"procent","ja":"パーセント","nl":"percentage"},
+    "table":    {"en": "table",    "de": "Tabelle",  "es": "tabla",    "fr": "tableau",  "it": "tabella",  "pt": "tabela",   "pl": "tabela",   "ja": "表",         "nl": "tabel"},
+    "bill":     {"en": "bill",     "de": "Rechnung", "es": "cuenta",   "fr": "addition", "it": "conto",    "pt": "conta",    "pl": "rachunek", "ja": "請求額",     "nl": "rekening"},
+    "card number":{"en":"card number","de":"Kartennummer","es":"número de tarjeta","fr":"numéro de carte","it":"numero di carta","pt":"número do cartão","pl":"numer karty","ja":"カード番号","nl":"kaartnummer"},
+    "email":    {"en": "email",    "de": "E-Mail",   "es": "correo",   "fr": "e-mail",   "it": "email",    "pt": "e-mail",   "pl": "e-mail",   "ja": "メール",     "nl": "e-mail"},
+    "cron expression":{"en":"cron expression","de":"Cron-Ausdruck","es":"expresión cron","fr":"expression cron","it":"espressione cron","pt":"expressão cron","pl":"wyrażenie cron","ja":"cron 式","nl":"cron-expressie"},
+    "query string":{"en":"query string","de":"Query-String","es":"cadena de consulta","fr":"chaîne de requête","it":"stringa di query","pt":"query string","pl":"query string","ja":"クエリ文字列","nl":"query-string"},
+    "color pair":{"en":"color pair","de":"Farbpaar","es":"par de colores","fr":"paire de couleurs","it":"coppia di colori","pt":"par de cores","pl":"para kolorów","ja":"色のペア","nl":"kleurenpaar"},
+    "roll":     {"en": "dice roll","de": "Würfelwurf","es":"tirada",   "fr": "lancer",   "it": "lancio",   "pt": "rolagem",  "pl": "rzut",     "ja": "ロール",     "nl": "worp"},
+    "slug":     {"en": "slug",     "de": "Slug",     "es": "slug",     "fr": "slug",     "it": "slug",     "pt": "slug",     "pl": "slug",     "ja": "スラッグ",   "nl": "slug"},
+}
+
+
+def _resolve_noun(noun, lang: str) -> str:
+    if isinstance(noun, str) and noun in NOUNS:
+        return NOUNS[noun][lang]
+    if isinstance(noun, dict):
+        return noun.get(lang) or noun.get("en", "")
+    return str(noun)
+
+
+def render_howto_schema(tool: dict, lang: str) -> str:
+    spec = tool.get("howto")
+    if not spec:
+        return ""
+    flow = spec.get("flow", "transform")
+    if flow not in HOWTO_TEMPLATES:
+        return ""
+    action_key = spec.get("action", "format")
+    noun = _resolve_noun(spec.get("noun", ""), lang)
+    ui = UI[lang]
+    fmt = {
+        "noun": noun,
+        "action": ui.get(action_key, ui["format"]),
+        "input": ui["input"],
+        "output": ui["output"],
+        "copy": ui["copy"],
+    }
+    steps_tpl = HOWTO_TEMPLATES[flow].get(lang) or HOWTO_TEMPLATES[flow]["en"]
+    steps = []
+    for name_tpl, text_tpl in steps_tpl:
+        name = name_tpl.format(**fmt).strip()
+        text = text_tpl.format(**fmt).strip()
+        # Tidy up double spaces from empty noun substitution.
+        name = re.sub(r"\s+", " ", name)
+        text = re.sub(r"\s+", " ", text)
+        steps.append({"@type": "HowToStep", "name": name, "text": text})
+
+    t_i18n = tool["i18n"][lang]
+    doc = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": f"How to use {t_i18n['name']}" if lang == "en" else t_i18n["name"],
+        "description": t_i18n["tagline"],
+        "step": steps,
+    }
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps(doc, ensure_ascii=False, indent=2)
+        + "\n</script>"
+    )
+
+
 def alternate_links(slug: str) -> str:
     """rel=alternate hreflang block — every lang + x-default pointing at EN."""
     lines = []
@@ -305,6 +574,8 @@ def render_tool(tool: dict, lang: str) -> str:
         "APP_SUBCATEGORY": SUBCATEGORY_LABELS.get(cat, cat.title()),
         "FEATURE_LIST": feature_list_json,
         "OG_IMAGE_URL": f"https://toolhub.software/og-images/{slug}.png",
+        "FAQPAGE_SCHEMA_JSON": render_faq_schema(tool, lang),
+        "HOWTO_SCHEMA_JSON": render_howto_schema(tool, lang),
     }
 
     return fill_placeholders(TEMPLATE, placeholders)

@@ -271,4 +271,5 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
 """,
     },
     "related": ["css-gradient", "color-picker", "color-converter"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "shadow"},
 }

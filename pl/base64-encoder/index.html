@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Co Base64 właściwie robi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 zamienia dowolne bajty w 64 znaki ASCII (A–Z, a–z, 0–9 plus dwa dodatkowe). Trzy bajty wejścia stają się czterema znakami wyjścia, więc wynik jest mniej więcej 33% większy od wejścia. To kodowanie , nie szyfrowanie — każdy może to zdekodować."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy używać Base64",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wstawianie małych binarnych danych w formaty tekstowe: data URI, wartości JSON, zmienne środowiskowe, stringi YAML. Kodowanie binarnych tokenów (sygnatury, klucze, hashe) do umieszczenia w URL-ach, headerach albo cookies. Załączniki maili i SMIME — historyczne, ale wciąż żywe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Standard vs base64url",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard ( RFC 4648 §4 ) używa + , / , = . OK w mailu, wartościach JSON, większości XML. base64url ( RFC 4648 §5 ) używa - , _ i zwykle pomija końcowy padding = . Używany w JWT, tokenach OAuth i wszędzie tam, gdzie wartość siedzi w URL-u, gdzie + / / / = wymagałyby dodatkowego escape'owania."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie myl tego z szyfrowaniem. Base64 jest odwracalny przez każdego. Jeśli dane są wrażliwe — najpierw je zaszyfruj. UTF-8 robi tu poprawny round-trip — znaki spoza ASCII (é, 你好, 🚀) idą przez TextEncoder / TextDecoder , nie bezpośrednio przez btoa / atob . Naiwne btoa(str) w JavaScripcie wywala się na znakach niełacińskich. Padding — standardowy Base64 zawsze kończy się 0/1/2 znakami = w zależności od długości wejścia. base64url często go pomija. Dekodery wymagające paddingu odrzucają dane bez paddingu; to narzędzie sam dokleja go przy dekodowaniu, jeśli go brakuje. Białe znaki w środku zakodowanego stringa — ten dekoder usuwa spacje i końce linii (typowe po copy-paste), ale niektóre biblioteki tego nie robią, więc przekoduj zanim wrzucisz to do takiej."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder Base64",
+  "description": "Koduj tekst do Base64 albo dekoduj Base64 z powrotem na tekst. Bezpieczny dla UTF-8, wariant base64url.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tekst",
+      "text": "Umieść tekst w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Koduj",
+      "text": "Naciśnij przycisk Koduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

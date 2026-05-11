@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une URL a sept parties (schéma, autorité, hôte, port, chemin, query, fragment) qu'on voit comme une seule chaîne. Un tableau éclaté facilite le repérage des erreurs. L'outil utilise l'objet URL natif du navigateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Débugger un callback OAuth avec state ou code bizarres. Inspecter une URL de tracking (UTM) décodée. Vérifier une URL de webhook. Comparer deep links entre apps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les clés répétées sont réelles. ?a=1&a=2 = deux valeurs. Le fragment n'atteint pas le serveur. Tout après # reste dans le navigateur. + et %20 décodent tous deux en espace dans la query. Les ports par défaut n'apparaissent pas dans port . Punycode dans les hostnames. Affichage selon navigateur. Origin peut être « null » avec file://, data:, sandbox. Parsing ≠ validation."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Analyseur d'URL",
+  "description": "Collez une URL — protocole, hôte, port, chemin, paramètres de requête (décodés), fragment et origine.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre URL",
+      "text": "Placez votre URL dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

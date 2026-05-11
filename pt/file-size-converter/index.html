@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Quão grande são 4 GB?\" depende de quem está perguntando. Fabricantes de HD, engenheiros de rede e padrões SI significam 4.000.000.000 bytes (potências de 1000). Sistemas operacionais, módulos de RAM e a maioria dos gerenciadores de arquivos historicamente significam 4.294.967.296 bytes (potências de 1024). Os dois números diferem em 7% na escala de gigabyte e 10% na escala de terabyte — o suficiente para você se sentir enganado quando um HD de \"1 TB\" aparece como \"931 GiB\" no seu computador. Esta ferramenta converte entre os dois sistemas para você sempre saber qual está vendo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Os dois sistemas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / decimal — KB, MB, GB, TB. 1 KB = 1.000 bytes . Usado por fabricantes de armazenamento, velocidades de rede (Mbps, Gbps) e o padrão SI desde 1960. IEC / binário — KiB, MiB, GiB, TiB. 1 KiB = 1.024 bytes . A IEC introduziu essas unidades em 1998 para desambiguar. O du do Linux com -h usa essas, assim como o Finder do macOS para memória."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensionar um backup, um upload ou uma imagem Docker e bater com o que a ferramenta reporta. Converter velocidade de download de \"150 Mbps\" para MB/s (divida por 8 — bits para bytes). Estimar custo de cloud storage quando um provider cobra em GB e outro em GiB. Descobrir quanto \"1 GB\" de email realmente ocupa em disco."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HDs usam decimal. Um drive de \"1 TB\" guarda 1.000.000.000.000 bytes ≈ 931 GiB. O SO não está mentindo — o marketing está usando a unidade menor. RAM usa binário. \"8 GB de RAM\" é quase sempre 8 GiB (8.589.934.592 bytes). RAM é construída em potências de dois. Velocidade de rede é em bits, não bytes. 100 Mbps = 100 megabits por segundo = 12,5 MB/s no pico. Sua \"fibra de 100 Mbit\" não baixa um arquivo de 100 MB em um segundo. Algumas ferramentas são inconsistentes. O Finder do macOS migrou de binário (com labels KB) para decimal no 10.6 e ficou lá. O Windows Explorer ainda usa binário com labels KB — confuso mas inalterado. O Content-Length dos browsers é em bytes. Sempre exato, sem ambiguidade SI/IEC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Tamanho de Arquivo",
+  "description": "Converta entre bytes, KB, MB, GB, TB e os binários KiB, MiB, GiB, TiB. Decimal vs binário bem distinguidos.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Digite seus valores",
+      "text": "Insira os dados de tamanho de arquivo que a ferramenta precisa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o cálculo",
+      "text": "O resultado de tamanho de arquivo atualiza na hora — sem botão."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use ou copie o resultado",
+      "text": "Pressione Copiar se precisar do valor de tamanho de arquivo em outro lugar."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

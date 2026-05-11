@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kryptograficzny hash bierze dowolne wejście i produkuje odcisk palca o stałej długości. Dwa identyczne wejścia zawsze dają ten sam digest; zmiana jednego bitu zmienia digest całkowicie. Hashe leżą u podstaw weryfikacji integralności plików, content-addressable storage, podpisów cyfrowych i pipeline'ów do hashowania haseł (gdzie są łączone z wolną funkcją typu Argon2 albo bcrypt). Całe hashowanie tutaj używa crypto.subtle.digest z przeglądarki — tych samych prymitywów, które napędzają TLS. Twój input nigdy nie opuszcza strony."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy używać którego",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SHA-256 — sensowny default do weryfikacji integralności, content addressingu (Git, w stylu IPFS), kluczy HMAC i podpisów. SHA-384 / SHA-512 — przydatny, gdy potrzebujesz szerszego digestu (tuning PBKDF2/HKDF, większe klucze HMAC, post-quantum margines). SHA-1 — tylko do kompatybilności (Git object IDs, legacy checksum w CI). Nie używaj do granic bezpieczeństwa — praktyczne ataki kolizyjne istnieją od 2017."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hashowanie to nie szyfrowanie. Hashe są jednokierunkowe; nie odzyskasz oryginału. Jeśli potrzebujesz poufności — szyfruj. Nie hashuj haseł czystym SHA-256. Czysty SHA jest szybki — to pomaga atakującym brute-force'ować. Do przechowywania haseł użyj wolnego KDF (Argon2id, bcrypt, scrypt). MD5 jest celowo nieobecny. Złamany od początku lat 2000. Wszędzie tam, gdzie \"potrzebujesz\" MD5, musisz też zgłosić review bezpieczeństwa. Białe znaki mają znaczenie. Końcowy newline daje inny hash niż ten sam tekst bez niego. Porównuj wyjście hex dokładnie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator Hashy",
+  "description": "Hashuj tekst za pomocą SHA-1, SHA-256, SHA-384 lub SHA-512 używając WebCrypto przeglądarki. Liczone lokalnie — input nigdy nie opuszcza strony.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tekst",
+      "text": "Umieść tekst w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij przycisk Generuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

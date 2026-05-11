@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando condividi un link su Twitter/X, Facebook, LinkedIn, Discord o Slack, viene reso come una card (titolo, descrizione, immagine) in base ai meta tag Open Graph . Ogni piattaforma renderizza diversamente. Questo strumento mostra il contenuto fianco a fianco."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Verificare immagine OG / testi prima del deploy. Testare immagine hero su crop 1,91:1. Vedere dove ogni piattaforma taglia titolo/descrizione. Redigere tag OG mancanti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tag minimi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "og:title , og:description , og:image (URL assoluto), og:url , og:type twitter:card=\"summary_large_image\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anteprima statica, non fetch in tempo reale. Usare i debugger ufficiali. URL immagine assoluti. Immagine pubblicamente accessibile. Aspect 1,91:1 (1200×630) funziona ovunque. Dimensione <1 MB. Cache — forza re-scrape via debugger. Tagli diversi: Twitter ~70, FB ~88, LinkedIn ~100. Discord usa theme-color per il bordo sinistro."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Anteprima Tag OG",
+  "description": "Incolla meta tag OG o riempi titolo/descrizione/immagine — anteprima delle card Twitter/X, Facebook, LinkedIn e Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il URL",
+      "text": "Metti il URL nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Converti",
+      "text": "Premi il pulsante Converti per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

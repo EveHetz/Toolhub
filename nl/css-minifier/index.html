@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS die leesbaar is in de source — met comments, indentatie en betekenisvolle whitespace — bloated het bestand dat je gebruikers downloaden. Een structurele minifier strijkt alle cosmetische bytes (comments, runs van whitespace, redundante nullen, equivalente kortere hex-codes) eruit zonder de betekenis van de rules te veranderen. Deze tool draait die pass in je browser en toont de size voor/na zodat je de besparing kunt zien."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eenmalig een CSS-snippet inline shippen in een HTML-email of blog-post template, waar je de bytes wil verkleinen maar geen build chain hebt. Snel checken hoeveel \"vet\" in een stylesheet zit voor je besluit of een echte optimizer de moeite waard is. Een vendor's pretty-printed CSS plakken om af te slanken voor inclusie in een third-party widget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat het doet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strijkt block comments eruit ( /* … */ ) — single-line // is sowieso geen geldige plain CSS. Collapseert whitespace rond { } : ; , en combinators ( > ~ + ). Laat trailing semicolons voor } vallen. Trimt leading zeros ( 0.5 → .5 ) en verwijdert units van nul ( 0px → 0 ). Verkort hex-kleuren waar exact ( #aabbcc → #abc )."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een structurele minify, geen volledige optimizer. Hij merget geen duplicate selectors, herordent geen rules en herschrijft geen shorthand. Daarvoor draai je cssnano of esbuild in je build pipeline. Source maps worden niet gegenereerd. Als je geminifieerde CSS in productie debugt, ship ze apart. Minify niet de CSS die je commit. Commit pretty source; minify bij build/deploy. De twee mengen maakt diff review ellendig. Moderne compressie domineert. Brotli/gzip over de wire doet veel van wat minification doet. De grootste besparingen komen van ongebruikte rules verwijderen — werk voor tree-shaking, niet voor minification."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSS Minifier",
+  "description": "Strip comments, whitespace en redundantie uit CSS. Zie size voor/na en het besparingspercentage.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je CSS",
+      "text": "Zet je CSS in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Minify",
+      "text": "Druk op de Minify-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

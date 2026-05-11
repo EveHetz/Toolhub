@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL to ustrukturyzowany string z siedmioma jasno zdefiniowanymi częściami (scheme, authority, host, port, path, query, fragment), który widzisz jako jedną bryłę. Gdy coś jest nie tak — zły parametr, niespodziewany port, dodatkowy zakodowany znak — znacznie łatwiej to wypatrzeć w sparsowanej tabeli niż w surowym stringu. To narzędzie używa natywnego obiektu URL przeglądarki, więc parse dokładnie odpowiada temu, co widzi JavaScript, a potem wyciąga każdy query parameter, żeby zdekodowane wartości były widoczne obok formy raw."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debug callback URL OAuth, gdzie state albo code wygląda źle. Inspekcja URL-a trackingowego (UTM tagi, click-tokeny) i widzenie faktycznych wartości zamiast zakodowanej bryły. Potwierdzenie, że URL webhooka parsuje się tak, jak oczekuje serwis odbiorczy — w szczególności path i ewentualna query. Sprawdzenie, dlaczego deep link działa w jednej apce, a w drugiej nie (port? scheme? authority?)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Powtórzone klucze query są realne. ?a=1&a=2 to dwie wartości dla a ; narzędzia czytające tylko pierwszą gubią dane. Parser pokazuje wszystkie wartości per klucz. Fragment nigdy nie dociera do serwera. Wszystko po # zostaje w przeglądarce. Jeśli twój backend nie widzi danych, które wsadziłeś w URL, sprawdź, czy aby nie są w fragmencie. Encoding ma znaczenie. %20 w wartości query dekoduje się do spacji; + w wartości query też dekoduje się do spacji (wg application/x-www-form-urlencoded ). Przeglądarkowy URL.searchParams obsługuje obie. Domyślne porty nie pojawiają się w port . URL typu https://example.com/ ma puste port (domyślne 443 jest dorozumiane). Hostname'y w Punycode. example.中国 jest wewnętrznie trzymane jako xn--fiqs8s ; hostname może pokazać formę ASCII, zależnie od przeglądarki. Origin bywa \"null\". Dla file:// , data: albo sandboxowanych kontekstów origin jest opaque. To parsowanie, nie walidacja. URL może parsować się czysto i dalej być zły dla twojej aplikacji (np. zły host, brakujący path)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Parser URL",
+  "description": "Wklej dowolny URL — zobacz protocol, host, port, path, query parameters (zdekodowane), hash i origin rozłożone na części.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej URL",
+      "text": "Umieść URL w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

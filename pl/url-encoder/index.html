@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Co robi URL encoding",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL-e i nagłówki HTTP są ograniczone do małego podzbioru ASCII. Wszystko poza nim — w tym spacje, litery z diakrytykami, emoji i kilka zarezerwowanych znaków interpunkcyjnych — musi być percent-encoded : zastąpione % i dwiema cyframi hex na bajt. café staje się caf%C3%A9 (UTF-8). Dekodowanie odwraca to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy którego scope użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Component — wybierz to dla pojedynczych wartości , które wkleisz do URL-a: wartości query stringa, segmenty path, tekst fragmentu, wartości nagłówków. Koduje znaki strukturalne / ? # & = + , żeby nie zostały przypadkowo sparsowane jako składnia URL-a. Full URI — wybierz to dla całego URL-a, który chcesz uporządkować. Zachowuje / ? # & = + jako strukturę URL-a, koduje tylko znaki nielegalne (spacje, non-ASCII itd.)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie koduj podwójnie. Zakodowanie już zakodowanego stringa zamienia %20 w %2520 . Jeśli wejście pokazuje sekwencje %XX , najpierw zdekoduj. Spacje nie zawsze to %20 . W ciałach application/x-www-form-urlencoded spacje to + . To narzędzie idzie za konwencją JS-owego encodeURIComponent (zawsze %20 ); dekodowanie obsługuje obie. UTF-8 vs Latin-1. Nowoczesne przeglądarki i encodeURIComponent zawsze używają UTF-8. Niektóre starsze systemy nadal produkują percent-escape w Latin-1 — te nie zrobią tu czystego round-tripu. Znaki zarezerwowane są case-insensitive w percent-escape, ale case-sensitive w zdekodowanym wyniku — %2F i %2f oba dekodują do / , ale oryginalna wielkość znaku jest zachowana."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder URL",
+  "description": "Percent-encoduj stringi pod URL-e albo dekoduj zakodowane procentowo z powrotem na zwykły tekst.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tekst",
+      "text": "Umieść tekst w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Koduj",
+      "text": "Naciśnij przycisk Koduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um hash criptográfico pega qualquer entrada e produz uma impressão digital de tamanho fixo. Duas entradas idênticas sempre geram o mesmo digest; mudar um único bit muda o digest inteiro. Hashes sustentam checagens de integridade de arquivo, armazenamento content-addressable, assinaturas digitais e pipelines de hashing de senha (onde são combinados com uma função lenta como Argon2 ou bcrypt). Todo o hashing aqui usa o crypto.subtle.digest do browser — as mesmas primitivas que sustentam o TLS. Seu input nunca sai da página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar qual",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SHA-256 — escolha sensata como padrão para checagens de integridade, content addressing (Git, estilo IPFS), chaves HMAC e assinaturas. SHA-384 / SHA-512 — útil quando você precisa de um digest mais largo (tuning de PBKDF2/HKDF, chaves HMAC maiores, hábitos de margem pós-quântica). SHA-1 — apenas para compatibilidade (IDs de objeto Git, checksums legados de CI). Não use em fronteiras de segurança — ataques práticos de colisão existem desde 2017."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hash não é criptografia. Hashes são one-way; você não consegue o original de volta. Se precisa de confidencialidade, criptografe. Não faça hash de senha com SHA-256 puro. SHA puro é rápido — isso ajuda atacantes a fazer brute-force. Use uma KDF lenta (Argon2id, bcrypt, scrypt) para armazenar senhas. MD5 está intencionalmente ausente. Quebrado desde o início dos anos 2000. Onde quer que você \"precise\" de MD5, também precisa sinalizar uma revisão de segurança. Espaço em branco importa. Uma quebra de linha no fim produz um hash diferente do mesmo texto sem ela. Compare a saída hex exatamente."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Hash",
+  "description": "Gere hash de texto com SHA-1, SHA-256, SHA-384 ou SHA-512 usando WebCrypto do browser. Calculado localmente — o input nunca sai da página.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione o botão Gerar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -211,4 +211,5 @@ document.addEventListener('DOMContentLoaded', cpRun);
 """,
     },
     "related": ["css-minifier", "image-to-base64", "qr-code-generator"],
+    "howto": {"flow": "transform", "action": "copy",    "noun": "color"},
 }

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strefy czasowe są zwodniczo upierdliwe. Spotkanie o \"9:00\" znaczy różne absolutne momenty w Warszawie, Londynie i Nowym Jorku — a offset między dowolną parą zmienia się dwa razy w roku przez DST, w różnych terminach. To narzędzie bierze czas ścienny w jednej strefie IANA i mówi ci dokładny ekwiwalent w innej, z aktualnymi offsetami, instantem UTC i dniem tygodnia po obu stronach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Planowanie calla między kontynentami — potwierdzenie, czym jest \"15:00 CET\" w strefie kolegi. Czytanie timestampu z loga zapisanego w UTC i tłumaczenie go na czas lokalny do raportu user-facing. Sprawdzenie, czy okno deploya albo slot maintenance przekracza granicę DST. Sanity check, czy wyrażenie crona w America/New_York odpala w momencie, którego się spodziewasz w swojej strefie. Wyliczenie zmiany dnia tygodnia przy przekraczaniu international date line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dlaczego strefy IANA (nie \"GMT+2\")",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strefa IANA typu Europe/Warsaw albo America/New_York koduje historyczne i bieżące reguły dla danej lokalizacji — daty rozpoczęcia i zakończenia DST, zmiany strefy (Rosja zniosła DST w 2014; Turcja porzuciła DST w 2016), nawet to, że Samoa pominęło cały dzień w 2011. Czysty offset typu \"GMT+2\" nic nie mówi o tym, czy DST się stosuje, jaka była reguła w zeszłym roku albo jaka będzie za rok. Przeglądarki dostarczają bazę IANA (przez ICU/CLDR) i aktualizują automatycznie, więc konwersja zostaje poprawna w czasie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Przejścia DST tworzą czasy dwuznaczne i nieistniejące. Gdy zegar się cofa, 02:30 dzieje się dwa razy; gdy się przesuwa do przodu, 02:30 nie istnieje wcale. Narzędzie domyślnie wybiera interpretację standard time; jeśli potrzebujesz drugiej strony, przesuń o godzinę w którąś stronę. Offsety nie są stałe. \"CET\" to UTC+1 zimą i UTC+2 latem (CEST). Wyjście zawsze pokazuje faktyczny offset dla wpisanej daty — ufaj wyświetlanemu offsetowi, nie skrótowi. Skróty krajów to nie strefy. \"EST\" jest dwuznaczne (US vs Australian); \"IST\" może znaczyć indyjską, irlandzką albo izraelską. Zawsze wybieraj strefę IANA, nie skrót. Dokładność historyczna jest dobra dla nowoczesnej ery, ale rozjeżdża się dla bardzo starych dat. Timestampy sprzed 1970 mogą używać przybliżonych offsetów w niektórych przeglądarkach. Zapisywanie dat: zawsze używaj UTC. Konwertuj przy wyświetlaniu. Linia UTC na wyjściu daje ci kanoniczną wartość do zapisu w bazie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Stref Czasowych",
+  "description": "Konwertuj datę i godzinę między strefami czasowymi IANA. Zobacz offsety, status DST i dzień tygodnia po obu stronach.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej czas",
+      "text": "Umieść czas w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

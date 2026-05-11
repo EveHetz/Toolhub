@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um timestamp Unix é um único inteiro — o número de segundos (ou milissegundos) desde 1970-01-01 00:00:00 UTC. Eles estão em todo lugar: arquivos de log, respostas de API, claims iat / exp de JWT, colunas created_at em banco, headers de cache. São inequívocos e sem timezone, mas não são legíveis por humanos, então quando algo quebra em 1735689600 , você precisa saber se é 14h ou 4h da manhã, hoje ou ano passado. Esta ferramenta alterna entre a forma inteira e a forma legível nos dois sentidos, com auto-detecção de segundos/ms e uma dica de tempo relativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decodificar um campo \"timestamp\": 1735689600 de uma entrada de log ou resposta de API. Verificar quando um JWT foi emitido ou quando expira (claims iat / exp são segundos-desde-epoch). Calcular um timestamp futuro para um header retry-after , job agendado ou TTL de cache. Verificação de sanidade se uma data armazenada num banco está em segundos, milissegundos ou microssegundos. Converter \"agora\" no formato que sua ferramenta do momento espera."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Segundos, milissegundos, microssegundos",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segundos — a convenção Unix original; ~10 dígitos hoje (ex.: 1735689600 ). Usado em C, Linux, JWT, na maioria das APIs e na maioria das colunas integer de banco. Milissegundos — Date.now() do JavaScript, System.currentTimeMillis() do Java, Kafka, muitas APIs JSON. ~13 dígitos. Microssegundos (16 dígitos) / nanossegundos (19 dígitos) — time.time_ns() do Python, time.Now().UnixNano() do Go, alguns sistemas de métricas. Esta ferramenta não trata automaticamente — divida por 1.000 ou 1.000.000 antes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O problema do ano 2038. Timestamps signed de 32 bits estouram em 2147483647 = 03:14:07 UTC, 19 de janeiro de 2038 . Código C antigo, colunas TIMESTAMP do MySQL e sistemas embarcados podem dar wrap para 1901. Sistemas modernos usam 64 bits e estão tranquilos até ~ano 292.277.026.596. Tempo Unix pula leap seconds. Um dia Unix tem exatamente 86.400 segundos, mesmo quando UTC tem 86.401. Isso é por design (mantém a aritmética simples), mas significa que você não pode usar timestamps Unix para astronomia ou GPS com precisão de sub-segundo. Timestamps negativos são válidos e representam datas anteriores a 1970. Algumas bibliotecas rejeitam — teste antes de confiar. A auto-detecção não é à prova de balas. Um valor de 10 dígitos poderia ser um timestamp em milissegundos de 1970 — extremamente improvável na prática, mas se você sabe a unidade, não dependa da heurística. Sempre armazene em UTC. Timestamps são sem timezone; \"hora local\" é só para exibição. A linha \"Local\" na saída usa o fuso do seu navegador, mas o inteiro subjacente é sempre UTC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Timestamp Unix",
+  "description": "Converta entre timestamps Unix e datas legíveis. Segundos e milissegundos, UTC e local.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu timestamp",
+      "text": "Coloque seu timestamp no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

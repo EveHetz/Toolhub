@@ -276,4 +276,5 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
 """,
     },
     "related": ["color-picker", "color-converter", "css-box-shadow"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "gradient"},
 }

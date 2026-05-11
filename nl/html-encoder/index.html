@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML reserveert vijf karakters met structurele betekenis — & , < , > , \" , ' . Een van die als content in een pagina zetten vereist ze als HTML-entities te escapen zodat de browser ze niet als markup interpreteert. Deze tool werkt beide kanten op: encode raw tekst naar veilige entities, of decodeer scraped HTML terug naar plain text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Onbetrouwbare user content embedden in HTML — encode eerst om XSS te voorkomen. Scraped of geplakte markup decoderen die met entities arriveerde ( &amp; , &#x27; , &ldquo; ). Templates ontmangelen die per ongeluk dubbel zijn ge-escaped. Snippets voorbereiden voor JSDoc, CDATA-free XML of markdown code fences die letterlijke angle brackets nodig hebben."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Encoderen is geen sanitisering. Encoderen maakt tekst veilig om te tonen; als je ook tags wil strippen heb je een HTML-sanitizer nodig. Attributen vs body. Beide contexts vereisen dezelfde vijf karakters geëscaped, maar JavaScript event handlers zoals onclick hebben extra escaping nodig (wat deze tool niet doet — houd untrusted data uit attributen). Decoder is permissief. Named entities ( &ldquo; ), decimal ( &#34; ) en hex ( &#x22; ) decoderen allemaal via de browser-parser, dus hij accepteert alles wat een echte browser zou accepteren. Encode niet dubbel. Een al-encoded value encoderen geeft &amp;amp; . Decodeer eerst als je entities in je input ziet."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "HTML Encoder / Decoder",
+  "description": "Escape HTML-speciale tekens of decodeer entities terug. Nuttig voor veilig embedden van user input of debuggen van encoded markup.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Encoderen",
+      "text": "Druk op de Encoderen-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

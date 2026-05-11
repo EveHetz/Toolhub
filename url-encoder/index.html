@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What URL encoding does",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URLs and HTTP headers are restricted to a small ASCII subset. Anything outside that set — including spaces, accented letters, emoji, and several reserved punctuation characters — has to be percent-encoded : replaced by % followed by two hex digits per byte. café becomes caf%C3%A9 (UTF-8). Decoding reverses that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use which scope",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Component — pick this for individual values you'll splice into a URL: query-string values, path segments, fragment text, header values. Encodes the structural characters / ? # & = + so they don't accidentally end up parsed as URL syntax. Full URI — pick this for a whole URL you want to clean up. Preserves / ? # & = + as URL structure, only encodes illegal characters (spaces, non-ASCII, etc.)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't double-encode. Encoding an already-encoded string turns %20 into %2520 . If your input shows %XX sequences, decode first. Spaces aren't always %20 . In application/x-www-form-urlencoded bodies, spaces are + . This tool follows the JavaScript encodeURIComponent convention (always %20 ); decode handles both. UTF-8 vs Latin-1. Modern browsers and encodeURIComponent always use UTF-8. Some older systems still produce Latin-1 percent-escapes — those won't round-trip cleanly here. Reserved characters are case-insensitive in the percent-escape but case-sensitive in the decoded result — %2F and %2f both decode to / , but the original character's case is preserved."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use URL Encoder / Decoder",
+  "description": "Percent-encode strings for URLs or decode percent-encoded ones back to plain text.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your text",
+      "text": "Drop your text into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Encode",
+      "text": "Press the Encode button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

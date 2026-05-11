@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strukturalny minifikator JavaScriptu wycina komentarze i niepotrzebne białe znaki bez zmiany działania kodu. Wyjście jest funkcjonalnie identyczne z wejściem — te same identyfikatory, ta sama logika — tylko krótsze. To narzędzie robi tę przejazdkę w przeglądarce, łącznie z trudniejszymi miejscami: zachowuje zawartość stringów i literały regex w nienaruszonej formie, i trzyma końce linii tam, gdzie ASI (Automatic Semicolon Insertion) inaczej zmieniłoby zachowanie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Szybkie odchudzenie snippetu do bookmarkleta HTML albo dema w jednym pliku, gdzie nie masz pipeline'u buildowego. Sanity check, ile \"tłuszczu\" siedzi w ręcznie pisanym skrypcie, zanim zdecydujesz, czy warto stawiać prawdziwy optymalizator. Inline'owanie małej biblioteki na statycznej stronie bez ciągnięcia bundlera."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To strukturalna minifikacja, nie kompresor. Nie zmieni nazw zmiennych, nie zrobi dead-code elimination, nie zmangle'uje properties ani nie tree-shake'uje. Do produkcyjnych buildów używaj terser , esbuild albo swc w pipeline — tną kolejne 30–60% ponad strukturalny minify. Pułapki ASI. JavaScript wstawia średniki w zaskakujących miejscach. Minifikator zachowuje newline tam, gdzie usunięcie zmieniłoby znaczenie (np. return\\n{} ≠ return {} ). Trzymaj się jawnych średników w źródle, jeśli możesz — to robi minifikację bezpieczniejszą dla wszystkich. Source mapy nie są generowane. Jeśli wysyłasz zminifikowany JS na produkcję, generuj source mapy prawdziwym toolchainem, żeby debug był sensowny. Nowoczesna kompresja dominuje. Brotli/gzip na drucie robi większość tego, co minify. Największe wygrane biorą się z usuwania nieużywanego kodu — to wymaga statycznej analizy, której strukturalny minifikator nie zrobi. Nie minifikuj tego, co commitujesz. Źródło wchodzi ładne; minify na buildzie/deployu."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Minifikator JavaScript",
+  "description": "Szybka strukturalna minifikacja JavaScriptu — wytnij komentarze, zwiń białe znaki, usuń puste linie. Pokazuje rozmiar przed/po i procent oszczędności.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej JavaScript",
+      "text": "Umieść JavaScript w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Minifikuj",
+      "text": "Naciśnij przycisk Minifikuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

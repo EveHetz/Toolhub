@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML-markup arriveert in je editor in allerlei staten — geminifieerd voor productie, gegenereerd door templating engines zonder regard voor whitespace, met de hand getypt en inconsistent geïndenteerd. Deze tool herformatteert elk HTML-fragment met consistente indentatie per geneste element, en herkent void elements ( <img> , <br> , <meta> ) en inline elements ( <a> , <span> , <strong> ) zodat de output op echte HTML lijkt, niet op layout-per-regel. Minify-mode strijkt inter-tag whitespace en optioneel comments. Alles blijft in je browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pretty-printen van een geminifieerde HTML-email of een \"view source\"-kopie van een pagina zodat je de structuur kunt lezen. Een snippet uit een CMS / WYSIWYG opschonen voor je in een code review plakt. Een statisch HTML-asset minify-en voor je deployt — minder bytes over de wire, geen comments gelekt. Author-comments strippen uit een template voor publicatie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een pragmatische tokenizer, geen volledige HTML5-parser. Hij werkt goed op real-world fragments maar herstelt niet van zwaar malformed input zoals browsers doen (browsers draaien het volle HTML-parsing-algoritme en herstellen errors stil — deze tool niet). Whitespace binnen <pre> , <textarea> , <script> , <style> blijft behouden. Deze elementen worden als raw behandeld en niet opnieuw geïndenteerd. Inline elementen blijven op dezelfde regel als hun parent-tekst — <p>some <b>bold</b> text</p> wordt niet over regels gesplitst. \"Collapse whitespace\" verandert de gerenderde output voor sommige content. Twee spaties worden één. Als je design afhangt van meerdere spaties of non-breaking sequences, laat het uit. Self-closing notatie in HTML is cosmetisch. <br/> en <br> zijn equivalent in HTML5; deze tool behoudt wat je hebt geschreven. Minify is geen security boundary. Vertrouw niet op comments strippen om secrets te verbergen — die zijn al naar de client verzonden."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "HTML Formatter",
+  "description": "Formatteer en beautify HTML of minify het. Indent size, comment stripping en self-closing tag awareness.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je HTML",
+      "text": "Zet je HTML in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

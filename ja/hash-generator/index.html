@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "暗号学的ハッシュは、任意の入力を固定長のフィンガープリントに変換します。同じ入力からは常に同じダイジェストが得られ、1 ビットでも変えれば全く別のダイジェストになります。ハッシュはファイル整合性検査、コンテンツアドレッサブルストレージ、デジタル署名、パスワードハッシュ（Argon2 や bcrypt のような遅い関数と併用）など、多くの場面で基盤となっています。 本ツールは TLS と同じプリミティブであるブラウザの crypto.subtle.digest を使用します。入力はページから外に出ません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どれを使うか",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SHA-256 — 整合性検査、コンテンツアドレッシング（Git、IPFS 系）、HMAC キー、署名のデフォルトとして妥当。 SHA-384 / SHA-512 — より広いダイジェストが必要な場合（PBKDF2/HKDF のチューニング、より大きな HMAC キー、ポスト量子のマージン）に有用。 SHA-1 — 互換性目的のみ（Git のオブジェクト ID、レガシー CI のチェックサム）。セキュリティ境界には使用しないこと。2017 年以降、現実的な衝突攻撃が存在します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ハッシュは暗号化ではありません。 ハッシュは一方向で、元には戻せません。機密性が必要なら暗号化を使ってください。 パスワードを生の SHA-256 でハッシュしないこと。 素の SHA は高速で、攻撃側のブルートフォースに有利です。パスワード保管には遅い KDF（Argon2id、bcrypt、scrypt）を使ってください。 MD5 は意図的に提供していません。 2000 年代初頭から破られています。「MD5 が必要」と思った場面では、まずセキュリティレビューを検討してください。 空白文字は重要です。 末尾の改行があるかないかでハッシュは変わります。hex 出力を厳密に比較してください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "ハッシュ生成ツール",
+  "description": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "テキスト を貼り付け",
+      "text": "テキスト を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "生成 をクリック",
+      "text": "生成 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

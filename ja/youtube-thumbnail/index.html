@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YouTube のすべての動画には、予測可能な URL に置かれた事前生成のサムネイル画像があります。YouTube 自身も検索結果、埋め込み、プレビューに使っています。本ツールは YouTube のあらゆる URL 形式（watch、youtu.be、Shorts、embed、/v/）から 11 文字の動画 ID を取り出し、利用可能なすべてのサイズを直接ダウンロードリンクと URL コピーボタン付きで並べます。オフラインのプレビュー、ブログ記事のヒーロー画像、Discord/Slack のリッチリンク、自前プレイヤーのフォールバックポスターなどに便利です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ブログ記事に YouTube 動画を埋め込み、YouTube が表示するのと同じサムネイルを自前ホスティングしたいとき。 Notion / Slack / メールで「この動画を見る」のクリック可能タイル用に静止画が欲しいとき。 iframe 読み込み前のポスター画像が必要な、自前ビデオプレイヤーを作るとき。 参考、コンテンツ、ムードボード用にサムネイルをオフライン保存したいとき。 YouTube Data API を使わず最高解像度のサムネイルを取得したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "各バリアントの説明",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault （1280×720） — オリジナルのフル HD サムネイル。HD でアップロードされた動画にのみ存在。なければ URL は 404 で、プレビューが空になります。 sddefault （640×480） — 比較的近年の動画では大抵生成されています。 hqdefault （480×360） — 常に存在 。最初期の YouTube 動画にもあります。フォールバックの定番。 mqdefault （320×180）と default （120×90） — 小さなプレビュー。リスト表示などに有用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault はしばしば 404 です。 古い動画や低解像度動画には存在しません。フォールバック連鎖を組みましょう： maxresdefault → sddefault → hqdefault 。 hqdefault は黒帯が付きます。 480×360 サムネイルは 4:3 以外のソースをレターボックス化するため、上下に帯が入ります。 mqdefault （320×180）はモダンな動画と合った 16:9 です。 フレーム 1/2/3。 YouTube は同じパスに 1.jpg 、 2.jpg 、 3.jpg も公開しており、動画から自動抽出された 3 フレームです。カスタムポスターにはこれが向くこともあります。デフォルトのバリアント一覧には含まれません。 画像は YouTube のものです。 ホットリンクは問題ありません。自前 CDN への再ホスティングも技術的には可能ですが、商用利用ならライセンスを確認してください。動画フレームの視覚内容に作者の著作権がある場合があります。 本ツールは WebP に対応しません。 YouTube は .webp 版（より小さい）も配信していますが、別の CDN パスから提供されており、本ツールでは扱いません。 ライブ配信や Shorts も問題なく動作します（URL パーサが現代的な形式を網羅）。ただしライブ配信のサムネイルは配信中に変化します。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "YouTube サムネイルダウンローダー",
+  "description": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "YouTube URL を貼り付け",
+      "text": "YouTube URL を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

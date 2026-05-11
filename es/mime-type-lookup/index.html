@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un tipo MIME (oficialmente \"Internet media type\") es una etiqueta de dos partes como image/png que indica cómo interpretar unos bytes. Aparece en cabeceras HTTP Content-Type y en partes Multipart. Esta herramienta cubre unos 120 tipos comunes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Establecer el Content-Type correcto para .docx , .heic , .webmanifest . Configurar el atributo accept de un upload o una allow-list de S3. Buscar qué es application/grpc-web al ver un dump. Configurar un servidor estático o CDN — mapeo extensión→MIME."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extensión ≠ tipo MIME. Los navegadores siguen la cabecera, no la extensión — establece la cabecera explícitamente. JavaScript es un lío. RFC 9239 prefiere text/javascript . Los tipos OOXML son larguísimos. No los memorices — cópialos. application/octet-stream = \"desconocido\". Usa un tipo real cuando lo conozcas. El charset importa. Sin ; charset=utf-8 el navegador adivina y a veces falla. El sniffing MIME ignora la cabecera. Desactívalo con X-Content-Type-Options: nosniff ."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

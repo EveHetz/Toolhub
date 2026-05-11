@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII (American Standard Code for Information Interchange) to system kodowania 128 znaków, który mapuje cyfry, litery, znaki interpunkcyjne i kilka znaków sterujących na liczby 0–127. To fundament, który rozszerza każde nowoczesne kodowanie tekstu (UTF-8, Latin-1, Windows-1252) — więc znajomość wartości czasem ratuje życie: gdy diagnozujesz dziwny bajt w pliku binarnym, układasz regex na \"dowolny drukowalny znak\", czytasz hex dump albo próbujesz sobie przypomnieć, czy nowa linia to 0x0A czy 0x0D."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Czytasz hex dump i próbujesz odgadnąć, co te bajty mówią . Piszesz parser i potrzebujesz wartości granicznych: 0x20 (spacja), 0x7E (tylda) — zakres znaków drukowalnych. Debugujesz CSV, który się rozpadł, bo coś zawierało 0x09 (Tab) albo 0x1F (Unit Separator). Tworzysz encję HTML dla problematycznego znaku — &#65; = A . Rozstrzygasz spór, czy \\r to 0x0D (tak — Carriage Return) i \\n to 0x0A (tak — Line Feed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII jest 7-bitowy, nie 8-bitowy. Kody 128–255 to nie ASCII — należą do dowolnego kodowania 8-bitowego (Latin-1, CP-1252, …), które dokument deklaruje, albo są bajtami wiodącymi sekwencji UTF-8. Końce linii różnią się platformą. Unix/macOS używają tylko LF (0x0A); stary Mac Classic używał CR (0x0D); Windows używa CRLF . Pliki, które je mieszają, łamią naiwne liczenie linii. Znaki sterujące to niewidzialni sabotażyści. Skopiowanie z terminala albo PDF-a może wciągnąć 0x1F , 0x07 (BEL — naprawdę pika w terminalu), albo unicode'owe znaki o zerowej szerokości, które w ogóle nie są ASCII. Jeśli tekst \"wygląda OK\" ale nie pasuje przy porównaniu — wyrzuć go w bajtach. Encje HTML nie zawsze są potrzebne. W nowoczesnych dokumentach UTF-8 &#65; i literalne A są równoważne. Escape'uj tylko znaki ze znaczeniem składniowym w HTML: & , < , > oraz \" w atrybutach. NUL ( 0x00 ) kończy stringi w C. Nie wsadzaj go bezmyślnie do buforów C-stringów — wiele API po cichu utnie wszystko po pierwszym NUL."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

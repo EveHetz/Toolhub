@@ -388,4 +388,5 @@ document.addEventListener('DOMContentLoaded', xjRun);
 """,
     },
     "related": ["xml-formatter", "json-formatter", "yaml-json", "csv-to-json"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "XML"},
 }

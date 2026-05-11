@@ -72,6 +72,79 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dobre hasło to takie, którego atakujący nie zgadnie i którego ty nie musisz pamiętać (bo jest w menedżerze haseł). Ten generator produkuje mocne losowe hasła albo łatwe do zapamiętania passphrase'y w całości w twojej przeglądarce, używając crypto.getRandomValues — tego samego kryptograficznie bezpiecznego źródła losowości, którego używa TLS. Nic nie jest wysyłane; hasło nigdy nie opuszcza twojego urządzenia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tworzenie unikalnego hasła do każdego nowego konta, które wpada do menedżera haseł. Generowanie master password albo recovery passphrase, którą zapamiętasz — tryb passphrase jest łatwiejszy do wpisania i zapamiętania. Produkowanie nieludzkiego sekretu do zmiennej CI, tokenu API albo sieci Wi-Fi. Hurtowe generowanie haseł dla nowej paczki użytkowników (count do 50)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Losowe znaki vs passphrase",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Losowe znaki — najwięcej entropii na długość. 20 mieszanych znaków ≈ 130 bitów. Dobre do rzeczy, które wklejasz, nie wpisujesz. Passphrase'y — łatwiejsze do wpisania i zapamiętania. Cztery słowa ≈ 40 bitów, sześć słów ≈ 60 bitów. Dobre do master password, odblokowania urządzenia i wszystkiego, co wpisujesz ręcznie często. \"Wyklucz dwuznaczne\" wycina 0/O/1/l/I dla bezpieczniejszego czytania z ekranu albo odręcznych notatek."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ile entropii potrzebuję?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "≥ 60 bitów — OK do kont o niskiej wartości ≥ 80 bitów — dobre do większości kont ≥ 100 bitów — wysoka wartość (finanse, master password, root credential)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie używaj tych samych haseł. Największy upgrade bezpieczeństwa to jedno unikalne hasło na stronę, trzymane w menedżerze. Siła generatora idzie w piach, jeśli to samo hasło żyje na pięciu stronach. Nie zapisuj wygenerowanych haseł bez ochrony. Używaj menedżera haseł (1Password, Bitwarden, KeePass) — nie aplikacji Notatki, nie pliku tekstowego, nie kopii roboczej maila. Długie > skomplikowane. 24-znakowe hasło tylko z małych liter ma więcej entropii niż 10-znakowe ze wszystkimi klasami symboli. Długość wygrywa. Reguły konkretnych stron potrafią zepsuć copy-paste. Niektóre serwisy zakazują konkretnych symboli albo ograniczają długość do 16. Upierdliwe, ale realne — wygeneruj, potem przytnij/podmień, żeby zmieścić (a faktyczne zapisane hasło wrzuć do menedżera)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator Haseł",
+  "description": "Mocne losowe hasła albo łatwe do zapamiętania passphrase'y. Generowane lokalnie — nigdzie nie wysyłane.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje hasło, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij Generuj, aby wygenerować nowy hasło."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany hasło."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

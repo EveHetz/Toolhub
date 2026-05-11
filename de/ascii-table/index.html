@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII ist das 128-Zeichen-Kodierungssystem, das Ziffern, Buchstaben, Satzzeichen und einige Steuerzeichen auf die Zahlen 0–127 abbildet. Es ist die Grundlage moderner Textkodierungen (UTF-8, Latin-1) — manchmal ist es wichtig, einzelne Bytes in einem Hex-Dump zu identifizieren oder zu wissen, ob 0x0A oder 0x0D ein Zeilenumbruch ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beim Lesen eines Hex-Dumps, um Bytes als Text zu interpretieren. Beim Schreiben eines Parsers, um Grenzwerte zu kennen. Beim Debuggen einer CSV, die durch ein Tab oder ein Steuerzeichen kaputt ging. Um eine HTML-Entität für ein bestimmtes Zeichen nachzuschlagen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII ist 7-Bit. Codes 128–255 sind kein ASCII — sie gehören zu Latin-1, CP-1252 oder UTF-8-Folgebytes. Zeilenumbrüche unterscheiden sich. Unix verwendet LF (0x0A), Windows CRLF, das alte Mac CR. Steuerzeichen sind unsichtbar. Eingefügter Text kann unsichtbare Zeichen enthalten, die Vergleiche fehlschlagen lassen. HTML-Entitäten sind selten nötig. In UTF-8-Dokumenten reicht das wörtliche Zeichen — escapen Sie nur & , < , > . NUL beendet C-Strings. Vorsicht beim Einbetten in C-Buffer."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

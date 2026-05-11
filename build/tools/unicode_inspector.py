@@ -420,4 +420,5 @@ document.addEventListener('DOMContentLoaded', uiRun);
 """,
     },
     "related": ["ascii-table", "emoji-picker", "html-encoder"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "text"},
 }

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL は psql で打った 1 行から、誰も読めない 200 行のアナリティクスクエリまで幅広く存在します。本フォーマッターは SELECT、INSERT、UPDATE、DDL を一貫したインデント、句ごとの改行、キーワードの大文字小文字統一で書き換えます。ミニファイモードはその逆で、コードやスクリプトに埋め込みやすいよう 1 行に圧縮します。すべてブラウザ内で動作し、クエリはページから外に出ません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ログ、ORM、チャットメッセージから取り出したクエリを、レビューしやすく diff しやすい形に整えたいとき。 マイグレーションをコミットする前に、チームの慣習（UPPERCASE キーワード、2 スペース）に揃えたいとき。 長くて整形済みのクエリを 1 行に圧縮し、YAML 設定や CLI 引数に収めたいとき。 不揃いの括弧、SELECT リスト内のカンマ抜け、ON のない JOIN など、構造上の問題を整形してから目視で発見したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本フォーマッターは構造的で、意味的ではありません。 SQL として正しいかは判定しません。入力に構文エラーがあれば、出力にも構文エラーが残ります。 方言固有のキーワードは異なります。 ILIKE 、 RETURNING 、 LATERAL は Postgres、 STRAIGHT_JOIN 、 SQL_CALC_FOUND_ROWS は MySQL です。方言を正しく選ばないとキーワードと認識されません。 文字列リテラルはそのまま保持されます。 シングルクォートで囲まれた複数行文字列は改行を維持します。 '...' 内のテキストはリフローされません。 コメントは残りますが独立行に切り出されます。 行内に -- inline comment があると、整形時に独立行に移動します。 ミニファイはコメントを削除します。 必要な場合はミニファイしないでください。 これは linter ではありません。 CI での検証、スタイル強制、方言チェックには sqlfluff のような本格 SQL パーサを使ってください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "SQL フォーマッター",
+  "description": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "SQL を貼り付け",
+      "text": "SQL を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "整形 をクリック",
+      "text": "整形 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

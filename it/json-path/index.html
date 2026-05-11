@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath is to JSON what XPath is to XML — a query language for plucking specific values out of a nested document without writing custom code. $.store.books[*].title says \"give me every book title under store\"; $..price says \"every price anywhere in the document\". This tool runs a query live against any JSON you paste, showing both the matched values and the paths they came from, so you can iterate on the query until it returns exactly what you want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drafting a query for a tool that uses JSONPath: jq-like CLI utilities, Postman tests, Stedi, n8n, or AWS CloudWatch / Step Functions. Pulling specific fields out of a large API response without writing a script. Filtering an array by a field value (e.g. \"all orders where total > 100\"). Sanity-checking that a deeply nested path actually resolves to a value before plumbing it into code."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quick syntax reference",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$ — root of the document. .name or ['name'] — child by name. .. — recursive descent (any depth). * — wildcard (any property or array element). [n] — array index (negative counts from the end). [start:end:step] — array slice (Python-style). [a, b, c] — union of indices or names. [?(@.field > 5)] — filter expression. @ = current item; supports == != < > <= >= && || and =~ /regex/ ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath has no single official spec. The original Stefan Gössner draft has been the de-facto reference for years; RFC 9535 (Feb 2024) finally standardised it. Implementations differ slightly — what works in Postman may not work in Jaeger. Dot vs bracket. $.foo-bar looks like \"foo minus bar\" to the parser; use $['foo-bar'] for property names with hyphens, dots, or spaces. Filter expressions are JavaScript-flavoured here — that's a deliberate convenience but doesn't match RFC 9535 strictly. Don't rely on this tool's filters working byte-identical in another implementation. $..* returns every node in the tree (depth-first), which can be a lot. Useful for exploring an unfamiliar document. Numeric strings. {\"1\": \"a\"} — accessing with $['1'] works; $.1 doesn't (numbers aren't valid as dot-property names). Ordering. Object property order isn't guaranteed by JSON. If your filter depends on order, sort first."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Tester JSONPath",
+  "description": "Esegui query JSONPath su qualsiasi documento JSON. Match e percorsi in tempo reale.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il JSON",
+      "text": "Metti il JSON nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Formatta",
+      "text": "Premi il pulsante Formatta per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

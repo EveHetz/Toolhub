@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um MIME type (hoje chamado de Internet media type) é um rótulo em duas partes como image/png ou application/json que diz a um servidor, browser ou biblioteca como interpretar uma sequência de bytes. É o que vai no header HTTP Content-Type , o que partes Multipart declaram e o que file --mime reporta. O registry da IANA tem milhares de entradas; esta ferramenta cobre cerca de 120 que você realmente encontra em trabalho com web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Definir Content-Type numa resposta de API e querer o correto para .docx , .heic ou .webmanifest . Configurar o atributo accept de um campo de upload ou uma allow-list de bucket S3. Lendo um hex dump ou um tcpdump e procurando o que application/grpc-web realmente é. Montar um servidor de arquivos estáticos ou config de CDN e precisar do mapeamento extensão para MIME type. Decidir entre usar text/xml ou application/xml (use o último para código novo, conforme RFC 7303)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extensão não é igual a MIME type. .json normalmente mapeia para application/json , mas um servidor pode servir como text/plain e os browsers vão obedecer ao header. Sempre defina o header explicitamente. JavaScript é uma bagunça. RFC 9239 diz que text/javascript é o tipo preferido. application/javascript , application/ecmascript e outros são obsoletos mas ainda aparecem. MIME types OOXML são bem longos. application/vnd.openxmlformats-officedocument.wordprocessingml.document para .docx . Não tente decorar — copie. application/octet-stream significa \"não sei\". Se você controla o tipo, use um real — browsers podem forçar download de conteúdo octet-stream mesmo quando ele é renderizável. Charset importa para tipos de texto. Content-Type: text/html; charset=utf-8 — sem isso, o browser adivinha e às vezes erra (mojibake). Magic-byte sniffing difere do tipo declarado. Browsers podem questionar o Content-Type com base no conteúdo do arquivo ( X-Content-Type-Options: nosniff desativa isso — defina por segurança)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While designing a page, you often need an image of a specific size before the real image is ready — a hero banner, a card thumbnail, an avatar, an OG card. Loading via.placeholder.com or placehold.co works but adds an external request and a third-party dependency. This tool produces a self-contained inline SVG with the size and label you want, ready to drop into your HTML, CSS background-image , or React component as a data URI. Nothing leaves your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wire-framing a layout where you need shaped placeholders before the real assets are ready. Building a Storybook or Figma export and needing per-component placeholder graphics. Testing image-loading code, lazy-loading thresholds, or aspect-ratio CSS. Replacing a third-party placeholder service in a project that needs to work offline or under strict CSP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG ≠ raster. The data URI is an SVG string; it scales infinitely without blur but a designer expecting a PNG may not. For a raster image, screenshot the preview or run the SVG through an SVG-to-PNG converter. Long data URIs are awkward in img src . Browsers handle them, but tools (linters, search-and-replace, diff tools) often choke on multi-KB attribute values. For large mockups, prefer the SVG file download. Label text is not localised. The auto-label is \"WxH\" with the multiplication sign; if you need a translation, type a custom label. Colours are HTML hex only. The colour pickers produce #rrggbb . If you need rgba() , edit the SVG markup directly after copying. Width/height are intrinsic, not display. Setting CSS to a different size will scale the SVG — visually fine, but the embedded text may look stretched if the aspect ratio changes; we use preserveAspectRatio=\"none\" for predictable scaling. Don't ship the placeholder. Easy to forget — replace with the real asset before going live."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Placeholder Image Generator",
+  "description": "Generate inline-SVG placeholder images at any size with custom text and colours. Output as data URI or downloadable SVG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the image options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Generate",
+      "text": "Press Generate to produce a fresh image."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated image."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

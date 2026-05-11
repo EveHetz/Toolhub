@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un query string è una lista di coppie chiave/valore unite con ? , = , & — scriverlo a mano è soggetto a errori. Questo strumento prende le tue voci e produce la stringa correttamente codificata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL API con più parametri. Link di tracking (UTM) senza refusi. Deep link / share-URL per email/chat. Provare la notazione array che si aspetta l'API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convenzioni array non standardizzate. PHP/Rails: a[]=1 ; Python: a=1&a=2 ; ASP.NET: virgole. + vs %20 . Form-encoded vs URI. Vuoto ≠ assente. ?a= ≠ niente a . Caratteri riservati. =&#? nei valori vanno codificati. L'ordine può contare (URL firmati). Limite lunghezza. 2–8 KB tipicamente. Niente segreti — finiscono in log/cronologia/Referer."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Costruttore Query String",
+  "description": "Aggiungi righe chiave/valore; ottieni un query string correttamente URL-codificato. Supporta array (a[]=1) e chiavi ripetute.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Imposta le opzioni",
+      "text": "Scegli le opzioni di stringa di query che ti servono."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Genera",
+      "text": "Premi Genera per produrre un nuovo stringa di query."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare il stringa di query generato."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En conception de page, on a souvent besoin d'une image d'une taille précise avant l'asset final. Les services comme via.placeholder.com ajoutent une requête externe. Cet outil produit un SVG inline autonome avec la taille et l'étiquette voulues — data URI ou téléchargement. Rien ne quitte le navigateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wireframes avant assets réels. Exports Storybook/Figma avec placeholders. Tester lazy-loading ou CSS d'aspect-ratio. Remplacer un service externe dans des projets à CSP strict."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG n'est pas raster. Pour PNG : capture ou convertisseur. Les longues data URIs sont gênantes dans les outils/diffs — préférer le téléchargement pour de gros mockups. L'étiquette auto n'est pas localisée. Saisir un texte custom si besoin. Couleurs en hex HTML uniquement. Pour rgba() éditer le SVG. La taille est intrinsèque. Mise à l'échelle CSS avec preserveAspectRatio=\"none\" . Ne pas laisser en production."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Générateur d'Image Placeholder",
+  "description": "Générez des images SVG placeholder de toute taille avec texte et couleurs personnalisés. Sortie en data URI ou SVG téléchargeable.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choisissez vos options",
+      "text": "Sélectionnez les options de image dont vous avez besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Générer",
+      "text": "Appuyez sur Générer pour produire un nouveau image."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier le image généré."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

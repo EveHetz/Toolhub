@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un URL ha sette parti (schema, autorità, host, porta, percorso, query, frammento) che si vedono come una stringa unica. Una tabella scomposta rende facile individuare errori. Lo strumento usa l'oggetto URL nativo del browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debug callback OAuth con state o code strani. Ispezionare URL di tracking (UTM) decodificato. Verificare URL di webhook. Confrontare deep link tra app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chiavi ripetute sono reali. ?a=1&a=2 = due valori. Il frammento non raggiunge il server. Tutto dopo # resta nel browser. + e %20 entrambi decodificano in spazio nella query. Le porte di default non compaiono in port . Punycode negli hostname. Visualizzazione browser-dipendente. Origin può essere \"null\" con file://, data:, sandbox. Parsing ≠ validazione."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Analizzatore URL",
+  "description": "Incolla un URL — protocollo, host, porta, percorso, parametri query (decodificati), hash e origine.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il URL",
+      "text": "Metti il URL nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Converti",
+      "text": "Premi il pulsante Converti per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -449,4 +449,5 @@ document.addEventListener('DOMContentLoaded', hfRun);
 """,
     },
     "related": ["html-encoder", "css-minifier", "js-minifier", "xml-formatter"],
+    "howto": {"flow": "transform", "action": "format",  "noun": "HTML"},
 }

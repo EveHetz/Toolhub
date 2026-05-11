@@ -279,4 +279,5 @@ document.addEventListener('DOMContentLoaded', cidrRun);
 """,
     },
     "related": ["timestamp-converter", "regex-tester", "json-formatter"],
+    "howto": {"flow": "calculate", "action": "format", "noun": "CIDR"},
 }

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every language and platform has its own conventions for naming things — JavaScript wants camelCase , Python wants snake_case , CSS wants kebab-case , environment variables want CONSTANT_CASE . Translating between them by hand is fiddly, especially with edge cases (acronyms, numbers, existing separators). This tool splits any input into words by detecting case transitions, separators ( _ - . / ), and whitespace, then re-joins them in 14 different styles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renaming a field from API JSON (camelCase) to a Python ORM column (snake_case). Generating CSS class names from design-system token names that arrive in PascalCase. Converting a list of headings into kebab-case slugs, or environment-variable names into CONSTANT_CASE. Quickly converting \"The Quick Brown Fox\" into Title Case, Sentence case, or Train-Case for a headline / button label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acronyms are tricky. Should \"XMLHttpRequest\" become \"XML_Http_Request\" or \"Xml_Http_Request\"? This tool treats consecutive capitals as one word boundary ( xml http request ), then re-cases — which matches Java/JS conventions but not all style guides. Numbers attach to the previous word. \"Item2\" becomes one word \"item2\", not two. Add a separator if you want them split. \"camelCase first letter\" is always lowercase even if the input started with a capital. PascalCase preserves the capital. Round-tripping isn't always lossless. Going camelCase → kebab-case → camelCase loses the original capitalisation hint at word boundaries; the case-detection heuristic does its best but can't recover what wasn't preserved."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Mayúsculas",
+  "description": "Convierte texto entre MAYÚSCULAS, minúsculas, Título, Oración, camelCase, PascalCase, snake_case, kebab-case, CONSTANTE y dot.case.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu texto",
+      "text": "Coloca tu texto en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Convertir",
+      "text": "Pulsa el botón Convertir para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

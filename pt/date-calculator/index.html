@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Três coisas que as pessoas realmente querem de uma calculadora de datas: a diferença entre duas datas (\"quantos dias até o lançamento?\"), deslocar uma data por um período (\"90 dias depois da nota fiscal\") e uma idade precisa (\"anos, meses e dias a partir de uma data de nascimento\"). Esta ferramenta faz as três, no seu browser, ancorada em UTC ao meio-dia para que horário de verão e mudanças de fuso não bagunçem a resposta quando você viaja."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calcular durações de contratos, timelines de projetos e prazos. Descobrir exatamente quantos dias úteis (seg–sex) caem entre duas datas para faturamento ou estimativa de projeto. Verificar cortes de idade (elegibilidade de visto, anos escolares, aniversários marcantes). Adicionar períodos de \"30 dias líquidos\" ou \"90 dias de carência\" a uma data base, lidando corretamente com fim de mês."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Datas de fim inclusivas vs exclusivas. \"Dias de seg até sex\" é 4 se você conta intervalos, 5 se você conta dias. O toggle controla qual convenção; ambas estão certas, depende da pergunta. A ordem de soma/subtração importa. Anos e meses são aplicados primeiro, depois semanas e dias. Adicionar \"1 mês + 1 dia\" a 30 de janeiro dá 1 de março (Fev 30 → Fev 28/29 → +1), não 2 de março — que é a convenção segura para calendário usada por quase toda lib de datetime. Dias úteis não incluem feriados. O cálculo conhece fins de semana mas não feriados bancários — ajuste manualmente se importar. \"Total de meses\" é aproximado na visão de idade (anos × 12 + meses) — ignora os dias finais. O número Y/M/D é exato. Ancorar em UTC tem trade-off com locale. Uma data no seu fuso local pode mapear para um dia UTC ligeiramente diferente. Para a maioria dos usos (prazos, idades) UTC ao meio-dia é o ancoramento mais seguro; para trabalho de fuso ao minuto, use o conversor de fuso horário."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Calculadora de Datas",
+  "description": "Dias entre duas datas · somar ou subtrair dias/semanas/meses/anos · idade em anos, meses e dias.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Digite seus valores",
+      "text": "Insira os dados de data que a ferramenta precisa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o cálculo",
+      "text": "O resultado de data atualiza na hora — sem botão."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use ou copie o resultado",
+      "text": "Pressione Copiar se precisar do valor de data em outro lugar."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

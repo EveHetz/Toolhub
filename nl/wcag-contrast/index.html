@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG (Web Content Accessibility Guidelines) definieert een minimum contrastratio tussen tekst en achtergrond zodat mensen met laag zicht, kleurenblindheid of bij tegenlicht het nog kunnen lezen. Deze tool berekent die ratio (1:1 = identiek, 21:1 = puur zwart op puur wit) en vertelt je of je kleurenpaar WCAG 2.1 Level AA of AAA haalt, apart voor normale tekst, grote tekst en UI-componenten. De rekensom volgt de W3C luminance-formule exact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Checken of je brand-kleur op een witte card voldoet aan toegankelijkheidsnormen. Een button-tekstkleur kiezen die AA haalt tegen een brand-gekleurde achtergrond. Een design system token voor token auditen voor shipping. Een kleur-wijzigingsverzoek rechtvaardigen aan een stakeholder met een concreet pass/fail-verdict. Testen wat je users met reduced-contrast voorkeuren daadwerkelijk zullen zien."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De drempels",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normale tekst (onder 18pt / 14pt bold): 4.5:1 voor AA, 7:1 voor AAA. Grote tekst (≥18pt of ≥14pt bold): 3:1 voor AA, 4.5:1 voor AAA. UI-componenten & graphics (icons, focus rings, form-borders, chart-elementen die info overdragen): 3:1 voor AA (WCAG 2.1 §1.4.11). Geen AAA-niveau."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Grote tekst\" is groter dan je denkt. 18pt is ruwweg 24px. 14pt bold is ruwweg 19px bold. Body copy op 16px is geen grote tekst — het heeft de 4.5:1 drempel nodig. Lichte tekst op een drukke foto zal falen. De contrastratio is tussen specifieke pixels — overlay een donker gradient of gebruik een solid panel om de tekst een gecontroleerde achtergrond te geven. Anti-aliasing verzacht contrast. 4.5:1 is de vloer, geen doel. Comfortabel lezen wil meestal 7:1 of beter, vooral voor body copy. Hover- en focus-states tellen. Als je button AA haalt at rest maar faalt op hover, is dat een echte accessibility-bug. WCAG 2.1 vs APCA. De nieuwe APCA (Accessible Perceptual Contrast Algorithm), voorgesteld voor WCAG 3, geeft andere en arguably betere getallen — maar WCAG 2.1 is de wettelijke standaard waar de meeste jurisdicties nog naar verwijzen. Gebruik de getallen van deze tool bij EN 301 549, ADA of AA-conformance claims. Pad niet met transparency. Een 50%-alpha foreground over een bekende achtergrond heeft een andere effectieve contrast — bereken tegen de daadwerkelijk gerenderde kleur, niet het origineel."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "WCAG Contrast Checker",
+  "description": "Check de contrastratio tussen twee kleuren. Pass/fail-verdict voor WCAG AA en AAA op elke tekstgrootte.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de kleurenpaar-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het kleurenpaar-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de kleurenpaar-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

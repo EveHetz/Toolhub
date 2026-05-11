@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fusos horários são surpreendentemente irritantes. Uma reunião às \"9h\" significa momentos absolutos diferentes em São Paulo, Lisboa e Nova York — e o offset entre quaisquer dois deles muda duas vezes por ano por causa do horário de verão, em datas diferentes. Esta ferramenta pega uma hora de relógio em um fuso IANA e diz o equivalente exato em outro, com offsets atuais, o instante UTC e o dia da semana dos dois lados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Agendar uma call entre continentes — confirmar o que \"15h CET\" é no fuso do seu colega. Ler um timestamp de log gravado em UTC e traduzir para hora local em um relatório voltado ao usuário. Verificar se uma janela de deploy ou slot de manutenção cruza a transição do horário de verão. Conferir se uma expressão cron em America/New_York dispara no momento que você espera no seu próprio fuso. Descobrir a mudança de dia da semana ao cruzar a linha internacional de mudança de data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que fusos IANA (não \"GMT+2\")",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um fuso IANA como America/Sao_Paulo ou America/New_York codifica as regras históricas e atuais daquele lugar — datas de início e fim do horário de verão, mudanças de fuso (a Rússia aboliu o horário de verão em 2014; a Turquia largou em 2016), até Samoa pulando um dia inteiro em 2011. Um offset puro como \"GMT+2\" não te diz nada sobre se o horário de verão se aplica, qual era a regra ano passado ou qual será no próximo ano. Os navegadores trazem a base IANA (via ICU/CLDR) e atualizam automaticamente, então a conversão se mantém correta ao longo do tempo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transições de horário de verão criam horas ambíguas e inexistentes. Quando o relógio atrasa, 02:30 acontece duas vezes; quando adianta, 02:30 não existe. A ferramenta escolhe a interpretação de horário padrão por padrão; se você precisa do outro lado, desloque uma hora para qualquer direção. Offsets não são constantes. \"CET\" é UTC+1 no inverno e UTC+2 no verão (CEST). A saída sempre mostra o offset real para a data que você inseriu, então confie no offset exibido em vez da abreviação. Abreviações de país não são fusos. \"EST\" é ambíguo (EUA vs Austrália); \"IST\" pode ser indiano, irlandês ou israelense. Sempre escolha o fuso IANA, não a abreviação. A precisão histórica é boa para a era moderna, mas começa a falhar em datas muito antigas. Timestamps anteriores a 1970 podem usar offsets aproximados em alguns navegadores. Armazenando datas: sempre use UTC. Converta na hora de exibir. A linha UTC na saída te dá o valor canônico para gravar no seu banco."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Fuso Horário",
+  "description": "Converta uma data e hora entre fusos horários IANA. Veja offsets, status de horário de verão e dia da semana dos dois lados.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu hora",
+      "text": "Coloque seu hora no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

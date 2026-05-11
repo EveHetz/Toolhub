@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zes verschillende \"percentage\"-berekeningen komen dagelijks voor en zijn makkelijk te verwarren: hoeveel is X% van Y? Welk percentage is X uit Y? Wat is de verandering tussen twee waarden? Een opslag of korting toepassen? Tip of belasting? Elk is een lichtjes andere formule, en ze verwarren leidt tot foute facturen, foute kortingen en gênante reviews. Deze tool draait alle zes side by side met de formule uitgespeld, zodat je de juiste kunt kiezen en de rekensom kunt dubbelchecken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat elke mode doet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wat is X% van Y — voor kortingen, commissies, percentage van een totaal. 20% van 150 → 30 . X is welk % van Y — voor \"score / max\"-stijl ratio's. 30 van 150 → 20% . % verandering — signed: positief is een toename, negatief is een afname. 100 → 125 = +25% . Verhoging / Verlaging — past een percentage-aanpassing toe op een startwaarde. Tip / Tax — gemak voor een percentage op een rekening opbouwen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Percentage-wijziging is niet symmetrisch. 100 → 125 is +25%; 125 → 100 is −20%, geen −25%. De noemer is de startwaarde, die in elke richting verschilt. Percentages stacken compounded. Een 20%-toename gevolgd door een 20%-afname brengt je niet terug naar het begin (1.20 × 0.80 = 0.96, een netto 4%-verlies). Voor sequentiële markups/discounts bereken je elke stap. Fooi op pre-tax vs post-tax. Conventie varieert per land en venue. De tool berekent het percentage van de waarde die je invoert — kies welke waarde je daadwerkelijk wil als basis. Afronding. Output is afgerond op 6 decimalen en daarna getrimd; als je legal/accounting-precisie nodig hebt (banker's rounding, currency-specifieke regels), doe die stap in je domain-laag, niet hier."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Percentage-calculator",
+  "description": "Vijf percentage-calculators in één: of, hoeveel %, increase/decrease, change en tip/tax.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de percentage-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het percentage-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de percentage-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown to najczęściej pisany format autorski na świecie — pliki README, posty blogowe, GitHub issues, wiadomości na czacie, strony dokumentacji. HTML to to, co renderuje przeglądarka. To narzędzie konwertuje Markdowna na czysty HTML z podglądem na żywo, żebyś mógł zobaczyć, jak wyrenderowany wynik będzie wyglądał, zanim wkleisz go w CMS, wygenerujesz statyczną stronę albo wyślesz jako część szablonu maila."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wspierana składnia",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nagłówki # do ###### ; bold, italic, strike Inline'owy `code` i fenced'owe bloki ```lang Listy punktowane / numerowane / zagnieżdżone Linki [tekst](url) i obrazki ![alt](url) Blockquote'y, tabele z pipe'ami i wyrównaniem, linie poziome"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To szybki parser w przeglądarce, nie suite zgodności. CommonMark i GFM mają edge case'y (zagnieżdżone emfazy, definicje referencji linków, ekspansja autolinków), które różnią się między implementacjami. Po ścisłą zgodność użyj marked , markdown-it albo remark w buildzie. HTML osadzony w Markdownie w większości przechodzi tak jak jest, ale niektóre implementacje go sanityzują. Nie polegaj na tym dla bezpieczeństwa; traktuj nieufnego markdowna jak nieufny HTML. Tabele vs wyrównanie. Tabele z pipe'ami potrzebują wiersza separatora ( |---| ) i używają :---: / :--- / ---: dla wyśrodkowania/lewej/prawej. Pominięcie separatora to najczęstszy powód, dla którego \"tabela\" renderuje się jako jeden akapit. Smart punctuation. Niektóre renderery konwertują -- na półpauzę i proste cudzysłowy na drukarskie. To narzędzie tego nie robi — przepuść przez krok typograficzny, jeśli tego potrzebujesz. Round-trip nie jest bezstratny. Markdown → HTML → Markdown znormalizuje styl nagłówków, odstępy w listach i formę linków. Semantyka przeżyje; dokładne bajty nie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown do HTML",
+  "description": "Konwertuj Markdowna na czysty HTML z podglądem na żywo. Wspiera nagłówki, listy, kod, tabele, obrazki i linki.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej Markdown",
+      "text": "Umieść Markdown w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

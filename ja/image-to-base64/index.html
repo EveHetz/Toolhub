@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data URI は Base64 を使ってファイルのバイト列を URL に直接埋め込む仕組みで、別リクエストや外部ファイルを使わずに済みます。本コンバーターはドロップした画像を読み込み、HTML、CSS、Markdown、JSON に貼り付けられる data:image/...;base64,... 文字列を生成します。ファイルはブラウザから外に出ず、変換は FileReader.readAsDataURL で行います。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS にインライン化する小さなアイコン（4 KB 未満）。HTTP リクエストを節約し、初回ペイント時のフラッシュを避けられます。 自己完結型の HTML メール、シングルファイルのデモ、オフライン対応の PWA。 Markdown ノート、Notion ページ、画像と一緒に流通させたいチャットスレッドへの貼り付け。 テストフィクスチャやスナップショットファイルで、アセットをテストと一緒にコミットしたい場合。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "サイズが膨らみます。 Base64 はおよそ 33% ペイロードが増えます。4〜8 KB を超えると、リクエスト節約の利点を埋め込みコストが上回ります。data URI はブラウザに別個にキャッシュされない点も影響します。 ページ間で重複排除されません。 URI を埋め込むページごとにバイト列が再送されます。再利用するアセットは実 URL のままにし、ブラウザに 1 度だけキャッシュさせてください。 メールクライアントの対応はまちまちです。 多くのモダンクライアントは data URI を表示しますが、Windows 版 Outlook は歴史的に <img src> でブロックしてきました。大量配信は CID 添付の方が安全です。 SVG はラスタとは別です。 SVG はマークアップ直挿し（または URL エンコード）の方が Base64 より小さくなることが多いです。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "画像から Base64 へ",
+  "description": "任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "画像 を貼り付け",
+      "text": "画像 を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "エンコード をクリック",
+      "text": "エンコード ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

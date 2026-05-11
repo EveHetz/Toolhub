@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG (Web Content Accessibility Guidelines) definiuje minimalny współczynnik kontrastu między tekstem a jego tłem, żeby osoby z słabym wzrokiem, daltonizmem albo w warunkach odblasku nadal mogły go przeczytać. To narzędzie liczy ten współczynnik (1:1 = identyczne, 21:1 = czysta czerń na czystej bieli) i mówi, czy twoja para kolorów przechodzi WCAG 2.1 Level AA albo AAA, osobno dla normalnego tekstu, dużego tekstu i komponentów UI. Matematyka idzie ściśle za wzorem luminancji W3C."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sprawdzanie, czy kolor twojej marki na białej karcie spełnia standardy dostępności. Wybieranie koloru tekstu przycisku, który przejdzie AA na tle w kolorze marki. Audyt design systemu token po tokenie przed wypuszczeniem. Uzasadnienie zmiany koloru przed stakeholderem konkretnym werdyktem pass/fail. Testowanie, co użytkownicy z preferencjami obniżonego kontrastu faktycznie zobaczą."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Progi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tekst normalny (poniżej 18pt / 14pt bold): 4,5:1 dla AA, 7:1 dla AAA. Tekst duży (≥18pt albo ≥14pt bold): 3:1 dla AA, 4,5:1 dla AAA. Komponenty UI & grafika (ikony, focus ringi, ramki formularzy, elementy wykresu niosące informację): 3:1 dla AA (WCAG 2.1 §1.4.11). Brak poziomu AAA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Duży tekst\" jest większy, niż myślisz. 18pt to mniej więcej 24px. 14pt bold to mniej więcej 19px bold. Body copy w 16px to nie duży tekst — potrzebuje progu 4,5:1. Jasny tekst na zatłoczonym zdjęciu padnie. Współczynnik kontrastu jest między konkretnymi pikselami — nałóż ciemny gradient albo użyj solidnego panelu, żeby dać tekstowi kontrolowane tło. Anti-aliasing osłabia kontrast. 4,5:1 to dno, nie cel. Wygodne czytanie zwykle chce 7:1 albo lepiej, zwłaszcza dla body copy. Stany hover i focus się liczą. Jeśli twój przycisk przechodzi AA w spoczynku, ale pada na hover, to prawdziwy bug dostępności. WCAG 2.1 vs APCA. Nowy APCA (Accessible Perceptual Contrast Algorithm), proponowany do WCAG 3, daje inne i prawdopodobnie lepsze liczby — ale WCAG 2.1 jest standardem prawnym, do którego nadal odnosi się większość jurysdykcji. Używaj liczb tego narzędzia przy spełnianiu EN 301 549, ADA albo claimów zgodności AA. Nie kombinuj z przezroczystością. Foreground z 50% alpha na znanym tle ma inny efektywny kontrast — licz przeciwko faktycznie wyrenderowanemu kolorowi, nie oryginałowi."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Sprawdzacz Kontrastu WCAG",
+  "description": "Sprawdź współczynnik kontrastu między dwoma kolorami. Werdykt pass/fail dla WCAG AA i AAA przy każdym rozmiarze tekstu.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wpisz swoje wartości",
+      "text": "Wpisz dane para kolorów, których potrzebuje narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj wynik",
+      "text": "Wynik para kolorów aktualizuje się natychmiast — bez przycisku."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Użyj lub skopiuj wynik",
+      "text": "Naciśnij Kopiuj, jeśli potrzebujesz wartości para kolorów gdzie indziej."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

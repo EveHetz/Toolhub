@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Body Mass Index (BMI) is a single number — weight in kilograms divided by the square of height in metres — used by the World Health Organization and many health systems as a quick screen for body-weight categories. It's not diagnostic; it's a flag. The classic adult thresholds are: under 18.5 underweight, 18.5–24.9 normal, 25–29.9 overweight, 30 and over obese (split into Class I/II/III at 35 and 40). This tool computes the value and the category from height and weight in metric or imperial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How it's calculated",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metric: BMI = kg ÷ (m × m). 70 kg at 1.75 m → 70 / 3.0625 = 22.9. Imperial: BMI = (lb × 703) ÷ (in × in). The tool converts to metric internally for accuracy. The WHO categories are the same regardless of unit system — BMI itself is unitless."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quick self-check or to fill in a form that asks for it (insurance, fitness apps, gym intake). Comparing a value across populations or studies. Tracking direction of change over time (rising, stable, falling) — the trend is more useful than any single reading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI does not measure body composition. Muscle weighs more than fat, so a fit, muscular person can score \"overweight\" while having low body-fat. Conversely, a low-muscle person can score \"normal\" while being unhealthy (\"skinny fat\"). It's an adult metric. For children and adolescents (under 18) use the age- and sex-specific BMI percentile charts instead. Pregnancy isn't supported. BMI doesn't apply during pregnancy; talk to your healthcare provider. Ethnicity matters. Several health bodies (NHS, WHO Asia-Pacific guidance) use lower thresholds (overweight ≥23, obese ≥27.5) for South Asian, Chinese, and other groups, because cardiovascular risk rises at lower BMIs. Tall vs short people. The squared-height formula systematically over-classifies tall people as \"underweight\" and short people as \"overweight\" — alternative formulas (Trefethen's BMI uses height^2.5) try to correct for this. Not medical advice. If you're concerned about your weight, talk to a clinician. They have the rest of the picture (waist circumference, blood pressure, blood-work, lifestyle) that a single number doesn't."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use BMI Calculator",
+  "description": "Body Mass Index from height and weight. Metric or imperial. Shows the WHO category — not medical advice.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Enter your values",
+      "text": "Type the BMI inputs the tool needs."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Read the calculation",
+      "text": "The BMI result updates instantly — no button needed."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use or copy the result",
+      "text": "Hit Copy if you need the BMI value somewhere else."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un type MIME (officiellement \"type de média Internet\") est un libellé en deux parties comme image/png indiquant comment interpréter des octets. Il figure dans les en-têtes HTTP Content-Type et dans les parties Multipart. Cet outil couvre environ 120 types courants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Définir le bon Content-Type pour .docx , .heic , .webmanifest . Configurer l'attribut accept d'un upload ou une allow-list S3. Chercher ce qu'est application/grpc-web dans un dump. Configurer un serveur statique ou CDN — mapping extension→MIME."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extension ≠ type MIME. Les navigateurs suivent l'en-tête — fixez-le explicitement. JavaScript est embrouillé. RFC 9239 préfère text/javascript . Les types OOXML sont très longs. Ne les mémorisez pas — copiez-les. application/octet-stream = \"inconnu\". Utilisez un type réel si possible. Le charset compte. Sans ; charset=utf-8 , le navigateur devine et se trompe parfois. Le sniffing MIME ignore l'en-tête. Désactivez avec X-Content-Type-Options: nosniff ."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

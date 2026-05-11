@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Porównanie dwóch wersji kawałka tekstu — akapitu, pliku configa, query SQL, listy — i zobaczenie, które linie dokładnie zostały dodane, usunięte albo zostały bez zmian. Nawet kiedy nie masz pod ręką git diff albo tekst nie jest w version control. Wyjście to ten sam line-level diff, jaki widzisz w code review: zielony dla dodań, czerwony dla usunięć, zwykły dla niezmienionego kontekstu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wykrycie, czym się różnią dwa maile, kontrakty albo wklejone bloby, które \"wyglądają tak samo\". Porównanie configów albo zmiennych środowiskowych między dwoma środowiskami (staging vs prod). Review zmian w copy, które ktoś inny edytował w Wordzie/Docsach. Diff dwóch wyników query, snippetów logów albo blobów JSON (najpierw przepuść przez JSON Formatter, żeby skanonizować). Szybki sanity check search-and-replace przed zacommitowaniem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Side-by-side vs unified",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Side-by-side — łatwiej skanować małe zmiany linia po linii; oryginał po lewej, nowa wersja po prawej. Unified — bliższe wyjściu git diff ; lepsze do dzielenia się albo drukowania, łatwiejsze do śledzenia, gdy zmiany są rozproszone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To diff linii, nie słów. Jeden zmieniony znak w środku długiej linii oznacza całą linię jako zmienioną. Do diffowania prozatorskiego na poziomie akapitów może chcesz narzędzia, które tokenizuje na słowa. \"Ignoruj białe znaki\" wpływa tylko na porównanie, nie na wyświetlanie. Linie różniące się tylko końcowymi spacjami albo wcięciem zwijają się w niezmienioną kolumnę, ale oryginalny whitespace nadal jest pokazany. \"Ignoruj case\" tak samo. \"TODO\" i \"todo\" porównują się jako równe, ale oryginalna wielkość liter jest renderowana. Kolejność ma znaczenie. Jeśli zamienisz dwie linie miejscami, diff pokaże obie jako usunięte-i-dodane-na-nowo, nie jako parę \"przeniesioną\". Nie ma detekcji przenosin. Duże inputy (10k+ linii) bywają wolne. Algorytm LCS jest O(m·n) — OK dla typowych plików, ślamazarny dla bardzo dużych. Diffuj małymi kawałkami. Końcowe newliny liczą się jako linia. Dwa inputy różniące się tylko tym, czy kończą się newlinem, pokażą jedno końcowe dodanie albo usunięcie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Diff Tekstu",
+  "description": "Porównaj dwa bloki tekstu i zobacz dodania, usunięcia i niezmieniony kontekst linia po linii. Widok side-by-side albo unified.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej obie wersje tekst",
+      "text": "Umieść każdą wersję tekst w jednym z dwóch pól."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Porównaj",
+      "text": "Naciśnij Porównaj, aby znaleźć różnice."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj diff",
+      "text": "Przejrzyj podświetlone różnice w Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

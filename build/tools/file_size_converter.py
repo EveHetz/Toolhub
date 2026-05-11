@@ -325,4 +325,5 @@ document.addEventListener('DOMContentLoaded', fsRun);
 """,
     },
     "related": ["unit-converter", "number-base-converter", "percentage-calculator"],
+    "howto": {"flow": "calculate", "action": "convert", "noun": "file size"},
 }

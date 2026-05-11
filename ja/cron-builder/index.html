@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "cron の構文は有名なほど詰め込み型で、5 つのフィールドそれぞれにワイルドカード、範囲、リスト、ステップを書けます。毎回ゼロから書くと typo を招きがちです。このビルダーではプリセット（5 分ごと、平日 09:00 など）から始めるか、各フィールドに直接入力でき、生成された cron 文字列、平易な説明、ローカルタイムゾーンでの次の 5 回の発火時刻を確認できます。対になるツールが cron 式パーサー で、既存の式を同じプレビュー形式にデコードします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "新しい crontab エントリ、Kubernetes CronJob 、GitHub Actions のスケジュール、AWS EventBridge ルールを作成するとき。 「平日の朝に実行」のような要件を、構文的に正しい cron 行に翻訳したいとき。 下書きした式が、思ったタイミングで本当に走るかをデプロイ前にサニティチェックしたいとき。 cron 初心者のオンボーディング — ドロップダウンとプレビューが構文を教えてくれます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "フィールド構文チートシート",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* — フィールドの範囲内すべての値。 */N — N 刻み（下限から開始）。 A-B — 両端を含む範囲。 A,B,C — 個別の値のリスト。 A-B/N — A–B 範囲内で N 刻み。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "day-of-month と day-of-week は相互作用します。 多くの cron 実装は両方を制限したとき OR で結合します。 * * 15 * 1 は「15 日 OR 月曜」に発火し、「15 日かつ月曜」ではありません。 ここでのタイムゾーンはブラウザのローカルです。 実際の cron デーモンはサーバーのタイムゾーン（多くの場合 UTC）で動きます。サーバーに貼る前に確認してください。 */N は完全な「N ごと」ではありません。 分での */15 は 0,15,30,45 になり、12,27,42,57 にはなりません。位相を指定したい場合はリストを使います。 step + range の組み合わせ。 0-30/5 は 0,5,10,15,20,25,30 のみをカバーします。 cron の方言によってフィールドが増えます。 Quartz cron は秒と年を含む 6〜7 フィールド、systemd タイマーは全く別形式です。本ビルダーは標準 5 フィールドの crontab を対象とします。 「13 日の金曜日」を cron だけで表すのは困難です。 day-of-month と day-of-week は OR で結合されるため、厳密な AND を行うにはラッパースクリプトが必要です。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "cron 式ビルダー",
+  "description": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "オプションを設定",
+      "text": "必要な cron 式 のオプションを選びます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "生成 をクリック",
+      "text": "生成 を押して新しい cron 式 を生成します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して生成された cron 式 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

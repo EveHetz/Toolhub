@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cada linguagem e plataforma tem suas próprias convenções para nomear coisas — JavaScript quer camelCase , Python quer snake_case , CSS quer kebab-case , variáveis de ambiente querem CONSTANT_CASE . Traduzir entre elas na mão é chato, especialmente com casos especiais (siglas, números, separadores já existentes). Esta ferramenta quebra qualquer entrada em palavras detectando transições de capitalização, separadores ( _ - . / ) e espaços em branco, e depois remonta em 14 estilos diferentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renomear um campo de um JSON de API (camelCase) para uma coluna de ORM Python (snake_case). Gerar nomes de classes CSS a partir de nomes de tokens de design-system que chegam em PascalCase. Converter uma lista de títulos para slugs em kebab-case, ou nomes de variáveis de ambiente para CONSTANT_CASE. Converter rapidamente \"The Quick Brown Fox\" para Title Case, Sentence case ou Train-Case para um título / rótulo de botão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siglas são complicadas. \"XMLHttpRequest\" deve virar \"XML_Http_Request\" ou \"Xml_Http_Request\"? Esta ferramenta trata letras maiúsculas consecutivas como um único limite de palavra ( xml http request ) e depois recapitaliza — o que combina com convenções Java/JS, mas não com todos os style guides. Números ficam grudados na palavra anterior. \"Item2\" vira uma palavra só \"item2\", não duas. Adicione um separador se quiser separar. \"Primeira letra do camelCase\" é sempre minúscula mesmo se a entrada começou com maiúscula. PascalCase preserva a maiúscula. Round-trip nem sempre é sem perdas. Ir de camelCase → kebab-case → camelCase perde a dica original de capitalização nos limites de palavra; a heurística de detecção faz o que pode, mas não consegue recuperar o que não foi preservado."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Capitalização",
+  "description": "Converta texto entre MAIÚSCULAS, minúsculas, Título, Frase, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE e dot.case.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

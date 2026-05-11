@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown-Tabellen sind toll im Rendering und mühsam von Hand zu schreiben. Dieser Editor gibt dir ein Raster: Zelle anklicken zum Bearbeiten, Buttons für Zeilen/Spalten, Ausrichtung pro Spalte. Existierende Markdown-Tabelle kann unten eingefügt und ins Raster geladen werden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vergleichstabelle für README/Issue/PR erstellen. Bestehende Tabelle einfügen, anpassen, zurückkopieren. Korrekt ausgerichtete ASCII-Tabelle erzeugen. Release-Notes-Tabelle ohne Pipe-Stress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pipes brechen Tabellen. | in Zellen mit \\| escapen. Zellen sind einzeilig. Für Mehrzeiligkeit HTML <br> . Ausrichtung kommt aus den Doppelpunkten , nicht aus dem Padding. Erste Zeile ist immer Header. Nicht alle Markdown-Varianten gleich. Output zielt auf GFM. CSV-Paste funktioniert nicht. Erwartet Markdown-Tabelle mit |---| ."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown-Tabellen-Editor",
+  "description": "Tabelle visuell bearbeiten — Zeilen, Spalten, Ausrichtung pro Spalte — und das GitHub-Markdown kopieren.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Tabelle einfügen",
+      "text": "Füge dein Tabelle in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Formatieren klicken",
+      "text": "Drücke Formatieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

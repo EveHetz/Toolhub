@@ -157,4 +157,5 @@ document.addEventListener('DOMContentLoaded', heRun);
 """,
     },
     "related": ["url-encoder", "base64-encoder", "markdown-to-html"],
+    "howto": {"flow": "transform", "action": "encode",  "noun": "text"},
 }

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unix timestamp to jeden integer — liczba sekund (albo milisekund) od 1970-01-01 00:00:00 UTC. Są wszędzie: w plikach logów, w odpowiedziach API, w claimsach iat / exp JWT, w kolumnach created_at baz danych, w nagłówkach cache. Są jednoznaczne i wolne od strefy czasowej, ale nieczytelne dla człowieka — więc gdy coś się sypie o 1735689600 , musisz wiedzieć, czy to 14:00 czy 4:00 rano, dziś czy w zeszłym roku. To narzędzie przerzuca między formą integerową a formą czytelną w obie strony, z auto-detekcją sekund/ms i podpowiedzią czasu względnego."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dekodowanie pola \"timestamp\": 1735689600 z wpisu w logu albo odpowiedzi API. Sprawdzenie, kiedy JWT został wystawiony albo kiedy wygasa (claimsy iat / exp to sekundy od epoch). Wyliczenie przyszłego timestampu do nagłówka retry-after , zaplanowanego joba albo TTL cache. Sanity check, czy data zapisana w bazie jest w sekundach, milisekundach, czy mikrosekundach. Konwersja \"now\" na format, którego oczekuje twoje aktualne narzędzie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sekundy, milisekundy, mikrosekundy",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sekundy — pierwotna konwencja Unixa; ~10 cyfr dziś (np. 1735689600 ). Używane w C, Linuksie, JWT, większości API, większości kolumn integer w bazie. Milisekundy — JS-owy Date.now() , javowy System.currentTimeMillis() , Kafka, wiele JSON-owych API. ~13 cyfr. Mikrosekundy (16 cyfr) / nanosekundy (19 cyfr) — pythonowy time.time_ns() , golangowy time.Now().UnixNano() , niektóre systemy metryk. To narzędzie ich nie obsługuje automatycznie — najpierw podziel przez 1000 albo 1 000 000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Problem roku 2038. Signed 32-bitowe timestampy przepełniają się przy 2147483647 = 03:14:07 UTC, 19 stycznia 2038 . Stary kod C, kolumny TIMESTAMP w MySQL i systemy embedded mogą zawinąć się do 1901. Nowoczesne systemy używają 64 bitów i są OK do ~roku 292 277 026 596. Czas Unix pomija sekundy przestępne. Doba uniksowa ma dokładnie 86 400 sekund, nawet gdy UTC ma 86 401. Tak jest z założenia (uproszcza arytmetykę), ale znaczy, że nie użyjesz Unix timestampów do astronomii ani GPS-a z dokładnością subsekundową. Ujemne timestampy są poprawne i reprezentują daty sprzed 1970. Niektóre biblioteki je odrzucają — przetestuj zanim na tym polegniesz. Auto-detekcja nie jest niezawodna. 10-cyfrowa wartość mogłaby być milisekundowym timestampem z 1970 — w praktyce nieprawdopodobnie, ale jeśli wiesz, którą jednostkę masz, nie polegaj na heurystyce. Zawsze zapisuj UTC. Timestampy są wolne od strefy; \"czas lokalny\" jest tylko do wyświetlania. Linia \"Local\" na wyjściu używa strefy twojej przeglądarki, ale integer pod spodem to zawsze UTC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Unix Timestamp",
+  "description": "Konwertuj między Unix timestampami a datami czytelnymi dla człowieka. Sekundy i milisekundy, UTC i lokalna.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej znacznik czasu",
+      "text": "Umieść znacznik czasu w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cron-syntax is berucht dicht — vijf velden, elk met wildcards, ranges, lijsten en steps. Elke keer van scratch schrijven nodigt typo's uit. Deze builder laat je beginnen vanuit een preset (every-5-minutes, weekdays-at-09:00, enz.) of in losse velden typen, geeft de resulterende cron-string, een omschrijving in gewoon Nederlands en bevestigt tegen de volgende vijf echte fire times in je lokale tijdzone. Het complement is de Cron Expression Parser , die een bestaande expressie decodeert naar dezelfde preview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een nieuwe crontab -entry opzetten, Kubernetes CronJob , GitHub Actions schedule of AWS EventBridge rule. Een \"draai elke werkdag-ochtend\" requirement vertalen naar een syntactisch correcte cron-regel. Sanity check dat een expressie die je hebt opgesteld echt draait wanneer je denkt dat-ie draait, voor je deployt. Iemand inwerken die nieuw is met cron — laat de dropdowns en de preview de syntax bijbrengen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veld-syntax spiekbrief",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* — elke waarde in het bereik van het veld. */N — elke N-de (vanaf de ondergrens). A-B — range, inclusief. A,B,C — lijst van specifieke waarden. A-B/N — elke N-de binnen range A–B."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month + day-of-week interacteren. De meeste cron-implementaties OR'en ze als beide beperkt zijn: * * 15 * 1 vuurt op de 15e OF een maandag, niet \"de 15e als het een maandag is\". Tijdzone is hier de lokale zone van je browser. Echte cron-daemons draaien in de server-tijdzone (vaak UTC). Bevestig voor je naar een server plakt. */N is niet helemaal \"elke N\". */15 in minuten = 0,15,30,45 — niet 12,27,42,57. Gebruik een lijst als je een specifieke fase nodig hebt. Step + range combinaties. 0-30/5 dekt alleen 0,5,10,15,20,25,30. Sommige cron-varianten voegen velden toe. Quartz cron heeft 6 of 7 velden (met seconden en jaar). systemd timers gebruiken een heel ander formaat. Deze builder richt zich op de standaard 5-veld crontab. Friday-the-13th is lastig in cron uit te drukken. Crons day-of-month en day-of-week interacteren via OR, dus die strict combineren vereist een wrapper-script."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cron Expression Builder",
+  "description": "Bouw visueel een cron-expressie — minuut, uur, dag, maand, weekdag — en preview de volgende 5 fire times.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de cron-expressie-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe cron-expressie te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde cron-expressie te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

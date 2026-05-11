@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I giochi di ruolo da tavolo (D&D, Pathfinder, e molti altri) usano una notazione compatta: NdF = \"tira N dadi a F facce\". 2d6+3 = \"due d6 e +3\". Questo strumento interpreta la notazione e tira con il RNG crittografico del browser — imparziale e imprevedibile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Notazione supportata",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 , 2d6+3 , 3d8-1 . 4d6kh3 — tieni i 3 più alti. 2d20kl1 svantaggio, 2d20kh1 vantaggio. 1d100 o 1d% — dado percentuale."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sessione online, dadi fisici fuori portata, DM remoto. Tiro rapido senza app a abbonamento. Prototipare una probabilità di design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il tab del browser è il confine di fiducia. Chi ha devtools può barare — per il competitivo usa un roller server-side. RNG crittografico = imprevedibile, non \"più casuale\". Modificatore applicato una volta, dopo il keep. Niente esplosioni o conteggio successi. Critici solo per d20. 20 verde, 1 rosso. Massimo 1000 dadi. Limite di performance."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Lanciatore di Dadi",
+  "description": "Lancia dadi con notazione D&D standard — 2d6+3, 1d20, 4d6 tieni i 3 più alti. RNG crittograficamente sicuro.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Imposta le opzioni",
+      "text": "Scegli le opzioni di lancio che ti servono."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Tira",
+      "text": "Premi Tira per produrre un nuovo lancio."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare il lancio generato."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

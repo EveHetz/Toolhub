@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sześć różnych obliczeń \"procentowych\" pojawia się codziennie i łatwo je pomylić: ile to X% z Y? Jaki procent X stanowi Y? Jaka zmiana między dwiema wartościami? Doliczyć narzut albo rabat? Napiwek albo podatek? Każde to trochę inny wzór, a pomylenie ich prowadzi do błędnych faktur, błędnych rabatów i krępujących recenzji. To narzędzie liczy wszystkie sześć obok siebie z wyłożonym wzorem, żebyś mógł wybrać właściwe i sprawdzić rachunek."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co robi każdy tryb",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ile to X% z Y — do rabatów, prowizji, procentu sumy. 20% z 150 → 30 . Ile X stanowi Y — do współczynników typu \"wynik / max\". 30 ze 150 → 20% . Zmiana % — ze znakiem: dodatnia to wzrost, ujemna spadek. 100 → 125 = +25% . Wzrost / Spadek — aplikuje korektę procentową do wartości startowej. Napiwek / Podatek — wygodny sposób na doliczenie procentu do rachunku."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zmiana procentowa nie jest symetryczna. Pójście 100 → 125 to +25%; pójście 125 → 100 to −20%, nie −25%. Mianownikiem jest wartość startowa, która różni się w każdym kierunku. Stackowanie procentów się składa. 20% wzrost, a po nim 20% spadek nie wraca cię do startu (1.20 × 0.80 = 0.96, netto strata 4%). Dla sekwencyjnych narzutów/rabatów licz każdy krok. Napiwek od kwoty przed czy po podatku. Konwencja różni się krajem i lokalem. Narzędzie liczy procent od wartości, którą wpisujesz — wybierz, którą wartość faktycznie chcesz jako bazę. Zaokrąglanie. Wyjście jest zaokrąglane do 6 miejsc po przecinku i przycinane; jeśli potrzebujesz precyzji prawnej/księgowej (banker's rounding, walutowe reguły), zrób to w warstwie domeny, nie tutaj."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Kalkulator Procentów",
+  "description": "Pięć kalkulatorów procentów w jednym: ile %, ile to %, zmiana, wzrost/spadek i napiwek/podatek.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wpisz swoje wartości",
+      "text": "Wpisz dane procent, których potrzebuje narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj wynik",
+      "text": "Wynik procent aktualizuje się natychmiast — bez przycisku."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Użyj lub skopiuj wynik",
+      "text": "Naciśnij Kopiuj, jeśli potrzebujesz wartości procent gdzie indziej."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

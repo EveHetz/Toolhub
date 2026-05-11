@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que o URL encoding faz",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URLs e headers HTTP são restritos a um pequeno subconjunto do ASCII. Qualquer coisa fora desse conjunto — incluindo espaços, letras acentuadas, emoji e vários caracteres de pontuação reservados — precisa ser percent-encoded : substituída por % seguido de dois dígitos hex por byte. café vira caf%C3%A9 (UTF-8). A decodificação reverte isso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar cada scope",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Component — escolha esta opção para valores individuais que você vai inserir em uma URL: valores de query string, segmentos de path, texto de fragment, valores de header. Codifica os caracteres estruturais / ? # & = + para que não sejam interpretados acidentalmente como sintaxe de URL. Full URI — escolha esta para uma URL inteira que você quer limpar. Preserva / ? # & = + como estrutura da URL, codificando apenas caracteres ilegais (espaços, não-ASCII, etc.)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não codifique duas vezes. Codificar uma string já codificada transforma %20 em %2520 . Se sua entrada já tem sequências %XX , decodifique primeiro. Espaços nem sempre são %20 . Em corpos application/x-www-form-urlencoded , espaços são + . Esta ferramenta segue a convenção do encodeURIComponent do JavaScript (sempre %20 ); a decodificação aceita os dois. UTF-8 vs Latin-1. Browsers modernos e encodeURIComponent sempre usam UTF-8. Alguns sistemas antigos ainda produzem percent-escapes em Latin-1 — esses não fazem round-trip corretamente aqui. Caracteres reservados são case-insensitive no percent-escape mas case-sensitive no resultado decodificado — %2F e %2f ambos decodificam para / , mas o case original do caractere é preservado."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder de URL",
+  "description": "Faça percent-encoding de strings para URLs ou decodifique de volta para texto puro.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Codificar",
+      "text": "Pressione o botão Codificar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

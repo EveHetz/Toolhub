@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Números são o mesmo número independentemente da base — 255 , 0xff , 0b11111111 e 0o377 são idênticos. Mas em qual base você lê ou escreve faz diferença quando está traduzindo entre layouts de memória, fazendo parsing de códigos de cor, decodificando bit fields ou só lendo hex no debugger. Esta ferramenta converte entre binary, octal, decimal, hexadecimal e qualquer base de 2 a 36, usando BigInt por baixo dos panos para você não perder precisão em números grandes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lendo um valor em hex de uma stack trace e querendo saber o que é em decimal. Convertendo cor CSS 0xff8800 em uma tripla RGB, ou o contrário. Inspecionando um bitmask ou inteiro de flags em binary para ver quais bits estão setados. Traduzindo entre IDs curtos em base 36 e contadores em decimal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Prefixos reconhecidos",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex: 0x , 0X , # Binary: 0b , 0B Octal: 0o , 0O Underscore para agrupar dígitos: 1_000_000"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Números negativos vêm com prefixo de sinal, não em complemento de dois. -128 aparece como -10000000 em binary, não 10000000 . A maioria das linguagens mostra do mesmo jeito para inteiros de precisão arbitrária. Números grandes não perdem precisão aqui. O Number do JavaScript trava em 2 53 ; esta ferramenta usa BigInt , então inteiros de 64 bits, hashes grandes e valores de crypto fazem round-trip exato. Não confunda base com case. Letras de base 16 podem ser maiúsculas ou minúsculas; a ferramenta aceita ambas e emite em maiúsculas. Saídas em base 32 / base 36 são minúsculas por convenção. Zeros à esquerda são descartados. 0x000F vira F . Se precisar de hex de largura fixa (por exemplo, para representação de bytes), faça o padding depois no seu código."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Bases Numéricas",
+  "description": "Converta entre binary, octal, decimal, hexadecimal e qualquer base de 2 a 36.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu número",
+      "text": "Coloque seu número no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Woorden en karakters met de hand tellen is saai en foutgevoelig, maar de getallen tellen voortdurend: tweet-limieten, SMS-segmenten, essay-woord-counts, SEO meta-descriptions, journal submission-lengtes. Deze tool geeft je live tellingen terwijl je typt — woorden, karakters (met en zonder spaties), zinnen, paragrafen, regels — plus lees- en spreektijd-schattingen en een snelle woord-frequentie-pass voor de top-vijf herhalende woorden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een 280-karakter X/Twitter-limiet halen, een 160-karakter SMS, een 155-karakter SEO meta-description of een 100-woord LinkedIn-intro. Een essay, blogpost, abstract of grant application word-budgeteren tegen een harde limiet. Inschatten hoe lang een script duurt om voor te lezen (podcasts, presentaties, voice-overs). Overgebruikte woorden spotten door naar de \"meest frequente\"-lijst te kijken voor submitting. Checken of een vertaling ruwweg dezelfde lengte heeft als de bron."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat elk getal betekent",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Woorden — runs van non-whitespace karakters gescheiden door whitespace. \"Twenty-one\" telt als één woord; \"twenty one\" telt als twee. Karakters vs karakters (geen spaties) — beide tellen Unicode code points, geen bytes. Een emoji kan hier 1–2 \"karakters\" zijn maar meer bytes wanneer opgeslagen. Zinnen — segmenten eindigend op . , ! of ? (of end-of-text). Heuristiek, zie valkuilen. Paragrafen — gescheiden door blanke regels. Leestijd gaat uit van 250 wpm (stille volwassen lezing). Spreektijd gaat uit van 130 wpm (typisch conversationeel tempo; nieuwsfellers lopen sneller, audiobooks trager)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zin-detectie is naïef. \"Mr.\", \"U.S.\", \"bijv.\", \"3,14\" en ellipses kunnen de zinstelling opblazen. Het getal is een nuttige schatting, geen garantie. Twitter/X telt code points, geen karakters. Een vlag-emoji (🇳🇱) is 2 code points maar rendert als één symbool — Twitter behandelt het als 2 karakters. Deze tool matcht dat. SMS-karakterlimieten hangen af van encoding. Plain ASCII past 160 karakters per segment; zodra je een non-GSM karakter (em-dash, smart quote, accent-letter) opneemt, schakelt het hele bericht naar UCS-2 en valt de limit naar 70. De tool rapporteert de GSM-limit; check je provider's gedrag voor de daadwerkelijke kost. Woord-counts variëren per tool. Word, Google Docs en journal-submission systems kunnen een paar procent verschillen — ze handelen hyphens, em-dashes en getallen verschillend af. Als een harde limit telt, tel in dezelfde tool die de gatekeeper gebruikt. \"Meest frequente\" filtert geen stop words. \"de\" en \"een\" staan bijna altijd bovenaan. Kijk naar de langere entries voor daadwerkelijk signaal. Leestijd-schattingen zijn persoonlijk. 250 wpm is de mediaan; technische content loopt trager, fictie sneller. Behandel het getal als plannings-leidraad, geen voorspelling."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Woordenteller",
+  "description": "Tel woorden, karakters, zinnen, paragrafen en schat lees- + spreektijd terwijl je typt.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de tekst-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het tekst-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de tekst-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

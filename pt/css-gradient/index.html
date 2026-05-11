@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gradientes CSS são uma única linha de CSS que desenha transições suaves de cor para fundos, botões, painéis hero e overlays — sem precisar de imagem. A sintaxe é poderosa mas trabalhosa de escrever na mão: ângulos, paradas em porcentagem, variantes repeating, misturar linear com radial. Esta ferramenta dá um construtor visual que espelha o CSS em tempo real, então você arrasta uma parada para o lugar e copia a string exata linear-gradient(...) ou radial-gradient(...) ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Criar fundo de uma seção hero ou call-to-action sem queimar numa imagem. Construir estados hover de botão ou card que pareçam \"modernos\" sem asset de imagem. Mockar um overlay com cor de marca (gradiente + sólido com baixa opacidade para legibilidade do texto). Gerar divisores decorativos, fundos estilo mesh ou preenchimentos SVG animados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Linear vs radial",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linear — cores transitam ao longo de uma linha reta num ângulo escolhido (0° = de baixo para cima, 90° = da esquerda para direita, 180° = de cima para baixo). Radial — cores se espalham de um ponto central para fora em forma de círculo ou elipse. Ótimo para efeitos de spotlight ou vinheta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use como background , não como background-color . Gradientes são imagens, não cores. background-color é ignorado. Paradas precisam estar em ordem para renderização previsível. A ferramenta ordena automaticamente — se copiar o CSS e editar na mão, mantenha as porcentagens monotônicas. Hard stops (duas paradas na mesma porcentagem) criam um limite nítido em vez de um fade — útil para efeitos de listras ou faixas. Banding em áreas grandes. Gradientes longos e de baixo contraste podem mostrar \"faixas\" visíveis em telas de 8 bits. Adicione um overlay SVG sutil de noise ( filter: url(#noise) ) ou mova as paradas levemente. Performance. Browsers pintam gradientes rápido, mas animar background-image dispara paint a cada frame — anime transform numa camada acima. Acessibilidade. Se texto fica sobre um gradiente, verifique a razão de contraste no pior ponto do gradiente onde o texto aparece, não na média."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Gradiente CSS",
+  "description": "Crie gradientes CSS lineares e radiais visualmente. Edite paradas de cor, copie CSS pronto para colar.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de gradiente que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo gradiente."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o gradiente gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

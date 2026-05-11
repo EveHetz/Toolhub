@@ -260,4 +260,5 @@ document.addEventListener('DOMContentLoaded', ytRun);
 """,
     },
     "related": ["qr-code-generator", "image-to-base64", "url-encoder"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "YouTube URL"},
 }

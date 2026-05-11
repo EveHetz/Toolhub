@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De meeste \"email-validators\" zijn een one-line regex die not@an.email goedkeurt en edge@case.io afwijst. Deze tool draait de structurele checks die RFC 5321 / 5322 daadwerkelijk vereisen — local-part charset, dot-regels, label-lengtes, TLD-vorm, harde lengtelimieten — plus een disposable-domain hint. Hij vertelt je of een adres well-formed is; hij vertelt je niet of de mailbox bestaat (daarvoor is een server-side MX/SMTP-probe nodig)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een lijst emailadressen pre-flighten voor je ze door een betaalde validation-API of mass-mailer pompt (vangt typo's gratis, spaart credits). Een signup-form bouwen die overduidelijke onzin op veldniveau afwijst. Een CSV met contacten auditen om typo's te vinden voor importeren. Checken of een adres dat \"raar lijkt\" (internationale TLD, plus-addressing, sub-addressing) eigenlijk toegestaan is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Syntactisch geldig ≠ deliverable. does-not-exist@gmail.com passeert elke structurele check. Echte verificatie vereist de respons van de MX-server. Gebruik dit als eerste filter, niet als zekerheidssignaal. Plus-addressing is toegestaan. naam+tag@gmail.com is geldig en routeert naar naam@gmail.com — strip het niet; het is een feature. Internationalised email (IDN). 用户@例.中国 is technisch geldig volgens RFC 6530 maar nog niet breed ondersteund door SMTP-servers. Deze tool volgt de conservatieve ASCII-regels; versoepel als je echt IDN nodig hebt. Disposable-domain detectie is hint-only. De lijst is per definitie incompleet en een gevlagde domain kan nog steeds een echte gebruiker zijn. Wijs case-verschillen niet af. Local parts zijn technisch case-sensitive volgens RFC 5321; in de praktijk behandelt elke moderne provider ze als case-insensitive. Maak ze niet lowercase bij opslag."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Email-validator",
+  "description": "Check of een emailadres syntactisch geldig is (RFC 5322-friendly), met breakdown van local part, domain en veelvoorkomende valkuilen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je e-mail",
+      "text": "Zet je e-mail in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Valideer",
+      "text": "Druk op de Valideer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

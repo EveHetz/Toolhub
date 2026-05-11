@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "数は基数によらず同じ数です。 255 、 0xff 、 0b11111111 、 0o377 はすべて等価です。とはいえ、メモリレイアウト間の翻訳、カラーコードのパース、ビットフィールドのデコード、デバッガでの hex の読み取りなど、どの基数で読み書きするかは重要です。本ツールは 2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換します。内部で BigInt を使うため、大きな数値でも精度は失われません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "スタックトレースに出てきた hex 値を 10 進で確認したいとき。 CSS の色 0xff8800 を RGB トリプルに、あるいはその逆に変換したいとき。 ビットマスクやフラグ整数を 2 進で見て、どのビットが立っているかを確認したいとき。 base-36 の短い ID と 10 進カウンタの間で変換したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "認識される接頭辞",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex: 0x 、 0X 、 # 2 進: 0b 、 0B 8 進: 0o 、 0O 桁区切りのアンダースコア： 1_000_000"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "負数は符号付き表示で、2 の補数ではありません。 -128 は 2 進で -10000000 と表示されます（ 10000000 ではありません）。任意精度整数を扱う言語の多くも同様です。 大きな数で精度を失いません。 JavaScript の Number は 2 53 で頭打ちになりますが、本ツールは BigInt を使うため、64 bit 整数や大きなハッシュ、暗号値も正確にラウンドトリップします。 基数と大文字小文字を混同しないでください。 16 進の文字は大文字でも小文字でも受け付け、出力は大文字。32 進・36 進は慣例で小文字です。 先頭のゼロは落ちます。 0x000F は F になります。固定幅の hex（バイト表現など）が必要なら、後続のコードでパディングしてください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "進数変換ツール",
+  "description": "2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "数値 を貼り付け",
+      "text": "数値 を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

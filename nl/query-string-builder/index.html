@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een query string is gewoon een lijst van key/value-paren aan elkaar gelijmd met ? , = en & , maar er één correct met de hand schrijven is gepriegel: spaties worden %20 (of + , afhankelijk), elke waarde wordt percent-encoded en arrays hebben minstens drie concurrerende conventies. Met deze tool typ je de keys en values die je wilt, tick je \"multi\" voor degene die je herhaald wilt, en produceer je de correct-encoded string klaar om na ? te plakken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een API-URL opstellen met meerdere parameters die spaties, accenten of leestekens bevatten. Een tracking-link bouwen (UTM-tags) zonder typo's in de encoded values. Een deep link of share-URL construeren die door email, chat of social moet round-trippen. De juiste array-notatie voor een API bevestigen — a[]=1 , a=1&a=2 of a=1,2 — door elk te proberen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Array-conventies zijn niet gestandaardiseerd. PHP en Rails gebruiken a[]=1&a[]=2 ; Python's requests defaultet op herhalen a=1&a=2 ; ASP.NET gebruikt vaak komma's. Match wat je API verwacht. + vs %20 . application/x-www-form-urlencoded gebruikt + voor spaties; URI query strings gebruiken strikt %20 . De meeste servers accepteren beide, maar sommige niet — kies degene die je API documenteert. Lege values verschillen van missende keys. ?a= betekent \"a is de lege string\"; a weglaten betekent \"geen waarde gegeven\". Sommige API's behandelen ze verschillend. Reserved-character interplay. = , & , # , ? binnen values worden encoded; letterlijke versies in keys/values zouden de parameter of hele query beëindigen. Volgorde kan ertoe doen. Sommige signed-URL-schema's (S3, Stripe webhooks, OAuth 1.0) vereisen parameters in een specifieke volgorde voor signing. De tool behoudt je rij-volgorde. Lengte-limieten. Browsers en servers kappen query-string-lengte rond 2–8 KB. JSON in een query-parameter proppen is een smell. Zet geen secrets in de query string. Die verschijnen in server-logs, browser-history en Referer-headers. Gebruik de request-body of een Authorization-header in plaats daarvan."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Query String Builder",
+  "description": "Voeg key/value-rijen toe; krijg een correct URL-encoded query-string. Ondersteunt array (a[]=1) en bracket-loze herhaalde keys.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de query-string-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe query-string te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde query-string te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

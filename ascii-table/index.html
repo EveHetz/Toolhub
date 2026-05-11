@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII (American Standard Code for Information Interchange) is the 128-character coding system that maps the digits, letters, punctuation, and a handful of control codes onto the integers 0–127. It's the foundation every modern text encoding (UTF-8, Latin-1, Windows-1252) extends, so knowing the values is occasionally vital — diagnosing a stray byte in a binary file, building a regex for \"any printable\", reading a hex dump, or remembering whether 0x0A or 0x0D is a newline."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reading a hex dump and trying to figure out what those bytes say . Writing a parser and needing the boundary values: 0x20 (space), 0x7E (tilde) — the printable range. Debugging a CSV that broke because something contained 0x09 (Tab) or 0x1F (Unit Separator). Crafting an HTML entity for a tricky character — &#65; = A . Settling an argument about whether \\r is 0x0D (yes — Carriage Return) and \\n is 0x0A (yes — Line Feed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII is 7-bit, not 8-bit. Codes 128–255 are not ASCII — they belong to whatever 8-bit encoding (Latin-1, CP-1252, …) the document declares, or are the lead bytes of a UTF-8 sequence. Newlines differ by platform. Unix/macOS use LF (0x0A) only; legacy Mac Classic used CR (0x0D); Windows uses CRLF . Files that mix them break naïve line counting. Control characters can be invisible saboteurs. A copy/paste from a terminal or PDF can pick up 0x1F , 0x07 (BEL — actually beeps the terminal), or zero-width Unicode characters that aren't ASCII at all. If text \"looks fine\" but compares unequal, dump it to bytes. HTML entities aren't always needed. In modern UTF-8 documents, &#65; and the literal A are equivalent. Only escape characters that have syntactic meaning in HTML: & , < , > , and \" in attributes. NUL ( 0x00 ) terminates strings in C. Don't embed it in C-string buffers without thinking — many APIs will silently truncate at the first NUL."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

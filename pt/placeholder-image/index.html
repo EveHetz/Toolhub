@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enquanto você desenha uma página, frequentemente precisa de uma imagem de tamanho específico antes da imagem real estar pronta — um banner hero, uma thumbnail de card, um avatar, um card OG. Carregar via.placeholder.com ou placehold.co funciona mas adiciona uma requisição externa e uma dependência de terceiro. Esta ferramenta produz um SVG inline autocontido com o tamanho e label que você quer, pronto para colar no seu HTML, no background-image CSS, ou num componente React como data URI. Nada sai do seu navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fazendo wireframe de um layout onde você precisa de placeholders com formato antes dos assets reais ficarem prontos. Montando um Storybook ou export do Figma e precisando de gráficos placeholder por componente. Testando código de carregamento de imagem, thresholds de lazy-loading ou CSS de aspect-ratio. Substituindo um serviço placeholder de terceiros num projeto que precisa funcionar offline ou sob CSP rigoroso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG não é raster. A data URI é uma string SVG; ela escala infinitamente sem blur, mas um designer esperando um PNG pode não esperar isso. Para uma imagem raster, tire um screenshot do preview ou rode o SVG num conversor SVG-to-PNG. Data URIs longos são desconfortáveis em img src . Browsers lidam, mas ferramentas (linters, search-and-replace, diff tools) muitas vezes engasgam com valores de atributo de vários KB. Para mockups grandes, prefira o download do arquivo SVG. O texto do label não é localizado. O auto-label é \"WxH\" com o sinal de multiplicação; se precisar de tradução, digite um label customizado. Cores são apenas hex HTML. Os color pickers produzem #rrggbb . Se precisar de rgba() , edite o markup do SVG diretamente depois de copiar. Width/height são intrínsecos, não de display. Definir CSS para um tamanho diferente vai escalar o SVG — visualmente ok, mas o texto embutido pode parecer esticado se o aspect ratio mudar; usamos preserveAspectRatio=\"none\" para escala previsível. Não publique o placeholder. Fácil de esquecer — substitua pelo asset real antes do go-live."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Imagem Placeholder",
+  "description": "Gere imagens placeholder em SVG inline em qualquer tamanho com texto e cores personalizados. Saída como data URI ou SVG para download.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de imagem que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo imagem."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o imagem gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

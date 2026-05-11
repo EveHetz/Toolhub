@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR (Classless Inter-Domain Routing)-notatie pakt een IPv4-adres en de subnetgrootte in één string: 192.168.1.0/24 betekent \"het adres 192.168.1.0 met een 24-bit netwerk-prefix\" — hetzelfde netwerk als het oudere 255.255.255.0 mask, maar geschreven in 12 tekens in plaats van 30. Deze tool decodeert elke CIDR in de menselijk leesbare waarden: welke adressen in het subnet zitten, het broadcast, het mask in dotted-vorm en het hostbereik dat je daadwerkelijk aan apparaten kunt toewijzen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een VLAN of VPC ontwerpen en uitzoeken hoeveel hosts een /22 vs /23 herbergt (1022 vs 510). Een firewallregel lezen als allow 10.42.0.0/16 en het exacte bereik bevestigen dat die afdekt. Een /24 opsplitsen in kleinere subnets en checken dat de grenzen niet overlappen. Sanity check op een cloud security-group rule voor je deployt. Vertalen tussen CIDR en een legacy 255.x.x.x dotted mask in routerconfigs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Korte CIDR-spiekbrief",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "/32 — 1 adres (een enkele host-route). /30 — 4 adressen, 2 bruikbaar (point-to-point links). /29 — 8 adressen, 6 bruikbaar (klein kantoor-subnet). /24 — 256 adressen, 254 bruikbaar (klassieke Class C / typisch LAN). /16 — 65.536 adressen (typisch site-netwerk of VPC). /8 — 16,7M adressen (hele organisatie). /0 — elk IPv4-adres (de default route)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Bruikbaar\" sluit netwerk en broadcast uit. Een /24 heeft 256 adressen maar maar 254 bruikbaar voor hosts — de eerste (.0) is het netwerk, de laatste (.255) is de broadcast. /31 en /32 zijn speciaal. /31 wordt gebruikt voor point-to-point links volgens RFC 3021 — beide adressen zijn bruikbaar. /32 is een enkele host (gebruikt in routingentries). Het adresdeel hoeft niet het netwerkadres te zijn. 10.5.7.42/24 betekent nog steeds dezelfde /24 als 10.5.7.0/24 — wat telt is de prefixlengte. De tool normaliseert in zijn output naar het netwerkadres. Verwar class niet met CIDR. Klassen A/B/C zijn een legacy-concept (van vóór 1993). Een /24 kan binnen een \"class A\"-bereik vallen en dat is prima. RFC 1918 private ranges: 10.0.0.0/8 , 172.16.0.0/12 , 192.168.0.0/16 . Al het andere is publiek routeerbaar (of gereserveerd). Deze tool is alleen IPv4. IPv6 CIDR is structureel vergelijkbaar maar de prefix kan tot /128 gaan en de adresruimte is veel groter; hier niet ondersteund."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CIDR Subnet-calculator",
+  "description": "Bereken IPv4-subnetten uit CIDR-notatie. Netwerk, broadcast, mask, hostbereik en binaire weergave.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de CIDR-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het CIDR-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de CIDR-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

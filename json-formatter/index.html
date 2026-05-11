@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON travels minified — every byte counts when an API response is being shipped. But minified JSON is unreadable. This tool round-trips through the browser's native JSON.parse / JSON.stringify to produce indented, copy-able output, validate the structure, or strip whitespace back out. Nothing is uploaded; everything happens in the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pasting a minified API response and getting back something a human can scan. Catching syntax errors — trailing commas, unquoted keys, smart quotes — with the exact line/column the parser tripped on. Stripping whitespace before pasting JSON into a context where size matters (URL params, env vars, config files). Confirming your hand-written JSON is valid before piping it into another tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON ≠ JavaScript object literal. Keys must be in double quotes. Single quotes, unquoted keys, and trailing commas all fail. If you've got JS object literals, run them through a converter first. Smart quotes from copy-paste. Word processors and chat apps love to \"helpfully\" replace \" with \" / \" . Those aren't valid JSON delimiters. JSON has no comments. If your \"JSON\" has // or /* */ , it's actually JSONC (used by VS Code config) — strip those before parsing. Numbers larger than 2⁵³. JavaScript can't represent integers above 9007199254740992 exactly. Twitter snowflake IDs and similar should be quoted as strings."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use JSON Formatter",
+  "description": "Format, validate, and minify JSON instantly. Errors highlighted with line and column.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your JSON",
+      "text": "Drop your JSON into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Format",
+      "text": "Press the Format button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

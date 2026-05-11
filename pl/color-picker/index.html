@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wybierz kolor — albo wklej dowolną wartość HEX / rgb() / hsl() — i od razu zobacz go we wszystkich powszechnych notacjach: HEX (3- i 8-cyfrowy z alphą), RGB(A), HSL(A), HSV i CMYK. Przydaje się, gdy masz wartość w jednej przestrzeni i potrzebujesz w innej, gdy dopasowujesz kolor marki między CSS / narzędziami designerskimi / drukiem, albo gdy regulujesz opacity bez ślepego sprawdzania efektu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy której przestrzeni używać",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX / RGB — CSS, narzędzia designerskie, szablony maili. Wszędzie wspierane. HSL — czytelne palety. Tweakuj hue, saturation albo lightness niezależnie, bez dryfowania koloru po innych osiach. HSV — software designerski (Photoshop, Figma) do cieniowania; pasuje do tego, jak myśli o kolorze większość pickerów (\"ten sam kolor, tylko jaśniejszy\"). CMYK — wyjście do druku. Tylko przybliżenie: ekrany są w RGB, a drukarki nie współdzielą jednego profilu kolorów."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kodowanie alphy różni się przestrzenią. CSS wspiera rgba() , hsla() i 8-cyfrowy HEX ( #RRGGBBAA ). Starsze szablony maili i niektóre narzędzia projektowe nie ogarniają #RRGGBBAA — wracaj do rgba() . Hue w HSL jest w stopniach. 0 = czerwony, 120 = zielony, 240 = niebieski. CSS akceptuje też turn , rad , grad , ale tu wyjście jest w stopniach. Konwersja na CMYK jest naiwna. Prawdziwy druk wymaga profilu ICC (sRGB → CMYK z rendering intent). Wyjście tego narzędzia nadaje się do mockupów brand decka, nie do plików gotowych do druku offsetowego. OKLCH i OKLAB (nowoczesne przestrzenie percepcyjnie jednolite) nie są tu pokazane — są nowsze i jeszcze nie wszędzie wspierane. Na razie trzymaj się HSL/HSV w toolingu design systemowym."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Color Picker",
+  "description": "Wybierz kolor i zobacz go od razu w HEX, RGB, RGBA, HSL, HSLA, HSV i CMYK. Reguluj opacity i kopiuj dowolną wartość.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej kolor",
+      "text": "Umieść kolor w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Kopiuj",
+      "text": "Naciśnij przycisk Kopiuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

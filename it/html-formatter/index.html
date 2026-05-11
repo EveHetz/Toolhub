@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'HTML arriva in ogni stato: minificato, generato da template, scritto a mano. Questo strumento riformatta con indentazione coerente, riconosce elementi void ( <img> ) e inline ( <a> ). Minify rimuove spazi e commenti opzionalmente. Tutto nel browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rendere leggibile un view-source minificato. Pulire snippet CMS prima di una review. Minificare HTML statico prima del deploy. Rimuovere commenti d'autore prima della pubblicazione."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tokenizer pragmatico, non parser HTML5. Non ripara input gravemente malformati. Spazi in pre , textarea , script , style preservati. Inline sulla stessa riga del testo genitore. \"Comprimi spazi\" modifica il rendering. Auto-chiudente in HTML è cosmetico. Minify non è una barriera di sicurezza."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formattatore HTML",
+  "description": "Formatta e abbellisce HTML o minifica. Dimensione indentazione, rimozione commenti, consapevolezza tag auto-chiudenti.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il HTML",
+      "text": "Metti il HTML nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Formatta",
+      "text": "Premi il pulsante Formatta per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

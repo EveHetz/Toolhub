@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "QR codes zijn kleine URLs die een telefooncamera in een fractie van een seconde kan lezen. Encode een URL, een Wi-Fi-netwerk, een email-concept, een telefoonnummer of elke korte tekst — print het op een poster, een visitekaartje of een menu, en iedereen met een telefoon kan ernaar handelen zonder te typen. Deze generator draait volledig in je browser via de open-source qrcode -library. Je input-tekst verlaat de pagina nooit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een URL delen op een slide, een poster, een visitekaartje of een verpakkingsinleg. Gasten je Wi-Fi laten joinen zonder het wachtwoord te typen (gebruik de Wi-Fi-preset). \"Scan om te betalen / boeken / bestellen\" op signage in fysieke ruimtes zetten. Een vCard encoderen voor instant contactkaart-import op de telefoon van de ontvanger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Error correction wisselt af tegen density. Hogere levels (Q, H) overleven krassen en overlaid logo's; lagere levels (L, M) houden de code klein en sneller te scannen. Gebruik H als je een logo wil overlay-en, anders is M de verstandige default. Contrast doet ertoe. Gestileerde QR-codes met laag foreground/background-contrast zien er vaak mooi uit maar scannen slecht onder slecht licht. Test door te scannen vanaf de printed/screen output voor shipping. Lange content forceert een dichtere code. Als je een 200-karakter URL moet encoderen, is de resulterende code dicht en moeilijker van ver te scannen. Verkort via een redirect eerst als size telt. SVG vs PNG. SVG schaalt zonder kwaliteitsverlies — best voor print of grote displays. PNG is universeel geaccepteerd maar pixelt als opgeschaald; export op de size die je zult gebruiken. Wi-Fi-preset-formaat. WIFI:T:WPA;S:<SSID>;P:<password>;; — moderne iOS/Android scannen en joinen automatisch; heel oude telefoons ondersteunen het misschien niet."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "QR Code Generator",
+  "description": "Genereer QR codes voor elke tekst, URL, Wi-Fi of vCard. Custom size, kleuren en error correction. Export PNG of SVG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de QR code-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe QR code te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde QR code te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

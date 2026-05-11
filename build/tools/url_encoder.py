@@ -159,4 +159,5 @@ document.addEventListener('DOMContentLoaded', urlRun);
 """,
     },
     "related": ["base64-encoder", "html-encoder", "qr-code-generator"],
+    "howto": {"flow": "transform", "action": "encode",  "noun": "text"},
 }

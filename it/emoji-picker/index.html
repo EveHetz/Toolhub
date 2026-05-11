@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I sistemi operativi hanno selettori di emoji (Win+., Cmd+Ctrl+Spazio), ma sono inconsistenti e talvolta lenti. Questo strumento offre una griglia curata per categoria con ricerca per parola chiave. Clic = copia. I recenti rimangono nello storage locale — nulla viene inviato al server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desktop senza scorciatoia veloce. Ricerca per parola chiave più ampia. Desktop remoto o sistema senza selettore nativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come funziona il rendering",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un emoji è uno o più code point Unicode. L'aspetto dipende dal font di sistema (Apple, Google Noto, Microsoft Segoe). I byte sono identici."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tonalità e professioni sono sequenze con ZWJ. Le bandiere sono indicatori regionali. 🇮🇹 = \"🇮\" + \"🇹\". Curato, non esaustivo. Unicode 15 ha 3664 emoji; qui ~600. Variation Selector (U+FE0F) forza lo stile emoji. L'API clipboard richiede un gesto (il clic basta)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

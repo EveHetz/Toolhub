@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTTP-statuscodes zijn de driecijferige nummers die een server terugstuurt om de client te vertellen hoe het request ging. Ze groeperen in vijf families: 1xx (informational), 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error). De meeste developers kennen de headline-codes — 200, 301, 404, 500 — maar de long tail (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) is waar de echte bugs leven. Deze tool geeft je de volle lijst met betekenis en de RFC waar elk is gedefinieerd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een API-doc lezen die een code teruggeeft die je niet herkent (425? 451?). De juiste code kiezen om vanuit je eigen API terug te geven — 404 vs 410, 401 vs 403, 422 vs 400. Een 502/504 diagnosticeren — is de upstream down of gewoon traag? Beslechten of 200-met-een-error-body of een echte 4xx de juiste move is. De RFC-referentie opzoeken voor een code review of design doc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 betekent unauthenticated, 403 betekent unauthorized. De namen zijn misleidend — 401 zegt \"ik weet niet wie je bent\", 403 zegt \"ik weet wie je bent en je mag het niet hebben\". Gebruik 403 alleen als opnieuw authenticeren niet zou helpen. 302 is method-ambigu. Browsers veranderden historisch POST→GET op een 302-redirect. Gebruik 307 (behoudt method) of 303 (altijd GET) om expliciet te zijn. 404 is geen 410. 404 = \"ik weet het niet\"; 410 = \"ik weet het en hij is voor altijd weg\". Gebruik 410 als zoekmachines de URL moeten droppen. 200 met een error-body is niet \"RESTful\". Als het request op resource-niveau is mislukt, geef een 4xx terug met de error in de body. 418 is een grap. Gebruik I'm-a-teapot niet in productie — clients en proxies behandelen het inconsistent. RFC 9110 supersedet RFC 7231/7232/7233/7234/7235. Als je de spec citeert, gebruik 9110 (juni 2022) tenzij je specifiek een oudere versie nodig hebt."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

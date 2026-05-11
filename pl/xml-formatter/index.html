@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML nadal jest wszędzie — odpowiedzi SOAP, pliki konfiguracyjne, feedy RSS/Atom, markup SVG, wnętrzności OOXML. Gdy musisz przeczytać, zdiffować albo udostępnić kawałek XML-a, różnica między jednoliniową zminifikowaną bryłą a porządnie wciętym drzewem to różnica między zgadywaniem a czytaniem. To narzędzie pretty-printuje dowolny well-formed XML z konfigurowalnym wcięciem albo minifikuje go pod transport, i używa natywnego parsera XML przeglądarki, żeby flagować nieprawidłowości z linią i kolumną tam, gdzie się da."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inspekcja envelope'a SOAP albo configa XML od dostawcy, który przyszedł jako jedna zminifikowana linia. Czyszczenie SVG, żeby path data było jeden element na linię. Wycięcie białych znaków pretty-printu przed wysłaniem XML-a po sieci. Sanity check, że XML, który wygenerowałeś, jest well-formed, zanim wepchasz go do strict parsera. Diff dwóch dokumentów XML — najpierw pretty-print, potem diff drzew obok siebie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Well-formed ≠ valid. \"Well-formed\" znaczy, że składnia parsuje (tagi się zgadzają, atrybuty w cudzysłowach, jeden root). \"Valid\" znaczy zgodność z DTD albo schemą. To narzędzie sprawdza tylko well-formedness — walidacja schematu wymaga pliku schematu. Białe znaki bywają znaczące. W <name> Alice </name> spacje na początku/końcu są częścią wartości (XML domyślnie ma xml:space=\"preserve\" ). Ponowne wcięcie je zmienia. Jeśli twój XML jest wrażliwy na białe znaki (XHTML <pre> , osadzone bloki kodu), pretty-print to złe narzędzie. Self-closing vs jawnie pusty. <br/> i <br></br> są równoważne w XML, ale różnią się w HTML. Formatter normalizuje puste elementy do formy self-closing. CDATA, komentarze i processing instructions są zachowywane. Ich wewnętrzna treść nie jest reformatowana. Namespace'y przeżywają. Deklaracje xmlns:foo i kwalifikowane nazwy foo:bar robią round-trip bez modyfikacji. Kolejność atrybutów może się zmienić. Parser XML nie zachowuje ściśle kolejności atrybutów między narzędziami; jeśli liczysz checksum z XML-a, najpierw kanonikalizuj (XML C14N). Dziwactwa parserów przeglądarek. Różne przeglądarki raportują błędy parsowania w różnych formatach. Wyciąganie linia/kolumna jest best-effort i w niektórych przeglądarkach pokaże tylko komunikat."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatter XML",
+  "description": "Sformatuj i zminifikuj XML. Waliduj poprawność (well-formed) z linią i kolumną przy błędach.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej XML",
+      "text": "Umieść XML w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Formatuj",
+      "text": "Naciśnij przycisk Formatuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein MIME-Typ (offiziell \"Internet media type\") ist ein zweiteiliges Label wie image/png , das angibt, wie Bytes interpretiert werden sollen. Es steht in HTTP- Content-Type -Headern und in Multipart-Teilen. Dieses Tool deckt rund 120 gängige Typen ab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Den korrekten Content-Type für .docx , .heic , .webmanifest setzen. accept -Attribut eines Upload-Feldes oder eine S3-Allowlist konfigurieren. Bei einem Hex-Dump oder tcpdump nachschlagen, was z.B. application/grpc-web ist. Statischen Dateiserver / CDN konfigurieren — Mapping Erweiterung→MIME."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Erweiterung ≠ MIME-Typ. Browser folgen dem Header, nicht der Endung — Header explizit setzen. JavaScript ist chaotisch. RFC 9239 bevorzugt text/javascript . OOXML-Typen sind sehr lang. Nicht auswendig lernen — kopieren. application/octet-stream = \"unbekannt\". Wenn möglich konkreten Typ angeben. Charset zählt. Ohne ; charset=utf-8 rät der Browser — und liegt manchmal falsch. MIME-Sniffing umgeht den Header. Mit X-Content-Type-Options: nosniff deaktivieren."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

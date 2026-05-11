@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De omgekeerde reis: voer een JSON-array in en krijg een CSV terug klaar voor Excel, Google Sheets of elke data-tool die tabellaire formaten prefereert. Headers worden auto-gedetecteerd uit object-keys; geneste waarden worden JSON-gestringified in losse cellen zodat niets stilletjes verdwijnt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een API-response omzetten naar een CSV voor een stakeholder die alleen spreadsheets opent. Een berg records uit een JSON-dump exporteren naar iets dat je kunt pivoteren/filteren in Sheets. Fixture-rows genereren voor database-imports die CSV nemen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Header-inferentie gebruikt de union van alle object-keys. Een row die een key mist wordt een lege cel; de kolom verdwijnt niet. Geneste objects/arrays worden gestringified. Als je een flattened CSV nodig hebt (één kolom per geneste key), pre-flatten je het JSON voor je het invoert. Excel + delimiters. Europese locales defaulten op puntkomma's; switch de delimiter zodat het bestand met kolommen opent in plaats van één grote regel. RFC 4180-escaping wordt sowieso toegepast. UTF-8 BOM. Excel op macOS verprutst non-ASCII soms zonder een BOM. Deze tool zet er GEEN voor — pak de output door een BOM-toevoegende stap als je mojibake ziet."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON naar CSV",
+  "description": "Converteer JSON-arrays van objects naar CSV. Detecteert velden automatisch, ondersteunt custom delimiters, escapet correct voor Excel en Google Sheets.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je JSON",
+      "text": "Zet je JSON in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

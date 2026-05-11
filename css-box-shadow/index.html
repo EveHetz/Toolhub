@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CSS box-shadow property is the workhorse for adding depth — drop shadows on cards, button highlights, focus rings, glows, neon effects, even fake 3D. The syntax ( x y blur spread color , optional inset , multiple shadows comma-separated) is easy to read but tedious to tweak blind. This tool gives you sliders for every value and a live preview, plus presets that match common design-system elevations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Designing card or modal elevation that doesn't look \"cheap and harsh\". Building a focus-ring style for accessibility (e.g. a 2px outline glow). Crafting a neon or glow effect for a hero CTA. Replicating Material Design or Apple-style elevation tokens for a design system. Making fake \"inset\" depth for a pressed-button effect or a card recess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What each value does",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "X / Y offset — direction the shadow falls (positive Y = down). For a \"light from above\" feel, use Y > 0 and small or zero X. Blur — how soft the edge is. 0 = sharp; larger = softer fade. Spread — how much bigger (or smaller, if negative) the shadow is than the box itself. Color & alpha — usually a partial-alpha black or brand color. Pure #000 looks too heavy; try #0003 to #0002 for natural depth. Inset — flips the shadow inward, like a recess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One big shadow looks artificial. Real elevation is two or three layers stacked: a tight, dark, close-in shadow plus a wide, soft, far-out one. The \"Material elevation\" preset shows the pattern. Pure black is too heavy. Use ~10–25% alpha black, or tint the shadow with the surface's complement for warmth. Shadows render outside the box. If your container has overflow: hidden , the shadow is clipped. Use a wrapper or move overflow to a child. Shadow on transparent background. If the box has no background , the shadow shows through the box itself — usually surprising. Performance: very large blur on lots of elements can be expensive on low-end mobile. Test on a real device before shipping fancy glows. Dark mode. Subtle dark-on-dark shadows almost disappear; consider a bright inner border or a light-tinted shadow in dark themes."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use CSS Box Shadow Generator",
+  "description": "Build single or multi-layer CSS box shadows visually. Adjust offset, blur, spread, color, and copy CSS.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the shadow options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Generate",
+      "text": "Press Generate to produce a fresh shadow."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated shadow."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

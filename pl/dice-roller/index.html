@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPG-i papierowe (Dungeons & Dragons, Pathfinder, OSR i niezliczone inne) używają zwartej notacji rzutów: NdS znaczy \"rzuć N kośćmi o S ścianach każda\". 2d6+3 znaczy \"rzuć dwiema sześciościennymi i dodaj 3\". To narzędzie parsuje tę notację i rzuca kośćmi używając kryptograficznego RNG przeglądarki, który jest nieprzewidywalny i nieobciążony — znacznie lepszy niż Math.random() do ważnych rzutów."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Obsługiwana notacja",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 — jedna kostka dwudziestościenna. 2d6+3 — dwie d6, suma, plus modyfikator 3. 3d8-1 — trzy d8, suma, minus 1. 4d6kh3 — cztery d6, k eep h ighest 3 (klasyk D&D 5e do statystyk postaci). 2d20kl1 — dwie d20, zachowaj najniższą (disadvantage). 2d20kh1 — advantage. 1d100 albo 1d% — kostka procentowa. d20 — N domyślnie 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Grasz online, fizyczne kostki są poza zasięgiem albo prowadzisz sesję zdalnie. Potrzebujesz rzutu bez subskrypcji apki do kości. Chcesz rozstrzygnąć \"rzućmy o to\" bez szukania monety (1d2). Prototypujesz prawdopodobieństwo do projektu gry (puść milion rzutów — zmień formułę w kodzie, jeśli chcesz statystyk)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tab przeglądarki to granica zaufania. Rzut dzieje się w twoim tabie, w JavaScripcie — każdy z otwartymi devtoolsami może to podkręcić. Do rozgrywki kompetytywnej z obcymi używaj rzucacza arbitrowanego po stronie serwera. Crypto RNG jest nieprzewidywalny, nie \"bardziej losowy\". Dobry PRNG i crypto RNG dają nierozróżnialne rozkłady dla kostek. Przewaga crypto polega na tym, że nikt nie przewidzi następnej liczby z poprzednich. Modyfikatory aplikują się raz, po keep. 4d6kh3+2 rzuca 4d6, zachowuje top 3, a potem dodaje 2 — nie \"dodaje 2 do każdej kostki\". To nie są exploding dice. Brak eksplozji w stylu ! , brak rerollów ( r1 ), brak liczenia sukcesów ( 3d10>=7 ). Notacja tu to prosty subset \"suma i modyfikuj\", który pokrywa ~95% typowych rzutów. Crity są oznaczane tylko dla d20. 20 podświetla się na zielono, 1 na czerwono. Inne rozmiary nie dostają koloru. Limit 1000 kości na rzut. Rozsądna górna granica, żeby strona nie zamulała."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Rzucacz Kości",
+  "description": "Rzucaj kostkami w standardowej notacji D&D — 2d6+3, 1d20, 4d6 keep highest 3. Kryptograficznie bezpieczny RNG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje rzut, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Rzuć",
+      "text": "Naciśnij Rzuć, aby wygenerować nowy rzut."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany rzut."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

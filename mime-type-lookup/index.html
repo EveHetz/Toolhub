@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A MIME type (now called an Internet media type) is a two-part label like image/png or application/json that tells a server, browser, or library how to interpret a chunk of bytes. It's what goes in HTTP Content-Type headers, what Multipart message parts declare, and what file --mime reports. The IANA registry has thousands of entries; this tool covers roughly 120 you'll actually meet in web work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setting Content-Type on an API response and wanting the right one for .docx , .heic , or .webmanifest . Configuring an upload field's accept attribute or a S3-bucket allow-list. Reading a hex dump or a tcpdump and looking up what application/grpc-web actually is. Building a static-file server or CDN config and needing extension-to-mime mapping. Settling whether to use text/xml or application/xml (use the latter for new code per RFC 7303)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extension does not equal MIME type. .json usually maps to application/json , but a server can serve it as text/plain and browsers will obey the header. Always set the header explicitly. JavaScript is messy. RFC 9239 says text/javascript is the preferred type. application/javascript , application/ecmascript , and others are obsolete but still seen. OOXML types are very long. application/vnd.openxmlformats-officedocument.wordprocessingml.document for .docx . Don't try to remember them — copy them. application/octet-stream means \"I don't know\". If you control the type, use a real one — browsers may force-download octet-stream content even when it's renderable. Charset matters for text types. Content-Type: text/html; charset=utf-8 — without it, browsers guess and sometimes guess wrong (mojibake). Magic-byte sniffing differs from the declared type. Browsers may second-guess Content-Type based on file contents ( X-Content-Type-Options: nosniff disables this — set it for security)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

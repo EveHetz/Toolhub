@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beim Layouten braucht man oft Bilder einer bestimmten Größe, bevor das echte Asset fertig ist. Externe Dienste wie via.placeholder.com funktionieren, fügen aber einen externen Request hinzu. Dieses Tool liefert ein eigenständiges Inline-SVG mit Größe und Label deiner Wahl — als Data-URI oder Download. Nichts verlässt den Browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wireframe-Layouts vor Asset-Lieferung. Storybook-/Figma-Exporte mit Platzhaltern. Lazy-Loading oder Aspect-Ratio-CSS testen. Externen Placeholder-Service in CSP-strikten Projekten ersetzen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG ist kein Raster. Für PNG: Screenshot oder Konverter. Lange Data-URIs sind unhandlich in Tools/Diffs — bei großen Mockups SVG-Download bevorzugen. Auto-Label ist nicht übersetzt. Bei Bedarf eigenen Text eingeben. Farben nur als HTML-Hex. Für rgba() SVG nachträglich bearbeiten. Größe ist intrinsisch. CSS-Skalierung mit preserveAspectRatio=\"none\" . Nicht in Produktion vergessen."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Platzhalter-Bild-Generator",
+  "description": "Inline-SVG-Platzhalterbilder in beliebiger Größe mit eigenem Text und Farben. Als Data-URI oder SVG-Download.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Optionen wählen",
+      "text": "Wähle die gewünschten Bild-Optionen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generieren klicken",
+      "text": "Drücke Generieren, um ein neues Bild zu erzeugen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um das erzeugte Bild zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

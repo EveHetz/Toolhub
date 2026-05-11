@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every YouTube video has a small set of pre-generated thumbnail images at predictable URLs — YouTube uses them itself in search results, embeds, and previews. This tool extracts the 11-character video ID from any YouTube URL form (watch, youtu.be, Shorts, embed, /v/) and lays out every available size with direct download links and copy-URL buttons. Useful when you need an offline preview, a hero image for a blog post, a Discord/Slack rich link, or a fallback poster for a custom video player."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embedding a YouTube video in a blog post and wanting the same thumbnail YouTube shows, hosted locally. Making a clickable \"watch this video\" tile in a Notion / Slack / email where you need a still image. Building a custom video player and needing a poster image before the iframe loads. Saving a thumbnail for offline use as reference, content, or moodboard material. Getting the highest-resolution thumbnail without faffing about with the YouTube Data API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The variants explained",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault (1280×720) — the original full-HD thumbnail. Only exists for videos uploaded in HD; otherwise the URL returns 404 and the preview goes blank. sddefault (640×480) — generated for most videos in the modern era. hqdefault (480×360) — always exists , going back to the earliest YouTube videos. Use this as your fallback. mqdefault (320×180) and default (120×90) — small previews; useful for in-list rendering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault often 404s. Older or lower-resolution uploads don't have it. Build your fallback chain: maxresdefault → sddefault → hqdefault . Black bars on hqdefault. The 480×360 thumbnail is letterboxed for non-4:3 sources — there are bars top and bottom. mqdefault (320×180) has the correct 16:9 aspect for modern uploads. Frames 1/2/3. YouTube also exposes 1.jpg , 2.jpg , 3.jpg at the same path — three auto-extracted frames from the video. Sometimes one of those is what you actually want for a custom poster, and they're not in the default variant list. It's still YouTube's image. Hot-linking is fine; rehosting on your own CDN is fine technically but check the licensing if you're using it commercially. The video creator may have copyright on the visual content of the frame. WebP not supported here. YouTube also serves .webp versions (smaller files), but they're served from a different CDN path and not exposed by this tool. Live streams and Shorts work fine — the URL parser handles all the modern forms — but live-stream thumbnails change while the stream is on air."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "YouTube Thumbnail-Downloader",
+  "description": "Füge eine YouTube-URL oder Video-ID ein und erhalte alle verfügbaren Thumbnail-Größen — direkte Download-Links, kein Upload.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "YouTube URL einfügen",
+      "text": "Füge dein YouTube URL in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

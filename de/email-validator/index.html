@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most \"email validators\" are a one-line regex that approves not@an.email and rejects edge@case.io . This tool runs the structural checks RFC 5321 / 5322 actually require — local part charset, dot rules, label lengths, TLD shape, hard length limits — plus a disposable-domain hint. It tells you whether an address is well-formed ; it doesn't tell you whether the mailbox exists (that needs a server-side MX/SMTP probe)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-flighting a list of email addresses before piping it into a paid validation API or mass-mailer (catches typos for free, saves credits). Building a signup form that rejects obvious garbage at the field level. Auditing a CSV of contacts to find typos before importing. Checking whether an address that \"looks weird\" (international TLD, plus-addressing, sub-addressing) is actually allowed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Syntactically valid ≠ deliverable. does-not-exist@gmail.com passes every structural check. Real verification needs the MX server's response. Use this as a first-line filter, not a confidence signal. Plus addressing is allowed. name+tag@gmail.com is valid and routes to name@gmail.com — don't strip it; it's a feature. Internationalised email (IDN). 用户@例.中国 is technically valid per RFC 6530 but not yet broadly supported by SMTP servers. This tool follows the conservative ASCII rules; loosen if you genuinely need IDN. Disposable-domain detection is hint-only. The list is necessarily incomplete and any flagged domain might still be a real user. Don't reject case differences. Local parts are technically case-sensitive per RFC 5321; in practice every modern provider treats them as case-insensitive. Don't lowercase in storage."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "E-Mail-Validator",
+  "description": "Prüfe, ob eine E-Mail-Adresse syntaktisch korrekt ist (RFC 5322), mit Aufschlüsselung von Local-Part und Domain.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "E-Mail einfügen",
+      "text": "Füge dein E-Mail in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Validieren klicken",
+      "text": "Drücke Validieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cron-expressies zijn krachtig en makkelijk verkeerd te schrijven. 0 0 * * 1-5 lijkt op een weekdag-om-middernacht schedule en is dat ook. */15 0-9 * * * lijkt elke vijftien minuten tijdens kantooruren en is dat ook. 0 0 1 */3 * lijkt op kwartaals... als je je herinnert dat */3 \"elke derde maand\" betekent. Met deze tool kun je een expressie plakken, zien wat-ie echt betekent in gewoon Nederlands, en de volgende 10 fire times previewen zodat je kunt bevestigen voor je deployt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sanity check op een cron-regel in crontab -e voor opslaan. Een Kubernetes CronJob schedule-string vertalen naar \"hoe laat draait dit eigenlijk?\". Een nieuwe schedule ontwerpen — start met Nederlands (\"elke werkdag-ochtend\") en itereer de expressie tot de preview matcht. Een job debuggen die \"niet draaide toen ik dacht\" — plak de schedule, kijk naar de volgende 10 tijden, zie of de realiteit de verrassing is of de expressie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cron-veld referentie",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veld Range Wildcards Minuut 0-59 * · */5 · 0,30 · 0-29 Uur 0-23 idem Day of month 1-31 idem Maand 1-12 idem Day of week 0-6 (0 = zondag, 7 ook = zondag) idem"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month + day-of-week interacteren. Als beide beperkt zijn (bijv. 15 * * * 1 oftewel \"de 15e OF een maandag\"), OR'en de meeste cron-implementaties ze. Deze tool volgt die conventie. */N is niet helemaal \"elke N\". Het is \"elke N startend bij de ondergrens\", dus */15 in minuut = 0,15,30,45 (niet 12,27,42,57). Om later te beginnen, gebruik een lijst: 5,20,35,50 . Step + range combinaties. 0-30/5 = 0,5,10,15,20,25,30. De step werkt alleen binnen de range. Tijdzone is hier browser-lokaal. Echte cron-daemons draaien in servertijd (vaak UTC). Een schedule die in je browser prima lijkt, kan op de server op een andere wandkloktijd vuren. Bevestig de tijdzone voor je plakt. Sommige cron-varianten voegen velden toe. Quartz cron heeft 6 of 7 velden (met seconden en jaar). systemd timers gebruiken een heel ander formaat. Deze tool parset standaard 5-veld crontab."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cron Expression Parser",
+  "description": "Parse cron-expressies en zie de volgende 10 fire times. Standaard 5-veld crontab.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je cron-expressie",
+      "text": "Zet je cron-expressie in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

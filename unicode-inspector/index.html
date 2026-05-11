@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Why won't this string compare equal?\" \"Why is this username refused as already taken when it looks free?\" \"Why does this filename break my shell?\" The answer is almost always: the bytes don't match what your eyes see. Two characters can look identical but be different code points (Latin \"a\" vs Cyrillic \"а\"); whitespace can hide non-breaking spaces, zero-width joiners, or right-to-left overrides; an emoji can be one code point or four. This tool decomposes any text down to its individual Unicode code points, with hex, decimal, UTF-8 byte sequence, category, and a name where known."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diagnosing a \"looks the same but isn't equal\" string bug. Finding invisible characters (zero-width space, BOM, RTL override) hiding inside copy-pasted text. Counting bytes vs code points vs UTF-16 code units before storing in a fixed-width column. Inspecting an emoji to see which ZWJ sequence it uses. Spotting homoglyph attacks in domain names or usernames. Generating exact UTF-8 byte sequences for a hex dump."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Reading the output",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code point — the abstract Unicode value, written U+XXXX . There are 1.1 million of them; the highest in use is U+10FFFF. UTF-8 — how that code point is encoded as bytes in modern files (1–4 bytes each). UTF-16 code units — what JavaScript strings ( s.length ) and Java strings count. A code point above U+FFFF (most emoji) takes two UTF-16 units (a surrogate pair). Category — Unicode's general category abbreviation: L=letter, N=number, P=punctuation, S=symbol, Z=separator, C=control/format/private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Length is ambiguous. \"👨‍👩‍👧\" has 1 grapheme cluster, 5 code points, 11 UTF-16 units, and 18 UTF-8 bytes — all \"lengths\" that something might report. Zero-width joiner sequences vs sequence selectors. Many emoji are ZWJ sequences: family, profession, skin-tone variants. Reordering or stripping a ZWJ changes what's rendered. Normalisation matters. \"café\" can be e+◌́ (NFD) or é (NFC). They look identical but are different bytes; databases and comparison code must normalise to the same form. Right-to-left overrides are dangerous. A filename containing U+202E can flip its display order — making resu&#x202E;txt.exe look like resuexe.txt in a file browser. Used in phishing. The name column is partial. A real Unicode database has names for every code point; the inspector only ships names for control characters and common format/whitespace characters where the name is the most useful diagnostic. Surrogate halves shouldn't appear standalone. If you see U+D800–U+DFFF in the output, the input is a malformed UTF-16 string (lone surrogate). Most APIs will refuse to encode that to UTF-8."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Unicode Inspector",
+  "description": "Paste text → table of every code point. Hex, decimal, UTF-8 bytes, category. Spot invisible characters.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your text",
+      "text": "Drop your text into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

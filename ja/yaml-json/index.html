@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YAML と JSON は同じものを表現できます（ネストしたマップ、リスト、プリミティブ）が、可読性と厳密さのトレードオフが異なります。YAML は人間に優しく（Kubernetes マニフェスト、GitHub Actions、OpenAPI、多くの CI 設定）、JSON は API や機械可読フォーマットの定番です。本コンバーターは双方が表現可能な構造について、損失なく変換します。YAML には js-yaml （YAML 1.2）、JSON にはネイティブ API を使用し、両方向ともブラウザ内で動作します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenAPI / k8s / docker-compose の YAML を、JSON が必要なツールに渡したいとき。 API レスポンス（JSON）を設定ファイル用に YAML に変換したいとき。 あいまいなインデントで親子関係が分かりにくい YAML の実構造を確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「ノルウェー問題」。 YAML 1.1 は NO 、 YES 、 ON 、 OFF をブール値に強制変換しました。YAML 1.2 は変換しませんが、下流の古いパーサが変換することがあります。曖昧な文字列は引用しておくのが安全です。 複数ドキュメント YAML （ --- 区切り） — 最初のドキュメントだけが変換されます。 独自タグ （ !!python/object 、 !Ref など）は厳格な YAML 1.2 を破ります。CloudFormation の YAML や PyYAML の pickle ダンプは失敗するので、先にタグを整理してください。 アンカーとエイリアスは展開されます。 JSON には参照がないため、YAML→JSON 時に *ref はインライン化されます。再変換した YAML は値としては等価ですが、テキストが冗長になります。 数値と文字列。 引用なしの YAML 3.14 は float、 \"3.14\" は string です。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "YAML ↔ JSON コンバーター",
+  "description": "YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "YAML/JSON を貼り付け",
+      "text": "YAML/JSON を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

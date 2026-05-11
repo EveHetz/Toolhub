@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que o Base64 faz de verdade",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 transforma bytes arbitrários em 64 caracteres ASCII (A–Z, a–z, 0–9 mais dois extras). Três bytes de entrada viram quatro caracteres de saída, então o resultado fica cerca de 33% maior que a entrada. É um encoding , não criptografia — qualquer um consegue decodificar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar Base64",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embutir pequenos dados binários dentro de formatos só-texto: data URIs, valores JSON, variáveis de ambiente, strings YAML. Codificar tokens binários (assinaturas, chaves, hashes) para incluir em URLs, headers ou cookies. Anexos de e-mail e SMIME — histórico mas ainda em uso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Standard vs base64url",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard ( RFC 4648 §4 ) usa + , / , = . Funciona bem em e-mail, valores JSON, na maioria dos XML. base64url ( RFC 4648 §5 ) usa - , _ e tipicamente descarta o padding = no final. Usado em JWTs, tokens OAuth e em qualquer lugar onde o valor mora numa URL e + / / / = precisariam de escape extra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não confunda com criptografia. Base64 é reversível por qualquer um. Se o dado é sensível, criptografe primeiro. UTF-8 faz round-trip corretamente aqui — caracteres não-ASCII (é, 你好, 🚀) passam por TextEncoder / TextDecoder , e não direto por btoa / atob . btoa(str) ingênuo em JavaScript quebra com caracteres não-latinos. Padding — Base64 standard sempre termina com 0/1/2 caracteres = dependendo do tamanho da entrada. base64url frequentemente os omite. Decoders que exigem padding rejeitam entrada sem padding; esta ferramenta readiciona o padding no decode se estiver faltando. Whitespace dentro de strings codificadas — o decoder aqui remove espaços e quebras de linha (comuns em copiar/colar), mas algumas bibliotecas não fazem isso, então recodifique se você for jogar o resultado numa delas."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Codificador / Decodificador Base64",
+  "description": "Codifique texto em Base64 ou decodifique Base64 de volta em texto. Seguro em UTF-8 e suporta a variante base64url.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Codificar",
+      "text": "Pressione o botão Codificar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

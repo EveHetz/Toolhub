@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quand vous partagez un lien sur Twitter/X, Facebook, LinkedIn, Discord ou Slack, il devient une carte (titre, description, image) basée sur les meta-tags Open Graph . Chaque plateforme rend différemment. Cet outil affiche votre contenu côte à côte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vérifier image OG / textes avant déploiement. Tester l'image héro sur crop 1,91:1. Vérifier où chaque plateforme tronque titre/description. Rédiger des tags OG manquants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tags minimum",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "og:title , og:description , og:image (URL absolue), og:url , og:type twitter:card=\"summary_large_image\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aperçu statique, pas de fetch en direct. Utiliser les debuggers officiels. URLs d'image absolues. Image accessible publiquement. Ratio 1,91:1 (1200×630) fonctionne partout. Taille <1 MB. Cache — forcer re-scrape via debugger. Troncatures différentes : Twitter ~70, FB ~88, LinkedIn ~100. Discord utilise theme-color pour la bordure gauche."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Aperçu des Balises OG",
+  "description": "Collez des balises meta OG ou remplissez titre/description/image — aperçu des cartes Twitter/X, Facebook, LinkedIn et Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre URL",
+      "text": "Placez votre URL dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

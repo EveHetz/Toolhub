@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een structurele JavaScript-minifier strijkt comments en onnodige whitespace eruit zonder te veranderen wat de code doet. De output is functioneel identiek aan de input — zelfde identifiers, zelfde logica — gewoon korter. Deze tool draait die pass in je browser, inclusief de lastige stukken: hij behoudt string-contents en regex-literals onaangetast en houdt newlines waar ASI (Automatic Semicolon Insertion) anders het gedrag zou veranderen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een snippet snel trimmen voor inclusie in een HTML-bookmarklet of een single-file demo, waar je geen build chain hebt. Sanity check hoeveel \"vet\" in een handgeschreven script zit voor je besluit of een echte optimizer de moeite waard is. Een kleine library inline zetten in een statische site zonder een bundler binnen te slepen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een structurele minify, geen compressor. Hij hernoemt geen variabelen, doet geen dead-code elimination, mangle't geen properties en doet geen tree-shake. Voor productie-builds gebruik terser , esbuild of swc in je pipeline — die snijden er nog 30–60% extra van af bovenop de structurele minify. ASI-vallen. JavaScript voegt semicolons in verrassende plekken in. De minifier behoudt een newline waar weglaten betekenis zou veranderen (bijv. return {} ≠ return {} ). Houd het bij expliciete semicolons in source als je kan — maakt minification voor iedereen veiliger. Source maps worden niet gegenereerd. Als je geminifieerde JS naar productie ship't, genereer source maps met een echte toolchain zodat debuggen werkbaar is. Moderne compressie domineert. Brotli/gzip over de wire doet het meeste van wat minify doet. De grootste winst komt van ongebruikte code verwijderen — dat vereist statische analyse die een structurele minifier niet kan. Minify niet wat je commit. Source gaat netjes erin; minify bij build/deploy."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JavaScript Minifier",
+  "description": "Snelle structurele JavaScript-minify — strip comments, collapseer whitespace, drop blank lines. Zie size voor/na en het besparingspercentage.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je JavaScript",
+      "text": "Zet je JavaScript in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Minify",
+      "text": "Druk op de Minify-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

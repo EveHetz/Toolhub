@@ -283,4 +283,5 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
 """,
     },
     "related": ["base64-encoder", "json-formatter", "hash-generator"],
+    "howto": {"flow": "transform", "action": "decode",  "noun": "JWT"},
 }

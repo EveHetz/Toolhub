@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wenn du einen Link auf Twitter/X, Facebook, LinkedIn, Discord oder Slack teilst, wird er zu einer Karte (Titel, Beschreibung, Bild) auf Basis der Open-Graph -Meta-Tags. Plattformen rendern unterschiedlich. Dieses Tool zeigt nebeneinander, wie dein Content erscheint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OG-Bild/Texte vor Deploy prüfen. Hero-Bild auf 1,91:1-Crop testen. Titel/Beschreibung auf Clip-Längen prüfen. Fehlende OG-Tags entwerfen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mindest-Tags",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "og:title , og:description , og:image (absolute URL), og:url , og:type twitter:card=\"summary_large_image\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Statische Vorschau, kein Live-Fetch. Plattform-Debugger nutzen. Bild-URLs müssen absolut sein. Bild muss öffentlich erreichbar sein. Seitenverhältnis 1,91:1 (1200×630) funktioniert überall. Dateigröße <1 MB. Caching — Re-Scrape via Plattform-Debugger erzwingen. Längenlimits unterschiedlich. Twitter ~70, FB ~88, LinkedIn ~100. Discord nutzt theme-color für linken Rand."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "OG-Tag-Vorschau",
+  "description": "OG-Meta-Tags einfügen oder Titel/Beschreibung/Bild ausfüllen — Vorschau für Twitter/X, Facebook, LinkedIn und Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "URL einfügen",
+      "text": "Füge dein URL in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

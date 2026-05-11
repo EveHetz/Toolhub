@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regular expressions zijn dicht en onverbiddelijk. De manier om er één te schrijven die ook echt werkt is iteratief — patroon, sample-tekst, zie wat matcht, pas aan. Deze tool geeft je die loop in je browser via de native RegExp van de JavaScript-engine, plus capture-group inspectie en een replacement-preview. Patronen en inputs verlaten de pagina nooit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "User input valideren (email-shaped, phone-shaped, postcode-shaped) en precies zien welke inputs passeren en falen. Log lines parsen, velden extraheren, log filters bouwen. Find-and-replace patronen ontwerpen voor je ze over een echte codebase draait. Een regex debuggen die je van Stack Overflow hebt gekopieerd en niet werkt — plak 'm hier, zie wat hij daadwerkelijk matcht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende patronen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\b\\w+@\\w+\\.\\w+\b — email-ish ^\\s*$ — lege/whitespace-only regel (met m -flag) (?<year>\\d{4})-(?<month>\\d{2}) — named capture groups (?:.*) — non-capturing group (?=foo) / (?!foo) — lookahead / negative lookahead"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript ≠ PCRE. Geen \\K , geen recursive patterns, lookbehind pas sinds ES2018. Patronen uit Perl, PHP of Python hebben vaak aanpassing nodig. Zonder g -flag krijg je alleen de eerste match. Voeg g toe voor \"find all\"; combineer met m als anchors per-line moeten matchen. Greedy vs lazy. .* grijpt zoveel mogelijk; .*? zo weinig mogelijk. Het verschil tussen <b>hi</b> and <i>there</i> als één blok matchen of twee. Anchors op line- vs string-grenzen. ^ en $ matchen standaard string-einden; met m -flag matchen ze elke regel. Replacement-specials. $& is de hele match; $1 , $2 , … zijn capture groups; $$ is een letterlijke $ . Dat vergeten is een gangbare bron van \"waarom eet mijn regex mijn dollars\". Parse geen HTML met regex voor iets serieus. De klassieke waarschuwing klopt: nested tags, comments en CDATA hebben een echte parser nodig. Regex is prima voor eenmalig log-scrapen of gecontroleerde inputs."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Regex Tester",
+  "description": "Test JavaScript regular expressions live. Zie matches, capture groups, en pas replacements toe terwijl je typt.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je regex",
+      "text": "Zet je regex in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Valideer",
+      "text": "Druk op de Valideer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -418,4 +418,5 @@ document.addEventListener('DOMContentLoaded', mtRender);
 """,
     },
     "related": ["markdown-to-html", "csv-to-json", "json-to-csv", "ascii-table"],
+    "howto": {"flow": "transform", "action": "format",  "noun": "table"},
 }

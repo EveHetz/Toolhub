@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kody statusu HTTP to trzycyfrowe liczby, które serwer odsyła klientowi, żeby powiedzieć, jak poszło z requestem. Grupują się w pięć rodzin: 1xx (informacyjne), 2xx (sukces), 3xx (przekierowanie), 4xx (błąd klienta), 5xx (błąd serwera). Większość deweloperów zna nagłówkowe kody — 200, 301, 404, 500 — ale w długim ogonie (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) mieszkają prawdziwe bugi. To narzędzie daje pełną listę ze znaczeniami i RFC, w którym każdy jest zdefiniowany."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Czytasz dokumentację API, która zwraca kod, którego nie kojarzysz (425? 451?). Wybierasz odpowiedni kod do zwrotu z własnego API — 404 vs 410, 401 vs 403, 422 vs 400. Diagnozujesz 502/504 — upstream jest down, czy tylko wolny? Rozstrzygasz, czy 200-z-error-body, czy prawdziwe 4xx jest właściwe. Szukasz odwołania do RFC do code review albo dokumentu design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 znaczy nieuwierzytelniony, 403 znaczy bez uprawnień. Nazwy mylą — 401 mówi \"nie wiem, kim jesteś\", 403 mówi \"wiem, kim jesteś, i nie wolno ci\". Używaj 403 tylko wtedy, gdy ponowne uwierzytelnienie nie pomogłoby. 302 jest dwuznaczne co do metody. Przeglądarki historycznie zmieniały POST→GET przy redirekcie 302. Używaj 307 (zachowuje metodę) albo 303 (zawsze GET), żeby być jednoznacznym. 404 to nie 410. 404 = \"nie wiem\"; 410 = \"wiem i to zniknęło na zawsze\". Używaj 410, gdy wyszukiwarki mają porzucić URL. 200 z error body to nie \"RESTowo\". Jeśli request padł na poziomie zasobu, zwracaj 4xx z błędem w body. 418 to żart. Nie używaj I'm-a-teapot na produkcji — klienci i proxy traktują to niespójnie. RFC 9110 zastępuje RFC 7231/7232/7233/7234/7235. Jeśli cytujesz spec, użyj 9110 (czerwiec 2022), chyba że specjalnie potrzebujesz starszej wersji."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

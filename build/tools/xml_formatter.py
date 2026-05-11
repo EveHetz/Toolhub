@@ -426,4 +426,5 @@ document.addEventListener('DOMContentLoaded', xfRun);
 """,
     },
     "related": ["json-formatter", "yaml-json", "html-encoder"],
+    "howto": {"flow": "transform", "action": "format",  "noun": "XML"},
 }

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een URL-slug is het menselijk leesbare laatste segment van een URL — /blog/the-quick-brown-fox in plaats van /blog/post-4827 . Goede slugs zijn lowercase, ge-hyphend, alleen ASCII en kort genoeg om in één oogopslag te lezen, maar ze genereren uit echte titels vol accenten, punctuation en emoji is gepriegel om goed te krijgen. Deze tool translitereert accenten, strijkt rotzooi, voegt samen met je gekozen separator en kapt op een schone grens af zodat de output veilig direct in een route of bestandsnaam te droppen is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "/blog/<slug> -URLs genereren uit artikeltitels — vooral als titels accenten (à, ñ, ø) of punctuation (colons, parentheses, em-dashes) bevatten. Veilige filenames produceren uit user-supplied names — uploads, exports, generated reports. Stabiele identifiers bouwen voor tags, categorieën of anchors ( #getting-started ) uit menselijke labels. In bulk een lijst koppen converteren naar kebab-case voor een static-site build step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe de conversie werkt",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NFD-normaliseert Unicode en strijkt combining diacritics ( café → cafe ). Mapt gebruikelijke Europese ligatures en speciale letters: ß → ss , æ → ae , ø → o , Ł → L , plus een paar currency/math-symbolen ( € → eur , & → and ). Vervangt elke non-alphanumeric run met een enkele spatie. Laat optioneel veelvoorkomende Engelse stop words vallen ( a, an, and, the, of, to, … ). Maakt lowercase (of behoudt case), voegt samen met je separator en kapt af op de limit zonder een loszittende separator achter te laten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non-Latin scripts verdwijnen. Diacritic-strippen handelt à/ñ/ø af, maar het kan Chinees, Japans, Cyrillisch, Arabisch of Hebreeuws niet karakter-voor-karakter romaniseren — die hebben taalspecifieke tabellen nodig (Hanyu Pinyin, ICU transliteration) die hier bewust buiten scope vallen. Zulke karakters verdwijnen na de strip step. Stop-word removal is Engels-only. \"El gato negro\" verliest geen el ; \"Le chat noir\" verliest geen le . Laat de toggle uit voor niet-Engelse titels. Truncation kan betekenis veranderen. \"introduction-to-rust-programming\" gekapt op 20 tekens wordt \"introduction-to-rust\" — prima; gekapt op 16 wordt \"introduction-to\" — duidelijk slechter. Stel de limit met de hand in voor content waar de staart ertoe doet. Slugs zijn niet uniek. Twee verschillende titels kunnen tot dezelfde slug instorten (\"Café\" en \"Cafe\" worden beide → cafe ). Als je slugs als URL-keys gebruikt, voeg een korte ID of suffix toe bij collision. Verander geen geshipte slugs. Zodra een URL live en geïndexeerd is, breekt zijn slug regenereren links en SEO. Als een titel verandert, behoud de oude slug of zet een 301-redirect op."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Slug Generator",
+  "description": "Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je slug",
+      "text": "Zet je slug in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

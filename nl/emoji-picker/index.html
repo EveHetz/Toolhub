@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Besturingssystemen leveren allemaal emoji-pickers (Win+. op Windows, Cmd+Ctrl+Space op macOS, het toetsenbord op telefoons), maar ze zijn inconsistent, soms verborgen en vaak traag. Deze tool geeft je een gecureerd grid van de meest-gebruikte emoji geordend per categorie en doorzoekbaar op keyword. Klik een tegel om de emoji naar je klembord te kopiëren. Recent gekopieerde emoji worden tussen bezoeken onthouden in browser-local storage — niets wordt naar een server gestuurd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je zit op desktop zonder een snelle OS-level emoji-shortcut. Je wil een keyword-search die breder is dan je OS-picker biedt. Je gebruikt een remote desktop of ouder systeem zonder native picker. Je hebt een emoji nodig om te plakken in een tekstveld dat je IME niet accepteert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe rendering werkt",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een emoji is gewoon één of meer Unicode code points. Hoe hij eruit ziet hangt af van de font die je browser/OS kiest: Apple's emoji verschillen van Google's Noto, Microsoft's Segoe UI Emoji en Twitter's Twemoji. De bytes zijn identiek — het plaatje is lokaal. Als een emoji als een vierkant of fallback \"unsupported\" verschijnt, heeft je systeem-font er geen glyph voor; de OS updaten of een font zoals Noto Color Emoji installeren fixt het."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Huidstinten en family/profession-varianten zijn sequences. 👨‍🍳 is \"man\" + ZWJ + \"kook\" — vijf code points. Sommige systemen tonen de componenten apart als ze de sequence niet ondersteunen. Vlaggen zijn regional indicators. 🇬🇧 is \"🇬\" + \"🇧\" — twee regional-indicator letters. Sequences voor territoria (Schotland, Texas) hebben extra tag-tekens nodig en renderen misschien niet op elk systeem. Deze tool is gecureerd, niet uitputtend. Unicode 15 heeft 3.664 emoji inclusief honderden huidstint- en gender-varianten. De picker focust op de ~600 die je waarschijnlijk wil; voor de volle lijst zie Unicode's emoji-data of je OS-picker. Sommige karakters lijken op emoji maar renderen als tekst. De \"variation selector\" (U+FE0F) zegt tegen de renderer \"teken dit als emoji\". Zonder dat rendert ☂ misschien als gewone tekst in plaats van 🌂. De tool voegt de selectors toe waar nodig. Clipboard-ondersteuning varieert. Sommige browsers' clipboard-API vereist een user gesture (de klik doet dat), maar een permission denial faalt stil. Als kopiëren niet werkt, gebruik dan de toetsenbord-shortcut om vanuit de adresbalk te kopiëren."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

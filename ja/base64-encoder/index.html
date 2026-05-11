@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Base64 が実際にやっていること",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 は任意のバイト列を 64 個の ASCII 文字（A–Z、a–z、0–9 と 2 文字の追加文字）に変換します。入力 3 バイトが出力 4 文字になるため、結果は入力よりおよそ 33% 大きくなります。これは エンコーディング であり、暗号化ではありません。誰でもデコード可能です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Base64 を使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "テキスト形式の中に小さなバイナリデータを埋め込みたいとき：data URI、JSON 値、環境変数、YAML 文字列など。 バイナリトークン（署名、鍵、ハッシュ）を URL、ヘッダー、Cookie に含めたいとき。 メール添付や SMIME — 古いですが今も使われています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Standard と base64url",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard （ RFC 4648 §4 ）は + 、 / 、 = を使います。メール、JSON 値、ほとんどの XML で問題ありません。 base64url （ RFC 4648 §5 ）は - 、 _ を使い、通常は末尾の = パディングを省略します。JWT、OAuth トークン、URL に値が入る場面で + / / / = の追加エスケープを避けたいときに使われます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "暗号化と混同しないこと。 Base64 は誰でも復元できます。機密データならまず暗号化してください。 UTF-8 はここで正しくラウンドトリップします — 非 ASCII 文字（é、你好、🚀）は TextEncoder / TextDecoder を経由し、 btoa / atob を直接使うわけではありません。JavaScript で素朴に btoa(str) を呼ぶと非ラテン文字で壊れます。 パディング — 標準 Base64 は入力長に応じて 0/1/2 個の = で終わります。base64url では省略されることが多いです。パディングを必須とするデコーダーは省略形を拒否しますが、このツールはデコード時に不足分を補います。 エンコード文字列内の空白 — このデコーダーはスペースや改行を取り除きます（コピペ時によく混入します）。一部のライブラリはこれを行わないため、そのようなライブラリに渡す場合は再エンコードしてください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Base64 エンコーダー / デコーダー",
+  "description": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "テキスト を貼り付け",
+      "text": "テキスト を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "エンコード をクリック",
+      "text": "エンコード ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

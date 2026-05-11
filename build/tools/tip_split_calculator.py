@@ -293,4 +293,5 @@ document.addEventListener('DOMContentLoaded', tsRun);
 """,
     },
     "related": ["percentage-calculator", "bmi-calculator", "unit-converter"],
+    "howto": {"flow": "calculate", "action": "format",  "noun": "bill"},
 }

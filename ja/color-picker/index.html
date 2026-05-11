@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "色を選ぶ、または HEX / rgb() / hsl() の値を貼り付けるだけで、よく使われるすべての記法で即座に確認できます。HEX（3 桁、アルファ付き 8 桁）、RGB(A)、HSL(A)、HSV、CMYK に対応。ある色空間で値を持っているのに別の空間が必要なとき、CSS / デザインツール / 印刷でブランドカラーを揃えたいとき、不透明度を変えながら結果を確認したいときに便利です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "各色空間の使いどころ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX / RGB — CSS、デザインツール、メールテンプレート。どこでもサポートされています。 HSL — 読みやすいパレット作り。色相・彩度・明度を独立に調整しても、他の軸での色のズレが起きにくい。 HSV — Photoshop や Figma などのデザインソフトで陰影付け。「この色をもう少し明るく」という多くのカラーピッカーの考え方と一致します。 CMYK — 印刷向けの出力。あくまで近似値です。画面は RGB であり、プリンタごとにカラープロファイルも異なります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "アルファのエンコードは色空間ごとに異なります。 CSS は rgba() 、 hsla() 、8 桁 HEX（ #RRGGBBAA ）に対応します。古いメールテンプレートや一部のデザインツールは #RRGGBBAA を解釈できないため、その場合は rgba() を使ってください。 HSL の色相は度数です。 0 = 赤、120 = 緑、240 = 青。CSS では turn 、 rad 、 grad も使えますが、ここでの出力は度数です。 CMYK 変換は素朴な近似です。 実際の印刷では ICC プロファイル（sRGB → CMYK、レンダリングインテント付き）が必要です。本ツールの出力はブランドデックのモックには十分ですが、印刷入稿用ファイルには適しません。 OKLCH と OKLAB （モダンで知覚的に均一な色空間）はここには表示しません。新しく、まだ広くはサポートされていません。デザインシステムのツールでは当面 HSL/HSV を中心に使うのが無難です。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "カラーピッカー",
+  "description": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "色 を貼り付け",
+      "text": "色 を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "コピー をクリック",
+      "text": "コピー ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

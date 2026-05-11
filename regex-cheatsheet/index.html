@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A printable, searchable summary of the bits of regex syntax you keep half-remembering. The tables here cover the major categories — anchors, character classes, quantifiers, groups, lookarounds, flags — plus a starter set of common patterns. Click any pattern to copy it; type in the filter to narrow down. Pair this with the Regex Tester to actually try the patterns against text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You need (?<=foo) and can't remember whether ? goes before or after the < . You're explaining regex to someone and need a stable reference page rather than rummaging through Stack Overflow tabs. You want a starter pattern (UUID, email, ISO date) you can copy and tweak rather than write from scratch. You need to know which flag does what — particularly s (dotall) vs m (multi-line), which people routinely mix up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flavour matters. Most of this is JavaScript / modern PCRE, but features differ. Lookbehind only landed in JavaScript with ES2018; x (extended) is PCRE/Python and not in JS; possessive quantifiers ++ are PCRE-only. m ≠ \"multi-line matching\". m changes what ^ and $ mean (per-line instead of per-string). To match across line breaks with . , you want s (dotall). Greedy matches eat too much. <.*> against <a>b</a> matches the whole thing, not just <a> . Use <.*?> for the lazy version, or better yet a more specific class like <[^>]+> . Regex isn't an HTML or JSON parser. The \"common patterns\" here are good for one-off scraping or validation hints, not for treating structured input as a string. Email regexes are always wrong. The example here is a rough shape-check; for production validation, send a confirmation email instead. Don't trust copy-pasted \"perfect\" regexes. Test them against your real data with the Regex Tester before deploying."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

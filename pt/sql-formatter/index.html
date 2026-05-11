@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL vai do one-liner que você digitou no psql até a query analítica de 200 linhas que ninguém consegue ler até estar indentada direito. Este formatador pega qualquer SELECT, INSERT, UPDATE ou DDL e reescreve com indentação consistente, quebras de linha antes de cada cláusula e case uniforme das keywords. O modo minify faz o oposto — espreme tudo numa linha só para embutir em código ou scripts. Tudo roda no navegador; queries nunca saem da página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reformatar uma query que você copiou de um log, ORM ou mensagem de chat para algo revisável e diff-ável. Normalizar convenções da equipe (keywords em UPPERCASE, indent de 2 espaços) antes de commitar um script de migration. Comprimir uma query longa pretty-printed numa linha só para caber em um config YAML ou argumento de CLI. Detectar problemas estruturais — parênteses desbalanceados, vírgula faltando na lista do SELECT ou um JOIN sem ON — que ficam óbvios quando a query está indentada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O formatador é estrutural, não semântico. Ele não vai te dizer se a query é SQL correto, só como indentar os tokens que vê. Um erro de sintaxe na entrada vira erro de sintaxe na saída. Keywords específicas de dialeto variam. ILIKE , RETURNING , LATERAL são Postgres; STRAIGHT_JOIN , SQL_CALC_FOUND_ROWS são MySQL. Escolha o dialeto certo ou essas palavras não serão reconhecidas como keywords. String literals são preservados literalmente. Uma string multi-linha entre aspas simples mantém suas quebras; o formatador não reflua texto dentro de '...' . Comentários sobrevivem mas ficam isolados em linhas próprias. Se você tinha um -- comentário inline no meio da linha, ele vai para a própria linha durante o pretty-print. Minify remove comentários. Se você precisa deles, não minifique. Não é um linter. Use um parser SQL de verdade (ex.: sqlfluff ) para validação, enforcement de estilo e checagem de dialeto no CI."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatador SQL",
+  "description": "Formate e embeleze SQL com indentação correta, ou minifique para uma linha. Reconhece dialetos (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu SQL",
+      "text": "Coloque seu SQL no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

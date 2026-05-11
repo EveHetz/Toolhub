@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A data URI embeds the bytes of a file directly into a URL using Base64 — no separate request, no external file. This converter reads any image you drop on it and produces a data:image/...;base64,... string ready to paste into HTML, CSS, Markdown, or JSON. The file never leaves your browser; conversion happens via FileReader.readAsDataURL ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tiny icons (< 4 KB) inline in CSS — saves an HTTP request and avoids a flash on first paint. Self-contained HTML emails, single-file demos, or offline-capable PWAs. Quick pastes into Markdown notes, Notion pages, or chat threads that need to travel with the image. Test fixtures and snapshot files where you want the asset committed alongside the test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Size penalty. Base64 inflates payload by ~33%. Above ~4–8 KB the embedding cost outweighs the saved request, especially since data URIs cannot be cached separately by the browser. No de-duplication across pages. Each page that embeds the URI ships the bytes again. For anything reused, keep it as a real URL so the browser caches it once. Email clients vary. Most modern clients render data URIs, but Outlook on Windows historically blocks them in <img src> . CID attachments are still safer for mass email. SVG ≠ raster. For SVG, embedding the markup directly (or url-encoding the SVG) is usually smaller than Base64."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Image vers Base64",
+  "description": "Convertissez n'importe quelle image en data URI Base64 pour HTML, CSS ou Markdown. Le fichier ne quitte pas votre navigateur.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre image",
+      "text": "Placez votre image dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Encoder",
+      "text": "Appuyez sur le bouton Encoder pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

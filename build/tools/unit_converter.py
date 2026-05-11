@@ -349,4 +349,5 @@ document.addEventListener('DOMContentLoaded', () => { ucCatChanged(); ucRun(); }
 """,
     },
     "related": ["timestamp-converter", "timezone-converter", "percentage-calculator"],
+    "howto": {"flow": "calculate", "action": "convert", "noun": "unit"},
 }

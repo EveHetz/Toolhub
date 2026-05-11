@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "大半の「メール検証ツール」は not@an.email を通し、 edge@case.io を弾く 1 行の正規表現にすぎません。本ツールは RFC 5321 / 5322 が実際に求める構造的チェック（ローカル部の文字種、ドット規則、ラベル長、TLD の形、絶対長制限）に加え、使い捨てドメインの検出も行います。アドレスが 整形式 かどうかは判定できますが、メールボックスが実在するかは別問題で、それにはサーバー側の MX/SMTP プローブが必要です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有料の検証 API やメール一斉送信サービスに送る前に、リストを事前チェックしたい（タイポを無料で捕まえてクレジット節約）。 サインアップフォームで明らかなゴミ入力をフィールド単位で弾きたい。 連絡先 CSV をインポート前に監査して、タイポを発見したい。 「変に見える」アドレス（国際 TLD、プラスアドレッシング、サブアドレッシング）が本当に有効なのかを確かめたい。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "構文的に有効 ≠ 配信可能。 does-not-exist@gmail.com は構造チェックを全部通ります。本物の検証には MX サーバーの応答が必要です。本ツールはあくまで一次フィルターとして使い、配信可否の根拠にはしないでください。 プラスアドレッシングは有効です。 name+tag@gmail.com は有効で、 name@gmail.com にルーティングされます。剥がさないでください。これは仕様の機能です。 国際化メール（IDN）。 用户@例.中国 は RFC 6530 上は有効ですが、SMTP サーバーの対応はまだ広くありません。本ツールは保守的な ASCII ルールに従います。本当に IDN が必要な場合は緩めてください。 使い捨てドメイン検出はあくまでヒントです。 リストは性質上不完全ですし、フラグが立ったドメインでも実在ユーザーである可能性があります。 大文字小文字の差で弾かないでください。 RFC 5321 上はローカル部は case-sensitive ですが、実際のプロバイダはすべて case-insensitive に扱います。保存時に小文字化はしないでください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "メールアドレス検証ツール",
+  "description": "メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "メール を貼り付け",
+      "text": "メール を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "検証 をクリック",
+      "text": "検証 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

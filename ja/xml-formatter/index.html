@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML はいまだに至るところで使われています。SOAP レスポンス、設定ファイル、RSS/Atom フィード、SVG、OOXML の中身など。XML を読み、差分を取り、共有する場面では、1 行に圧縮された塊と整形済みのツリーの差は「読める」と「推測する」の違いに直結します。本ツールは well-formed な XML を任意のインデントで整形、または転送用にミニファイし、ブラウザの XML パーサで構文を検証して、可能な場合は行と列でエラー位置を表示します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 行で送られてきた SOAP エンベロープやベンダー XML 設定の中身を確認したいとき。 SVG を整形して、path データを 1 要素 1 行で読めるようにしたいとき。 転送前に整形用の空白を除去したいとき。 厳密パーサに渡す前に、自分が生成した XML が well-formed か確認したいとき。 2 つの XML を整形してから並べて diff を取りたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "well-formed ≠ valid。 「well-formed」は構文（タグの対応、属性のクォート、ルートが 1 つ）が成立すること。「valid」は DTD やスキーマに従うこと。本ツールは well-formed のみ検証します。スキーマ検証にはスキーマファイルが必要です。 空白は意味を持つことがあります。 <name> Alice </name> の前後の空白は値の一部です（XML はデフォルト xml:space=\"preserve\" ）。再インデントで変わります。XHTML の <pre> や埋め込みコードのように空白が重要な XML では pretty-print は不向きです。 self-closing と明示的に空のタグ。 XML では <br/> と <br></br> は等価ですが、HTML では異なります。本フォーマッターは空要素を self-closing 形式へ正規化します。 CDATA、コメント、processing instruction は保持されます。 内部内容は再整形しません。 名前空間は維持されます。 xmlns:foo 宣言や foo:bar の修飾名はそのままラウンドトリップします。 属性順は変わることがあります。 XML パーサはツール間で属性順を厳密には維持しません。チェックサムを取るなら先に正規化（XML C14N）してください。 ブラウザのパーサ差異。 ブラウザによってエラー報告のフォーマットが異なります。行・列の抽出はベストエフォートで、ブラウザによってはメッセージのみ表示されます。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML フォーマッター",
+  "description": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "XML を貼り付け",
+      "text": "XML を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "整形 をクリック",
+      "text": "整形 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

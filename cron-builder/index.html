@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cron syntax is famously dense — five fields, each accepting wildcards, ranges, lists, and steps. Writing one from scratch every time invites typos. This builder lets you start from a preset (every-5-minutes, weekdays-at-09:00, etc.) or type into individual fields, see the resulting cron string, get a plain-English summary, and confirm against the next five real fire times in your local timezone. The complement to this is the Cron Expression Parser , which decodes an existing expression into the same preview."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Setting up a new crontab entry, Kubernetes CronJob , GitHub Actions schedule, or AWS EventBridge rule. Translating a \"run every weekday morning\" requirement into a syntactically correct cron line. Sanity-checking that an expression you've drafted will actually run when you think it will, before deploying. Onboarding someone new to cron — let the dropdowns and the preview teach the syntax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Field syntax cheat sheet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* — every value in the field's range. */N — every Nth (starting at the lower bound). A-B — range, inclusive. A,B,C — list of specific values. A-B/N — every Nth within range A–B."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month + day-of-week interact. Most cron implementations OR them when both are restricted: * * 15 * 1 fires on the 15th OR a Monday, not \"the 15th if it's a Monday\". Timezone is your browser's local zone here. Real cron daemons run in the server's timezone (often UTC). Confirm before pasting into a server. */N isn't quite \"every N\". */15 in minutes = 0,15,30,45 — not 12,27,42,57. Use a list if you need a specific phase. Step + range combos. 0-30/5 covers 0,5,10,15,20,25,30 only. Some cron flavours add fields. Quartz cron has 6 or 7 fields (with seconds and year). systemd timers use a totally different format. This builder targets the standard 5-field crontab. Friday-the-13th is hard to express in cron. Cron's day-of-month and day-of-week interact via OR, so combining them strictly requires a wrapper script."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Cron Expression Builder",
+  "description": "Visually build a cron expression — minute, hour, day, month, weekday — and preview the next 5 fire times.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the cron expression options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Generate",
+      "text": "Press Generate to produce a fresh cron expression."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated cron expression."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML-Markup kommt in allen möglichen Zuständen — minimiert, von Template-Engines erzeugt, von Hand inkonsistent eingerückt. Dieses Tool formatiert mit Einrückung pro Element und erkennt Void- ( <img> , <br> ) und Inline-Elemente. Minify-Modus entfernt Whitespace und optional Kommentare. Alles im Browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minimiertes HTML eines View-Source lesbar machen. CMS-Snippet vor Code-Review aufräumen. Statisches HTML vor Deploy minifizieren. Autor-Kommentare vor Veröffentlichung entfernen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pragmatischer Tokenizer, kein HTML5-Parser. Schwer fehlerhafte Eingaben werden nicht repariert. Whitespace in pre , textarea , script , style bleibt erhalten. Inline-Elemente auf derselben Zeile wie Eltern-Text. \"Whitespace kollabieren\" verändert sichtbare Ausgabe. Self-Closing in HTML ist kosmetisch. Minify ist keine Security-Grenze."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "HTML-Formatierer",
+  "description": "HTML formatieren und einrücken oder minimieren. Einrückgröße, Kommentar-Strippen und Self-Closing-Bewusstsein.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "HTML einfügen",
+      "text": "Füge dein HTML in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Formatieren klicken",
+      "text": "Drücke Formatieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

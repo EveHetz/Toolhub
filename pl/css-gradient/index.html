@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gradienty CSS to jedna linia CSS, która rysuje płynne przejścia kolorów dla teł, przycisków, hero panelów i overlayów — bez żadnego pliku obrazu. Składnia jest potężna, ale upierdliwa do pisania ręcznie: kąty, color stopy w procentach, warianty repeating, mieszanie linear z radial. To narzędzie daje wizualny builder, który odzwierciedla CSS w czasie rzeczywistym, więc możesz przeciągnąć stop na miejsce i skopiować dokładny string linear-gradient(...) albo radial-gradient(...) ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tło sekcji hero albo CTA bez wypalania w obrazek. Stany hover na przyciskach albo kartach, które wyglądają \"nowocześnie\" bez assetu graficznego. Mockowanie overlaya w kolorach marki (gradient + półprzezroczysty solid dla czytelności tekstu). Ozdobne dividery, tła w stylu mesh albo animowane wypełnienia SVG."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Linear vs radial",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Linear — kolory przechodzą wzdłuż prostej linii pod wybranym kątem (0° = z dołu do góry, 90° = z lewej do prawej, 180° = z góry do dołu). Radial — kolory rozchodzą się z punktu centralnego na zewnątrz w kształcie koła albo elipsy. Świetne do efektów spotlight albo winiety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Używaj jako background , nie background-color . Gradienty są obrazami, nie kolorami. background-color jest ignorowane. Stopy muszą być w kolejności dla przewidywalnego renderowania. Narzędzie sortuje je automatycznie — jeśli kopiujesz CSS i edytujesz ręcznie, trzymaj procenty monotoniczne. Hard stops (dwa stopy w tym samym procencie) tworzą ostrą granicę zamiast przejścia — przydatne do efektów paskowych albo bandowych. Banding na dużych powierzchniach. Długie, niskokontrastowe gradienty mogą pokazywać widoczne \"pasy\" na 8-bitowych ekranach. Dodaj subtelny overlay SVG noise ( filter: url(#noise) ) albo lekko przesuń stopy. Wydajność. Przeglądarki malują gradienty szybko, ale animowanie background-image wywołuje paint co klatkę — animuj transform na warstwie nad, zamiast tego. Dostępność. Jeśli tekst leży na gradiencie, sprawdź współczynnik kontrastu w najgorszym punkcie gradientu, gdzie tekst się pojawia, nie średnią."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator Gradientów CSS",
+  "description": "Buduj liniowe i radialne gradienty CSS wizualnie. Edytuj color stopy, kopiuj CSS gotowy do wklejenia.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje gradient, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij Generuj, aby wygenerować nowy gradient."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany gradient."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

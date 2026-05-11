@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elke taal en elk platform heeft eigen conventies voor het benoemen van dingen — JavaScript wil camelCase , Python wil snake_case , CSS wil kebab-case , environment variables willen CONSTANT_CASE . Daartussen vertalen met de hand is gepriegel, vooral bij edge cases (acroniemen, getallen, bestaande separators). Deze tool splitst elke input in woorden door case-overgangen, separators ( _ - . / ) en whitespace te detecteren, en plakt ze daarna in 14 verschillende stijlen terug aan elkaar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een veld hernoemen van API-JSON (camelCase) naar een Python ORM-kolom (snake_case). CSS-classnames genereren uit design-system tokennamen die in PascalCase binnenkomen. Een lijst koppen converteren naar kebab-case slugs, of environment variable-namen naar CONSTANT_CASE. Snel \"The Quick Brown Fox\" omzetten naar Title Case, Sentence case of Train-Case voor een kop / button-label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acroniemen zijn lastig. Moet \"XMLHttpRequest\" worden tot \"XML_Http_Request\" of \"Xml_Http_Request\"? Deze tool behandelt opeenvolgende hoofdletters als één woordgrens ( xml http request ) en re-cased dan — wat overeenkomt met Java/JS-conventies maar niet met alle stijlgidsen. Getallen plakken aan het vorige woord. \"Item2\" wordt één woord \"item2\", geen twee. Voeg een separator toe als je ze gesplitst wilt. \"camelCase eerste letter\" is altijd kleine letter, ook als de input met een hoofdletter begon. PascalCase behoudt de hoofdletter. Round-trippen is niet altijd lossless. camelCase → kebab-case → camelCase verliest de oorspronkelijke hoofdletterhint bij woordgrenzen; de case-detectie heuristiek doet zijn best maar kan niet terughalen wat niet bewaard is."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Case Converter",
+  "description": "Converteer tekst tussen UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE en dot.case.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

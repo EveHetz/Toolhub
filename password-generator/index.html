@@ -72,6 +72,79 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A good password is one an attacker can't guess and you don't have to remember (because it's stored in your password manager). This generator produces strong random passwords or memorable passphrases entirely in your browser, using crypto.getRandomValues — the same cryptographically secure random source TLS uses. Nothing is transmitted; the password never leaves your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creating a unique password for any new account that goes into a password manager. Generating a master password or a recovery passphrase you'll commit to memory — passphrase mode is easier to type and remember. Producing a non-human secret for a CI variable, API token, or Wi-Fi network. Bulk-generating passwords for a fresh user batch (set count up to 50)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Random characters vs passphrases",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Random characters — most entropy per length. 20 mixed characters ≈ 130 bits. Right for things you paste, not type. Passphrases — easier to type and remember. Four words ≈ 40 bits, six words ≈ 60 bits. Right for master passwords, device unlock, and anything you'll enter manually often. \"Exclude ambiguous\" drops 0/O/1/l/I for safer reading from screens or hand-written notes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much entropy do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "≥ 60 bits — fine for low-value accounts ≥ 80 bits — good for most accounts ≥ 100 bits — high-value (financial, master password, root credential)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't reuse passwords. The single biggest security upgrade you can make is one unique password per site, stored in a manager. Generator strength is wasted if the same password lives on five sites. Don't write generated passwords down without protection. Use a password manager (1Password, Bitwarden, KeePass) — not a Notes app, not a text file, not an email draft. Long > complex. A 24-character password using only lowercase letters has more entropy than a 10-character one with every symbol class. Length wins. Site-specific rules can break copy-paste. Some sites ban specific symbols or cap length at 16. Annoying but real — generate, then trim/swap to fit if needed (and then store the actual stored password in your manager)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Password Generator",
+  "description": "Strong random passwords or memorable passphrases. Generated locally — never sent anywhere.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the password options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Generate",
+      "text": "Press Generate to produce a fresh password."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated password."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

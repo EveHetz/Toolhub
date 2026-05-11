@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Designers e desenvolvedores front-end ficam o tempo todo movendo cores entre formatos — o Figma te dá hex, a spec de design tokens quer OKLCH, seu CSS usa HSL, e a imagem que você capturou está em RGB. Esta ferramenta mantém todas as notações sincronizadas: edite uma, as outras atualizam ao vivo. Inclui o formato moderno oklch() adicionado no CSS Color Module 4 (e suportado em todos os navegadores principais desde 2023), que produz cores perceptualmente uniformes muito mais fáceis de raciocinar do que HSL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traduzir um código hex de marca para rgb() com alpha para um overlay CSS. Converter entre HSL e OKLCH ao migrar um design system para cor perceptual. Ler um rgb(52, 152, 219) colado de uma ferramenta de captura de tela de volta para um hex no seu stylesheet. Conferir um valor de chroma OKLCH (qualquer coisa acima de ~0,4 provavelmente está fora do gamut sRGB)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Referência rápida dos formatos",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex — #RRGGBB (ou shorthand de 3 dígitos #RGB ). Universal, sem alpha a menos que use 8 dígitos ( #RRGGBBAA ). RGB — rgb(0–255, 0–255, 0–255) . Os valores reais de canal sRGB que sua tela recebe. HSL — hue/matiz (0–360°), saturação (0–100%), lightness/luminosidade (0–100%). Fácil para raciocinar sobre famílias de cor, mas a lightness não é perceptual: verde com HSL 50% parece mais brilhante que azul com HSL 50%. OKLCH — lightness perceptual (0–1), chroma (0–~0,4 em sRGB), hue (0–360°). Duas cores com o mesmo L parecem igualmente brilhantes; ideal para design systems e acessibilidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A lightness do OKLCH usa 0–1, não 0–100. O CSS aceita ambos ( 0.65 ou 65% ); esta ferramenta aceita as duas formas. Alguns valores OKLCH ficam fora do sRGB (ex.: chroma alto para azul). A ferramenta faz clamp para sRGB exibível na conversão — o resultado é aproximado, não exato. HSL não é o mesmo que HSV. O \"value\" do HSV é o canal mais brilhante; a \"lightness\" do HSL é o ponto médio entre o mais brilhante e o mais escuro. Eles dão números diferentes para a mesma cor. Round-trip nem sempre é sem perdas. hex → hsl → hex pode mudar um único inteiro por causa do arredondamento. Para reprodução exata, armazene hex. Hex e RGB são sRGB por padrão, não Display P3 nem Rec. 2020. Se sua ferramenta de design está num perfil de gamut amplo, o mesmo hex aparece diferente."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Conversor de Cores",
+  "description": "Converta qualquer cor entre hex, RGB, HSL e OKLCH. Preview ao vivo, copie com um clique.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu cor",
+      "text": "Coloque seu cor no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

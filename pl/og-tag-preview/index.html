@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gdy wrzucasz link na Twittera/X, Facebooka, LinkedIna, Discorda, Slacka albo dowolny nowoczesny czat lub social, link jest rozwijany w \"card\" — title, description i image — na podstawie meta tagów Open Graph w head-zie strony. Różne platformy renderują te cardy inaczej i ucinają tekst w różnych miejscach. To narzędzie pokazuje obok siebie podglądy, jak ten sam content wyświetli się w każdej, bez konieczności faktycznego udostępniania URL-a na każdej platformie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zmieniłeś OG image albo copy i chcesz potwierdzić, że dobrze wygląda przed deployem. Wybierasz hero image i chcesz zobaczyć, czy punkt centralny przeżyje crop 1.91:1. Piszesz tytuł/opis i chcesz wiedzieć, gdzie każda platforma to utnie. Odziedziczyłeś stronę bez tagów OG i chcesz je naszkicować, podglądając wyrenderowany card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Minimalne tagi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<meta property=\"og:title\" content=\"…\"> <meta property=\"og:description\" content=\"…\"> <meta property=\"og:image\" content=\"https://…\"> (URL absolutny, ideał 1200×630) <meta property=\"og:url\" content=\"https://…\"> <meta property=\"og:type\" content=\"website\"> <meta name=\"twitter:card\" content=\"summary_large_image\"> (dla stylu big-image w X/Twitterze)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To statyczny podgląd, nie żywy fetcher. Prawdziwe platformy scrape'ują twoją stronę z ich serwerów; jeśli twoja faktyczna witryna ma inny obrazek, to narzędzie tego nie złapie. Do autorytatywnego sprawdzenia używaj debuggerów platform (Twitterowy card validator , Facebook Sharing Debugger, LinkedIn Post Inspector). URL-e obrazków muszą być absolutne. /og.png nie zadziała — scrape'ery nie znają twojego origina. Obrazek musi być publicznie osiągalny. Ściany uwierzytelnienia, CDN-y wymagające referera, ochrona przed hot-linkiem zostawią cię z popsutym cardem. Aspect ratio ma znaczenie. 1.91:1 (kanonicznie 1200×630) renderuje się dobrze na każdej platformie. Kwadrat albo portret dostają brzydki crop. Rozmiar pliku ma znaczenie. Niektóre scrape'ery odrzucają obrazki powyżej 8 MB; celuj w <1 MB, żeby first-load był szybki. Inwalidacja cache jest realna. Gdy platforma raz zescrape'uje twój URL, zacache'uje carda. Używaj debuggerów platform, żeby wymusić re-scrape. Limity długości title/description się różnią. Twitter/X ucina tytuł około 70 znaków; Facebook około 88; LinkedIn około 100. Stawiaj ważne słowa na początku. Discord lubi theme-color . Dodanie <meta name=\"theme-color\" content=\"#xxxxxx\"> ustawia kolor lewej krawędzi w embedach Discorda."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Podgląd Tagów OG",
+  "description": "Wklej meta tagi OG albo wpisz title/description/image — zobacz, jak share cardy wyglądają na Twitter/X, Facebook, LinkedIn i Discord.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej URL",
+      "text": "Umieść URL w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

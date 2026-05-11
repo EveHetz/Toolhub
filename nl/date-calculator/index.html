@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drie dingen die mensen daadwerkelijk uit een datum-calculator willen: het gat tussen twee datums (\"hoeveel dagen tot launch?\"), een datum verschuiven met een span (\"90 dagen na factuurdatum\"), en een precieze leeftijd (\"jaren, maanden en dagen vanaf een geboortedatum\"). Deze tool doet alle drie, in je browser, verankerd op UTC-middag zodat DST en tijdzone-shifts het antwoord niet stilletjes verprutsen als je reist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contractduren, project-timelines en deadlines berekenen. Uitrekenen hoeveel werkdagen (ma–vr) precies tussen twee datums vallen voor facturatie of project-schatting. Leeftijdsdrempels controleren (visa-eligibility, schooljaren, milestone-verjaardagen). \"30 dagen netto\" of \"90 dagen bedenktijd\"-periodes optellen bij een baseline-datum op een manier die maandeinde correct afhandelt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inclusieve vs exclusieve einddatums. \"Dagen van ma tot vr\" is 4 als je gaten telt, 5 als je dagen telt. De toggle stuurt welke conventie; beide kloppen afhankelijk van de vraag. Volgorde van optellen/aftrekken doet ertoe. Jaren en maanden gaan eerst, daarna weken en dagen. \"1 maand + 1 dag\" optellen bij 30 jan geeft 1 mrt (Feb 30 → Feb 28/29 → +1), niet 2 mrt — wat de kalender-veilige conventie is die bijna elke datetime-library gebruikt. Werkdagen tellen geen feestdagen. De berekening kent weekenden maar geen bank holidays — pas handmatig aan als het uitmaakt. \"Totaal maanden\" is benaderend in de age view (jaren × 12 + maanden) — negeert de trailing days. Het J/M/D-getal is exact. UTC-verankering offert af tegen locale. Een datum in je lokale tijdzone kan mappen op een iets andere UTC-dag. Voor de meeste use-cases (deadlines, leeftijden) is UTC-middag het veiligere anker; voor tot-de-minuut tijdzone-werk gebruik je de timezone-converter."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Datum-calculator",
+  "description": "Dagen tussen twee datums · dagen/weken/maanden/jaren optellen of aftrekken · leeftijd in jaren, maanden en dagen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de datum-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het datum-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de datum-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

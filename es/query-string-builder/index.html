@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un query string es una lista de pares clave/valor con ? , = , & — escribirlo a mano es propenso a errores. Esta herramienta toma tus entradas y produce la cadena correctamente codificada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL de API con múltiples parámetros. Enlace de tracking (UTM) sin erratas. Deep link / share-URL para email/chat. Probar la notación de arrays que espera tu API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convenciones de arrays no estandarizadas. PHP/Rails: a[]=1 ; Python: a=1&a=2 ; ASP.NET: comas. + vs %20 . Form-encoded vs URI. Vacío ≠ ausente. ?a= ≠ sin a . Caracteres reservados. =&#? en valores deben codificarse. El orden puede importar (URLs firmadas). Límite de longitud. 2–8 KB típicamente. Sin secretos — acaban en logs/historial/Referer."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Constructor de Query String",
+  "description": "Añade filas clave/valor y obtén un query string correctamente codificado. Soporta arrays (a[]=1) y claves repetidas.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Elige las opciones",
+      "text": "Selecciona las opciones de cadena de consulta que necesitas."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Generar",
+      "text": "Pulsa Generar para producir un nuevo cadena de consulta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar el cadena de consulta generado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wenn Strings ungleich verglichen werden, obwohl sie gleich aussehen, oder ein Username als \"vergeben\" abgelehnt wird, obwohl er frei wirkt — die Bytes stimmen nicht überein. Lateinisches \"a\" vs kyrillisches \"а\", versteckte Zero-Width-Spaces, RTL-Overrides — die Liste ist lang. Dieses Tool zerlegt jeden Text in einzelne Unicode-Code-Points mit Hex, Dezimal, UTF-8-Bytes, Kategorie und Name (soweit bekannt)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Sieht gleich aus, ist aber ungleich\"-Bugs untersuchen. Unsichtbare Zeichen (BOM, ZWS, RTL-Override) finden. Bytes vs Code-Points vs UTF-16-Units zählen. Emoji auf ZWJ-Sequenz prüfen. Homoglyph-Angriffe in Domains/Usernames erkennen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ausgabe lesen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code Point — abstrakter Unicode-Wert U+XXXX . UTF-8 — Byte-Encoding (1–4 Bytes pro Code-Point). UTF-16-Units — was JS und Java zählen; ein Code-Point > U+FFFF braucht 2 Units. Kategorie — L Buchstabe, N Zahl, P Punktuation, S Symbol, C Steuerzeichen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Länge ist mehrdeutig. 👨‍👩‍👧 = 1 Cluster, 5 Code-Points, 11 UTF-16-Units, 18 UTF-8-Bytes. Normalisierung zählt. \"café\" kann NFC oder NFD sein — gleiche Optik, andere Bytes. RTL-Overrides sind gefährlich. U+202E in Dateinamen für Phishing. Standalone-Surrogate bedeuten kaputten UTF-16-Input."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unicode-Inspektor",
+  "description": "Text einfügen → Tabelle jedes Code-Points. Hex, Dezimal, UTF-8-Bytes, Kategorie. Unsichtbare Zeichen sichtbar machen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Text einfügen",
+      "text": "Füge dein Text in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

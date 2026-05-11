@@ -283,4 +283,5 @@ document.addEventListener('DOMContentLoaded', jdRun);
 """,
     },
     "related": ["json-formatter", "text-diff", "yaml-json"],
+    "howto": {"flow": "compare",   "action": "compare", "noun": "JSON"},
 }

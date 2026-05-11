@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un query string est une liste de paires clé/valeur reliées par ? , = , & — fastidieux à écrire à la main. Cet outil prend vos entrées et produit la chaîne correctement encodée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL d'API avec plusieurs paramètres. Lien de tracking (UTM) sans coquilles. Deep link / URL de partage pour email/chat. Essayer la notation tableau attendue par l'API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conventions tableaux non standardisées. PHP/Rails : a[]=1 ; Python : a=1&a=2 ; ASP.NET : virgules. + vs %20 . Form-encoded vs URI. Vide ≠ absent. ?a= ≠ pas de a . Caractères réservés. =&#? dans les valeurs doivent être encodés. L'ordre peut compter (URLs signées). Limite de longueur. 2–8 KB typiquement. Pas de secrets — finissent dans les logs/historique/Referer."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Constructeur de Query String",
+  "description": "Ajoutez des lignes clé/valeur ; obtenez un query string correctement encodé. Supporte les tableaux (a[]=1) et les clés répétées.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choisissez vos options",
+      "text": "Sélectionnez les options de chaîne de requête dont vous avez besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Générer",
+      "text": "Appuyez sur Générer pour produire un nouveau chaîne de requête."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier le chaîne de requête généré."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

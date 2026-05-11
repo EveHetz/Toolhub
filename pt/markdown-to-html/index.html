@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown é o formato de autoria mais escrito do planeta — arquivos README, posts de blog, issues do GitHub, mensagens de chat, sites de documentação. HTML é o que os browsers renderizam. Esta ferramenta converte Markdown em HTML limpo com preview ao vivo, para você ver como o resultado renderizado vai ficar antes de colar num CMS, gerar uma página estática ou enviar como parte de um template de e-mail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sintaxe suportada",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cabeçalhos # até ###### ; bold, itálico, strike Inline `code` e blocos fenced ```lang Listas com bullet / numeradas / aninhadas Links [texto](url) e imagens ![alt](url) Blockquotes, tabelas com pipe e alinhamento, linhas horizontais"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Este é um parser rápido no browser, não uma suíte de conformidade. CommonMark e GFM têm casos extremos (ênfase aninhada, definições de referência de link, expansão de autolink) que divergem entre implementações. Para conformidade estrita, use marked , markdown-it ou remark num passo de build. HTML embutido dentro do Markdown em geral passa direto, mas algumas implementações sanitizam. Não confie nisso para segurança; trate markdown não confiável como HTML não confiável. Tabelas vs alinhamento. Tabelas com pipe precisam de uma linha separadora ( |---| ) e usam :---: / :--- / ---: para centralizar/esquerda/direita. Esquecer o separador é o motivo mais comum de uma \"tabela\" renderizar como um parágrafo. Smart punctuation. Alguns renderers convertem -- em travessão e aspas retas em curvas. Esta ferramenta não — passe por um passo de tipografia se precisar disso. Round-trip não é lossless. Markdown → HTML → Markdown vai normalizar estilo de cabeçalho, espaçamento de lista e forma do link. A semântica sobrevive; os bytes exatos não."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown para HTML",
+  "description": "Converta Markdown em HTML limpo com preview ao vivo. Suporta cabeçalhos, listas, código, tabelas, imagens e links.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu Markdown",
+      "text": "Coloque seu Markdown no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

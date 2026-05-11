@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS, który jest czytelny w źródle — z komentarzami, wcięciami i znaczącymi białymi znakami — pęcznieje plik, który ściągają twoi użytkownicy. Strukturalny minifikator wycina wszystkie kosmetyczne bajty (komentarze, ciągi białych znaków, redundantne zera, krótsze równoważne kody hex) bez zmiany znaczenia reguł. To narzędzie robi tę przejazdkę w przeglądarce i pokazuje rozmiar przed/po, żebyś zobaczył oszczędność."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jednorazowe wysłanie snippetu CSS inline w mailu HTML albo szablonie blogowym, gdzie chcesz zmniejszyć bajty, ale nie masz pipeline'u buildowego. Szybkie sprawdzenie, ile \"tłuszczu\" jest w stylesheecie, zanim zdecydujesz, czy warto podpiąć prawdziwy optymalizator. Wklejanie pretty-printed CSS od jakiegoś dostawcy, żeby go odchudzić do włączenia w widget zewnętrzny."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co robi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wycina komentarze blokowe ( /* … */ ) — single-line // i tak nie jest poprawnym czystym CSS-em. Zwija białe znaki wokół { } : ; , i kombinatorów ( > ~ + ). Ucina końcowe średniki przed } . Wycina wiodące zera ( 0.5 → .5 ) i usuwa jednostki z zera ( 0px → 0 ). Skraca kolory hex, gdzie to bezstratne ( #aabbcc → #abc )."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To strukturalna minifikacja, nie pełny optymalizator. Nie zmerguje duplikatów selektorów, nie przegrupuje reguł ani nie przepisze shorthandów. Do tego użyj cssnano albo esbuilda w pipeline buildowym. Source mapy nie są generowane. Jeśli debugujesz zminifikowany CSS na produkcji, wysyłaj je osobno. Nie commituj zminifikowanego CSS-a. Commituj ładne źródło; minifikuj na buildzie/deployu. Mieszanie tych dwóch sprawia, że review diffów staje się męką. Nowoczesna kompresja dominuje. Brotli/gzip na drucie robi większość tego, co minifikacja. Największe oszczędności biorą się z usuwania nieużywanych reguł — to robota dla tree-shakingu, nie minifikacji."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Minifikator CSS",
+  "description": "Usuń komentarze, białe znaki i nadmiarowość z CSS. Zobacz rozmiar przed/po i procent oszczędności.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej CSS",
+      "text": "Umieść CSS w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Minifikuj",
+      "text": "Naciśnij przycisk Minifikuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

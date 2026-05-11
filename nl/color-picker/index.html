@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kies een kleur — of plak een willekeurige HEX / rgb() / hsl() -waarde — en zie 'm direct in elke gangbare notatie: HEX (3- en 8-digit met alpha), RGB(A), HSL(A), HSV en CMYK. Nuttig als je een waarde in één ruimte hebt en in een andere nodig hebt, bij het matchen van een brand-kleur over CSS / design-tools / print, of bij het aanpassen van opacity zonder het resultaat opnieuw te moeten inschatten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer welke ruimte gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX / RGB — CSS, design-tools, email templates. Universeel ondersteund. HSL — leesbare palets. Tweak hue, saturation of lightness apart zonder dat de kleur op de andere assen wegdrijft. HSV — design software (Photoshop, Figma) voor schaduwen; matcht de manier waarop de meeste color pickers denken over \"deze kleur, lichter\". CMYK — print-ready output. Alleen benadering: schermen zijn RGB en printers delen niet allemaal één kleurprofiel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alpha-encoding verschilt per ruimte. CSS ondersteunt rgba() , hsla() en 8-digit HEX ( #RRGGBBAA ). Oudere email-templates en sommige design-tools kennen #RRGGBBAA niet — val terug op rgba() . HSL hue is in graden. 0 = rood, 120 = groen, 240 = blauw. CSS accepteert ook turn , rad , grad maar de output hier is in graden. CMYK-conversie is naïef. Echt drukwerk vereist een ICC-profiel (sRGB → CMYK met rendering intent). De output van deze tool is prima voor brand-deck mockups, niet voor press-ready bestanden. OKLCH en OKLAB (moderne perceptueel-uniforme ruimtes) staan hier niet — die zijn nieuwer en nog niet breed ondersteund. Houd voor design-system tooling voorlopig HSL/HSV aan."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Kleur-picker",
+  "description": "Kies een kleur en zie 'm direct in HEX, RGB, RGBA, HSL, HSLA, HSV en CMYK. Stel transparantie in en kopieer elke waarde.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je kleur",
+      "text": "Zet je kleur in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Kopieer",
+      "text": "Druk op de Kopieer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

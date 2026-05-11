@@ -287,4 +287,5 @@ document.addEventListener('DOMContentLoaded', mdRun);
 """,
     },
     "related": ["html-encoder", "lorem-ipsum", "json-formatter"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "Markdown"},
 }

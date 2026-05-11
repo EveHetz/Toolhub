@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTTP-Statuscodes sind die dreistelligen Zahlen, die ein Server zurückgibt, um den Ausgang der Anfrage zu signalisieren. Sie gruppieren sich in fünf Klassen: 1xx, 2xx, 3xx, 4xx, 5xx. Dieses Tool liefert die komplette Liste mit Bedeutung und RFC-Referenz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API-Dokumentation enthält einen unbekannten Code (z.B. 425, 451). Den richtigen Code für die eigene API wählen — 404 vs 410, 401 vs 403. Ein 502/504 untersuchen — ist der Upstream offline oder nur langsam? Die RFC-Referenz für ein Designdokument nachschlagen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 heißt \"nicht authentifiziert\", 403 heißt \"nicht berechtigt\". Die Namen sind irreführend. 302 ist methoden-mehrdeutig. Verwende 307 (behält Methode) oder 303 (immer GET). 404 ≠ 410. 410 sagt: dauerhaft entfernt — Suchmaschinen sollen die URL entfernen. 200 mit Fehler-Body ist nicht RESTful. Bei Fehlschlägen einen 4xx zurückgeben. 418 ist ein Witz. Nicht in Produktion verwenden. RFC 9110 ersetzt RFC 7231 ff. Auf RFC 9110 verweisen."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

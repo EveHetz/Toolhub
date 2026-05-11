@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Ile to jest 4 GB?\" zależy od tego, kto pyta. Producenci dysków, inżynierowie sieciowi i standardy zgodne z SI rozumieją 4 000 000 000 bajtów (potęgi 1000). Systemy operacyjne, moduły RAM i większość menedżerów plików historycznie rozumie 4 294 967 296 bajtów (potęgi 1024). Te dwie liczby różnią się o 7% na poziomie gigabajta i 10% na poziomie terabajta — wystarczająco, żeby poczuć się oszukanym, gdy dysk \"1 TB\" pokazuje się jako \"931 GiB\" w komputerze. To narzędzie konwertuje między oboma systemami, żebyś zawsze wiedział, na co patrzysz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dwa systemy",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / dziesiętny — KB, MB, GB, TB. 1 KB = 1000 bajtów . Używane przez producentów storage'u, prędkości sieciowe (Mbps, Gbps) i standard SI od 1960. IEC / binarny — KiB, MiB, GiB, TiB. 1 KiB = 1024 bajty . IEC wprowadziło je w 1998, żeby ujednoznacznić. Linuksowy du -h ich używa, podobnie macOS Finder dla pamięci."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wymiarowanie backupu, uploadu albo Docker image i dopasowanie do tego, co raportuje narzędzie. Konwersja \"150 Mbps\" prędkości pobierania na MB/s (podziel przez 8 — bity na bajty). Estymacja kosztu storage'u w chmurze, gdy jeden provider liczy w GB, a drugi w GiB. Sprawdzenie, ile naprawdę zajmuje \"1 GB\" maila na dysku."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dyski twarde używają systemu dziesiętnego. Dysk \"1 TB\" mieści 1 000 000 000 000 bajtów ≈ 931 GiB. OS nie kłamie — marketing używa mniejszej jednostki. RAM używa binarnego. \"8 GB RAM\" to prawie zawsze 8 GiB (8 589 934 592 bajty). RAM jest budowany w potęgach dwójki. Prędkość sieci jest w bitach, nie bajtach. 100 Mbps = 100 megabitów na sekundę = 12,5 MB/s w szczycie. Twoja \"100 Mbit fiber\" nie ściągnie pliku 100 MB w sekundę. Niektóre narzędzia są niespójne. macOS Finder przeszedł z binarnego (z labelami KB) na dziesiętny w 10.6 i tam głównie został. Eksplorator Windows nadal używa binarnego z labelami KB — myląco, ale niezmiennie. Content-Length przeglądarek jest w bajtach. Zawsze dokładny, bez dwuznaczności SI/IEC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Rozmiaru Plików",
+  "description": "Konwertuj między bajtami, KB, MB, GB, TB a binarnymi KiB, MiB, GiB, TiB. Decimal vs binary jasno rozdzielone.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wpisz swoje wartości",
+      "text": "Wpisz dane rozmiar pliku, których potrzebuje narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj wynik",
+      "text": "Wynik rozmiar pliku aktualizuje się natychmiast — bez przycisku."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Użyj lub skopiuj wynik",
+      "text": "Naciśnij Kopiuj, jeśli potrzebujesz wartości rozmiar pliku gdzie indziej."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

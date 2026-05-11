@@ -457,4 +457,5 @@ document.addEventListener('DOMContentLoaded', ogRender);
 """,
     },
     "related": ["html-encoder", "url-parser", "placeholder-image", "qr-code-generator"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "URL"},
 }

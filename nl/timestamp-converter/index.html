@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een Unix-timestamp is één integer — het aantal seconden (of milliseconden) sinds 1970-01-01 00:00:00 UTC. Ze zijn overal: log-files, API-responses, JWT iat / exp claims, database created_at -kolommen, cache-headers. Ze zijn ondubbelzinnig en tijdzone-vrij, maar niet menselijk leesbaar, dus als iets breekt op 1735689600 , wil je weten of dat 14u of 4u is, vandaag of vorig jaar. Deze tool flipt tussen de integer-vorm en de leesbare vorm in beide richtingen, met seconds/ms auto-detectie en een relative-time hint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een \"timestamp\": 1735689600 veld uit een log-entry of API-response decoderen. Checken wanneer een JWT is uitgegeven of wanneer hij verloopt ( iat / exp claims zijn seconds-since-epoch). Een toekomstige timestamp berekenen voor een retry-after -header, scheduled job of cache TTL. Sanity check op of een datum in een database in seconden, milliseconden of microseconden is opgeslagen. \"Nu\" converteren naar het formaat dat je tool van het moment wil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Seconds, milliseconds, microseconds",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seconds — de oorspronkelijke Unix-conventie; ~10 cijfers vandaag (bijv. 1735689600 ). Gebruikt in C, Linux, JWT, de meeste API's, de meeste database integer -kolommen. Milliseconds — JavaScript's Date.now() , Java System.currentTimeMillis() , Kafka, veel JSON-API's. ~13 cijfers. Microseconds (16 cijfers) / nanoseconds (19 cijfers) — Python time.time_ns() , Go time.Now().UnixNano() , sommige metrics-systemen. Deze tool handelt ze niet auto af — deel eerst door 1.000 of 1.000.000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het Year 2038-probleem. Signed 32-bit timestamps overflowen op 2147483647 = 03:14:07 UTC, 19 januari 2038 . Oude C-code, MySQL TIMESTAMP -kolommen en embedded systems kunnen wrappen naar 1901. Moderne systemen gebruiken 64-bit en zijn prima tot ~jaar 292.277.026.596. Unix-tijd slaat leap seconds over. Een Unix-dag is precies 86.400 seconden, ook als UTC 86.401 heeft. Dit is by design (het houdt rekenen simpel) maar betekent dat je Unix-timestamps niet kunt gebruiken voor sub-seconde nauwkeurige astronomie of GPS. Negatieve timestamps zijn geldig en representeren datums voor 1970. Sommige libraries wijzen ze af — test voor je erop vertrouwt. Auto-detectie is niet vlekkeloos. Een 10-cijferige waarde kan een millisecond-timestamp uit 1970 zijn — verdwijnend onwaarschijnlijk in de praktijk, maar als je weet welke unit je hebt, vertrouw niet op de heuristiek. Sla altijd UTC op. Timestamps zijn tijdzone-vrij; \"lokale tijd\" is alleen voor display. De \"Local\"-regel in de output gebruikt je browser-zone, maar de onderliggende integer is altijd UTC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unix Timestamp Converter",
+  "description": "Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je timestamp",
+      "text": "Zet je timestamp in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

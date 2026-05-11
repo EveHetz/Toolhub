@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A cryptographic hash takes any input and produces a fixed-length fingerprint. Two identical inputs always hash to the same digest; changing a single bit changes the digest entirely. Hashes underpin file-integrity checks, content-addressable storage, digital signatures, and password-hashing pipelines (where they're combined with a slow function like Argon2 or bcrypt). All hashing here uses the browser's crypto.subtle.digest — the same primitives that power TLS. Your input never leaves the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use which",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SHA-256 — sensible default for integrity checks, content addressing (Git, IPFS-style), HMAC keys, and signatures. SHA-384 / SHA-512 — useful when you need a wider digest (PBKDF2/HKDF tuning, larger HMAC keys, post-quantum-margin habits). SHA-1 — for compatibility only (Git object IDs, legacy CI checksums). Don't use for security boundaries — practical collision attacks have existed since 2017."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hashing is not encryption. Hashes are one-way; you can't get the original back. If you need confidentiality, encrypt. Don't hash passwords with raw SHA-256. Plain SHA is fast — that helps attackers brute-force. Use a slow KDF (Argon2id, bcrypt, scrypt) for password storage. MD5 is intentionally absent. Broken since the early 2000s. Anywhere you \"need\" MD5, you also need to flag a security review. Whitespace matters. A trailing newline produces a different hash than the same text without one. Compare hex output exactly."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generador de Hash",
+  "description": "Genera hashes SHA-1, SHA-256, SHA-384 o SHA-512 con WebCrypto del navegador. Calculado localmente — la entrada no se envía.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu texto",
+      "text": "Coloca tu texto en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Generar",
+      "text": "Pulsa el botón Generar para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

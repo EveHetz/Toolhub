@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown は世界で最も多く書かれるオーサリング形式です。README ファイル、ブログ記事、GitHub issue、チャットメッセージ、ドキュメントサイトに至るまで広く使われています。一方、ブラウザがレンダリングするのは HTML です。本ツールは Markdown をクリーンな HTML に変換し、ライブプレビューを表示します。CMS への貼り付け、静的ページ生成、メールテンプレートへの組み込み前に、レンダリング結果を確認できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "サポートする構文",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "見出し # から ###### 、太字、斜体、取り消し線 インライン `code` とフェンス付き ```lang ブロック 箇条書き／番号付き／ネストリスト リンク [text](url) と画像 ![alt](url) ブロッククォート、揃え対応のパイプテーブル、水平線"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "これはブラウザ内の高速パーサで、仕様適合スイートではありません。 CommonMark や GFM にはネストされた強調、リンク参照定義、自動リンク展開などのエッジケースがあり、実装ごとに差があります。厳密な準拠が必要なら、ビルド工程で marked 、 markdown-it 、 remark を使ってください。 Markdown 内に埋め込まれた HTML は基本そのまま通りますが、サニタイズする実装もあります。セキュリティをこれに頼らないでください。信頼できない Markdown は信頼できない HTML として扱います。 テーブルと揃え。 パイプテーブルには区切り行（ |---| ）が必須で、 :---: / :--- / ---: で中央／左／右揃えを指定します。区切り行を忘れると「テーブル」が 1 つの段落としてレンダリングされる典型的な原因です。 スマートパンクチュエーション。 一部のレンダラは -- を en-dash に、ストレートクォートをカーリーに変換します。本ツールは行いません。必要なら別途タイポグラフィの処理を挟んでください。 ラウンドトリップは無損失ではありません。 Markdown → HTML → Markdown は見出しスタイル、リストの間隔、リンク表記を正規化します。意味は保たれますが、バイト列までは戻りません。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown から HTML",
+  "description": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Markdown を貼り付け",
+      "text": "Markdown を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

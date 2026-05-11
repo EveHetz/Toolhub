@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De CSS box-shadow -property is de werkpaard om diepte toe te voegen — drop shadows op cards, button-highlights, focus rings, glows, neon-effecten, zelfs nep-3D. De syntax ( x y blur spread color , optionele inset , meerdere shadows komma-gescheiden) is makkelijk te lezen maar omslachtig om blind te tweaken. Deze tool geeft je sliders voor elke waarde plus een live preview, plus presets die overeenkomen met de gangbare design-system elevations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Card- of modal-elevation ontwerpen die er niet \"goedkoop en hard\" uitziet. Een focus-ring-stijl bouwen voor toegankelijkheid (bijv. een 2px outline-glow). Een neon- of glow-effect maken voor een hero-CTA. Material Design- of Apple-stijl elevation tokens repliceren voor een design system. Nep-\"inset\" diepte maken voor een ingedrukt-knop-effect of een card-recess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat elke waarde doet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "X / Y offset — richting waar de shadow valt (positieve Y = naar beneden). Voor een \"licht van boven\"-gevoel gebruik je Y > 0 en kleine of nul X. Blur — hoe zacht de rand is. 0 = scherp; groter = zachtere fade. Spread — hoeveel groter (of kleiner, bij negatief) de shadow is dan de box zelf. Color & alpha — meestal een partial-alpha zwart of brand-kleur. Puur #000 ziet er te zwaar uit; probeer #0003 tot #0002 voor natuurlijke diepte. Inset — keert de shadow naar binnen, als een recess."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eén grote shadow lijkt kunstmatig. Echte elevation is twee of drie lagen gestapeld: een strakke, donkere, dichtbije shadow plus een brede, zachte, ver-uit. De \"Material elevation\"-preset toont het patroon. Puur zwart is te zwaar. Gebruik ~10–25% alpha-zwart, of tint de shadow met de complementkleur van het oppervlak voor warmte. Shadows renderen buiten de box. Als je container overflow: hidden heeft, wordt de shadow geclipt. Gebruik een wrapper of verplaats overflow naar een child. Shadow op transparante achtergrond. Als de box geen background heeft, schijnt de shadow door de box zelf — meestal verrassend. Performance: heel grote blur op veel elementen kan duur zijn op low-end mobile. Test op een echt device voor je fancy glows uitlevert. Dark mode. Subtiele dark-on-dark shadows verdwijnen bijna; overweeg een heldere inner border of een licht-getinte shadow in donkere thema's."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSS Box-Shadow Generator",
+  "description": "Bouw visueel single- of multi-layer CSS box shadows. Stel offset, blur, spread en kleur in en kopieer CSS.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de schaduw-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe schaduw te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde schaduw te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

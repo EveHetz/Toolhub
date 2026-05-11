@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I codici di stato HTTP sono i numeri a tre cifre restituiti da un server per indicare l'esito della richiesta. Si raggruppano in cinque famiglie: 1xx, 2xx, 3xx, 4xx, 5xx. Questo strumento offre l'elenco completo con significato e riferimento RFC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una documentazione API mostra un codice sconosciuto (425, 451…). Scegliere il codice corretto per la tua API — 404 vs 410, 401 vs 403. Diagnosticare un 502/504 — upstream giù o solo lento? Trovare l'RFC per un documento di design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 = non autenticato, 403 = non autorizzato. I nomi confondono. 302 è ambiguo sul metodo. Usa 307 (preserva metodo) o 303 (sempre GET). 404 ≠ 410. 410 indica \"rimosso definitivamente\" — i motori di ricerca devono dimenticare l'URL. 200 con corpo di errore non è RESTful. In caso di fallimento, restituire un 4xx. 418 è uno scherzo. Non in produzione. RFC 9110 sostituisce RFC 7231 ecc. Citare 9110."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML and JSON are the two dominant data interchange formats and you regularly need to translate between them — for migrating from a SOAP API to a REST one, plumbing legacy feeds into a modern stack, or just reading XML in a tool that only speaks JSON. The mapping is opinionated rather than reversible-by-default, because XML has features (attributes, mixed content, ordered children) that JSON doesn't. This tool uses the conventional fast-xml-parser -style mapping: attributes get a prefix (default @ ), text nodes go to a key (default #text ), and repeated child elements collapse to arrays. Both directions run in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Converting an RSS / Atom / SOAP response into JSON to consume in a JS app. Generating XML config from a JSON template (build configs, Spring beans, OOXML scaffolds). Quickly extracting nested values — convert XML to JSON, then use any JSON tool you already know. Round-tripping data and confirming the shape survives the conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Single child vs array. A document with one <item> becomes {\"item\": {...}} ; the same document with two becomes {\"item\": [..., ...]} . Consumers must handle both shapes (or normalise on the way out). Element order is not guaranteed. JSON objects don't preserve key order across all parsers/transmissions. If your XML has order-significant siblings, JSON is the wrong destination. Mixed content collapses. An element like <p>hello <b>world</b>!</p> doesn't round-trip — text and inline elements interleave in a way that has no clean object representation. Attribute prefix collisions. If an XML element has a child whose name starts with @ , change the prefix to something else first. Namespaces are kept verbatim. ns:tag stays as the JSON key \"ns:tag\" . xmlns: attributes likewise. Numbers and booleans aren't auto-coerced. XML text is always strings; \"1\" stays \"1\" in JSON. Coerce types in your application code if you need them. JSON → XML requires a single root key. XML demands exactly one root element; the input JSON must be an object with one top-level key."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use XML ↔ JSON Converter",
+  "description": "Convert XML to JSON or JSON back to XML. Handles attributes, text nodes, and arrays sensibly.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your XML",
+      "text": "Drop your XML into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

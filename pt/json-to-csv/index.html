@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O caminho inverso: você joga um array JSON e recebe um CSV pronto pra Excel, Google Sheets ou qualquer ferramenta de dados que prefira formato tabular. Os headers são detectados automaticamente das chaves dos objetos; valores aninhados são serializados como JSON em células únicas, pra que nada suma silenciosamente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transformar uma resposta de API em CSV pra um stakeholder que só abre planilhas. Exportar um monte de registros de um dump JSON pra algo que dê pra pivotar/filtrar no Sheets. Gerar fixtures de linhas pra imports de banco de dados que aceitam CSV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A inferência de header usa a união de todas as chaves dos objetos. Uma linha sem uma chave vira célula vazia; a coluna não some. Objetos/arrays aninhados são serializados como string. Se você precisa de um CSV achatado (uma coluna por chave aninhada), achate o JSON antes de jogar aqui. Excel + delimitadores. Locales europeus usam ponto e vírgula por padrão; troque o delimitador pra que o arquivo abra com colunas em vez de uma linha gigantesca. O escape da RFC 4180 é aplicado de qualquer jeito. BOM UTF-8. O Excel no macOS às vezes embaralha não-ASCII sem BOM. Esta ferramenta NÃO adiciona um — passe o output por um passo que adiciona BOM se aparecer mojibake."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON para CSV",
+  "description": "Converte arrays JSON de objetos em CSV. Detecta os campos automaticamente, suporta delimitadores customizados e faz escape correto pra Excel e Google Sheets.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu JSON",
+      "text": "Coloque seu JSON no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

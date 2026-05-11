@@ -302,4 +302,5 @@ document.addEventListener('DOMContentLoaded', upRun);
 """,
     },
     "related": ["url-encoder", "query-string-builder", "jwt-decoder", "base64-encoder"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "URL"},
 }

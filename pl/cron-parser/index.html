@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wyrażenia cron są potężne i łatwo je źle napisać. 0 0 * * 1-5 wygląda jak harmonogram \"o północy w dni robocze\" — i tym jest. */15 0-9 * * * wygląda jak \"co 15 minut w godzinach pracy\" — i tym jest. 0 0 1 */3 * wygląda jak \"kwartalnie\"... jeśli pamiętałeś, że */3 znaczy \"co trzeci miesiąc\". To narzędzie pozwala wkleić wyrażenie, zobaczyć, co ono naprawdę znaczy po polsku, i podejrzeć 10 najbliższych odpaleń, żebyś mógł zweryfikować przed deployem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sanity check linii crona w crontab -e przed zapisem. Tłumaczenie schedule'a z CronJob w Kubernetesie na \"o której to faktycznie odpali?\". Projektowanie nowego harmonogramu — zacznij od polskiego (\"rano w każdy dzień roboczy\") i iteruj wyrażenie, aż podgląd się zgodzi. Debug joba, który \"nie odpalił, kiedy się spodziewałem\" — wklej schedule, spójrz na 10 najbliższych odpaleń i zobacz, czy zaskoczeniem jest rzeczywistość, czy wyrażenie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Referencja pól crona",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pole Zakres Wildcardy Minuta 0-59 * · */5 · 0,30 · 0-29 Godzina 0-23 tak samo Dzień miesiąca 1-31 tak samo Miesiąc 1-12 tak samo Dzień tygodnia 0-6 (0 = niedziela, 7 też = niedziela) tak samo"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month i day-of-week wchodzą w interakcję. Jeśli oba są ograniczone (np. 15 * * * 1 znaczy \"15. dzień LUB poniedziałek\"), większość implementacji crona robi OR. To narzędzie trzyma się tej konwencji. */N nie znaczy dokładnie \"co N\". To \"co N zaczynając od dolnej granicy\", więc */15 w minutach = 0,15,30,45 (nie 12,27,42,57). Żeby zacząć później, użyj listy: 5,20,35,50 . Kombinacje step + range. 0-30/5 = 0,5,10,15,20,25,30. Krok działa tylko wewnątrz zakresu. Strefa czasowa to tu lokalna strefa przeglądarki. Prawdziwe demony cron działają w czasie serwera (często UTC). Schedule, który wygląda OK w przeglądarce, może odpalić o innej godzinie ściennej na serwerze. Zweryfikuj strefę przed wklejeniem. Niektóre dialekty crona dodają pola. Quartz cron ma 6 albo 7 pól (z sekundami i rokiem). Timery systemd używają zupełnie innego formatu. To narzędzie parsuje standardowy 5-polowy crontab."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Parser Wyrażeń Cron",
+  "description": "Sparsuj wyrażenia cron i zobacz 10 najbliższych odpaleń. Standardowy 5-polowy crontab.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej wyrażenie cron",
+      "text": "Umieść wyrażenie cron w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

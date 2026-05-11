@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS-gradients zijn één regel CSS die soepele kleurovergangen tekent voor achtergronden, knoppen, hero-panelen en overlays — zonder enige image asset. De syntax is krachtig maar lastig met de hand te schrijven: hoeken, percentage-stops, repeating-varianten, lineair mixen met radiaal. Deze tool geeft je een visuele builder die de CSS realtime spiegelt, zodat je een stop op zijn plek kunt slepen en de exacte linear-gradient(...) - of radial-gradient(...) -string kunt kopiëren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een hero- of call-to-action-sectie-achtergrond bouwen zonder die in een image te bakken. Button- of card-hover states maken die er \"modern\" uitzien zonder een image asset. Een brand-gekleurde overlay mocken (gradient + lage-opacity solid voor tekstleesbaarheid). Decoratieve dividers, mesh-style achtergronden of geanimeerde SVG-fills genereren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lineair vs radiaal",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lineair — kleuren overgaan langs een rechte lijn onder een gekozen hoek (0° = bottom-to-top, 90° = left-to-right, 180° = top-to-bottom). Radiaal — kleuren spreiden vanuit een middelpunt naar buiten als cirkel of ellips. Top voor spotlight- of vignette-effecten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gebruik als background , niet background-color . Gradients zijn images, geen kleuren. background-color wordt genegeerd. Stops moeten op volgorde staan voor voorspelbare rendering. De tool sorteert ze automatisch — als je CSS kopieert en met de hand bewerkt, houd de percentages monotoon. Hard stops (twee stops op hetzelfde percentage) maken een scherpe grens in plaats van een fade — handig voor gestreepte of band-effecten. Banding op grote oppervlakken. Lange, low-contrast gradients kunnen zichtbare \"banden\" tonen op 8-bit schermen. Voeg een kleine SVG noise-overlay toe ( filter: url(#noise) ) of verschuif de stops iets. Performance. Browsers schilderen gradients snel, maar background-image animeren triggert paint op elke frame — animeer in plaats daarvan transform op een layer erboven. Toegankelijkheid. Als tekst op een gradient zit, check de contrastratio tegen het slechtste punt langs de gradient waar de tekst verschijnt, niet het gemiddelde."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSS Gradient Generator",
+  "description": "Bouw visueel lineaire en radiale CSS-gradients. Bewerk color stops, kopieer ready-to-paste CSS.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de gradiënt-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe gradiënt te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde gradiënt te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

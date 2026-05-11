@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regex é denso e implacável. A forma de escrever uma que realmente funcione é iterativa — pattern, texto de exemplo, ver o que casa, ajustar. Esta ferramenta te dá esse loop no navegador usando o RegExp nativo do JavaScript, mais inspeção de grupos de captura e preview de substituição. Patterns e entradas nunca saem da página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Validar entrada do usuário (formato de e-mail, telefone, CEP) e ver exatamente quais entradas passam e quais falham. Fazer parsing de linhas de log, extrair campos, montar filtros de log. Desenhar patterns de find-and-replace antes de rodar contra um codebase de verdade. Debugar uma regex que você copiou do Stack Overflow e não funciona — cole aqui, veja o que ela realmente casa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Patterns comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\\b\\w+@\\w+\\.\\w+\\b — formato de e-mail ^\\s*$ — linha vazia/só whitespace (com flag m ) (?<year>\\d{4})-(?<month>\\d{2}) — grupos de captura nomeados (?:.*) — grupo não-capturante (?=foo) / (?!foo) — lookahead / lookahead negativo"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript ≠ PCRE. Sem \\K , sem patterns recursivos, lookbehind só desde ES2018. Patterns de Perl, PHP ou Python frequentemente precisam de ajuste. Sem a flag g você só pega o primeiro match. Adicione g para \"encontrar todos\"; combine com m se os anchors devem casar por linha. Greedy vs lazy. .* pega o máximo possível; .*? pega o mínimo. A diferença entre casar <b>hi</b> e <i>there</i> como um bloco ou como dois. Anchors em limites de linha vs string. ^ e $ casam fim de string por padrão; com a flag m casam cada linha. Especiais de replacement. $& é o match inteiro; $1 , $2 , … são grupos de captura; $$ é um $ literal. Esquecer disso é fonte clássica de \"por que minha regex está comendo meus dólares\". Não faça parsing de HTML com regex para nada sério. O aviso clássico é verdadeiro: tags aninhadas, comentários e CDATA precisam de um parser de verdade. Regex serve para scraping pontual ou entradas controladas."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Testador de Regex",
+  "description": "Teste regex de JavaScript ao vivo. Veja matches, grupos de captura e aplique substituições enquanto digita.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu regex",
+      "text": "Coloque seu regex no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Validar",
+      "text": "Pressione o botão Validar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

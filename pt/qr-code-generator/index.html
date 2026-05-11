@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "QR codes são URLs minúsculos que a câmera de um celular consegue ler em uma fração de segundo. Codifique uma URL, uma rede Wi-Fi, um rascunho de e-mail, um número de telefone ou qualquer texto curto — imprima num pôster, num cartão de visita ou num cardápio, e qualquer pessoa com um celular pode agir sem digitar. Este gerador roda inteiramente no seu navegador usando a biblioteca open-source qrcode . Seu texto de entrada nunca sai da página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Compartilhar uma URL num slide, num pôster, num cartão de visita ou num inserto de embalagem. Deixar convidados entrarem no seu Wi-Fi sem digitar a senha (use o preset Wi-Fi). Colocar \"scan to pay / book / order\" em sinalização em espaços físicos. Codificar um vCard para importação instantânea de cartão de contato no celular do receptor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Correção de erro tem trade-off com densidade. Níveis mais altos (Q, H) sobrevivem a arranhões e logos sobrepostos; níveis mais baixos (L, M) deixam o código menor e mais rápido de escanear. Use H se planeja sobrepor um logo, caso contrário M é o default sensato. Contraste importa. QR codes estilizados com pouco contraste entre foreground e background ficam bonitos mas escaneiam mal sob luz ruim. Teste escaneando do output impresso/da tela antes de publicar. Conteúdo longo força um código mais denso. Se você precisa codificar uma URL de 200 caracteres, o código resultante é denso e mais difícil de escanear de longe. Encurte com um redirect antes se o tamanho importar. SVG vs PNG. SVG escala sem perda de qualidade — melhor para impressão ou displays grandes. PNG é universalmente aceito mas pixela se aumentar de escala; exporte no tamanho que vai usar. Formato do preset Wi-Fi. WIFI:T:WPA;S:<SSID>;P:<senha>;; — iOS/Android modernos escaneiam e conectam automaticamente; celulares muito antigos podem não suportar."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de QR Code",
+  "description": "Gere QR codes para qualquer texto, URL, Wi-Fi ou vCard. Tamanho, cores e correção de erro personalizáveis. Exporte como PNG ou SVG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de QR code que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo QR code."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o QR code gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

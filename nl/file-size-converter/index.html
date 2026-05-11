@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Hoe groot is 4 GB?\" hangt af van wie het vraagt. Harde-schijf-fabrikanten, netwerkengineers en SI-volgende standaarden bedoelen 4.000.000.000 bytes (machten van 1000). Besturingssystemen, RAM-modules en de meeste filemanagers bedoelden historisch 4.294.967.296 bytes (machten van 1024). De twee getallen liggen 7% uit elkaar op gigabyte-schaal en 10% op terabyte-schaal — genoeg om je belazerd te voelen als een \"1 TB\"-schijf als \"931 GiB\" op je computer verschijnt. Deze tool converteert tussen beide systemen zodat je altijd weet welk je bekijkt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De twee systemen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / decimaal — KB, MB, GB, TB. 1 KB = 1.000 bytes . Gebruikt door storage-fabrikanten, netwerksnelheden (Mbps, Gbps) en de SI-standaard sinds 1960. IEC / binair — KiB, MiB, GiB, TiB. 1 KiB = 1.024 bytes . De IEC introduceerde deze in 1998 om te disambigueren. Linux du met -h gebruikt deze, net als macOS Finder voor memory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een backup, upload of Docker image inschatten en matchen wat een tool rapporteert. \"150 Mbps\" downloadsnelheid converteren naar MB/s (deel door 8 — bits naar bytes). Cloud-storage kosten inschatten als de ene provider GB quoteert en de andere GiB. Uitvogelen hoeveel \"1 GB\" email eigenlijk is op disk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Harde schijven gebruiken decimaal. Een \"1 TB\"-schijf bevat 1.000.000.000.000 bytes ≈ 931 GiB. De OS liegt niet — de marketing gebruikt de kleinere unit. RAM gebruikt binair. \"8 GB RAM\" is bijna altijd 8 GiB (8.589.934.592 bytes). RAM wordt gebouwd in machten van twee. Netwerksnelheid is in bits, geen bytes. 100 Mbps = 100 megabit per seconde = 12,5 MB/s piek. Je \"100 Mbit glasvezel\" downloadt geen 100 MB file in één seconde. Sommige tools zijn inconsistent. macOS Finder schakelde in 10.6 van binair (met KB-labels) naar decimaal, en bleef daar grotendeels. Windows Explorer gebruikt nog steeds binair met KB-labels — verwarrend maar ongewijzigd. Browsers' Content-Length is bytes. Altijd exact, geen SI/IEC-ambiguïteit."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Bestandsgrootte-converter",
+  "description": "Converteer tussen bytes, KB, MB, GB, TB en de binaire KiB, MiB, GiB, TiB. Decimaal vs binair duidelijk gescheiden.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de bestandsgrootte-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het bestandsgrootte-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de bestandsgrootte-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV é a língua franca dos exports de planilha; JSON é a língua franca de APIs e configs. Este conversor pega um CSV bem formatado com aspas (compatível com RFC 4180) e devolve um array JSON — seja um array de objects (quando há linha de cabeçalho) ou um array de arrays. Útil quando você exportou uma planilha e precisa alimentar algo que fala JSON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transformar um export pontual de Google Sheets / Excel em seed data para um mock de API ou fixture de teste. Carregar tabelas de referência (países, códigos de moeda, dados de lookup) num frontend que consome JSON. Inspecionar um CSV com vírgulas / quebras de linha embutidas que renderiza errado em todo lugar exceto num parser RFC 4180 de verdade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Detecção de delimitador não é mágica. Se seu arquivo usa ponto e vírgula (comum em locales europeus) ou tabs (TSV), troque no dropdown — a auto-detecção chuta mas pode ser enganada por dados que contêm o caractere errado. Coerção de tipos é opinada. Strings numéricas, true , false e null literal são convertidos para tipos JSON. Coisas que parecem numéricas mas não são (CEPs, ISBNs com zero à esquerda, telefones) perdem os zeros — desabilite a coerção ou pós-processe. Células vazias viram strings vazias, não null . A maioria das APIs trata os dois de forma diferente. BOMs no mundo real. O Excel costuma salvar UTF-8 com byte-order mark no Windows; o parser tolera mas outros consumers podem não tolerar."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSV para JSON",
+  "description": "Converta dados CSV em arrays JSON. Detecção de cabeçalho, delimitadores customizados, campos entre aspas e quebras de linha embutidas.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu CSV",
+      "text": "Coloque seu CSV no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

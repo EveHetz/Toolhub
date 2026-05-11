@@ -250,4 +250,5 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
 """,
     },
     "related": ["url-encoder", "image-to-base64", "youtube-thumbnail"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "QR code"},
 }

@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII es el sistema de codificación de 128 caracteres que asigna dígitos, letras, signos de puntuación y caracteres de control a los enteros 0–127. Es la base sobre la que se construyen las codificaciones modernas (UTF-8, Latin-1) — y conocer los valores ayuda a diagnosticar un byte en un volcado hexadecimal o recordar qué código corresponde al salto de línea."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Leer un volcado hex e identificar los bytes como texto. Escribir un parser que necesita los límites del rango imprimible. Depurar un CSV roto por un tabulador o un carácter de control. Buscar la entidad HTML para un carácter concreto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII es de 7 bits. Los códigos 128–255 no son ASCII — pertenecen a Latin-1, CP-1252 o son bytes de continuación UTF-8. Los saltos de línea varían según la plataforma. Unix usa LF, Windows CRLF, el Mac clásico CR. Los caracteres de control son invisibles. Texto pegado puede traer caracteres invisibles que rompen comparaciones. Las entidades HTML rara vez son necesarias. En UTF-8 basta con el carácter literal — solo escapa & , < , > . NUL termina cadenas en C. No lo incluyas sin cuidado en buffers de C."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

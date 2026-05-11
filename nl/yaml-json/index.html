@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YAML en JSON beschrijven dezelfde dingen — geneste maps, lijsten, primitives — maar wisselen leesbaarheid af tegen strictness. YAML is vriendelijker voor mensen (Kubernetes manifests, GitHub Actions, OpenAPI, de meeste CI-configs); JSON is wat API's en machine-readable formaten shippen. Deze converter flipt tussen beide losslessly voor de structuren die beide kunnen uitdrukken. YAML gebruikt js-yaml (YAML 1.2); JSON gebruikt de native API. Beide richtingen draaien in je browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een OpenAPI / k8s / docker-compose YAML plakken in een tool die JSON nodig heeft. Een API-response (JSON) converteren naar YAML voor een config-file. De daadwerkelijke structuur van een YAML-file auditen wanneer ambigue indentatie parentage onduidelijk maakt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het \"Norway-probleem\". YAML 1.1 coerced NO , YES , ON , OFF naar booleans. YAML 1.2 doet dat niet, maar downstream-parsers misschien wel. Quote ambigue strings om veilig te zijn. Multi-document YAML ( --- separators) — alleen het eerste document wordt geconverteerd. Custom tags ( !!python/object , !Ref , enz.) schenden strikte YAML 1.2. CloudFormation YAML en PyYAML pickle-dumps zullen falen; ruim tags eerst op. Anchors en aliases worden ge-expandeerd bij YAML→JSON. JSON heeft geen references, dus *ref -nodes worden inline gezet. Round-trippen geeft een value-equivalente maar textueel-grotere YAML. Getallen vs strings. Unquoted YAML 3.14 is een float; \"3.14\" is een string."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "YAML ↔ JSON Converter",
+  "description": "Converteer tussen YAML en JSON in beide richtingen. Nuttig voor Kubernetes manifests, CI-configs en OpenAPI-specs.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je YAML/JSON",
+      "text": "Zet je YAML/JSON in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

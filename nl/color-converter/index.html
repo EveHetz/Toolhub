@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Designers en frontend-developers schuiven kleuren constant tussen formaten — Figma geeft je hex, de design-tokens spec wil OKLCH, je CSS gebruikt HSL, en de afbeelding die je hebt gegrepen is in RGB. Deze tool houdt elke notatie in sync: bewerk er één, de andere updaten live. Inclusief het moderne oklch() -formaat dat in CSS Color Module 4 is toegevoegd (en sinds 2023 in alle grote browsers wordt ondersteund), dat perceptueel uniforme kleuren produceert die veel makkelijker te beredeneren zijn dan HSL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een brand hex-code vertalen naar rgb() met alpha voor een CSS-overlay. Converteren tussen HSL en OKLCH tijdens het migreren van een design system naar perceptuele kleur. Een geplakte rgb(52, 152, 219) uit een screenshot-tool terug omzetten naar een hex-code voor je stylesheet. Een OKLCH chroma-waarde controleren (alles boven ~0.4 ligt waarschijnlijk buiten het sRGB-gamut)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Format quick reference",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex — #RRGGBB (of 3-cijferige shorthand #RGB ). Universeel, geen alpha tenzij 8-digit ( #RRGGBBAA ). RGB — rgb(0–255, 0–255, 0–255) . De feitelijke sRGB-channel-waarden die je scherm krijgt. HSL — hue (0–360°), saturation (0–100%), lightness (0–100%). Makkelijk te redeneren over kleurfamilies, maar lightness is niet perceptueel: HSL 50% groen ziet er helderder uit dan HSL 50% blauw. OKLCH — perceptuele lightness (0–1), chroma (0–~0.4 in sRGB), hue (0–360°). Twee kleuren met dezelfde L lijken even helder; ideaal voor design systems en toegankelijkheid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OKLCH lightness gebruikt 0–1, geen 0–100. CSS accepteert beide ( 0.65 of 65% ); deze tool accepteert beide vormen. Sommige OKLCH-waarden vallen buiten sRGB (bijv. hoge chroma voor blauw). De tool klemt bij conversie naar weergeefbare sRGB — het resultaat is benaderd, niet exact. HSL is niet hetzelfde als HSV. HSV's \"value\" is het helderste channel; HSL's \"lightness\" is het middelpunt van het helderste en donkerste. Ze geven verschillende getallen voor dezelfde kleur. Round-trippen is niet altijd lossless. hex → hsl → hex kan een enkele integer verschuiven door afronding. Voor exacte reproductie sla je hex op. Hex en RGB zijn standaard sRGB, geen Display P3 of Rec. 2020. Als je design-tool in een wide-gamut profiel staat, ziet dezelfde hex er anders uit."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Kleur-converter",
+  "description": "Converteer elke kleur tussen hex, RGB, HSL en OKLCH. Live preview, kopieer in één klik.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je kleur",
+      "text": "Zet je kleur in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

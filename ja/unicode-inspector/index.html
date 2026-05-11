@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「なぜ等しいはずの文字列が一致しない？」「空いてそうなのに既存と判定されるユーザー名」「ファイル名がシェルで壊れる理由は？」 答えはたいてい、目には同じに見えてもバイトが違うからです。ラテンの \"a\" とキリルの \"а\" は同じに見えても別のコードポイントです。空白には no-break space、zero-width joiner、right-to-left override が混じることがあります。絵文字は 1 個のコードポイントで構成されることもあれば、4 個のこともあります。本ツールは任意のテキストを各 Unicode コードポイントに分解し、hex、10 進、UTF-8 バイト列、カテゴリ、既知ならば名称も表示します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「同じに見えるのに等しくない」文字列バグの診断。 コピペで紛れ込んだ不可視文字（ゼロ幅スペース、BOM、RTL オーバーライド）の発見。 固定幅カラムに格納する前に、バイト数・コードポイント数・UTF-16 単位を比較したいとき。 絵文字がどの ZWJ シーケンスを使っているか確認したいとき。 ドメイン名やユーザー名のホモグリフ攻撃の検出。 hex ダンプ用に正確な UTF-8 バイト列を生成したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "出力の読み方",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "コードポイント — Unicode の抽象値。 U+XXXX の表記。約 110 万種、最大は U+10FFFF。 UTF-8 — そのコードポイントのバイトエンコーディング（1〜4 バイト）。 UTF-16 単位 — JavaScript の s.length や Java 文字列がカウントする単位。U+FFFF を超える（多くの絵文字）と 2 単位（サロゲートペア）になります。 カテゴリ — Unicode 一般カテゴリの略号：L=文字、N=数字、P=句読点、S=記号、Z=分離、C=制御／フォーマット／私用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「長さ」は曖昧です。 \"👨‍👩‍👧\" は 1 grapheme cluster、5 コードポイント、11 UTF-16 単位、18 UTF-8 バイト — どれも「長さ」を返し得ます。 ZWJ シーケンスとバリエーションセレクタ。 多くの絵文字は ZWJ シーケンス（家族、職業、肌色）です。ZWJ を並べ替えたり外したりすると描画が変わります。 正規化が重要。 \"café\" は e+◌́（NFD）や é（NFC）として表現できます。見た目は同じでもバイトは異なるため、DB や比較コードは同じ正規化形に揃える必要があります。 RTL オーバーライドは危険です。 ファイル名に U+202E が入ると表示順が反転し、 resu&#x202E;txt.exe がファイラ上で resuexe.txt のように見えることがあります。フィッシングで悪用されます。 名称欄は限定的です。 完全な Unicode データベースは全コードポイントに名称を持ちますが、本インスペクターは制御文字や典型的なフォーマット／空白文字など、診断に有用なものに限定して名称を表示します。 サロゲートの片割れは単独では現れません。 出力に U+D800〜U+DFFF があれば、入力は壊れた UTF-16（lone surrogate）です。多くの API は UTF-8 へのエンコードを拒否します。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unicode インスペクター",
+  "description": "テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "テキスト を貼り付け",
+      "text": "テキスト を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

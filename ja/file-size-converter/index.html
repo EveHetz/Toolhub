@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "「4 GB ってどれくらい？」は、聞く相手で答えが変わります。HDD メーカー、ネットワーク技術者、SI に従う規格は 4,000,000,000 バイト（1000 のべき乗）を意味します。OS、RAM、多くのファイルマネージャは歴史的に 4,294,967,296 バイト（1024 のべき乗）を意味してきました。GB スケールで両者は約 7%、TB スケールで約 10% ずれます。「1 TB」のドライブが PC で「931 GiB」と表示されて損した気分になるのに十分な差です。本ツールは両系統を相互変換し、いま見ているのがどちらかを常に把握できるようにします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "2 つの体系",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / 10 進 — KB、MB、GB、TB。 1 KB = 1,000 バイト 。ストレージメーカー、ネットワーク速度（Mbps、Gbps）、1960 年以来の SI 規格で使用されます。 IEC / 2 進 — KiB、MiB、GiB、TiB。 1 KiB = 1,024 バイト 。IEC が 1998 年に曖昧さを解消するため導入。Linux の du -h やメモリ表示の macOS Finder などで採用されています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "バックアップ、アップロード、Docker イメージのサイズを見積もり、ツールの表示と突き合わせるとき。 「150 Mbps」のダウンロード速度を MB/s に換算するとき（8 で割る — ビットからバイトへ）。 あるクラウドプロバイダが GB、別のプロバイダが GiB を使う場合のコスト比較。 「1 GB のメール」が実際にディスクで何バイト占めるかを把握したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HDD は 10 進です。 「1 TB」ドライブは 1,000,000,000,000 バイト ≈ 931 GiB です。OS が嘘をついているのではなく、マーケティングが小さい単位を使っています。 RAM は 2 進です。 「8 GB RAM」はほぼ常に 8 GiB（8,589,934,592 バイト）です。RAM は 2 のべき乗で構成されます。 ネットワーク速度はビット単位です。 100 Mbps = 100 メガビット/秒 = 最大 12.5 MB/s。「100 Mbit 光」が 100 MB のファイルを 1 秒でダウンロードするわけではありません。 ツールの一貫性に乏しいことがあります。 macOS Finder は 10.6 で 2 進（KB ラベル）から 10 進に切り替え、おおむね 10 進のままです。Windows Explorer は依然として 2 進を KB ラベルで表示しており、紛らわしいですが変わっていません。 ブラウザの Content-Length はバイトです。 常に厳密で、SI/IEC の曖昧さはありません。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "ファイルサイズコンバーター",
+  "description": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "値を入力",
+      "text": "ツールが必要とする ファイルサイズ の入力を打ち込みます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "計算結果を確認",
+      "text": "ファイルサイズ の結果はその場で更新されます — ボタン不要です。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果を使うかコピー",
+      "text": "他の場所で ファイルサイズ の値が必要なら コピー を押します。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

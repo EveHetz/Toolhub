@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los juegos de rol de mesa (D&D, Pathfinder y muchos más) usan una notación compacta para los dados: NdC = \"tira N dados de C caras\". 2d6+3 = \"dos d6 y +3\". Esta herramienta interpreta la notación y tira con el RNG criptográfico del navegador — imparcial e impredecible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Notación soportada",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 , 2d6+3 , 3d8-1 4d6kh3 — guardar los 3 mejores. 2d20kl1 desventaja, 2d20kh1 ventaja. 1d100 o 1d% — dado porcentual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partida online, sin dados físicos, DM remoto. Tirada rápida sin app de suscripción. Prototipar probabilidad de un diseño."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El navegador es el límite de confianza. Con devtools se puede manipular — para competición usa un servidor. Crypto RNG es impredecible, no \"más aleatorio\". Distribución equivalente a un buen PRNG. El modificador se aplica una sola vez, tras filtrar. Sin explosiones ni conteo de éxitos. Solo suma + modificador. Críticos solo en d20. 20 verde, 1 rojo. Máximo 1000 dados. Límite de rendimiento."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Lanzador de Dados",
+  "description": "Lanza dados con notación D&D estándar — 2d6+3, 1d20, 4d6 quedarse 3 más altos. RNG criptográfico.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Elige las opciones",
+      "text": "Selecciona las opciones de tirada que necesitas."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Tirar",
+      "text": "Pulsa Tirar para producir un nuevo tirada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar el tirada generado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

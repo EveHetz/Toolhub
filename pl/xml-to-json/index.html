@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML i JSON to dwa dominujące formaty wymiany danych i regularnie musisz tłumaczyć między nimi — przy migracji z API SOAP na RESTowe, podpinaniu starych feedów do nowoczesnego stacka albo po prostu czytaniu XML-a w narzędziu, które mówi tylko po JSON-owemu. Mapowanie jest opiniotwórcze, nie odwracalne by-default, bo XML ma ficzery (atrybuty, mixed content, uporządkowane dzieci), których JSON nie ma. To narzędzie używa konwencjonalnego mapowania w stylu fast-xml-parser : atrybuty dostają prefiks (domyślnie @ ), węzły tekstowe trafiają pod klucz (domyślnie #text ), a powtórzone elementy potomne zwijają się do tablic. Obie strony działają w przeglądarce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Konwersja odpowiedzi RSS / Atom / SOAP na JSON do konsumpcji w apce JS. Generowanie XML configa z szablonu JSON (configi buildowe, beany Springa, scaffoldy OOXML). Szybkie wyciąganie zagnieżdżonych wartości — przekonwertuj XML na JSON, potem użyj dowolnego narzędzia JSON-owego, które już znasz. Round-trip danych i potwierdzenie, że kształt przeżywa konwersję."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pojedyncze dziecko vs tablica. Dokument z jednym <item> staje się {\"item\": {...}} ; ten sam dokument z dwoma — {\"item\": [..., ...]} . Konsumenci muszą obsłużyć obie formy (albo znormalizować na wyjściu). Kolejność elementów nie jest gwarantowana. Obiekty JSON nie zachowują kolejności kluczy w sposób spójny we wszystkich parserach/transmisjach. Jeśli twój XML ma rodzeństwo o znaczącej kolejności — JSON to zła destynacja. Mixed content się składa. Element typu <p>hello <b>world</b>!</p> nie robi round-tripu — tekst i inline'owe elementy przeplatają się w sposób, który nie ma czystej reprezentacji obiektowej. Kolizje prefiksu atrybutów. Jeśli element XML ma dziecko, którego nazwa zaczyna się od @ , najpierw zmień prefiks na coś innego. Namespace'y są trzymane dosłownie. ns:tag zostaje jako klucz JSON \"ns:tag\" . Atrybuty xmlns: tak samo. Liczby i boole nie są auto-konwertowane. Tekst XML zawsze jest stringiem; \"1\" zostaje \"1\" w JSON. Konwertuj typy w kodzie aplikacji, jeśli ich potrzebujesz. JSON → XML wymaga jednego klucza root. XML wymaga dokładnie jednego elementu root; wejściowy JSON musi być obiektem z jednym kluczem na top-level."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter XML ↔ JSON",
+  "description": "Konwertuj XML na JSON albo JSON z powrotem na XML. Sensownie obsługuje atrybuty, węzły tekstowe i tablice.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej XML",
+      "text": "Umieść XML w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

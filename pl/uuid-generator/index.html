@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUID (albo GUID) to 128-bitowy identyfikator — zapisywany jako 32 cyfry hex w 5 grupach, np. 550e8400-e29b-41d4-a716-446655440000 . Są bezkolizyjne między systemami bez koordynacji: dowolny proces gdziekolwiek może wygenerować jeden, a szansa, że dwa kiedykolwiek się zderzą, jest praktycznie zerowa. Przydatne, gdy potrzebujesz ID przed rozmową z bazą, gdy chcesz uniknąć wycieku liczby wierszy, albo gdy ID musi powstać po stronie klienta i zostać zsynchronizowany później. To narzędzie generuje UUID-y zgodne z RFC 4122 / RFC 9562 w formie v4 (losowej) albo v7 (uporządkowanej czasem), z kryptograficznie bezpieczną losowością w przeglądarce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Klucze główne w systemach rozproszonych, gdy nie chcesz robić round-tripu do bazy po ID. Idempotency keys dla requestów API (Stripe, providery płatności, wiadomości w kolejce). Identyfikatory uploadu plików, session tokeny, correlation ID-ki w logach. Wszędzie tam, gdzie inaczej eksponowałbyś auto-incrementowane ID i wyciekał, ile masz rekordów. Dane testowe — zaseeduj sto rekordów realistycznymi identyfikatorami jednym kliknięciem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "v4 vs v7 — którego użyć?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "v4 (losowy) — 122 bity losowości, brak osadzonego czasu utworzenia. Używaj, gdy chcesz zerowej korelacji między ID a kolejnością tworzenia, albo gdy ID będzie żył w hash-mapie / nieklastrowanym indeksie, gdzie kolejność nie ma znaczenia. v7 (uporządkowany czasem) — 48-bitowy prefiks Unix-ms timestamp + losowy ogon. Domyślnie używaj go do nowych kluczy głównych w bazie. Prefiks timestampu daje indeksom B-tree lokalność (świeże inserty trafiają do tych samych stron, znacznie lepsze zachowanie cache niż v4), a ID-ki sortują się mniej więcej w porządku chronologicznym. Zdefiniowany w RFC 9562 (maj 2024) — wypiera ULID i v1/v6 w większości zastosowań."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUID-y to nie sekrety. v4 ma 122 bity entropii i jest nie do zgadnięcia, ale sam format niczego nie autoryzuje. Nie używaj UUID-a jako session tokena ani tokena resetu hasła, chyba że traktujesz go jak sekret (HTTPS-only, ograniczony czasowo, jednokrotny). v7 wycieka czas utworzenia. Pierwsze 48 bitów koduje milisekundę, w której był wygenerowany. OK do ID wewnętrznych; źle, gdy nie chcesz, żeby użytkownicy dowiadywali się, kiedy rekordy powstały. W takim wypadku użyj v4. Rozmiar indeksu ma znaczenie. UUID to 16 bajtów vs 8 dla bigint — twoje indeksy B-tree rosną. Warto dla rozproszenia/braku koordynacji, często niewarto dla apek na jednym serwerze z sekwencyjnym ID. v4 fragmentuje indeksy bazy. Losowe ID rozsiewają zapisy po indeksie, psując hit rate cache stron i przepustowość zapisu. To oryginalny argument za v7. Nie używaj v1. Stary wariant time-and-MAC wycieka adres MAC maszyny generującej. v7 to nowoczesny zamiennik. Używaj kryptograficznie bezpiecznej losowości. To narzędzie używa crypto.getRandomValues ; nigdy nie pisz własnego z Math.random — nie jest wystarczająco losowy i ID-ki stają się przewidywalne."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator UUID",
+  "description": "Generuj UUID-y RFC 4122 (v4 losowy albo v7 uporządkowany czasem). Hurtowo do 100. Kryptograficznie bezpieczny.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje UUID, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij Generuj, aby wygenerować nowy UUID."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany UUID."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

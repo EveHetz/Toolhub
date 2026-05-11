@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML è ancora ovunque: SOAP, configurazioni, RSS/Atom, SVG, OOXML. Una rappresentazione indentata fa la differenza tra leggere e indovinare. Questo strumento formatta o minifica XML ben formato e usa il parser XML del browser per segnalare errori con riga e colonna."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ispezionare un envelope SOAP o una config XML. Pulire un SVG. Rimuovere spazi prima dell'invio. Verificare la ben-formattezza. Diff tra due XML."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ben formato ≠ valido. La validazione di schema richiede lo schema. Lo spazio può essere significativo. Default xml:space=\"preserve\" — niente pretty-print su XML sensibile allo spazio. Auto-chiudente vs vuoto esplicito. Lo strumento normalizza ad auto-chiudente. CDATA, commenti e PI sono preservati. I namespace sono preservati. Ordine attributi. Per il checksum, canonicalizza (XML C14N). Differenze fra parser. Riga/colonna best-effort."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formattatore XML",
+  "description": "Formatta e minifica XML. Valida la ben-formattezza con riga e colonna in caso di errori.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il XML",
+      "text": "Metti il XML nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Formatta",
+      "text": "Premi il pulsante Formatta per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um diff de texto puro em JSON te diz quais linhas mudaram; um diff estrutural te diz quais pontos de dado mudaram. Os dois costumam ser bem diferentes — um documento reformatado sem mudança semântica é \"toda linha diferente\" pra um text diff, mas \"nenhuma mudança\" aqui. Esta ferramenta percorre as duas árvores JSON e reporta cada path onde elas divergem, usando a sintaxe JSON Pointer da RFC 6901 ( /users/0/name ) pra que o output seja inequívoco independentemente da formatação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comparar duas respostas de API pra ver o que de fato mudou numa release, ignorando barulho de whitespace e ordem de chave. Fazer diff de arquivos de config antes/depois de uma migração pra confirmar que só os campos pretendidos mudaram. Gerar um documento JSON Patch da RFC 6902 pra enviar a um sistema que aceita (endpoints PATCH, fallbacks de JSON-Merge-Patch). Olhar duas test fixtures pra ver o que faz uma falhar quando a outra passa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O modo de comparação de array importa. \"By index\" reporta um elemento inserido como remove+add em tudo depois dele. \"By value\" trata arrays como conjuntos, perdendo reordenações reais. Escolha o que casa com a forma como seus dados deveriam estar ordenados. Number-vs-string não é estrutural. {\"id\": 1} e {\"id\": \"1\"} aparecem como mudança porque os tipos diferem. Normalize tipos antes do diff se isso importa. RFC 6902 é um patch unidirecional, não um merge. Aplique com uma implementação real de RFC 6902, não por substituição de string. Árvores grandes ficam barulhentas. Se o diff tem centenas de operações, provavelmente você está comparando dois documentos sem relação — confira os inputs."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Diff JSON",
+  "description": "Diff estrutural de dois documentos JSON — chaves adicionadas, removidas, alteradas e mudanças de valor lado a lado.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole as duas versões do JSON",
+      "text": "Coloque cada versão do seu JSON em um dos dois campos."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Comparar",
+      "text": "Pressione Comparar para encontrar as diferenças."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o diff",
+      "text": "Veja as diferenças destacadas na Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

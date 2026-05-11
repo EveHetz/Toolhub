@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een cryptografische hash neemt elke input en produceert een fingerprint van vaste lengte. Twee identieke inputs hashen altijd naar dezelfde digest; één bit veranderen verandert de digest volledig. Hashes onderbouwen file-integrity checks, content-addressable storage, digital signatures en password-hashing pipelines (waar ze met een trage functie als Argon2 of bcrypt worden gecombineerd). Al het hashen hier gebruikt crypto.subtle.digest van de browser — dezelfde primitives die TLS aansturen. Je input verlaat de pagina nooit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer welke",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SHA-256 — verstandige default voor integrity checks, content addressing (Git, IPFS-style), HMAC-keys en signatures. SHA-384 / SHA-512 — nuttig als je een bredere digest nodig hebt (PBKDF2/HKDF-tuning, grotere HMAC-keys, post-quantum-marge-gewoontes). SHA-1 — alleen voor compatibiliteit (Git object IDs, legacy CI-checksums). Niet gebruiken voor security boundaries — praktische collision attacks bestaan sinds 2017."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hashen is geen encryptie. Hashes zijn one-way; je krijgt het origineel niet terug. Als je vertrouwelijkheid nodig hebt, versleutel. Hash wachtwoorden niet met raw SHA-256. Plain SHA is snel — dat helpt aanvallers brute-forcen. Gebruik een trage KDF (Argon2id, bcrypt, scrypt) voor wachtwoordopslag. MD5 is opzettelijk afwezig. Gebroken sinds begin jaren 2000. Overal waar je MD5 \"nodig\" hebt, moet je ook een security review aanvragen. Whitespace doet ertoe. Een trailing newline produceert een andere hash dan dezelfde tekst zonder. Vergelijk hex output exact."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Hash Generator",
+  "description": "Hash tekst met SHA-1, SHA-256, SHA-384 of SHA-512 via WebCrypto in je browser. Lokaal berekend — input verlaat de pagina nooit.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op de Genereer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

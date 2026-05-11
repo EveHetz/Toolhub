@@ -169,4 +169,5 @@ function i2bRun(){
 """,
     },
     "related": ["base64-encoder", "qr-code-generator", "url-encoder"],
+    "howto": {"flow": "transform", "action": "encode",  "noun": "image"},
 }

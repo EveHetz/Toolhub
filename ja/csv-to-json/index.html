@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV はスプレッドシート出力の共通語、JSON は API や設定の共通語です。このコンバーターは適切に引用された CSV（RFC 4180 準拠）を入力として受け取り、JSON 配列を返します。ヘッダー行があるならオブジェクトの配列、そうでなければ配列の配列です。シートをエクスポートして JSON を扱う何かに食わせたいときに便利です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Google Sheets / Excel の単発エクスポートを、API モックやテストフィクスチャの seed データに変換するとき。 参照テーブル（国コード、通貨コード、ルックアップデータ）を JSON 消費型のフロントエンドに読み込ませるとき。 埋め込みカンマや改行を含む CSV で、ちゃんとした RFC 4180 パーサー以外では正しく開けないファイルを確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "区切り文字の自動検出は魔法ではありません。 ファイルがセミコロン（EU ロケールに多い）やタブ（TSV）を使うなら、ドロップダウンで切り替えてください。データに該当文字が含まれていると自動推定が騙されることがあります。 型推論には方針があります。 数値文字列、 true 、 false 、リテラル null は JSON の型に変換されます。郵便番号、ISBN、電話番号など、見た目は数値だが実は違うデータは先頭の 0 が落ちます。型変換を無効にするか、変換後に補正してください。 空セルは null ではなく空文字列になります。 多くの API はこの 2 つを区別します。 実際のファイルにある BOM。 Excel は Windows で UTF-8 をバイトオーダーマーク付きで保存することがあります。パーサーは許容しますが、他のコンシューマは許容しない場合があります。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSV から JSON",
+  "description": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "CSV を貼り付け",
+      "text": "CSV を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

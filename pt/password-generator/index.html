@@ -72,6 +72,79 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma boa senha é uma que o atacante não consegue adivinhar e que você não precisa lembrar (porque ela está guardada no seu password manager). Este gerador produz senhas aleatórias fortes ou passphrases memorizáveis inteiramente no seu navegador, usando crypto.getRandomValues — a mesma fonte aleatória criptograficamente segura que o TLS usa. Nada é transmitido; a senha nunca sai do seu dispositivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Criar uma senha única para qualquer conta nova que vá para um password manager. Gerar uma master password ou uma passphrase de recuperação que você vai memorizar — o modo passphrase é mais fácil de digitar e lembrar. Produzir um segredo não-humano para uma variável de CI, API token ou rede Wi-Fi. Gerar senhas em lote para um batch novo de usuários (count até 50)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Caracteres aleatórios vs passphrases",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Caracteres aleatórios — entropia máxima por comprimento. 20 caracteres misturados ≈ 130 bits. Bom para coisas que você cola, não digita. Passphrases — mais fáceis de digitar e lembrar. Quatro palavras ≈ 40 bits, seis palavras ≈ 60 bits. Bom para master passwords, desbloqueio de dispositivo e qualquer coisa que você vá digitar manualmente com frequência. \"Excluir ambíguos\" remove 0/O/1/l/I para leitura mais segura em telas ou anotações à mão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De quanta entropia eu preciso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "≥ 60 bits — ok para contas de baixo valor ≥ 80 bits — bom para a maioria das contas ≥ 100 bits — alto valor (financeiro, master password, credencial de root)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não reutilize senhas. O maior upgrade de segurança que você pode fazer é uma senha única por site, guardada num manager. A força do gerador é desperdiçada se a mesma senha está em cinco sites. Não anote senhas geradas sem proteção. Use um password manager (1Password, Bitwarden, KeePass) — não um app de Notas, não um arquivo de texto, não um rascunho de e-mail. Longa > complexa. Uma senha de 24 caracteres só com letras minúsculas tem mais entropia que uma de 10 com todas as classes de símbolos. Comprimento ganha. Regras específicas do site podem quebrar copy-paste. Alguns sites proíbem símbolos específicos ou limitam o tamanho em 16. Chato mas real — gere, depois corte/troque para encaixar se precisar (e aí guarde a senha real no seu manager)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Senhas",
+  "description": "Senhas aleatórias fortes ou passphrases memorizáveis. Geradas localmente — nunca enviadas para lugar nenhum.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de senha que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo senha."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o senha gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

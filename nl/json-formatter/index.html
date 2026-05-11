@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON reist geminifieerd — elke byte telt als een API-response over de lijn gaat. Maar geminifieerd JSON is onleesbaar. Deze tool round-trip't door de native JSON.parse / JSON.stringify van de browser om geïndenteerde, kopieerbare output te produceren, de structuur te valideren of whitespace eruit te strippen. Niets wordt geüpload; alles gebeurt op de pagina."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een geminifieerde API-response plakken en iets terugkrijgen dat een mens kan scannen. Syntax-fouten vangen — trailing comma's, unquoted keys, smart quotes — met de exacte regel/kolom waar de parser struikelde. Whitespace strippen voor je JSON in een context plakt waar size telt (URL params, env vars, config files). Bevestigen dat je met-de-hand-geschreven JSON geldig is voor je het naar een andere tool stuurt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON ≠ JavaScript object literal. Keys moeten in dubbele aanhalingstekens. Single quotes, unquoted keys en trailing comma's falen allemaal. Als je JS object literals hebt, draai ze eerst door een converter. Smart quotes uit copy-paste. Word processors en chat-apps vervangen \" graag \"behulpzaam\" door \" / \" . Die zijn geen geldige JSON-delimiters. JSON heeft geen comments. Als jouw \"JSON\" // of /* */ heeft, is het eigenlijk JSONC (gebruikt in VS Code config) — strip die voor parsen. Getallen groter dan 2⁵³. JavaScript kan integers boven 9007199254740992 niet exact representeren. Twitter snowflake-IDs en vergelijkbaar moeten als strings ge-quote'd worden."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON Formatter",
+  "description": "Formatteer, valideer en minify JSON direct. Errors gehighlight met regel en kolom.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je JSON",
+      "text": "Zet je JSON in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

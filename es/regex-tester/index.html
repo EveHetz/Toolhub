@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Regular expressions are dense and unforgiving. The way to write one that actually works is iteratively — pattern, sample text, see what matches, adjust. This tool gives you that loop in your browser using the JavaScript engine's native RegExp , plus capture-group inspection and a replacement preview. Patterns and inputs never leave the page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Validating user input (email-shaped, phone-shaped, postcode-shaped) and seeing exactly which inputs pass and fail. Parsing log lines, extracting fields, building log filters. Designing find-and-replace patterns before running them across a real codebase. Debugging a regex you copied from Stack Overflow that doesn't work — paste it here, see what it actually matches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common patterns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\\b\\w+@\\w+\\.\\w+\\b — email-ish ^\\s*$ — empty/whitespace-only line (with m flag) (?<year>\\d{4})-(?<month>\\d{2}) — named capture groups (?:.*) — non-capturing group (?=foo) / (?!foo) — lookahead / negative lookahead"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JavaScript ≠ PCRE. No \\K , no recursive patterns, lookbehind only since ES2018. Patterns from Perl, PHP, or Python often need adjustment. Without g flag you get the first match only. Add g for \"find all\"; combine with m if anchors should match per-line. Greedy vs lazy. .* grabs as much as possible; .*? grabs as little. The difference between matching <b>hi</b> and <i>there</i> as one block vs two. Anchors at line vs string boundaries. ^ and $ match string ends by default; with m flag they match each line. Replacement specials. $& is the whole match; $1 , $2 , … are capture groups; $$ is a literal $ . Forgetting that is a common source of \"why is my regex eating my dollars\". Don't parse HTML with regex for anything serious. The classic warning is true: nested tags, comments, and CDATA need a real parser. Regex is fine for one-off log scraping or controlled inputs."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Probador de Regex",
+  "description": "Prueba expresiones regulares de JavaScript en vivo. Coincidencias, grupos y reemplazos al instante.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu regex",
+      "text": "Coloca tu regex en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Validar",
+      "text": "Pulsa el botón Validar para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

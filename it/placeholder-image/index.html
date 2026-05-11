@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nel progettare una pagina serve spesso un'immagine di una certa dimensione prima dell'asset reale. Servizi come via.placeholder.com aggiungono una richiesta esterna. Questo strumento produce un SVG inline autonomo con dimensione ed etichetta a piacere — data URI o download. Nulla lascia il browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wireframe prima degli asset reali. Export Storybook/Figma con placeholder. Testare lazy-loading o CSS aspect-ratio. Sostituire servizi esterni in progetti con CSP rigido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG non è raster. Per PNG: screenshot o convertitore. Data URI lunghe sono scomode in tool/diff — meglio il download per mockup grandi. L'etichetta auto non è localizzata. Inserisci testo custom. Colori solo hex HTML. Per rgba() modifica l'SVG. La dimensione è intrinseca. Scalatura CSS con preserveAspectRatio=\"none\" . Non lasciare in produzione."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generatore Immagine Placeholder",
+  "description": "Genera immagini SVG placeholder di qualsiasi dimensione con testo e colori personalizzati. Output come data URI o SVG scaricabile.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Imposta le opzioni",
+      "text": "Scegli le opzioni di immagine che ti servono."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Genera",
+      "text": "Premi Genera per produrre un nuovo immagine."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare il immagine generato."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

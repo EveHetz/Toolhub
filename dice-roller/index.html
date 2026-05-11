@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tabletop role-playing games (Dungeons & Dragons, Pathfinder, the OSR, countless others) use a compact notation for dice rolls: NdS means \"roll N dice with S sides each\". 2d6+3 means \"roll two six-sided dice and add 3\". This tool parses that notation and rolls the dice using the browser's cryptographic RNG, which is unpredictable and unbiased — much better than Math.random() for high-stakes rolls."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Notation supported",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 — one twenty-sided die. 2d6+3 — two d6, sum, plus 3 modifier. 3d8-1 — three d8, sum, minus 1. 4d6kh3 — four d6, k eep h ighest 3 (classic D&D 5e ability score). 2d20kl1 — two d20, keep lowest 1 (disadvantage). 2d20kh1 — advantage. 1d100 or 1d% — percentile die. d20 — N defaults to 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You're playing online, your physical dice are out of reach, or you're DMing remotely. You need a reproducible-feel roll without the dice-app subscription. You want to settle a \"let's flip for it\" without finding a coin (1d2). You're prototyping a probability for a game design (try a million rolls — change the formula in code if you want stats)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser tab is the trust boundary. The roll happens in your tab, in JavaScript — anyone with devtools open could fudge it. For competitive play with strangers, use a server-arbitrated roller. Crypto RNG is unpredictable, not \"more random\". A good PRNG and crypto RNG produce indistinguishable distributions for dice. The advantage of crypto is that no one can predict the next number from past ones. Modifiers apply once, after keeping. 4d6kh3+2 rolls 4d6, keeps the top 3, then adds 2 — not \"adds 2 to each die\". This is not exploding dice. No ! -style explosions, no rerolls ( r1 ), no successes-counting ( 3d10>=7 ). The notation here is the simple \"sum and modify\" subset that covers ~95% of common rolls. Crits are flagged for d20 only. A 20 highlights green, a 1 highlights red. Other dice sizes don't get the colouring. Cap of 1000 dice per roll. Sane upper bound to keep the page responsive."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Dice Roller",
+  "description": "Roll dice with standard D&D notation — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the dice roll options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Roll",
+      "text": "Press Roll to produce a fresh dice roll."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated dice roll."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

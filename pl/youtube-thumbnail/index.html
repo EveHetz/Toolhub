@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Każde wideo na YouTube ma mały zestaw pre-generowanych obrazków miniatur pod przewidywalnymi URL-ami — sam YouTube ich używa w wynikach wyszukiwania, embedach i podglądach. To narzędzie wyciąga 11-znakowe ID wideo z dowolnej formy URL YouTube (watch, youtu.be, Shorts, embed, /v/) i rozkłada każdy dostępny rozmiar z bezpośrednimi linkami do pobrania i przyciskami copy URL. Przydatne, gdy potrzebujesz podglądu offline, hero image do posta blogowego, rich linka do Discorda/Slacka albo poster fallback dla custom video playera."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embedowanie wideo YouTube w poście blogowym i chęć wykorzystania tej samej miniatury, którą pokazuje YouTube, hostowanej lokalnie. Robienie klikalnego kafla \"obejrzyj to wideo\" w Notion / Slacku / mailu, gdzie potrzebujesz statycznego obrazka. Budowa custom video playera i potrzeba poster image przed załadowaniem iframe'a. Zapis miniatury do offline'owego użycia jako referencja, treść albo materiał do moodboarda. Wyciągnięcie najwyższej rozdzielczości miniatury bez babrania się z YouTube Data API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warianty wytłumaczone",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault (1280×720) — oryginalna miniatura full-HD. Istnieje tylko dla wideo wgranych w HD; w przeciwnym razie URL zwraca 404 i podgląd zostaje pusty. sddefault (640×480) — generowana dla większości wideo z nowoczesnej ery. hqdefault (480×360) — zawsze istnieje , sięga najstarszych wideo YouTube. Używaj jako fallback. mqdefault (320×180) i default (120×90) — małe podglądy; przydatne do renderowania na listach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault często rzuca 404. Starsze albo niskorozdzielcze uploady tego nie mają. Zbuduj łańcuch fallbacków: maxresdefault → sddefault → hqdefault . Czarne paski na hqdefault. Miniatura 480×360 jest letterboxowana dla źródeł nie-4:3 — z paskami na górze i dole. mqdefault (320×180) ma poprawne 16:9 dla nowoczesnych uploadów. Klatki 1/2/3. YouTube wystawia też 1.jpg , 2.jpg , 3.jpg pod tą samą ścieżką — trzy auto-wyciągnięte klatki z wideo. Czasem jedna z nich to faktycznie to, czego chcesz do custom postera, a nie ma ich w domyślnej liście wariantów. To wciąż obrazek YouTube'a. Hot-linking jest OK; rehosting na własnym CDN-ie technicznie też, ale sprawdź licencjonowanie, jeśli używasz komercyjnie. Twórca wideo może mieć copyright na wizualną treść klatki. WebP nieobsługiwany tutaj. YouTube serwuje też wersje .webp (mniejsze pliki), ale są podawane z innej ścieżki CDN i nie są wystawione przez to narzędzie. Live streamy i Shortsy działają dobrze — parser URL obsługuje wszystkie nowoczesne formy — ale miniatury live streamu zmieniają się, gdy stream jest na żywo."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Pobieranie Miniatur YouTube",
+  "description": "Wklej dowolny URL albo ID wideo YouTube i pobierz każdy dostępny rozmiar miniatury — bezpośrednie linki, bez uploadu, bez rejestracji.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej YouTube URL",
+      "text": "Umieść YouTube URL w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

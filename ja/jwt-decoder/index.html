@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JWT（JSON Web Token）は、ドットでつながれた 3 つの base64url パート header.payload.signature から成ります。ヘッダーとペイロードは検査可能な JSON オブジェクトで、署名は発行後に改ざんされていないことを示します。本ツールは前 2 つをデコードして、base64 のノイズを除いた中身を確認できるようにします。認証フローのデバッグ、セッションの期限切れ調査、「このトークンは結局どのユーザーのもの？」を素早く確認するのに役立ちます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "失敗している OAuth / OpenID Connect ログインのデバッグ — アクセストークンや ID トークンを貼り付けて、IdP が実際に何を発行したかを確認するとき。 有効期限の確認 — exp を実際の日時にデコードし、過去日であればフラグを立てます。 バックエンドが主張するカスタムクレーム（ロール、権限、テナント ID）の妥当性確認。 ライブラリが「無効」と判断したトークンを読んで、構造の問題か、期限切れか、署名の問題かを切り分けるとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "主なクレーム",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iss — issuer（トークンを作ったエンティティ） sub — subject（対象のユーザー／アカウント） aud — audience（受け取るべき相手） exp — 有効期限（Unix タイムスタンプ） iat — 発行日時（Unix タイムスタンプ） nbf — 有効開始前（Unix タイムスタンプ）"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "デコード済み JWT は、検証済み JWT ではありません。 署名はここでは検証していません。検証には発行元の公開鍵（RSA/EC）または共有シークレット（HMAC）が必要です。デコードした内容は「トークンが何を主張しているか」しか教えません。クレームを信用する前に必ずサーバー側で検証してください。 本番のトークンを貼り付けないこと。 有効な JWT を持つ者は exp までユーザーになりすませます。本ツールはブラウザから外に送信しませんが、拡張機能、画面録画、開発者ツールから漏れる可能性はあります。共有が必要なら、テスト環境の新しいトークンを使ってください。 alg: none のトークンは既知の攻撃クラスです。 ヘッダに alg: none があり、ライブラリがそれを受け入れると、攻撃者がトークンを偽造できます。サーバー側で必ず拒否してください。 クロックスキューに注意。 exp は検証側の時計と比較されます。時刻ずれのあるサーバーでは、ここで有効に見えるトークンが落ちることがあります。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JWT デコーダー",
+  "description": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "JWT を貼り付け",
+      "text": "JWT を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "デコード をクリック",
+      "text": "デコード ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

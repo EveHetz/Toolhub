@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Unix timestamp is a single integer — the number of seconds (or milliseconds) since 1970-01-01 00:00:00 UTC. They're everywhere: log files, API responses, JWT iat / exp claims, database created_at columns, cache headers. They're unambiguous and timezone-free, but not human-readable, so when something breaks at 1735689600 , you need to know whether that's 2pm or 4am, today or last year. This tool flips between the integer form and the readable form in both directions, with seconds/ms auto-detection and a relative-time hint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Decoding a \"timestamp\": 1735689600 field from a log entry or API response. Checking when a JWT was issued or when it expires ( iat / exp claims are seconds-since-epoch). Calculating a future timestamp for a retry-after header, scheduled job, or cache TTL. Sanity-checking whether a date stored in a database is in seconds, milliseconds, or microseconds. Converting \"now\" into the format your tool of the moment wants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Seconds, milliseconds, microseconds",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seconds — the original Unix convention; ~10 digits today (e.g. 1735689600 ). Used in C, Linux, JWT, most APIs, most database integer columns. Milliseconds — JavaScript's Date.now() , Java System.currentTimeMillis() , Kafka, many JSON APIs. ~13 digits. Microseconds (16 digits) / nanoseconds (19 digits) — Python time.time_ns() , Go time.Now().UnixNano() , some metrics systems. This tool doesn't auto-handle them — divide by 1,000 or 1,000,000 first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Year 2038 problem. Signed 32-bit timestamps overflow at 2147483647 = 03:14:07 UTC, 19 January 2038 . Old C code, MySQL TIMESTAMP columns, and embedded systems can wrap to 1901. Modern systems use 64-bit and are fine until ~year 292,277,026,596. Unix time skips leap seconds. A Unix day is exactly 86,400 seconds, even when UTC has 86,401. This is by design (it keeps arithmetic simple) but means you can't use Unix timestamps for sub-second-accurate astronomy or GPS. Negative timestamps are valid and represent dates before 1970. Some libraries reject them — test before relying on it. Auto-detection isn't foolproof. A 10-digit value could be a millisecond timestamp from 1970 — vanishingly unlikely in practice, but if you know which unit you have, don't rely on the heuristic. Always store UTC. Timestamps are timezone-free; \"local time\" is for display only. The \"Local\" line in the output uses your browser's zone, but the underlying integer is always UTC."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertisseur Timestamp Unix",
+  "description": "Convertissez entre timestamps Unix et dates lisibles. Secondes et millisecondes, UTC et local.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre timestamp",
+      "text": "Placez votre timestamp dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

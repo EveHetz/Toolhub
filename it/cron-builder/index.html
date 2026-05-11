@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La sintassi cron è densa: cinque campi con jolly, intervalli, liste, passi. Questo costruttore consente di partire da un preset o scrivere ogni campo, mostra la stringa cron, una spiegazione in linguaggio naturale e le prossime cinque esecuzioni in ora locale. Complementa l' Analizzatore Cron ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Configurare crontab , K8s CronJob , GitHub Actions, EventBridge. Tradurre \"ogni mattina feriale\" in cron corretto. Verificare prima del deploy che eseguirà quando atteso. Insegnare cron a qualcuno di nuovo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DoM + DoW combinati con OR , non AND. Fuso del browser qui — il server di solito è in UTC. */N non è esattamente \"ogni N\". Parte dal limite inferiore. Step+Range: 0-30/5 = 0,5,10,15,20,25,30. Quartz/systemd hanno formato diverso. Questo costruttore = crontab 5 campi. Venerdì 13 richiede script wrapper."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Costruttore Cron",
+  "description": "Costruisci visivamente un'espressione cron — minuto, ora, giorno, mese, giorno-settimana — e anteprima delle prossime 5 esecuzioni.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Imposta le opzioni",
+      "text": "Scegli le opzioni di espressione cron che ti servono."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Genera",
+      "text": "Premi Genera per produrre un nuovo espressione cron."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare il espressione cron generato."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kaartnummers dragen een ingebouwde checksum (het Luhn / mod-10 algoritme) en beginnen met prefixes die het uitgevende merk identificeren. Samen laten die je typo's vangen en het merk identificeren voor je een nummer naar een payment processor stuurt. Deze tool draait beide checks 100% in je browser — het nummer dat je plakt verlaat de pagina nooit. Het is developer-grade structurele validatie, geen fraud-check of live-card lookup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Valideren dat een test-kaartnummer dat je hebt gekopieerd well-formed is (test-kaarten uit Stripe's docs of vergelijkbaar passeren allemaal Luhn). Sanity check op input-velden in een formulier — voldoet het nummer aan de basisstructuur voor je het round-trippt naar een payments-API die anders kosten in rekening brengt voor de lookup? Een kaartnummer audit doen dat \"verkeerd lijkt\" om te zien of het een typo is (Luhn faalt) of een brand-mismatch (lengte klopt niet bij de prefix)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Structureel geldig\" betekent niet \"uitgegeven\" of \"actief\". Echte validatie vereist een payment processor — wat kost of een autorisatie plaatst. Deze tool vangt typo's, geen gesloten rekeningen. Plak nergens echte kaartnummers — ook niet in deze tool. De browser stuurt ze niet door, maar een screen-recorder, browser-extensie of geopend dev-tools panel kan dat wel. Gebruik in plaats daarvan een bekend testnummer. Sommige 16-cijferige nummers zijn geen kaarten. Loyalty cards, cadeaukaarten en sommige prepaid SKU's hergebruiken het formaat; Luhn-pass + brand-match garandeert geen betalingsinstrument. Co-branded kaarten. Kaarten uitgegeven onder één merk tonen mogelijk het logo van een ander merk. De brand-detectie hier gebruikt de canonieke issuer-prefix, niet het gedrukte logo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Testnummers (veilig om te plakken)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visa 4242 4242 4242 4242 · Mastercard 5555 5555 5555 4444 · Amex 3782 822463 10005 · Discover 6011 1111 1111 1117"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Creditcard-validator",
+  "description": "Valideer een kaartnummer met de Luhn-check en detecteer het kaartmerk. Draait lokaal — je nummer wordt nooit verzonden.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je kaartnummer",
+      "text": "Zet je kaartnummer in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Valideer",
+      "text": "Druk op de Valideer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

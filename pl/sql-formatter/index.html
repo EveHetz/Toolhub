@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL ciągnie się od jednoliniowca wpisanego w psql aż do 200-liniowej query analitycznej, której nikt nie przeczyta, póki nie jest porządnie wcięta. Ten formatter bierze dowolne SELECT, INSERT, UPDATE albo DDL i przepisuje je ze spójną indentacją, końcami linii przed każdą klauzulą i jednolitą wielkością keywordów. Tryb minify robi odwrotnie — zgniata wszystko do jednej linii do osadzenia w kodzie albo skryptach. Całość działa w przeglądarce; query nigdy nie opuszczają strony."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reformatowanie query skopiowanej z loga, ORM-a albo wiadomości na czacie w coś diff-owalnego i review-owalnego. Normalizacja konwencji zespołu (UPPERCASE keywordy, 2-spacjowe wcięcie) przed commitem skryptu migracji. Zgniatanie długiej pretty-printed query w jedną linię, żeby zmieściła się w configu YAML albo argumencie CLI. Wyłapywanie strukturalnych problemów — niezbalansowanych nawiasów, brakującego przecinka w SELECT liście albo JOIN-a bez ON-a — które są oczywiste, gdy query jest wcięta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Formatter jest strukturalny, nie semantyczny. Nie powie ci, czy query to poprawny SQL, tylko jak wciąć tokeny, które widzi. Błąd składniowy w wejściu staje się błędem składniowym w wyjściu. Keywordy specyficzne dla dialektu się różnią. ILIKE , RETURNING , LATERAL to Postgres; STRAIGHT_JOIN , SQL_CALC_FOUND_ROWS to MySQL. Wybierz właściwy dialekt, bo inaczej te słowa nie zostaną rozpoznane jako keywordy. Literały stringów są zachowywane dosłownie. Wieloliniowy string w pojedynczych cudzysłowach trzyma swoje końce linii; formatter nie reflowuje tekstu wewnątrz '...' . Komentarze przeżywają, ale lądują na własnych liniach. Jeśli miałeś -- inline komentarz w środku linii, przeniesie się na własną linię podczas pretty-printu. Minify wycina komentarze. Jeśli ich potrzebujesz, nie minifikuj. To nie linter. Do walidacji, egzekwowania stylu i sprawdzania dialektu w CI używaj prawdziwego parsera SQL (np. sqlfluff )."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatter SQL",
+  "description": "Sformatuj i upiększ SQL z porządną indentacją albo zminifikuj do jednej linii. Świadom dialektu (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej SQL",
+      "text": "Umieść SQL w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Formatuj",
+      "text": "Naciśnij przycisk Formatuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

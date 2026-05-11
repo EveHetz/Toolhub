@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een URL is een gestructureerde string met zeven goed-gedefinieerde delen (scheme, authority, host, port, path, query, fragment) die je als één blob inschat. Als er iets mis is — de verkeerde parameter, een onverwachte port, een extra encoded karakter — is dat veel makkelijker te spotten in een geparseerde tabel dan in de raw string. Deze tool gebruikt het native URL -object van de browser zodat de parse precies matcht met wat JavaScript ziet, en splitst dan elke query-parameter uit zodat de decoded values naast de raw vorm zichtbaar zijn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een OAuth callback-URL debuggen waar de state of code verkeerd lijkt. Een tracking-URL (UTM-tags, click-tokens) inspecteren en de daadwerkelijke values zien in plaats van de encoded blob. Bevestigen dat een webhook-URL parset zoals de ontvangende service verwacht — vooral het path en de eventuele query. Inschatten waarom een deep link in de ene app werkt en niet in de andere (port? scheme? authority?)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Herhaalde query-keys zijn echt. ?a=1&a=2 is twee values voor a ; tools die alleen de eerste lezen missen data. De parser toont alle values per key. Het fragment bereikt nooit de server. Alles na # blijft in de browser. Als je backend data niet ziet die je in de URL hebt gezet, check of die eigenlijk in het fragment staat. Encoding doet ertoe. %20 in een query-value decodeert naar spatie; + in een query-value ook naar spatie (volgens application/x-www-form-urlencoded ). De browser's URL.searchParams handelt beide af. Default ports verschijnen niet in port . Een URL als https://example.com/ heeft port leeg (de default 443 wordt geïmpliceerd). Punycode hostnames. example.中国 wordt intern opgeslagen als xn--fiqs8s ; hostname kan de ASCII-vorm tonen afhankelijk van de browser. Origin is soms \"null\". Voor file:// , data: of sandboxed contexts is origin opaque. Dit is parsing, geen validatie. Een URL kan schoon parsen en nog steeds verkeerd zijn voor je applicatie (bijv. verkeerde host, missing path)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "URL Parser",
+  "description": "Plak elke URL — zie protocol, host, port, path, query parameters (gedecodeerd), hash en origin uitgesplitst.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je URL",
+      "text": "Zet je URL in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een MIME-type (nu Internet media type genoemd) is een tweedelig label als image/png of application/json dat een server, browser of library vertelt hoe een blok bytes te interpreteren. Het is wat in HTTP Content-Type -headers staat, wat Multipart-message-parts declareren, en wat file --mime rapporteert. De IANA-registry heeft duizenden entries; deze tool dekt ruwweg 120 die je in webwerk daadwerkelijk tegenkomt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Content-Type instellen op een API-response en de juiste willen voor .docx , .heic of .webmanifest . Het accept -attribuut van een upload-veld configureren of een S3-bucket allow-list. Een hex-dump of tcpdump lezen en opzoeken wat application/grpc-web eigenlijk is. Een statische-file-server of CDN-config bouwen en extension-to-mime mapping nodig hebben. Beslechten of text/xml of application/xml te gebruiken (gebruik de laatste voor nieuwe code volgens RFC 7303)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extensie is niet gelijk aan MIME-type. .json mapt meestal naar application/json , maar een server kan het als text/plain serveren en browsers gehoorzamen de header. Stel de header altijd expliciet in. JavaScript is rommelig. RFC 9239 zegt text/javascript is het preferred type. application/javascript , application/ecmascript en andere zijn obsolete maar nog te zien. OOXML-types zijn heel lang. application/vnd.openxmlformats-officedocument.wordprocessingml.document voor .docx . Probeer ze niet te onthouden — kopieer ze. application/octet-stream betekent \"ik weet het niet\". Als je het type controleert, gebruik een echte — browsers kunnen octet-stream content force-downloaden zelfs als die renderbaar is. Charset doet ertoe voor text-types. Content-Type: text/html; charset=utf-8 — zonder gokt de browser en gokt soms verkeerd (mojibake). Magic-byte sniffing verschilt van het gedeclareerde type. Browsers kunnen Content-Type tweede-raden op basis van file-contents ( X-Content-Type-Options: nosniff schakelt dit uit — zet het voor security)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

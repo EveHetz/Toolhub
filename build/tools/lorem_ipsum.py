@@ -219,4 +219,5 @@ document.addEventListener('DOMContentLoaded', liRun);
 """,
     },
     "related": ["word-counter", "case-converter", "markdown-to-html"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "text"},
 }

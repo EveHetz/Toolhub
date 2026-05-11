@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una query SQL può essere una riga o 200 righe illeggibili finché non sono indentate. Questo formattatore riscrive SELECT/INSERT/UPDATE/DDL con indentazione coerente, a-capo prima di ogni clausola e maiuscole/minuscole uniformi. Minify fa il contrario. Tutto nel browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Riformattare una query copiata da log o ORM. Normalizzare convenzioni di team prima di un commit. Comprimere una query su una riga per YAML o CLI. Vedere parentesi sbilanciate o virgole mancanti."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strutturale, non semantico. Non valida la sintassi SQL. Parole chiave per dialetto. ILIKE , RETURNING = Postgres; STRAIGHT_JOIN = MySQL. I letterali stringa sono preservati. I commenti sopravvivono ma su righe proprie. Minify rimuove i commenti. Non è un linter. Usa sqlfluff in CI."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formattatore SQL",
+  "description": "Formatta e abbellisce SQL con indentazione corretta, o minifica su una riga. Consapevole del dialetto (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il SQL",
+      "text": "Metti il SQL nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Formatta",
+      "text": "Premi il pulsante Formatta per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

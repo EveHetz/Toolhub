@@ -212,4 +212,5 @@ document.addEventListener('DOMContentLoaded', b64Run);
 """,
     },
     "related": ["url-encoder", "html-encoder", "jwt-decoder", "image-to-base64"],
+    "howto": {"flow": "transform", "action": "encode", "noun": "text"},
 }

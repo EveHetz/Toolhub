@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Większość \"walidatorów emaili\" to jednoliniowy regex, który przepuszcza not@an.email i odrzuca edge@case.io . To narzędzie odpala strukturalne sprawdzenia, których faktycznie wymaga RFC 5321 / 5322 — charset local part, reguły kropek, długości labeli, kształt TLD, twarde limity długości — plus podpowiedź disposable domain. Mówi, czy adres jest dobrze sformatowany ; nie mówi, czy skrzynka istnieje (do tego potrzeba serwerowego probe MX/SMTP)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-flight listy adresów email zanim przepchniesz ją przez płatne API walidacji albo mass-mailera (łapie literówki za darmo, oszczędza kredyty). Budowa formularza rejestracji odrzucającego oczywisty syf na poziomie pola. Audyt CSV-a kontaktów w poszukiwaniu literówek przed importem. Sprawdzenie, czy adres, który \"wygląda dziwnie\" (międzynarodowy TLD, plus-addressing, sub-addressing), faktycznie jest dozwolony."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Składniowo poprawny ≠ dostarczalny. does-not-exist@gmail.com przechodzi każde strukturalne sprawdzenie. Prawdziwa weryfikacja wymaga odpowiedzi serwera MX. Używaj tego jako filtra pierwszej linii, nie jako sygnału pewności. Plus addressing jest dozwolony. imie+tag@gmail.com jest poprawny i routuje do imie@gmail.com — nie wycinaj go; to feature. Międzynarodowy email (IDN). 用户@例.中国 jest technicznie poprawny wg RFC 6530, ale nadal nie jest powszechnie wspierany przez serwery SMTP. To narzędzie trzyma się konserwatywnych zasad ASCII; poluzuj, jeśli naprawdę potrzebujesz IDN. Wykrywanie disposable domain to tylko podpowiedź. Lista jest siłą rzeczy niekompletna, a oznaczona domena może i tak być prawdziwym użytkownikiem. Nie odrzucaj różnic wielkości liter. Local part jest technicznie case-sensitive wg RFC 5321; w praktyce każdy nowoczesny provider traktuje go case-insensitive. Nie zamieniaj na lowercase przy zapisie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Walidator Email",
+  "description": "Sprawdź, czy adres email jest poprawny składniowo (zgodny z RFC 5322), z rozbiciem na local part, domenę i typowe pułapki.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej e-mail",
+      "text": "Umieść e-mail w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Waliduj",
+      "text": "Naciśnij przycisk Waliduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

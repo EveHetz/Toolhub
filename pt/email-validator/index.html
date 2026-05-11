@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A maioria dos \"validadores de email\" é uma regex de uma linha que aprova not@an.email e rejeita edge@case.io . Esta ferramenta roda as checagens estruturais que a RFC 5321 / 5322 realmente exigem — charset da parte local, regras de pontos, comprimentos de labels, formato de TLD, limites duros de tamanho — mais um alerta de domínio descartável. Diz se um endereço é bem formado ; não diz se a caixa de email existe (isso requer um probe MX/SMTP no servidor)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pré-checar uma lista de emails antes de jogar numa API paga de validação ou mass-mailer (pega erros de digitação de graça, economiza créditos). Construir um formulário de cadastro que rejeita lixo óbvio no nível do campo. Auditar um CSV de contatos para achar erros de digitação antes de importar. Verificar se um endereço que \"parece estranho\" (TLD internacional, plus-addressing, sub-addressing) é realmente permitido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sintaticamente válido ≠ entregável. does-not-exist@gmail.com passa em toda checagem estrutural. Verificação real precisa da resposta do servidor MX. Use isto como filtro de primeira linha, não como sinal de confiança. Plus addressing é permitido. nome+tag@gmail.com é válido e roteia para nome@gmail.com — não retire; é uma feature. Email internacionalizado (IDN). 用户@例.中国 é tecnicamente válido pela RFC 6530 mas ainda não é amplamente suportado por servidores SMTP. Esta ferramenta segue as regras conservadoras ASCII; afrouxe se realmente precisar de IDN. Detecção de domínio descartável é só uma dica. A lista é necessariamente incompleta e qualquer domínio sinalizado pode ainda ser de um usuário real. Não rejeite diferenças de caixa. Partes locais são tecnicamente case-sensitive pela RFC 5321; na prática todo provider moderno trata como case-insensitive. Não lowercase no storage."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Validador de Email",
+  "description": "Verifique se um endereço de email é sintaticamente válido (compatível com RFC 5322), com análise da parte local, domínio e armadilhas comuns.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu e-mail",
+      "text": "Coloque seu e-mail no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Validar",
+      "text": "Pressione o botão Validar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

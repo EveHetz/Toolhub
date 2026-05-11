@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS that's readable in source — with comments, indentation, and meaningful whitespace — bloats the file your users download. A structural minifier strips all the cosmetic bytes (comments, runs of whitespace, redundant zeros, equivalent shorter hex codes) without changing the rules' meaning. This tool runs that pass in your browser and shows the size before/after so you can see the saving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One-off shipping a CSS snippet inline in an HTML email or a blog post template, where you want the bytes shrunk but don't have a build chain. Quickly checking how much \"fat\" is in a stylesheet before deciding whether a real optimiser is worth wiring up. Pasting a vendor's pretty-printed CSS to slim it down for inclusion in a third-party widget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What it does",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strips block comments ( /* … */ ) — single-line // isn't valid plain CSS anyway. Collapses whitespace around { } : ; , and combinators ( > ~ + ). Drops trailing semicolons before } . Trims leading zeros ( 0.5 → .5 ) and removes units from zero ( 0px → 0 ). Shortens hex colours where exact ( #aabbcc → #abc )."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a structural minify, not a full optimiser. It won't merge duplicate selectors, reorder rules, or rewrite shorthand. For that, run cssnano or esbuild in your build pipeline. Source maps aren't generated. If you debug minified CSS in production, ship them separately. Don't minify the CSS you commit. Commit pretty source; minify at build/deploy. Mixing the two makes diff review miserable. Modern compression dominates. Brotli/gzip on the wire does much of what minification does. The biggest savings come from removing unused rules — a job for tree-shaking, not minification."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSS-Minifier",
+  "description": "Kommentare, Leerzeichen und Redundanz aus CSS entfernen. Vorher/Nachher-Größe und Einsparung anzeigen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "CSS einfügen",
+      "text": "Füge dein CSS in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Minimieren klicken",
+      "text": "Drücke Minimieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

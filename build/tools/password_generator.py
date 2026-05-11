@@ -359,4 +359,5 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
 """,
     },
     "related": ["uuid-generator", "hash-generator", "jwt-decoder"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "password"},
 }

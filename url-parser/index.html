@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A URL is a structured string with seven well-defined parts (scheme, authority, host, port, path, query, fragment) that you eyeball as one blob. When something is wrong — the wrong parameter, an unexpected port, an extra encoded character — it's much easier to spot in a parsed table than in the raw string. This tool uses the browser's native URL object so the parse exactly matches what JavaScript sees, then breaks each query parameter out so the decoded values are visible alongside the raw form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debugging an OAuth callback URL where the state or code looks wrong. Inspecting a tracking URL (UTM tags, click-tokens) and seeing the actual values rather than the encoded blob. Confirming a webhook URL parses the way the receiving service expects — particularly the path and any query. Eyeballing why a deep link works in one app and not another (port? scheme? authority?)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repeated query keys are real. ?a=1&a=2 is two values for a ; tools that read only the first miss data. The parser shows all values per key. The fragment never reaches the server. Anything after # stays in the browser. If your backend isn't seeing data you put in the URL, check whether it's actually in the fragment. Encoding matters. %20 in a query value decodes to space; + in a query value also decodes to space (per application/x-www-form-urlencoded ). The browser's URL.searchParams handles both. Default ports don't appear in port . A URL like https://example.com/ has port empty (the default 443 is implied). Punycode hostnames. example.中国 is stored as xn--fiqs8s internally; hostname may show the ASCII form depending on the browser. Origin is sometimes \"null\". For file:// , data: , or sandboxed contexts, origin is opaque. This is parsing, not validation. A URL can parse cleanly and still be wrong for your application (e.g. wrong host, missing path)."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use URL Parser",
+  "description": "Paste any URL — see the protocol, host, port, path, query parameters (decoded), hash, and origin laid out.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your URL",
+      "text": "Drop your URL into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

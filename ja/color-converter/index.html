@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "デザイナーやフロントエンド開発者は、色をフォーマット間で頻繁に行き来させます。Figma は hex、デザイントークンの仕様は OKLCH、CSS は HSL、キャプチャした画像は RGB といった具合です。このツールはすべての記法を同期させ、1 つを編集すれば他がライブで更新されます。CSS Color Module 4 で追加され、2023 年以降すべての主要ブラウザで対応している oklch() も含みます。OKLCH は知覚的に均一な色を生成し、HSL より遥かに扱いやすい形式です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ブランドの hex コードを CSS のオーバーレイ用に rgb() ＋アルファに変換するとき。 デザインシステムを知覚的カラーへ移行する際に、HSL と OKLCH の間で変換するとき。 スクリーンショットツールから貼られた rgb(52, 152, 219) をスタイルシート用の hex に戻すとき。 OKLCH の chroma 値の妥当性確認（およそ 0.4 を超える値は sRGB ガマットの外にある可能性が高い）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "形式のクイックリファレンス",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex — #RRGGBB （または 3 桁の短縮形 #RGB ）。汎用的で、8 桁形式（ #RRGGBBAA ）にしない限りアルファなし。 RGB — rgb(0–255, 0–255, 0–255) 。画面が実際に受け取る sRGB チャンネル値そのもの。 HSL — 色相（0–360°）、彩度（0–100%）、明度（0–100%）。色のファミリーは扱いやすい一方、明度は知覚的ではありません。HSL 50% の緑は HSL 50% の青より明るく見えます。 OKLCH — 知覚的明度（0–1）、chroma（sRGB では 0–約 0.4）、色相（0–360°）。同じ L の色は同じ明るさに見えます。デザインシステムやアクセシビリティに最適です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OKLCH の明度は 0–1 で、0–100 ではありません。 CSS は両方を受け付けます（ 0.65 または 65% ）。本ツールも両形式に対応します。 OKLCH の値の一部は sRGB の外側に落ちます （例：青の高 chroma）。変換時に表示可能な sRGB へクランプしますので、結果は近似であり厳密ではありません。 HSL と HSV は別物です。 HSV の \"value\" は最も明るいチャンネル、HSL の \"lightness\" は最明・最暗の中点です。同じ色でも異なる数値になります。 ラウンドトリップは必ずしも無損失ではありません。 hex → hsl → hex で丸め誤差により整数 1 つ分ズレることがあります。厳密に再現したい場合は hex で保存してください。 Hex と RGB はデフォルトで sRGB です （Display P3 や Rec. 2020 ではありません）。デザインツールが広色域プロファイルなら、同じ hex でも見た目は異なります。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "カラー変換ツール",
+  "description": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "色 を貼り付け",
+      "text": "色 を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

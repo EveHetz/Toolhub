@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON podróżuje zminifikowany — każdy bajt się liczy, gdy odpowiedź API leci po sieci. Ale zminifikowany JSON jest nieczytelny. To narzędzie robi round-trip przez natywny JSON.parse / JSON.stringify przeglądarki, żeby wyprodukować wcięte, kopiowalne wyjście, zwalidować strukturę albo wyciąć białe znaki z powrotem. Nic nie jest wysyłane; wszystko dzieje się na stronie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wklejenie zminifikowanej odpowiedzi API i dostanie czegoś, co da się przeczytać po ludzku. Łapanie błędów składniowych — końcowych przecinków, kluczy bez cudzysłowu, smart quotes — z dokładnym numerem linii/kolumny, gdzie parser się wywalił. Wycinanie białych znaków przed wklejeniem JSON-a w kontekst, gdzie rozmiar ma znaczenie (parametry URL, zmienne środowiskowe, pliki configa). Potwierdzenie, że ręcznie pisany JSON jest poprawny, zanim wpuścisz go w inne narzędzie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON ≠ object literal w JavaScripcie. Klucze muszą być w podwójnych cudzysłowach. Pojedyncze cudzysłowy, klucze bez cudzysłowu i końcowe przecinki — wszystko padnie. Jeśli masz JS-owe object literale, najpierw przepuść je przez konwerter. Smart quotes z copy-paste. Edytory tekstu i czaty uwielbiają \"pomocnie\" zamieniać \" na \" / \" . To nie są poprawne delimitery JSON. JSON nie ma komentarzy. Jeśli twój \"JSON\" ma // albo /* */ , to faktycznie JSONC (używany w configu VS Code) — wytnij je przed parsem. Liczby większe niż 2⁵³. JavaScript nie potrafi dokładnie reprezentować integerów powyżej 9007199254740992 . Snowflake'i z Twittera i podobne powinny być cytowane jako stringi."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatter JSON",
+  "description": "Formatuj, waliduj i minifikuj JSON od ręki. Błędy podświetlone z numerem linii i kolumny.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej JSON",
+      "text": "Umieść JSON w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Formatuj",
+      "text": "Naciśnij przycisk Formatuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

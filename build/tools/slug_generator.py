@@ -255,4 +255,5 @@ document.addEventListener('DOMContentLoaded', sgRun);
 """,
     },
     "related": ["case-converter", "url-encoder", "lorem-ipsum"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "slug"},
 }

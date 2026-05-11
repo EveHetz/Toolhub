@@ -381,4 +381,5 @@ document.addEventListener('DOMContentLoaded', jpRun);
 """,
     },
     "related": ["json-formatter", "json-diff", "regex-tester"],
+    "howto": {"flow": "transform", "action": "format",  "noun": "JSON"},
 }

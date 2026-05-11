@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Por que essa string não compara igual?\" \"Por que esse username é recusado como já existente quando parece livre?\" \"Por que esse nome de arquivo quebra meu shell?\" A resposta é quase sempre: os bytes não batem com o que seus olhos veem. Dois caracteres podem parecer idênticos mas serem code points diferentes (o \"a\" latino vs o \"а\" cirílico); whitespace pode esconder no-break spaces, zero-width joiners ou overrides RTL; um emoji pode ser um code point ou quatro. Esta ferramenta decompõe qualquer texto até seus code points Unicode individuais, com hex, decimal, sequência de bytes UTF-8, categoria e um nome quando conhecido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diagnosticar um bug de string \"parece igual mas não é igual\". Encontrar caracteres invisíveis (zero-width space, BOM, override RTL) escondidos em texto colado. Contar bytes vs code points vs unidades UTF-16 antes de armazenar em uma coluna de largura fixa. Inspecionar um emoji para ver qual sequência ZWJ ele usa. Detectar ataques de homoglyph em domínios ou usernames. Gerar sequências exatas de bytes UTF-8 para um hex dump."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lendo a saída",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code point — o valor Unicode abstrato, escrito U+XXXX . Existem 1,1 milhão deles; o mais alto em uso é U+10FFFF. UTF-8 — como aquele code point é codificado em bytes em arquivos modernos (1–4 bytes cada). Unidades UTF-16 — o que strings JavaScript ( s.length ) e strings Java contam. Um code point acima de U+FFFF (a maioria dos emoji) ocupa duas unidades UTF-16 (um surrogate pair). Categoria — abreviação da categoria geral do Unicode: L=letra, N=número, P=pontuação, S=símbolo, Z=separador, C=control/format/private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O comprimento é ambíguo. \"👨‍👩‍👧\" tem 1 cluster de grafema, 5 code points, 11 unidades UTF-16 e 18 bytes UTF-8 — todos \"tamanhos\" que algum sistema pode reportar. Sequências zero-width joiner vs seletores de sequência. Muitos emoji são sequências ZWJ: família, profissão, variantes de tom de pele. Reordenar ou remover um ZWJ muda o que é renderizado. Normalização importa. \"café\" pode ser e+◌́ (NFD) ou é (NFC). Parecem idênticos mas são bytes diferentes; bancos de dados e código de comparação precisam normalizar para a mesma forma. Overrides right-to-left são perigosos. Um nome de arquivo contendo U+202E pode inverter sua ordem de exibição — fazendo resu&#x202E;txt.exe parecer resuexe.txt num gerenciador de arquivos. Usado em phishing. A coluna de nome é parcial. Uma base Unicode de verdade tem nomes para cada code point; o inspetor só traz nomes para caracteres de controle e caracteres comuns de format/whitespace, onde o nome é o diagnóstico mais útil. Metades de surrogate não devem aparecer sozinhas. Se você vê U+D800–U+DFFF na saída, a entrada é uma string UTF-16 malformada (lone surrogate). A maioria das APIs vai se recusar a codificar isso para UTF-8."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Inspetor Unicode",
+  "description": "Cole texto → tabela de cada code point. Hex, decimal, bytes UTF-8, categoria. Detecte caracteres invisíveis.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu texto",
+      "text": "Coloque seu texto no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

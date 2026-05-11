@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contar palavras e caracteres na mão é tedioso e propenso a erros, mas os números importam o tempo todo: limites de tweet, segmentos de SMS, contagem de palavras de redação, meta descriptions de SEO, tamanhos de submissão para periódicos. Esta ferramenta dá contagens ao vivo enquanto você digita — palavras, caracteres (com e sem espaços), frases, parágrafos, linhas — mais estimativas de tempo de leitura e fala, e uma rápida análise de frequência das cinco palavras mais recorrentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando você tem que caber em 280 caracteres no X/Twitter, 160 num SMS, 155 numa meta description de SEO ou 100 palavras numa intro de LinkedIn. Orçando palavras de uma redação, post de blog, resumo ou submissão de bolsa contra um limite rígido. Estimando quanto tempo um roteiro vai levar para ler em voz alta (podcasts, apresentações, voice-overs). Identificando palavras superusadas olhando a lista de \"mais frequentes\" antes de enviar. Verificando se uma tradução ficou aproximadamente do mesmo tamanho da fonte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que cada número significa",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Palavras — sequências de caracteres não-whitespace separadas por whitespace. \"Vinte-e-um\" conta como uma palavra; \"vinte e um\" conta como três. Caracteres vs caracteres (sem espaços) — ambos contam code points Unicode, não bytes. Um emoji pode ser 1–2 \"caracteres\" aqui mas ocupar mais bytes quando armazenado. Frases — segmentos terminando em . , ! ou ? (ou fim do texto). Heurística, veja os cuidados abaixo. Parágrafos — separados por linhas em branco. Tempo de leitura assume 250 wpm (leitura silenciosa de adulto). Tempo de fala assume 130 wpm (ritmo conversacional típico; locutores de notícias falam mais rápido, audiobooks mais devagar)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Detecção de frase é ingênua. \"Sr.\", \"EUA.\", \"ex.:\", \"3,14\" e reticências podem inflar a contagem de frases. O número é uma estimativa útil, não uma garantia. Twitter/X conta code points, não caracteres. Um emoji de bandeira (🇸🇰) tem 2 code points mas renderiza como um símbolo — o Twitter trata como 2 caracteres. Esta ferramenta segue o mesmo critério. Limites de caractere de SMS dependem do encoding. ASCII puro cabe em 160 chars por segmento; quando você inclui um caractere não-GSM (travessão, aspa curva, letra acentuada), a mensagem inteira muda para UCS-2 e o limite cai para 70. A ferramenta reporta o limite GSM; confira o comportamento da sua operadora para o custo real. Contagens de palavras variam entre ferramentas. Word, Google Docs e sistemas de submissão de periódicos podem discordar em alguns por cento — eles tratam hifens, travessões e números de forma diferente. Se um limite rígido importa, conte na mesma ferramenta que o gatekeeper usa. \"Mais frequente\" não filtra stop words. \"a\" e \"o\" quase sempre lideram a lista. Olhe as entradas mais longas para o sinal real. Estimativas de tempo de leitura são pessoais. 250 wpm é a mediana; conteúdo técnico vai mais devagar, ficção mais rápido. Trate o número como guia de planejamento, não como previsão."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Contador de Palavras",
+  "description": "Conte palavras, caracteres, frases, parágrafos e estime tempo de leitura e fala enquanto você digita.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Digite seus valores",
+      "text": "Insira os dados de texto que a ferramenta precisa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o cálculo",
+      "text": "O resultado de texto atualiza na hora — sem botão."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use ou copie o resultado",
+      "text": "Pressione Copiar se precisar do valor de texto em outro lugar."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

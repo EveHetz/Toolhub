@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML et JSON sont les deux formats dominants et traduire entre eux est quotidien. Le mapping est conventionnel : attributs avec préfixe ( @ ), nœuds texte avec clé ( #text ), enfants répétés en tableaux. Les deux directions dans le navigateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convertir RSS/Atom/SOAP en JSON pour apps JS. Générer XML config depuis un template JSON. Extraire valeurs imbriquées plus facilement. Vérifier round-trip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un seul vs tableau. Un <item> est objet, deux deviennent tableau — gérer les deux formes côté consommateur. Ordre non garanti. Les clés JSON ne préservent pas l'ordre de manière fiable. Le contenu mixte s'effondre. Pas de round-trip propre. Collisions de préfixe. Si une balise commence par @ , changer le préfixe. Namespaces littéraux. ns:tag reste \"ns:tag\" . Pas d'inférence de type. Le texte XML est toujours string. JSON → XML exige exactement une clé racine."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertisseur XML ↔ JSON",
+  "description": "Convertissez XML en JSON ou JSON en XML. Gère attributs, nœuds texte et tableaux intelligemment.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre XML",
+      "text": "Placez votre XML dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -253,4 +253,5 @@ document.addEventListener('DOMContentLoaded', uuidGen);
 """,
     },
     "related": ["password-generator", "hash-generator", "timestamp-converter"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "UUID"},
 }

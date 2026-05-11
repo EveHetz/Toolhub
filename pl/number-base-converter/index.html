@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Liczby są tą samą liczbą niezależnie od bazy — 255 , 0xff , 0b11111111 i 0o377 to to samo. Ale w której bazie czytasz albo piszesz, ma znaczenie, gdy tłumaczysz między layoutami pamięci, parsujesz kody kolorów, dekodujesz bit fieldy albo po prostu czytasz hex z debuggera. To narzędzie konwertuje między binary, octal, decimal, hex i dowolną bazą od 2 do 36, używając BigInt pod spodem, żebyś nie tracił precyzji na dużych liczbach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Czytanie wartości hex ze stack trace i sprawdzanie, ile to dziesiętnie. Konwersja koloru CSS 0xff8800 na trójkę RGB albo na odwrót. Inspekcja bitmaski albo flagowego integera w binary, żeby zobaczyć, które bity są ustawione. Tłumaczenie między krótkimi ID-kami w bazie 36 a dziesiętnymi licznikami."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Rozpoznawane prefiksy",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex: 0x , 0X , # Binary: 0b , 0B Octal: 0o , 0O Underscore do grupowania cyfr: 1_000_000"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Liczby ujemne mają prefiks znaku, nie są w uzupełnieniu do dwóch. -128 jest pokazane jako -10000000 w binary, nie 10000000 . Większość języków pokazuje tak samo dla integerów dowolnej precyzji. Duże liczby nie tracą tu precyzji. JS-owy Number ma kres w 2 53 ; to narzędzie używa BigInt , więc 64-bitowe integery, duże hashe i wartości kryptograficzne robią dokładny round-trip. Nie myl bazy z wielkością liter. Litery base-16 mogą być wielkie albo małe; narzędzie akceptuje obie i emituje wielkie. Wyjścia base-32 / base-36 są małe z konwencji. Wiodące zera są usuwane. 0x000F staje się F . Jeśli potrzebujesz hex stałej szerokości (np. do reprezentacji bajtów), dopadduj potem w swoim kodzie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Systemów Liczbowych",
+  "description": "Konwertuj między binarnym, oktalnym, dziesiętnym, szesnastkowym i dowolną bazą od 2 do 36.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej liczba",
+      "text": "Umieść liczba w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

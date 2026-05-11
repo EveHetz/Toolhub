@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando due stringhe apparentemente identiche non sono uguali, o uno username sembra libero ma è rifiutato: i byte non coincidono con ciò che vedi. \"a\" latina vs \"а\" cirillica, spazi a larghezza zero, override RTL. Questo strumento decompone qualsiasi testo nei singoli code point Unicode con hex, decimale, byte UTF-8, categoria e nome."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bug \"sembra uguale ma non lo è\". Trovare caratteri invisibili (BOM, ZWS, RTL). Contare byte vs code point vs unità UTF-16. Ispezionare la sequenza ZWJ di un emoji. Rilevare attacchi homoglyph nei domini."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lettura",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code point — valore Unicode U+XXXX . UTF-8 — byte (1–4 per code point). UTF-16 — ciò che contano JS e Java; > U+FFFF usa 2 unità. Categoria — L lettera, N numero, P punteggiatura, S simbolo, C controllo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La lunghezza è ambigua. 👨‍👩‍👧 = 1 cluster, 5 code point, 11 UTF-16, 18 byte UTF-8. La normalizzazione conta. \"café\" può essere NFC o NFD. RTL override pericolosi. U+202E nei nomi file per phishing. Surrogati isolati = UTF-16 malformato."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Ispettore Unicode",
+  "description": "Incolla testo → tabella di ogni code point. Hex, decimale, byte UTF-8, categoria. Trova caratteri invisibili.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il testo",
+      "text": "Metti il testo nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Converti",
+      "text": "Premi il pulsante Converti per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

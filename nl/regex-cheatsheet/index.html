@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een printbare, doorzoekbare samenvatting van de stukjes regex-syntax die je je half blijft herinneren. De tabellen hier dekken de hoofdcategorieën — anchors, character classes, quantifiers, groups, lookarounds, flags — plus een starter-set veelvoorkomende patronen. Klik elk patroon om te kopiëren; typ in het filter om te versmallen. Combineer dit met de Regex Tester om de patronen daadwerkelijk tegen tekst te proberen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je hebt (?<=foo) nodig en kunt je niet herinneren of ? voor of na < staat. Je legt regex uit aan iemand en hebt een stabiele referentiepagina nodig in plaats van Stack Overflow-tabs door te wroeten. Je wil een starter-patroon (UUID, email, ISO-datum) dat je kunt kopiëren en tweaken in plaats van vanaf nul schrijven. Je wil weten welke flag wat doet — vooral s (dotall) vs m (multi-line), die mensen routinematig verwarren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flavour doet ertoe. Het meeste hier is JavaScript / moderne PCRE, maar features verschillen. Lookbehind landde in JavaScript pas met ES2018; x (extended) is PCRE/Python en niet in JS; possessive quantifiers ++ zijn alleen PCRE. m ≠ \"multi-line matching\". m verandert wat ^ en $ betekenen (per-line in plaats van per-string). Om met . over line breaks heen te matchen wil je s (dotall). Greedy matches eten te veel. <.*> tegen <a>b</a> matcht het hele ding, niet alleen <a> . Gebruik <.*?> voor de lazy versie, of liever een specifiekere class als <[^>]+> . Regex is geen HTML- of JSON-parser. De \"veelvoorkomende patronen\" hier zijn goed voor eenmalig scrapen of validatie-hints, niet om structured input als string te behandelen. Email-regexes zijn altijd fout. Het voorbeeld hier is een ruwe shape-check; voor production-validatie stuur je in plaats daarvan een bevestigingsmail. Vertrouw geen copy-pasted \"perfect\" regexes. Test ze tegen je echte data met de Regex Tester voor je deployt."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -217,4 +217,5 @@ document.addEventListener('DOMContentLoaded', evRun);
 """,
     },
     "related": ["regex-tester", "credit-card-validator", "url-encoder"],
+    "howto": {"flow": "transform", "action": "validate","noun": "email"},
 }

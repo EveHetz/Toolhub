@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O markup HTML chega no seu editor em todos os tipos de estado — minificado para produção, gerado por engines de template sem nenhum cuidado com whitespace, digitado à mão e indentado de forma inconsistente. Esta ferramenta reformata qualquer fragmento HTML com indentação consistente por elemento aninhado, reconhecendo elementos void ( <img> , <br> , <meta> ) e elementos inline ( <a> , <span> , <strong> ) para que o output pareça HTML de verdade, não algo formatado por regra cega. O modo minify remove whitespace entre tags e, opcionalmente, comentários. Tudo fica no seu browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fazer pretty-print de um e-mail HTML minificado ou de uma cópia de \"view source\" para conseguir ler a estrutura. Limpar um trecho vindo de CMS / editor WYSIWYG antes de colar num code review. Minificar um asset HTML estático antes do deploy — menos bytes na rede, sem comentários vazando. Remover comentários do autor de um template antes de publicar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Este é um tokenizer pragmático, não um parser HTML5 completo. Funciona bem em fragmentos do mundo real, mas não recupera de input gravemente malformado como os browsers fazem (browsers rodam o algoritmo completo de parsing HTML e corrigem erros silenciosamente — esta ferramenta não). Whitespace dentro de <pre> , <textarea> , <script> , <style> é preservado. Esses elementos são tratados como raw e não são reindentados. Elementos inline ficam na mesma linha do texto pai — <p>some <b>bold</b> text</p> não é quebrado em várias linhas. \"Colapsar whitespace\" muda o output renderizado em alguns conteúdos. Dois espaços viram um. Se seu design depende de múltiplos espaços ou sequências non-breaking, deixe desligado. Notação self-closing em HTML é cosmética. <br/> e <br> são equivalentes em HTML5; esta ferramenta preserva o que você escreveu. Minify não é uma fronteira de segurança. Não confie em remoção de comentários para esconder segredos — eles já foram enviados pro cliente."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatador HTML",
+  "description": "Formata e embeleza HTML ou minifica. Tamanho de indentação, remoção de comentários e reconhecimento de tags auto-fechantes.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu HTML",
+      "text": "Coloque seu HTML no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

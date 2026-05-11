@@ -291,4 +291,5 @@ document.addEventListener('DOMContentLoaded', () => { tzPopulate(); tzNow(); });
 """,
     },
     "related": ["timestamp-converter", "date-calculator", "cron-parser"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "time"},
 }

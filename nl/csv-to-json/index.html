@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV is de lingua franca van spreadsheet-exports; JSON is de lingua franca van API's en config. Deze converter pakt correct-quoted CSV (RFC 4180-compatible) en levert een JSON-array — ofwel een array van objects (als er een header-row is) of een array van arrays. Nuttig als je een sheet hebt geëxporteerd en het in iets moet voeren dat JSON spreekt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een eenmalige Google Sheets / Excel-export omzetten naar seed-data voor een API-mock of test fixture. Reference-tabellen (landen, currency codes, lookup-data) laden in een frontend die JSON consumeert. Een CSV inspecteren met embedded comma's / newlines die overal verkeerd rendert behalve in een echte RFC 4180-parser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Delimiter-detectie is geen magie. Als je file puntkomma's gebruikt (gebruikelijk in EU-locales) of tabs (TSV), schakel de delimiter-dropdown — auto-detectie raadt maar kan voor de gek gehouden worden door data met het verkeerde karakter erin. Type-coercion heeft een mening. Numerieke strings, true , false en letterlijk null worden geconverteerd naar JSON-types. Dingen die numeriek lijken maar niet zijn (postcodes, ISBN's met leading zeros, telefoonnummers) verliezen leading zeros — schakel coercion uit of post-process. Lege cellen worden lege strings, geen null . De meeste API's behandelen die twee verschillend. BOM's in het wild. Excel slaat UTF-8 op Windows vaak op met een byte-order mark; de parser tolereert het maar andere consumers misschien niet."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSV naar JSON",
+  "description": "Converteer CSV-data naar JSON-arrays. Header-detectie, custom delimiters, quoted fields en embedded newlines worden afgehandeld.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je CSV",
+      "text": "Zet je CSV in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

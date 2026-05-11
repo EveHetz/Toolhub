@@ -338,4 +338,5 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
 """,
     },
     "related": ["url-parser", "url-encoder", "json-formatter", "jwt-decoder"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "query string"},
 }

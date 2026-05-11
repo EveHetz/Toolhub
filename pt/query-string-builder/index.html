@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um query string é só uma lista de pares chave/valor colados com ? , = e & , mas escrever um corretamente à mão é chato: espaços viram %20 (ou + , dependendo), cada valor é percent-encoded e arrays têm pelo menos três convenções concorrentes. Esta ferramenta deixa você digitar as chaves e valores que quer, marcar \"multi\" para os que devem ser repetidos e produz a string corretamente codificada, pronta para colar depois do ? ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Montar uma URL de API com vários parâmetros que incluem espaços, acentos ou pontuação. Construir um link de tracking (UTM) sem erros de digitação nos valores codificados. Construir um deep link ou URL de compartilhamento que vai passar por e-mail, chat ou redes sociais. Confirmar a notação de array correta para uma API — a[]=1 , a=1&a=2 ou a=1,2 — testando cada uma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convenções de array não são padronizadas. PHP e Rails usam a[]=1&a[]=2 ; o requests do Python por padrão repete a=1&a=2 ; ASP.NET costuma usar vírgulas. Combine com o que sua API espera. + vs %20 . application/x-www-form-urlencoded usa + para espaços; query strings de URI usam estritamente %20 . A maioria dos servidores aceita os dois, mas alguns não — use o que sua API documenta. Valores vazios são diferentes de chaves ausentes. ?a= significa \"a é a string vazia\"; omitir a significa \"nenhum valor fornecido\". Algumas APIs tratam diferente. Caracteres reservados. = , & , # , ? dentro de valores são codificados; versões literais em chaves/valores encerrariam o parâmetro ou a query inteira. A ordem pode importar. Alguns esquemas de URL assinada (S3, webhooks Stripe, OAuth 1.0) exigem parâmetros em ordem específica antes da assinatura. A ferramenta preserva a ordem das suas linhas. Limites de tamanho. Navegadores e servidores limitam o query string em torno de 2–8 KB. Enfiar JSON num parâmetro de query é sinal de problema. Não coloque segredos no query string. Eles aparecem em logs do servidor, histórico do navegador e headers Referer. Use o body da requisição ou um header Authorization."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Construtor de Query String",
+  "description": "Adicione linhas de chave/valor; obtenha um query string corretamente URL-encoded. Suporta arrays (a[]=1) e chaves repetidas.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de query string que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo query string."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o query string gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat URL-encoding doet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URLs en HTTP-headers zijn beperkt tot een kleine ASCII-subset. Alles buiten die set — inclusief spaties, accenten, emoji en diverse reserved leestekens — moet percent-encoded worden: vervangen door % gevolgd door twee hex-cijfers per byte. café wordt caf%C3%A9 (UTF-8). Decoderen keert dat om."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer welke scope",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Component — kies dit voor individuele values die je in een URL plakt: query-string values, path segments, fragment text, header values. Encodet de structurele karakters / ? # & = + zodat ze niet per ongeluk als URL-syntax geparseerd worden. Full URI — kies dit voor een hele URL die je wil opschonen. Behoudt / ? # & = + als URL-structuur, encodet alleen illegale karakters (spaties, non-ASCII, etc.)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Encode niet dubbel. Een al-encoded string encoderen verandert %20 in %2520 . Als je input %XX -sequences toont, decodeer eerst. Spaties zijn niet altijd %20 . In application/x-www-form-urlencoded -bodies zijn spaties + . Deze tool volgt de JavaScript encodeURIComponent -conventie (altijd %20 ); decode handelt beide af. UTF-8 vs Latin-1. Moderne browsers en encodeURIComponent gebruiken altijd UTF-8. Sommige oudere systemen produceren nog Latin-1 percent-escapes — die round-trippen hier niet schoon. Reserved karakters zijn case-insensitive in de percent-escape maar case-sensitive in het decoded resultaat — %2F en %2f decoderen beide naar / , maar de case van het oorspronkelijke karakter blijft behouden."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "URL Encoder / Decoder",
+  "description": "Percent-encode strings voor URLs of decodeer percent-encoded strings terug naar plain text.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Encoderen",
+      "text": "Druk op de Encoderen-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

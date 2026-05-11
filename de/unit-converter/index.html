@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most of the world is metric, the US is imperial, the UK is half-and-half, recipes are in cups when they should be in grams, and somewhere in the middle a kid's school project asks for \"5 yards in centimetres\". This tool runs the conversions for length, weight, temperature, volume, area, time, and speed using high-precision definitions — and spreads the result across every unit in the category at once, so you don't have to convert twice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reading a recipe in cups when you cook in grams (or vice versa). Translating a flight distance in nautical miles into kilometres. Converting an outdoor-temperature forecast from °C to °F before travel. Sizing a piece of furniture: 72 inches wide → will it fit through a 1.9 m doorway? Reading scientific paper measurements in SI when you think in imperial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's accurate, and what isn't",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Length, weight, temperature, area, speed use the SI definitions and the international yard-and-pound agreement (1959), so they're precise to the precision your input has. Volume can be fiddly: a US \"gallon\" (3.785 L) and a UK \"imperial gallon\" (4.546 L) are different. The tool labels which is which. Cup / tablespoon / teaspoon default to US measure here. UK and Australian cups are slightly different (250 mL in AU, 240 mL in US). \"Month\" and \"year\" in the time category use averages (30.44 days / 365.25 days). Don't use this for legal or accounting calculations where exact months matter — use a date calculator instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Temperature is not a ratio. 0°C is not \"no temperature\" — it's a reference point. Doubling Celsius doesn't double the heat. The conversion uses the additive offsets (273.15 to/from Kelvin, 32 between C and F) which is why the tool uses functions for temperature, not multipliers. US vs UK fluid ounces are different. 1 US fl oz = 29.57 mL, 1 UK fl oz = 28.41 mL. Always check which standard a recipe uses. \"Tonne\" vs \"ton\". Metric tonne = 1000 kg. US short ton = 907 kg. UK long ton = 1016 kg. The tool's \"t\" is the metric tonne. Mass vs weight. Strictly, kg is mass and pounds are mass too (despite the colloquial \"I weigh 70 kg\"). The tool treats them as a mass-to-mass conversion. For force (newtons, pound-force), you need a different category. Round at the end, not the middle. Don't convert m → ft, round, then ft → in — accumulate errors. Go straight to the target unit. Stones & pounds. A British weight: 1 stone = 14 lb. The tool has stone (st) but you'll need to do the lb portion separately for \"11 st 4 lb\"-style entries."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Einheitenrechner",
+  "description": "Konvertiere zwischen metrischen und imperialen Einheiten für Länge, Gewicht, Temperatur, Volumen und Fläche.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Werte eingeben",
+      "text": "Tippe die Einheit-Eingaben ein, die das Tool braucht."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Berechnung ablesen",
+      "text": "Das Einheit-Ergebnis aktualisiert sich sofort — kein Klick nötig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis nutzen oder kopieren",
+      "text": "Drücke Kopieren, falls du den Einheit-Wert woanders brauchst."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

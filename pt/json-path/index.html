@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath está pra JSON assim como XPath está pra XML — uma linguagem de query pra extrair valores específicos de um documento aninhado sem escrever código sob medida. $.store.books[*].title diz \"me dá todo título de livro abaixo de store\"; $..price diz \"todo price em qualquer lugar do documento\". Esta ferramenta roda uma query ao vivo contra qualquer JSON que você colar, mostrando tanto os valores correspondentes quanto os paths de onde vieram, pra que você itere a query até retornar exatamente o que quer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rascunhar uma query para uma ferramenta que usa JSONPath: utilitários CLI estilo jq, testes do Postman, Stedi, n8n ou AWS CloudWatch / Step Functions. Pescar campos específicos de uma resposta grande de API sem escrever script. Filtrar um array por um valor de campo (ex.: \"todas as orders onde total > 100\"). Verificar se um path muito aninhado de fato resolve pra um valor antes de plumbar isso no código."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Referência rápida de sintaxe",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$ — raiz do documento. .name ou ['name'] — filho por nome. .. — descida recursiva (qualquer profundidade). * — wildcard (qualquer propriedade ou elemento de array). [n] — índice de array (negativo conta a partir do fim). [start:end:step] — slice de array (estilo Python). [a, b, c] — união de índices ou nomes. [?(@.field > 5)] — expressão de filtro. @ = item atual; suporta == != < > <= >= && || e =~ /regex/ ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath não tem uma única spec oficial. O draft original do Stefan Gössner foi a referência de fato por anos; a RFC 9535 (fev/2024) finalmente padronizou. As implementações divergem um pouco — o que funciona no Postman pode não funcionar no Jaeger. Ponto vs colchete. $.foo-bar parece \"foo menos bar\" pro parser; use $['foo-bar'] para nomes de propriedade com hífen, ponto ou espaço. As expressões de filtro aqui têm sabor JavaScript — é uma conveniência deliberada, mas não bate exatamente com a RFC 9535. Não confie que os filtros desta ferramenta vão funcionar byte a byte numa outra implementação. $..* retorna todo nó da árvore (depth-first), o que pode ser muita coisa. Útil pra explorar um documento desconhecido. Strings numéricas. {\"1\": \"a\"} — acessar com $['1'] funciona; $.1 não (números não são válidos como nomes de propriedade com ponto). Ordenação. JSON não garante ordem de propriedades de objetos. Se seu filtro depende de ordem, ordene antes."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Testador JSONPath",
+  "description": "Roda queries JSONPath contra qualquer documento JSON. Veja os nós correspondentes e seus paths em tempo real.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu JSON",
+      "text": "Coloque seu JSON no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

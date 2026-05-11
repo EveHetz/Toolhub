@@ -505,4 +505,5 @@ document.addEventListener('DOMContentLoaded', sfRun);
 """,
     },
     "related": ["json-formatter", "xml-formatter", "regex-tester", "css-minifier"],
+    "howto": {"flow": "transform", "action": "format",  "noun": "SQL"},
 }

@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les systèmes ont des sélecteurs d'emojis (Win+., Cmd+Ctrl+Espace), mais ils sont inconsistants et parfois lents. Cet outil fournit une grille curée par catégorie avec recherche par mot-clé. Clic = copie. Les récents sont conservés dans le stockage local — rien n'est envoyé à un serveur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bureau sans raccourci rapide. Recherche par mot-clé plus large. Bureau distant ou système sans sélecteur natif."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne le rendu",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un emoji est un ou plusieurs points de code Unicode. L'apparence dépend de la police système (Apple, Google Noto, Microsoft Segoe). Les octets sont identiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Teintes et professions sont des séquences avec ZWJ. Drapeaux = indicateurs régionaux. 🇫🇷 = \"🇫\" + \"🇷\". Curaté, non exhaustif. Unicode 15 a 3664 emojis ; ici ~600. Sélecteur de variation (U+FE0F) force le style emoji. L'API presse-papiers exige un geste (le clic suffit)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

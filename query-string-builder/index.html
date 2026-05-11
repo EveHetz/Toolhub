@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A query string is just a list of key/value pairs glued together with ? , = , and & , but writing one by hand correctly is fiddly: spaces become %20 (or + , depending), each value gets percent-encoded, and arrays have at least three competing conventions. This tool lets you type the keys and values you want, ticks \"multi\" for the ones you want repeated, and produces the correctly-encoded string ready to paste after ? ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crafting an API URL with several parameters that include spaces, accents, or punctuation. Building a tracking link (UTM tags) without typos in the encoded values. Constructing a deep link or share URL that has to round-trip through email, chat, or social. Confirming the right array notation for an API — a[]=1 , a=1&a=2 , or a=1,2 — by trying each."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Array conventions are not standardised. PHP and Rails use a[]=1&a[]=2 ; Python's requests defaults to repeating a=1&a=2 ; ASP.NET often uses commas. Match what your API expects. + vs %20 . application/x-www-form-urlencoded uses + for spaces; URI query strings strictly use %20 . Most servers accept both, but some don't — pick the one your API documents. Empty values are different from missing keys. ?a= means \"a is the empty string\"; omitting a means \"no value provided\". Some APIs treat them differently. Reserved-character interplay. = , & , # , ? inside values are encoded; literal versions in keys/values would terminate the parameter or whole query. Order can matter. Some signed-URL schemes (S3, Stripe webhooks, OAuth 1.0) require parameters in a specific order before signing. The tool preserves your row order. Length limits. Browsers and servers cap query-string length around 2–8 KB. Stuffing JSON into a query parameter is a smell. Don't put secrets in the query string. They show up in server logs, browser history, and Referer headers. Use the request body or an Authorization header instead."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Query String Builder",
+  "description": "Add key/value rows; get a correctly URL-encoded query string out. Supports array (a[]=1) and bracket-less repeated keys.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Set your options",
+      "text": "Pick the query string options you need."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Generate",
+      "text": "Press Generate to produce a fresh query string."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the generated query string."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

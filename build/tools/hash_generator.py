@@ -166,4 +166,5 @@ document.addEventListener('DOMContentLoaded', hRun);
 """,
     },
     "related": ["password-generator", "uuid-generator", "jwt-decoder"],
+    "howto": {"flow": "transform", "action": "generate","noun": "text"},
 }

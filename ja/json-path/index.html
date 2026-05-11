@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath は JSON にとっての XPath のようなもので、カスタムコードを書かずにネストされたドキュメントから特定の値を抜き出すクエリ言語です。 $.store.books[*].title は「store の下にあるすべての書籍タイトル」、 $..price は「ドキュメント中の任意の場所にある price 」を意味します。本ツールは貼り付けた JSON にクエリをライブで実行し、マッチした値とそのパスを同時に表示します。狙い通りの結果になるまでクエリを反復できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath を使うツール向けにクエリを下書きするとき：jq 系 CLI、Postman のテスト、Stedi、n8n、AWS CloudWatch / Step Functions など。 大きな API レスポンスから特定フィールドだけをスクリプトを書かずに抜き出したいとき。 配列をフィールド値で絞り込みたいとき（例：「total > 100 のすべての注文」）。 深くネストされたパスが本当に値に到達するか、コードに組み込む前に確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "クイック構文リファレンス",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$ — ドキュメントのルート。 .name または ['name'] — 名前による子参照。 .. — 再帰的下降（任意の深さ）。 * — ワイルドカード（任意のプロパティまたは配列要素）。 [n] — 配列のインデックス（負数で末尾から）。 [start:end:step] — 配列スライス（Python 形式）。 [a, b, c] — インデックスや名前のユニオン。 [?(@.field > 5)] — フィルタ式。 @ は現在の要素。 == != < > <= >= && || と =~ /regex/ をサポート。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath には公式な単一仕様が長らくありませんでした。 Stefan Gössner のオリジナルドラフトが事実上の参照として長年使われ、2024 年 2 月の RFC 9535 で初めて標準化されました。実装によって細部は異なります。Postman で動くものが Jaeger で動くとは限りません。 ドット vs ブラケット。 $.foo-bar はパーサには「foo マイナス bar」に見えます。ハイフン、ドット、スペースを含むプロパティ名には $['foo-bar'] を使います。 本ツールのフィルタ式は JavaScript 寄りです。 あえての利便性ですが RFC 9535 と完全一致はしません。本ツールのフィルタが他実装でビット同一に動くと信用しないでください。 $..* は深さ優先でツリー内の全ノードを返すため、結果は膨大になり得ます。未知のドキュメントを探索する用途に向きます。 数字の文字列キー。 {\"1\": \"a\"} に対して $['1'] は動きますが、 $.1 は動きません（数字はドットプロパティ名として無効）。 順序。 JSON はオブジェクトのプロパティ順を保証しません。フィルタが順序に依存するなら、先にソートしてください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSONPath テスター",
+  "description": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "JSON を貼り付け",
+      "text": "JSON を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "整形 をクリック",
+      "text": "整形 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

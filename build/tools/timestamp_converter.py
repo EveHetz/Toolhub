@@ -251,4 +251,5 @@ document.addEventListener('DOMContentLoaded', tsNow);
 """,
     },
     "related": ["timezone-converter", "cron-parser", "date-calculator"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "timestamp"},
 }

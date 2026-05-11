@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuando dos cadenas que parecen iguales no comparan iguales, o un nombre de usuario aparentemente libre es rechazado, los bytes no coinciden con lo que ves. \"a\" latina vs \"а\" cirílica, espacios de ancho cero, overrides RTL — el catálogo es largo. Esta herramienta descompone cualquier texto en sus code points individuales con hex, decimal, bytes UTF-8, categoría y nombre conocido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bugs de \"se ve igual pero no es igual\". Encontrar caracteres invisibles (BOM, ZWS, RTL). Contar bytes vs code points vs unidades UTF-16. Inspeccionar la secuencia ZWJ de un emoji. Detectar ataques de homoglyph en dominios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lectura",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code point — valor Unicode abstracto U+XXXX . UTF-8 — bytes (1–4 por code point). Unidades UTF-16 — lo que JS y Java cuentan; > U+FFFF usa 2. Categoría — L letra, N número, P puntuación, S símbolo, C control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La longitud es ambigua. 👨‍👩‍👧 = 1 cluster, 5 code points, 11 UTF-16, 18 bytes UTF-8. La normalización importa. \"café\" puede ser NFC o NFD. Los RTL overrides son peligrosos. U+202E en nombres de fichero para phishing. Substitutos sueltos indican UTF-16 mal formado."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Inspector Unicode",
+  "description": "Pega texto → tabla de cada code point. Hex, decimal, bytes UTF-8, categoría. Detecta caracteres invisibles.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu texto",
+      "text": "Coloca tu texto en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Convertir",
+      "text": "Pulsa el botón Convertir para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

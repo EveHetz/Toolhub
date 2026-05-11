@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los sistemas operativos tienen selectores de emojis (Win+., Cmd+Ctrl+Espacio), pero son inconsistentes y a veces lentos. Esta herramienta ofrece una rejilla curada por categoría con búsqueda por palabra clave. Clic = copiado. Los recientes se guardan en el almacenamiento local del navegador — nada se envía a un servidor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escritorio sin atajo rápido de emojis. Búsqueda por palabra clave más amplia. Escritorio remoto o sistema sin selector nativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cómo funciona el renderizado",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los emojis son puntos de código Unicode. El aspecto depende de la fuente del sistema (Apple, Google Noto, Microsoft Segoe). Los bytes son idénticos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tonos de piel y profesiones son secuencias con ZWJ. Las banderas son indicadores regionales. 🇪🇸 = \"🇪\" + \"🇸\". Curado, no exhaustivo. Unicode 15 tiene 3664 emojis; aquí ~600. Selector de variación (U+FE0F) fuerza el estilo emoji. La API de portapapeles necesita un gesto (el clic basta)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

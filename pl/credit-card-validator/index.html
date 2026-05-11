@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Numery kart noszą wbudowaną sumę kontrolną (algorytm Luhna / mod-10) i zaczynają się od prefiksów identyfikujących wystawcę. Razem to pozwala wyłapać literówki i rozpoznać wystawcę zanim wyślesz numer do procesora płatności. To narzędzie liczy oba sprawdzenia 100% w twojej przeglądarce — wklejony numer nigdy nie opuszcza strony. To deweloperska walidacja strukturalna, nie weryfikacja anty-fraudowa ani sprawdzenie aktywności karty."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Walidacja, czy testowy numer karty, który skopiowałeś, jest poprawnie zbudowany (karty testowe z dokumentacji Stripe'a i podobnych przechodzą Luhna). Sanity check pól w formularzu — czy numer spełnia podstawową strukturę, zanim odbije się o API płatności, które kasowałoby za sprawdzenie? Audyt numeru, który \"wygląda źle\", żeby zobaczyć, czy to literówka (Luhn nie przechodzi) czy niezgodność wystawcy (zła długość dla prefiksu)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Strukturalnie poprawny\" nie znaczy \"wydany\" ani \"aktywny\". Prawdziwa walidacja wymaga procesora płatności — co kosztuje albo blokuje środki. To narzędzie łapie literówki, nie zamknięte konta. Nie wklejaj nigdzie prawdziwych numerów kart — w tym tu. Przeglądarka ich nie wysyła, ale screen recorder, rozszerzenie albo otwarte dev-toolsy mogą podejrzeć. Użyj znanego numeru testowego. Niektóre 16-cyfrowe numery to nie karty. Karty lojalnościowe, gift cardy i pewne pre-paid SKU używają tego samego formatu; przejście Luhna + zgodny wystawca nie gwarantuje, że to instrument płatniczy. Karty co-branded. Karty wydane pod jedną marką mogą mieć logo innej. Wykrywanie wystawcy używa tu kanonicznego prefiksu, nie nadrukowanego logo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Numery testowe (bezpieczne do wklejenia)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visa 4242 4242 4242 4242 · Mastercard 5555 5555 5555 4444 · Amex 3782 822463 10005 · Discover 6011 1111 1111 1117"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Walidator Karty Kredytowej",
+  "description": "Sprawdź numer karty algorytmem Luhna i wykryj wystawcę. Działa lokalnie — twój numer nigdy nie jest wysyłany.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej numer karty",
+      "text": "Umieść numer karty w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Waliduj",
+      "text": "Naciśnij przycisk Waliduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

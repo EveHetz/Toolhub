@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comparar duas versões de um trecho de texto — um parágrafo, um arquivo de config, uma query SQL, uma lista — e ver exatamente quais linhas foram adicionadas, removidas ou ficaram iguais. Mesmo quando você não tem git diff à mão ou o texto não está em controle de versão. A saída é o mesmo diff em nível de linha que você veria num code review: verde para adições, vermelho para remoções, plano para contexto inalterado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Detectar o que está diferente entre dois e-mails, contratos ou blocos colados que \"parecem iguais\". Comparar arquivos de config ou variáveis de ambiente entre dois ambientes (staging vs prod). Revisar mudanças num texto que foi editado no Word/Docs por outra pessoa. Fazer diff de dois resultados de query, trechos de log ou blobs JSON (use o JSON Formatter primeiro para canonicalizar). Verificação rápida de sanidade num search-and-replace antes de commitar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lado a lado vs unificada",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lado a lado — mais fácil de scanear pequenas mudanças linha a linha; o original fica à esquerda, a versão nova à direita. Unificada — mais próxima da saída do git diff ; melhor para compartilhar ou imprimir, e mais fácil de acompanhar quando as mudanças são esparsas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Isto é diff de linha, não de palavra. Um caractere alterado no meio de uma linha longa marca a linha inteira como alterada. Para diff em nível de prosa de parágrafos, talvez você queira uma ferramenta que tokenize em palavras. \"Ignorar whitespace\" afeta só a comparação, não a exibição. Linhas que diferem apenas em espaços no fim ou indentação caem na coluna inalterada, mas o whitespace original continua sendo mostrado. \"Ignorar case\" do mesmo jeito. \"TODO\" e \"todo\" comparam iguais, mas o case original é renderizado. Ordem importa. Se você troca duas linhas de lugar, o diff mostra as duas como removidas-e-readicionadas, não como um par \"movido\". Não há detecção de movimento. Entradas grandes (10k+ linhas) podem ser lentas. O algoritmo LCS é O(m·n) — tudo bem para arquivos típicos, lento para muito grandes. Faça diff em pedaços pequenos. Newlines no final contam como linha. Duas entradas que diferem só em terminar ou não com newline vão mostrar uma adição ou remoção no final."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Diff de Texto",
+  "description": "Compare dois blocos de texto e veja adições, remoções e contexto inalterado linha a linha. Visão lado a lado ou unificada.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole as duas versões do texto",
+      "text": "Coloque cada versão do seu texto em um dos dois campos."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Comparar",
+      "text": "Pressione Comparar para encontrar as diferenças."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o diff",
+      "text": "Veja as diferenças destacadas na Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

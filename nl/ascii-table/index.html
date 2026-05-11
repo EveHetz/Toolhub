@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII (American Standard Code for Information Interchange) is het 128-tekens coderingssysteem dat cijfers, letters, leestekens en een handvol stuurtekens afbeeldt op de gehele getallen 0–127. Het is het fundament dat elke moderne tekstcodering (UTF-8, Latin-1, Windows-1252) uitbreidt, dus de waarden kennen is af en toe cruciaal — een vreemde byte in een binair bestand opsporen, een regex bouwen voor \"elk afdrukbaar teken\", een hex dump lezen, of onthouden of 0x0A of 0x0D een newline is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een hex dump lezen en uitzoeken wat die bytes zeggen . Een parser schrijven en de grenswaarden nodig hebben: 0x20 (spatie), 0x7E (tilde) — het afdrukbare bereik. Een CSV debuggen die brak omdat er 0x09 (Tab) of 0x1F (Unit Separator) in zat. Een HTML-entiteit maken voor een lastig teken — &#65; = A . Een discussie beslechten over of 0x0D is (ja — Carriage Return) en 0x0A (ja — Line Feed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII is 7-bit, geen 8-bit. Codes 128–255 zijn geen ASCII — die horen bij de 8-bit encoding (Latin-1, CP-1252, …) die het document opgeeft, of zijn de leading bytes van een UTF-8-sequence. Newlines verschillen per platform. Unix/macOS gebruiken alleen LF (0x0A); de oude Mac Classic gebruikte CR (0x0D); Windows gebruikt CRLF . Bestanden die ze mengen breken naïeve regeltellingen. Stuurtekens zijn onzichtbare saboteurs. Copy/paste vanuit een terminal of PDF kan 0x1F , 0x07 (BEL — laat de terminal echt piepen), of zero-width Unicode-tekens oppikken die geen ASCII zijn. Als tekst er gelijk uitziet maar ongelijk vergelijkt, dump je het naar bytes. HTML-entiteiten zijn niet altijd nodig. In moderne UTF-8-documenten zijn &#65; en de letterlijke A equivalent. Escape alleen tekens met syntactische betekenis in HTML: & , < , > en \" in attributen. NUL ( 0x00 ) sluit strings af in C. Embed het niet zomaar in C-string buffers — veel API's kappen stilletjes af bij de eerste NUL."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

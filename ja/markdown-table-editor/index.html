@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown のテーブルはレンダリング後の見た目は良い一方、手書きは面倒です。パイプ、揃えのコロン、列ごとに必要なハイフン数 — 全部を整える頃には HTML で書いた方が早かった、ということになりがちです。本エディターは見慣れたグリッドを提供します。セルをクリックして編集、ボタンで行・列の追加削除、列単位の揃えをドロップダウンから設定、最後に GitHub 風 Markdown をコピーできます。下部に既存の Markdown テーブルを貼ると、グリッドにロードして編集を続けられます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "README、GitHub issue、PR の説明用に比較表を作りたいとき。 ドキュメントの既存テーブルを編集したいとき — 既存 Markdown を貼ってグリッドで調整、コピーして戻せます。 桁を揃えた ASCII テーブルとしても読める出力（右パディングされるので素のテキストでも読みやすい）が必要なとき。 パイプとハイフンの構文と戦わずにリリースノートのテーブルを下書きしたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "セル内のパイプは GFM テーブルを壊します。 セル内のリテラル | はセルを終端させます。必要なら \\| でエスケープしてください。 セルは 1 行のみ。 Markdown テーブルは HTML（ <br> ）なしではセル内改行に対応しません。複数行が必要なら HTML テーブルで書きましょう。 揃えは描画されますが強制ではありません。 出力はソース上も整えるためにパディングしますが、レンダリングでの揃えはあくまで区切り行のコロンに依存し、空白の数ではありません。 1 行目は常にヘッダーとして扱われます。 GFM テーブルにはヘッダーが必須です。自然なヘッダーがない場合は 1 行目を空セルにしてください。 Markdown 方言によっては GFM より厳しいです。 CommonMark はそもそもテーブルを定義していません。GFM、MultiMarkdown などで微妙に異なる方言があります。本ツールの出力は GFM（GitHub、GitLab、ほとんどのモダンレンダラー）を対象としています。 素の CSV は読み込めません。 インポート用テキストエリアは |---| 区切りを含む Markdown テーブルを期待します。CSV → Markdown 変換が必要なら、CSV-to-JSON ツールを経由するか、手で行を貼り付けてください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown テーブルエディター",
+  "description": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "表 を貼り付け",
+      "text": "表 を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "整形 をクリック",
+      "text": "整形 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

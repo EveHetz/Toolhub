@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les jeux de rôle papier (D&D, Pathfinder, etc.) utilisent une notation compacte : NdF = \"lancer N dés à F faces\". 2d6+3 = \"deux d6 et +3\". Cet outil interprète la notation et lance avec le RNG cryptographique du navigateur — non biaisé et imprévisible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Notation prise en charge",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 , 2d6+3 , 3d8-1 . 4d6kh3 — garder les 3 plus hauts. 2d20kl1 désavantage, 2d20kh1 avantage. 1d100 ou 1d% — dé centésimal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partie en ligne, dés physiques absents, MJ à distance. Lancer rapide sans appli payante. Prototyper une probabilité."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'onglet du navigateur est la frontière de confiance. Avec devtools on peut tricher — pour du compétitif, lanceur côté serveur. RNG crypto = imprévisible, pas \"plus aléatoire\". Modificateur appliqué une fois, après le keep. Pas d'explosions ni de comptage de succès. Critiques uniquement sur d20. 20 vert, 1 rouge. Max 1000 dés. Limite de performance."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Lanceur de Dés",
+  "description": "Lancez les dés avec la notation D&D standard — 2d6+3, 1d20, 4d6 garder les 3 plus hauts. RNG crypto-sûr.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Choisissez vos options",
+      "text": "Sélectionnez les options de lancer dont vous avez besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Lancer",
+      "text": "Appuyez sur Lancer pour produire un nouveau lancer."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier le lancer généré."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

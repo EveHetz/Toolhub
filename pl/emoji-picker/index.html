@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wszystkie systemy operacyjne mają pickery emoji (Win+. na Windowsie, Cmd+Ctrl+Spacja na macOS, klawiatura na telefonach), ale są niespójne, czasem ukryte i często powolne. To narzędzie daje wyselekcjonowaną siatkę najczęściej używanych emoji posortowanych po kategoriach i przeszukiwalnych po słowach kluczowych. Kliknij kafelek, żeby skopiować emoji do schowka. Ostatnio kopiowane emoji są zapamiętywane między wizytami w localStorage przeglądarki — nic nie idzie na serwer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Jesteś na desktopie bez szybkiego skrótu emoji na poziomie OS. Chcesz wyszukiwania po słowach kluczowych szerszego niż oferuje picker OS. Używasz remote desktopa albo starszego systemu, który nie ma natywnego pickera. Potrzebujesz emoji do wklejenia w pole tekstowe, które nie akceptuje twojego IME."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak działa renderowanie",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Emoji to po prostu jeden albo więcej code pointów Unicode. Jak wygląda, zależy od fontu, który wybierze twoja przeglądarka/OS: emoji od Apple są inne niż Google Noto, Microsoft Segoe UI Emoji albo Twemoji od Twittera. Bajty są identyczne — obrazek jest lokalny. Jeśli emoji pokazuje się jako kwadrat albo \"nieobsługiwane\", twój systemowy font nie ma dla niego glifu; aktualizacja OS albo zainstalowanie fontu typu Noto Color Emoji to naprawia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tony skóry i warianty rodzin/zawodów to sekwencje. 👨‍🍳 to \"mężczyzna\" + ZWJ + \"gotowanie\" — pięć code pointów. Niektóre systemy wyświetlają komponenty osobno, jeśli nie wspierają sekwencji. Flagi to regional indicators. 🇵🇱 to \"🇵\" + \"🇱\" — dwie litery regional indicator. Sekwencje dla terytoriów (Szkocja, Teksas) wymagają dodatkowych tag characters i mogą nie renderować się na każdym systemie. To narzędzie jest wyselekcjonowane, nie wyczerpujące. Unicode 15 ma 3664 emoji wliczając setki wariantów tonów skóry i płci. Picker skupia się na ~600, których prawdopodobnie chcesz; po pełną listę zerknij w dane emoji Unicode albo picker OS. Niektóre znaki wyglądają jak emoji, ale renderują się jako tekst. \"Variation selector\" (U+FE0F) mówi rendererowi \"narysuj to jako emoji\". Bez tego ☂ może wyświetlić się jako zwykły tekst zamiast 🌂. Narzędzie dodaje selektory tam, gdzie trzeba. Wsparcie schowka się różni. Clipboard API niektórych przeglądarek wymaga gestu użytkownika (kliknięcie to robi), ale odmowa uprawnień zawodzi po cichu. Jeśli kopiowanie nie działa, użyj skrótu klawiaturowego z paska adresu."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

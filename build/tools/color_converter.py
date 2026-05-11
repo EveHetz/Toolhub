@@ -320,4 +320,5 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
 """,
     },
     "related": ["color-picker", "wcag-contrast", "css-gradient"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "color"},
 }

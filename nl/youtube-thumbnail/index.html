@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elke YouTube-video heeft een kleine set pre-gegenereerde thumbnail-images op voorspelbare URLs — YouTube gebruikt ze zelf in zoekresultaten, embeds en previews. Deze tool extraheert de 11-karakter video-ID uit elke YouTube-URL-vorm (watch, youtu.be, Shorts, embed, /v/) en zet elke beschikbare size uit met directe downloadlinks en copy-URL-knoppen. Nuttig als je een offline preview nodig hebt, een hero-image voor een blogpost, een Discord/Slack rich link of een fallback-poster voor een custom video player."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een YouTube-video embedden in een blogpost en dezelfde thumbnail willen die YouTube toont, lokaal gehost. Een klikbare \"watch this video\"-tile maken in Notion / Slack / email waar je een still image nodig hebt. Een custom video player bouwen en een poster-image nodig hebben voor de iframe laadt. Een thumbnail opslaan voor offline gebruik als referentie, content of moodboard-materiaal. De thumbnail in hoogste resolutie krijgen zonder gedoe met de YouTube Data API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De varianten uitgelegd",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault (1280×720) — de originele full-HD thumbnail. Bestaat alleen voor video's geüpload in HD; anders geeft de URL 404 en blijft de preview leeg. sddefault (640×480) — gegenereerd voor de meeste video's in het moderne tijdperk. hqdefault (480×360) — bestaat altijd , terug tot de vroegste YouTube-video's. Gebruik dit als je fallback. mqdefault (320×180) en default (120×90) — kleine previews; nuttig voor in-list rendering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault 404't vaak. Oudere of lager-resolutie uploads hebben hem niet. Bouw je fallback-ketting: maxresdefault → sddefault → hqdefault . Zwarte balken op hqdefault. De 480×360 thumbnail is letterboxed voor non-4:3 bronnen — er zijn balken boven en onder. mqdefault (320×180) heeft de juiste 16:9 aspect voor moderne uploads. Frames 1/2/3. YouTube exposet ook 1.jpg , 2.jpg , 3.jpg op hetzelfde pad — drie auto-extracted frames uit de video. Soms is een daarvan wat je daadwerkelijk wil voor een custom poster, en ze staan niet in de default-variantenlijst. Het is nog steeds YouTube's image. Hot-linking is prima; rehosten op je eigen CDN is technisch prima maar check de licensing als je het commercieel gebruikt. De videomaker kan copyright hebben op de visuele content van het frame. WebP hier niet ondersteund. YouTube serveert ook .webp -versies (kleinere files), maar die worden vanaf een ander CDN-pad geserveerd en niet door deze tool blootgesteld. Live streams en Shorts werken prima — de URL-parser handelt alle moderne vormen af — maar live-stream thumbnails veranderen terwijl de stream live is."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "YouTube Thumbnail Downloader",
+  "description": "Plak elke YouTube-URL of video-ID en grijp elke beschikbare thumbnail-size — directe downloadlinks, geen upload, geen registratie.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je YouTube URL",
+      "text": "Zet je YouTube URL in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

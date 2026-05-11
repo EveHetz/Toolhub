@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML w edytorze trafia do nas w różnych stanach — zminifikowany na produkcję, generowany przez engine'y szablonów bez troski o białe znaki, klepany ręcznie i niespójnie wcinany. To narzędzie reformatuje dowolny fragment HTML ze spójnym wcięciem na zagnieżdżony element, rozpoznając elementy void ( <img> , <br> , <meta> ) i inline ( <a> , <span> , <strong> ), żeby wynik wyglądał jak prawdziwy HTML, nie jak układ z reguły. Tryb minify usuwa białe znaki między tagami i opcjonalnie komentarze. Wszystko zostaje w przeglądarce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pretty-print zminifikowanego maila HTML albo \"view source\" strony, żeby przeczytać strukturę. Sprzątanie snippetu z CMS / WYSIWYG przed wklejeniem do code review. Minifikacja statycznego assetu HTML przed deployem — mniej bajtów na drucie, brak wycieku komentarzy. Usuwanie komentarzy autora z szablonu przed publikacją."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To pragmatyczny tokenizer, nie pełny parser HTML5. Sprawdza się na realnych fragmentach, ale nie poradzi sobie z mocno zepsutym inputem tak, jak przeglądarki (przeglądarki uruchamiają pełny algorytm parsowania HTML i po cichu naprawiają błędy — to narzędzie nie). Białe znaki wewnątrz <pre> , <textarea> , <script> , <style> są zachowywane. Te elementy są traktowane jako raw i nie są reindentowane. Elementy inline zostają w tej samej linii co tekst rodzica — <p>some <b>bold</b> text</p> nie zostanie podzielony na linie. \"Collapse whitespace\" zmienia renderowany wynik dla niektórych treści. Dwie spacje stają się jedną. Jeśli design polega na wielu spacjach albo non-breaking sequence'ach, zostaw wyłączone. Notacja samozamykająca w HTML jest kosmetyczna. <br/> i <br> są równoważne w HTML5; narzędzie zachowuje to, co napisałeś. Minify to nie granica bezpieczeństwa. Nie polegaj na usuwaniu komentarzy do ukrywania sekretów — i tak były wysłane do klienta."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatter HTML",
+  "description": "Sformatuj i upiększ HTML albo zminifikuj. Rozmiar wcięcia, usuwanie komentarzy i świadomość tagów samozamykających.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej HTML",
+      "text": "Umieść HTML w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Formatuj",
+      "text": "Naciśnij przycisk Formatuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

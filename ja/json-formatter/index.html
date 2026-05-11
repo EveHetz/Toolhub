@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON は配信時にミニファイされて流れます。API レスポンスではバイトが命だからです。しかしミニファイされた JSON は人には読みづらいものです。本ツールはブラウザネイティブの JSON.parse / JSON.stringify を経由してラウンドトリップし、インデント付きでコピーしやすい出力を生成、構造を検証、または空白を再度除去できます。アップロードはなく、すべてページ内で完結します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ミニファイされた API レスポンスを貼り付けて、人が読める形に整形したいとき。 末尾カンマ、引用符なしキー、スマートクォートといった構文エラーを、パーサが落ちた行・列付きで把握したいとき。 サイズが重要な場面（URL パラメータ、環境変数、設定ファイル）に貼り付ける前に空白を取り除きたいとき。 手書きの JSON を別ツールに渡す前に有効性を確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON は JavaScript のオブジェクトリテラルとは別物です。 キーは必ず二重引用符。シングルクォート、引用符なしのキー、末尾カンマはすべてエラーです。JS のオブジェクトリテラルがあるなら、まず JSON にコンバートしてください。 コピペで入るスマートクォート。 ワープロやチャットアプリは「親切に」 \" を “ ／ ” に置き換えます。これらは JSON では有効な区切り文字ではありません。 JSON にコメントはありません。 「JSON」に // や /* */ が含まれているなら、それは実は JSONC（VS Code 設定で使われる）です。パース前に取り除いてください。 2⁵³ を超える数値。 JavaScript は 9007199254740992 を超える整数を厳密に表現できません。Twitter のスノーフレーク ID などは文字列で扱ってください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON フォーマッター",
+  "description": "JSON を即座に整形・検証・圧縮。エラー位置を行と列でハイライト。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "JSON を貼り付け",
+      "text": "JSON を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "整形 をクリック",
+      "text": "整形 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

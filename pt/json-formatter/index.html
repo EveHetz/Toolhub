@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O JSON viaja minificado — cada byte conta quando uma resposta de API está sendo enviada. Mas JSON minificado é ilegível. Esta ferramenta faz round-trip pelo JSON.parse / JSON.stringify nativo do browser pra produzir output indentado e copiável, validar a estrutura ou tirar o whitespace de novo. Nada é enviado; tudo acontece na página."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Colar uma resposta de API minificada e receber algo que um humano consegue ler. Pegar erros de sintaxe — vírgulas no final, chaves sem aspas, smart quotes — com linha/coluna exata onde o parser tropeçou. Tirar whitespace antes de colar JSON num contexto onde tamanho importa (params de URL, env vars, arquivos de config). Confirmar que seu JSON feito à mão é válido antes de mandar pra outra ferramenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON ≠ object literal de JavaScript. Chaves precisam estar entre aspas duplas. Aspas simples, chaves sem aspas e vírgulas no final, tudo falha. Se você tem object literals de JS, passe por um conversor antes. Smart quotes vindas de copy-paste. Editores de texto e apps de chat adoram \"ajudar\" trocando \" por \" / \" . Esses não são delimitadores JSON válidos. JSON não tem comentários. Se seu \"JSON\" tem // ou /* */ , na verdade é JSONC (usado em config do VS Code) — remova antes de fazer parse. Números maiores que 2⁵³. O JavaScript não consegue representar inteiros acima de 9007199254740992 com exatidão. IDs snowflake do Twitter e similares devem vir entre aspas como strings."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formatador JSON",
+  "description": "Formata, valida e minifica JSON na hora. Erros destacados com linha e coluna.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu JSON",
+      "text": "Coloque seu JSON no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

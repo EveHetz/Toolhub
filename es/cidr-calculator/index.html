@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CIDR (Classless Inter-Domain Routing) notation packs an IPv4 address and its subnet size into one string: 192.168.1.0/24 means \"the address 192.168.1.0 with a 24-bit network prefix\" — the same network as the older 255.255.255.0 mask, but written in 12 characters instead of 30. This tool decodes any CIDR into the human-meaningful values: which addresses are in the subnet, the broadcast, the mask in dotted form, and the host range you can actually assign to devices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Designing a VLAN or VPC and figuring out how many hosts a /22 vs /23 will hold (1022 vs 510). Reading a firewall rule like allow 10.42.0.0/16 and confirming the exact range it covers. Splitting a /24 into smaller subnets and checking the boundaries don't overlap. Sanity-checking a cloud security-group rule before deploying. Translating between CIDR and a legacy 255.x.x.x dotted mask in router configs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quick CIDR cheat sheet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "/32 — 1 address (a single host route). /30 — 4 addresses, 2 usable (point-to-point links). /29 — 8 addresses, 6 usable (small office subnet). /24 — 256 addresses, 254 usable (classic Class C / typical LAN). /16 — 65,536 addresses (typical site network or VPC). /8 — 16.7M addresses (whole-of-organisation). /0 — every IPv4 address (the default route)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Usable\" excludes network and broadcast. A /24 has 256 addresses but only 254 usable for hosts — the first (.0) is the network, the last (.255) is the broadcast. /31 and /32 are special. /31 is used for point-to-point links per RFC 3021 — both addresses are usable. /32 is a single host (used in routing entries). The address part doesn't have to be the network address. 10.5.7.42/24 still means the same /24 as 10.5.7.0/24 — the prefix length is what counts. The tool normalises to the network address in its output. Don't confuse class with CIDR. Classes A/B/C are a legacy concept (pre-1993). A /24 might fall inside a \"class A\" range and that's fine. RFC 1918 private ranges: 10.0.0.0/8 , 172.16.0.0/12 , 192.168.0.0/16 . Anything else is publicly-routable (or reserved). This tool is IPv4 only. IPv6 CIDR is structurally similar but the prefix can go up to /128 and the address space is much bigger; not handled here."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Calculadora CIDR / Subred",
+  "description": "Calcula subredes IPv4 desde notación CIDR. Red, broadcast, máscara, rango de hosts y vista binaria.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Introduce tus valores",
+      "text": "Escribe los datos de CIDR que necesita la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Mira el cálculo",
+      "text": "El resultado de CIDR se actualiza al instante — sin botón."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Usa o copia el resultado",
+      "text": "Pulsa Copiar si necesitas el valor de CIDR en otro sitio."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

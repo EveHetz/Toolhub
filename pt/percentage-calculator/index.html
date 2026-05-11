@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seis cálculos diferentes de \"porcentagem\" aparecem todo dia e são fáceis de confundir: quanto é X% de Y? Que porcentagem X é de Y? Qual a variação entre dois valores? Aplicar um markup ou desconto? Gorjeta ou imposto? Cada um é uma fórmula um pouco diferente, e confundi-las leva a notas fiscais erradas, descontos errados e reviews vergonhosos. Esta ferramenta roda os seis lado a lado com a fórmula explicitada, para você escolher o certo e conferir a conta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que cada modo faz",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quanto é X% de Y — para descontos, comissões, porcentagem de um total. 20% de 150 → 30 . X é qual % de Y — para razões do tipo \"nota / máximo\". 30 de 150 → 20% . Variação % — com sinal: positivo é aumento, negativo é redução. 100 → 125 = +25% . Aumentar / Diminuir — aplica um ajuste percentual a um valor inicial. Gorjeta / Imposto — atalho para somar uma porcentagem em cima de uma conta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Variação percentual não é simétrica. Ir de 100 → 125 é +25%; ir de 125 → 100 é −20%, não −25%. O denominador é o valor inicial, que muda em cada direção. Empilhar porcentagens compõe. Um aumento de 20% seguido de uma redução de 20% não te leva de volta ao início (1.20 × 0.80 = 0.96, perda líquida de 4%). Para markups/descontos sequenciais, calcule cada passo. Gorjeta sobre valor antes ou depois do imposto. A convenção varia por país e estabelecimento. A ferramenta calcula a porcentagem do valor que você digita — escolha qual valor você de fato quer como base. Arredondamento. A saída é arredondada para 6 casas decimais e depois aparada; se você precisa de precisão legal/contábil (banker's rounding, regras específicas de moeda), faça esse passo na sua camada de domínio, não aqui."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Calculadora de Porcentagem",
+  "description": "Cinco calculadoras de porcentagem em uma: de, qual %, aumento/desconto, variação e gorjeta/imposto.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Digite seus valores",
+      "text": "Insira os dados de porcentagem que a ferramenta precisa."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leia o cálculo",
+      "text": "O resultado de porcentagem atualiza na hora — sem botão."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Use ou copie o resultado",
+      "text": "Pressione Copiar se precisar do valor de porcentagem em outro lugar."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

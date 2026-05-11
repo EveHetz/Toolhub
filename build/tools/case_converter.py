@@ -192,4 +192,5 @@ document.addEventListener('DOMContentLoaded', ccRun);
 """,
     },
     "related": ["slug-generator", "word-counter", "text-diff"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "text"},
 }

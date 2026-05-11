@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al diseñar una página, a menudo necesitas una imagen de tamaño específico antes de tener el asset real. Servicios como via.placeholder.com añaden una petición externa. Esta herramienta produce un SVG inline autocontenido con el tamaño y etiqueta que quieras — data URI o descarga. Nada sale de tu navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wireframes antes de los assets reales. Storybook/Figma con placeholders por componente. Probar lazy-loading o CSS de aspect-ratio. Reemplazar servicio externo en proyectos con CSP estricta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG no es raster. Para PNG: captura o conversor. Data URIs largas son incómodas en herramientas/diffs — prefiere descarga para mockups grandes. La etiqueta auto no se localiza. Escribe texto custom si lo necesitas. Colores solo en hex HTML. Para rgba() edita el SVG. El tamaño es intrínseco. Escalado CSS con preserveAspectRatio=\"none\" . No lo dejes en producción."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generador de Imagen Placeholder",
+  "description": "Genera imágenes SVG placeholder de cualquier tamaño con texto y colores personalizados. Salida como data URI o SVG descargable.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Elige las opciones",
+      "text": "Selecciona las opciones de imagen que necesitas."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Generar",
+      "text": "Pulsa Generar para producir un nuevo imagen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar el imagen generado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

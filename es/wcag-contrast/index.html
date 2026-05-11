@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG (Web Content Accessibility Guidelines) defines a minimum contrast ratio between text and its background so people with low vision, colour-blindness, or in glare conditions can still read it. This tool computes that ratio (1:1 = identical, 21:1 = pure black on pure white) and tells you whether your colour pair passes WCAG 2.1 Level AA or AAA, separately for normal text, large text, and UI components. The maths follows the W3C luminance formula exactly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Checking whether your brand colour on a white card meets accessibility standards. Picking a button text colour that passes AA against a brand-coloured background. Auditing a design system token by token before shipping. Justifying a colour-change request to a stakeholder with a concrete pass/fail verdict. Testing what your users with reduced contrast preferences will actually see."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The thresholds",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normal text (under 18pt / 14pt bold): 4.5:1 for AA, 7:1 for AAA. Large text (≥18pt or ≥14pt bold): 3:1 for AA, 4.5:1 for AAA. UI components & graphics (icons, focus rings, form borders, chart elements that convey info): 3:1 for AA (WCAG 2.1 §1.4.11). No AAA tier."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Large text\" is bigger than you think. 18pt is roughly 24px. 14pt bold is roughly 19px bold. Body copy at 16px is not large text — it needs the 4.5:1 threshold. Light text on a busy photo will fail. The contrast ratio is between specific pixels — overlay a dark gradient or use a solid panel to give the text a controlled background. Anti-aliasing softens contrast. 4.5:1 is the floor, not a goal. Comfortable reading usually wants 7:1 or better, especially for body copy. Hover and focus states count. If your button passes AA at rest but fails on hover, that's a real accessibility bug. WCAG 2.1 vs APCA. The new APCA (Accessible Perceptual Contrast Algorithm), proposed for WCAG 3, gives different and arguably better numbers — but WCAG 2.1 is the legal standard most jurisdictions still reference. Use this tool's numbers when meeting EN 301 549, ADA, or AA-conformance claims. Don't pad with transparency. A 50% alpha foreground over a known background has a different effective contrast — compute against the actual rendered colour, not the original."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Verificador de Contraste WCAG",
+  "description": "Comprueba el ratio de contraste entre dos colores. Veredicto pass/fail para WCAG AA y AAA en todos los tamaños.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Introduce tus valores",
+      "text": "Escribe los datos de par de colores que necesita la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Mira el cálculo",
+      "text": "El resultado de par de colores se actualiza al instante — sin botón."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Usa o copia el resultado",
+      "text": "Pulsa Copiar si necesitas el valor de par de colores en otro sitio."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

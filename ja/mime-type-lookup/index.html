@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MIME タイプ（現在は Internet media type）は、 image/png や application/json のような 2 部構成のラベルで、サーバー、ブラウザ、ライブラリにバイト列の解釈方法を伝えます。HTTP の Content-Type ヘッダ、Multipart メッセージのパート、 file --mime の出力に現れます。IANA のレジストリには数千件あり、本ツールはウェブで実際に出会う約 120 種を収録しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API レスポンスに Content-Type を設定するとき、 .docx 、 .heic 、 .webmanifest 用の正しいタイプが知りたい。 アップロードフィールドの accept 属性や、S3 バケットの許可リストを設定するとき。 hex ダンプや tcpdump で application/grpc-web が何かを調べたいとき。 静的ファイルサーバーや CDN の設定で、拡張子→MIME のマッピングを作りたいとき。 text/xml と application/xml のどちらを使うか決めたいとき（新規コードでは RFC 7303 に従い後者を推奨）。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "拡張子は MIME タイプと等価ではありません。 .json は通常 application/json にマップされますが、サーバーが text/plain として配信すれば、ブラウザはヘッダに従います。常にヘッダを明示してください。 JavaScript は混乱しがちです。 RFC 9239 では text/javascript が推奨です。 application/javascript 、 application/ecmascript などは廃止予定ですが、まだ目にします。 OOXML タイプは非常に長いです。 .docx は application/vnd.openxmlformats-officedocument.wordprocessingml.document 。覚えようとせず、コピーしましょう。 application/octet-stream は「分からない」の意味です。 タイプを制御できるなら本物のタイプを使ってください。レンダリング可能なコンテンツでも、ブラウザがダウンロード扱いにすることがあります。 テキスト系では charset が重要です。 Content-Type: text/html; charset=utf-8 。これがないとブラウザは推測し、時々間違えて文字化けします。 マジックバイトのスニッフィングが宣言型と違うことがあります。 ブラウザは Content-Type をファイル内容で再判定することがあります。 X-Content-Type-Options: nosniff でこれを無効化できます。セキュリティのため設定を推奨します。"
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

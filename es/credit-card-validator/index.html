@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Card numbers carry a built-in checksum (the Luhn / mod-10 algorithm) and start with prefixes that identify the issuing brand. Together those let you catch typos and identify the brand before sending a number to a payment processor. This tool runs both checks 100% in your browser — the number you paste never leaves the page. It's developer-grade structural validation, not a fraud-check or live-card lookup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Validating that a test card number you've copied is well-formed (test cards from Stripe's docs or similar all pass Luhn). Sanity-checking input fields in a form — does the number satisfy the basic structure before round-tripping to a payments API that'd otherwise charge for the lookup? Auditing a card number that \"looks wrong\" to see whether it's a typo (Luhn fails) or a brand mismatch (length wrong for the prefix)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Structurally valid\" doesn't mean \"issued\" or \"active\". Real validation requires a payment processor — which costs money or places a hold. This tool catches typos, not closed accounts. Don't paste real card numbers anywhere — including this tool. The browser doesn't transmit them, but a screen-recorder, browser extension, or open dev-tools panel can. Use a known test number instead. Some 16-digit numbers aren't cards. Loyalty cards, gift cards, and some prepaid SKUs reuse the format; Luhn pass + brand match doesn't guarantee a payment instrument. Co-branded cards. Cards issued under one brand may show another's logo. The brand detection here uses the canonical issuer prefix, not the printed logo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Test numbers (safe to paste)",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Visa 4242 4242 4242 4242 · Mastercard 5555 5555 5555 4444 · Amex 3782 822463 10005 · Discover 6011 1111 1111 1117"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Validador de Tarjeta de Crédito",
+  "description": "Valida un número de tarjeta con Luhn y detecta la marca. Funciona localmente — el número nunca se envía.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu número de tarjeta",
+      "text": "Coloca tu número de tarjeta en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Validar",
+      "text": "Pulsa el botón Validar para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

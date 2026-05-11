@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSV is the lingua franca of spreadsheet exports; JSON is the lingua franca of APIs and config. This converter takes properly-quoted CSV (RFC 4180-compatible) and emits a JSON array — either an array of objects (when there's a header row) or an array of arrays. Useful when you've exported a sheet and need to feed it into something that talks JSON."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turning a one-off Google Sheets / Excel export into seed data for an API mock or test fixture. Loading reference tables (countries, currency codes, lookup data) into a frontend that consumes JSON. Inspecting a CSV with embedded commas / newlines that gets misrendered everywhere except a real RFC 4180 parser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Delimiter detection isn't magic. If your file uses semicolons (common in EU locales) or tabs (TSV), switch the delimiter dropdown — auto-detection guesses but can be fooled by data containing the wrong character. Type coercion is opinionated. Numeric strings, true , false , and literal null are converted to JSON types. Things that look numeric but aren't (zip codes, ISBNs with leading zeros, phone numbers) lose leading zeros — disable coercion or post-process. Empty cells become empty strings, not null . Most APIs treat the two differently. BOMs in the wild. Excel often saves UTF-8 with a byte-order mark on Windows; the parser tolerates it but other consumers may not."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSV a JSON",
+  "description": "Convierte datos CSV en arrays JSON. Detección de cabeceras, separadores personalizados y campos entre comillas.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu CSV",
+      "text": "Coloca tu CSV en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Convertir",
+      "text": "Pulsa el botón Convertir para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

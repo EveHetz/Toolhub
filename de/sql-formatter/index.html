@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL reicht vom Einzeiler im psql bis zur 200-Zeilen-Analytics-Query, die niemand lesen kann, bis sie eingerückt ist. Dieser Formatierer formatiert SELECT, INSERT, UPDATE oder DDL mit konsistenter Einrückung, Zeilenumbrüchen vor jeder Klausel und einheitlicher Keyword-Schreibweise. Der Minify-Modus macht das Gegenteil. Alles läuft im Browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine aus Log/ORM kopierte Query in etwas Lesbares umformatieren. Team-Konventionen vor einem Migrations-Commit normalisieren. Eine pretty-printed Query auf eine Zeile zusammenfassen. Strukturprobleme (unbalancierte Klammern, fehlende Kommas) sichtbar machen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strukturell, nicht semantisch. Validiert keine SQL-Syntax. Dialekt-spezifische Keywords. ILIKE , RETURNING sind Postgres; STRAIGHT_JOIN ist MySQL — Dialekt korrekt wählen. String-Literale bleiben unverändert. Kommentare überleben aber landen auf eigenen Zeilen. Minify entfernt Kommentare. Kein Linter. Für CI sqlfluff o.ä. nutzen."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "SQL-Formatierer",
+  "description": "SQL formatieren und einrücken oder zu einer Zeile minimieren. Dialekt-bewusst (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "SQL einfügen",
+      "text": "Füge dein SQL in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Formatieren klicken",
+      "text": "Drücke Formatieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

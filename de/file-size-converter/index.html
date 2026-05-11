@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Wie groß ist 4 GB?\" hängt davon ab, wer fragt. Festplattenhersteller verstehen 4.000.000.000 Bytes (SI, Potenzen von 1000); Betriebssysteme verstehen 4.294.967.296 Bytes (IEC, Potenzen von 1024). Auf TB-Ebene unterscheiden sich beide um 10%. Dieses Tool konvertiert zwischen beiden Systemen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Die zwei Systeme",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / dezimal — KB, MB, GB, TB. 1 KB = 1.000 Bytes. Festplattenhersteller, Netzwerkgeschwindigkeiten. IEC / binär — KiB, MiB, GiB, TiB. 1 KiB = 1.024 Bytes. Linux du -h , Speichermodule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Backup-, Upload- oder Docker-Image-Größe ermitteln. \"150 Mbps\" in MB/s umrechnen (durch 8 teilen). Cloud-Speicherkosten zwischen Anbietern vergleichen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Festplatten verwenden dezimal. \"1 TB\" = 1.000.000.000.000 Bytes ≈ 931 GiB. RAM verwendet binär. \"8 GB RAM\" ist fast immer 8 GiB. Netzwerk in Bits. 100 Mbps = 12,5 MB/s Spitze. Tools sind inkonsistent. Windows Explorer zeigt binär mit KB-Label."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Dateigrößen-Umrechner",
+  "description": "Konvertiere zwischen Bytes, KB, MB, GB, TB und den binären KiB, MiB, GiB, TiB. Dezimal vs binär klar getrennt.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Werte eingeben",
+      "text": "Tippe die Dateigröße-Eingaben ein, die das Tool braucht."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Berechnung ablesen",
+      "text": "Das Dateigröße-Ergebnis aktualisiert sich sofort — kein Klick nötig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis nutzen oder kopieren",
+      "text": "Drücke Kopieren, falls du den Dateigröße-Wert woanders brauchst."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

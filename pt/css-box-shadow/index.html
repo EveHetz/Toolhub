@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A propriedade CSS box-shadow é o cavalo de batalha para adicionar profundidade — sombras em cards, destaques em botões, anéis de foco, brilhos, efeitos neon, até 3D falso. A sintaxe ( x y blur spread cor , opcional inset , várias sombras separadas por vírgula) é fácil de ler mas chata de ajustar no escuro. Esta ferramenta dá sliders para cada valor com preview ao vivo, além de presets que combinam com elevações comuns de design system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desenhar elevação de card ou modal que não pareça \"barata e dura\". Construir um estilo de focus-ring para acessibilidade (ex.: glow de outline 2px). Criar um efeito neon ou glow para um CTA principal. Replicar tokens de elevação Material Design ou estilo Apple para um design system. Fazer profundidade \"inset\" falsa para efeito de botão pressionado ou recesso de card."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que cada valor faz",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Offset X / Y — direção em que a sombra cai (Y positivo = para baixo). Para sensação de \"luz vinda de cima\", use Y > 0 e X pequeno ou zero. Blur — quão suave é a borda. 0 = nítido; maior = desvanece mais suave. Spread — quanto a sombra é maior (ou menor, se negativo) que o próprio box. Cor e alpha — geralmente um preto com alpha parcial ou cor da marca. Preto puro #000 fica pesado demais; tente #0003 a #0002 para profundidade natural. Inset — inverte a sombra para dentro, como um recesso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uma sombra grande sozinha parece artificial. Elevação real é duas ou três camadas empilhadas: uma sombra apertada, escura e próxima, mais uma larga, suave e distante. O preset \"Material elevation\" mostra o padrão. Preto puro é pesado demais. Use ~10–25% de alpha em preto, ou tinja a sombra com a cor complementar da superfície para dar calor. Sombras renderizam fora do box. Se o container tem overflow: hidden , a sombra é cortada. Use um wrapper ou mova o overflow para um filho. Sombra em fundo transparente. Se o box não tem background , a sombra aparece através do próprio box — geralmente surpreendente. Performance: blur muito grande em muitos elementos pode pesar em mobile de baixo desempenho. Teste num device real antes de enviar glows chiques. Dark mode. Sombras escuras sobre escuro praticamente somem; considere uma borda interna brilhante ou uma sombra com tom claro em temas escuros."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Box Shadow CSS",
+  "description": "Crie sombras CSS de uma ou várias camadas visualmente. Ajuste offset, blur, spread, cor e copie o CSS.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de sombra que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Gerar",
+      "text": "Pressione Gerar para gerar um novo sombra."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o sombra gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

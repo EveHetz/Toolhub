@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML reserves five characters with structural meaning — & , < , > , \" , ' . Putting any of those into a page as content requires escaping them as HTML entities so the browser doesn't interpret them as markup. This tool flips both directions: encode raw text into safe entities, or decode scraped HTML back to plain text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embedding untrusted user content in HTML — encode first to prevent XSS. Decoding scraped or copy-pasted markup that arrived with entities ( &amp; , &#x27; , &ldquo; ). Un-mangling templates that have been double-escaped accidentally. Preparing snippets for JSDoc, CDATA-free XML, or markdown code fences that need literal angle brackets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Encoding is not sanitisation. Encoding makes text safe to display; if you also want to strip tags, you need an HTML sanitiser instead. Attributes vs body. Both contexts need the same five characters escaped, but JavaScript event handlers like onclick need additional escaping (which this tool doesn't do — keep untrusted data out of attributes). Decoder is permissive. Named entities ( &ldquo; ), decimal ( &#34; ) and hex ( &#x22; ) all decode via the browser's parser, so it accepts anything a real browser would. Don't double-encode. Encoding an already-encoded value gives you &amp;amp; . Decode first if you see entities in your input."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use HTML Encoder / Decoder",
+  "description": "Escape HTML special characters or decode entities back. Useful for safely embedding user input or debugging encoded markup.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your text",
+      "text": "Drop your text into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Encode",
+      "text": "Press the Encode button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

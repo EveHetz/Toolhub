@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le tabelle Markdown si rendono bene ma sono tediose a mano. Questo editor offre una griglia: clic per modificare, pulsanti per righe/colonne, allineamento per colonna. Incolla una tabella Markdown esistente in basso per caricarla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creare tabella di confronto per README/Issue/PR. Incollare tabella esistente, modificare, copiare. Generare ASCII allineato. Tabella di release notes senza lottare con i pipe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I pipe rompono le tabelle. Esci | nelle celle come \\| . Celle a una riga. Per più righe usa <br> HTML. L'allineamento viene dai due punti , non dal padding. La prima riga è sempre l'header. Non tutte le varianti Markdown supportano tabelle. Output mira a GFM. Incollare CSV non funziona. Si aspetta tabella Markdown con |---| ."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Editor di Tabelle Markdown",
+  "description": "Modifica visualmente una tabella — righe, colonne, allineamento per colonna — e copia il Markdown stile GitHub.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il tabella",
+      "text": "Metti il tabella nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Formatta",
+      "text": "Premi il pulsante Formatta per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Operating systems all ship emoji pickers (Win+. on Windows, Cmd+Ctrl+Space on macOS, the keyboard on phones), but they're inconsistent, sometimes hidden, and often slow. This tool gives you a curated grid of the most-used emoji organised by category and searchable by keyword. Click any tile to copy the emoji to your clipboard. Recently-copied emoji are remembered between visits in browser-local storage — nothing is sent to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You're on a desktop without a quick OS-level emoji shortcut. You want a keyword search wider than your OS picker offers. You're using a remote desktop or older system that has no native picker. You need an emoji to paste into a text field that doesn't accept your IME."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How rendering works",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An emoji is just one or more Unicode code points. How it looks depends on the font your browser/OS picks: Apple's emoji are different from Google's Noto, Microsoft's Segoe UI Emoji, and Twitter's Twemoji. The bytes are identical — the picture is local. If an emoji shows as a square or a fallback \"unsupported\", your system font doesn't have a glyph for it; updating the OS or installing a font like Noto Color Emoji fixes it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skin tones and family/profession variants are sequences. 👨‍🍳 is \"man\" + ZWJ + \"cooking\" — five code points. Some systems display the components individually if they don't support the sequence. Flags are regional indicators. 🇬🇧 is \"🇬\" + \"🇧\" — two regional-indicator letters. Sequences for territories (Scotland, Texas) need extra tag characters and may not render on every system. This tool is curated, not exhaustive. Unicode 15 has 3,664 emoji including hundreds of skin-tone and gender variants. The picker focuses on the ~600 you're most likely to want; for the full list, see Unicode's emoji data or your OS picker. Some characters look like emoji but render as text. The \"variation selector\" (U+FE0F) tells the renderer \"draw this as emoji\". Without it, ☂ might render as plain text rather than 🌂. The tool includes the selectors where needed. Clipboard support varies. Some browsers' clipboard API needs a user gesture (the click does that), but a permission denial will silently fail. If copying doesn't work, use the keyboard shortcut to copy from the address bar instead."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um slug de URL é o último segmento legível por humanos da URL — /blog/the-quick-brown-fox em vez de /blog/post-4827 . Bons slugs são em minúsculas, separados por hifens, só ASCII e curtos o bastante para ler de relance, mas gerá-los a partir de títulos reais cheios de acentos, pontuação e emoji é chato de acertar. Esta ferramenta translitera acentos, remove lixo, une com o separador escolhido e trunca em um limite limpo, então a saída é segura para colar direto numa rota ou nome de arquivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gerar URLs /blog/<slug> a partir de títulos de artigos — especialmente quando os títulos têm caracteres acentuados (à, ñ, ø) ou pontuação (dois-pontos, parênteses, travessões). Produzir nomes de arquivo seguros a partir de nomes fornecidos pelo usuário — uploads, exports, relatórios gerados. Criar identificadores estáveis para tags, categorias ou âncoras ( #getting-started ) a partir de rótulos humanos. Converter em massa uma lista de títulos para kebab-case num build step de site estático."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como funciona a conversão",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Normaliza Unicode para NFD e remove diacríticos combinantes ( café → cafe ). Mapeia ligaturas europeias e letras especiais comuns: ß → ss , æ → ae , ø → o , Ł → L , mais alguns símbolos de moeda/matemática ( € → eur , & → and ). Substitui qualquer sequência não-alfanumérica por um único espaço. Opcionalmente remove stop words comuns do inglês ( a, an, and, the, of, to, … ). Coloca em minúsculas (ou preserva o case), une com seu separador e trunca no limite sem deixar separador solto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Scripts não-latinos somem. A remoção de diacríticos lida com à/ñ/ø, mas não consegue romanizar chinês, japonês, cirílico, árabe ou hebraico caractere a caractere — esses precisam de tabelas específicas por idioma (Hanyu Pinyin, transliteração ICU) que estão deliberadamente fora do escopo aqui. Esses caracteres desaparecem após a etapa de remoção. Remoção de stop words é só em inglês. \"El gato negro\" não perde el ; \"Le chat noir\" não perde le . Deixe a opção desligada para títulos não-ingleses. Truncamento pode mudar o sentido. \"introduction-to-rust-programming\" cortado em 20 caracteres vira \"introduction-to-rust\" — ok; cortado em 16 vira \"introduction-to\" — claramente pior. Defina o limite à mão para conteúdo onde a parte final importa. Slugs não são únicos. Dois títulos diferentes podem virar o mesmo slug (\"Café\" e \"Cafe\" ambos → cafe ). Se você usa slugs como chave de URL, anexe um ID curto ou um sufixo em caso de colisão. Não mude slugs que já estão no ar. Uma vez que a URL está publicada e indexada, regerar o slug quebra links e SEO. Se o título muda, mantenha o slug antigo ou configure um redirect 301."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Gerador de Slug",
+  "description": "Transforme qualquer título em um slug de URL limpo — translitera acentos, remove pontuação, une com hifens.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu slug",
+      "text": "Coloque seu slug no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

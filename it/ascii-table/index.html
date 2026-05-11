@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII è il sistema di codifica a 128 caratteri che mappa cifre, lettere, segni di punteggiatura e caratteri di controllo sugli interi 0–127. È la base delle codifiche moderne (UTF-8, Latin-1) — utile per decodificare un dump esadecimale o ricordare quale codice corrisponde al ritorno a capo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Leggere un dump hex e identificare i byte come testo. Scrivere un parser che dipende dai limiti dei caratteri stampabili. Eseguire il debug di un CSV rotto da un tab o da un carattere di controllo. Cercare l'entità HTML per un carattere specifico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII è a 7 bit. I codici 128–255 non sono ASCII — appartengono a Latin-1, CP-1252 o sono byte di continuazione UTF-8. I ritorni a capo variano. Unix usa LF, Windows CRLF, il vecchio Mac CR. I caratteri di controllo sono invisibili. Il testo incollato può contenere caratteri invisibili che falliscono i confronti. Le entità HTML servono raramente. In UTF-8 basta il carattere letterale — escape solo & , < , > . NUL termina le stringhe C. Da evitare nei buffer C senza attenzione."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML と JSON は二大データ交換形式で、SOAP API から REST への移行、レガシーフィードのモダンスタックへの取り込み、JSON しか扱えないツールでの XML 閲覧など、相互変換は日常です。マッピングは標準化されておらず慣例的です（XML の属性、混在コンテンツ、順序付き子要素は JSON にそのまま対応する概念がないため）。本ツールは fast-xml-parser 風のマッピングを採用します。属性はプレフィックス付き（既定 @ ）、テキストノードは固定キー（既定 #text ）、繰り返しの子要素は配列にまとめます。両方向ともブラウザ内で動作します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RSS / Atom / SOAP のレスポンスを JS アプリで使えるよう JSON に変換するとき。 JSON テンプレートから XML 設定（ビルド設定、Spring Bean、OOXML 雛形）を生成するとき。 ネストされた値を素早く取り出したい — XML を JSON に変換してから、JSON 用の好みのツールで処理。 変換でデータ形状が壊れないかラウンドトリップを確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "子要素 1 つと配列で形が変わります。 <item> が 1 個なら {\"item\": {...}} 、2 個以上なら {\"item\": [..., ...]} になります。コンシューマは両方の形を扱うか、出力時に正規化してください。 要素の順序は保証されません。 JSON のキー順はパーサや伝送経路で必ずしも保たれません。順序が意味を持つ XML の兄弟要素には JSON は不向きです。 混在コンテンツは潰れます。 <p>hello <b>world</b>!</p> のようなテキストとインライン要素の織り交ぜは綺麗にラウンドトリップしません。 属性プレフィックスの衝突。 子要素名が @ から始まる場合、属性プレフィックスを別の文字に変更してください。 名前空間はそのまま保持。 ns:tag は JSON キーでも \"ns:tag\" 。 xmlns: 属性も同様です。 数値や真偽値の自動変換は行いません。 XML テキストは常に文字列であり、 \"1\" は JSON でも \"1\" のまま。必要ならアプリ側で型変換してください。 JSON → XML には単一ルートキーが必要。 XML はルート要素がちょうど 1 つ必要です。入力 JSON はトップレベルにキーが 1 つだけのオブジェクトでなければなりません。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML ↔ JSON コンバーター",
+  "description": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "XML を貼り付け",
+      "text": "XML を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Każdy język i platforma ma swoje konwencje nazewnicze — JavaScript chce camelCase , Python chce snake_case , CSS chce kebab-case , zmienne środowiskowe chcą CONSTANT_CASE . Tłumaczenie między nimi ręcznie jest upierdliwe, zwłaszcza przy edge case'ach (akronimy, liczby, istniejące separatory). To narzędzie dzieli dowolne wejście na słowa, wykrywając zmiany wielkości liter, separatory ( _ - . / ) i białe znaki, a potem składa je z powrotem w 14 różnych stylach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zmiana nazwy pola z JSON-a API (camelCase) na kolumnę ORM-a w Pythonie (snake_case). Generowanie nazw klas CSS z nazw tokenów design systemu, które przychodzą w PascalCase. Konwersja listy nagłówków na slugi w kebab-case albo nazwy zmiennych środowiskowych na CONSTANT_CASE. Szybka konwersja \"The Quick Brown Fox\" na Title Case, Sentence case albo Train-Case do nagłówka / etykiety przycisku."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Akronimy są podchwytliwe. Czy \"XMLHttpRequest\" powinno stać się \"XML_Http_Request\" czy \"Xml_Http_Request\"? To narzędzie traktuje ciąg wielkich liter jako jeden punkt podziału ( xml http request ) i potem ustawia wielkość — co pasuje do konwencji Java/JS, ale nie do wszystkich style guide'ów. Liczby przyklejają się do poprzedniego słowa. \"Item2\" staje się jednym słowem \"item2\", nie dwoma. Dodaj separator, jeśli chcesz je rozdzielić. \"Pierwsza litera camelCase\" jest zawsze mała, nawet jeśli wejście zaczynało się od wielkiej. PascalCase zachowuje wielką. Round-trip nie zawsze jest bezstratny. Przejście camelCase → kebab-case → camelCase gubi oryginalną informację o wielkości liter na granicach słów; heurystyka robi co może, ale nie odtworzy tego, czego nie zachowano."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Konwerter Wielkości Liter",
+  "description": "Konwertuj tekst między WIELKIMI, małymi, Tytułowymi, Zdaniowymi, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE i dot.case.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tekst",
+      "text": "Umieść tekst w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

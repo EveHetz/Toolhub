@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drukowalne, przeszukiwalne podsumowanie kawałków składni regex, które ciągle pamiętasz w połowie. Tabele tu pokrywają główne kategorie — anchory, klasy znaków, kwantyfikatory, grupy, lookaroundy, flagi — plus startowy zestaw typowych patternów. Kliknij dowolny pattern, żeby go skopiować; wpisz w filtr, żeby zawęzić. Sparuj to z Regex Testerem , żeby faktycznie odpalić te patterny na tekście."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Potrzebujesz (?<=foo) i nie pamiętasz, czy ? idzie przed czy po < . Tłumaczysz komuś regex i potrzebujesz stabilnej strony referencyjnej zamiast grzebać po zakładkach Stack Overflow. Chcesz pattern startowy (UUID, email, ISO date) do skopiowania i podstrojenia, zamiast pisać od zera. Musisz wiedzieć, która flaga co robi — szczególnie s (dotall) vs m (multi-line), które ludzie regularnie mylą."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wariant ma znaczenie. Większość tu to JavaScript / nowoczesny PCRE, ale ficze się różnią. Lookbehind wylądował w JS dopiero z ES2018; x (extended) jest w PCRE/Pythonie i nie ma go w JS; possessive quantifiery ++ są tylko w PCRE. m ≠ \"multi-line matching\". m zmienia, co znaczą ^ i $ (per linia, nie per string). Żeby . łapało przez końce linii, chcesz s (dotall). Greedy zżerają za dużo. <.*> przeciw <a>b</a> matchuje całość, nie tylko <a> . Użyj <.*?> dla wersji lazy, albo lepiej bardziej specyficznej klasy w stylu <[^>]+> . Regex nie jest parserem HTML ani JSON. \"Typowe patterny\" tu są dobre do jednorazowego scrapingu albo wskazówek walidacyjnych, nie do traktowania strukturalnego inputu jak stringa. Regexy do emaili są zawsze złe. Przykład tu jest grubym sprawdzeniem kształtu; do walidacji produkcyjnej lepiej wyślij maila potwierdzającego. Nie ufaj skopiowanym \"idealnym\" regexom. Przetestuj je na swoich realnych danych w Regex Testerze przed deployem."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

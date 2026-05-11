@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trzy rzeczy, których ludzie naprawdę chcą od kalkulatora dat: różnica między dwiema datami (\"ile dni do launchu?\"), przesunięcie daty o okres (\"90 dni po dacie faktury\") i precyzyjny wiek (\"lata, miesiące i dni od daty urodzenia\"). To narzędzie robi wszystkie trzy, w przeglądarce, zakotwiczone w UTC w południe, żeby DST i przesunięcia stref nie wykrzywiały po cichu odpowiedzi, gdy podróżujesz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Liczenie długości umów, timeline'ów projektów i deadline'ów. Sprawdzanie, ile dokładnie dni roboczych (pn–pt) wpada między dwie daty do fakturowania albo wyceny. Weryfikacja granic wieku (uprawnienia do wizy, lata szkolne, okrągłe urodziny). Dodawanie okresów \"30 dni netto\" albo \"90 dni odstąpienia\" do daty bazowej w sposób, który dobrze radzi sobie z końcami miesięcy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Daty końcowe inkluzywne vs ekskluzywne. \"Dni od pn do pt\" to 4, jeśli liczysz odstępy, 5, jeśli liczysz dni. Toggle kontroluje, którą konwencję; obie są poprawne w zależności od pytania. Kolejność dodawania/odejmowania ma znaczenie. Lata i miesiące najpierw, potem tygodnie i dni. Dodanie \"1 miesiąc + 1 dzień\" do 30 stycznia daje 1 marca (30 lutego → 28/29 lutego → +1), nie 2 marca — to bezpieczna konwencja kalendarzowa, której używa niemal każda biblioteka datetime. Dni robocze nie obejmują świąt. Liczenie zna weekendy, ale nie święta państwowe — popraw ręcznie, jeśli to ważne. \"Łączne miesiące\" są przybliżone w widoku wieku (lata × 12 + miesiące) — ignoruje końcowe dni. Liczba R/M/D jest dokładna. Kotwiczenie w UTC ma trade-off z lokalizacją. Data w twojej strefie lokalnej może zmapować na nieco inny dzień UTC. W większości zastosowań (deadline'y, wiek) UTC w południe jest bezpieczniejsze; do pracy ze strefami z dokładnością do minut użyj konwertera stref czasowych."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Kalkulator Dat",
+  "description": "Dni między dwiema datami · dodaj/odejmij dni/tygodnie/miesiące/lata · wiek w latach, miesiącach i dniach.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wpisz swoje wartości",
+      "text": "Wpisz dane data, których potrzebuje narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Odczytaj wynik",
+      "text": "Wynik data aktualizuje się natychmiast — bez przycisku."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Użyj lub skopiuj wynik",
+      "text": "Naciśnij Kopiuj, jeśli potrzebujesz wartości data gdzie indziej."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

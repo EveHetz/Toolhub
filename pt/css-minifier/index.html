@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CSS legível no código-fonte — com comentários, indentação e espaços significativos — incha o arquivo que seus usuários baixam. Um minificador estrutural retira todos os bytes cosméticos (comentários, sequências de espaços, zeros redundantes, códigos hex equivalentes mais curtos) sem mudar o significado das regras. Esta ferramenta roda essa passagem no seu browser e mostra o tamanho antes/depois para você ver a economia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enviar pontualmente um snippet de CSS inline num email HTML ou template de blog, onde quer encolher os bytes mas não tem cadeia de build. Verificar rapidamente quanta \"gordura\" tem num stylesheet antes de decidir se vale a pena conectar um otimizador de verdade. Colar um CSS pretty-printed de algum fornecedor para enxugá-lo e incluir num widget de terceiro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que ele faz",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remove comentários de bloco ( /* … */ ) — single-line // não é CSS válido puro mesmo. Colapsa espaços ao redor de { } : ; , e combinadores ( > ~ + ). Tira ponto e vírgula final antes de } . Remove zeros à esquerda ( 0.5 → .5 ) e remove unidades de zero ( 0px → 0 ). Encurta cores hex onde for exato ( #aabbcc → #abc )."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Isto é uma minificação estrutural, não um otimizador completo. Não vai mesclar seletores duplicados, reordenar regras nem reescrever shorthands. Para isso, rode cssnano ou esbuild no seu pipeline de build. Source maps não são gerados. Se for fazer debug de CSS minificado em produção, envie-os separadamente. Não comite o CSS minificado. Comite o source bonito; minifique no build/deploy. Misturar os dois deixa o review de diff miserável. Compressão moderna domina. Brotli/gzip no fio faz boa parte do que a minificação faz. As maiores economias vêm de remover regras não usadas — trabalho de tree-shaking, não de minificação."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Minificador CSS",
+  "description": "Remova comentários, espaços e redundância do CSS. Veja o tamanho antes/depois e o percentual de economia.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu CSS",
+      "text": "Coloque seu CSS no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Minificar",
+      "text": "Pressione o botão Minificar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

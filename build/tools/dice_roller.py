@@ -426,4 +426,5 @@ document.addEventListener('DOMContentLoaded', drValidate);
 """,
     },
     "related": ["password-generator", "uuid-generator", "percentage-calculator"],
+    "howto": {"flow": "generate",  "action": "roll",    "noun": "roll"},
 }

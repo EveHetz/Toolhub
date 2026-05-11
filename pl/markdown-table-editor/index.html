@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tabele Markdown są świetne w wyrenderowanym wyniku i upierdliwe w pisaniu ręcznie. Pipe'y, dwukropki wyrównania, odpowiednia liczba kresek per kolumna — zanim ułożysz wszystko na miejscu, mogłeś napisać to w HTML-u. Ten edytor daje znajomą siatkę: kliknij dowolną komórkę, żeby edytować, używaj przycisków do dodawania albo usuwania wierszy i kolumn, ustaw wyrównanie per kolumna z dropdowna, a potem skopiuj Markdowna w stylu GitHuba. Możesz też wkleić istniejącą tabelę Markdown na dole, a załaduje się do siatki do dalszej edycji."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pisanie tabeli porównawczej do README, GitHub issue albo opisu PR. Reedycja tabeli z dokumentacji — wklej istniejącego Markdowna, podstrojuj w siatce, skopiuj z powrotem. Generowanie poprawnie wyrównanej tabeli ASCII (wyjście jest paddowane z prawej, więc jest też czytelne jako zwykły tekst). Szkic tabeli release notes bez walki ze składnią pipe'ów i myślników."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inline'owe pipe'y łamią tabele GFM. Dosłowny | w komórce kończy komórkę. Escape'uj jako \\| , kiedy go potrzebujesz. Treść komórki jest jednoliniowa. Tabele Markdown nie wspierają końców linii w komórkach bez HTML-a ( <br> ). Do treści wieloliniowej pisz tabelę w HTML. Wyrównanie jest renderowane, nie wymuszane. Wyjście paddinguje też tak, żeby wyrównać w źródle, ale faktyczne wyrównanie w renderze bierze się z dwukropków w linii separatora, nie ze spacji. Pierwszy wiersz zawsze jest traktowany jako nagłówek. Tabele GFM mają obowiązkowy header. Jeśli twoje dane nie mają naturalnego nagłówka, używaj pustych komórek w wierszu 1. Niektóre dialekty Markdowna są surowsze niż GFM. CommonMark sam nie definiuje tabel; GFM, MultiMarkdown i kilka innych wspierają lekko różne warianty. Wyjście tu celuje w GFM (GitHub, GitLab, większość nowoczesnych rendererów). Wklejenie niezformatowanego CSV nie zadziała. Textarea \"import\" oczekuje tabeli Markdown (z separatorem |---| ). Do CSV → Markdown użyj najpierw narzędzia CSV-to-JSON albo wklej wiersze ręcznie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Edytor Tabel Markdown",
+  "description": "Edytuj tabelę wizualnie — wiersze, kolumny, wyrównanie per kolumna — i skopiuj Markdown w stylu GitHuba.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tabela",
+      "text": "Umieść tabela w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Formatuj",
+      "text": "Naciśnij przycisk Formatuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

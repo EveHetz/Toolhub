@@ -444,4 +444,5 @@ document.addEventListener('DOMContentLoaded', cbBuild);
 """,
     },
     "related": ["cron-parser", "timestamp-converter", "timezone-converter", "date-calculator"],
+    "howto": {"flow": "generate",  "action": "generate","noun": "cron expression"},
 }

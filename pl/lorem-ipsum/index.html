@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lorem ipsum to zniekształcona łacina wywodząca się z De Finibus Bonorum et Malorum Cycerona (45 p.n.e.), używana jako wypełniacz od XVI wieku, bo częstotliwości znaków i długości słów z grubsza odpowiadają realnej prozie, ale tekst nie jest na tyle czytelny, żeby rozpraszać. Designerzy używają go po to, by mózg przetwarzał bloki tekstu jako kształt , a nie treść — dokładnie tego chcesz, oceniając typografię, układ albo rytm strony."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mockupy — placeholder do \"słowa nie mają znaczenia, ważny jest layout\". Kompozycje designerskie — testowanie zawijania, długości linii, font fallbacków przy różnych rozmiarach. Test CMS / szablonów — wypełnianie pól zanim wpadnie prawdziwa treść. Planowanie pojemności — sanity check, jak karta / preview / wynik wyszukiwania radzi sobie z długimi treściami."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nie wysyłaj go na produkcję. Lorem ipsum był publikowany live więcej niż raz, bo nikt nie zamienił go na prawdziwą treść. Prawdziwa treść jest krótsza albo dłuższa od placeholdera. Prawdziwe nagłówki są bardziej dosadne. Prawdziwy korpus tekstu szaleje. Layout, który wygląda zrównoważenie z lorem ipsum, może się rozsypać przy faktycznej treści; weryfikuj na prawdziwym tekście przed sign-offem. Internacjonalizacja ujawnia to, co lorem ukrywa. Designy testowane tylko z łacińskim wypełniaczem często padają przy niemieckich złożeniach albo arabskich layoutach right-to-left. Testuj wielojęzycznymi placeholderami w designach świadomych i18n. Konwencja ma znaczenie. Pierwszy akapit tradycyjnie zaczyna się \"Lorem ipsum dolor sit amet…\" — designerzy rozpoznają to jako placeholder. Wyłączenie tego może oznaczać, że ktoś przeoczy podmianę."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator Lorem Ipsum",
+  "description": "Generuj akapity, zdania, słowa albo elementy listy tekstu placeholder po łacinie. Konfigurowalny rozmiar i fraza otwierająca.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje tekst, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij Generuj, aby wygenerować nowy tekst."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany tekst."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

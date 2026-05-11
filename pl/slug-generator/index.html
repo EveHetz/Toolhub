@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL slug to czytelny dla człowieka ostatni segment URL-a — /blog/the-quick-brown-fox zamiast /blog/post-4827 . Dobre slugi są małymi literami, łączone myślnikami, tylko ASCII i wystarczająco krótkie, by przeczytać na pierwszy rzut oka, ale generowanie ich z prawdziwych tytułów pełnych diakrytyków, interpunkcji i emoji jest upierdliwe. To narzędzie translikuje diakrytyki, wycina śmieci, łączy wybranym separatorem i ucina na czystej granicy, więc wyjście jest bezpieczne, by wkleić wprost do route'a albo nazwy pliku."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generowanie URL-i /blog/<slug> z tytułów artykułów — szczególnie gdy tytuły zawierają znaki diakrytyczne (à, ń, ø) albo interpunkcję (dwukropki, nawiasy, pauzy). Tworzenie bezpiecznych nazw plików z nazw podanych przez użytkownika — uploady, eksporty, generowane raporty. Budowa stabilnych identyfikatorów dla tagów, kategorii albo anchorów ( #getting-started ) z czytelnych etykiet. Hurtowa konwersja listy nagłówków na kebab-case w buildzie statycznej strony."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jak działa konwersja",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NFD-normalizuje Unicode i wycina łączące diakrytyki ( café → cafe , żółć → zolc ). Mapuje typowe europejskie ligatury i znaki specjalne: ß → ss , æ → ae , ø → o , Ł → L , plus kilka symboli walutowych/matematycznych ( € → eur , & → and ). Zamienia każdy ciąg nie-alfanumeryczny na pojedynczą spację. Opcjonalnie wycina typowe angielskie stop words ( a, an, and, the, of, to, … ). Zamienia na małe litery (albo zachowuje wielkość), łączy twoim separatorem i ucina na limicie bez zostawiania wiszącego separatora."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skrypty nielatyńskie wypadają. Wycinanie diakrytyków radzi sobie z à/ń/ø, ale nie zromanizuje chińskiego, japońskiego, cyrylicy, arabskiego ani hebrajskiego znak po znaku — te wymagają tabel zależnych od języka (Hanyu Pinyin, ICU transliteration), które są celowo poza zakresem. Te znaki znikają po kroku wycinania. Usuwanie stop words działa tylko po angielsku. \"El gato negro\" nie traci el ; \"Le chat noir\" nie traci le . Wyłącz toggle dla tytułów nieangielskich. Ucinanie może zmienić znaczenie. \"introduction-to-rust-programming\" obcięte do 20 znaków staje się \"introduction-to-rust\" — OK; obcięte do 16 to \"introduction-to\" — wyraźnie gorzej. Ustaw limit ręcznie dla treści, gdzie ogon ma znaczenie. Slugi nie są unikalne. Dwa różne tytuły mogą zwinąć się do tego samego slugu (\"Café\" i \"Cafe\" oba → cafe ). Jeśli używasz slugów jako kluczy URL, dokleej krótkie ID albo suffix przy kolizji. Nie zmieniaj slugów już opublikowanych. Gdy URL jest live i zindeksowany, regenerowanie slugu psuje linki i SEO. Jeśli tytuł się zmienia, zachowaj stary slug albo ustaw redirect 301."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generator Slugów",
+  "description": "Zamień dowolny tytuł w czysty slug URL — translikuje znaki diakrytyczne, wycina interpunkcję, łączy myślnikami.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej slug",
+      "text": "Umieść slug w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

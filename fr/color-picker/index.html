@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pick a colour — or paste any HEX / rgb() / hsl() value — and instantly see it in every common notation: HEX (3- and 8-digit with alpha), RGB(A), HSL(A), HSV, and CMYK. Useful when you've got a value in one space and need it in another, when matching a brand colour across CSS / design tools / print, or when adjusting opacity without re-eyeballing the result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use each space",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX / RGB — CSS, design tools, email templates. Universally supported. HSL — readable palettes. Tweak hue, saturation, or lightness independently without the colour drifting on the other axes. HSV — design software (Photoshop, Figma) for shading; matches the way most colour pickers think about \"this colour, lighter\". CMYK — print-ready output. Approximate only: screens are RGB and printers don't all share one colour profile."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alpha encoding differs by space. CSS supports rgba() , hsla() , and 8-digit HEX ( #RRGGBBAA ). Older email templates and some design tools don't grok #RRGGBBAA — fall back to rgba() . HSL hue is in degrees. 0 = red, 120 = green, 240 = blue. CSS accepts turn , rad , grad too but the output here is degrees. CMYK conversion is naive. Real print needs an ICC profile (sRGB → CMYK with rendering intent). This tool's output is fine for brand-deck mockups, not for press-ready files. OKLCH and OKLAB (modern perceptually-uniform spaces) aren't shown here — they're newer and not yet broadly supported. Stick to HSL/HSV for design system tooling for now."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Sélecteur de Couleur",
+  "description": "Choisissez une couleur et voyez-la en HEX, RGB, RGBA, HSL, HSLA, HSV et CMJN. Ajustez l'opacité et copiez.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre couleur",
+      "text": "Placez votre couleur dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Copier",
+      "text": "Appuyez sur le bouton Copier pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

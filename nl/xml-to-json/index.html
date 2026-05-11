@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML en JSON zijn de twee dominante data-interchange formaten en je moet regelmatig tussen ze vertalen — om van een SOAP API naar een REST over te stappen, legacy feeds in een moderne stack te plumbing, of gewoon XML te lezen in een tool die alleen JSON spreekt. De mapping heeft een mening in plaats van reversible-by-default, omdat XML features heeft (attributes, mixed content, ordered children) die JSON niet heeft. Deze tool gebruikt de conventionele fast-xml-parser -stijl mapping: attributes krijgen een prefix (default @ ), text-nodes gaan naar een key (default #text ), en herhaalde child-elementen storten in arrays. Beide richtingen draaien in je browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een RSS / Atom / SOAP-response converteren naar JSON om in een JS-app te consumeren. XML-config genereren uit een JSON-template (build configs, Spring beans, OOXML scaffolds). Snel geneste values extraheren — converteer XML naar JSON, gebruik dan elke JSON-tool die je al kent. Data round-trippen en bevestigen dat de vorm de conversie overleeft."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Single child vs array. Een document met één <item> wordt {\"item\": {...}} ; hetzelfde document met twee wordt {\"item\": [..., ...]} . Consumers moeten beide vormen afhandelen (of normaliseren op de weg uit). Element-volgorde wordt niet gegarandeerd. JSON-objects behouden key-volgorde niet over alle parsers/transmissies. Als je XML order-significante siblings heeft, is JSON de verkeerde bestemming. Mixed content stort in. Een element als <p>hello <b>world</b>!</p> round-trippt niet — text en inline-elementen interleaven op een manier die geen schone object-representatie heeft. Attribute-prefix collisions. Als een XML-element een child heeft wiens naam met @ begint, verander het prefix eerst naar iets anders. Namespaces blijven letterlijk behouden. ns:tag blijft als JSON-key \"ns:tag\" . xmlns: -attributes idem. Getallen en booleans worden niet auto-gecoerced. XML-text is altijd strings; \"1\" blijft \"1\" in JSON. Coerce types in je applicatiecode als je ze nodig hebt. JSON → XML vereist één root-key. XML eist precies één root-element; de input-JSON moet een object zijn met één top-level key."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML ↔ JSON Converter",
+  "description": "Converteer XML naar JSON of JSON terug naar XML. Handelt attributes, text-nodes en arrays verstandig af.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je XML",
+      "text": "Zet je XML in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

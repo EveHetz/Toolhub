@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown is het meest-geschreven authoring-formaat ter wereld — README files, blogposts, GitHub issues, chat-berichten, doc-sites. HTML is wat browsers renderen. Deze tool converteert Markdown naar schone HTML met een live preview zodat je kunt zien hoe de gerenderde output eruit zal zien voor je het in een CMS plakt, een statische pagina genereert of het als onderdeel van een email-template ship't."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ondersteunde syntax",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Headings # t/m ###### ; bold, italic, strike Inline `code` en fenced ```lang -blocks Bullet / genummerde / geneste lists Links [tekst](url) en images ![alt](url) Blockquotes, pipe-tables met alignment, horizontal rules"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een snelle in-browser parser, geen spec-suite. CommonMark en GFM hebben edge cases (geneste emphasis, link reference definitions, autolink expansion) die tussen implementaties divergeren. Voor strikte conformance gebruik marked , markdown-it of remark in een build step. HTML embedded in Markdown passeert meestal as-is, maar sommige implementaties saniteren het. Vertrouw hier niet op voor security; behandel untrusted markdown als untrusted HTML. Tables vs alignment. Pipe-tables hebben een separator-row nodig ( |---| ) en gebruiken :---: / :--- / ---: voor center/left/right alignment. De separator vergeten is de meest voorkomende reden dat een \"tabel\" als één paragraaf rendert. Smart punctuation. Sommige renderers converteren -- naar en-dashes en straight quotes naar curly. Deze tool niet — laat door een typografie-pass gaan als je dat nodig hebt. Round-trippen is niet lossless. Markdown → HTML → Markdown normaliseert heading-stijl, list-spacing en link-vorm. De semantiek overleeft; de exacte bytes niet."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown naar HTML",
+  "description": "Converteer Markdown naar schone HTML met een live preview. Ondersteunt headings, lists, code, tables, images en links.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je Markdown",
+      "text": "Zet je Markdown in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

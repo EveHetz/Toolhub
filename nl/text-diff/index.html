@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twee versies van een stuk tekst vergelijken — een paragraaf, een config-file, een SQL-query, een lijst — en precies zien welke regels werden toegevoegd, verwijderd of met rust gelaten. Zelfs als je geen git diff bij de hand hebt of de tekst niet in version control staat. De output is dezelfde line-level diff die je in een code review zou zien: groen voor additions, rood voor removals, plain voor unchanged context."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spotten wat er verschilt tussen twee emails, contracten of geplakte blobs die \"hetzelfde lijken\". Config-files of environment variables vergelijken tussen twee omgevingen (staging vs prod). Wijzigingen reviewen aan een stuk copy dat door iemand anders in Word/Docs is bewerkt. Twee query-resultaten, log-snippets of JSON-blobs diffen (gebruik de JSON Formatter eerst om te canonicaliseren). Snelle sanity check op een search-and-replace voor je 'm commit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Side-by-side vs unified",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Side-by-side — makkelijker om kleine wijzigingen regel-voor-regel te scannen; het origineel staat links, de nieuwe versie rechts. Unified — dichter bij git diff -output; beter voor delen of printen, en makkelijker te volgen als wijzigingen schaars zijn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een line-diff, geen word-diff. Eén karakter veranderd in het midden van een lange regel markeert de hele regel als gewijzigd. Voor prose-level diff-en van paragrafen wil je misschien een tool die in woorden tokeniseert. \"Ignore whitespace\" beïnvloedt alleen vergelijking, niet display. Regels die alleen verschillen in trailing spaces of indentatie storten in de unchanged kolom in, maar de oorspronkelijke whitespace wordt nog steeds getoond. \"Ignore case\" idem. \"TODO\" en \"todo\" vergelijken gelijk, maar de oorspronkelijke casing wordt gerenderd. Volgorde doet ertoe. Als je twee regels omwisselt, toont de diff beide als removed-and-re-added, niet als een \"moved\" paar. Er is geen move-detectie. Grote inputs (10k+ regels) kunnen traag zijn. Het LCS-algoritme is O(m·n) — prima voor typische files, traag voor heel grote. Diff kleine stukken tegelijk. Trailing newlines tellen als een regel. Twee inputs die alleen verschillen in of ze met een newline eindigen, tonen één trailing addition of removal."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Text Diff",
+  "description": "Vergelijk twee blokken tekst en zie regel-voor-regel additions, removals en unchanged context. Side-by-side of unified view.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak beide tekst-versies",
+      "text": "Zet elke versie van je tekst in een van de twee invoervelden."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Vergelijk",
+      "text": "Druk op Vergelijk om de verschillen op te sporen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de diff",
+      "text": "Bekijk de gemarkeerde verschillen in de Uitvoer."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

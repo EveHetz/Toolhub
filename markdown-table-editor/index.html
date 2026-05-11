@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown tables are great in the rendered output and miserable to write by hand. Pipe characters, alignment colons, the right number of dashes per column — by the time you've nudged everything into place, you could have written it as HTML. This editor gives you a familiar grid: click any cell to edit, use the buttons to add or remove rows and columns, set alignment per column from a dropdown, and copy the GitHub-flavoured Markdown when you're done. You can also paste an existing Markdown table at the bottom and it'll load into the grid for further editing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Authoring a comparison table for a README, GitHub issue, or PR description. Re-editing a table from a doc — paste the existing Markdown, tweak in the grid, copy back. Producing a properly-aligned ASCII-padded table (the output is right-padded so it's also readable as plain text). Drafting a release-notes table without fighting the pipe-and-dash syntax."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inline pipes break GFM tables. A literal | inside a cell ends the cell. Escape it as \\| when you need it. Cell content is single-line. Markdown tables don't support line breaks inside cells without HTML ( <br> ). For multi-line content, write the table in HTML. Alignment is rendered, not enforced. The output also pads to align in the source, but the actual rendered alignment comes from the colons in the separator row, not the spacing. The first row is always treated as the header. GFM tables have a mandatory header. If your data has no natural header, use blank cells in row 1. Some Markdown flavours are stricter than GFM. CommonMark itself doesn't define tables; GFM, MultiMarkdown, and various others all support slightly different variants. The output here targets GFM (GitHub, GitLab, most modern renderers). Pasting an unformatted CSV won't work. The \"import\" textarea expects a Markdown table (with the |---| separator). For CSV → Markdown, use the CSV-to-JSON tool first or hand-paste rows."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Markdown Table Editor",
+  "description": "Visually edit a table — rows, columns, alignment per column — and copy the GitHub-flavoured Markdown.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your table",
+      "text": "Drop your table into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Format",
+      "text": "Press the Format button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

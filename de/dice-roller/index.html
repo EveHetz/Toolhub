@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pen-&-Paper-Rollenspiele (D&D, Pathfinder u.v.m.) nutzen eine kompakte Notation für Würfel: NdS = \"rolle N Würfel mit S Seiten\". 2d6+3 = \"zwei W6 und +3\". Dieses Tool parst die Notation und würfelt mit dem kryptographischen RNG des Browsers — unvoreingenommen und unvorhersehbar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Unterstützte Notation",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 — ein W20. 2d6+3 — zwei W6, Summe +3. 4d6kh3 — vier W6, k eep h öchste 3. 2d20kl1 — Nachteil; 2d20kh1 — Vorteil. 1d100 oder 1d% — Prozentwürfel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Online-Runde, Würfel weg, Remote-DM. Schnell-Wurf ohne Abo-App. Wahrscheinlichkeit prototypen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vertrauensgrenze ist der Browser-Tab. Wer DevTools öffnet, kann manipulieren — für Wettbewerb Server-Roller nehmen. Krypto-RNG ist unvorhersehbar, nicht \"zufälliger\". Verteilung wie ein guter PRNG. Modifikator wirkt einmal, nach Keep. 4d6kh3+2 = top 3 + 2. Keine \"exploding dice\" , keine Erfolgs-Zählung — nur Summen-Subset. Krits nur für d20. 20 grün, 1 rot. Max 1000 Würfel. Performance-Limit."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Würfelroller",
+  "description": "Würfle mit Standard-D&D-Notation — 2d6+3, 1d20, 4d6 keep highest 3. Krypto-sicherer RNG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Optionen wählen",
+      "text": "Wähle die gewünschten Würfelwurf-Optionen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Würfeln klicken",
+      "text": "Drücke Würfeln, um ein neues Würfelwurf zu erzeugen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um das erzeugte Würfelwurf zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

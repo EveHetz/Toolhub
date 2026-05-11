@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTML rezerwuje pięć znaków o znaczeniu strukturalnym — & , < , > , \" , ' . Wstawienie któregokolwiek z nich na stronę jako treści wymaga zescape'owania ich jako encji HTML, żeby przeglądarka nie potraktowała ich jako markupu. To narzędzie idzie w obie strony: koduje surowy tekst na bezpieczne encje, albo dekoduje zeskrobany HTML z powrotem na zwykły tekst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Osadzanie nieufanej treści użytkownika w HTML — zakoduj najpierw, żeby zapobiec XSS. Dekodowanie zeskrobanego albo skopiowanego markupu, który przyszedł z encjami ( &amp; , &#x27; , &ldquo; ). Odplątywanie szablonów, które zostały przypadkowo zescape'owane podwójnie. Przygotowanie snippetów do JSDoc, XML bez CDATA albo code fence'ów Markdowna, które potrzebują dosłownych ostrych nawiasów."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Encoding to nie sanityzacja. Encoding sprawia, że tekst można bezpiecznie wyświetlić; jeśli chcesz też wyciąć tagi, potrzebujesz sanitizera HTML. Atrybuty vs treść. Oba konteksty wymagają tych samych pięciu znaków escape'owanych, ale handlery JS typu onclick potrzebują dodatkowego escape'owania (czego to narzędzie nie robi — trzymaj nieufne dane z dala od atrybutów). Decoder jest permisywny. Encje nazwane ( &ldquo; ), dziesiętne ( &#34; ) i hex ( &#x22; ) — wszystko dekoduje przez parser przeglądarki, więc akceptuje wszystko, co przyjąłby prawdziwy browser. Nie koduj podwójnie. Zakodowanie już zakodowanej wartości daje &amp;amp; . Najpierw zdekoduj, jeśli widzisz encje w inpucie."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder HTML",
+  "description": "Escape'uj znaki specjalne HTML albo dekoduj encje z powrotem. Przydatne do bezpiecznego osadzania inputu użytkownika albo debugowania zescape'owanego markupu.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej tekst",
+      "text": "Umieść tekst w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Koduj",
+      "text": "Naciśnij przycisk Koduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

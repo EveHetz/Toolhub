@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML is nog steeds overal — SOAP-responses, configuratiebestanden, RSS/Atom-feeds, SVG-markup, OOXML-binnenwerk. Als je een stuk XML moet lezen, diffen of delen, is het verschil tussen een one-line geminifieerde blob en een correct geïndenteerde boom het verschil tussen gokwerk en lezen. Deze tool pretty-print elk well-formed XML met configureerbare indentatie, of minified het voor transport, en gebruikt de native XML-parser van de browser om malformedness te flaggen met een regel en kolom waar mogelijk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een SOAP-envelope of een vendor's XML-config inspecteren die als één geminifieerde regel aankwam. Een SVG opschonen zodat de path-data één element per regel is. Pretty-print whitespace strippen voor XML over de lijn te sturen. Sanity check dat een XML-bestand dat je hebt gegenereerd well-formed is voor je het naar een strikte parser geeft. Twee XML-documenten diffen — pretty-print eerst, dan de bomen side by side diffen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Well-formed ≠ valid. \"Well-formed\" betekent dat de syntax parset (tags balanceren, attributes ge-quote'd, één root). \"Valid\" betekent dat het voldoet aan een DTD of schema. Deze tool checkt alleen well-formedness — schema-validatie vereist het schema-bestand. Whitespace kan significant zijn. In <name> Alice </name> zijn de leading/trailing spaties onderdeel van de value (XML defaultet op xml:space=\"preserve\" ). Her-indenteren verandert ze. Als je XML whitespace-gevoelig is (XHTML <pre> , embedded code blocks), is pretty-print het verkeerde gereedschap. Self-closing vs expliciet leeg. <br/> en <br></br> zijn equivalent in XML maar verschillen in HTML. De formatter normaliseert lege elementen naar self-closing form. CDATA, comments en processing instructions blijven behouden. Hun inner content wordt niet herformatteerd. Namespaces overleven. xmlns:foo declarations en foo:bar qualified names round-trippen zonder wijziging. Attribute-volgorde kan verschuiven. De XML-parser behoudt attribute-volgorde niet strikt tussen tools; als je XML checksumt, canonicaliseer eerst (XML C14N). Browser-parser quirks. Verschillende browsers rapporteren parse-fouten met verschillende formaten. De regel/kolom-extractie is best-effort en toont op sommige browsers alleen het bericht."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML Formatter",
+  "description": "Formatteer en minify XML. Valideer well-formedness met regel en kolom bij fouten.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je XML",
+      "text": "Zet je XML in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een JWT (JSON Web Token) bestaat uit drie base64url-encoded delen verbonden door dots: header.payload.signature . De header en payload zijn JSON-objects die je kunt inspecteren; de signature bewijst dat het token na issuance niet is geknoeid. Deze tool decodeert de eerste twee delen zodat je kunt zien wat erin zit zonder de ruis van base64 — nuttig bij het debuggen van auth-flows, verlopen sessions of \"voor welke user is dit token precies?\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een OAuth / OpenID Connect login debuggen die faalt — plak het access of ID token, zie wat de IdP daadwerkelijk uitgaf. Token-expiry bevestigen: de tool decodeert exp als echte datum en vlagt het als het in het verleden ligt. Sanity check op custom claims die een backend asseert (roles, permissions, tenant IDs). Een token lezen dat je library \"rejected as invalid\" om te zien of het issue structureel, expiry of signature is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gebruikelijke claims",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iss — issuer (wie het token maakte) sub — subject (de user/account die het representeert) aud — audience (wie het zou moeten accepteren) exp — expiry (Unix timestamp) iat — issued-at (Unix timestamp) nbf — not-valid-before (Unix timestamp)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een decoded JWT is GEEN verified JWT. De signature wordt hier niet gecheckt — dat vereist de public key van de issuer (RSA/EC) of shared secret (HMAC). Decoded contents vertellen je wat het token zegt , niet of je het moet vertrouwen. Verifieer altijd op de server voor je claims honoreert. Plak production-tokens nergens. Iedereen met een live JWT kan de user impersoneren tot exp . De browser stuurt het vanaf deze tool niet door, maar extensies, screen-recordings en dev tools kunnen dat wel. Gebruik een fresh token uit een test-omgeving als je moet delen. alg: none tokens zijn een bekende aanvalsklasse. Als een header alg: none heeft en je library accepteert het, kunnen aanvallers tokens forgen. Wijs dit af op de server. Time skew doet ertoe. Een token's exp wordt gecheckt tegen de klok van de verifier. Servers met drift falen tokens die hier valide lijken."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JWT Decoder",
+  "description": "Plak een JWT om header en payload te decoderen. Alle decodering draait in je browser — tokens verlaten de pagina nooit.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je JWT",
+      "text": "Zet je JWT in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Decoderen",
+      "text": "Druk op de Decoderen-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

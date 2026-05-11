@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Quanto è 4 GB?\" dipende da chi chiede. I produttori di dischi intendono 4.000.000.000 byte (SI, potenze di 1000); i sistemi operativi intendono 4.294.967.296 byte (IEC, potenze di 1024). Al livello TB la differenza è del 10%. Questo strumento converte tra i due sistemi."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I due sistemi",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / decimale — KB, MB, GB, TB. 1 KB = 1.000 byte. Produttori di dischi, velocità di rete. IEC / binario — KiB, MiB, GiB, TiB. 1 KiB = 1.024 byte. Linux du -h , moduli di memoria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dimensionare un backup, un upload o un'immagine Docker. Convertire \"150 Mbps\" in MB/s (dividere per 8). Confrontare costi di cloud storage tra provider."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I dischi usano il decimale. \"1 TB\" = 1.000.000.000.000 byte ≈ 931 GiB. La RAM usa il binario. \"8 GB RAM\" è quasi sempre 8 GiB. La rete è in bit. 100 Mbps = 12,5 MB/s di picco. Strumenti incoerenti. Esplora risorse Windows mostra binario con etichetta KB."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertitore Dimensione File",
+  "description": "Converti tra byte, KB, MB, GB, TB e i binari KiB, MiB, GiB, TiB. Decimale vs binario chiari.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Inserisci i valori",
+      "text": "Digita gli input di dimensione file che lo strumento richiede."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leggi il calcolo",
+      "text": "Il risultato di dimensione file si aggiorna subito — senza pulsanti."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Usa o copia il risultato",
+      "text": "Premi Copia se ti serve il valore di dimensione file altrove."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine URL hat sieben definierte Teile (Schema, Authority, Host, Port, Pfad, Query, Fragment), die man als eine Zeichenkette sieht. In einer aufgeschlüsselten Tabelle sieht man Probleme leichter. Das Tool nutzt das native URL -Objekt des Browsers — Parse passt genau zu dem, was JS sieht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OAuth-Callback debuggen wenn state oder code komisch aussieht. Tracking-URL (UTM, Click-Tokens) decodiert betrachten. Webhook-URL prüfen. Deep Links zwischen Apps vergleichen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wiederholte Keys sind real. ?a=1&a=2 = zwei Werte. Fragment erreicht den Server nicht. Alles nach # bleibt im Browser. + und %20 decodieren beide zu Space (Query-String). Standard-Ports erscheinen nicht in port . Punycode-Hostnames. Browser-abhängige Anzeige. Origin kann \"null\" sein bei file://, data:, sandboxed. Parsing ≠ Validierung."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "URL-Parser",
+  "description": "URL einfügen — Protokoll, Host, Port, Pfad, Query-Parameter (decodiert), Hash und Origin auf einen Blick.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "URL einfügen",
+      "text": "Füge dein URL in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

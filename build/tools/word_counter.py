@@ -260,4 +260,5 @@ document.addEventListener('DOMContentLoaded', wcRun);
 """,
     },
     "related": ["lorem-ipsum", "case-converter", "text-diff"],
+    "howto": {"flow": "calculate", "action": "count",   "noun": "text"},
 }

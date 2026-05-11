@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wanneer je een link in Twitter/X, Facebook, LinkedIn, Discord, Slack of een moderne chat- of social-app deelt, wordt de link unfurled naar een \"card\" — title, description en image — gebaseerd op de Open Graph meta-tags in de page head. De verschillende platforms renderen deze cards anders en clippen tekst op verschillende lengtes. Deze tool geeft side-by-side previews van hoe dezelfde content in elk zal verschijnen, zonder dat je de URL daadwerkelijk op elk platform hoeft te delen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je hebt de OG-image of copy veranderd en wilt bevestigen dat het er goed uitziet voor deploy. Je kiest een hero-image en wilt zien of het focal point de 1.91:1 crop overleeft. Je schrijft de title/description-copy en wilt weten waar elk platform 'm zal clippen. Je hebt een pagina geërfd zonder OG-tags en wilt ze opstellen door de gerenderde card te previewen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De minimum-tags",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<meta property=\"og:title\" content=\"…\"> <meta property=\"og:description\" content=\"…\"> <meta property=\"og:image\" content=\"https://…\"> (absolute URL, 1200×630 ideaal) <meta property=\"og:url\" content=\"https://…\"> <meta property=\"og:type\" content=\"website\"> <meta name=\"twitter:card\" content=\"summary_large_image\"> (voor de X/Twitter big-image stijl)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dit is een statische preview, geen live fetcher. Echte platforms scrapen je pagina vanaf hun servers; als je echte site een andere image heeft, vangt deze tool dat niet. Gebruik de eigen debuggers van de platforms (Twitter's card validator , Facebook's Sharing Debugger, LinkedIn's Post Inspector) voor de gezaghebbende check. Image-URLs moeten absoluut zijn. /og.png werkt niet — scrapers kennen je origin niet. Image moet publiek bereikbaar zijn. Authentication walls, CDNs die referer vereisen, of hot-link protection laten je achter met een gebroken card. Aspect ratio doet ertoe. 1.91:1 (1200×630 is canoniek) rendert goed op elk platform. Vierkant of portret crop't slecht. Bestandsgrootte doet ertoe. Sommige scrapers wijzen images boven 8 MB af; mik op <1 MB om first-load snappy te houden. Cache-invalidatie is echt. Zodra een platform je URL heeft gescraped, cached het de card. Gebruik de platform-debuggers om een re-scrape te forceren. Title/description-lengte-limieten verschillen. Twitter/X clipt title rond 70 tekens; Facebook rond 88; LinkedIn rond 100. Zet de belangrijke woorden vooraan. Discord prefereert theme-color . <meta name=\"theme-color\" content=\"#xxxxxx\"> toevoegen zet de linker rand-kleur op Discord embeds."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "OG Tag Preview",
+  "description": "Plak OG meta tags of vul title/description/image — preview share cards zoals ze er op Twitter/X, Facebook, LinkedIn en Discord uitzien.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je URL",
+      "text": "Zet je URL in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

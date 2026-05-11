@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML ist überall — SOAP, Konfigurationsdateien, RSS/Atom, SVG, OOXML. Eine eingerückte Baumdarstellung ist der Unterschied zwischen \"lesen können\" und \"raten\". Dieses Tool formatiert oder minimiert wohlgeformtes XML und verwendet den XML-Parser des Browsers, um Fehler mit Zeile und Spalte zu melden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eine SOAP-Envelope oder herstellerspezifische XML-Config inspizieren. SVG aufräumen. Whitespace vor dem Senden strippen. XML auf Wohlgeformtheit prüfen. Zwei XML-Dokumente diffen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wohlgeformt ≠ valide. Schema-Validierung braucht das Schema. Whitespace kann signifikant sein. Standardmäßig xml:space=\"preserve\" — bei whitespace-sensitivem XML kein Pretty-Print. Selbstschließend vs explizit leer. Tool normalisiert auf selbstschließend. CDATA, Kommentare, PIs bleiben erhalten. Namespaces bleiben erhalten. Attribut-Reihenfolge. Vor Checksum kanonisieren (XML C14N). Browser-Parser-Eigenheiten. Zeile/Spalte sind Best-Effort."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML-Formatierer",
+  "description": "XML formatieren und minimieren. Wohlgeformtheit prüfen mit Zeile und Spalte bei Fehlern.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "XML einfügen",
+      "text": "Füge dein XML in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Formatieren klicken",
+      "text": "Drücke Formatieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

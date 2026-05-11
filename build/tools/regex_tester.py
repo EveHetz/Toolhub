@@ -305,4 +305,5 @@ document.addEventListener('DOMContentLoaded', reRun);
 """,
     },
     "related": ["json-formatter", "text-diff", "email-validator"],
+    "howto": {"flow": "transform", "action": "validate","noun": "regex"},
 }

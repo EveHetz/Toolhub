@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tijdzones zijn misleidend vervelend. Een meeting om \"9 uur\" betekent andere absolute momenten in Londen, Amsterdam en New York — en de offset tussen twee daarvan verandert twee keer per jaar door daylight saving, op verschillende datums. Deze tool neemt een wandkloktijd in één IANA-zone en vertelt je het exacte equivalent in een andere, met huidige offsets, het UTC-moment en de weekdag voor beide kanten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een call inplannen over continenten — bevestigen wat \"15u CET\" is in de zone van je collega. Een log-timestamp lezen die in UTC is opgenomen en vertalen naar lokale tijd voor een user-facing report. Checken of een deploy-window of maintenance-slot een DST-grens kruist. Sanity check dat een cron-expressie in America/New_York vuurt op het moment dat je verwacht vanuit je eigen zone. De weekdag-verandering uitwerken bij het kruisen van de international date line."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waarom IANA-zones (geen \"GMT+2\")",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een IANA-zone als Europe/Amsterdam of America/New_York codeert de historische en doorlopende regels voor die locatie — DST start- en einddatums, tijdzone-wijzigingen (Rusland schafte DST af in 2014; Turkije liet DST vallen in 2016), zelfs Samoa dat in 2011 een hele dag oversloeg. Een kale offset als \"GMT+2\" vertelt je niets over of DST geldt, wat de regel vorig jaar was, of wat hij volgend jaar zal zijn. Browsers shippen de IANA-database (via ICU/CLDR) en updaten 'm automatisch, zodat de conversie correct blijft over tijd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DST-transitions maken ambigue en ontbrekende tijden. Als een klok terugvalt, gebeurt 02:30 twee keer; als hij vooruitspringt, bestaat 02:30 helemaal niet. De tool kiest standaard de standard-time-interpretatie; als je de andere kant nodig hebt, schuif met een uur naar één kant. Offsets zijn geen constanten. \"CET\" is UTC+1 in winter en UTC+2 in zomer (CEST). De output toont altijd de daadwerkelijke offset voor de datum die je hebt ingevoerd, dus vertrouw de getoonde offset boven de afkorting. Land-afkortingen zijn geen zones. \"EST\" is ambigu (US vs Australisch); \"IST\" kan Indisch, Iers of Israëlisch betekenen. Kies altijd de IANA-zone, niet de afkorting. Historische accuratesse is goed voor het moderne tijdperk maar breekt af voor heel oude datums. Pre-1970 timestamps kunnen in sommige browsers benaderde offsets gebruiken. Datums opslaan: altijd UTC. Converteer op display-tijd. De UTC-regel in de output geeft je de canonieke waarde om naar je database te schrijven."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Tijdzone-converter",
+  "description": "Converteer een datum en tijd tussen IANA-tijdzones. Zie offsets, DST-status en weekdag voor beide kanten.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tijd",
+      "text": "Zet je tijd in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ページ設計中、本物の画像が用意される前に特定サイズの画像が必要になる場面はよくあります。ヒーローバナー、カードのサムネイル、アバター、OG カードなど。 via.placeholder.com や placehold.co も使えますが、外部リクエストとサードパーティ依存が増えます。本ツールは指定サイズとラベルを持つ自己完結型のインライン SVG を生成し、HTML、CSS の background-image 、React コンポーネントの data URI などにそのまま貼り付けられます。データはブラウザの外に出ません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "本物のアセットが揃う前に、形のあるプレースホルダでワイヤーフレームを作りたいとき。 Storybook や Figma エクスポートで、コンポーネントごとのプレースホルダ画像が必要なとき。 画像読み込みコード、レイジーロードのしきい値、aspect-ratio CSS をテストしたいとき。 厳しい CSP やオフライン要件のあるプロジェクトで、外部のプレースホルダサービスを置き換えたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SVG はラスタではありません。 data URI は SVG 文字列で、無限に拡大しても滲みませんが、デザイナーが PNG を期待しているとは限りません。ラスタが必要ならプレビューを画面キャプチャするか、SVG→PNG コンバータを使ってください。 長い data URI は img src に貼ると扱いにくいです。 ブラウザは扱えますが、リンタや検索置換、diff ツールが詰まることがあります。大きなモックアップでは SVG ファイルでのダウンロードを推奨します。 ラベルテキストはローカライズされません。 自動ラベルは「WxH」（×は乗算記号）です。翻訳が必要ならカスタム文字列を入力してください。 色は HTML の hex のみ。 カラーピッカーは #rrggbb を返します。 rgba() が必要ならコピー後に SVG マークアップを直接編集してください。 幅・高さは intrinsic で、display ではありません。 CSS で別サイズに指定すると SVG はスケールされます。アスペクト比が変わるとテキストが伸縮して見えるため、予測可能なスケーリングのために preserveAspectRatio=\"none\" を使用しています。 本番にプレースホルダを残さないこと。 忘れがちなので、公開前に実アセットへ差し替えてください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "プレースホルダー画像ジェネレーター",
+  "description": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "オプションを設定",
+      "text": "必要な 画像 のオプションを選びます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "生成 をクリック",
+      "text": "生成 を押して新しい 画像 を生成します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して生成された 画像 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

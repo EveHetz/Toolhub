@@ -321,4 +321,5 @@ document.addEventListener('DOMContentLoaded', cronRun);
 """,
     },
     "related": ["timestamp-converter", "timezone-converter", "date-calculator"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "cron expression"},
 }

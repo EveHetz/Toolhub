@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um JWT (JSON Web Token) são três partes em base64url ligadas por pontos: header.payload.signature . O header e o payload são objetos JSON que você pode inspecionar; a signature prova que o token não foi adulterado depois de emitido. Esta ferramenta decodifica as duas primeiras partes pra você ver o que está dentro sem o barulho do base64 — útil pra debugar fluxos de auth, sessões expiradas ou \"pra qual usuário é esse token, exatamente?\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debugar um login OAuth / OpenID Connect que está falhando — cole o access ou ID token e veja o que o IdP de fato emitiu. Confirmar a expiração do token: a ferramenta decodifica exp como uma data real e marca se já passou. Checar custom claims que um backend está afirmando (roles, permissões, tenant IDs). Ler um token que sua biblioteca \"rejeitou como inválido\" pra ver se o problema é estrutural, de expiração ou de signature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claims comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iss — issuer (quem criou o token) sub — subject (o usuário/conta que ele representa) aud — audience (quem deveria aceitá-lo) exp — expiração (timestamp Unix) iat — issued-at (timestamp Unix) nbf — not-valid-before (timestamp Unix)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um JWT decodificado NÃO é um JWT verificado. A signature não é checada aqui — isso exige a chave pública do issuer (RSA/EC) ou o segredo compartilhado (HMAC). O conteúdo decodificado te diz o que o token diz , não se você deve confiar nele. Sempre verifique no servidor antes de honrar claims. Não cole tokens de produção em qualquer lugar. Qualquer um com um JWT vivo pode se passar pelo usuário até o exp . O browser não transmite o token a partir desta ferramenta, mas extensões, gravações de tela e dev tools podem. Use um token novo de um ambiente de teste se precisar compartilhar. Tokens com alg: none são uma classe conhecida de ataque. Se um header tem alg: none e sua biblioteca aceita, atacantes podem forjar tokens. Rejeite isso no servidor. Time skew importa. O exp de um token é checado contra o relógio do verificador. Servidores com drift falham tokens que parecem válidos aqui."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Decoder JWT",
+  "description": "Cole um JWT para decodificar header e payload. Tudo roda no seu browser — os tokens não saem da página.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu JWT",
+      "text": "Coloque seu JWT no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Decodificar",
+      "text": "Pressione o botão Decodificar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

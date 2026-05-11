@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un résumé filtrable de la syntaxe regex qu'on oublie toujours à moitié. Tableaux pour ancres, classes, quantificateurs, groupes, lookarounds, drapeaux — plus motifs courants. Clic pour copier ; filtre pour cibler. À combiner avec le Testeur Regex ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quand on oublie la syntaxe exacte du lookbehind. Comme référence stable pour expliquer. Motif de départ (UUID/email/ISO) à adapter. Clarifier ce que fait chaque flag — surtout s vs m ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La variante compte. JS/PCRE moderne ici. Lookbehind seulement depuis ES2018. m n'est pas « matching multi-ligne ». Change ^ / $ ; pour . sur retours utiliser s . Le greedy mange trop. Utiliser lazy ou des classes plus précises. Regex n'est pas un parseur HTML/JSON. Les regex d'email sont toujours fausses. En production, email de confirmation. Ne pas faire confiance aux regex « parfaites » copiées."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

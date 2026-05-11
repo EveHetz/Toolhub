@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Waarom vergelijkt deze string niet gelijk?\" \"Waarom wordt deze username afgewezen als al bezet terwijl die vrij lijkt?\" \"Waarom breekt deze filename mijn shell?\" Het antwoord is bijna altijd: de bytes matchen niet met wat je ogen zien. Twee karakters kunnen er identiek uitzien maar verschillende code points zijn (Latijnse \"a\" vs Cyrillische \"а\"); whitespace kan non-breaking spaces, zero-width joiners of right-to-left overrides verbergen; een emoji kan één code point of vier zijn. Deze tool ontleedt elke tekst tot zijn individuele Unicode code points, met hex, decimaal, UTF-8 byte sequence, categorie en een naam waar bekend."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een \"lijkt hetzelfde maar is niet gelijk\"-string-bug diagnosticeren. Onzichtbare karakters vinden (zero-width space, BOM, RTL override) verstopt in copy-pasted tekst. Bytes vs code points vs UTF-16 code units tellen voor opslag in een fixed-width kolom. Een emoji inspecteren om te zien welke ZWJ-sequence hij gebruikt. Homoglyph-aanvallen spotten in domeinnamen of usernames. Exacte UTF-8 byte sequences genereren voor een hex dump."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "De output lezen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Code point — de abstracte Unicode-waarde, geschreven U+XXXX . Er zijn 1,1 miljoen ervan; de hoogste in gebruik is U+10FFFF. UTF-8 — hoe die code point als bytes wordt gecodeerd in moderne bestanden (1–4 bytes elk). UTF-16 code units — wat JavaScript-strings ( s.length ) en Java-strings tellen. Een code point boven U+FFFF (de meeste emoji) neemt twee UTF-16-units (een surrogate pair). Categorie — Unicode's general category-afkorting: L=letter, N=number, P=punctuation, S=symbol, Z=separator, C=control/format/private."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lengte is ambigu. \"👨‍👩‍👧\" heeft 1 grapheme cluster, 5 code points, 11 UTF-16 units en 18 UTF-8 bytes — allemaal \"lengtes\" die iets zou kunnen rapporteren. Zero-width joiner sequences vs sequence selectors. Veel emoji zijn ZWJ-sequences: family-, profession-, skin-tone-varianten. Een ZWJ herordenen of strippen verandert wat er gerenderd wordt. Normalisatie doet ertoe. \"café\" kan e+◌́ (NFD) of é (NFC) zijn. Ze zien er identiek uit maar zijn verschillende bytes; databases en vergelijkingscode moeten naar dezelfde vorm normaliseren. Right-to-left overrides zijn gevaarlijk. Een filename met U+202E kan zijn display-volgorde omkeren — waardoor resu&#x202E;txt.exe in een file browser op resuexe.txt lijkt. Gebruikt in phishing. De namen-kolom is partieel. Een echte Unicode-database heeft namen voor elke code point; de inspector levert alleen namen voor control-karakters en gangbare format/whitespace-karakters waar de naam het meest nuttig diagnostisch is. Surrogate halves horen niet standalone te verschijnen. Als je U+D800–U+DFFF in de output ziet, is de input een malformed UTF-16 string (lone surrogate). De meeste API's weigeren dat naar UTF-8 te encoderen."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unicode Inspector",
+  "description": "Plak tekst → tabel van elke code point. Hex, decimaal, UTF-8 bytes, categorie. Spot onzichtbare tekens.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown-tabellen zijn top in de rendered output en ellendig om met de hand te schrijven. Pipe-tekens, alignment-colons, het juiste aantal streepjes per kolom — tegen de tijd dat je alles op zijn plek hebt geduwd, had je het als HTML kunnen schrijven. Deze editor geeft je een vertrouwd grid: klik elke cel om te bewerken, gebruik de knoppen om rows en kolommen toe te voegen of te verwijderen, stel alignment per kolom in vanuit een dropdown en kopieer de GitHub-flavoured Markdown wanneer je klaar bent. Je kunt ook een bestaande Markdown-tabel onderaan plakken en die wordt in het grid geladen voor verder bewerken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een vergelijkings-tabel maken voor een README, GitHub issue of PR-beschrijving. Een tabel uit een doc opnieuw bewerken — plak de bestaande Markdown, tweak in het grid, kopieer terug. Een goed-uitgelijnde ASCII-padded tabel produceren (de output is rechts-padded zodat hij ook als plain text leesbaar is). Een release-notes tabel opstellen zonder met de pipe-and-dash syntax te vechten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inline pipes breken GFM-tabellen. Een letterlijke | in een cel beëindigt de cel. Escape het als \\| wanneer je het nodig hebt. Cel-content is single-line. Markdown-tabellen ondersteunen geen line breaks in cellen zonder HTML ( <br> ). Voor multi-line content schrijf je de tabel in HTML. Alignment is rendered, niet enforced. De output padt ook om in de source uit te lijnen, maar de daadwerkelijke rendered alignment komt van de colons in de separator-row, niet van de spacing. De eerste row wordt altijd als header behandeld. GFM-tabellen hebben een verplichte header. Als je data geen natuurlijke header heeft, gebruik blanke cellen in row 1. Sommige Markdown-flavours zijn strenger dan GFM. CommonMark zelf definieert geen tabellen; GFM, MultiMarkdown en diverse andere ondersteunen lichtjes verschillende varianten. De output hier targets GFM (GitHub, GitLab, de meeste moderne renderers). Een unformatted CSV plakken werkt niet. Het \"import\"-textarea verwacht een Markdown-tabel (met de |---| separator). Voor CSV → Markdown gebruik de CSV-to-JSON tool eerst of plak rijen met de hand."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Markdown Table Editor",
+  "description": "Bewerk visueel een tabel — rows, kolommen, alignment per kolom — en kopieer de GitHub-flavoured Markdown.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tabel",
+      "text": "Zet je tabel in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

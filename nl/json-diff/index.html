@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een plain-text diff op JSON vertelt je welke regels veranderden; een structurele diff vertelt je welke data points veranderden. Vaak heel verschillend — een geherformatteerd document zonder semantische verandering is \"elke regel anders\" voor een tekst-diff maar \"geen veranderingen\" hier. Deze tool loopt beide JSON-bomen door en rapporteert elk pad waar ze verschillen, met RFC 6901 JSON Pointer -syntax ( /users/0/name ) zodat de output ondubbelzinnig is ongeacht formatting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twee API-responses vergelijken om te zien wat er daadwerkelijk in een release veranderde, ongeacht whitespace/key-order-ruis. Config files diffen voor/na een migratie om te bevestigen dat alleen de bedoelde velden zijn veranderd. Een RFC 6902 JSON Patch-document genereren om naar een systeem te sturen dat het ondersteunt (PATCH endpoints, JSON-Merge-Patch fallbacks). Twee test fixtures bekijken om te zien waarom de ene faalt waar de andere passeert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Array compare mode doet ertoe. \"By index\" rapporteert een ingevoegd element als remove+add voor alles erna. \"By value\" behandelt arrays als sets, mist echte reorderings. Kies degene die past bij hoe je data bedoeld is. Number-vs-string is niet structureel. {\"id\": 1} en {\"id\": \"1\"} tonen als een wijziging omdat de types verschillen. Normaliseer types voor diff-en als dat ertoe doet. RFC 6902 is een one-way patch, geen merge. Pas het toe met een echte RFC 6902-implementatie, niet door string-replacement. Grote bomen worden ruizig. Als de diff honderden operations lang is, vergelijk je waarschijnlijk twee ongerelateerde documenten — check de inputs."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON Diff",
+  "description": "Structurele diff voor twee JSON-documenten — keys toegevoegd, verwijderd, gewijzigd en waarde-wijzigingen naast elkaar getoond.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak beide JSON-versies",
+      "text": "Zet elke versie van je JSON in een van de twee invoervelden."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Vergelijk",
+      "text": "Druk op Vergelijk om de verschillen op te sporen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de diff",
+      "text": "Bekijk de gemarkeerde verschillen in de Uitvoer."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

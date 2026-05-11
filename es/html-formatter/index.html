@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El HTML llega en todos los estados: minificado, generado por templates, escrito a mano. Esta herramienta reformatea con indentación consistente, reconoce elementos void ( <img> ) e inline ( <a> ). Minify quita espacios y opcionalmente comentarios. Todo en el navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hacer legible un view-source minificado. Limpiar un snippet de CMS antes de un review. Minificar HTML estático antes de desplegar. Eliminar comentarios de autor antes de publicar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tokenizador pragmático, no parser HTML5. No repara entradas muy malformadas. Espacios en pre , textarea , script , style se preservan. Inline en la misma línea que el texto padre. \"Colapsar espacios\" altera la salida renderizada. Auto-cerrado en HTML es cosmético. Minify no es seguridad."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formateador HTML",
+  "description": "Formatea y embellece HTML o minifícalo. Tamaño de indentación, eliminación de comentarios y reconocimiento de etiquetas auto-cerradas.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu HTML",
+      "text": "Coloca tu HTML en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Formatear",
+      "text": "Pulsa el botón Formatear para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

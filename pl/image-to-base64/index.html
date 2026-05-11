@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Data URI osadza bajty pliku bezpośrednio w URL-u używając Base64 — bez osobnego requesta, bez zewnętrznego pliku. Ten konwerter czyta dowolny obrazek, który upuścisz, i produkuje string data:image/...;base64,... gotowy do wklejenia w HTML, CSS, Markdown albo JSON. Plik nigdy nie opuszcza przeglądarki; konwersja idzie przez FileReader.readAsDataURL ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Maleńkie ikonki (< 4 KB) inline w CSS — oszczędza request HTTP i unika flasha przy pierwszym paint. Samowystarczalne maile HTML, demo w jednym pliku albo PWA działające offline. Szybkie wklejki do notatek Markdown, stron Notion albo wątków na czacie, które muszą podróżować razem z obrazkiem. Fixture'y testowe i pliki snapshotów, gdzie chcesz, żeby asset był zacommitowany razem z testem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kara za rozmiar. Base64 nadyma payload o ~33%. Powyżej ~4–8 KB koszt osadzenia przewyższa zaoszczędzony request, zwłaszcza że data URI nie mogą być cache'owane osobno przez przeglądarkę. Brak deduplikacji między stronami. Każda strona, która osadza URI, wysyła bajty od nowa. Dla czegokolwiek powtarzalnego trzymaj prawdziwy URL, żeby przeglądarka zacache'owała raz. Klienty mailowe się różnią. Nowoczesne renderują data URI, ale Outlook na Windowsie historycznie blokuje je w <img src> . Załączniki CID nadal są bezpieczniejsze do mailingów masowych. SVG ≠ raster. Dla SVG osadzenie markupu bezpośrednio (albo url-encoding SVG) jest zwykle mniejsze niż Base64."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Obrazek do Base64",
+  "description": "Konwertuj dowolny obrazek na data URI Base64 gotowy do inline'owego użycia w HTML, CSS albo Markdown. Pliki zostają w przeglądarce.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej obraz",
+      "text": "Umieść obraz w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Koduj",
+      "text": "Naciśnij przycisk Koduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

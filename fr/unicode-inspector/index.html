@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quand deux chaînes identiques visuellement ne sont pas égales, ou qu'un identifiant apparemment libre est refusé : les octets ne correspondent pas à ce que vous voyez. \"a\" latin vs \"а\" cyrillique, espaces de largeur nulle, overrides RTL. Cet outil décompose tout texte en points de code Unicode avec hex, décimal, octets UTF-8, catégorie et nom."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bugs \"ça a l'air pareil, ce n'est pas égal\". Trouver caractères invisibles (BOM, ZWS, RTL). Compter octets vs points de code vs unités UTF-16. Inspecter la séquence ZWJ d'un emoji. Détecter homoglyphes dans les domaines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lecture",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Point de code — valeur Unicode U+XXXX . UTF-8 — octets (1–4 par point de code). UTF-16 — ce que JS et Java comptent ; > U+FFFF prend 2 unités. Catégorie — L lettre, N nombre, P ponctuation, S symbole, C contrôle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Longueur ambiguë. 👨‍👩‍👧 = 1 cluster, 5 points de code, 11 UTF-16, 18 octets UTF-8. La normalisation compte. \"café\" peut être NFC ou NFD. RTL overrides dangereux. U+202E dans les noms de fichier pour le phishing. Substituts isolés = UTF-16 cassé."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Inspecteur Unicode",
+  "description": "Collez du texte → tableau de chaque point de code. Hex, décimal, octets UTF-8, catégorie. Repère les caractères invisibles.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre texte",
+      "text": "Placez votre texte dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

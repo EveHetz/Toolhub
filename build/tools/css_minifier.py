@@ -238,4 +238,5 @@ document.addEventListener('DOMContentLoaded', cmRun);
 """,
     },
     "related": ["js-minifier", "html-encoder", "color-picker"],
+    "howto": {"flow": "transform", "action": "minify",  "noun": "CSS"},
 }

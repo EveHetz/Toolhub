@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL スラグは、 /blog/post-4827 ではなく /blog/the-quick-brown-fox のような、人が読める URL の最後のセグメントです。良いスラグは小文字、ハイフンつなぎ、ASCII のみ、ぱっと見て分かる短さですが、アクセント、句読点、絵文字を含む実際のタイトルから作るのは結構面倒です。本ツールはアクセントを翻字し、不要な記号を取り除き、選んだ区切り文字でつなぎ、上限文字数で末尾区切りが残らないように切り詰めるため、出力をそのままルートやファイル名に使えます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "記事タイトルから /blog/<slug> URL を生成するとき。特にアクセント（à、ñ、ø）や句読点（コロン、括弧、ダッシュ）を含む場合。 ユーザー入力名から安全なファイル名（アップロード、エクスポート、生成レポート）を作るとき。 人間が読めるラベルから、タグ／カテゴリ／アンカー（ #getting-started ）の安定した識別子を作るとき。 静的サイトのビルドステップで、見出しのリストを kebab-case に一括変換するとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "変換の流れ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NFD で正規化し、結合用ダイアクリティカル記号を除去（ café → cafe ）。 典型的なヨーロッパのリガチャや特殊文字をマッピング： ß → ss 、 æ → ae 、 ø → o 、 Ł → L 、加えて通貨／数学記号の一部（ € → eur 、 & → and ）。 非英数字の連続を 1 個のスペースに置換。 オプションで一般的な英語のストップワード（ a, an, and, the, of, to, … ）を除去。 小文字化（または大文字保持）し、選んだ区切り文字で連結し、上限で切り詰めます。末尾に区切り文字は残しません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "非ラテン文字は落ちます。 ダイアクリティカル除去は à/ñ/ø は扱えますが、中国語・日本語・キリル・アラビア・ヘブライなどを 1 文字ずつローマ字化することはできません。これらは Hanyu Pinyin や ICU 翻字のような言語別テーブルが必要で、本ツールの対象外です。除去ステップで消えます。 ストップワード除去は英語のみです。 \"El gato negro\" の el 、\"Le chat noir\" の le は落ちません。英語以外のタイトルではトグルをオフにしてください。 切り詰めで意味が変わることがあります。 \"introduction-to-rust-programming\" を 20 文字で切ると \"introduction-to-rust\"（OK）。16 文字だと \"introduction-to\"（明らかに悪い）。末尾の語が重要な場合は手で長さを設定してください。 スラグは一意ではありません。 「Café」と「Cafe」はどちらも cafe になります。URL キーとして使うなら、衝突時には短い ID やサフィックスを付けてください。 公開済みのスラグは変えないこと。 URL がインデックスされた後にスラグを再生成するとリンクと SEO が壊れます。タイトル変更時は旧スラグを残すか、301 リダイレクトを設定してください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "スラグ生成ツール",
+  "description": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "スラッグ を貼り付け",
+      "text": "スラッグ を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

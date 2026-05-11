@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII (American Standard Code for Information Interchange) é o sistema de codificação de 128 caracteres que mapeia dígitos, letras, pontuação e alguns caracteres de controle nos inteiros 0–127. É a base que toda codificação de texto moderna (UTF-8, Latin-1, Windows-1252) estende, então conhecer os valores é ocasionalmente vital — diagnosticar um byte estranho num arquivo binário, montar uma regex para \"qualquer caractere imprimível\", ler um hex dump ou lembrar se 0x0A ou 0x0D é uma quebra de linha."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ler um hex dump e tentar descobrir o que aqueles bytes dizem . Escrever um parser e precisar dos valores-limite: 0x20 (espaço), 0x7E (til) — a faixa imprimível. Debugar um CSV que quebrou porque algo continha 0x09 (Tab) ou 0x1F (Unit Separator). Criar uma entidade HTML para um caractere complicado — &#65; = A . Resolver uma discussão sobre se \\r é 0x0D (sim — Carriage Return) e \\n é 0x0A (sim — Line Feed)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII tem 7 bits, não 8. Códigos 128–255 não são ASCII — pertencem a qualquer codificação de 8 bits (Latin-1, CP-1252, ...) que o documento declara, ou são bytes iniciais de uma sequência UTF-8. Quebras de linha variam por plataforma. Unix/macOS usam só LF (0x0A); o Mac Classic usava CR (0x0D); Windows usa CRLF . Arquivos que misturam isso quebram contagens ingênuas de linhas. Caracteres de controle podem ser sabotadores invisíveis. Um copiar/colar de um terminal ou PDF pode trazer 0x1F , 0x07 (BEL — que de fato faz o terminal apitar), ou caracteres Unicode de largura zero que nem são ASCII. Se o texto \"parece igual\" mas a comparação falha, despeje em bytes. Entidades HTML nem sempre são necessárias. Em documentos UTF-8 modernos, &#65; e o A literal são equivalentes. Só faça escape de caracteres com significado sintático em HTML: & , < , > e \" em atributos. NUL ( 0x00 ) termina strings em C. Não embuta isso em buffers de string C sem pensar — muitas APIs vão truncar silenciosamente no primeiro NUL."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

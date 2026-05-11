@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Składnia crona jest niesławnie gęsta — pięć pól, każde przyjmujące wildcardy, zakresy, listy i kroki. Pisanie od zera za każdym razem prosi się o literówki. Ten builder pozwala wystartować z presetu (co-5-minut, w-dni-robocze-o-09:00 itd.) albo wpisywać ręcznie w pojedyncze pola, zobaczyć wynikowy string crona, dostać podsumowanie po polsku i zweryfikować przeciw 5 najbliższym faktycznym odpaleniom w twojej lokalnej strefie. Komplementarne narzędzie to Cron Expression Parser , który dekoduje istniejące wyrażenie do tego samego podglądu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Konfiguracja nowego wpisu crontab , CronJob w Kubernetesie, schedule w GitHub Actions albo reguły AWS EventBridge. Tłumaczenie wymagania \"uruchamiaj rano w każdy dzień roboczy\" na poprawną składniowo linię crona. Sanity check, że wyrażenie, które naszkicowałeś, faktycznie odpali wtedy, kiedy myślisz — przed deployem. Onboarding kogoś nowego do crona — niech dropdowny i podgląd nauczą składni."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ściąga składni pól",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "* — każda wartość z zakresu pola. */N — co N (zaczynając od dolnej granicy). A-B — zakres włącznie. A,B,C — lista konkretnych wartości. A-B/N — co N w obrębie zakresu A–B."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month i day-of-week wchodzą w interakcję. Większość implementacji crona łączy je przez OR, gdy oba są ograniczone: * * 15 * 1 odpala 15. dnia LUB w poniedziałek, nie \"15. jeśli to poniedziałek\". Strefa czasowa to tu lokalna strefa twojej przeglądarki. Prawdziwe demony cron działają w strefie serwera (często UTC). Zweryfikuj, zanim wkleisz na serwer. */N nie znaczy dokładnie \"co N\". */15 w minutach = 0,15,30,45 — nie 12,27,42,57. Użyj listy, jeśli potrzebujesz konkretnej fazy. Kombinacje step + range. 0-30/5 obejmuje tylko 0,5,10,15,20,25,30. Niektóre dialekty crona dodają pola. Quartz cron ma 6 albo 7 pól (z sekundami i rokiem). Timery systemd używają zupełnie innego formatu. Ten builder celuje w standardowy 5-polowy crontab. Piątek 13. trudno wyrazić w cronie. Day-of-month i day-of-week w cronie łączą się przez OR, więc ścisłe ich połączenie wymaga skryptu opakowującego."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Builder Wyrażeń Cron",
+  "description": "Zbuduj wyrażenie cron wizualnie — minuta, godzina, dzień, miesiąc, dzień tygodnia — i zobacz 5 najbliższych odpaleń.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Ustaw opcje",
+      "text": "Wybierz opcje wyrażenie cron, jakich potrzebujesz."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Generuj",
+      "text": "Naciśnij Generuj, aby wygenerować nowy wyrażenie cron."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować wygenerowany wyrażenie cron."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

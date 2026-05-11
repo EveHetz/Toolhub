@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Expressões cron são poderosas e fáceis de escrever errado. 0 0 * * 1-5 parece um agendamento de meia-noite em dias úteis e é. */15 0-9 * * * parece a cada quinze minutos durante o horário comercial e é. 0 0 1 */3 * parece trimestral... se você lembrou que */3 significa \"a cada terceiro mês\". Esta ferramenta deixa você colar uma expressão, ver o que ela de fato significa em português claro e prever os próximos 10 horários de execução para confirmar antes do deploy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conferir uma linha cron em crontab -e antes de salvar. Traduzir uma string de agendamento de CronJob do Kubernetes em \"que horas isso vai rodar de verdade?\". Projetar um novo agendamento — comece em português (\"toda manhã de dia útil\") e itere a expressão até o preview bater. Debugar um job que \"não rodou quando eu esperava\" — cole o schedule, olhe os próximos 10 horários e veja se a surpresa é a realidade ou a expressão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Referência dos campos cron",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Campo Range Wildcards Minuto 0-59 * · */5 · 0,30 · 0-29 Hora 0-23 idem Dia do mês 1-31 idem Mês 1-12 idem Dia da semana 0-6 (0 = domingo, 7 também = domingo) idem"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dia do mês + dia da semana interagem. Se ambos estão restritos (ex.: 15 * * * 1 significando \"o dia 15 OU uma segunda-feira\"), a maioria das implementações de cron faz OR. Esta ferramenta segue essa convenção. */N não é exatamente \"a cada N\". É \"a cada N começando do limite inferior\", então */15 em minuto = 0,15,30,45 (não 12,27,42,57). Para começar depois, use uma lista: 5,20,35,50 . Combinações step + range. 0-30/5 = 0,5,10,15,20,25,30. O step se aplica só dentro do range. O fuso horário aqui é o local do navegador. Daemons cron reais rodam no horário do servidor (frequentemente UTC). Um agendamento que parece certo no seu navegador pode disparar num horário diferente no servidor. Confirme o fuso antes de colar. Alguns dialetos de cron adicionam campos. O cron do Quartz tem 6 ou 7 campos (com segundos e ano). Timers do systemd usam um formato totalmente diferente. Esta ferramenta faz o parse do crontab padrão de 5 campos."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Parser de Expressões Cron",
+  "description": "Faça o parse de expressões cron e veja os próximos 10 horários de execução. Crontab padrão de 5 campos.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu expressão cron",
+      "text": "Coloque seu expressão cron no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

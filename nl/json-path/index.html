@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath is voor JSON wat XPath voor XML is — een query-taal om specifieke waarden uit een genest document te plukken zonder custom code te schrijven. $.store.books[*].title zegt \"geef me elke boektitel onder store\"; $..price zegt \"elke price ergens in het document\". Deze tool draait een query live tegen elk JSON dat je plakt en toont zowel de matched values als de paden waarvan ze kwamen, zodat je op de query kunt itereren tot precies teruggeeft wat je wil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een query opstellen voor een tool die JSONPath gebruikt: jq-achtige CLI utilities, Postman tests, Stedi, n8n of AWS CloudWatch / Step Functions. Specifieke velden uit een grote API-response trekken zonder een script te schrijven. Een array filteren op een veldwaarde (bijv. \"alle orders waar total > 100\"). Sanity check dat een diep genest pad daadwerkelijk een waarde resolved voor je het in code zet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Korte syntax-referentie",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$ — root van het document. .name of ['name'] — kind op naam. .. — recursive descent (elke diepte). * — wildcard (elke property of array-element). [n] — array-index (negatief telt vanaf het einde). [start:end:step] — array-slice (Python-stijl). [a, b, c] — union van indices of namen. [?(@.field > 5)] — filter-expressie. @ = huidige item; ondersteunt == != < > <= >= && || en =~ /regex/ ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSONPath heeft geen enkele officiële spec. De originele Stefan Gössner-draft is al jaren de de-facto referentie; RFC 9535 (feb 2024) standaardiseerde het eindelijk. Implementaties verschillen lichtjes — wat in Postman werkt, werkt misschien niet in Jaeger. Dot vs bracket. $.foo-bar lijkt op \"foo min bar\" voor de parser; gebruik $['foo-bar'] voor property-namen met hyphens, dots of spaties. Filter-expressies zijn hier JavaScript-flavoured — dat is een bewuste convenience maar matcht niet strikt met RFC 9535. Vertrouw niet erop dat de filters van deze tool byte-identiek werken in een andere implementatie. $..* retourneert elke node in de boom (depth-first), wat veel kan zijn. Nuttig om een onbekend document te verkennen. Numerieke strings. {\"1\": \"a\"} — toegang met $['1'] werkt; $.1 niet (getallen zijn geen geldige dot-property-namen). Volgorde. Object property-volgorde wordt door JSON niet gegarandeerd. Als je filter afhangt van volgorde, sorteer eerst."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSONPath Tester",
+  "description": "Voer JSONPath-queries uit op elk JSON-document. Zie matched nodes en hun paden real-time.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je JSON",
+      "text": "Zet je JSON in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

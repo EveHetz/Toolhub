@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las tablas Markdown se renderizan bien pero son tediosas a mano. Este editor te da una cuadrícula: clic para editar, botones para filas/columnas, alineación por columna. Pega una tabla Markdown existente abajo para cargarla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Crear tabla de comparación para README/Issue/PR. Pegar tabla existente, ajustar, copiar. Generar ASCII alineado. Tabla de release notes sin pelearse con pipes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pipes rompen tablas. Escapa | en celdas como \\| . Celdas de una línea. Para varias líneas usa <br> HTML. La alineación viene de los dos puntos , no del padding. Primera fila siempre es header. No todos los Markdown soportan tablas. El output apunta a GFM. Pegar CSV no funciona. Espera tabla Markdown con |---| ."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Editor de Tablas Markdown",
+  "description": "Edita visualmente una tabla — filas, columnas, alineación por columna — y copia el Markdown estilo GitHub.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu tabla",
+      "text": "Coloca tu tabla en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Formatear",
+      "text": "Pulsa el botón Formatear para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

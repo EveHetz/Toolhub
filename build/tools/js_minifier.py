@@ -275,4 +275,5 @@ document.addEventListener('DOMContentLoaded', jmRun);
 """,
     },
     "related": ["css-minifier", "json-formatter", "regex-tester"],
+    "howto": {"flow": "transform", "action": "minify",  "noun": "JavaScript"},
 }

@@ -376,4 +376,5 @@ document.addEventListener('DOMContentLoaded', bmiRun);
 """,
     },
     "related": ["unit-converter", "percentage-calculator", "tip-split-calculator"],
+    "howto": {"flow": "calculate", "action": "format", "noun": "BMI"},
 }

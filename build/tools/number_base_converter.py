@@ -289,4 +289,5 @@ document.addEventListener('DOMContentLoaded', nbRun);
 """,
     },
     "related": ["base64-encoder", "hash-generator", "uuid-generator"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "number"},
 }

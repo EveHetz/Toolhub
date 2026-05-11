@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "URL は scheme、authority、host、port、path、query、fragment の 7 つの構成要素を持つ構造化文字列ですが、見た目は 1 本の文字列です。何かが間違っているとき（パラメータ、ポート、余分なエンコード文字など）、生の文字列より分解されたテーブルの方がはるかに気付きやすくなります。本ツールはブラウザ標準の URL オブジェクトを使うため、JavaScript が見るのと同じパース結果を表示し、各クエリパラメータを raw とデコード済みの両方で表示します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OAuth コールバック URL の state や code がおかしいときのデバッグ。 トラッキング URL（UTM タグ、クリックトークン）の実値をエンコードされた塊ではなく素のまま確認したいとき。 Webhook URL が受け側サービスの期待通りにパースされるか確認したいとき（特に path とクエリ）。 あるアプリでは動くディープリンクが別アプリで動かない原因（port？ scheme？ authority？）を見つけたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じキーの複数値は実在します。 ?a=1&a=2 は a に 2 つの値があります。最初しか読まないツールはデータを取りこぼします。本パーサはキーごとの全値を表示します。 fragment はサーバーに到達しません。 # 以降はブラウザ内で完結します。バックエンドに届かないデータがあれば、fragment に入っていないか確認してください。 エンコーディングが重要。 クエリ値の %20 も + も（ application/x-www-form-urlencoded 上は）スペースにデコードされます。ブラウザの URL.searchParams は両方を扱います。 デフォルトポートは port に出ません。 https://example.com/ の port は空文字列です（443 は暗黙）。 Punycode のホスト名。 example.中国 は内部的に xn--fiqs8s 。ブラウザによって ASCII 表記で表示されることがあります。 origin が \"null\" のことがあります。 file:// 、 data: 、サンドボックスコンテキストでは origin は不透明値です。 これはパースであって検証ではありません。 パースに成功しても、アプリにとって正しい URL とは限りません（host が違う、path が抜けているなど）。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "URL パーサー",
+  "description": "URL を貼ると、protocol・host・port・path・query パラメータ（デコード済み）・hash・origin に分解して表示。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "URL を貼り付け",
+      "text": "URL を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

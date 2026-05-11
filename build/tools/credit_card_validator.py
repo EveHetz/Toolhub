@@ -199,4 +199,5 @@ document.addEventListener('DOMContentLoaded', cvRun);
 """,
     },
     "related": ["email-validator", "hash-generator", "regex-tester"],
+    "howto": {"flow": "transform", "action": "validate","noun": "card number"},
 }

@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SQL varieert van een one-liner die je in psql hebt getypt tot een 200-regel analytics-query die niemand kan lezen tot hij goed is geïndenteerd. Deze formatter neemt elke SELECT, INSERT, UPDATE of DDL en herschrijft het met consistente indentatie, line breaks voor elke clause en uniforme keyword-casing. De minify-mode doet het omgekeerde — pers alles tot een enkele regel voor embedden in code of scripts. Het hele ding draait in je browser; queries verlaten de pagina nooit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een query herformatteren die je uit een log-file, ORM of chat-bericht hebt gekopieerd naar iets diff-baar en review-baar. Team-conventies normaliseren (UPPERCASE keywords, 2-space indent) voor het committen van een migratiescript. Een lange pretty-printed query pletten naar een enkele regel zodat hij in een YAML-config of one-line CLI-argument past. Structurele problemen ontdekken — unbalanced parens, een ontbrekende komma in de SELECT list, of een JOIN zonder ON — die duidelijk worden als de query is geïndenteerd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De formatter is structureel, geen semantisch. Hij vertelt je niet of een query correcte SQL is, alleen hoe de tokens te indenteren die hij ziet. Een syntax-error in de input wordt een syntax-error in de output. Dialect-specifieke keywords verschillen. ILIKE , RETURNING , LATERAL zijn Postgres; STRAIGHT_JOIN , SQL_CALC_FOUND_ROWS zijn MySQL. Kies het juiste dialect anders worden die woorden niet als keywords herkend. String literals worden letterlijk behouden. Een multi-line string in single quotes behoudt zijn line breaks; de formatter herschikt geen tekst binnen '...' . Comments overleven maar worden geïsoleerd op hun eigen regel. Als je een -- inline comment mid-line had, verhuist hij naar zijn eigen regel tijdens pretty-print. Minify strijkt comments eruit. Als je ze nodig hebt, minify niet. Het is geen linter. Gebruik een echte SQL-parser (bijv. sqlfluff ) voor validation, style enforcement en dialect-checking in CI."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "SQL Formatter",
+  "description": "Formatteer en beautify SQL met goede indentatie, of minify naar een enkele regel. Dialect-aware (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je SQL",
+      "text": "Zet je SQL in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Formatteer",
+      "text": "Druk op de Formatteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

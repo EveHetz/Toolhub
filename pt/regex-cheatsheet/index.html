@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um resumo imprimível e pesquisável dos pedaços de sintaxe regex que você sempre lembra pela metade. As tabelas aqui cobrem as categorias principais — anchors, classes de caracteres, quantificadores, grupos, lookarounds, flags — além de um conjunto inicial de patterns comuns. Clique em qualquer pattern para copiar; digite no filtro para restringir. Combine com o Regex Tester para realmente testar os patterns contra texto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Você precisa de (?<=foo) e não lembra se o ? vai antes ou depois do < . Você está explicando regex para alguém e precisa de uma página de referência estável em vez de vasculhar abas do Stack Overflow. Você quer um pattern inicial (UUID, e-mail, data ISO) para copiar e ajustar em vez de escrever do zero. Você precisa saber qual flag faz o quê — em particular s (dotall) vs m (multi-line), que as pessoas misturam toda hora."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pegadinhas comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O sabor importa. A maior parte aqui é JavaScript / PCRE moderno, mas as features diferem. Lookbehind só chegou no JavaScript com ES2018; x (extended) é PCRE/Python e não existe em JS; quantificadores possessivos ++ são só PCRE. m ≠ \"matching multi-linha\". m muda o que ^ e $ significam (por linha em vez de por string). Para que . bata em quebras de linha, você quer s (dotall). Greedy come demais. <.*> contra <a>b</a> casa a coisa toda, não só <a> . Use <.*?> para a versão lazy, ou melhor ainda uma classe mais específica como <[^>]+> . Regex não é parser de HTML ou JSON. Os \"patterns comuns\" aqui servem para scraping pontual ou dicas de validação, não para tratar entrada estruturada como string. Regex de e-mail estão sempre erradas. O exemplo aqui é uma checagem grosseira de formato; para validação em produção, mande um e-mail de confirmação. Não confie em regex \"perfeitas\" copiadas. Teste contra seus dados reais no Regex Tester antes de subir."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

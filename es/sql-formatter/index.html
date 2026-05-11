@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Para qué sirve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una consulta SQL puede ser de una línea o de 200 líneas que nadie lee hasta indentarla. Este formateador reescribe SELECT/INSERT/UPDATE/DDL con indentación consistente, saltos de línea antes de cada cláusula y mayúsculas/minúsculas uniformes. Minify hace lo contrario. Todo en el navegador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuándo usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reformatear una consulta copiada de un log u ORM. Normalizar convenciones de equipo antes de un commit. Aplastar una consulta a una línea para YAML o CLI. Detectar paréntesis desbalanceados o comas faltantes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errores comunes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Estructural, no semántico. No valida sintaxis SQL. Palabras clave por dialecto. ILIKE , RETURNING = Postgres; STRAIGHT_JOIN = MySQL. Las cadenas literales se preservan. Los comentarios sobreviven pero van a líneas propias. Minify elimina comentarios. No es un linter. Usa sqlfluff en CI."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formateador SQL",
+  "description": "Formatea y embellece SQL con indentación, o minifícalo a una línea. Consciente del dialecto (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Pega tu SQL",
+      "text": "Coloca tu SQL en el campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Haz clic en Formatear",
+      "text": "Pulsa el botón Formatear para ejecutar la herramienta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia el resultado",
+      "text": "Pulsa Copiar para copiar la Salida."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

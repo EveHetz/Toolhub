@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat Base64 eigenlijk doet",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 zet willekeurige bytes om naar 64 ASCII-tekens (A–Z, a–z, 0–9 plus twee extra's). Drie input-bytes worden vier output-tekens, dus het resultaat is grofweg 33% groter dan de input. Het is een encoding , geen encryptie — iedereen kan het decoderen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer Base64 gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kleine binaire data inbedden in tekstformaten: data URIs, JSON-waarden, environment variables, YAML-strings. Binaire tokens coderen (handtekeningen, keys, hashes) om in URLs, headers of cookies te zetten. Email-bijlagen en S/MIME — historisch maar nog steeds in gebruik."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Standaard vs base64url",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standaard ( RFC 4648 §4 ) gebruikt + , / , = . Prima in email, JSON-waarden, de meeste XML. base64url ( RFC 4648 §5 ) gebruikt - , _ , en laat doorgaans de trailing = padding weg. Gebruikt in JWTs, OAuth-tokens en overal waar de waarde in een URL leeft, waar + / / / = extra escaping zouden vereisen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Verwar het niet met encryptie. Base64 is door iedereen omkeerbaar. Als de data gevoelig is, versleutel het eerst. UTF-8 round-trips hier correct — non-ASCII (é, 你好, 🚀) gaat door TextEncoder / TextDecoder , niet direct door btoa / atob . Naïeve btoa(str) in JavaScript breekt op niet-Latin tekens. Padding — standaard Base64 eindigt altijd op 0/1/2 = -tekens afhankelijk van de input-lengte. base64url laat ze vaak weg. Decoders die padding vereisen weigeren input zonder padding; deze tool voegt het weer toe bij decoderen indien afwezig. Whitespace in encoded strings — de decoder hier strijkt spaties en regeleinden eruit (komen vaak van copy-paste), maar sommige libraries niet, dus re-encode als je naar zo'n library doorstuurt."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Base64 Encoder / Decoder",
+  "description": "Codeer tekst naar Base64 of decodeer Base64 terug naar tekst. UTF-8 safe met base64url-variant.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je tekst",
+      "text": "Zet je tekst in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Encoderen",
+      "text": "Druk op de Encoderen-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

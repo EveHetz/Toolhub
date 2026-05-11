@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Todo vídeo do YouTube tem um pequeno conjunto de imagens de thumbnail pré-geradas em URLs previsíveis — o próprio YouTube as usa em resultados de busca, embeds e previews. Esta ferramenta extrai o ID de 11 caracteres do vídeo de qualquer formato de URL do YouTube (watch, youtu.be, Shorts, embed, /v/) e organiza todos os tamanhos disponíveis com links de download direto e botões para copiar a URL. Útil quando você precisa de um preview offline, uma imagem de destaque para um post de blog, um rich link no Discord/Slack ou um poster de fallback para um player de vídeo customizado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embedando um vídeo do YouTube em um post de blog e querendo o mesmo thumbnail que o YouTube mostra, hospedado localmente. Fazendo um tile clicável de \"assista este vídeo\" no Notion / Slack / e-mail onde você precisa de uma imagem estática. Construindo um player de vídeo customizado e precisando de uma imagem de poster antes do iframe carregar. Salvando uma thumbnail para uso offline como referência, conteúdo ou material de moodboard. Pegando a thumbnail de maior resolução sem ter que mexer com a YouTube Data API."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "As variantes explicadas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault (1280×720) — a thumbnail original em full-HD. Só existe para vídeos enviados em HD; caso contrário a URL retorna 404 e o preview fica em branco. sddefault (640×480) — gerada para a maioria dos vídeos da era moderna. hqdefault (480×360) — sempre existe , valendo desde os vídeos mais antigos do YouTube. Use como fallback. mqdefault (320×180) e default (120×90) — previews pequenos; úteis para renderização em listas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "maxresdefault frequentemente dá 404. Uploads antigos ou de baixa resolução não têm. Monte sua cadeia de fallback: maxresdefault → sddefault → hqdefault . Barras pretas no hqdefault. A thumbnail 480×360 é letterboxed para fontes que não são 4:3 — há barras em cima e embaixo. O mqdefault (320×180) tem o aspect ratio 16:9 correto para uploads modernos. Frames 1/2/3. O YouTube também expõe 1.jpg , 2.jpg , 3.jpg no mesmo path — três frames auto-extraídos do vídeo. Às vezes um deles é o que você realmente quer para um poster customizado, e eles não estão na lista de variantes default. A imagem ainda é do YouTube. Hot-linking é OK; rehospedar no seu próprio CDN tecnicamente é OK, mas verifique o licenciamento se for uso comercial. O criador do vídeo pode ter copyright sobre o conteúdo visual do frame. WebP não é suportado aqui. O YouTube também serve versões .webp (arquivos menores), mas são servidas de um path de CDN diferente e não estão expostas por esta ferramenta. Live streams e Shorts funcionam bem — o parser de URL trata todas as formas modernas — mas thumbnails de live stream mudam enquanto o stream está no ar."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Baixar Thumbnail do YouTube",
+  "description": "Cole qualquer URL ou ID de vídeo do YouTube e baixe todos os tamanhos de thumbnail disponíveis — links diretos, sem upload, sem cadastro.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu YouTube URL",
+      "text": "Coloque seu YouTube URL no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Converter",
+      "text": "Pressione o botão Converter para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

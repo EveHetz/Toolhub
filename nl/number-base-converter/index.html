@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Getallen zijn hetzelfde getal ongeacht het grondtal — 255 , 0xff , 0b11111111 en 0o377 zijn identiek. Maar in welk grondtal je leest of schrijft doet ertoe als je vertaalt tussen memory layouts, kleurcodes parset, bit fields decodeert of gewoon hex uit een debugger leest. Deze tool converteert tussen binair, octaal, decimaal, hexadecimaal en elk grondtal van 2 tot 36, met BigInt onder de motorkap zodat je geen precisie verliest op grote getallen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een hex-waarde uit een stack trace lezen en uitvogelen wat hij is in decimaal. CSS-kleur 0xff8800 converteren naar een RGB-tripel, of andersom. Een bitmask of flags-integer in binair inspecteren om te zien welke bits gezet zijn. Vertalen tussen base-36 korte IDs en decimale tellers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Herkende prefixen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hex: 0x , 0X , # Binair: 0b , 0B Octaal: 0o , 0O Underscore-groepering: 1_000_000"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Negatieve getallen zijn sign-prefixed, geen two's complement. -128 wordt als -10000000 in binair getoond, niet 10000000 . De meeste talen tonen het op dezelfde manier voor arbitrary-precision integers. Grote getallen verliezen hier geen precisie. JavaScript Number kapt af bij 2 53 ; deze tool gebruikt BigInt , dus 64-bit integers, grote hashes en crypto-waarden round-trip allemaal exact. Verwar grondtal niet met case. Base-16 letters kunnen upper- of lowercase zijn; de tool accepteert beide en geeft uppercase. Base-32 / base-36 outputs zijn per conventie lowercase. Leading zeros worden gedropt. 0x000F wordt F . Als je een fixed-width hex nodig hebt (bijv. voor byte-representaties), pad daarna in je code."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Getalstelsel-converter",
+  "description": "Converteer tussen binair, octaal, decimaal, hexadecimaal en elk grondtal van 2 tot 36.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je getal",
+      "text": "Zet je getal in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Converteer",
+      "text": "Druk op de Converteer-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

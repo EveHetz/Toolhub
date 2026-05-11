@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YAML and JSON describe the same things — nested maps, lists, primitives — but trade off readability vs strictness. YAML is friendlier for humans (Kubernetes manifests, GitHub Actions, OpenAPI, most CI configs); JSON is what APIs and machine-readable formats ship. This converter flips between them losslessly for the structures both can express. YAML uses js-yaml (YAML 1.2); JSON uses the native API. Both directions run in your browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pasting an OpenAPI / k8s / docker-compose YAML into a tool that needs JSON. Converting an API response (JSON) into YAML for a config file. Auditing a YAML file's actual structure when ambiguous indentation makes parentage unclear."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The \"Norway problem\". YAML 1.1 coerced NO , YES , ON , OFF into booleans. YAML 1.2 doesn't, but downstream parsers may. Quote ambiguous strings to be safe. Multi-document YAML ( --- separators) — only the first document is converted. Custom tags ( !!python/object , !Ref , etc.) violate strict YAML 1.2. CloudFormation YAML and PyYAML pickle dumps will fail; clean tags first. Anchors and aliases get expanded on YAML→JSON. JSON has no references, so *ref nodes inline. Round-tripping gives a value-equivalent but textually-larger YAML. Numbers vs strings. Unquoted YAML 3.14 is a float; \"3.14\" is a string."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertisseur YAML ↔ JSON",
+  "description": "Convertissez entre YAML et JSON dans les deux sens. Idéal pour manifestes Kubernetes, configs CI et specs OpenAPI.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre YAML/JSON",
+      "text": "Placez votre YAML/JSON dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Convertir",
+      "text": "Appuyez sur le bouton Convertir pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

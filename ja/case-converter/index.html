@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "言語やプラットフォームごとに命名規則は異なります。JavaScript は camelCase 、Python は snake_case 、CSS は kebab-case 、環境変数は CONSTANT_CASE 。これらを手作業で変換するのは手間がかかり、特に頭字語、数字、既存の区切り記号があると面倒です。このツールは大文字・小文字の変化、区切り記号（ _ - . / ）、空白を検出して入力を単語に分割し、14 種類のスタイルで再構成します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "API JSON のフィールド名（camelCase）を Python ORM のカラム名（snake_case）にリネームするとき。 PascalCase で渡されるデザインシステムのトークン名から CSS クラス名を生成するとき。 見出しのリストを kebab-case のスラグや、環境変数名を CONSTANT_CASE に変換するとき。 \"The Quick Brown Fox\" を Title Case、Sentence case、Train-Case にサッと変換して見出しやボタンラベルを作りたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "頭字語は厄介です。 \"XMLHttpRequest\" は \"XML_Http_Request\" にすべきか、\"Xml_Http_Request\" にすべきか？ このツールは連続する大文字を 1 つの境界として扱い（ xml http request ）、再キャピタライズします。Java/JS の慣習には合いますが、すべてのスタイルガイドに合うわけではありません。 数字は前の単語にくっつきます。 \"Item2\" は \"item2\" 1 単語になり、2 つには分かれません。分けたい場合は区切り記号を入れてください。 \"camelCase の最初の文字\" は、入力が大文字で始まっていても常に小文字になります。PascalCase は大文字を保持します。 ラウンドトリップは必ずしも無損失ではありません。 camelCase → kebab-case → camelCase と変換すると、元の単語境界の大文字情報は失われます。検出ヒューリスティックは可能な限り頑張りますが、保持されていない情報は復元できません。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "ケース変換ツール",
+  "description": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "テキスト を貼り付け",
+      "text": "テキスト を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

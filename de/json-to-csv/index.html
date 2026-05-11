@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The reverse trip: feed in a JSON array and get out a CSV ready for Excel, Google Sheets, or any data tool that prefers tabular formats. Headers are auto-detected from object keys; nested values get JSON-stringified into single cells so nothing silently disappears."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Turning an API response into a CSV for a stakeholder who only opens spreadsheets. Exporting a pile of records from a JSON dump into something you can pivot/filter in Sheets. Generating fixture rows for database imports that take CSV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Header inference uses the union of all object keys. A row missing a key becomes an empty cell; the column doesn't disappear. Nested objects/arrays are stringified. If you need a flattened CSV (one column per nested key), pre-flatten the JSON before feeding it in. Excel + delimiters. European locales default to semicolons; switch the delimiter so the file opens with columns instead of one giant line. RFC 4180 escaping is applied either way. UTF-8 BOM. Excel on macOS sometimes garbles non-ASCII without a BOM. This tool does NOT prepend one — paste the output through a BOM-adding step if you see mojibake."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON zu CSV",
+  "description": "Konvertiere JSON-Arrays von Objekten zu CSV. Auto-Felderkennung, eigene Trennzeichen, Excel- und Google-Sheets-kompatibel.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "JSON einfügen",
+      "text": "Füge dein JSON in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

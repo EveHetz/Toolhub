@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les tableaux Markdown s'affichent bien mais sont pénibles à écrire à la main. Cet éditeur offre une grille : clic pour éditer, boutons pour lignes/colonnes, alignement par colonne. Collez un tableau Markdown existant en bas pour le charger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Créer un tableau comparatif pour README/Issue/PR. Coller un tableau existant, ajuster, recopier. Générer un ASCII aligné. Tableau de release-notes sans bagarre avec les pipes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les pipes cassent les tableaux. Échapper | en \\| dans les cellules. Cellules sur une ligne. Pour multilignes utiliser <br> HTML. L'alignement vient des deux-points , pas du padding. La première ligne est toujours l'en-tête. Toutes les variantes Markdown ne supportent pas les tableaux. Sortie cible GFM. Coller du CSV ne marche pas. Attend un tableau Markdown avec |---| ."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Éditeur de Tableau Markdown",
+  "description": "Éditez visuellement un tableau — lignes, colonnes, alignement par colonne — et copiez le Markdown GitHub.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre tableau",
+      "text": "Placez votre tableau dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Formater",
+      "text": "Appuyez sur le bouton Formater pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

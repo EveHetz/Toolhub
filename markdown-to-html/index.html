@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Markdown is the most-written authoring format on the planet — README files, blog posts, GitHub issues, chat messages, doc sites. HTML is what browsers render. This tool converts Markdown into clean HTML with a live preview so you can see what the rendered output will look like before pasting it into a CMS, generating a static page, or shipping it as part of an email template."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Supported syntax",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Headings # through ###### ; bold, italic, strike Inline `code` and fenced ```lang blocks Bullet / numbered / nested lists Links [text](url) and images ![alt](url) Blockquotes, pipe tables with alignment, horizontal rules"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a fast in-browser parser, not a spec suite. CommonMark and GFM have edge cases (nested emphasis, link reference definitions, autolink expansion) that diverge between implementations. For strict conformance, use marked , markdown-it , or remark in a build step. HTML embedded inside Markdown mostly passes through as-is, but some implementations sanitise it. Don't rely on this for security; treat untrusted markdown as untrusted HTML. Tables vs alignment. Pipe tables need a separator row ( |---| ) and use :---: / :--- / ---: for centre/left/right alignment. Forgetting the separator is the most common reason a \"table\" renders as one paragraph. Smart punctuation. Some renderers convert -- to en-dashes and straight quotes to curly. This tool doesn't — pass through a typography pass if you need that. Round-tripping isn't lossless. Markdown → HTML → Markdown will normalise heading style, list spacing, and link form. The semantics survive; the exact bytes don't."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Markdown to HTML",
+  "description": "Convert Markdown to clean HTML with a live preview. Supports headings, lists, code, tables, images, and links.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your Markdown",
+      "text": "Drop your Markdown into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

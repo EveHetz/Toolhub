@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A URL slug is the human-readable last segment of a URL — /blog/the-quick-brown-fox rather than /blog/post-4827 . Good slugs are lowercase, hyphenated, ASCII-only, and short enough to read at a glance, but generating them from real titles full of accents, punctuation, and emoji is fiddly to get right. This tool transliterates accents, strips junk, joins with your chosen separator, and truncates at a clean boundary so the output is safe to drop straight into a route or filename."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generating /blog/<slug> URLs from article titles — especially when titles contain accented characters (à, ñ, ø) or punctuation (colons, parentheses, em dashes). Producing safe filenames from user-supplied names — uploads, exports, generated reports. Building stable identifiers for tags, categories, or anchors ( #getting-started ) from human labels. Bulk-converting a list of headings to kebab-case for a static-site build step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How the conversion works",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NFD-normalizes Unicode and strips combining diacritics ( café → cafe ). Maps common European ligatures and special letters: ß → ss , æ → ae , ø → o , Ł → L , plus a few currency/math symbols ( € → eur , & → and ). Replaces every non-alphanumeric run with a single space. Optionally drops common English stop words ( a, an, and, the, of, to, … ). Lowercases (or preserves case), joins with your separator, and truncates at the limit without leaving a dangling separator."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non-Latin scripts get dropped. Diacritic stripping handles à/ñ/ø, but it can't romanize Chinese, Japanese, Cyrillic, Arabic, or Hebrew character-by-character — those need language-specific tables (Hanyu Pinyin, ICU transliteration) which are deliberately out of scope here. Such characters disappear after the strip step. Stop-word removal is English-only. \"El gato negro\" doesn't lose el ; \"Le chat noir\" doesn't lose le . Leave the toggle off for non-English titles. Truncation can change meaning. \"introduction-to-rust-programming\" cut to 20 chars becomes \"introduction-to-rust\" — fine; cut to 16 becomes \"introduction-to\" — clearly worse. Set the limit by hand for content where the tail matters. Slugs aren't unique. Two different titles can collapse to the same slug (\"Café\" and \"Cafe\" both → cafe ). If you're using slugs as URL keys, append a short ID or a suffix on collision. Don't change shipped slugs. Once a URL is live and indexed, regenerating its slug breaks links and SEO. If a title changes, keep the old slug or set up a 301 redirect."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Generatore di Slug",
+  "description": "Trasforma qualsiasi titolo in uno slug URL pulito — translittera accenti, rimuove punteggiatura, unisce con trattini.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il slug",
+      "text": "Metti il slug nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Converti",
+      "text": "Premi il pulsante Converti per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

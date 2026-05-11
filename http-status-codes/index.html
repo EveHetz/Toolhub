@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HTTP status codes are the three-digit numbers a server sends back to tell the client how the request went. They group into five families: 1xx (informational), 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error). Most developers know the headline codes — 200, 301, 404, 500 — but the long tail (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) is where the real bugs live. This tool gives you the full list with meanings and the RFC where each is defined."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reading an API doc that returns a code you don't recognise (425? 451?). Picking the right code to return from your own API — 404 vs 410, 401 vs 403, 422 vs 400. Diagnosing a 502/504 — is the upstream down or just slow? Settling whether 200-with-an-error-body or a real 4xx is the right move. Looking up the RFC reference for a code review or design doc."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "401 means unauthenticated, 403 means unauthorized. The names are misleading — 401 says \"I don't know who you are\", 403 says \"I know who you are and you can't have it\". Use 403 only if a re-authentication wouldn't help. 302 is method-ambiguous. Browsers historically changed POST→GET on a 302 redirect. Use 307 (preserves method) or 303 (always GET) to be explicit. 404 is not 410. 404 = \"I don't know\"; 410 = \"I know and it's gone forever\". Use 410 when search engines should drop the URL. 200 with an error body is not \"RESTful\". If the request failed at the resource level, return a 4xx with the error in the body. 418 is a joke. Don't use I'm-a-teapot in production — clients and proxies treat it inconsistently. RFC 9110 supersedes RFC 7231/7232/7233/7234/7235. If you're citing the spec, use 9110 (June 2022) unless you specifically need an older version."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

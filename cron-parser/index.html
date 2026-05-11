@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cron expressions are powerful and easy to mis-write. 0 0 * * 1-5 looks like a weekday-at-midnight schedule and is. */15 0-9 * * * looks like every fifteen minutes during business hours and is. 0 0 1 */3 * looks like quarterly... if you remembered */3 means \"every third month\". This tool lets you paste an expression, see what it actually means in plain English, and preview the next 10 fire times so you can confirm before deploying."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sanity-checking a cron line in crontab -e before saving. Translating a Kubernetes CronJob schedule string into \"what time will this actually run?\". Designing a new schedule — start with English (\"every weekday morning\") and iterate the expression until the preview matches. Debugging a job that \"didn't run when I expected\" — paste the schedule, look at the next 10 times, see whether reality is the surprise or the expression is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cron field reference",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Field Range Wildcards Minute 0-59 * · */5 · 0,30 · 0-29 Hour 0-23 same Day of month 1-31 same Month 1-12 same Day of week 0-6 (0 = Sunday, 7 also = Sunday) same"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Day-of-month + day-of-week interact. If both are restricted (e.g. 15 * * * 1 meaning \"the 15th OR a Monday\"), most cron implementations OR them. This tool follows that convention. */N isn't quite \"every N\". It's \"every N starting from the lower bound\", so */15 in minute = 0,15,30,45 (not 12,27,42,57). To start later, use a list: 5,20,35,50 . Step + range combos. 0-30/5 = 0,5,10,15,20,25,30. The step applies inside the range only. Timezone is browser-local here. Real cron daemons run in server time (often UTC). A schedule that looks fine in your browser may fire at a different wall-clock time on the server. Confirm timezone before pasting. Some cron flavours add fields. Quartz cron has 6 or 7 fields (with seconds and year). systemd timers use a different format entirely. This tool parses standard 5-field crontab."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Cron Expression Parser",
+  "description": "Parse cron expressions and see the next 10 fire times. Standard 5-field crontab.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Paste your cron expression",
+      "text": "Drop your cron expression into the Input field."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Click Convert",
+      "text": "Press the Convert button to run the tool."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copy the result",
+      "text": "Hit Copy to copy the Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

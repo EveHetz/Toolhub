@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JWT (JSON Web Token) to trzy części w base64url połączone kropkami: header.payload.signature . Header i payload to obiekty JSON, które możesz obejrzeć; signature dowodzi, że token nie został zmajstrowany po wystawieniu. To narzędzie dekoduje pierwsze dwie części, żebyś mógł zobaczyć, co siedzi w środku, bez szumu base64 — przydaje się przy debugowaniu flow auth, wygasłych sesji albo \"do którego użytkownika ten token właściwie należy?\"."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Debug logowania OAuth / OpenID Connect, które się sypie — wklej access albo ID token, zobacz, co IdP faktycznie wystawił. Potwierdzenie wygaśnięcia tokenu: narzędzie dekoduje exp jako prawdziwą datę i flaguje, jeśli minął. Sanity check custom claims, które backend asseruje (role, uprawnienia, tenant ID). Czytanie tokenu, który twoja biblioteka \"odrzuciła jako nieprawidłowy\", żeby zobaczyć, czy problem jest strukturalny, w wygaśnięciu, czy w signature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Typowe claimsy",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iss — issuer (kto utworzył token) sub — subject (użytkownik/konto, które reprezentuje) aud — audience (kto powinien go akceptować) exp — wygaśnięcie (Unix timestamp) iat — issued-at (Unix timestamp) nbf — not-valid-before (Unix timestamp)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zdekodowany JWT to NIE zweryfikowany JWT. Signature nie jest tu sprawdzana — to wymaga klucza publicznego issuera (RSA/EC) albo współdzielonego sekretu (HMAC). Zdekodowana zawartość mówi ci, co token twierdzi , nie czy powinieneś mu ufać. Zawsze weryfikuj na serwerze, zanim uznasz claimsy. Nie wklejaj tokenów produkcyjnych nigdzie. Każdy z żywym JWT może podszyć się pod użytkownika do exp . Przeglądarka go z tego narzędzia nie wysyła, ale rozszerzenia, screen recordingi i dev tools mogą podejrzeć. Użyj świeżego tokenu z testowego środowiska, jeśli musisz się podzielić. Tokeny z alg: none to znana klasa ataków. Jeśli header ma alg: none i twoja biblioteka to akceptuje, atakujący mogą podrabiać tokeny. Odrzucaj to na serwerze. Time skew ma znaczenie. exp tokenu jest sprawdzane przeciw zegarowi weryfikatora. Serwery z driftem padają na tokenach, które tu wyglądają na poprawne."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Decoder JWT",
+  "description": "Wklej JWT, żeby zdekodować header i payload. Wszystko liczy się w przeglądarce — tokeny nie opuszczają strony.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej JWT",
+      "text": "Umieść JWT w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Dekoduj",
+      "text": "Naciśnij przycisk Dekoduj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

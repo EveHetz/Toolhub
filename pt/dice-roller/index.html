@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPGs de mesa (Dungeons & Dragons, Pathfinder, OSR e incontáveis outros) usam uma notação compacta para rolagens de dados: NdL significa \"role N dados de L lados cada\". 2d6+3 significa \"role dois dados de seis lados e some 3\". Esta ferramenta interpreta essa notação e rola os dados usando o RNG criptográfico do browser, que é imprevisível e imparcial — muito melhor que Math.random() para rolagens importantes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Notação suportada",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 — um dado de vinte lados. 2d6+3 — dois d6, somados, mais modificador 3. 3d8-1 — três d8, somados, menos 1. 4d6kh3 — quatro d6, k eep h ighest 3 (mantenha os 3 maiores — clássico para atributos em D&D 5e). 2d20kl1 — dois d20, mantenha o menor (desvantagem). 2d20kh1 — vantagem. 1d100 ou 1d% — dado percentual. d20 — N assume valor 1 por padrão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Você está jogando online, seus dados físicos estão fora de alcance ou está mestrando remotamente. Precisa de uma rolagem com sensação reproduzível sem assinar app de dados. Quer resolver um \"vamos tirar na sorte\" sem achar uma moeda (1d2). Está prototipando uma probabilidade para design de jogo (tente um milhão de rolagens — mude a fórmula no código se quiser stats)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A aba do browser é o limite de confiança. A rolagem acontece na sua aba, em JavaScript — qualquer um com devtools aberto pode burlar. Para jogo competitivo com estranhos, use um rolador arbitrado pelo servidor. RNG cripto é imprevisível, não \"mais aleatório\". Um bom PRNG e um RNG cripto produzem distribuições indistinguíveis para dados. A vantagem do cripto é que ninguém pode prever o próximo número a partir dos anteriores. Modificadores se aplicam uma vez, depois do keep. 4d6kh3+2 rola 4d6, mantém os 3 maiores e então soma 2 — não \"soma 2 a cada dado\". Não há exploding dice. Sem explosões estilo ! , sem rerolls ( r1 ), sem contagem de sucessos ( 3d10>=7 ). A notação aqui é o subset simples de \"soma e modifica\" que cobre ~95% das rolagens comuns. Críticos são sinalizados só para d20. Um 20 destaca em verde, um 1 destaca em vermelho. Outros tamanhos de dado não recebem essa cor. Limite de 1000 dados por rolagem. Limite razoável para manter a página responsiva."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Rolador de Dados",
+  "description": "Role dados com notação padrão de D&D — 2d6+3, 1d20, 4d6 mantendo os 3 maiores. RNG criptograficamente seguro.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Defina as opções",
+      "text": "Escolha as opções de rolagem que precisar."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Rolar",
+      "text": "Pressione Rolar para gerar um novo rolagem."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar o rolagem gerado."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

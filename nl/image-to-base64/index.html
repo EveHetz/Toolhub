@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een data URI embedt de bytes van een bestand direct in een URL met Base64 — geen apart request, geen extern bestand. Deze converter leest elke afbeelding die je erop drop't en produceert een data:image/...;base64,... -string klaar om in HTML, CSS, Markdown of JSON te plakken. Het bestand verlaat je browser nooit; conversie gebeurt via FileReader.readAsDataURL ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kleine icons (< 4 KB) inline in CSS — bespaart een HTTP-request en voorkomt een flash bij first paint. Zelfstandige HTML-emails, single-file demos of offline-capable PWA's. Snelle pastes in Markdown-notities, Notion-pagina's of chat-threads die met de afbeelding moeten reizen. Test fixtures en snapshot-bestanden waar je het asset committed wil hebben naast de test."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Size penalty. Base64 blaast payload op met ~33%. Boven ~4–8 KB weegt de embedding-cost zwaarder dan het bespaarde request, zeker omdat data URIs niet apart door de browser gecached kunnen worden. Geen de-duplicatie over pagina's heen. Elke pagina die de URI embedt stuurt de bytes opnieuw mee. Voor alles dat hergebruikt wordt, houd het als echte URL zodat de browser het één keer cached. Email-clients verschillen. De meeste moderne clients renderen data URIs, maar Outlook op Windows blokkeerde ze historisch in <img src> . CID-attachments zijn nog steeds veiliger voor mass email. SVG ≠ raster. Voor SVG is de markup direct embedden (of de SVG url-encoderen) meestal kleiner dan Base64."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Afbeelding naar Base64",
+  "description": "Converteer elke afbeelding naar een Base64-data-URI klaar voor inline gebruik in HTML, CSS of Markdown. Bestanden blijven in je browser.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Plak je afbeelding",
+      "text": "Zet je afbeelding in het Invoer-veld."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Encoderen",
+      "text": "Druk op de Encoderen-knop om de tool te draaien."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de Uitvoer te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

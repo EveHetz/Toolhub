@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"Combien fait 4 Go ?\" dépend de qui pose la question. Les fabricants de disques entendent 4 000 000 000 octets (SI, puissances de 1000) ; les systèmes d'exploitation entendent 4 294 967 296 octets (IEC, puissances de 1024). À l'échelle To, la différence est de 10 %. Cet outil convertit entre les deux systèmes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les deux systèmes",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SI / décimal — Ko, Mo, Go, To. 1 Ko = 1 000 octets. Fabricants de disques, débits réseau. IEC / binaire — Kio, Mio, Gio, Tio. 1 Kio = 1 024 octets. Linux du -h , modules mémoire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Estimer la taille d'une sauvegarde, d'un upload ou d'une image Docker. Convertir \"150 Mbps\" en Mo/s (diviser par 8). Comparer les coûts de stockage cloud entre fournisseurs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les disques durs utilisent le décimal. \"1 To\" = 1 000 000 000 000 octets ≈ 931 Gio. La RAM utilise le binaire. \"8 Go RAM\" vaut presque toujours 8 Gio. Le réseau est en bits. 100 Mbps = 12,5 Mo/s en pointe. Outils incohérents. L'explorateur Windows affiche du binaire avec un label Ko."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertisseur de Taille de Fichier",
+  "description": "Convertissez entre octets, Ko, Mo, Go, To et les binaires Kio, Mio, Gio, Tio. Décimal vs binaire clarifié.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Saisissez vos valeurs",
+      "text": "Tapez les entrées de taille de fichier dont l'outil a besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lisez le calcul",
+      "text": "Le résultat de taille de fichier se met à jour instantanément — pas de bouton."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Utilisez ou copiez le résultat",
+      "text": "Appuyez sur Copier si vous avez besoin de la valeur de taille de fichier ailleurs."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

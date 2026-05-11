@@ -72,6 +72,47 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Betriebssysteme haben Emoji-Picker (Win+., Cmd+Ctrl+Leertaste), aber sie sind inkonsistent und manchmal versteckt. Dieses Tool bietet ein kuratierte Raster der wichtigsten Emojis nach Kategorie sortiert und per Stichwort durchsuchbar. Klick auf eine Kachel kopiert. Zuletzt kopierte werden im Browser gespeichert — nichts wird an einen Server gesendet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auf einem Desktop ohne schnellen OS-Picker. Stichwort-Suche breiter als der OS-Picker. Remote-Desktop oder ältere Systeme ohne nativen Picker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie das Rendering funktioniert",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Emojis sind Unicode-Code-Points. Das Aussehen hängt vom System-Font ab — Apple, Google Noto, Microsoft Segoe sind unterschiedlich. Die Bytes sind identisch, das Bild ist lokal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hautfarben und Berufs-Varianten sind Sequenzen. 👨‍🍳 = mehrere Code-Points mit ZWJ. Flaggen sind Regional-Indikatoren. 🇩🇪 = \"🇩\" + \"🇪\". Kuratiert, nicht vollständig. Unicode 15 hat 3664 Emojis; hier ~600 gängige. Variation Selector (U+FE0F) erzwingt Emoji-Stil. Clipboard-API benötigt Geste (der Klick reicht)."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

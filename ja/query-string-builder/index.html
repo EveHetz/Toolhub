@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "クエリ文字列は ? 、 = 、 & でつないだ key/value のリストにすぎませんが、手書きで正しく作るのは面倒です。スペースは %20 （場合によっては + ）に、各値は percent-encode され、配列にも 3 通り以上の慣習があります。本ツールは入力した key と value、必要なら「multi」をチェックすると、 ? の後にそのまま貼り付けられる正しくエンコード済みの文字列を生成します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "スペース、アクセント、記号を含む複数パラメータの API URL を作成するとき。 UTM タグの追跡用リンクをエンコードミスなく組み立てたいとき。 メール、チャット、SNS を経由するディープリンクや共有 URL を作るとき。 API がどの配列記法を期待するか — a[]=1 、 a=1&a=2 、 a=1,2 — を試して確認したいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "配列の慣習は標準化されていません。 PHP や Rails は a[]=1&a[]=2 、Python の requests はデフォルトで a=1&a=2 を繰り返し、ASP.NET はカンマ区切りが多いです。API の期待形式に合わせてください。 + と %20 。 application/x-www-form-urlencoded はスペースに + 、URI のクエリは厳密には %20 です。両方受け付けるサーバーが多いものの、API のドキュメントに従うのが無難です。 空値とキー欠落は別物。 ?a= は「a は空文字」、 a 自体を省略するのは「値が無い」。両者を区別する API もあります。 予約文字の取り扱い。 値内の = 、 & 、 # 、 ? はエンコードされます。生のままだとパラメータやクエリ全体が打ち切られる原因になります。 順序が重要なことがあります。 S3、Stripe Webhook、OAuth 1.0 などの署名付き URL は署名前にパラメータの並び順が決まっています。本ツールは入力行の順序を保持します。 長さ制限。 ブラウザやサーバーはおおむね 2〜8 KB でクエリを切ります。JSON をクエリパラメータに詰め込むのは設計上のサインです。 クエリに秘密情報を入れないこと。 サーバーログ、ブラウザ履歴、Referer ヘッダーに残ります。リクエストボディや Authorization ヘッダーを使ってください。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "クエリ文字列ビルダー",
+  "description": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "オプションを設定",
+      "text": "必要な クエリ文字列 のオプションを選びます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "生成 をクリック",
+      "text": "生成 を押して新しい クエリ文字列 を生成します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して生成された クエリ文字列 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

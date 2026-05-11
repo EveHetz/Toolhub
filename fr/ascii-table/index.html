@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII est le système de codage à 128 caractères qui mappe les chiffres, lettres, ponctuations et caractères de contrôle sur les entiers 0–127. C'est le socle des encodages modernes (UTF-8, Latin-1) — utile pour décoder un dump hexadécimal ou se rappeler que 0x0A est un saut de ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lire un dump hex et identifier les octets comme du texte. Écrire un parseur qui dépend des bornes des caractères imprimables. Déboguer un CSV cassé par une tabulation ou un caractère de contrôle. Trouver l'entité HTML pour un caractère donné."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII fait 7 bits. Les codes 128–255 ne sont pas ASCII — ils relèvent de Latin-1, CP-1252 ou d'octets de continuation UTF-8. Les sauts de ligne diffèrent. Unix utilise LF, Windows CRLF, l'ancien Mac CR. Les caractères de contrôle sont invisibles. Du texte collé peut contenir des caractères invisibles qui font échouer les comparaisons. Les entités HTML sont rarement nécessaires. En UTF-8, le caractère littéral suffit — n'échappez que & , < , > . NUL termine les chaînes C. À éviter dans des buffers C sans précaution."
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

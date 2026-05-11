@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une requête SQL peut être un one-liner ou 200 lignes illisibles tant qu'elles ne sont pas indentées. Ce formateur réécrit SELECT/INSERT/UPDATE/DDL avec indentation cohérente, sauts de ligne avant chaque clause et casse uniforme. Le mode minify fait l'inverse. Tout dans le navigateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reformater une requête copiée d'un log ou ORM. Normaliser les conventions d'équipe avant un commit. Compresser une requête en une ligne pour YAML ou CLI. Repérer parenthèses non équilibrées ou virgules manquantes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Structurel, pas sémantique. Ne valide pas la syntaxe SQL. Mots-clés selon dialecte. ILIKE , RETURNING = Postgres ; STRAIGHT_JOIN = MySQL. Les littéraux chaîne sont préservés. Les commentaires survivent mais sont isolés sur leur ligne. Minify supprime les commentaires. Pas un linter. Utiliser sqlfluff en CI."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formateur SQL",
+  "description": "Formatez et embellissez du SQL avec indentation, ou minifiez sur une ligne. Conscient du dialecte (ANSI / MySQL / Postgres).",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre SQL",
+      "text": "Placez votre SQL dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Formater",
+      "text": "Appuyez sur le bouton Formater pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

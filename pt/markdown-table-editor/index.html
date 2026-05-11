@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Para que serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tabelas Markdown ficam ótimas no resultado renderizado e são chatas de escrever na mão. Caracteres pipe, dois-pontos de alinhamento, o número certo de traços por coluna — quando você termina de ajustar tudo, podia ter escrito em HTML. Este editor te dá uma grade familiar: clique em qualquer célula para editar, use os botões para adicionar ou remover linhas e colunas, defina alinhamento por coluna num dropdown e copie o Markdown estilo GitHub quando terminar. Você também pode colar uma tabela Markdown existente embaixo e ela é carregada na grade para edição."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usar",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Criar uma tabela comparativa para um README, issue do GitHub ou descrição de PR. Reeditar uma tabela de uma documentação — cole o Markdown existente, ajuste na grade, copie de volta. Produzir uma tabela ASCII com padding alinhado (a saída tem padding à direita, então também é legível como texto puro). Rascunhar uma tabela de release notes sem brigar com a sintaxe de pipes e traços."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cuidados comuns",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pipes inline quebram tabelas GFM. Um | literal dentro de uma célula encerra a célula. Faça escape como \\| quando precisar. Conteúdo da célula é de uma linha só. Tabelas Markdown não suportam quebras de linha dentro de células sem HTML ( <br> ). Para conteúdo multilinha, escreva a tabela em HTML. Alinhamento é renderizado, não forçado. A saída também aplica padding para alinhar no source, mas o alinhamento renderizado de fato vem dos dois-pontos na linha separadora, não do espaçamento. A primeira linha sempre é tratada como header. Tabelas GFM têm header obrigatório. Se seus dados não têm um header natural, use células em branco na linha 1. Algumas variantes Markdown são mais rígidas que GFM. O CommonMark em si não define tabelas; GFM, MultiMarkdown e várias outras suportam variantes ligeiramente diferentes. A saída aqui mira GFM (GitHub, GitLab, a maioria dos renderers modernos). Colar um CSV sem formatação não funciona. A textarea de \"import\" espera uma tabela Markdown (com o separador |---| ). Para CSV → Markdown, use a ferramenta CSV-to-JSON primeiro ou cole as linhas na mão."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Editor de Tabelas Markdown",
+  "description": "Edite uma tabela visualmente — linhas, colunas, alinhamento por coluna — e copie o Markdown estilo GitHub.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Cole seu tabela",
+      "text": "Coloque seu tabela no campo Entrada."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clique em Formatar",
+      "text": "Pressione o botão Formatar para rodar a ferramenta."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copie o resultado",
+      "text": "Pressione Copiar para copiar a Saída."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

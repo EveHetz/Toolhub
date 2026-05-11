@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "QR コードはスマホのカメラが瞬時に読み取れる小さな URL です。URL、Wi-Fi 設定、メール下書き、電話番号、その他短いテキストをエンコードしてポスター、名刺、メニューに印刷すれば、誰もがタイピングなしで操作できます。本ジェネレーターはオープンソースの qrcode ライブラリを使い、すべてブラウザ内で動作します。入力テキストはページから外に出ません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "スライド、ポスター、名刺、パッケージ封入物に URL を載せたいとき。 ゲストにパスワードをタイピングさせずに Wi-Fi へ接続させたいとき（Wi-Fi プリセットを利用）。 店舗のサイネージに「スキャンして支払い／予約／注文」を貼り付けたいとき。 vCard をエンコードして、相手のスマホに連絡先カードを即インポートさせたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "誤り訂正は密度とのトレードオフです。 Q、H など高めにすると傷やロゴ重ねに強くなりますが、コードは大きく密になります。L、M は小さくなり読み取りも速いです。ロゴを重ねるなら H 、それ以外は M が無難です。 コントラストが重要です。 凝ったカラーリングで前景／背景のコントラストを下げると、見た目はおしゃれでも暗所での読み取りが落ちます。出力後に印刷物や画面で必ずスキャン確認してください。 長いコンテンツは密なコードを生みます。 200 文字の URL を入れると密度が上がり、遠距離では読み取りにくくなります。サイズが重要ならリダイレクト URL に短縮してから入れてください。 SVG と PNG。 SVG は無劣化でスケールでき、印刷や大画面に最適です。PNG はどこでも使えますが拡大すると荒くなります。実際に使うサイズで書き出してください。 Wi-Fi プリセットの形式。 WIFI:T:WPA;S:<SSID>;P:<password>;; — 最近の iOS/Android はスキャンで自動接続できます。古い端末では未対応の場合があります。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "QR コードジェネレーター",
+  "description": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "オプションを設定",
+      "text": "必要な QR code のオプションを選びます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "生成 をクリック",
+      "text": "生成 を押して新しい QR code を生成します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して生成された QR code をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

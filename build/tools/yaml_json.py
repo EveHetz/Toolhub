@@ -218,4 +218,5 @@ document.addEventListener('DOMContentLoaded', yjConv);
 """,
     },
     "related": ["json-formatter", "json-diff", "csv-to-json"],
+    "howto": {"flow": "transform", "action": "convert", "noun": "YAML/JSON"},
 }

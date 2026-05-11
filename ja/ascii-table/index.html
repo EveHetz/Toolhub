@@ -72,6 +72,39 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII（American Standard Code for Information Interchange）は、数字・アルファベット・記号・少数の制御コードを 0–127 の整数にマッピングする 128 文字の符号化方式です。現代のすべてのテキストエンコーディング（UTF-8、Latin-1、Windows-1252）が拡張する基盤であり、値を知っておくと役立つ場面は意外と多くあります。たとえばバイナリファイル中の不審なバイトの調査、「印字可能文字」用の正規表現の作成、hex ダンプの読解、改行が 0x0A か 0x0D かを思い出すときなどです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "hex ダンプを読み、それらのバイトが何を 表している か特定したいとき。 パーサを書いていて、境界値が必要なとき： 0x20 （スペース）、 0x7E （チルダ）— 印字可能範囲。 0x09 （タブ）や 0x1F （Unit Separator）が混入して壊れた CSV をデバッグするとき。 扱いにくい文字に対する HTML エンティティを作りたいとき —— &#65; = A 。 \\r が 0x0D（はい、Carriage Return）で \\n が 0x0A（はい、Line Feed）かどうかの議論を決着させたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ASCII は 7 ビットであり、8 ビットではありません。 128–255 のコードは ASCII では ありません 。文書が宣言する 8 ビットエンコーディング（Latin-1、CP-1252 など）に属するか、UTF-8 シーケンスの先頭バイトです。 改行はプラットフォームによって異なります。 Unix/macOS は LF （0x0A）のみ、旧 Mac Classic は CR （0x0D）、Windows は CRLF 。これらが混在するファイルでは単純な行カウントが破綻します。 制御文字は見えない妨害者になり得ます。 ターミナルや PDF からのコピペで 0x1F 、 0x07 （BEL — 実際にターミナルが鳴ります）、ASCII ですらないゼロ幅 Unicode 文字が混入することがあります。テキストが「見た目は同じ」なのに比較で一致しないときは、バイト列にダンプして確認しましょう。 HTML エンティティは常に必要なわけではありません。 現代の UTF-8 文書では &#65; とリテラルの A は等価です。エスケープが必要なのは HTML で構文的意味を持つ文字だけ： & 、 < 、 > 、属性値の中の \" 。 NUL（ 0x00 ）は C 文字列の終端です。 C 文字列バッファに何も考えずに埋め込まないでください。多くの API は最初の NUL で黙って切り捨てます。"
+      }
+    }
+  ]
+}
+</script>
+  
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

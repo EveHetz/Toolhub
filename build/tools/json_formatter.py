@@ -226,4 +226,5 @@ function jfValidate(){
 """,
     },
     "related": ["regex-tester", "yaml-json", "json-diff"],
+    "howto": {"flow": "transform", "action": "format", "noun": "JSON"},
 }

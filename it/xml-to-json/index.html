@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A cosa serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML e JSON sono i due formati dominanti e tradurre tra loro è quotidiano. La mappatura è convenzionale: attributi con prefisso ( @ ), nodi testo con chiave ( #text ), figli ripetuti diventano array. Entrambe le direzioni nel browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quando usarlo",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convertire RSS/Atom/SOAP in JSON per app JS. Generare XML config da template JSON. Estrarre valori annidati più facilmente. Verificare round-trip."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Errori comuni",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Singolo vs array. Un <item> è oggetto, due diventano array — gestire entrambe le forme. Ordine non garantito. Le chiavi JSON non preservano l'ordine in modo affidabile. Contenuto misto collassa. Nessun round-trip pulito. Collisioni di prefisso. Se un tag inizia con @ , cambia prefisso. Namespace letterali. ns:tag resta \"ns:tag\" . Niente inferenza di tipo. Il testo XML è sempre stringa. JSON → XML richiede esattamente una chiave radice."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Convertitore XML ↔ JSON",
+  "description": "Converti XML in JSON o JSON in XML. Gestisce attributi, nodi testo e array sensibilmente.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il XML",
+      "text": "Metti il XML nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Converti",
+      "text": "Premi il pulsante Converti per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

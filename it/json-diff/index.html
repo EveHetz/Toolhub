@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is this for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A plain-text diff on JSON tells you which lines changed; a structural diff tells you which data points changed. They're often very different — a re-formatted document with no semantic change is \"every line different\" to a text diff but \"no changes\" here. This tool walks both JSON trees and reports each path where they differ, using RFC 6901 JSON Pointer syntax ( /users/0/name ) so the output is unambiguous regardless of formatting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use it",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Comparing two API responses to see what actually changed in a release, ignoring whitespace/key-order noise. Diffing config files before/after a migration to confirm only the intended fields moved. Generating an RFC 6902 JSON Patch document to ship to a system that supports it (PATCH endpoints, JSON-Merge-Patch fallbacks). Eyeballing two test fixtures to see what makes one fail when the other passes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Array compare mode matters. \"By index\" reports an inserted element as remove+add for everything after it. \"By value\" treats arrays as sets, missing genuine reorderings. Pick the one that matches how your data is meant to be ordered. Number-vs-string isn't structural. {\"id\": 1} and {\"id\": \"1\"} show as a change because the types differ. Normalise types before diffing if that matters. RFC 6902 is a one-way patch, not a merge. Apply it with a real RFC 6902 implementation, not by string-replacement. Big trees get noisy. If the diff is hundreds of operations long, you're probably comparing two unrelated documents — re-check the inputs."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Diff JSON",
+  "description": "Diff strutturale tra due documenti JSON — chiavi aggiunte, rimosse, modificate e cambi di valore affiancati.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla entrambe le versioni di JSON",
+      "text": "Metti ciascuna versione del tuo JSON in uno dei due campi."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Confronta",
+      "text": "Premi Confronta per individuare le differenze."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Leggi il diff",
+      "text": "Scorri le differenze evidenziate nell'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

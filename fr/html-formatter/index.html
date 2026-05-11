@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À quoi ça sert ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le HTML arrive dans tous les états : minifié, généré par templates, indenté à la main. Cet outil reformate avec indentation cohérente, reconnaît les éléments void ( <img> ) et inline ( <a> ). Le mode minify supprime les espaces et les commentaires en option. Tout dans le navigateur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand l'utiliser",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rendre lisible un view-source minifié. Nettoyer un snippet CMS avant revue. Minifier du HTML statique avant déploiement. Supprimer commentaires d'auteur avant publication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pièges courants",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tokenizer pragmatique, pas un parser HTML5. Ne répare pas les entrées très mal formées. Espaces dans pre , textarea , script , style préservés. Éléments inline sur la même ligne que le texte parent. « Réduire les espaces » modifie le rendu. Auto-fermant en HTML est cosmétique. Minify n'est pas une frontière de sécurité."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Formateur HTML",
+  "description": "Formatez et embellissez du HTML ou minifiez-le. Taille d'indentation, suppression de commentaires, gestion des balises auto-fermantes.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Collez votre HTML",
+      "text": "Placez votre HTML dans le champ Entrée."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Cliquez sur Formater",
+      "text": "Appuyez sur le bouton Formater pour exécuter l'outil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copiez le résultat",
+      "text": "Appuyez sur Copier pour copier la Sortie."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

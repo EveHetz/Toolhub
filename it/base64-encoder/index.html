@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What Base64 actually does",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 turns arbitrary bytes into 64 ASCII characters (A–Z, a–z, 0–9 plus two extras). Three input bytes become four output characters, so the result is roughly 33% larger than the input. It's an encoding , not encryption — anyone can decode it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When to use Base64",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Embedding small binary data inside text-only formats: data URIs, JSON values, environment variables, YAML strings. Encoding binary tokens (signatures, keys, hashes) for inclusion in URLs, headers, or cookies. Email attachments and SMIME — historic but still alive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Standard vs base64url",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard ( RFC 4648 §4 ) uses + , / , = . Fine in email, JSON values, most XML. base64url ( RFC 4648 §5 ) uses - , _ , and typically drops trailing = padding. Used in JWTs, OAuth tokens, and anywhere the value lives in a URL where + / / / = would need extra escaping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Common gotchas",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't confuse it with encryption. Base64 is reversible by anyone. If the data is sensitive, encrypt it first. UTF-8 round-trips correctly here — non-ASCII (é, 你好, 🚀) goes through TextEncoder / TextDecoder , not btoa / atob directly. Naive btoa(str) in JavaScript breaks on non-Latin characters. Padding — standard Base64 always ends with 0/1/2 = characters depending on input length. base64url often omits them. Decoders that require padding will reject unpadded input; this tool re-adds it on decode if missing. Whitespace inside encoded strings — the decoder here strips spaces and line breaks (common from copy-paste), but some libraries don't, so re-encode if you're piping to one of those."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Encoder / Decoder Base64",
+  "description": "Codifica testo in Base64 o decodifica Base64 in testo. UTF-8 sicuro con variante base64url.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Incolla il testo",
+      "text": "Metti il testo nel campo Input."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Clicca Codifica",
+      "text": "Premi il pulsante Codifica per eseguire lo strumento."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Copia il risultato",
+      "text": "Premi Copia per copiare l'Output."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

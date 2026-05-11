@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een UUID (of GUID) is een 128-bit identifier — geschreven als 32 hex-cijfers in 5 groepen, zoals 550e8400-e29b-41d4-a716-446655440000 . Ze zijn collision-vrij over systemen heen zonder coördinatie: elk proces ergens kan er één munten en de kans dat twee ooit collideren is feitelijk nul. Nuttig als je een ID nodig hebt voor je met een database praat, als je wil voorkomen dat row counts uitlekken, of als een ID client-side gegenereerd en later gesynced moet worden. Deze tool emitteert RFC 4122 / RFC 9562-compliant UUIDs in v4 (random) of v7 (time-ordered) vorm, gegenereerd met cryptografisch-veilige randomness in je browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Primary keys voor gedistribueerde systemen waar je niet naar de database wil round-trippen voor een ID. Idempotency keys voor API-requests (Stripe, payment providers, queue-berichten). File-upload identifiers, session tokens, correlation IDs in logs. Overal waar je anders een auto-incrementing ID zou exposen en zou lekken hoeveel records je hebt. Test data — seed honderd records met realistische identifiers in één klik."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "v4 vs v7 — welke moet ik gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "v4 (random) — 122 bits randomness, geen embedded creation time. Gebruik als je geen correlatie wil tussen IDs en aanmaakvolgorde, of als de ID in een hash-map / non-clustered index leeft waar ordening niet uitmaakt. v7 (time-ordered) — 48-bit Unix-ms timestamp prefix + random tail. Default hierop voor nieuwe database primary keys. De timestamp-prefix geeft B-tree indexes locality (recente inserts gaan naar dezelfde pages, veel beter cache-gedrag dan v4), en IDs sorteren in ruwweg chronologische volgorde. Gedefinieerd in RFC 9562 (mei 2024) — supersedet ULID en v1/v6 voor de meeste use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "UUIDs zijn geen secrets. v4 heeft 122 bits entropie en is niet te raden, maar het formaat zelf autoriseert niets. Gebruik geen UUID als session-token of password-reset token tenzij je het als een secret behandelt (HTTPS-only, time-limited, single-use). v7 lekt aanmaaktijd. De eerste 48 bits coderen de milliseconde waarop hij gemunt werd. Prima voor interne IDs; slecht als je niet wil dat users leren wanneer records werden aangemaakt. Gebruik v4 in dat geval. Index-size doet ertoe. Een UUID is 16 bytes vs 8 voor een bigint — je B-tree indexes worden groter. De moeite waard voor distributed/no-coordination, vaak niet voor single-server apps met een sequentiële ID. v4 fragmenteert database-indexes. Random IDs verspreiden writes over de index, wat page cache hit rate en write throughput pijn doet. Dit is het oorspronkelijke argument voor v7. Gebruik geen v1. De oude time-and-MAC variant lekt het MAC-adres van de genererende machine. v7 is de moderne vervanger. Gebruik crypto-veilige randomness. Deze tool gebruikt crypto.getRandomValues ; roll nooit je eigen met Math.random — die is niet random genoeg en IDs worden voorspelbaar."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "UUID Generator",
+  "description": "Genereer RFC 4122 UUIDs (v4 random of v7 time-ordered). Batch tot 100. Cryptografisch veilig.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de UUID-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Genereer",
+      "text": "Druk op Genereer om een nieuwe UUID te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde UUID te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

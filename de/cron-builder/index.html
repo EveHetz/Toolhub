@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cron-Syntax ist dicht: fünf Felder, jeweils mit Wildcards, Ranges, Listen, Steps. Dieser Builder lässt dich mit einem Preset starten oder Felder einzeln tippen, zeigt den Cron-String, eine deutsche Erklärung und die nächsten fünf Auslösezeiten in deiner lokalen Zeitzone. Komplement: Cron-Parser ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Neuer crontab -Eintrag, K8s CronJob , GitHub-Action, EventBridge. \"Jeden Wochentagmorgen\" in Cron übersetzen. Vor Deploy prüfen, ob der Ausdruck tatsächlich richtig läuft. Cron-Einsteiger schulen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DoM + DoW per OR verknüpft , nicht AND. Browser-Zeitzone hier — Server läuft meist in UTC. */N ist nicht exakt \"alle N\". Beginnt am Range-Anfang. Step+Range: 0-30/5 = 0,5,10,15,20,25,30. Quartz/systemd haben anderes Format. Dieser Builder = 5-Felder-Crontab. Freitag-der-13. braucht Wrapper-Script."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cron-Ausdruck-Builder",
+  "description": "Cron-Ausdruck visuell bauen — Minute, Stunde, Tag, Monat, Wochentag — und nächste 5 Auslösezeiten ansehen.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Optionen wählen",
+      "text": "Wähle die gewünschten Cron-Ausdruck-Optionen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generieren klicken",
+      "text": "Drücke Generieren, um ein neues Cron-Ausdruck zu erzeugen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um das erzeugte Cron-Ausdruck zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

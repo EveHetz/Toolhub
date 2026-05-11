@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "用途",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twitter/X、Facebook、LinkedIn、Discord、Slack などにリンクを共有すると、ページの head にある Open Graph メタタグに基づいて「カード」（タイトル・説明・画像）に展開されます。各プラットフォームでカードのレンダリングや文字数のクリップは異なります。本ツールは、各プラットフォームに実際に投稿することなく、同じ内容がどう見えるかをサイドバイサイドでプレビューします。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "使うべきタイミング",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OG 画像やコピーを変更し、デプロイ前に問題ないか確認したいとき。 ヒーロー画像を選ぶ際、1.91:1 のクロップで主要部分が残るか確認したいとき。 タイトルや説明文を書く際、各プラットフォームでどこが切られるかを確認したいとき。 OG タグがないページを引き継ぎ、レンダリング結果を見ながら下書きしたいとき。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "最小限のタグ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "<meta property=\"og:title\" content=\"…\"> <meta property=\"og:description\" content=\"…\"> <meta property=\"og:image\" content=\"https://…\"> （絶対 URL、1200×630 が理想） <meta property=\"og:url\" content=\"https://…\"> <meta property=\"og:type\" content=\"website\"> <meta name=\"twitter:card\" content=\"summary_large_image\"> （X/Twitter の大きな画像表示用）"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "よくある注意点",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "これは静的なプレビューであり、ライブフェッチではありません。 実際のプラットフォームは自分のサーバーからページをスクレイピングします。本番サイトに別の画像が出ても本ツールでは捕捉できません。最終確認は各プラットフォームの公式デバッガ（Twitter card validator 、Facebook Sharing Debugger、LinkedIn Post Inspector）で行ってください。 画像 URL は絶対 URL である必要があります。 /og.png ではダメで、スクレイパーはあなたのオリジンを知りません。 画像は公開アクセス可能でなければなりません。 認証ウォール、リファラを要求する CDN、ホットリンク防止が有効だとカードが壊れます。 アスペクト比が重要です。 1.91:1（標準は 1200×630）はどのプラットフォームでも綺麗に表示されます。正方形やポートレートはクロップで損をします。 ファイルサイズも重要。 8 MB を超える画像を拒否するスクレイパーもあります。初回読み込みを軽くするため 1 MB 未満を狙ってください。 キャッシュ無効化は現実問題です。 一度スクレイピングされるとカードがキャッシュされます。再スクレイプにはプラットフォームのデバッガを使ってください。 タイトル／説明の文字数上限はばらつきます。 Twitter/X はおおむね 70、Facebook は 88、LinkedIn は 100 文字付近で切れます。重要語は前に置きましょう。 Discord は theme-color を好みます。 <meta name=\"theme-color\" content=\"#xxxxxx\"> を追加すると、Discord の左ボーダーの色になります。"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "OG タグプレビュー",
+  "description": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "URL を貼り付け",
+      "text": "URL を 入力 欄に貼り付けます。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "変換 をクリック",
+      "text": "変換 ボタンを押してツールを実行します。"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "結果をコピー",
+      "text": "コピー を押して 出力 をコピーします。"
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

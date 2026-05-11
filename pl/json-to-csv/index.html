@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Droga w drugą stronę: wrzucasz tablicę JSON i dostajesz CSV gotowy do Excela, Google Sheets albo dowolnego narzędzia, które woli format tabularny. Nagłówki są wykrywane automatycznie z kluczy obiektów; zagnieżdżone wartości są stringifikowane do JSON-a w pojedyncze komórki, żeby nic nie zniknęło po cichu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zamiana odpowiedzi API w CSV dla stakeholdera, który otwiera tylko arkusze. Eksport masy rekordów z dumpa JSON do czegoś, co da się pivotować/filtrować w Sheets. Generowanie fixture'owych wierszy dla importów do bazy, które przyjmują CSV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Wnioskowanie nagłówków używa unii wszystkich kluczy obiektów. Wiersz bez klucza staje się pustą komórką; kolumna nie znika. Zagnieżdżone obiekty/tablice są stringifikowane. Jeśli potrzebujesz spłaszczonego CSV (jedna kolumna na zagnieżdżony klucz), spłaszcz JSON-a, zanim go tu wrzucisz. Excel + delimitery. Lokalizacje europejskie domyślnie używają średnika; przełącz delimiter, żeby plik otworzył się w kolumnach zamiast jednej olbrzymiej linii. Escape wg RFC 4180 jest aplikowany tak czy siak. BOM UTF-8. Excel na macOS czasem psuje znaki spoza ASCII bez BOM. To narzędzie NIE dodaje go — przepuść wyjście przez krok dodający BOM, jeśli widzisz mojibake."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON do CSV",
+  "description": "Konwertuj tablice obiektów JSON na CSV. Auto-wykrywanie pól, własne delimitery, poprawny escape pod Excela i Google Sheets.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej JSON",
+      "text": "Umieść JSON w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

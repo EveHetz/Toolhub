@@ -295,4 +295,5 @@ document.addEventListener('DOMContentLoaded', tdRun);
 """,
     },
     "related": ["json-formatter", "case-converter", "regex-tester"],
+    "howto": {"flow": "compare",   "action": "compare", "noun": "text"},
 }

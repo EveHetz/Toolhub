@@ -72,6 +72,63 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wofür ist das?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XML und JSON sind die zwei dominanten Austauschformate und Übersetzung zwischen ihnen ist Alltag. Das Mapping ist konventionell, nicht standardisiert: Attribute erhalten ein Präfix (Standard @ ), Textknoten einen Schlüssel (Standard #text ), wiederholte Kindelemente werden zu Arrays. Beide Richtungen im Browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wann verwenden",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RSS/Atom/SOAP in JSON umwandeln für JS-Apps. XML-Config aus JSON-Template generieren. Verschachtelte Werte einfacher extrahieren. Round-Trip prüfen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Häufige Stolperfallen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eines vs Array. Ein <item> wird Objekt, zwei werden Array — Konsumenten müssen beide Formen handhaben. Element-Reihenfolge nicht garantiert. JSON-Objekt-Schlüssel sind nicht zwingend geordnet. Mixed Content kollabiert. <p>hi <b>welt</b>!</p> trippt nicht round-trip. Präfix-Kollisionen. Wenn Tag-Name mit @ beginnt, anderes Präfix wählen. Namespaces wörtlich. ns:tag bleibt \"ns:tag\" . Keine Typ-Inferenz. XML-Text ist immer String. JSON → XML braucht genau einen Root-Key."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "XML ↔ JSON Konverter",
+  "description": "XML in JSON konvertieren oder JSON zurück in XML. Verarbeitet Attribute, Textknoten und Arrays sinnvoll.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "XML einfügen",
+      "text": "Füge dein XML in das Eingabe-Feld ein."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Konvertieren klicken",
+      "text": "Drücke Konvertieren, um das Tool auszuführen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um die Ausgabe zu kopieren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;

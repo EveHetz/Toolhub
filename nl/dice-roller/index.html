@@ -72,6 +72,71 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tabletop role-playing games (Dungeons & Dragons, Pathfinder, de OSR, talloze andere) gebruiken een compacte notatie voor dobbelsteenworpen: NdS betekent \"gooi N dobbelstenen met S zijden elk\". 2d6+3 betekent \"gooi twee zeszijdige dobbelstenen en tel 3 op\". Deze tool parset die notatie en gooit de dobbelstenen met de cryptografische RNG van de browser, die onvoorspelbaar en onbevooroordeeld is — veel beter dan Math.random() voor worpen met inzet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ondersteunde notatie",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1d20 — één twintigzijdige dobbelsteen. 2d6+3 — twee d6, optellen, plus 3 modifier. 3d8-1 — drie d8, optellen, min 1. 4d6kh3 — vier d6, k eep h ighest 3 (klassieke D&D 5e ability score). 2d20kl1 — twee d20, keep lowest 1 (disadvantage). 2d20kh1 — advantage. 1d100 of 1d% — percentile dobbelsteen. d20 — N defaulted op 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je speelt online, je fysieke dobbelstenen liggen buiten bereik, of je DM't op afstand. Je hebt een reproducible-feel worp nodig zonder dobbelsteen-app abonnement. Je wil \"kruis of munt\" beslechten zonder een muntje te vinden (1d2). Je prototypet een kans voor een game design (probeer een miljoen worpen — verander de formule in code als je stats wil)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Browser-tab is de trust boundary. De worp gebeurt in je tab, in JavaScript — iemand met devtools open kan rommelen. Voor competitief spel met vreemden gebruik je een server-arbitrated roller. Crypto-RNG is onvoorspelbaar, niet \"meer random\". Een goede PRNG en crypto-RNG produceren ononderscheidbare verdelingen voor dobbelstenen. Het voordeel van crypto is dat niemand het volgende getal kan voorspellen uit eerdere. Modifiers worden eenmaal toegepast, na keep. 4d6kh3+2 gooit 4d6, houdt de top 3, telt dan 2 op — niet \"telt 2 op bij elke dobbelsteen\". Dit is geen exploding dice. Geen ! -style explosions, geen rerolls ( r1 ), geen successes-counting ( 3d10>=7 ). De notatie hier is de simpele \"sum and modify\"-subset die ~95% van gewone worpen dekt. Crits worden alleen gevlagd voor d20. Een 20 highlight groen, een 1 highlight rood. Andere dice-sizes krijgen geen kleuring. Cap van 1000 dobbelstenen per worp. Verstandige bovengrens om de pagina responsive te houden."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Dobbelsteen-roller",
+  "description": "Gooi dobbelstenen met standaard D&D-notatie — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Stel je opties in",
+      "text": "Kies de worp-opties die je nodig hebt."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Klik op Gooi",
+      "text": "Druk op Gooi om een nieuwe worp te produceren."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kopieer het resultaat",
+      "text": "Druk op Kopieer om de gegenereerde worp te kopiëren."
+    }
+  ]
+}
+</script>
   <style>
     :root {
       --bg: #0d1117; --surface: #161b22; --border: #30363d;
