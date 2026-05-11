@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unix Timestamp Converter — Toolhub</title>
+  <meta name="description" content="Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd.">
+  <meta property="og:title" content="Unix Timestamp Converter — Toolhub">
+  <meta property="og:description" content="Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/timestamp-converter/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/nl/timestamp-converter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/timestamp-converter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/timestamp-converter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/timestamp-converter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/timestamp-converter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/timestamp-converter/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/timestamp-converter/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/timestamp-converter/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/timestamp-converter/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/timestamp-converter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/timestamp-converter/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/timestamp-converter/#tool",
+        "name": "Unix Timestamp Converter",
+        "description": "Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd.",
+        "url": "https://toolhub.software/nl/timestamp-converter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "Unix Timestamp Converter", "item": "https://toolhub.software/nl/timestamp-converter/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: 1.35rem; }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/timestamp-converter/'; else location.href='/timestamp-converter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Unix Timestamp Converter</div>
+    <h1>Unix Timestamp Converter</h1>
+    <p class="tagline">Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Unix timestamp</label>
+      <input type="text" id="ts-num" oninput="tsFromNum()" placeholder="1704067200 or 1704067200000" style="font-family:ui-monospace,monospace">
+      <div class="meta">Auto-detects seconds vs milliseconds</div>
+    </div>
+    <div>
+      <label>Date &amp; time</label>
+      <input type="datetime-local" id="ts-date" step="1" oninput="tsFromDate()">
+      <div class="meta">Local timezone</div>
+    </div>
+  </div>
+  <div class="button-row">
+    <button onclick="tsNow()">Now</button>
+    <button class="secondary" onclick="document.getElementById('ts-num').value=''; tsRender(null)">Wissen</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Result</label>
+  <pre class="output" id="ts-out">Geef hierboven invoer om het resultaat te zien.</pre>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>Een Unix-timestamp is één integer — het aantal seconden (of milliseconden) sinds 1970-01-01 00:00:00 UTC. Ze zijn overal: log-files, API-responses, JWT <code>iat</code>/<code>exp</code> claims, database <code>created_at</code>-kolommen, cache-headers. Ze zijn ondubbelzinnig en tijdzone-vrij, maar niet menselijk leesbaar, dus als iets breekt op <code>1735689600</code>, wil je weten of dat 14u of 4u is, vandaag of vorig jaar. Deze tool flipt tussen de integer-vorm en de leesbare vorm in beide richtingen, met seconds/ms auto-detectie en een relative-time hint.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een <code>"timestamp": 1735689600</code> veld uit een log-entry of API-response decoderen.</li>
+  <li>Checken wanneer een JWT is uitgegeven of wanneer hij verloopt (<code>iat</code> / <code>exp</code> claims zijn seconds-since-epoch).</li>
+  <li>Een toekomstige timestamp berekenen voor een <code>retry-after</code>-header, scheduled job of cache TTL.</li>
+  <li>Sanity check op of een datum in een database in seconden, milliseconden of microseconden is opgeslagen.</li>
+  <li>"Nu" converteren naar het formaat dat je tool van het moment wil.</li>
+</ul>
+
+<h3>Seconds, milliseconds, microseconds</h3>
+<ul>
+  <li><strong>Seconds</strong> — de oorspronkelijke Unix-conventie; ~10 cijfers vandaag (bijv. <code>1735689600</code>). Gebruikt in C, Linux, JWT, de meeste API's, de meeste database <code>integer</code>-kolommen.</li>
+  <li><strong>Milliseconds</strong> — JavaScript's <code>Date.now()</code>, Java <code>System.currentTimeMillis()</code>, Kafka, veel JSON-API's. ~13 cijfers.</li>
+  <li><strong>Microseconds (16 cijfers) / nanoseconds (19 cijfers)</strong> — Python <code>time.time_ns()</code>, Go <code>time.Now().UnixNano()</code>, sommige metrics-systemen. Deze tool handelt ze niet auto af — deel eerst door 1.000 of 1.000.000.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Het Year 2038-probleem.</strong> Signed 32-bit timestamps overflowen op <code>2147483647</code> = <strong>03:14:07 UTC, 19 januari 2038</strong>. Oude C-code, MySQL <code>TIMESTAMP</code>-kolommen en embedded systems kunnen wrappen naar 1901. Moderne systemen gebruiken 64-bit en zijn prima tot ~jaar 292.277.026.596.</li>
+  <li><strong>Unix-tijd slaat leap seconds over.</strong> Een Unix-dag is precies 86.400 seconden, ook als UTC 86.401 heeft. Dit is by design (het houdt rekenen simpel) maar betekent dat je Unix-timestamps niet kunt gebruiken voor sub-seconde nauwkeurige astronomie of GPS.</li>
+  <li><strong>Negatieve timestamps</strong> zijn geldig en representeren datums voor 1970. Sommige libraries wijzen ze af — test voor je erop vertrouwt.</li>
+  <li><strong>Auto-detectie is niet vlekkeloos.</strong> Een 10-cijferige waarde <em>kan</em> een millisecond-timestamp uit 1970 zijn — verdwijnend onwaarschijnlijk in de praktijk, maar als je weet welke unit je hebt, vertrouw niet op de heuristiek.</li>
+  <li><strong>Sla altijd UTC op.</strong> Timestamps zijn tijdzone-vrij; "lokale tijd" is alleen voor display. De "Local"-regel in de output gebruikt je browser-zone, maar de onderliggende integer is altijd UTC.</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/timezone-converter/">Tijdzone-converter</a> <a href="/nl/cron-parser/">Cron Expression Parser</a> <a href="/nl/date-calculator/">Datum-calculator</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function tsRender(d){
+  const out = document.getElementById('ts-out');
+  if (!d){ out.textContent = 'Geef hierboven invoer om het resultaat te zien.'; return; }
+  const ms = d.getTime();
+  const sec = Math.floor(ms / 1000);
+  const iso = d.toISOString();
+  const local = d.toLocaleString(undefined, { weekday:'long', year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  const utc = d.toUTCString();
+  // Relative
+  const now = Date.now();
+  const diffMs = ms - now;
+  const abs = Math.abs(diffMs);
+  let rel;
+  const sec_ = Math.floor(abs/1000), min = Math.floor(sec_/60), hr = Math.floor(min/60), day = Math.floor(hr/24), yr = Math.floor(day/365);
+  if (yr) rel = yr + 'y ' + (day - yr*365) + 'd';
+  else if (day) rel = day + 'd ' + (hr - day*24) + 'h';
+  else if (hr) rel = hr + 'h ' + (min - hr*60) + 'm';
+  else if (min) rel = min + 'm ' + (sec_ - min*60) + 's';
+  else rel = sec_ + 's';
+  rel += diffMs >= 0 ? ' from now' : ' ago';
+  out.textContent =
+    'Unix seconds:       ' + sec + '\n' +
+    'Unix milliseconds:  ' + ms + '\n' +
+    'ISO 8601 (UTC):     ' + iso + '\n' +
+    'UTC:                ' + utc + '\n' +
+    'Local:              ' + local + '\n' +
+    'Relative:           ' + rel;
+}
+function tsFromNum(){
+  const v = document.getElementById('ts-num').value.trim();
+  if (!v){ tsRender(null); return; }
+  const n = Number(v);
+  if (!isFinite(n)){ tsRender(null); return; }
+  // Heuristic: <= 10 digits = seconds, else ms
+  const ms = (Math.abs(n) >= 1e12) ? n : (Math.abs(n) >= 1e10 ? n : n * 1000);
+  const d = new Date(ms);
+  // Update date input
+  const pad = x => String(x).padStart(2,'0');
+  document.getElementById('ts-date').value = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  tsRender(d);
+}
+function tsFromDate(){
+  const v = document.getElementById('ts-date').value;
+  if (!v){ tsRender(null); return; }
+  const d = new Date(v);
+  if (isNaN(d.getTime())){ tsRender(null); return; }
+  document.getElementById('ts-num').value = Math.floor(d.getTime()/1000);
+  tsRender(d);
+}
+function tsNow(){
+  const d = new Date();
+  document.getElementById('ts-num').value = Math.floor(d.getTime()/1000);
+  const pad = x => String(x).padStart(2,'0');
+  document.getElementById('ts-date').value = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  tsRender(d);
+}
+document.addEventListener('DOMContentLoaded', tsNow);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

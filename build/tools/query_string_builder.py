@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Construtor de Query String", "tagline": "Adicione linhas de chave/valor; obtenha um query string corretamente URL-encoded. Suporta arrays (a[]=1) e chaves repetidas.", "description": "Construtor de query string gratuito. Adicione pares chave/valor e obtenha uma string ?a=1&b=hello%20world corretamente percent-encoded, com notação opcional de colchetes para arrays. 100% no navegador."},
         "pl": {"name": "Builder Query Stringów", "tagline": "Dodawaj wiersze key/value; dostań poprawnie URL-encodowanego query stringa. Wspiera tablice (a[]=1) i powtarzane klucze.", "description": "Darmowy builder query stringów online. Dodawaj pary key/value i dostań poprawnie percent-encodowany ciąg ?a=1&b=hello%20world, z opcjonalną notacją tablic w nawiasach. Działa w całości w przeglądarce."},
         "ja": {"name": "クエリ文字列ビルダー", "tagline": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "description": "オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。"},
+        "nl": {"name": "Query String Builder", "tagline": "Voeg key/value-rijen toe; krijg een correct URL-encoded query-string. Ondersteunt array (a[]=1) en bracket-loze herhaalde keys.", "description": "Gratis online query string builder. Voeg rijen van key/value-paren toe en krijg een correct percent-encoded ?a=1&b=hello%20world string uit, met optionele array bracket-notatie. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -310,6 +311,29 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>順序が重要なことがあります。</strong> S3、Stripe Webhook、OAuth 1.0 などの署名付き URL は署名前にパラメータの並び順が決まっています。本ツールは入力行の順序を保持します。</li>
   <li><strong>長さ制限。</strong> ブラウザやサーバーはおおむね 2〜8 KB でクエリを切ります。JSON をクエリパラメータに詰め込むのは設計上のサインです。</li>
   <li><strong>クエリに秘密情報を入れないこと。</strong> サーバーログ、ブラウザ履歴、Referer ヘッダーに残ります。リクエストボディや Authorization ヘッダーを使ってください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een query string is gewoon een lijst van key/value-paren aan elkaar gelijmd met <code>?</code>, <code>=</code> en <code>&amp;</code>, maar er één correct met de hand schrijven is gepriegel: spaties worden <code>%20</code> (of <code>+</code>, afhankelijk), elke waarde wordt percent-encoded en arrays hebben minstens drie concurrerende conventies. Met deze tool typ je de keys en values die je wilt, tick je "multi" voor degene die je herhaald wilt, en produceer je de correct-encoded string klaar om na <code>?</code> te plakken.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een API-URL opstellen met meerdere parameters die spaties, accenten of leestekens bevatten.</li>
+  <li>Een tracking-link bouwen (UTM-tags) zonder typo's in de encoded values.</li>
+  <li>Een deep link of share-URL construeren die door email, chat of social moet round-trippen.</li>
+  <li>De juiste array-notatie voor een API bevestigen — <code>a[]=1</code>, <code>a=1&amp;a=2</code> of <code>a=1,2</code> — door elk te proberen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Array-conventies zijn niet gestandaardiseerd.</strong> PHP en Rails gebruiken <code>a[]=1&amp;a[]=2</code>; Python's <code>requests</code> defaultet op herhalen <code>a=1&amp;a=2</code>; ASP.NET gebruikt vaak komma's. Match wat je API verwacht.</li>
+  <li><strong><code>+</code> vs <code>%20</code>.</strong> <code>application/x-www-form-urlencoded</code> gebruikt <code>+</code> voor spaties; URI query strings gebruiken strikt <code>%20</code>. De meeste servers accepteren beide, maar sommige niet — kies degene die je API documenteert.</li>
+  <li><strong>Lege values verschillen van missende keys.</strong> <code>?a=</code> betekent "a is de lege string"; <code>a</code> weglaten betekent "geen waarde gegeven". Sommige API's behandelen ze verschillend.</li>
+  <li><strong>Reserved-character interplay.</strong> <code>=</code>, <code>&amp;</code>, <code>#</code>, <code>?</code> binnen values worden encoded; letterlijke versies in keys/values zouden de parameter of hele query beëindigen.</li>
+  <li><strong>Volgorde kan ertoe doen.</strong> Sommige signed-URL-schema's (S3, Stripe webhooks, OAuth 1.0) vereisen parameters in een specifieke volgorde voor signing. De tool behoudt je rij-volgorde.</li>
+  <li><strong>Lengte-limieten.</strong> Browsers en servers kappen query-string-lengte rond 2–8 KB. JSON in een query-parameter proppen is een smell.</li>
+  <li><strong>Zet geen secrets in de query string.</strong> Die verschijnen in server-logs, browser-history en Referer-headers. Gebruik de request-body of een Authorization-header in plaats daarvan.</li>
 </ul>
 """,
     },

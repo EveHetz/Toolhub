@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。",
             "description": "オンライン無料の YAML → JSON / JSON → YAML コンバーター。双方向で、すべてブラウザ内で動作。アンカー、エイリアス、複数ドキュメント YAML にも対応します。",
         },
+        "nl": {"name": "YAML ↔ JSON Converter", "tagline": "Converteer tussen YAML en JSON in beide richtingen. Nuttig voor Kubernetes manifests, CI-configs en OpenAPI-specs.", "description": "Gratis online YAML-naar-JSON en JSON-naar-YAML converter. Bidirectioneel, draait volledig in je browser. Handelt anchors, aliases en multi-document YAML af."},
     },
     "body": """
 <div class="tool-card">
@@ -193,6 +194,26 @@ document.addEventListener('DOMContentLoaded', yjConv);
   <li><strong>独自タグ</strong>（<code>!!python/object</code>、<code>!Ref</code> など）は厳格な YAML 1.2 を破ります。CloudFormation の YAML や PyYAML の pickle ダンプは失敗するので、先にタグを整理してください。</li>
   <li><strong>アンカーとエイリアスは展開されます。</strong> JSON には参照がないため、YAML→JSON 時に <code>*ref</code> はインライン化されます。再変換した YAML は値としては等価ですが、テキストが冗長になります。</li>
   <li><strong>数値と文字列。</strong> 引用なしの YAML <code>3.14</code> は float、<code>"3.14"</code> は string です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>YAML en JSON beschrijven dezelfde dingen — geneste maps, lijsten, primitives — maar wisselen leesbaarheid af tegen strictness. YAML is vriendelijker voor mensen (Kubernetes manifests, GitHub Actions, OpenAPI, de meeste CI-configs); JSON is wat API's en machine-readable formaten shippen. Deze converter flipt tussen beide losslessly voor de structuren die beide kunnen uitdrukken. YAML gebruikt <a href="https://github.com/nodeca/js-yaml" rel="noopener">js-yaml</a> (YAML 1.2); JSON gebruikt de native API. Beide richtingen draaien in je browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een OpenAPI / k8s / docker-compose YAML plakken in een tool die JSON nodig heeft.</li>
+  <li>Een API-response (JSON) converteren naar YAML voor een config-file.</li>
+  <li>De daadwerkelijke structuur van een YAML-file auditen wanneer ambigue indentatie parentage onduidelijk maakt.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Het "Norway-probleem".</strong> YAML 1.1 coerced <code>NO</code>, <code>YES</code>, <code>ON</code>, <code>OFF</code> naar booleans. YAML 1.2 doet dat niet, maar downstream-parsers misschien wel. Quote ambigue strings om veilig te zijn.</li>
+  <li><strong>Multi-document YAML</strong> (<code>---</code> separators) — alleen het eerste document wordt geconverteerd.</li>
+  <li><strong>Custom tags</strong> (<code>!!python/object</code>, <code>!Ref</code>, enz.) schenden strikte YAML 1.2. CloudFormation YAML en PyYAML pickle-dumps zullen falen; ruim tags eerst op.</li>
+  <li><strong>Anchors en aliases worden ge-expandeerd</strong> bij YAML→JSON. JSON heeft geen references, dus <code>*ref</code>-nodes worden inline gezet. Round-trippen geeft een value-equivalente maar textueel-grotere YAML.</li>
+  <li><strong>Getallen vs strings.</strong> Unquoted YAML <code>3.14</code> is een float; <code>"3.14"</code> is een string.</li>
 </ul>
 """,
     },

@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "RFC 4122 の UUID（v4 ランダム または v7 時刻順）を生成。最大 100 件まで一括生成。暗号論的に安全。",
             "description": "オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。",
         },
+        "nl": {"name": "UUID Generator", "tagline": "Genereer RFC 4122 UUIDs (v4 random of v7 time-ordered). Batch tot 100. Cryptografisch veilig.", "description": "Gratis online UUID-generator. RFC 4122 v4 (random) en v7 (time-ordered, sorteerbaar). Genereer er één of veel tegelijk, allemaal in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -219,6 +220,35 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>v4 はインデックスを断片化します。</strong> ランダム ID は書き込みをインデックス全体に散らし、ページキャッシュのヒット率と書き込みスループットを下げます。これが v7 を推す根拠です。</li>
   <li><strong>v1 は使わないこと。</strong> 旧来の time-and-MAC 方式は生成マシンの MAC アドレスを漏らします。現代的な置き換えが v7 です。</li>
   <li><strong>暗号論的に安全な乱数を使ってください。</strong> 本ツールは <code>crypto.getRandomValues</code> を使用します。<code>Math.random</code> 自前は乱数として弱く、ID が予測可能になります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een UUID (of GUID) is een 128-bit identifier — geschreven als 32 hex-cijfers in 5 groepen, zoals <code>550e8400-e29b-41d4-a716-446655440000</code>. Ze zijn collision-vrij over systemen heen zonder coördinatie: elk proces ergens kan er één munten en de kans dat twee ooit collideren is feitelijk nul. Nuttig als je een ID nodig hebt voor je met een database praat, als je wil voorkomen dat row counts uitlekken, of als een ID client-side gegenereerd en later gesynced moet worden. Deze tool emitteert RFC 4122 / RFC 9562-compliant UUIDs in v4 (random) of v7 (time-ordered) vorm, gegenereerd met cryptografisch-veilige randomness in je browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Primary keys voor gedistribueerde systemen waar je niet naar de database wil round-trippen voor een ID.</li>
+  <li>Idempotency keys voor API-requests (Stripe, payment providers, queue-berichten).</li>
+  <li>File-upload identifiers, session tokens, correlation IDs in logs.</li>
+  <li>Overal waar je anders een auto-incrementing ID zou exposen en zou lekken hoeveel records je hebt.</li>
+  <li>Test data — seed honderd records met realistische identifiers in één klik.</li>
+</ul>
+
+<h3>v4 vs v7 — welke moet ik gebruiken?</h3>
+<ul>
+  <li><strong>v4 (random)</strong> — 122 bits randomness, geen embedded creation time. Gebruik als je geen correlatie wil tussen IDs en aanmaakvolgorde, of als de ID in een hash-map / non-clustered index leeft waar ordening niet uitmaakt.</li>
+  <li><strong>v7 (time-ordered)</strong> — 48-bit Unix-ms timestamp prefix + random tail. <strong>Default hierop voor nieuwe database primary keys.</strong> De timestamp-prefix geeft B-tree indexes locality (recente inserts gaan naar dezelfde pages, veel beter cache-gedrag dan v4), en IDs sorteren in ruwweg chronologische volgorde. Gedefinieerd in RFC 9562 (mei 2024) — supersedet ULID en v1/v6 voor de meeste use cases.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>UUIDs zijn geen secrets.</strong> v4 heeft 122 bits entropie en is niet te raden, maar het formaat zelf autoriseert niets. Gebruik geen UUID als session-token of password-reset token tenzij je het als een secret behandelt (HTTPS-only, time-limited, single-use).</li>
+  <li><strong>v7 lekt aanmaaktijd.</strong> De eerste 48 bits coderen de milliseconde waarop hij gemunt werd. Prima voor interne IDs; slecht als je niet wil dat users leren wanneer records werden aangemaakt. Gebruik v4 in dat geval.</li>
+  <li><strong>Index-size doet ertoe.</strong> Een UUID is 16 bytes vs 8 voor een bigint — je B-tree indexes worden groter. De moeite waard voor distributed/no-coordination, vaak niet voor single-server apps met een sequentiële ID.</li>
+  <li><strong>v4 fragmenteert database-indexes.</strong> Random IDs verspreiden writes over de index, wat page cache hit rate en write throughput pijn doet. Dit is het oorspronkelijke argument voor v7.</li>
+  <li><strong>Gebruik geen v1.</strong> De oude time-and-MAC variant lekt het MAC-adres van de genererende machine. v7 is de moderne vervanger.</li>
+  <li><strong>Gebruik crypto-veilige randomness.</strong> Deze tool gebruikt <code>crypto.getRandomValues</code>; roll nooit je eigen met <code>Math.random</code> — die is niet random genoeg en IDs worden voorspelbaar.</li>
 </ul>
 """,
     },

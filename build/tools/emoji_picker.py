@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Seletor de Emoji", "tagline": "Paleta de emojis pesquisável por nome e palavra-chave. Clique em qualquer emoji para copiar. Categorias: smileys, animais, comida, viagem, objetos, símbolos, bandeiras.", "description": "Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar."},
         "pl": {"name": "Picker Emoji", "tagline": "Paleta emoji z wyszukiwaniem po nazwie i słowach kluczowych. Kliknij dowolne emoji, aby skopiować. Kategorie: smileys, zwierzęta, jedzenie, podróże, obiekty, symbole, flagi.", "description": "Darmowy picker emoji z wyszukiwaniem po słowach kluczowych. Kliknij, aby skopiować dowolne emoji. Wyselekcjonowany zestaw: smileys, ludzie, zwierzęta, jedzenie, podróże, obiekty, symbole i flagi. Czysty Unicode — działa wszędzie."},
         "ja": {"name": "絵文字ピッカー", "tagline": "名前とキーワードで検索できる絵文字パレット。クリックでコピー。カテゴリ：スマイリー、動物、食べ物、旅行、オブジェクト、記号、国旗。", "description": "キーワード検索付きの無料絵文字ピッカー。クリックして絵文字をコピーできます。スマイリー、人物、動物、食べ物、旅行、オブジェクト、記号、国旗をカバーする厳選セットです。Unicode のみなのでどこでも動作します。"},
+        "nl": {"name": "Emoji-picker", "tagline": "Doorzoekbaar emoji-palet op naam en keyword. Klik een emoji om te kopiëren. Categorieën: smileys, dieren, eten, reizen, objecten, symbolen, vlaggen.", "description": "Gratis emoji-picker met keyword-search. Klik om elke emoji te kopiëren. Gecureerde set met smileys, mensen, dieren, eten, reizen, objecten, symbolen en vlaggen. Pure Unicode — werkt overal."},
     },
     "body": """
 <div class="tool-card">
@@ -451,6 +452,30 @@ document.addEventListener('DOMContentLoaded', () => { epRenderCats(); epRenderRe
   <li><strong>本ツールは厳選版で、網羅していません。</strong> Unicode 15 には肌色や性別バリアントを含めて 3,664 個の絵文字があります。本ピッカーは使用頻度の高い約 600 個に絞っています。フルセットは Unicode の絵文字データや OS のピッカーをご覧ください。</li>
   <li><strong>絵文字に見えるが文字として描画される文字があります。</strong> "Variation Selector"（U+FE0F）が「絵文字として描画」を指示します。これがないと ☂ がプレーンテキストとして描画されます（🌂 にはなりません）。本ツールは必要な箇所でセレクタを付与します。</li>
   <li><strong>クリップボードのサポートはまちまちです。</strong> 一部ブラウザの Clipboard API はユーザー操作（クリックは該当）を要求しますが、権限拒否時には黙って失敗することがあります。コピーに失敗する場合はアドレスバーから手動コピーをお試しください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Besturingssystemen leveren allemaal emoji-pickers (Win+. op Windows, Cmd+Ctrl+Space op macOS, het toetsenbord op telefoons), maar ze zijn inconsistent, soms verborgen en vaak traag. Deze tool geeft je een gecureerd grid van de meest-gebruikte emoji geordend per categorie en doorzoekbaar op keyword. Klik een tegel om de emoji naar je klembord te kopiëren. Recent gekopieerde emoji worden tussen bezoeken onthouden in browser-local storage — niets wordt naar een server gestuurd.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Je zit op desktop zonder een snelle OS-level emoji-shortcut.</li>
+  <li>Je wil een keyword-search die breder is dan je OS-picker biedt.</li>
+  <li>Je gebruikt een remote desktop of ouder systeem zonder native picker.</li>
+  <li>Je hebt een emoji nodig om te plakken in een tekstveld dat je IME niet accepteert.</li>
+</ul>
+
+<h3>Hoe rendering werkt</h3>
+<p>Een emoji is gewoon één of meer Unicode code points. <em>Hoe</em> hij eruit ziet hangt af van de font die je browser/OS kiest: Apple's emoji verschillen van Google's Noto, Microsoft's Segoe UI Emoji en Twitter's Twemoji. De bytes zijn identiek — het plaatje is lokaal. Als een emoji als een vierkant of fallback "unsupported" verschijnt, heeft je systeem-font er geen glyph voor; de OS updaten of een font zoals Noto Color Emoji installeren fixt het.</p>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Huidstinten en family/profession-varianten zijn sequences.</strong> 👨‍🍳 is "man" + ZWJ + "kook" — vijf code points. Sommige systemen tonen de componenten apart als ze de sequence niet ondersteunen.</li>
+  <li><strong>Vlaggen zijn regional indicators.</strong> 🇬🇧 is "🇬" + "🇧" — twee regional-indicator letters. Sequences voor territoria (Schotland, Texas) hebben extra tag-tekens nodig en renderen misschien niet op elk systeem.</li>
+  <li><strong>Deze tool is gecureerd, niet uitputtend.</strong> Unicode 15 heeft 3.664 emoji inclusief honderden huidstint- en gender-varianten. De picker focust op de ~600 die je waarschijnlijk wil; voor de volle lijst zie Unicode's emoji-data of je OS-picker.</li>
+  <li><strong>Sommige karakters lijken op emoji maar renderen als tekst.</strong> De "variation selector" (U+FE0F) zegt tegen de renderer "teken dit als emoji". Zonder dat rendert ☂ misschien als gewone tekst in plaats van 🌂. De tool voegt de selectors toe waar nodig.</li>
+  <li><strong>Clipboard-ondersteuning varieert.</strong> Sommige browsers' clipboard-API vereist een user gesture (de klik doet dat), maar een permission denial faalt stil. Als kopiëren niet werkt, gebruik dan de toetsenbord-shortcut om vanuit de adresbalk te kopiëren.</li>
 </ul>
 """,
     },

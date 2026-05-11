@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Markdown para HTML", "tagline": "Converta Markdown em HTML limpo com preview ao vivo. Suporta cabeçalhos, listas, código, tabelas, imagens e links.", "description": "Conversor Markdown para HTML gratuito online. Estilo CommonMark: cabeçalhos, listas, blocos de código fenced, tabelas, imagens, blockquotes, formatação inline. Preview ao vivo + copiar."},
         "pl": {"name": "Markdown do HTML", "tagline": "Konwertuj Markdowna na czysty HTML z podglądem na żywo. Wspiera nagłówki, listy, kod, tabele, obrazki i linki.", "description": "Darmowy online konwerter Markdown do HTML. W smaku CommonMark: nagłówki, listy, fenced bloki kodu, tabele, obrazki, blockquote'y, formatowanie inline. Podgląd na żywo + kopia."},
         "ja": {"name": "Markdown から HTML", "tagline": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。", "description": "オンライン無料の Markdown → HTML コンバーター。CommonMark 風に対応：見出し、リスト、フェンス付きコード、テーブル、画像、ブロッククォート、インライン書式。ライブプレビューとコピーに対応。"},
+        "nl": {"name": "Markdown naar HTML", "tagline": "Converteer Markdown naar schone HTML met een live preview. Ondersteunt headings, lists, code, tables, images en links.", "description": "Gratis online Markdown-naar-HTML converter. CommonMark-flavoured: headings, lists, fenced code, tables, images, blockquotes, inline formatting. Live preview + copy."},
     },
     "body": """
 <div class="md-grid">
@@ -260,6 +261,28 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>テーブルと揃え。</strong> パイプテーブルには区切り行（<code>|---|</code>）が必須で、<code>:---:</code> / <code>:---</code> / <code>---:</code> で中央／左／右揃えを指定します。区切り行を忘れると「テーブル」が 1 つの段落としてレンダリングされる典型的な原因です。</li>
   <li><strong>スマートパンクチュエーション。</strong> 一部のレンダラは <code>--</code> を en-dash に、ストレートクォートをカーリーに変換します。本ツールは行いません。必要なら別途タイポグラフィの処理を挟んでください。</li>
   <li><strong>ラウンドトリップは無損失ではありません。</strong> Markdown → HTML → Markdown は見出しスタイル、リストの間隔、リンク表記を正規化します。意味は保たれますが、バイト列までは戻りません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Markdown is het meest-geschreven authoring-formaat ter wereld — README files, blogposts, GitHub issues, chat-berichten, doc-sites. HTML is wat browsers renderen. Deze tool converteert Markdown naar schone HTML met een live preview zodat je kunt zien hoe de gerenderde output eruit zal zien voor je het in een CMS plakt, een statische pagina genereert of het als onderdeel van een email-template ship't.</p>
+
+<h3>Ondersteunde syntax</h3>
+<ul>
+  <li>Headings <code>#</code> t/m <code>######</code>; bold, italic, strike</li>
+  <li>Inline <code>`code`</code> en fenced <code>```lang</code>-blocks</li>
+  <li>Bullet / genummerde / geneste lists</li>
+  <li>Links <code>[tekst](url)</code> en images <code>![alt](url)</code></li>
+  <li>Blockquotes, pipe-tables met alignment, horizontal rules</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een snelle in-browser parser, geen spec-suite.</strong> CommonMark en GFM hebben edge cases (geneste emphasis, link reference definitions, autolink expansion) die tussen implementaties divergeren. Voor strikte conformance gebruik <code>marked</code>, <code>markdown-it</code> of <code>remark</code> in een build step.</li>
+  <li><strong>HTML embedded in Markdown</strong> passeert meestal as-is, maar sommige implementaties saniteren het. Vertrouw hier niet op voor security; behandel untrusted markdown als untrusted HTML.</li>
+  <li><strong>Tables vs alignment.</strong> Pipe-tables hebben een separator-row nodig (<code>|---|</code>) en gebruiken <code>:---:</code> / <code>:---</code> / <code>---:</code> voor center/left/right alignment. De separator vergeten is de meest voorkomende reden dat een "tabel" als één paragraaf rendert.</li>
+  <li><strong>Smart punctuation.</strong> Sommige renderers converteren <code>--</code> naar en-dashes en straight quotes naar curly. Deze tool niet — laat door een typografie-pass gaan als je dat nodig hebt.</li>
+  <li><strong>Round-trippen is niet lossless.</strong> Markdown → HTML → Markdown normaliseert heading-stijl, list-spacing en link-vorm. De semantiek overleeft; de exacte bytes niet.</li>
 </ul>
 """,
     },

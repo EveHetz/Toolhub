@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Minificador CSS", "tagline": "Remova comentários, espaços e redundância do CSS. Veja o tamanho antes/depois e o percentual de economia.", "description": "Minificador CSS online gratuito. Remove comentários, colapsa espaços, corta ponto e vírgula final e unidades zero. Mostra a taxa de compressão."},
         "pl": {"name": "Minifikator CSS", "tagline": "Usuń komentarze, białe znaki i nadmiarowość z CSS. Zobacz rozmiar przed/po i procent oszczędności.", "description": "Darmowy online minifikator CSS. Usuwa komentarze, zwija białe znaki, ucina końcowe średniki i jednostki zero. Pokazuje współczynnik kompresji."},
         "ja": {"name": "CSS ミニファイア", "tagline": "CSS からコメント・空白・冗長な記述を除去。ビフォア／アフターのサイズと圧縮率を表示。", "description": "オンライン無料の CSS ミニファイア。コメント除去、空白の圧縮、末尾セミコロンとゼロ単位のトリミングを実施し、圧縮率を表示します。"},
+        "nl": {"name": "CSS Minifier", "tagline": "Strip comments, whitespace en redundantie uit CSS. Zie size voor/na en het besparingspercentage.", "description": "Gratis online CSS minifier. Verwijdert comments, collapseert whitespace, trimt trailing semicolons en zero-units. Toont compressieratio."},
     },
     "body": """
 <div class="tool-card">
@@ -205,6 +206,34 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>ソースマップは生成しません。</strong> 本番でミニファイ後の CSS をデバッグする場合は別途配布してください。</li>
   <li><strong>ミニファイ済み CSS をコミットしないこと。</strong> ソースは整形済みでコミットし、ビルド／デプロイ時にミニファイします。両者を混ぜると差分レビューが地獄になります。</li>
   <li><strong>現代では転送時の圧縮が支配的です。</strong> ワイヤ上の Brotli/gzip がミニファイの大部分の効果を担います。最大の削減は未使用ルールの除去から得られ、これはミニファイではなく tree-shaking の仕事です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>CSS die leesbaar is in de source — met comments, indentatie en betekenisvolle whitespace — bloated het bestand dat je gebruikers downloaden. Een structurele minifier strijkt alle cosmetische bytes (comments, runs van whitespace, redundante nullen, equivalente kortere hex-codes) eruit zonder de betekenis van de rules te veranderen. Deze tool draait die pass in je browser en toont de size voor/na zodat je de besparing kunt zien.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Eenmalig een CSS-snippet inline shippen in een HTML-email of blog-post template, waar je de bytes wil verkleinen maar geen build chain hebt.</li>
+  <li>Snel checken hoeveel "vet" in een stylesheet zit voor je besluit of een echte optimizer de moeite waard is.</li>
+  <li>Een vendor's pretty-printed CSS plakken om af te slanken voor inclusie in een third-party widget.</li>
+</ul>
+
+<h3>Wat het doet</h3>
+<ul>
+  <li>Strijkt block comments eruit (<code>/* … */</code>) — single-line <code>//</code> is sowieso geen geldige plain CSS.</li>
+  <li>Collapseert whitespace rond <code>{ } : ; ,</code> en combinators (<code>&gt; ~ +</code>).</li>
+  <li>Laat trailing semicolons voor <code>}</code> vallen.</li>
+  <li>Trimt leading zeros (<code>0.5</code> → <code>.5</code>) en verwijdert units van nul (<code>0px</code> → <code>0</code>).</li>
+  <li>Verkort hex-kleuren waar exact (<code>#aabbcc</code> → <code>#abc</code>).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een structurele minify, geen volledige optimizer.</strong> Hij merget geen duplicate selectors, herordent geen rules en herschrijft geen shorthand. Daarvoor draai je <code>cssnano</code> of <code>esbuild</code> in je build pipeline.</li>
+  <li><strong>Source maps worden niet gegenereerd.</strong> Als je geminifieerde CSS in productie debugt, ship ze apart.</li>
+  <li><strong>Minify niet de CSS die je commit.</strong> Commit pretty source; minify bij build/deploy. De twee mengen maakt diff review ellendig.</li>
+  <li><strong>Moderne compressie domineert.</strong> Brotli/gzip over de wire doet veel van wat minification doet. De grootste besparingen komen van ongebruikte rules verwijderen — werk voor tree-shaking, niet voor minification.</li>
 </ul>
 """,
     },

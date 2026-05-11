@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Slug", "tagline": "Transforme qualquer título em um slug de URL limpo — translitera acentos, remove pontuação, une com hifens.", "description": "Gerador de slug de URL gratuito. Coloca em minúsculas, translitera caracteres acentuados (à → a, ñ → n), remove pontuação e une as palavras com o separador escolhido. Remoção opcional de stop words."},
         "pl": {"name": "Generator Slugów", "tagline": "Zamień dowolny tytuł w czysty slug URL — translikuje znaki diakrytyczne, wycina interpunkcję, łączy myślnikami.", "description": "Darmowy online generator slugów URL. Zamienia na małe litery, translikuje znaki diakrytyczne (à → a, ń → n, ż → z), wycina interpunkcję i łączy słowa wybranym separatorem. Opcjonalne usuwanie stop words."},
         "ja": {"name": "スラグ生成ツール", "tagline": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "description": "オンライン無料の URL スラグ生成ツール。小文字化、アクセント文字の翻字（à → a、ñ → n）、句読点除去、選択した区切り文字での連結を実行します。ストップワードの除去もオプションで利用可能です。"},
+        "nl": {"name": "Slug Generator", "tagline": "Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.", "description": "Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel."},
     },
     "body": """
 <div class="tool-card">
@@ -220,6 +221,36 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>切り詰めで意味が変わることがあります。</strong> "introduction-to-rust-programming" を 20 文字で切ると "introduction-to-rust"（OK）。16 文字だと "introduction-to"（明らかに悪い）。末尾の語が重要な場合は手で長さを設定してください。</li>
   <li><strong>スラグは一意ではありません。</strong> 「Café」と「Cafe」はどちらも <code>cafe</code> になります。URL キーとして使うなら、衝突時には短い ID やサフィックスを付けてください。</li>
   <li><strong>公開済みのスラグは変えないこと。</strong> URL がインデックスされた後にスラグを再生成するとリンクと SEO が壊れます。タイトル変更時は旧スラグを残すか、301 リダイレクトを設定してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een URL-slug is het menselijk leesbare laatste segment van een URL — <code>/blog/the-quick-brown-fox</code> in plaats van <code>/blog/post-4827</code>. Goede slugs zijn lowercase, ge-hyphend, alleen ASCII en kort genoeg om in één oogopslag te lezen, maar ze genereren uit echte titels vol accenten, punctuation en emoji is gepriegel om goed te krijgen. Deze tool translitereert accenten, strijkt rotzooi, voegt samen met je gekozen separator en kapt op een schone grens af zodat de output veilig direct in een route of bestandsnaam te droppen is.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li><code>/blog/&lt;slug&gt;</code>-URLs genereren uit artikeltitels — vooral als titels accenten (à, ñ, ø) of punctuation (colons, parentheses, em-dashes) bevatten.</li>
+  <li>Veilige filenames produceren uit user-supplied names — uploads, exports, generated reports.</li>
+  <li>Stabiele identifiers bouwen voor tags, categorieën of anchors (<code>#getting-started</code>) uit menselijke labels.</li>
+  <li>In bulk een lijst koppen converteren naar kebab-case voor een static-site build step.</li>
+</ul>
+
+<h3>Hoe de conversie werkt</h3>
+<ol>
+  <li>NFD-normaliseert Unicode en strijkt combining diacritics (<code>café → cafe</code>).</li>
+  <li>Mapt gebruikelijke Europese ligatures en speciale letters: <code>ß → ss</code>, <code>æ → ae</code>, <code>ø → o</code>, <code>Ł → L</code>, plus een paar currency/math-symbolen (<code>€ → eur</code>, <code>& → and</code>).</li>
+  <li>Vervangt elke non-alphanumeric run met een enkele spatie.</li>
+  <li>Laat optioneel veelvoorkomende Engelse stop words vallen (<em>a, an, and, the, of, to, …</em>).</li>
+  <li>Maakt lowercase (of behoudt case), voegt samen met je separator en kapt af op de limit zonder een loszittende separator achter te laten.</li>
+</ol>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Non-Latin scripts verdwijnen.</strong> Diacritic-strippen handelt à/ñ/ø af, maar het kan Chinees, Japans, Cyrillisch, Arabisch of Hebreeuws niet karakter-voor-karakter romaniseren — die hebben taalspecifieke tabellen nodig (Hanyu Pinyin, ICU transliteration) die hier bewust buiten scope vallen. Zulke karakters verdwijnen na de strip step.</li>
+  <li><strong>Stop-word removal is Engels-only.</strong> "El gato negro" verliest geen <em>el</em>; "Le chat noir" verliest geen <em>le</em>. Laat de toggle uit voor niet-Engelse titels.</li>
+  <li><strong>Truncation kan betekenis veranderen.</strong> "introduction-to-rust-programming" gekapt op 20 tekens wordt "introduction-to-rust" — prima; gekapt op 16 wordt "introduction-to" — duidelijk slechter. Stel de limit met de hand in voor content waar de staart ertoe doet.</li>
+  <li><strong>Slugs zijn niet uniek.</strong> Twee verschillende titels kunnen tot dezelfde slug instorten ("Café" en "Cafe" worden beide → <code>cafe</code>). Als je slugs als URL-keys gebruikt, voeg een korte ID of suffix toe bij collision.</li>
+  <li><strong>Verander geen geshipte slugs.</strong> Zodra een URL live en geïndexeerd is, breekt zijn slug regenereren links en SEO. Als een titel verandert, behoud de oude slug of zet een 301-redirect op.</li>
 </ul>
 """,
     },

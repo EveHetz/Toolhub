@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。",
             "description": "オンライン無料の JavaScript 正規表現テスター。ライブハイライト、キャプチャグループ表示、置換モードに対応。PCRE 互換のフラグ（g/i/m/s/u/y）。",
         },
+        "nl": {"name": "Regex Tester", "tagline": "Test JavaScript regular expressions live. Zie matches, capture groups, en pas replacements toe terwijl je typt.", "description": "Gratis online JavaScript regex tester met live highlighting, capture groups en replace mode. PCRE-compatible flags (g/i/m/s/u/y)."},
     },
     "body": """
 <div class="tool-card">
@@ -269,6 +270,37 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>アンカーは行か文字列か。</strong> 既定では <code>^</code> と <code>$</code> は文字列の先頭・末尾です。<code>m</code> フラグで行ごとに切り替わります。</li>
   <li><strong>置換の特殊シーケンス。</strong> <code>$&amp;</code> はマッチ全体、<code>$1</code>、<code>$2</code> … はキャプチャグループ、<code>$$</code> はリテラルの <code>$</code>。これを忘れると「正規表現がドル記号を食う」現象に悩まされがちです。</li>
   <li><strong>真面目な用途で HTML を正規表現でパースしないこと。</strong> 入れ子タグ、コメント、CDATA は真のパーサーが必要です。一回限りのログスクレイピングや管理された入力では正規表現でも問題ありません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Regular expressions zijn dicht en onverbiddelijk. De manier om er één te schrijven die ook echt werkt is iteratief — patroon, sample-tekst, zie wat matcht, pas aan. Deze tool geeft je die loop in je browser via de native <code>RegExp</code> van de JavaScript-engine, plus capture-group inspectie en een replacement-preview. Patronen en inputs verlaten de pagina nooit.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>User input valideren (email-shaped, phone-shaped, postcode-shaped) en precies zien welke inputs passeren en falen.</li>
+  <li>Log lines parsen, velden extraheren, log filters bouwen.</li>
+  <li>Find-and-replace patronen ontwerpen voor je ze over een echte codebase draait.</li>
+  <li>Een regex debuggen die je van Stack Overflow hebt gekopieerd en niet werkt — plak 'm hier, zie wat hij daadwerkelijk matcht.</li>
+</ul>
+
+<h3>Veelvoorkomende patronen</h3>
+<ul>
+  <li><code>\b\w+@\w+\.\w+\b</code> — email-ish</li>
+  <li><code>^\s*$</code> — lege/whitespace-only regel (met <code>m</code>-flag)</li>
+  <li><code>(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})</code> — named capture groups</li>
+  <li><code>(?:.*)</code> — non-capturing group</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — lookahead / negative lookahead</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>JavaScript ≠ PCRE.</strong> Geen <code>\K</code>, geen recursive patterns, lookbehind pas sinds ES2018. Patronen uit Perl, PHP of Python hebben vaak aanpassing nodig.</li>
+  <li><strong>Zonder <code>g</code>-flag krijg je alleen de eerste match.</strong> Voeg <code>g</code> toe voor "find all"; combineer met <code>m</code> als anchors per-line moeten matchen.</li>
+  <li><strong>Greedy vs lazy.</strong> <code>.*</code> grijpt zoveel mogelijk; <code>.*?</code> zo weinig mogelijk. Het verschil tussen <code>&lt;b&gt;hi&lt;/b&gt; and &lt;i&gt;there&lt;/i&gt;</code> als één blok matchen of twee.</li>
+  <li><strong>Anchors op line- vs string-grenzen.</strong> <code>^</code> en <code>$</code> matchen standaard string-einden; met <code>m</code>-flag matchen ze elke regel.</li>
+  <li><strong>Replacement-specials.</strong> <code>$&amp;</code> is de hele match; <code>$1</code>, <code>$2</code>, … zijn capture groups; <code>$$</code> is een letterlijke <code>$</code>. Dat vergeten is een gangbare bron van "waarom eet mijn regex mijn dollars".</li>
+  <li><strong>Parse geen HTML met regex</strong> voor iets serieus. De klassieke waarschuwing klopt: nested tags, comments en CDATA hebben een echte parser nodig. Regex is prima voor eenmalig log-scrapen of gecontroleerde inputs.</li>
 </ul>
 """,
     },

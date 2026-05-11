@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Seletor de Cores", "tagline": "Escolha uma cor e veja na hora em HEX, RGB, RGBA, HSL, HSLA, HSV e CMYK. Ajuste a opacidade e copie qualquer valor.", "description": "Seletor de cores online gratuito. Converta entre HEX, RGB(A), HSL(A), HSV e CMYK com preview ao vivo, slider de opacidade e botões de copiar."},
         "pl": {"name": "Color Picker", "tagline": "Wybierz kolor i zobacz go od razu w HEX, RGB, RGBA, HSL, HSLA, HSV i CMYK. Reguluj opacity i kopiuj dowolną wartość.", "description": "Darmowy color picker online. Konwertuj między HEX, RGB(A), HSL(A), HSV i CMYK z podglądem na żywo, suwakiem opacity i przyciskami kopiowania."},
         "ja": {"name": "カラーピッカー", "tagline": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "description": "オンライン無料のカラーピッカー。HEX、RGB(A)、HSL(A)、HSV、CMYK の間をライブプレビュー・不透明度スライダー・コピーボタンで変換できます。"},
+        "nl": {"name": "Kleur-picker", "tagline": "Kies een kleur en zie 'm direct in HEX, RGB, RGBA, HSL, HSLA, HSV en CMYK. Stel transparantie in en kopieer elke waarde.", "description": "Gratis online color picker. Converteer tussen HEX, RGB(A), HSL(A), HSV en CMYK met live preview, opacity-slider en kopieerknoppen."},
     },
     "body": """
 <div class="tool-card">
@@ -186,6 +187,26 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>HSL の色相は度数です。</strong> 0 = 赤、120 = 緑、240 = 青。CSS では <code>turn</code>、<code>rad</code>、<code>grad</code> も使えますが、ここでの出力は度数です。</li>
   <li><strong>CMYK 変換は素朴な近似です。</strong> 実際の印刷では ICC プロファイル（sRGB → CMYK、レンダリングインテント付き）が必要です。本ツールの出力はブランドデックのモックには十分ですが、印刷入稿用ファイルには適しません。</li>
   <li><strong>OKLCH と OKLAB</strong>（モダンで知覚的に均一な色空間）はここには表示しません。新しく、まだ広くはサポートされていません。デザインシステムのツールでは当面 HSL/HSV を中心に使うのが無難です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Kies een kleur — of plak een willekeurige HEX / <code>rgb()</code> / <code>hsl()</code>-waarde — en zie 'm direct in elke gangbare notatie: HEX (3- en 8-digit met alpha), RGB(A), HSL(A), HSV en CMYK. Nuttig als je een waarde in één ruimte hebt en in een andere nodig hebt, bij het matchen van een brand-kleur over CSS / design-tools / print, of bij het aanpassen van opacity zonder het resultaat opnieuw te moeten inschatten.</p>
+
+<h3>Wanneer welke ruimte gebruiken</h3>
+<ul>
+  <li><strong>HEX / RGB</strong> — CSS, design-tools, email templates. Universeel ondersteund.</li>
+  <li><strong>HSL</strong> — leesbare palets. Tweak hue, saturation of lightness apart zonder dat de kleur op de andere assen wegdrijft.</li>
+  <li><strong>HSV</strong> — design software (Photoshop, Figma) voor schaduwen; matcht de manier waarop de meeste color pickers denken over "deze kleur, lichter".</li>
+  <li><strong>CMYK</strong> — print-ready output. Alleen benadering: schermen zijn RGB en printers delen niet allemaal één kleurprofiel.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Alpha-encoding verschilt per ruimte.</strong> CSS ondersteunt <code>rgba()</code>, <code>hsla()</code> en 8-digit HEX (<code>#RRGGBBAA</code>). Oudere email-templates en sommige design-tools kennen <code>#RRGGBBAA</code> niet — val terug op <code>rgba()</code>.</li>
+  <li><strong>HSL hue is in graden.</strong> 0 = rood, 120 = groen, 240 = blauw. CSS accepteert ook <code>turn</code>, <code>rad</code>, <code>grad</code> maar de output hier is in graden.</li>
+  <li><strong>CMYK-conversie is naïef.</strong> Echt drukwerk vereist een ICC-profiel (sRGB → CMYK met rendering intent). De output van deze tool is prima voor brand-deck mockups, niet voor press-ready bestanden.</li>
+  <li><strong>OKLCH en OKLAB</strong> (moderne perceptueel-uniforme ruimtes) staan hier niet — die zijn nieuwer en nog niet breed ondersteund. Houd voor design-system tooling voorlopig HSL/HSV aan.</li>
 </ul>
 """,
     },

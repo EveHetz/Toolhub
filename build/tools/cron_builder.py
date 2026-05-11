@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Construtor de Expressões Cron", "tagline": "Monte uma expressão cron visualmente — minuto, hora, dia, mês, dia da semana — e veja os próximos 5 horários de execução.", "description": "Construtor online gratuito de expressões cron. Escolha os campos com dropdowns e presets, obtenha a string cron e veja os próximos 5 horários de execução no seu fuso local. Crontab padrão de 5 campos."},
         "pl": {"name": "Builder Wyrażeń Cron", "tagline": "Zbuduj wyrażenie cron wizualnie — minuta, godzina, dzień, miesiąc, dzień tygodnia — i zobacz 5 najbliższych odpaleń.", "description": "Darmowy online builder wyrażeń cron. Wybieraj pola z dropdownów i presetów, dostań string crona i zobacz 5 najbliższych odpaleń w twojej lokalnej strefie czasowej. Standardowy 5-polowy crontab."},
         "ja": {"name": "cron 式ビルダー", "tagline": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。", "description": "オンライン無料の cron 式ビルダー。ドロップダウンとプリセットでフィールドを選び、cron 文字列を生成。あなたのローカルタイムゾーンで次の 5 回の実行時刻まで確認できます。標準 5 フィールドの crontab です。"},
+        "nl": {"name": "Cron Expression Builder", "tagline": "Bouw visueel een cron-expressie — minuut, uur, dag, maand, weekdag — en preview de volgende 5 fire times.", "description": "Gratis online cron expression builder. Kies velden met dropdowns en presets, krijg de cron-string eruit en zie de volgende 5 fire times in je lokale tijdzone. Standaard 5-veld crontab."},
     },
     "body": """
 <div class="tool-card">
@@ -408,6 +409,37 @@ document.addEventListener('DOMContentLoaded', cbBuild);
   <li><strong>step + range の組み合わせ。</strong> <code>0-30/5</code> は 0,5,10,15,20,25,30 のみをカバーします。</li>
   <li><strong>cron の方言によってフィールドが増えます。</strong> Quartz cron は秒と年を含む 6〜7 フィールド、systemd タイマーは全く別形式です。本ビルダーは標準 5 フィールドの crontab を対象とします。</li>
   <li><strong>「13 日の金曜日」を cron だけで表すのは困難です。</strong> day-of-month と day-of-week は OR で結合されるため、厳密な AND を行うにはラッパースクリプトが必要です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Cron-syntax is berucht dicht — vijf velden, elk met wildcards, ranges, lijsten en steps. Elke keer van scratch schrijven nodigt typo's uit. Deze builder laat je beginnen vanuit een preset (every-5-minutes, weekdays-at-09:00, enz.) of in losse velden typen, geeft de resulterende cron-string, een omschrijving in gewoon Nederlands en bevestigt tegen de volgende vijf echte fire times in je lokale tijdzone. Het complement is de <a href="/cron-parser/">Cron Expression Parser</a>, die een bestaande expressie decodeert naar dezelfde preview.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een nieuwe <code>crontab</code>-entry opzetten, Kubernetes <code>CronJob</code>, GitHub Actions schedule of AWS EventBridge rule.</li>
+  <li>Een "draai elke werkdag-ochtend" requirement vertalen naar een syntactisch correcte cron-regel.</li>
+  <li>Sanity check dat een expressie die je hebt opgesteld echt draait wanneer je denkt dat-ie draait, voor je deployt.</li>
+  <li>Iemand inwerken die nieuw is met cron — laat de dropdowns en de preview de syntax bijbrengen.</li>
+</ul>
+
+<h3>Veld-syntax spiekbrief</h3>
+<ul>
+  <li><code>*</code> — elke waarde in het bereik van het veld.</li>
+  <li><code>*/N</code> — elke N-de (vanaf de ondergrens).</li>
+  <li><code>A-B</code> — range, inclusief.</li>
+  <li><code>A,B,C</code> — lijst van specifieke waarden.</li>
+  <li><code>A-B/N</code> — elke N-de binnen range A–B.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week interacteren.</strong> De meeste cron-implementaties OR'en ze als beide beperkt zijn: <code>* * 15 * 1</code> vuurt op de 15e OF een maandag, niet "de 15e als het een maandag is".</li>
+  <li><strong>Tijdzone is hier de lokale zone van je browser.</strong> Echte cron-daemons draaien in de server-tijdzone (vaak UTC). Bevestig voor je naar een server plakt.</li>
+  <li><strong><code>*/N</code> is niet helemaal "elke N".</strong> <code>*/15</code> in minuten = 0,15,30,45 — niet 12,27,42,57. Gebruik een lijst als je een specifieke fase nodig hebt.</li>
+  <li><strong>Step + range combinaties.</strong> <code>0-30/5</code> dekt alleen 0,5,10,15,20,25,30.</li>
+  <li><strong>Sommige cron-varianten voegen velden toe.</strong> Quartz cron heeft 6 of 7 velden (met seconden en jaar). systemd timers gebruiken een heel ander formaat. Deze builder richt zich op de standaard 5-veld crontab.</li>
+  <li><strong>Friday-the-13th is lastig in cron uit te drukken.</strong> Crons day-of-month en day-of-week interacteren via OR, dus die strict combineren vereist een wrapper-script.</li>
 </ul>
 """,
     },

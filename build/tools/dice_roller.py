@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Rolador de Dados", "tagline": "Role dados com notação padrão de D&D — 2d6+3, 1d20, 4d6 mantendo os 3 maiores. RNG criptograficamente seguro.", "description": "Rolador de dados online gratuito com notação padrão de RPG de mesa: 1d20, 2d6+3, 4d6kh3, 3d8-1. Veja cada dado individualmente e o total. Usa crypto.getRandomValues para rolagens justas e imprevisíveis."},
         "pl": {"name": "Rzucacz Kości", "tagline": "Rzucaj kostkami w standardowej notacji D&D — 2d6+3, 1d20, 4d6 keep highest 3. Kryptograficznie bezpieczny RNG.", "description": "Darmowy online rzucacz kości w standardowej notacji RPG: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zobacz każdy rzut z osobna plus sumę. Używa crypto.getRandomValues dla uczciwych, nieprzewidywalnych rzutów."},
         "ja": {"name": "ダイスローラー", "tagline": "標準 D&D 記法でダイスをロール — 2d6+3、1d20、4d6 keep highest 3 など。暗号論的に安全な RNG。", "description": "オンライン無料のダイスローラー。標準的な TRPG 記法（1d20、2d6+3、4d6kh3、3d8-1）に対応し、各ダイスの目と合計を表示します。crypto.getRandomValues を使用し、公平で予測不能なロールを行います。"},
+        "nl": {"name": "Dobbelsteen-roller", "tagline": "Gooi dobbelstenen met standaard D&D-notatie — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.", "description": "Gratis online dobbelsteen-roller met standaard tabletop-notatie: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zie elke individuele worp plus het totaal. Gebruikt crypto.getRandomValues voor eerlijke, onvoorspelbare worpen."},
     },
     "body": """
 <div class="tool-card">
@@ -387,6 +388,40 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>exploding dice には対応しません。</strong> <code>!</code> 系の爆発、リロール（<code>r1</code>）、成功カウント（<code>3d10>=7</code>）はありません。ここでの記法はよくあるロールの 95% をカバーする「合計と修正」のサブセットです。</li>
   <li><strong>クリティカルは d20 でのみ表示されます。</strong> 20 は緑、1 は赤でハイライトされます。他のダイスサイズには色付けされません。</li>
   <li><strong>1 ロールあたり 1000 個まで。</strong> ページがレスポンシブで動くための上限です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Tabletop role-playing games (Dungeons & Dragons, Pathfinder, de OSR, talloze andere) gebruiken een compacte notatie voor dobbelsteenworpen: <code>NdS</code> betekent "gooi N dobbelstenen met S zijden elk". <code>2d6+3</code> betekent "gooi twee zeszijdige dobbelstenen en tel 3 op". Deze tool parset die notatie en gooit de dobbelstenen met de cryptografische RNG van de browser, die onvoorspelbaar en onbevooroordeeld is — veel beter dan <code>Math.random()</code> voor worpen met inzet.</p>
+
+<h3>Ondersteunde notatie</h3>
+<ul>
+  <li><code>1d20</code> — één twintigzijdige dobbelsteen.</li>
+  <li><code>2d6+3</code> — twee d6, optellen, plus 3 modifier.</li>
+  <li><code>3d8-1</code> — drie d8, optellen, min 1.</li>
+  <li><code>4d6kh3</code> — vier d6, <strong>k</strong>eep <strong>h</strong>ighest 3 (klassieke D&D 5e ability score).</li>
+  <li><code>2d20kl1</code> — twee d20, keep lowest 1 (disadvantage).</li>
+  <li><code>2d20kh1</code> — advantage.</li>
+  <li><code>1d100</code> of <code>1d%</code> — percentile dobbelsteen.</li>
+  <li><code>d20</code> — N defaulted op 1.</li>
+</ul>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Je speelt online, je fysieke dobbelstenen liggen buiten bereik, of je DM't op afstand.</li>
+  <li>Je hebt een reproducible-feel worp nodig zonder dobbelsteen-app abonnement.</li>
+  <li>Je wil "kruis of munt" beslechten zonder een muntje te vinden (1d2).</li>
+  <li>Je prototypet een kans voor een game design (probeer een miljoen worpen — verander de formule in code als je stats wil).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Browser-tab is de trust boundary.</strong> De worp gebeurt in je tab, in JavaScript — iemand met devtools open kan rommelen. Voor competitief spel met vreemden gebruik je een server-arbitrated roller.</li>
+  <li><strong>Crypto-RNG is onvoorspelbaar, niet "meer random".</strong> Een goede PRNG en crypto-RNG produceren ononderscheidbare verdelingen voor dobbelstenen. Het voordeel van crypto is dat niemand het volgende getal kan voorspellen uit eerdere.</li>
+  <li><strong>Modifiers worden eenmaal toegepast, na keep.</strong> <code>4d6kh3+2</code> gooit 4d6, houdt de top 3, telt dan 2 op — niet "telt 2 op bij elke dobbelsteen".</li>
+  <li><strong>Dit is geen exploding dice.</strong> Geen <code>!</code>-style explosions, geen rerolls (<code>r1</code>), geen successes-counting (<code>3d10>=7</code>). De notatie hier is de simpele "sum and modify"-subset die ~95% van gewone worpen dekt.</li>
+  <li><strong>Crits worden alleen gevlagd voor d20.</strong> Een 20 highlight groen, een 1 highlight rood. Andere dice-sizes krijgen geen kleuring.</li>
+  <li><strong>Cap van 1000 dobbelstenen per worp.</strong> Verstandige bovengrens om de pagina responsive te houden.</li>
 </ul>
 """,
     },

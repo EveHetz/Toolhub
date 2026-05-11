@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Calculadora de Datas", "tagline": "Dias entre duas datas · somar ou subtrair dias/semanas/meses/anos · idade em anos, meses e dias.", "description": "Calculadora de datas online gratuita. Calcule a duração entre duas datas, some ou subtraia um período e descubra a idade exata em anos/meses/dias. Tudo roda no seu browser."},
         "pl": {"name": "Kalkulator Dat", "tagline": "Dni między dwiema datami · dodaj/odejmij dni/tygodnie/miesiące/lata · wiek w latach, miesiącach i dniach.", "description": "Darmowy online kalkulator dat. Policz różnicę między dwiema datami, dodaj lub odejmij okres od dowolnej daty i wylicz dokładny wiek w latach/miesiącach/dniach. Wszystko liczy się w przeglądarce."},
         "ja": {"name": "日付計算機", "tagline": "2 つの日付の差・日付に対する日／週／月／年の加減・年齢を年・月・日で算出。", "description": "オンライン無料の日付計算機。2 つの日付の期間を計算し、任意の日付に対して期間を加減算し、年・月・日で正確な年齢を算出します。すべてブラウザ内で実行されます。"},
+        "nl": {"name": "Datum-calculator", "tagline": "Dagen tussen twee datums · dagen/weken/maanden/jaren optellen of aftrekken · leeftijd in jaren, maanden en dagen.", "description": "Gratis online datum-calculator. Bereken de duur tussen twee datums, tel een span op of trek af van een datum, en bepaal exacte leeftijd in jaren/maanden/dagen. Alle berekeningen draaien in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -306,6 +307,27 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>営業日に祝日は含まれません。</strong> この計算機は週末は把握しますが、祝日は把握しないため、必要に応じて手動で調整してください。</li>
   <li><strong>「合計月数」は近似です。</strong> 年齢ビューでは「年×12+月」を用い、末尾の日数を無視します。Y/M/D の数値は厳密です。</li>
   <li><strong>UTC アンカーはロケールとのトレードオフがあります。</strong> ローカルタイムゾーンでの日付は、UTC ではわずかに別の日にマップされることがあります。締切や年齢といった用途では UTC 正午が安全です。分単位のタイムゾーン業務にはタイムゾーンコンバーターを使ってください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Drie dingen die mensen daadwerkelijk uit een datum-calculator willen: het gat tussen twee datums ("hoeveel dagen tot launch?"), een datum verschuiven met een span ("90 dagen na factuurdatum"), en een precieze leeftijd ("jaren, maanden en dagen vanaf een geboortedatum"). Deze tool doet alle drie, in je browser, verankerd op UTC-middag zodat DST en tijdzone-shifts het antwoord niet stilletjes verprutsen als je reist.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Contractduren, project-timelines en deadlines berekenen.</li>
+  <li>Uitrekenen hoeveel werkdagen (ma–vr) precies tussen twee datums vallen voor facturatie of project-schatting.</li>
+  <li>Leeftijdsdrempels controleren (visa-eligibility, schooljaren, milestone-verjaardagen).</li>
+  <li>"30 dagen netto" of "90 dagen bedenktijd"-periodes optellen bij een baseline-datum op een manier die maandeinde correct afhandelt.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Inclusieve vs exclusieve einddatums.</strong> "Dagen van ma tot vr" is 4 als je gaten telt, 5 als je dagen telt. De toggle stuurt welke conventie; beide kloppen afhankelijk van de vraag.</li>
+  <li><strong>Volgorde van optellen/aftrekken doet ertoe.</strong> Jaren en maanden gaan eerst, daarna weken en dagen. "1 maand + 1 dag" optellen bij 30 jan geeft 1 mrt (Feb 30 → Feb 28/29 → +1), niet 2 mrt — wat de kalender-veilige conventie is die bijna elke datetime-library gebruikt.</li>
+  <li><strong>Werkdagen tellen geen feestdagen.</strong> De berekening kent weekenden maar geen bank holidays — pas handmatig aan als het uitmaakt.</li>
+  <li><strong>"Totaal maanden" is benaderend</strong> in de age view (jaren × 12 + maanden) — negeert de trailing days. Het J/M/D-getal is exact.</li>
+  <li><strong>UTC-verankering offert af tegen locale.</strong> Een datum in je lokale tijdzone kan mappen op een iets andere UTC-dag. Voor de meeste use-cases (deadlines, leeftijden) is UTC-middag het veiligere anker; voor tot-de-minuut tijdzone-werk gebruik je de timezone-converter.</li>
 </ul>
 """,
     },

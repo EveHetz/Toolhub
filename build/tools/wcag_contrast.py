@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Verificador de Contraste WCAG", "tagline": "Verifique a razão de contraste entre duas cores. Veredito pass/fail para WCAG AA e AAA em qualquer tamanho de texto.", "description": "Verificador de contraste WCAG gratuito. Escolha as cores de foreground e background, obtenha a razão (1:1 a 21:1) e o veredito pass/fail para WCAG 2.1 AA e AAA — para texto normal, texto grande e componentes de UI."},
         "pl": {"name": "Sprawdzacz Kontrastu WCAG", "tagline": "Sprawdź współczynnik kontrastu między dwoma kolorami. Werdykt pass/fail dla WCAG AA i AAA przy każdym rozmiarze tekstu.", "description": "Darmowy sprawdzacz kontrastu WCAG. Wybierz kolor tekstu i tła, dostań współczynnik (1:1 do 21:1) i werdykt pass/fail dla WCAG 2.1 AA i AAA — dla normalnego tekstu, dużego tekstu i komponentów UI."},
         "ja": {"name": "WCAG コントラストチェッカー", "tagline": "2 色のコントラスト比をチェック。各テキストサイズの WCAG AA／AAA で合否を判定。", "description": "無料の WCAG コントラスト比チェッカー。前景色と背景色を選ぶと比率（1:1〜21:1）と、WCAG 2.1 AA／AAA の合否（通常テキスト、大きい文字、UI コンポーネント別）を判定します。"},
+        "nl": {"name": "WCAG Contrast Checker", "tagline": "Check de contrastratio tussen twee kleuren. Pass/fail-verdict voor WCAG AA en AAA op elke tekstgrootte.", "description": "Gratis WCAG contrastratio-checker. Kies foreground- en background-kleuren, krijg de ratio (1:1 tot 21:1) en pass/fail-verdicts voor WCAG 2.1 AA en AAA — voor normale tekst, grote tekst en UI-componenten."},
     },
     "body": """
 <div class="tool-card">
@@ -254,6 +255,36 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>ホバーとフォーカスも対象です。</strong> 静止状態で AA を通り、ホバー状態で落ちるなら、それは現実のアクセシビリティバグです。</li>
   <li><strong>WCAG 2.1 と APCA。</strong> WCAG 3 へ提案中の APCA は別の（おそらく改善された）数値を出しますが、ほとんどの法令で参照されるのは依然として WCAG 2.1 です。EN 301 549、ADA、AA 適合主張で使うのは本ツールの数値です。</li>
   <li><strong>透明度で誤魔化さないこと。</strong> 既知の背景に乗せたアルファ 50% の前景は実効コントラストが変わります。元の色ではなく、実際にレンダリングされる色で計算してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) definieert een minimum contrastratio tussen tekst en achtergrond zodat mensen met laag zicht, kleurenblindheid of bij tegenlicht het nog kunnen lezen. Deze tool berekent die ratio (1:1 = identiek, 21:1 = puur zwart op puur wit) en vertelt je of je kleurenpaar WCAG 2.1 Level AA of AAA haalt, apart voor normale tekst, grote tekst en UI-componenten. De rekensom volgt de W3C luminance-formule exact.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Checken of je brand-kleur op een witte card voldoet aan toegankelijkheidsnormen.</li>
+  <li>Een button-tekstkleur kiezen die AA haalt tegen een brand-gekleurde achtergrond.</li>
+  <li>Een design system token voor token auditen voor shipping.</li>
+  <li>Een kleur-wijzigingsverzoek rechtvaardigen aan een stakeholder met een concreet pass/fail-verdict.</li>
+  <li>Testen wat je users met reduced-contrast voorkeuren daadwerkelijk zullen zien.</li>
+</ul>
+
+<h3>De drempels</h3>
+<ul>
+  <li><strong>Normale tekst</strong> (onder 18pt / 14pt bold): <strong>4.5:1</strong> voor AA, <strong>7:1</strong> voor AAA.</li>
+  <li><strong>Grote tekst</strong> (≥18pt of ≥14pt bold): <strong>3:1</strong> voor AA, <strong>4.5:1</strong> voor AAA.</li>
+  <li><strong>UI-componenten &amp; graphics</strong> (icons, focus rings, form-borders, chart-elementen die info overdragen): <strong>3:1</strong> voor AA (WCAG 2.1 §1.4.11). Geen AAA-niveau.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>"Grote tekst" is groter dan je denkt.</strong> 18pt is ruwweg 24px. 14pt bold is ruwweg 19px bold. Body copy op 16px is <em>geen</em> grote tekst — het heeft de 4.5:1 drempel nodig.</li>
+  <li><strong>Lichte tekst op een drukke foto zal falen.</strong> De contrastratio is tussen specifieke pixels — overlay een donker gradient of gebruik een solid panel om de tekst een gecontroleerde achtergrond te geven.</li>
+  <li><strong>Anti-aliasing verzacht contrast.</strong> 4.5:1 is de vloer, geen doel. Comfortabel lezen wil meestal 7:1 of beter, vooral voor body copy.</li>
+  <li><strong>Hover- en focus-states tellen.</strong> Als je button AA haalt at rest maar faalt op hover, is dat een echte accessibility-bug.</li>
+  <li><strong>WCAG 2.1 vs APCA.</strong> De nieuwe APCA (Accessible Perceptual Contrast Algorithm), voorgesteld voor WCAG 3, geeft andere en arguably betere getallen — maar WCAG 2.1 is de wettelijke standaard waar de meeste jurisdicties nog naar verwijzen. Gebruik de getallen van deze tool bij EN 301 549, ADA of AA-conformance claims.</li>
+  <li><strong>Pad niet met transparency.</strong> Een 50%-alpha foreground over een bekende achtergrond heeft een andere effectieve contrast — bereken tegen de daadwerkelijk gerenderde kleur, niet het origineel.</li>
 </ul>
 """,
     },

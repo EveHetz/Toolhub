@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "JSON を即座に整形・検証・圧縮。エラー位置を行と列でハイライト。",
             "description": "オンライン無料の JSON フォーマッター・バリデーター。整形（pretty-print）、ミニファイ、構文検証を行い、正確なエラー位置を表示します。",
         },
+        "nl": {"name": "JSON Formatter", "tagline": "Formatteer, valideer en minify JSON direct. Errors gehighlight met regel en kolom.", "description": "Gratis online JSON-formatter en -validator. Pretty-print, minify en check JSON-syntax met precieze foutmeldingen."},
     },
     "body": """
 <div class="tool-card">
@@ -201,6 +202,26 @@ function jfValidate(){
   <li><strong>コピペで入るスマートクォート。</strong> ワープロやチャットアプリは「親切に」<code>"</code> を <code>“</code>／<code>”</code> に置き換えます。これらは JSON では有効な区切り文字ではありません。</li>
   <li><strong>JSON にコメントはありません。</strong> 「JSON」に <code>//</code> や <code>/* */</code> が含まれているなら、それは実は JSONC（VS Code 設定で使われる）です。パース前に取り除いてください。</li>
   <li><strong>2⁵³ を超える数値。</strong> JavaScript は <code>9007199254740992</code> を超える整数を厳密に表現できません。Twitter のスノーフレーク ID などは文字列で扱ってください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>JSON reist geminifieerd — elke byte telt als een API-response over de lijn gaat. Maar geminifieerd JSON is onleesbaar. Deze tool round-trip't door de native <code>JSON.parse</code> / <code>JSON.stringify</code> van de browser om geïndenteerde, kopieerbare output te produceren, de structuur te valideren of whitespace eruit te strippen. Niets wordt geüpload; alles gebeurt op de pagina.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een geminifieerde API-response plakken en iets terugkrijgen dat een mens kan scannen.</li>
+  <li>Syntax-fouten vangen — trailing comma's, unquoted keys, smart quotes — met de exacte regel/kolom waar de parser struikelde.</li>
+  <li>Whitespace strippen voor je JSON in een context plakt waar size telt (URL params, env vars, config files).</li>
+  <li>Bevestigen dat je met-de-hand-geschreven JSON geldig is voor je het naar een andere tool stuurt.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>JSON ≠ JavaScript object literal.</strong> Keys moeten in dubbele aanhalingstekens. Single quotes, unquoted keys en trailing comma's falen allemaal. Als je JS object literals hebt, draai ze eerst door een converter.</li>
+  <li><strong>Smart quotes uit copy-paste.</strong> Word processors en chat-apps vervangen <code>"</code> graag "behulpzaam" door <code>"</code> / <code>"</code>. Die zijn geen geldige JSON-delimiters.</li>
+  <li><strong>JSON heeft geen comments.</strong> Als jouw "JSON" <code>//</code> of <code>/* */</code> heeft, is het eigenlijk JSONC (gebruikt in VS Code config) — strip die voor parsen.</li>
+  <li><strong>Getallen groter dan 2⁵³.</strong> JavaScript kan integers boven <code>9007199254740992</code> niet exact representeren. Twitter snowflake-IDs en vergelijkbaar moeten als strings ge-quote'd worden.</li>
 </ul>
 """,
     },

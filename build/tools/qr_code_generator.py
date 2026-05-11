@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。",
             "description": "オンライン無料の QR コードジェネレーター。サイズ、前景／背景色、誤り訂正レベルをカスタマイズし、PNG または SVG でダウンロード可能。透かしはありません。",
         },
+        "nl": {"name": "QR Code Generator", "tagline": "Genereer QR codes voor elke tekst, URL, Wi-Fi of vCard. Custom size, kleuren en error correction. Export PNG of SVG.", "description": "Gratis online QR code generator. Custom size, foreground/background-kleuren, error correction levels. Download als PNG of SVG. Geen watermerken."},
     },
     "body": """
 <div class="tool-card">
@@ -224,6 +225,27 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
   <li><strong>長いコンテンツは密なコードを生みます。</strong> 200 文字の URL を入れると密度が上がり、遠距離では読み取りにくくなります。サイズが重要ならリダイレクト URL に短縮してから入れてください。</li>
   <li><strong>SVG と PNG。</strong> SVG は無劣化でスケールでき、印刷や大画面に最適です。PNG はどこでも使えますが拡大すると荒くなります。実際に使うサイズで書き出してください。</li>
   <li><strong>Wi-Fi プリセットの形式。</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — 最近の iOS/Android はスキャンで自動接続できます。古い端末では未対応の場合があります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>QR codes zijn kleine URLs die een telefooncamera in een fractie van een seconde kan lezen. Encode een URL, een Wi-Fi-netwerk, een email-concept, een telefoonnummer of elke korte tekst — print het op een poster, een visitekaartje of een menu, en iedereen met een telefoon kan ernaar handelen zonder te typen. Deze generator draait volledig in je browser via de open-source <a href="https://github.com/soldair/node-qrcode" rel="noopener">qrcode</a>-library. Je input-tekst verlaat de pagina nooit.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een URL delen op een slide, een poster, een visitekaartje of een verpakkingsinleg.</li>
+  <li>Gasten je Wi-Fi laten joinen zonder het wachtwoord te typen (gebruik de Wi-Fi-preset).</li>
+  <li>"Scan om te betalen / boeken / bestellen" op signage in fysieke ruimtes zetten.</li>
+  <li>Een vCard encoderen voor instant contactkaart-import op de telefoon van de ontvanger.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Error correction wisselt af tegen density.</strong> Hogere levels (Q, H) overleven krassen en overlaid logo's; lagere levels (L, M) houden de code klein en sneller te scannen. Gebruik <strong>H</strong> als je een logo wil overlay-en, anders is <strong>M</strong> de verstandige default.</li>
+  <li><strong>Contrast doet ertoe.</strong> Gestileerde QR-codes met laag foreground/background-contrast zien er vaak mooi uit maar scannen slecht onder slecht licht. Test door te scannen vanaf de printed/screen output voor shipping.</li>
+  <li><strong>Lange content forceert een dichtere code.</strong> Als je een 200-karakter URL moet encoderen, is de resulterende code dicht en moeilijker van ver te scannen. Verkort via een redirect eerst als size telt.</li>
+  <li><strong>SVG vs PNG.</strong> SVG schaalt zonder kwaliteitsverlies — best voor print of grote displays. PNG is universeel geaccepteerd maar pixelt als opgeschaald; export op de size die je zult gebruiken.</li>
+  <li><strong>Wi-Fi-preset-formaat.</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — moderne iOS/Android scannen en joinen automatisch; heel oude telefoons ondersteunen het misschien niet.</li>
 </ul>
 """,
     },

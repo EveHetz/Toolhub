@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Encoder / Decoder HTML", "tagline": "Faz escape de caracteres especiais HTML ou decodifica entidades de volta. Útil para embutir input do usuário com segurança ou debugar markup escapado.", "description": "Encoder e decoder de entidades HTML grátis online. Faz escape de &amp; &lt; &gt; &quot; ' e entidades nomeadas. Decodifica entidades nomeadas, decimais e em hex."},
         "pl": {"name": "Encoder / Decoder HTML", "tagline": "Escape'uj znaki specjalne HTML albo dekoduj encje z powrotem. Przydatne do bezpiecznego osadzania inputu użytkownika albo debugowania zescape'owanego markupu.", "description": "Darmowy online encoder i decoder encji HTML. Escape'uje &amp; &lt; &gt; &quot; ' oraz nazwane encje. Dekoduje nazwane, dziesiętne i szesnastkowe odwołania do encji."},
         "ja": {"name": "HTML エンコーダー / デコーダー", "tagline": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "description": "オンライン無料の HTML エンティティエンコーダー / デコーダー。&amp; &lt; &gt; &quot; ' と名前付きエンティティをエスケープし、名前付き・10 進・16 進のエンティティ参照をデコードします。"},
+        "nl": {"name": "HTML Encoder / Decoder", "tagline": "Escape HTML-speciale tekens of decodeer entities terug. Nuttig voor veilig embedden van user input of debuggen van encoded markup.", "description": "Gratis online HTML-entity encoder en decoder. Escapet &amp; &lt; &gt; &quot; ' en named entities. Decodeert named, decimal en hex entity references."},
     },
     "body": """
 <div class="tool-card">
@@ -132,6 +133,26 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>属性とボディ。</strong> どちらも同じ 5 文字をエスケープしますが、<code>onclick</code> のような JavaScript イベントハンドラは追加のエスケープが必要です（本ツールは行いません。信頼できないデータを属性に入れないでください）。</li>
   <li><strong>デコーダは寛容です。</strong> 名前付きエンティティ（<code>&amp;ldquo;</code>）、10 進（<code>&amp;#34;</code>）、16 進（<code>&amp;#x22;</code>）はすべてブラウザのパーサーで復号されるため、本物のブラウザが受け入れるものはすべて受け入れます。</li>
   <li><strong>二重エンコードに注意。</strong> 既にエンコード済みの値を再度エンコードすると <code>&amp;amp;amp;</code> になります。入力にエンティティが見える場合はまずデコードしてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>HTML reserveert vijf karakters met structurele betekenis — <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>'</code>. Een van die als <em>content</em> in een pagina zetten vereist ze als HTML-entities te escapen zodat de browser ze niet als markup interpreteert. Deze tool werkt beide kanten op: encode raw tekst naar veilige entities, of decodeer scraped HTML terug naar plain text.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Onbetrouwbare user content embedden in HTML — encode eerst om XSS te voorkomen.</li>
+  <li>Scraped of geplakte markup decoderen die met entities arriveerde (<code>&amp;amp;</code>, <code>&amp;#x27;</code>, <code>&amp;ldquo;</code>).</li>
+  <li>Templates ontmangelen die per ongeluk dubbel zijn ge-escaped.</li>
+  <li>Snippets voorbereiden voor JSDoc, CDATA-free XML of markdown code fences die letterlijke angle brackets nodig hebben.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Encoderen is geen sanitisering.</strong> Encoderen maakt tekst veilig om te tonen; als je ook tags wil <em>strippen</em> heb je een HTML-sanitizer nodig.</li>
+  <li><strong>Attributen vs body.</strong> Beide contexts vereisen dezelfde vijf karakters geëscaped, maar JavaScript event handlers zoals <code>onclick</code> hebben extra escaping nodig (wat deze tool niet doet — houd untrusted data uit attributen).</li>
+  <li><strong>Decoder is permissief.</strong> Named entities (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>) en hex (<code>&amp;#x22;</code>) decoderen allemaal via de browser-parser, dus hij accepteert alles wat een echte browser zou accepteren.</li>
+  <li><strong>Encode niet dubbel.</strong> Een al-encoded value encoderen geeft <code>&amp;amp;amp;</code>. Decodeer eerst als je entities in je input ziet.</li>
 </ul>
 """,
     },

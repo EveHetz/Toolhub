@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Imagem Placeholder", "tagline": "Gere imagens placeholder em SVG inline em qualquer tamanho com texto e cores personalizados. Saída como data URI ou SVG para download.", "description": "Gerador de imagens placeholder gratuito. Especifique width × height, texto do label e cores; receba um SVG inline para colar onde quiser — data URI, markup puro ou download. Roda inteiramente no seu navegador."},
         "pl": {"name": "Generator Placeholder Image", "tagline": "Generuj placeholderowe obrazki inline-SVG w dowolnym rozmiarze z własnym tekstem i kolorami. Wyjście jako data URI albo SVG do pobrania.", "description": "Darmowy generator placeholder imageów. Podaj width × height, tekst labela i kolory; dostaniesz inline-SVG do wklejenia gdziekolwiek — data URI, surowy markup albo download. Działa w całości w przeglądarce."},
         "ja": {"name": "プレースホルダー画像ジェネレーター", "tagline": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。", "description": "無料のプレースホルダー画像ジェネレーター。横×高さ、ラベルテキスト、配色を指定し、貼り付けに使えるインライン SVG（data URI、生のマークアップ、ダウンロード）を取得できます。すべてブラウザ内で動作します。"},
+        "nl": {"name": "Placeholder Image Generator", "tagline": "Genereer inline-SVG placeholder images op elke size met custom tekst en kleuren. Output als data URI of downloadbaar SVG.", "description": "Gratis placeholder image-generator. Specificeer width × height, labeltekst en kleuren; krijg een inline SVG die je overal kunt plakken — data URI, raw markup of download. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -283,6 +284,28 @@ document.addEventListener('DOMContentLoaded', phRun);
   <li><strong>色は HTML の hex のみ。</strong> カラーピッカーは <code>#rrggbb</code> を返します。<code>rgba()</code> が必要ならコピー後に SVG マークアップを直接編集してください。</li>
   <li><strong>幅・高さは intrinsic で、display ではありません。</strong> CSS で別サイズに指定すると SVG はスケールされます。アスペクト比が変わるとテキストが伸縮して見えるため、予測可能なスケーリングのために <code>preserveAspectRatio="none"</code> を使用しています。</li>
   <li><strong>本番にプレースホルダを残さないこと。</strong> 忘れがちなので、公開前に実アセットへ差し替えてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Tijdens het ontwerpen van een pagina heb je vaak een afbeelding op een specifieke size nodig voordat de echte image klaar is — een hero-banner, een card-thumbnail, een avatar, een OG-card. <code>via.placeholder.com</code> of <code>placehold.co</code> laden werkt maar voegt een extern request en een third-party dependency toe. Deze tool produceert een zelfstandige inline SVG met de size en label die je wil, klaar om in je HTML, CSS <code>background-image</code> of React-component als data URI te droppen. Niets verlaat je browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een layout wireframen waar je shaped placeholders nodig hebt voor de echte assets klaar zijn.</li>
+  <li>Een Storybook of Figma-export bouwen en per-component placeholder graphics nodig hebben.</li>
+  <li>Image-loading code, lazy-loading thresholds of aspect-ratio CSS testen.</li>
+  <li>Een third-party placeholder-service vervangen in een project dat offline of onder strikte CSP moet werken.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>SVG ≠ raster.</strong> De data URI is een SVG-string; hij schaalt oneindig zonder blur maar een designer die een PNG verwacht niet. Voor een raster-image screenshot je de preview of draai je de SVG door een SVG-naar-PNG converter.</li>
+  <li><strong>Lange data URIs zijn omslachtig in <code>img src</code>.</strong> Browsers handelen ze af, maar tools (linters, search-and-replace, diff-tools) verslikken zich vaak in multi-KB attribute-values. Voor grote mockups prefereer de SVG-file-download.</li>
+  <li><strong>Labeltekst is niet gelokaliseerd.</strong> Het auto-label is "WxH" met het maaltteken; als je een vertaling nodig hebt, type een custom label.</li>
+  <li><strong>Kleuren zijn alleen HTML-hex.</strong> De kleurkiezers produceren <code>#rrggbb</code>. Als je <code>rgba()</code> nodig hebt, bewerk de SVG-markup direct na kopiëren.</li>
+  <li><strong>Width/height zijn intrinsiek, niet display.</strong> CSS op een andere size zetten zal de SVG schalen — visueel prima, maar de embedded tekst kan stretched lijken als de aspect ratio verandert; we gebruiken <code>preserveAspectRatio="none"</code> voor voorspelbare scaling.</li>
+  <li><strong>Ship de placeholder niet.</strong> Makkelijk te vergeten — vervang met het echte asset voor je live gaat.</li>
 </ul>
 """,
     },

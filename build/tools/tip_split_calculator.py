@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Calculadora de Gorjeta e Rachar a Conta", "tagline": "Total da conta + gorjeta % + pessoas = valor por pessoa. Opção de arredondar para cima, mostra gorjeta e total geral.", "description": "Calculadora gratuita de gorjeta e divisão de conta. Informe a conta, a porcentagem de gorjeta e o número de pessoas. Veja o valor da gorjeta, o total geral e a parte de cada um. Arredondamento opcional para cima."},
         "pl": {"name": "Kalkulator Napiwku i Podziału Rachunku", "tagline": "Rachunek + napiwek % + liczba osób = kwota na osobę. Opcja zaokrąglenia w górę, pokazuje napiwek i sumę całkowitą.", "description": "Darmowy kalkulator napiwku i podziału rachunku. Wpisz rachunek, procent napiwku i liczbę osób. Zobacz kwotę napiwku, sumę całkowitą i udział na osobę. Opcjonalne zaokrąglenie w górę."},
         "ja": {"name": "チップ＆割り勘計算機", "tagline": "請求額 + チップ % + 人数 = 1 人あたり。切り上げオプションあり、チップ額と合計を表示。", "description": "無料のチップ・割り勘計算ツール。請求額、チップ率、人数を入力すると、チップ額、合計、1 人あたりの支払額が表示されます。切り上げオプションも利用可能です。"},
+        "nl": {"name": "Tip & Split Calculator", "tagline": "Rekeningtotaal + tip % + personen = per-persoon bedrag. Round-up optie, tip en grand total getoond.", "description": "Gratis tip- en rekening-split-calculator. Voer de rekening, tip-percentage en aantal personen in. Zie het tip-bedrag, het grand total en het per-persoon-aandeel. Optionele round-up."},
     },
     "body": """
 <div class="tool-card">
@@ -267,6 +268,27 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>サービス料 ≠ チップ。</strong> イギリスの 6 名以上のグループ、欧州大陸の多くで会計に「サービス料」が含まれている場合、追加チップは任意です。サービス料の一部を厨房に分配する店もあるので、サーバー本人へ確実に渡したいなら現金で直接渡してください。</li>
   <li><strong>1 人あたり丸め込みは食事量の差を覆い隠します。</strong> 均等割は早いですが、ワインを飲んだ人と水だけの人がいる場合は不公平です。その場合は項目別の割り勘に切り替えてください。</li>
   <li><strong>現金とカード。</strong> カードでのチップはプール、即時課税、店側のピンハネが起きる場合があるため、現金チップを好むスタッフもいます。本ツールの 1 人あたり額にチップが含まれているかどうかを確認し、必要なら現金で別に渡すことを検討してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een restaurantrekening splitsen aan het einde van het diner is het klassieke geval van "makkelijke rekensom, maar de wijn heeft gevloeid". Drie nummers gaan erin (rekening, tip-percentage, aantal personen) en drie komen eruit (tip-bedrag, grand total, per-persoon-aandeel). Deze tool doet dat zonder iets naar een server te sturen, plus een optionele round-up zodat het per-persoon-getal op een hele eenheid landt en je iets meer fooi geeft in plaats van met klein geld te jongleren.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Einde van een groepsmaaltijd — even split.</li>
+  <li>Een bekend tip-percentage optellen bij een service-rekening.</li>
+  <li>Snel verschillende tip-niveaus testen (10/15/18/20/25) voor je beslist.</li>
+  <li>Een koffierondje, een taxi of elk per-hoofd-aandeel beslechten.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Fooi-conventies verschillen sterk.</strong> VS: 18–22% is normaal; onder 15% is een klacht. Nederland en de meeste van Europa: afronden of 5–10%; service vaak inbegrepen. Japan: niet fooien — het kan onbeleefd zijn. Check altijd lokaal gebruik in plaats van blind een percentage toe te passen.</li>
+  <li><strong>Fooi op pre-tax of post-tax?</strong> In de VS is fooi over de pre-tax subtotal gangbare etiquette maar de meeste betaalterminals bieden post-tax-percentages. De tool berekent het percentage van welk rekeningtotaal je ook invoert — kies de basis bewust.</li>
+  <li><strong>Service charge ≠ fooi.</strong> Als een "service charge" al op de rekening staat (gangbaar in UK groepen van 6+ en de meeste van continentaal Europa), is extra fooi optioneel. Sommige venues splitsen service charges met de keuken; geef cash-fooi direct als je wil dat het de bediening bereikt.</li>
+  <li><strong>Per-persoon-afronding kan ongelijk eten verbergen.</strong> Een even split is het snelst maar oneerlijk als één persoon wijn had en een ander water — schakel in dat geval naar itemised splitting.</li>
+  <li><strong>Cash vs card.</strong> Sommige medewerkers prefereren cash-fooi omdat card-fooien gepoold, direct belast of door de venue gestreken worden. Als het per-persoon-bedrag op deze calculator de fooi bevat, besluit of je de fooi cash bovenop wil voldoen.</li>
 </ul>
 """,
     },

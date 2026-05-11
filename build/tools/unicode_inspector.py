@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Inspetor Unicode", "tagline": "Cole texto → tabela de cada code point. Hex, decimal, bytes UTF-8, categoria. Detecte caracteres invisíveis.", "description": "Inspetor Unicode gratuito. Cole qualquer texto e veja cada code point Unicode: hex, decimal, sequência de bytes UTF-8, categoria geral e o nome quando conhecido. Destaca caracteres invisíveis e confundíveis."},
         "pl": {"name": "Inspektor Unicode", "tagline": "Wklej tekst → tabela każdego code pointa. Hex, decimal, bajty UTF-8, kategoria. Wyłapuj niewidzialne znaki.", "description": "Darmowy inspektor Unicode. Wklej dowolny tekst i zobacz każdy code point Unicode: hex, decimal, sekwencję bajtów UTF-8, kategorię ogólną i nazwę, gdy znana. Podświetla znaki niewidzialne i zwodnicze."},
         "ja": {"name": "Unicode インスペクター", "tagline": "テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。", "description": "無料の Unicode インスペクター。任意のテキストを貼り付けると、各 Unicode コードポイントを hex、10 進、UTF-8 バイト列、一般カテゴリ、既知の名称付きで表示します。不可視文字や紛らわしい文字をハイライトします。"},
+        "nl": {"name": "Unicode Inspector", "tagline": "Plak tekst → tabel van elke code point. Hex, decimaal, UTF-8 bytes, categorie. Spot onzichtbare tekens.", "description": "Gratis Unicode-inspector. Plak elke tekst en zie elke Unicode code point: hex, decimaal, UTF-8 byte sequence, general category en een naam waar bekend. Highlight onzichtbare en confusable karakters."},
     },
     "body": """
 <div class="tool-card">
@@ -383,6 +384,38 @@ document.addEventListener('DOMContentLoaded', uiRun);
   <li><strong>RTL オーバーライドは危険です。</strong> ファイル名に U+202E が入ると表示順が反転し、<code>resu&#x202E;txt.exe</code> がファイラ上で <code>resuexe.txt</code> のように見えることがあります。フィッシングで悪用されます。</li>
   <li><strong>名称欄は限定的です。</strong> 完全な Unicode データベースは全コードポイントに名称を持ちますが、本インスペクターは制御文字や典型的なフォーマット／空白文字など、診断に有用なものに限定して名称を表示します。</li>
   <li><strong>サロゲートの片割れは単独では現れません。</strong> 出力に U+D800〜U+DFFF があれば、入力は壊れた UTF-16（lone surrogate）です。多くの API は UTF-8 へのエンコードを拒否します。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>"Waarom vergelijkt deze string niet gelijk?" "Waarom wordt deze username afgewezen als al bezet terwijl die vrij lijkt?" "Waarom breekt deze filename mijn shell?" Het antwoord is bijna altijd: de bytes matchen niet met wat je ogen zien. Twee karakters kunnen er <em>identiek</em> uitzien maar verschillende code points zijn (Latijnse "a" vs Cyrillische "а"); whitespace kan non-breaking spaces, zero-width joiners of right-to-left overrides verbergen; een emoji kan één code point of vier zijn. Deze tool ontleedt elke tekst tot zijn individuele Unicode code points, met hex, decimaal, UTF-8 byte sequence, categorie en een naam waar bekend.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een "lijkt hetzelfde maar is niet gelijk"-string-bug diagnosticeren.</li>
+  <li>Onzichtbare karakters vinden (zero-width space, BOM, RTL override) verstopt in copy-pasted tekst.</li>
+  <li>Bytes vs code points vs UTF-16 code units tellen voor opslag in een fixed-width kolom.</li>
+  <li>Een emoji inspecteren om te zien welke ZWJ-sequence hij gebruikt.</li>
+  <li>Homoglyph-aanvallen spotten in domeinnamen of usernames.</li>
+  <li>Exacte UTF-8 byte sequences genereren voor een hex dump.</li>
+</ul>
+
+<h3>De output lezen</h3>
+<ul>
+  <li><strong>Code point</strong> — de abstracte Unicode-waarde, geschreven <code>U+XXXX</code>. Er zijn 1,1 miljoen ervan; de hoogste in gebruik is U+10FFFF.</li>
+  <li><strong>UTF-8</strong> — hoe die code point als bytes wordt gecodeerd in moderne bestanden (1–4 bytes elk).</li>
+  <li><strong>UTF-16 code units</strong> — wat JavaScript-strings (<code>s.length</code>) en Java-strings tellen. Een code point boven U+FFFF (de meeste emoji) neemt <em>twee</em> UTF-16-units (een surrogate pair).</li>
+  <li><strong>Categorie</strong> — Unicode's general category-afkorting: L=letter, N=number, P=punctuation, S=symbol, Z=separator, C=control/format/private.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Lengte is ambigu.</strong> "👨‍👩‍👧" heeft 1 grapheme cluster, 5 code points, 11 UTF-16 units en 18 UTF-8 bytes — allemaal "lengtes" die iets zou kunnen rapporteren.</li>
+  <li><strong>Zero-width joiner sequences vs sequence selectors.</strong> Veel emoji zijn ZWJ-sequences: family-, profession-, skin-tone-varianten. Een ZWJ herordenen of strippen verandert wat er gerenderd wordt.</li>
+  <li><strong>Normalisatie doet ertoe.</strong> "café" kan e+◌́ (NFD) of é (NFC) zijn. Ze zien er identiek uit maar zijn verschillende bytes; databases en vergelijkingscode moeten naar dezelfde vorm normaliseren.</li>
+  <li><strong>Right-to-left overrides zijn gevaarlijk.</strong> Een filename met U+202E kan zijn display-volgorde omkeren — waardoor <code>resu&#x202E;txt.exe</code> in een file browser op <code>resuexe.txt</code> lijkt. Gebruikt in phishing.</li>
+  <li><strong>De namen-kolom is partieel.</strong> Een echte Unicode-database heeft namen voor elke code point; de inspector levert alleen namen voor control-karakters en gangbare format/whitespace-karakters waar de naam het meest nuttig diagnostisch is.</li>
+  <li><strong>Surrogate halves horen niet standalone te verschijnen.</strong> Als je U+D800–U+DFFF in de output ziet, is de input een malformed UTF-16 string (lone surrogate). De meeste API's weigeren dat naar UTF-8 te encoderen.</li>
 </ul>
 """,
     },

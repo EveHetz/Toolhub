@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Codificador / Decodificador Base64", "tagline": "Codifique texto em Base64 ou decodifique Base64 de volta em texto. Seguro em UTF-8 e suporta a variante base64url.", "description": "Codificador e decodificador Base64 online gratuito. Seguro em UTF-8 com variante base64url opcional para URLs e JWTs. Roda no seu navegador."},
         "pl": {"name": "Encoder / Decoder Base64", "tagline": "Koduj tekst do Base64 albo dekoduj Base64 z powrotem na tekst. Bezpieczny dla UTF-8, wariant base64url.", "description": "Darmowy encoder i decoder Base64 online. Bezpieczny dla UTF-8 z opcjonalnym wariantem base64url dla URL-i i JWT. Działa w przeglądarce."},
         "ja": {"name": "Base64 エンコーダー / デコーダー", "tagline": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "description": "オンライン無料の Base64 エンコーダー・デコーダー。UTF-8 安全で、URL や JWT 向けの base64url バリアントにも対応。すべてブラウザ内で処理されます。"},
+        "nl": {"name": "Base64 Encoder / Decoder", "tagline": "Codeer tekst naar Base64 of decodeer Base64 terug naar tekst. UTF-8 safe met base64url-variant.", "description": "Gratis online Base64 encoder en decoder. UTF-8 safe met optionele base64url-variant voor URLs en JWTs. Draait in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -182,6 +183,31 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>UTF-8 はここで正しくラウンドトリップします</strong> — 非 ASCII 文字（é、你好、🚀）は <code>TextEncoder</code>/<code>TextDecoder</code> を経由し、<code>btoa</code>/<code>atob</code> を直接使うわけではありません。JavaScript で素朴に <code>btoa(str)</code> を呼ぶと非ラテン文字で壊れます。</li>
   <li><strong>パディング</strong> — 標準 Base64 は入力長に応じて 0/1/2 個の <code>=</code> で終わります。base64url では省略されることが多いです。パディングを必須とするデコーダーは省略形を拒否しますが、このツールはデコード時に不足分を補います。</li>
   <li><strong>エンコード文字列内の空白</strong> — このデコーダーはスペースや改行を取り除きます（コピペ時によく混入します）。一部のライブラリはこれを行わないため、そのようなライブラリに渡す場合は再エンコードしてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Wat Base64 eigenlijk doet</h2>
+<p>Base64 zet willekeurige bytes om naar 64 ASCII-tekens (A–Z, a–z, 0–9 plus twee extra's). Drie input-bytes worden vier output-tekens, dus het resultaat is grofweg 33% groter dan de input. Het is een <em>encoding</em>, geen encryptie — iedereen kan het decoderen.</p>
+
+<h3>Wanneer Base64 gebruiken</h3>
+<ul>
+  <li>Kleine binaire data inbedden in tekstformaten: data URIs, JSON-waarden, environment variables, YAML-strings.</li>
+  <li>Binaire tokens coderen (handtekeningen, keys, hashes) om in URLs, headers of cookies te zetten.</li>
+  <li>Email-bijlagen en S/MIME — historisch maar nog steeds in gebruik.</li>
+</ul>
+
+<h3>Standaard vs base64url</h3>
+<ul>
+  <li><strong>Standaard</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>) gebruikt <code>+</code>, <code>/</code>, <code>=</code>. Prima in email, JSON-waarden, de meeste XML.</li>
+  <li><strong>base64url</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>) gebruikt <code>-</code>, <code>_</code>, en laat doorgaans de trailing <code>=</code> padding weg. Gebruikt in JWTs, OAuth-tokens en overal waar de waarde in een URL leeft, waar <code>+</code>/<code>/</code>/<code>=</code> extra escaping zouden vereisen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Verwar het niet met encryptie.</strong> Base64 is door iedereen omkeerbaar. Als de data gevoelig is, versleutel het eerst.</li>
+  <li><strong>UTF-8 round-trips hier correct</strong> — non-ASCII (é, 你好, 🚀) gaat door <code>TextEncoder</code>/<code>TextDecoder</code>, niet direct door <code>btoa</code>/<code>atob</code>. Naïeve <code>btoa(str)</code> in JavaScript breekt op niet-Latin tekens.</li>
+  <li><strong>Padding</strong> — standaard Base64 eindigt altijd op 0/1/2 <code>=</code>-tekens afhankelijk van de input-lengte. base64url laat ze vaak weg. Decoders die padding vereisen weigeren input zonder padding; deze tool voegt het weer toe bij decoderen indien afwezig.</li>
+  <li><strong>Whitespace in encoded strings</strong> — de decoder hier strijkt spaties en regeleinden eruit (komen vaak van copy-paste), maar sommige libraries niet, dus re-encode als je naar zo'n library doorstuurt.</li>
 </ul>
 """,
     },

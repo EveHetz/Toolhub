@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Formatador HTML", "tagline": "Formata e embeleza HTML ou minifica. Tamanho de indentação, remoção de comentários e reconhecimento de tags auto-fechantes.", "description": "Formatador e minificador HTML grátis online. Pretty-print com indentação configurável, remoção opcional de comentários e respeito por tags void/auto-fechantes. Roda totalmente no seu browser."},
         "pl": {"name": "Formatter HTML", "tagline": "Sformatuj i upiększ HTML albo zminifikuj. Rozmiar wcięcia, usuwanie komentarzy i świadomość tagów samozamykających.", "description": "Darmowy online formatter i minifikator HTML. Pretty-print z konfigurowalnym wcięciem, opcjonalne usuwanie komentarzy i respektowanie tagów void/samozamykających. Działa w całości w przeglądarce."},
         "ja": {"name": "HTML フォーマッター", "tagline": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "description": "オンライン無料の HTML フォーマッター / ミニファイア。設定可能なインデントでの整形、コメントの任意除去、void / 自己終了タグの認識に対応。すべてブラウザ内で動作します。"},
+        "nl": {"name": "HTML Formatter", "tagline": "Formatteer en beautify HTML of minify het. Indent size, comment stripping en self-closing tag awareness.", "description": "Gratis online HTML formatter en minifier. Pretty-print met configureerbare indentatie, optioneel comments strippen, en void/self-closing tags respecteren. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -422,6 +423,28 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>「空白の圧縮」は一部のコンテンツでレンダリング結果を変えます。</strong> 連続スペースが 1 つにまとまります。複数スペースや non-breaking 系列に依存するデザインでは無効にしてください。</li>
   <li><strong>HTML での自己終了表記は装飾的です。</strong> HTML5 では <code>&lt;br/&gt;</code> と <code>&lt;br&gt;</code> は等価であり、本ツールは入力どおりを保持します。</li>
   <li><strong>Minify はセキュリティ境界ではありません。</strong> コメント除去で秘密を隠そうとしないでください。それらは既にクライアントに配信されています。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>HTML-markup arriveert in je editor in allerlei staten — geminifieerd voor productie, gegenereerd door templating engines zonder regard voor whitespace, met de hand getypt en inconsistent geïndenteerd. Deze tool herformatteert elk HTML-fragment met consistente indentatie per geneste element, en herkent void elements (<code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;meta&gt;</code>) en inline elements (<code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) zodat de output op echte HTML lijkt, niet op layout-per-regel. Minify-mode strijkt inter-tag whitespace en optioneel comments. Alles blijft in je browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Pretty-printen van een geminifieerde HTML-email of een "view source"-kopie van een pagina zodat je de structuur kunt lezen.</li>
+  <li>Een snippet uit een CMS / WYSIWYG opschonen voor je in een code review plakt.</li>
+  <li>Een statisch HTML-asset minify-en voor je deployt — minder bytes over de wire, geen comments gelekt.</li>
+  <li>Author-comments strippen uit een template voor publicatie.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een pragmatische tokenizer, geen volledige HTML5-parser.</strong> Hij werkt goed op real-world fragments maar herstelt niet van zwaar malformed input zoals browsers doen (browsers draaien het volle HTML-parsing-algoritme en herstellen errors stil — deze tool niet).</li>
+  <li><strong>Whitespace binnen <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code> blijft behouden.</strong> Deze elementen worden als raw behandeld en niet opnieuw geïndenteerd.</li>
+  <li><strong>Inline elementen blijven op dezelfde regel als hun parent-tekst</strong> — <code>&lt;p&gt;some &lt;b&gt;bold&lt;/b&gt; text&lt;/p&gt;</code> wordt niet over regels gesplitst.</li>
+  <li><strong>"Collapse whitespace" verandert de gerenderde output voor sommige content.</strong> Twee spaties worden één. Als je design afhangt van meerdere spaties of non-breaking sequences, laat het uit.</li>
+  <li><strong>Self-closing notatie in HTML is cosmetisch.</strong> <code>&lt;br/&gt;</code> en <code>&lt;br&gt;</code> zijn equivalent in HTML5; deze tool behoudt wat je hebt geschreven.</li>
+  <li><strong>Minify is geen security boundary.</strong> Vertrouw niet op comments strippen om secrets te verbergen — die zijn al naar de client verzonden.</li>
 </ul>
 """,
     },

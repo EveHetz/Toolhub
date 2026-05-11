@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Minificador JavaScript", "tagline": "Minify estrutural rápido de JavaScript — remove comentários, comprime whitespace, tira linhas em branco. Mostra tamanho antes/depois e o percentual economizado.", "description": "Minificador JavaScript grátis online. Remove comentários de uma e várias linhas, whitespace redundante e linhas em branco preservando strings, regex e template literals."},
         "pl": {"name": "Minifikator JavaScript", "tagline": "Szybka strukturalna minifikacja JavaScriptu — wytnij komentarze, zwiń białe znaki, usuń puste linie. Pokazuje rozmiar przed/po i procent oszczędności.", "description": "Darmowy online minifikator JavaScriptu. Usuwa jedno- i wieloliniowe komentarze, nadmiarowe białe znaki i puste linie, zachowując stringi, literały regex i template literale."},
         "ja": {"name": "JavaScript ミニファイア", "tagline": "高速で構造的な JavaScript ミニファイ — コメント除去、空白圧縮、空行削除。ビフォア／アフターのサイズと節約率を表示。", "description": "オンライン無料の JavaScript ミニファイア。1 行コメント・複数行コメント・冗長な空白・空行を除去しつつ、文字列、正規表現リテラル、テンプレートリテラルは正確に保持します。"},
+        "nl": {"name": "JavaScript Minifier", "tagline": "Snelle structurele JavaScript-minify — strip comments, collapseer whitespace, drop blank lines. Zie size voor/na en het besparingspercentage.", "description": "Gratis online JavaScript minifier. Verwijdert single- en multi-line comments, redundante whitespace en blank lines terwijl strings, regex literals en template literals behouden blijven."},
     },
     "body": """
 <div class="tool-card">
@@ -250,6 +251,26 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>ソースマップは生成しません。</strong> 本番に圧縮 JS を出すなら、デバッグのために本物のツールチェーンでソースマップを併せて出力してください。</li>
   <li><strong>現代では転送時の圧縮が支配的です。</strong> ワイヤ上の Brotli/gzip がミニファイの大半の効果を担います。最大の削減は未使用コードの除去から得られ、これは構造的ミニファイヤだけでは達成できない静的解析を要します。</li>
   <li><strong>ミニファイ済みをコミットしないこと。</strong> ソースは整形済みでコミットし、ビルド／デプロイ時にミニファイします。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een structurele JavaScript-minifier strijkt comments en onnodige whitespace eruit zonder te veranderen wat de code doet. De output is functioneel identiek aan de input — zelfde identifiers, zelfde logica — gewoon korter. Deze tool draait die pass in je browser, inclusief de lastige stukken: hij behoudt string-contents en regex-literals onaangetast en houdt newlines waar ASI (Automatic Semicolon Insertion) anders het gedrag zou veranderen.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een snippet snel trimmen voor inclusie in een HTML-bookmarklet of een single-file demo, waar je geen build chain hebt.</li>
+  <li>Sanity check hoeveel "vet" in een handgeschreven script zit voor je besluit of een echte optimizer de moeite waard is.</li>
+  <li>Een kleine library inline zetten in een statische site zonder een bundler binnen te slepen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een structurele minify, geen compressor.</strong> Hij hernoemt geen variabelen, doet geen dead-code elimination, mangle't geen properties en doet geen tree-shake. Voor productie-builds gebruik <code>terser</code>, <code>esbuild</code> of <code>swc</code> in je pipeline — die snijden er nog 30–60% extra van af bovenop de structurele minify.</li>
+  <li><strong>ASI-vallen.</strong> JavaScript voegt semicolons in verrassende plekken in. De minifier behoudt een newline waar weglaten betekenis zou veranderen (bijv. <code>return\n{}</code> ≠ <code>return {}</code>). Houd het bij expliciete semicolons in source als je kan — maakt minification voor iedereen veiliger.</li>
+  <li><strong>Source maps worden niet gegenereerd.</strong> Als je geminifieerde JS naar productie ship't, genereer source maps met een echte toolchain zodat debuggen werkbaar is.</li>
+  <li><strong>Moderne compressie domineert.</strong> Brotli/gzip over de wire doet het meeste van wat minify doet. De grootste winst komt van ongebruikte code verwijderen — dat vereist statische analyse die een structurele minifier niet kan.</li>
+  <li><strong>Minify niet wat je commit.</strong> Source gaat netjes erin; minify bij build/deploy.</li>
 </ul>
 """,
     },

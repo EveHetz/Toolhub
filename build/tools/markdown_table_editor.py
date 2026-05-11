@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Editor de Tabelas Markdown", "tagline": "Edite uma tabela visualmente — linhas, colunas, alinhamento por coluna — e copie o Markdown estilo GitHub.", "description": "Editor de tabelas Markdown gratuito online. Clique nas células para editar, adicione/remova linhas e colunas, defina alinhamento por coluna e copie o Markdown estilo GitHub (GFM). Roda inteiramente no seu navegador."},
         "pl": {"name": "Edytor Tabel Markdown", "tagline": "Edytuj tabelę wizualnie — wiersze, kolumny, wyrównanie per kolumna — i skopiuj Markdown w stylu GitHuba.", "description": "Darmowy online edytor tabel Markdown. Klikaj komórki, by edytować, dodawaj/usuwaj wiersze i kolumny, ustaw wyrównanie per kolumna i skopiuj wyjście Markdown w stylu GitHuba (GFM). Działa w całości w przeglądarce."},
         "ja": {"name": "Markdown テーブルエディター", "tagline": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。", "description": "オンライン無料の Markdown テーブルエディター。セルをクリックして編集、行や列を追加／削除、列ごとの揃えを設定し、GitHub 風 Markdown 出力をコピーできます。すべてブラウザ内で動作します。"},
+        "nl": {"name": "Markdown Table Editor", "tagline": "Bewerk visueel een tabel — rows, kolommen, alignment per kolom — en kopieer de GitHub-flavoured Markdown.", "description": "Gratis online Markdown table editor. Klik cellen om te bewerken, voeg rows en kolommen toe of verwijder, stel per-kolom alignment in en kopieer de GitHub-flavoured Markdown output. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -391,6 +392,28 @@ document.addEventListener('DOMContentLoaded', mtRender);
   <li><strong>1 行目は常にヘッダーとして扱われます。</strong> GFM テーブルにはヘッダーが必須です。自然なヘッダーがない場合は 1 行目を空セルにしてください。</li>
   <li><strong>Markdown 方言によっては GFM より厳しいです。</strong> CommonMark はそもそもテーブルを定義していません。GFM、MultiMarkdown などで微妙に異なる方言があります。本ツールの出力は GFM（GitHub、GitLab、ほとんどのモダンレンダラー）を対象としています。</li>
   <li><strong>素の CSV は読み込めません。</strong> インポート用テキストエリアは <code>|---|</code> 区切りを含む Markdown テーブルを期待します。CSV → Markdown 変換が必要なら、CSV-to-JSON ツールを経由するか、手で行を貼り付けてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Markdown-tabellen zijn top in de rendered output en ellendig om met de hand te schrijven. Pipe-tekens, alignment-colons, het juiste aantal streepjes per kolom — tegen de tijd dat je alles op zijn plek hebt geduwd, had je het als HTML kunnen schrijven. Deze editor geeft je een vertrouwd grid: klik elke cel om te bewerken, gebruik de knoppen om rows en kolommen toe te voegen of te verwijderen, stel alignment per kolom in vanuit een dropdown en kopieer de GitHub-flavoured Markdown wanneer je klaar bent. Je kunt ook een bestaande Markdown-tabel onderaan plakken en die wordt in het grid geladen voor verder bewerken.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een vergelijkings-tabel maken voor een README, GitHub issue of PR-beschrijving.</li>
+  <li>Een tabel uit een doc opnieuw bewerken — plak de bestaande Markdown, tweak in het grid, kopieer terug.</li>
+  <li>Een goed-uitgelijnde ASCII-padded tabel produceren (de output is rechts-padded zodat hij ook als plain text leesbaar is).</li>
+  <li>Een release-notes tabel opstellen zonder met de pipe-and-dash syntax te vechten.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Inline pipes breken GFM-tabellen.</strong> Een letterlijke <code>|</code> in een cel beëindigt de cel. Escape het als <code>\|</code> wanneer je het nodig hebt.</li>
+  <li><strong>Cel-content is single-line.</strong> Markdown-tabellen ondersteunen geen line breaks in cellen zonder HTML (<code>&lt;br&gt;</code>). Voor multi-line content schrijf je de tabel in HTML.</li>
+  <li><strong>Alignment is rendered, niet enforced.</strong> De output padt ook om in de source uit te lijnen, maar de daadwerkelijke rendered alignment komt van de colons in de separator-row, niet van de spacing.</li>
+  <li><strong>De eerste row wordt altijd als header behandeld.</strong> GFM-tabellen hebben een verplichte header. Als je data geen natuurlijke header heeft, gebruik blanke cellen in row 1.</li>
+  <li><strong>Sommige Markdown-flavours zijn strenger dan GFM.</strong> CommonMark zelf definieert geen tabellen; GFM, MultiMarkdown en diverse andere ondersteunen lichtjes verschillende varianten. De output hier targets GFM (GitHub, GitLab, de meeste moderne renderers).</li>
+  <li><strong>Een unformatted CSV plakken werkt niet.</strong> Het "import"-textarea verwacht een Markdown-tabel (met de <code>|---|</code> separator). Voor CSV → Markdown gebruik de CSV-to-JSON tool eerst of plak rijen met de hand.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Cheatsheet de Regex", "tagline": "Referência rápida: anchors, classes de caracteres, quantificadores, grupos, lookarounds, flags. Clique em qualquer pattern para copiar.", "description": "Cheatsheet de regex gratuito. Anchors, classes de caracteres, quantificadores, grupos, lookarounds e flags — com clique-para-copiar e filtro ao vivo. Sabor PCRE / JavaScript."},
         "pl": {"name": "Ściąga Regex", "tagline": "Szybka referencja: anchory, klasy znaków, kwantyfikatory, grupy, lookaroundy, flagi. Kliknij dowolny pattern, by skopiować.", "description": "Darmowa ściąga regex (wyrażenia regularne). Anchory, klasy znaków, kwantyfikatory, grupy, lookaroundy i flagi — z klikaniem do skopiowania i filtrem na żywo. Smak PCRE / JavaScript."},
         "ja": {"name": "正規表現チートシート", "tagline": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "description": "無料の正規表現チートシート。アンカー、文字クラス、量指定子、グループ、ルックアラウンド、フラグを網羅し、クリックでコピー、ライブフィルタにも対応。PCRE / JavaScript 風です。"},
+        "nl": {"name": "Regex Spiekbrief", "tagline": "Snelle referentie: anchors, character classes, quantifiers, groups, lookarounds, flags. Klik elk patroon om te kopiëren.", "description": "Gratis regex (regular expression)-spiekbrief. Anchors, character classes, quantifiers, groups, lookarounds en flags — met click-to-copy patronen en een live filter. PCRE / JavaScript flavour."},
     },
     "body": """
 <div class="tool-card">
@@ -352,6 +353,28 @@ document.addEventListener('DOMContentLoaded', rcRender);
   <li><strong>正規表現は HTML や JSON のパーサではありません。</strong> ここでの「よくあるパターン」は単発のスクレイピングや簡易検証向けで、構造化入力を文字列として扱うのには向きません。</li>
   <li><strong>メールの正規表現は常に「外れ」です。</strong> ここの例はおおまかな形チェックです。本番の検証はメールでの確認に頼ってください。</li>
   <li><strong>コピペした「完璧な」正規表現を信用しないこと。</strong> デプロイ前に Regex Tester で実データに対して試してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een printbare, doorzoekbare samenvatting van de stukjes regex-syntax die je je half blijft herinneren. De tabellen hier dekken de hoofdcategorieën — anchors, character classes, quantifiers, groups, lookarounds, flags — plus een starter-set veelvoorkomende patronen. Klik elk patroon om te kopiëren; typ in het filter om te versmallen. Combineer dit met de <a href="/regex-tester/">Regex Tester</a> om de patronen daadwerkelijk tegen tekst te proberen.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Je hebt <code>(?&lt;=foo)</code> nodig en kunt je niet herinneren of <code>?</code> voor of na <code>&lt;</code> staat.</li>
+  <li>Je legt regex uit aan iemand en hebt een stabiele referentiepagina nodig in plaats van Stack Overflow-tabs door te wroeten.</li>
+  <li>Je wil een starter-patroon (UUID, email, ISO-datum) dat je kunt kopiëren en tweaken in plaats van vanaf nul schrijven.</li>
+  <li>Je wil weten welke flag wat doet — vooral <code>s</code> (dotall) vs <code>m</code> (multi-line), die mensen routinematig verwarren.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Flavour doet ertoe.</strong> Het meeste hier is JavaScript / moderne PCRE, maar features verschillen. Lookbehind landde in JavaScript pas met ES2018; <code>x</code> (extended) is PCRE/Python en niet in JS; possessive quantifiers <code>++</code> zijn alleen PCRE.</li>
+  <li><strong><code>m</code> ≠ "multi-line matching".</strong> <code>m</code> verandert wat <code>^</code> en <code>$</code> betekenen (per-line in plaats van per-string). Om met <code>.</code> over line breaks heen te matchen wil je <code>s</code> (dotall).</li>
+  <li><strong>Greedy matches eten te veel.</strong> <code>&lt;.*&gt;</code> tegen <code>&lt;a&gt;b&lt;/a&gt;</code> matcht het hele ding, niet alleen <code>&lt;a&gt;</code>. Gebruik <code>&lt;.*?&gt;</code> voor de lazy versie, of liever een specifiekere class als <code>&lt;[^&gt;]+&gt;</code>.</li>
+  <li><strong>Regex is geen HTML- of JSON-parser.</strong> De "veelvoorkomende patronen" hier zijn goed voor eenmalig scrapen of validatie-hints, niet om structured input als string te behandelen.</li>
+  <li><strong>Email-regexes zijn altijd fout.</strong> Het voorbeeld hier is een ruwe shape-check; voor production-validatie stuur je in plaats daarvan een bevestigingsmail.</li>
+  <li><strong>Vertrouw geen copy-pasted "perfect" regexes.</strong> Test ze tegen je echte data met de Regex Tester voor je deployt.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Validador de Email", "tagline": "Verifique se um endereço de email é sintaticamente válido (compatível com RFC 5322), com análise da parte local, domínio e armadilhas comuns.", "description": "Validador de email online gratuito. Checagem de sintaxe alinhada à RFC 5322, análise da parte local e do domínio, alerta de domínios descartáveis e verificação de comprimento."},
         "pl": {"name": "Walidator Email", "tagline": "Sprawdź, czy adres email jest poprawny składniowo (zgodny z RFC 5322), z rozbiciem na local part, domenę i typowe pułapki.", "description": "Darmowy online walidator emaili. Walidacja składni zgodna z RFC 5322, analiza local part i domeny, oznaczanie disposable domains i weryfikacja długości."},
         "ja": {"name": "メールアドレス検証ツール", "tagline": "メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。", "description": "オンライン無料のメールアドレス検証ツール。RFC 5322 準拠の構文チェック、ローカル部とドメインの解析、使い捨てドメインの検出、長さ検証を行います。"},
+        "nl": {"name": "Email-validator", "tagline": "Check of een emailadres syntactisch geldig is (RFC 5322-friendly), met breakdown van local part, domain en veelvoorkomende valkuilen.", "description": "Gratis online email-validator. RFC 5322-aware syntax check, analyse van local part en domain, disposable-domain hint en lengtecontrole."},
     },
     "body": """
 <div class="tool-card">
@@ -191,6 +192,27 @@ document.addEventListener('DOMContentLoaded', evRun);
   <li><strong>国際化メール（IDN）。</strong> <code>用户@例.中国</code> は RFC 6530 上は有効ですが、SMTP サーバーの対応はまだ広くありません。本ツールは保守的な ASCII ルールに従います。本当に IDN が必要な場合は緩めてください。</li>
   <li><strong>使い捨てドメイン検出はあくまでヒントです。</strong> リストは性質上不完全ですし、フラグが立ったドメインでも実在ユーザーである可能性があります。</li>
   <li><strong>大文字小文字の差で弾かないでください。</strong> RFC 5321 上はローカル部は case-sensitive ですが、実際のプロバイダはすべて case-insensitive に扱います。保存時に小文字化はしないでください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>De meeste "email-validators" zijn een one-line regex die <code>not@an.email</code> goedkeurt en <code>edge@case.io</code> afwijst. Deze tool draait de structurele checks die RFC 5321 / 5322 daadwerkelijk vereisen — local-part charset, dot-regels, label-lengtes, TLD-vorm, harde lengtelimieten — plus een disposable-domain hint. Hij vertelt je of een adres <em>well-formed</em> is; hij vertelt je niet of de mailbox bestaat (daarvoor is een server-side MX/SMTP-probe nodig).</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een lijst emailadressen pre-flighten voor je ze door een betaalde validation-API of mass-mailer pompt (vangt typo's gratis, spaart credits).</li>
+  <li>Een signup-form bouwen die overduidelijke onzin op veldniveau afwijst.</li>
+  <li>Een CSV met contacten auditen om typo's te vinden voor importeren.</li>
+  <li>Checken of een adres dat "raar lijkt" (internationale TLD, plus-addressing, sub-addressing) eigenlijk toegestaan is.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Syntactisch geldig ≠ deliverable.</strong> <code>does-not-exist@gmail.com</code> passeert elke structurele check. Echte verificatie vereist de respons van de MX-server. Gebruik dit als eerste filter, niet als zekerheidssignaal.</li>
+  <li><strong>Plus-addressing is toegestaan.</strong> <code>naam+tag@gmail.com</code> is geldig en routeert naar <code>naam@gmail.com</code> — strip het niet; het is een feature.</li>
+  <li><strong>Internationalised email (IDN).</strong> <code>用户@例.中国</code> is technisch geldig volgens RFC 6530 maar nog niet breed ondersteund door SMTP-servers. Deze tool volgt de conservatieve ASCII-regels; versoepel als je echt IDN nodig hebt.</li>
+  <li><strong>Disposable-domain detectie is hint-only.</strong> De lijst is per definitie incompleet en een gevlagde domain kan nog steeds een echte gebruiker zijn.</li>
+  <li><strong>Wijs case-verschillen niet af.</strong> Local parts zijn technisch case-sensitive volgens RFC 5321; in de praktijk behandelt elke moderne provider ze als case-insensitive. Maak ze niet lowercase bij opslag.</li>
 </ul>
 """,
     },

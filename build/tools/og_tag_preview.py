@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Preview de Tags OG", "tagline": "Cole meta tags OG ou preencha título/descrição/imagem — visualize os share cards como aparecem no Twitter/X, Facebook, LinkedIn e Discord.", "description": "Preview de Open Graph tags gratuito. Cole seus <meta> tags ou preencha título/descrição/imagem e veja como seu link vai renderizar nos previews de compartilhamento do Twitter/X, Facebook, LinkedIn e Discord. Roda inteiramente no seu navegador."},
         "pl": {"name": "Podgląd Tagów OG", "tagline": "Wklej meta tagi OG albo wpisz title/description/image — zobacz, jak share cardy wyglądają na Twitter/X, Facebook, LinkedIn i Discord.", "description": "Darmowy podgląd Open Graph tagów. Wklej swoje <meta> tagi albo po prostu wpisz title/description/image i zobacz, jak twój link wyrenderuje się w podglądach udostępnień na Twitter/X, Facebook, LinkedIn i Discord. Działa w całości w przeglądarce."},
         "ja": {"name": "OG タグプレビュー", "tagline": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。", "description": "無料の Open Graph タグプレビュー。<meta> タグの貼り付けか、タイトル／説明／画像の入力で、リンクが Twitter/X、Facebook、LinkedIn、Discord でどう見えるかを確認できます。すべてブラウザ内で動作します。"},
+        "nl": {"name": "OG Tag Preview", "tagline": "Plak OG meta tags of vul title/description/image — preview share cards zoals ze er op Twitter/X, Facebook, LinkedIn en Discord uitzien.", "description": "Gratis Open Graph tag preview. Plak je <meta>-tags of vul gewoon title/description/image in en zie hoe je link zal renderen in Twitter/X, Facebook, LinkedIn en Discord share-previews. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -418,6 +419,40 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>キャッシュ無効化は現実問題です。</strong> 一度スクレイピングされるとカードがキャッシュされます。再スクレイプにはプラットフォームのデバッガを使ってください。</li>
   <li><strong>タイトル／説明の文字数上限はばらつきます。</strong> Twitter/X はおおむね 70、Facebook は 88、LinkedIn は 100 文字付近で切れます。重要語は前に置きましょう。</li>
   <li><strong>Discord は <code>theme-color</code> を好みます。</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> を追加すると、Discord の左ボーダーの色になります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Wanneer je een link in Twitter/X, Facebook, LinkedIn, Discord, Slack of een moderne chat- of social-app deelt, wordt de link unfurled naar een "card" — title, description en image — gebaseerd op de <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> meta-tags in de page head. De verschillende platforms renderen deze cards anders en clippen tekst op verschillende lengtes. Deze tool geeft side-by-side previews van hoe dezelfde content in elk zal verschijnen, zonder dat je de URL daadwerkelijk op elk platform hoeft te delen.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Je hebt de OG-image of copy veranderd en wilt bevestigen dat het er goed uitziet voor deploy.</li>
+  <li>Je kiest een hero-image en wilt zien of het focal point de 1.91:1 crop overleeft.</li>
+  <li>Je schrijft de title/description-copy en wilt weten waar elk platform 'm zal clippen.</li>
+  <li>Je hebt een pagina geërfd zonder OG-tags en wilt ze opstellen door de gerenderde card te previewen.</li>
+</ul>
+
+<h3>De minimum-tags</h3>
+<ul>
+  <li><code>&lt;meta property="og:title" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:description" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:image" content="https://…"&gt;</code> (absolute URL, 1200×630 ideaal)</li>
+  <li><code>&lt;meta property="og:url" content="https://…"&gt;</code></li>
+  <li><code>&lt;meta property="og:type" content="website"&gt;</code></li>
+  <li><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code> (voor de X/Twitter big-image stijl)</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een statische preview, geen live fetcher.</strong> Echte platforms scrapen je pagina vanaf hun servers; als je echte site een andere image heeft, vangt deze tool dat niet. Gebruik de eigen debuggers van de platforms (Twitter's <a href="https://cards-dev.twitter.com/validator" target="_blank" rel="noopener noreferrer">card validator</a>, Facebook's Sharing Debugger, LinkedIn's Post Inspector) voor de gezaghebbende check.</li>
+  <li><strong>Image-URLs moeten absoluut zijn.</strong> <code>/og.png</code> werkt niet — scrapers kennen je origin niet.</li>
+  <li><strong>Image moet publiek bereikbaar zijn.</strong> Authentication walls, CDNs die referer vereisen, of hot-link protection laten je achter met een gebroken card.</li>
+  <li><strong>Aspect ratio doet ertoe.</strong> 1.91:1 (1200×630 is canoniek) rendert goed op elk platform. Vierkant of portret crop't slecht.</li>
+  <li><strong>Bestandsgrootte doet ertoe.</strong> Sommige scrapers wijzen images boven 8 MB af; mik op &lt;1 MB om first-load snappy te houden.</li>
+  <li><strong>Cache-invalidatie is echt.</strong> Zodra een platform je URL heeft gescraped, cached het de card. Gebruik de platform-debuggers om een re-scrape te forceren.</li>
+  <li><strong>Title/description-lengte-limieten verschillen.</strong> Twitter/X clipt title rond 70 tekens; Facebook rond 88; LinkedIn rond 100. Zet de belangrijke woorden vooraan.</li>
+  <li><strong>Discord prefereert <code>theme-color</code>.</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> toevoegen zet de linker rand-kleur op Discord embeds.</li>
 </ul>
 """,
     },

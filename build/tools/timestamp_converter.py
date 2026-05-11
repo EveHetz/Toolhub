@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Conversor de Timestamp Unix", "tagline": "Converta entre timestamps Unix e datas legíveis. Segundos e milissegundos, UTC e local.", "description": "Conversor gratuito de timestamp Unix. Converta entre segundos epoch, milissegundos, ISO 8601 e datas legíveis em UTC ou hora local."},
         "pl": {"name": "Konwerter Unix Timestamp", "tagline": "Konwertuj między Unix timestampami a datami czytelnymi dla człowieka. Sekundy i milisekundy, UTC i lokalna.", "description": "Darmowy online konwerter Unix timestampów. Konwertuj między epoch w sekundach, milisekundach, ISO 8601 i datami czytelnymi dla człowieka w UTC albo czasie lokalnym."},
         "ja": {"name": "Unix タイムスタンプ変換", "tagline": "Unix タイムスタンプと人間可読な日時を相互変換。秒・ミリ秒、UTC・ローカルに対応。", "description": "オンライン無料の Unix タイムスタンプ変換ツール。エポック秒、ミリ秒、ISO 8601、UTC およびローカル時刻の人間可読な日時間で変換できます。"},
+        "nl": {"name": "Unix Timestamp Converter", "tagline": "Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.", "description": "Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd."},
     },
     "body": """
 <div class="tool-card">
@@ -217,6 +218,35 @@ document.addEventListener('DOMContentLoaded', tsNow);
   <li><strong>負のタイムスタンプ</strong> は有効で、1970 年以前を表します。一部ライブラリは拒否するため、依存する前に検証してください。</li>
   <li><strong>自動判定は完全ではありません。</strong> 10 桁の値は理論上は 1970 年のミリ秒タイムスタンプであり得ます（実用上は皆無）。単位が分かっているなら自動判定に頼らず明示してください。</li>
   <li><strong>常に UTC で保存しましょう。</strong> タイムスタンプにタイムゾーンはありません。「ローカル時刻」は表示専用です。出力の "Local" 行はブラウザのタイムゾーンを使いますが、整数自体は常に UTC です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een Unix-timestamp is één integer — het aantal seconden (of milliseconden) sinds 1970-01-01 00:00:00 UTC. Ze zijn overal: log-files, API-responses, JWT <code>iat</code>/<code>exp</code> claims, database <code>created_at</code>-kolommen, cache-headers. Ze zijn ondubbelzinnig en tijdzone-vrij, maar niet menselijk leesbaar, dus als iets breekt op <code>1735689600</code>, wil je weten of dat 14u of 4u is, vandaag of vorig jaar. Deze tool flipt tussen de integer-vorm en de leesbare vorm in beide richtingen, met seconds/ms auto-detectie en een relative-time hint.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een <code>"timestamp": 1735689600</code> veld uit een log-entry of API-response decoderen.</li>
+  <li>Checken wanneer een JWT is uitgegeven of wanneer hij verloopt (<code>iat</code> / <code>exp</code> claims zijn seconds-since-epoch).</li>
+  <li>Een toekomstige timestamp berekenen voor een <code>retry-after</code>-header, scheduled job of cache TTL.</li>
+  <li>Sanity check op of een datum in een database in seconden, milliseconden of microseconden is opgeslagen.</li>
+  <li>"Nu" converteren naar het formaat dat je tool van het moment wil.</li>
+</ul>
+
+<h3>Seconds, milliseconds, microseconds</h3>
+<ul>
+  <li><strong>Seconds</strong> — de oorspronkelijke Unix-conventie; ~10 cijfers vandaag (bijv. <code>1735689600</code>). Gebruikt in C, Linux, JWT, de meeste API's, de meeste database <code>integer</code>-kolommen.</li>
+  <li><strong>Milliseconds</strong> — JavaScript's <code>Date.now()</code>, Java <code>System.currentTimeMillis()</code>, Kafka, veel JSON-API's. ~13 cijfers.</li>
+  <li><strong>Microseconds (16 cijfers) / nanoseconds (19 cijfers)</strong> — Python <code>time.time_ns()</code>, Go <code>time.Now().UnixNano()</code>, sommige metrics-systemen. Deze tool handelt ze niet auto af — deel eerst door 1.000 of 1.000.000.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Het Year 2038-probleem.</strong> Signed 32-bit timestamps overflowen op <code>2147483647</code> = <strong>03:14:07 UTC, 19 januari 2038</strong>. Oude C-code, MySQL <code>TIMESTAMP</code>-kolommen en embedded systems kunnen wrappen naar 1901. Moderne systemen gebruiken 64-bit en zijn prima tot ~jaar 292.277.026.596.</li>
+  <li><strong>Unix-tijd slaat leap seconds over.</strong> Een Unix-dag is precies 86.400 seconden, ook als UTC 86.401 heeft. Dit is by design (het houdt rekenen simpel) maar betekent dat je Unix-timestamps niet kunt gebruiken voor sub-seconde nauwkeurige astronomie of GPS.</li>
+  <li><strong>Negatieve timestamps</strong> zijn geldig en representeren datums voor 1970. Sommige libraries wijzen ze af — test voor je erop vertrouwt.</li>
+  <li><strong>Auto-detectie is niet vlekkeloos.</strong> Een 10-cijferige waarde <em>kan</em> een millisecond-timestamp uit 1970 zijn — verdwijnend onwaarschijnlijk in de praktijk, maar als je weet welke unit je hebt, vertrouw niet op de heuristiek.</li>
+  <li><strong>Sla altijd UTC op.</strong> Timestamps zijn tijdzone-vrij; "lokale tijd" is alleen voor display. De "Local"-regel in de output gebruikt je browser-zone, maar de onderliggende integer is altijd UTC.</li>
 </ul>
 """,
     },

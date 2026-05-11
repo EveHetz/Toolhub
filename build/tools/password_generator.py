@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "強力なランダムパスワード、または覚えやすいパスフレーズを生成。ローカル動作で送信されません。",
             "description": "無料で安全なパスワード生成ツール。文字種ルールのカスタマイズ、パスフレーズモード、まとめて生成に対応。すべてブラウザ内で動作します。",
         },
+        "nl": {"name": "Wachtwoord-generator", "tagline": "Sterke random wachtwoorden of memorabele passphrases. Lokaal gegenereerd — nergens heen gestuurd.", "description": "Gratis veilige wachtwoord-generator. Custom karakterregels, passphrase-mode en batch-generatie. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -320,6 +321,40 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>生成したパスワードを保護なしで控えないこと。</strong> 1Password、Bitwarden、KeePass などのパスワードマネージャーを使い、メモアプリ、テキストファイル、メールの下書きなどに置かないでください。</li>
   <li><strong>長い方が複雑より勝ります。</strong> 小文字のみの 24 文字は、全記号クラスの 10 文字よりエントロピーが高いです。長さが正義です。</li>
   <li><strong>サイト固有ルールでコピペが壊れることがあります。</strong> 特定記号を禁止したり、16 文字までに制限したりするサイトがあります。生成→必要に応じてトリム／差し替え、最終形をマネージャーに保存してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een goed wachtwoord is er één dat een aanvaller niet kan raden en jij niet hoeft te onthouden (omdat het in je password manager staat). Deze generator produceert sterke random wachtwoorden of memorabele passphrases volledig in je browser, met <code>crypto.getRandomValues</code> — dezelfde cryptografisch veilige random-bron die TLS gebruikt. Niets wordt verzonden; het wachtwoord verlaat je apparaat nooit.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een uniek wachtwoord maken voor elke nieuwe account dat in een password manager terechtkomt.</li>
+  <li>Een masterwachtwoord of recovery-passphrase genereren die je uit het hoofd moet onthouden — passphrase-mode is makkelijker te typen en onthouden.</li>
+  <li>Een niet-menselijk secret produceren voor een CI-variable, API-token of Wi-Fi-netwerk.</li>
+  <li>In bulk wachtwoorden genereren voor een fresh user-batch (zet count tot 50).</li>
+</ul>
+
+<h3>Random karakters vs passphrases</h3>
+<ul>
+  <li><strong>Random karakters</strong> — meeste entropie per lengte. 20 mixed karakters ≈ 130 bits. Goed voor dingen die je plakt, niet typt.</li>
+  <li><strong>Passphrases</strong> — makkelijker te typen en onthouden. Vier woorden ≈ 40 bits, zes woorden ≈ 60 bits. Goed voor masterwachtwoorden, device unlock en alles dat je vaak handmatig zal invoeren.</li>
+  <li>"Exclude ambiguous" dropt <code>0/O/1/l/I</code> voor veiliger lezen van schermen of handgeschreven notities.</li>
+</ul>
+
+<h3>Hoeveel entropie heb ik nodig?</h3>
+<ul>
+  <li>≥ 60 bits — prima voor low-value accounts</li>
+  <li>≥ 80 bits — goed voor de meeste accounts</li>
+  <li>≥ 100 bits — high-value (financieel, masterwachtwoord, root credential)</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Hergebruik geen wachtwoorden.</strong> De enkele grootste security-upgrade die je kunt doen is één uniek wachtwoord per site, opgeslagen in een manager. Generator-sterkte is verspild als hetzelfde wachtwoord op vijf sites leeft.</li>
+  <li><strong>Schrijf gegenereerde wachtwoorden niet op zonder bescherming.</strong> Gebruik een password manager (1Password, Bitwarden, KeePass) — geen Notes-app, geen tekstbestand, geen email-concept.</li>
+  <li><strong>Lang &gt; complex.</strong> Een 24-karakter wachtwoord met alleen lowercase letters heeft meer entropie dan een 10-karakter met elke symboolklasse. Lengte wint.</li>
+  <li><strong>Site-specifieke regels kunnen copy-paste breken.</strong> Sommige sites verbieden specifieke symbolen of kappen lengte af op 16. Vervelend maar echt — genereer, trim/swap dan om te passen indien nodig (en sla dan het daadwerkelijk opgeslagen wachtwoord op in je manager).</li>
 </ul>
 """,
     },

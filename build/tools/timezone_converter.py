@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "IANA タイムゾーン間で日時を変換。両端のオフセット、DST の有無、曜日も表示。",
             "description": "オンライン無料のタイムゾーン変換ツール。任意の IANA タイムゾーン間で DST を考慮しながら変換できます。よく使うゾーンから、ブラウザがサポートする 400 以上のゾーンまで選択可能です。",
         },
+        "nl": {"name": "Tijdzone-converter", "tagline": "Converteer een datum en tijd tussen IANA-tijdzones. Zie offsets, DST-status en weekdag voor beide kanten.", "description": "Gratis online tijdzone-converter. Converteer tussen elke IANA-tijdzone met DST-awareness. Kies uit veelgebruikte zones of een van de ~400+ die je browser ondersteunt."},
     },
     "body": """
 <div class="tool-card">
@@ -261,6 +262,31 @@ document.addEventListener('DOMContentLoaded', () => { tzPopulate(); tzNow(); });
   <li><strong>国の略称はゾーンではありません。</strong> 「EST」は米国とオーストラリアで意味が違い、「IST」はインド・アイルランド・イスラエルで違います。略称ではなく必ず IANA ゾーンを選んでください。</li>
   <li><strong>歴史的精度</strong> は近代以降は良好ですが、非常に古い日付では崩れることがあります。1970 年以前のタイムスタンプはブラウザによって近似オフセットが使われることがあります。</li>
   <li><strong>日時の保存は常に UTC で。</strong> 表示時にローカルへ変換します。出力の UTC 行が DB に書き込むべき正準値です。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Tijdzones zijn misleidend vervelend. Een meeting om "9 uur" betekent andere absolute momenten in Londen, Amsterdam en New York — en de offset tussen twee daarvan verandert twee keer per jaar door daylight saving, op verschillende datums. Deze tool neemt een wandkloktijd in één IANA-zone en vertelt je het exacte equivalent in een andere, met huidige offsets, het UTC-moment en de weekdag voor beide kanten.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een call inplannen over continenten — bevestigen wat "15u CET" is in de zone van je collega.</li>
+  <li>Een log-timestamp lezen die in UTC is opgenomen en vertalen naar lokale tijd voor een user-facing report.</li>
+  <li>Checken of een deploy-window of maintenance-slot een DST-grens kruist.</li>
+  <li>Sanity check dat een cron-expressie in <code>America/New_York</code> vuurt op het moment dat je verwacht vanuit je eigen zone.</li>
+  <li>De weekdag-verandering uitwerken bij het kruisen van de international date line.</li>
+</ul>
+
+<h3>Waarom IANA-zones (geen "GMT+2")</h3>
+<p>Een IANA-zone als <code>Europe/Amsterdam</code> of <code>America/New_York</code> codeert de historische en doorlopende regels voor die locatie — DST start- en einddatums, tijdzone-wijzigingen (Rusland schafte DST af in 2014; Turkije liet DST vallen in 2016), zelfs Samoa dat in 2011 een hele dag oversloeg. Een kale offset als "GMT+2" vertelt je niets over of DST geldt, wat de regel vorig jaar was, of wat hij volgend jaar zal zijn. Browsers shippen de IANA-database (via ICU/CLDR) en updaten 'm automatisch, zodat de conversie correct blijft over tijd.</p>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>DST-transitions maken ambigue en ontbrekende tijden.</strong> Als een klok terugvalt, gebeurt 02:30 twee keer; als hij vooruitspringt, bestaat 02:30 helemaal niet. De tool kiest standaard de standard-time-interpretatie; als je de andere kant nodig hebt, schuif met een uur naar één kant.</li>
+  <li><strong>Offsets zijn geen constanten.</strong> "CET" is UTC+1 in winter en UTC+2 in zomer (CEST). De output toont altijd de daadwerkelijke offset voor de datum die je hebt ingevoerd, dus vertrouw de getoonde offset boven de afkorting.</li>
+  <li><strong>Land-afkortingen zijn geen zones.</strong> "EST" is ambigu (US vs Australisch); "IST" kan Indisch, Iers of Israëlisch betekenen. Kies altijd de IANA-zone, niet de afkorting.</li>
+  <li><strong>Historische accuratesse</strong> is goed voor het moderne tijdperk maar breekt af voor heel oude datums. Pre-1970 timestamps kunnen in sommige browsers benaderde offsets gebruiken.</li>
+  <li><strong>Datums opslaan: altijd UTC.</strong> Converteer op display-tijd. De UTC-regel in de output geeft je de canonieke waarde om naar je database te schrijven.</li>
 </ul>
 """,
     },

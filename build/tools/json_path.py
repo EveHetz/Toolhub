@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Testador JSONPath", "tagline": "Roda queries JSONPath contra qualquer documento JSON. Veja os nós correspondentes e seus paths em tempo real.", "description": "Testador JSONPath grátis online. Consulta JSON aninhado com $.., wildcards, array slices e expressões de filtro. Resultados ao vivo, cole seu JSON e comece a consultar."},
         "pl": {"name": "Tester JSONPath", "tagline": "Uruchamiaj zapytania JSONPath na dowolnym dokumencie JSON. Zobacz dopasowane węzły i ich ścieżki w czasie rzeczywistym.", "description": "Darmowy online tester JSONPath. Odpytuj zagnieżdżony JSON za pomocą $.., wildcardów, slice'ów tablic i wyrażeń filtrujących. Wyniki na żywo, wklej swój JSON i zacznij szukać."},
         "ja": {"name": "JSONPath テスター", "tagline": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。", "description": "オンライン無料の JSONPath テスター。$.. やワイルドカード、配列スライス、フィルタ式を使ってネストされた JSON を検索できます。結果はライブ表示。JSON を貼り付けてすぐに使い始められます。"},
+        "nl": {"name": "JSONPath Tester", "tagline": "Voer JSONPath-queries uit op elk JSON-document. Zie matched nodes en hun paden real-time.", "description": "Gratis online JSONPath-tester. Query genest JSON met $.., wildcards, array slices en filter-expressies. Live resultaten, plak je JSON en begin met queryen."},
     },
     "body": """
 <div class="tool-card">
@@ -342,6 +343,40 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong><code>$..*</code></strong> は深さ優先でツリー内の全ノードを返すため、結果は膨大になり得ます。未知のドキュメントを探索する用途に向きます。</li>
   <li><strong>数字の文字列キー。</strong> <code>{"1": "a"}</code> に対して <code>$['1']</code> は動きますが、<code>$.1</code> は動きません（数字はドットプロパティ名として無効）。</li>
   <li><strong>順序。</strong> JSON はオブジェクトのプロパティ順を保証しません。フィルタが順序に依存するなら、先にソートしてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>JSONPath is voor JSON wat XPath voor XML is — een query-taal om specifieke waarden uit een genest document te plukken zonder custom code te schrijven. <code>$.store.books[*].title</code> zegt "geef me elke boektitel onder store"; <code>$..price</code> zegt "elke <em>price</em> ergens in het document". Deze tool draait een query live tegen elk JSON dat je plakt en toont zowel de matched values als de paden waarvan ze kwamen, zodat je op de query kunt itereren tot precies teruggeeft wat je wil.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een query opstellen voor een tool die JSONPath gebruikt: jq-achtige CLI utilities, Postman tests, Stedi, n8n of AWS CloudWatch / Step Functions.</li>
+  <li>Specifieke velden uit een grote API-response trekken zonder een script te schrijven.</li>
+  <li>Een array filteren op een veldwaarde (bijv. "alle orders waar total &gt; 100").</li>
+  <li>Sanity check dat een diep genest pad daadwerkelijk een waarde resolved voor je het in code zet.</li>
+</ul>
+
+<h3>Korte syntax-referentie</h3>
+<ul>
+  <li><strong><code>$</code></strong> — root van het document.</li>
+  <li><strong><code>.name</code></strong> of <strong><code>['name']</code></strong> — kind op naam.</li>
+  <li><strong><code>..</code></strong> — recursive descent (elke diepte).</li>
+  <li><strong><code>*</code></strong> — wildcard (elke property of array-element).</li>
+  <li><strong><code>[n]</code></strong> — array-index (negatief telt vanaf het einde).</li>
+  <li><strong><code>[start:end:step]</code></strong> — array-slice (Python-stijl).</li>
+  <li><strong><code>[a, b, c]</code></strong> — union van indices of namen.</li>
+  <li><strong><code>[?(@.field &gt; 5)]</code></strong> — filter-expressie. <code>@</code> = huidige item; ondersteunt <code>== != &lt; &gt; &lt;= &gt;= &amp;&amp; ||</code> en <code>=~ /regex/</code>.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>JSONPath heeft geen enkele officiële spec.</strong> De originele Stefan Gössner-draft is al jaren de de-facto referentie; RFC 9535 (feb 2024) standaardiseerde het eindelijk. Implementaties verschillen lichtjes — wat in Postman werkt, werkt misschien niet in Jaeger.</li>
+  <li><strong>Dot vs bracket.</strong> <code>$.foo-bar</code> lijkt op "foo min bar" voor de parser; gebruik <code>$['foo-bar']</code> voor property-namen met hyphens, dots of spaties.</li>
+  <li><strong>Filter-expressies zijn hier JavaScript-flavoured</strong> — dat is een bewuste convenience maar matcht niet strikt met RFC 9535. Vertrouw niet erop dat de filters van deze tool byte-identiek werken in een andere implementatie.</li>
+  <li><strong><code>$..*</code></strong> retourneert elke node in de boom (depth-first), wat veel kan zijn. Nuttig om een onbekend document te verkennen.</li>
+  <li><strong>Numerieke strings.</strong> <code>{"1": "a"}</code> — toegang met <code>$['1']</code> werkt; <code>$.1</code> niet (getallen zijn geen geldige dot-property-namen).</li>
+  <li><strong>Volgorde.</strong> Object property-volgorde wordt door JSON niet gegarandeerd. Als je filter afhangt van volgorde, sorteer eerst.</li>
 </ul>
 """,
     },

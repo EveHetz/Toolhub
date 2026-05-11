@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON naar CSV — Toolhub</title>
+  <meta name="description" content="Gratis online JSON-naar-CSV converter. Flat arrays van objects naar rows, escapet quotes volgens RFC 4180, ondersteunt komma/puntkomma/tab delimiters.">
+  <meta property="og:title" content="JSON naar CSV — Toolhub">
+  <meta property="og:description" content="Gratis online JSON-naar-CSV converter. Flat arrays van objects naar rows, escapet quotes volgens RFC 4180, ondersteunt komma/puntkomma/tab delimiters.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/json-to-csv/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/nl/json-to-csv/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/json-to-csv/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-to-csv/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-to-csv/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-to-csv/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-to-csv/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-to-csv/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-to-csv/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-to-csv/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-to-csv/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-to-csv/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/json-to-csv/#tool",
+        "name": "JSON naar CSV",
+        "description": "Gratis online JSON-naar-CSV converter. Flat arrays van objects naar rows, escapet quotes volgens RFC 4180, ondersteunt komma/puntkomma/tab delimiters.",
+        "url": "https://toolhub.software/nl/json-to-csv/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Data Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["json", "csv", "convert", "data", "export", "excel"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "JSON naar CSV", "item": "https://toolhub.software/nl/json-to-csv/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: 1.35rem; }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-to-csv/'; else location.href='/json-to-csv/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / JSON naar CSV</div>
+    <h1>JSON naar CSV</h1>
+    <p class="tagline">Converteer JSON-arrays van objects naar CSV. Detecteert velden automatisch, ondersteunt custom delimiters, escapet correct voor Excel en Google Sheets.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Delimiter</label>
+      <select id="jc-delim" onchange="jcRun()">
+        <option value=",">, comma</option>
+        <option value=";">; semicolon</option>
+        <option value="\t">tab</option>
+        <option value="|">| pipe</option>
+      </select>
+    </div>
+    <div>
+      <label>Output</label>
+      <select id="jc-mode" onchange="jcRun()">
+        <option value="header">With header row</option>
+        <option value="noheader">No header row</option>
+      </select>
+    </div>
+  </div>
+  <label style="margin-top:1rem">JSON input (array of objects, or array of arrays)</label>
+  <textarea id="jc-in" oninput="jcRun()" spellcheck="false" placeholder='[{"name":"Alice","age":30},{"name":"Bob","age":25}]'></textarea>
+</div>
+<div class="tool-card">
+  <label>CSV output</label>
+  <div class="output-row">
+    <pre class="output" id="jc-out">Geef hierboven invoer om het resultaat te zien.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('jc-out', this)">Kopieer</button>
+  </div>
+  <button class="secondary" onclick="jcDownload()" style="margin-top:0.5rem">Downloaden .csv</button>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>De omgekeerde reis: voer een JSON-array in en krijg een CSV terug klaar voor Excel, Google Sheets of elke data-tool die tabellaire formaten prefereert. Headers worden auto-gedetecteerd uit object-keys; geneste waarden worden JSON-gestringified in losse cellen zodat niets stilletjes verdwijnt.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een API-response omzetten naar een CSV voor een stakeholder die alleen spreadsheets opent.</li>
+  <li>Een berg records uit een JSON-dump exporteren naar iets dat je kunt pivoteren/filteren in Sheets.</li>
+  <li>Fixture-rows genereren voor database-imports die CSV nemen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Header-inferentie gebruikt de union van alle object-keys.</strong> Een row die een key mist wordt een lege cel; de kolom verdwijnt niet.</li>
+  <li><strong>Geneste objects/arrays worden gestringified.</strong> Als je een flattened CSV nodig hebt (één kolom per geneste key), pre-flatten je het JSON voor je het invoert.</li>
+  <li><strong>Excel + delimiters.</strong> Europese locales defaulten op puntkomma's; switch de delimiter zodat het bestand met kolommen opent in plaats van één grote regel. RFC 4180-escaping wordt sowieso toegepast.</li>
+  <li><strong>UTF-8 BOM.</strong> Excel op macOS verprutst non-ASCII soms zonder een BOM. Deze tool zet er GEEN voor — pak de output door een BOM-toevoegende stap als je mojibake ziet.</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/csv-to-json/">CSV naar JSON</a> <a href="/nl/json-formatter/">JSON Formatter</a> <a href="/nl/yaml-json/">YAML ↔ JSON Converter</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function jcEsc(v, delim){
+  if (v === null || v === undefined) return '';
+  let s = typeof v === 'object' ? JSON.stringify(v) : String(v);
+  if (s.includes('"') || s.includes(delim) || s.includes('\n') || s.includes('\r')){
+    s = '"' + s.replace(/"/g,'""') + '"';
+  }
+  return s;
+}
+function jcRun(){
+  const raw = document.getElementById('jc-in').value.trim();
+  const delim = document.getElementById('jc-delim').value === '\\t' ? '\t' : document.getElementById('jc-delim').value;
+  const withHeader = document.getElementById('jc-mode').value === 'header';
+  const out = document.getElementById('jc-out');
+  out.classList.remove('error');
+  if (!raw){ out.textContent = 'Geef hierboven invoer om het resultaat te zien.'; return; }
+  let data;
+  try { data = JSON.parse(raw); }
+  catch(e){ out.classList.add('error'); out.textContent = '✗ Invalid JSON: ' + e.message; return; }
+  if (!Array.isArray(data)){ out.classList.add('error'); out.textContent = '✗ Expected a JSON array at the top level'; return; }
+  if (data.length === 0){ out.textContent = ''; return; }
+  let csv = '';
+  if (data.every(r => Array.isArray(r))){
+    csv = data.map(r => r.map(v => jcEsc(v, delim)).join(delim)).join('\n');
+  } else if (data.every(r => r && typeof r === 'object')){
+    const keys = [...new Set(data.flatMap(r => Object.keys(r)))];
+    if (withHeader) csv += keys.map(k => jcEsc(k, delim)).join(delim) + '\n';
+    csv += data.map(r => keys.map(k => jcEsc(r[k], delim)).join(delim)).join('\n');
+  } else {
+    out.classList.add('error'); out.textContent = '✗ Mixed array — expected uniform objects or arrays'; return;
+  }
+  out.textContent = csv;
+}
+function jcDownload(){
+  const csv = document.getElementById('jc-out').textContent;
+  if (!csv || csv === 'Geef hierboven invoer om het resultaat te zien.') return;
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const a = document.createElement('a');
+  a.download = 'data.csv';
+  a.href = URL.createObjectURL(blob);
+  a.click();
+}
+document.addEventListener('DOMContentLoaded', jcRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

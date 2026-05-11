@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Calculadora CIDR / Subnet", "tagline": "Calcule subnets IPv4 a partir da notação CIDR. Network, broadcast, máscara, faixa de hosts e visão binária.", "description": "Calculadora gratuita de CIDR / subnet IPv4. Informe qualquer CIDR (ex.: 10.0.0.0/16) e veja o endereço de rede, broadcast, máscara de subnet, faixa de hosts, total de endereços e representação binária."},
         "pl": {"name": "Kalkulator CIDR / Subnet", "tagline": "Liczy podsieci IPv4 z notacji CIDR. Sieć, broadcast, maska, zakres hostów i widok binarny.", "description": "Darmowy kalkulator CIDR / podsieci IPv4. Wpisz dowolny CIDR (np. 10.0.0.0/16) i zobacz adres sieci, broadcast, maskę podsieci, zakres hostów, łączną liczbę adresów i reprezentację binarną."},
         "ja": {"name": "CIDR / サブネット計算機", "tagline": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "description": "無料の IPv4 CIDR / サブネット計算ツール。任意の CIDR（例：10.0.0.0/16）を入力すると、ネットワークアドレス、ブロードキャスト、サブネットマスク、ホスト範囲、総アドレス数、バイナリ表現が確認できます。"},
+        "nl": {"name": "CIDR Subnet-calculator", "tagline": "Bereken IPv4-subnetten uit CIDR-notatie. Netwerk, broadcast, mask, hostbereik en binaire weergave.", "description": "Gratis IPv4 CIDR / subnet-calculator. Voer een CIDR in (bijv. 10.0.0.0/16) en zie het netwerkadres, broadcast, subnet mask, hostbereik, totaal aantal adressen en binaire representatie."},
     },
     "body": """
 <div class="tool-card">
@@ -240,6 +241,40 @@ document.addEventListener('DOMContentLoaded', cidrRun);
   <li><strong>クラスと CIDR を混同しないこと。</strong> クラス A/B/C は 1993 年以前の古い概念です。/24 が「クラス A」の範囲に含まれていても問題ありません。</li>
   <li><strong>RFC 1918 のプライベート範囲：</strong> <code>10.0.0.0/8</code>、<code>172.16.0.0/12</code>、<code>192.168.0.0/16</code>。これら以外はパブリックにルーティング可能（または予約済み）です。</li>
   <li><strong>このツールは IPv4 専用です。</strong> IPv6 CIDR は構造的には似ていますが、プレフィックスは /128 まで可能でアドレス空間も格段に大きく、ここでは扱いません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>CIDR (Classless Inter-Domain Routing)-notatie pakt een IPv4-adres en de subnetgrootte in één string: <code>192.168.1.0/24</code> betekent "het adres 192.168.1.0 met een 24-bit netwerk-prefix" — hetzelfde netwerk als het oudere <code>255.255.255.0</code> mask, maar geschreven in 12 tekens in plaats van 30. Deze tool decodeert elke CIDR in de menselijk leesbare waarden: welke adressen <em>in</em> het subnet zitten, het broadcast, het mask in dotted-vorm en het hostbereik dat je daadwerkelijk aan apparaten kunt toewijzen.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een VLAN of VPC ontwerpen en uitzoeken hoeveel hosts een /22 vs /23 herbergt (1022 vs 510).</li>
+  <li>Een firewallregel lezen als <code>allow 10.42.0.0/16</code> en het exacte bereik bevestigen dat die afdekt.</li>
+  <li>Een /24 opsplitsen in kleinere subnets en checken dat de grenzen niet overlappen.</li>
+  <li>Sanity check op een cloud security-group rule voor je deployt.</li>
+  <li>Vertalen tussen CIDR en een legacy <code>255.x.x.x</code> dotted mask in routerconfigs.</li>
+</ul>
+
+<h3>Korte CIDR-spiekbrief</h3>
+<ul>
+  <li><strong>/32</strong> — 1 adres (een enkele host-route).</li>
+  <li><strong>/30</strong> — 4 adressen, 2 bruikbaar (point-to-point links).</li>
+  <li><strong>/29</strong> — 8 adressen, 6 bruikbaar (klein kantoor-subnet).</li>
+  <li><strong>/24</strong> — 256 adressen, 254 bruikbaar (klassieke Class C / typisch LAN).</li>
+  <li><strong>/16</strong> — 65.536 adressen (typisch site-netwerk of VPC).</li>
+  <li><strong>/8</strong> — 16,7M adressen (hele organisatie).</li>
+  <li><strong>/0</strong> — elk IPv4-adres (de default route).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>"Bruikbaar" sluit netwerk en broadcast uit.</strong> Een /24 heeft 256 adressen maar maar 254 bruikbaar voor hosts — de eerste (.0) is het netwerk, de laatste (.255) is de broadcast.</li>
+  <li><strong>/31 en /32 zijn speciaal.</strong> /31 wordt gebruikt voor point-to-point links volgens RFC 3021 — beide adressen zijn bruikbaar. /32 is een enkele host (gebruikt in routingentries).</li>
+  <li><strong>Het adresdeel hoeft niet het netwerkadres te zijn.</strong> <code>10.5.7.42/24</code> betekent nog steeds dezelfde /24 als <code>10.5.7.0/24</code> — wat telt is de prefixlengte. De tool normaliseert in zijn output naar het netwerkadres.</li>
+  <li><strong>Verwar class niet met CIDR.</strong> Klassen A/B/C zijn een legacy-concept (van vóór 1993). Een /24 kan binnen een "class A"-bereik vallen en dat is prima.</li>
+  <li><strong>RFC 1918 private ranges:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Al het andere is publiek routeerbaar (of gereserveerd).</li>
+  <li><strong>Deze tool is alleen IPv4.</strong> IPv6 CIDR is structureel vergelijkbaar maar de prefix kan tot /128 gaan en de adresruimte is veel groter; hier niet ondersteund.</li>
 </ul>
 """,
     },

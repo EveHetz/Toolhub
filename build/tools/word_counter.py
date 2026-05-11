@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Contador de Palavras", "tagline": "Conte palavras, caracteres, frases, parágrafos e estime tempo de leitura e fala enquanto você digita.", "description": "Contador de palavras online gratuito. Contagem ao vivo de palavras, caracteres (com e sem espaços), frases, parágrafos, sílabas, mais estimativas de tempo de leitura e fala."},
         "pl": {"name": "Licznik Słów", "tagline": "Licz słowa, znaki, zdania, akapity i estymuj czas czytania + mówienia w trakcie pisania.", "description": "Darmowy online licznik słów. Liczenie na żywo słów, znaków (ze spacjami i bez), zdań, akapitów, sylab plus estymacja czasu czytania i mówienia."},
         "ja": {"name": "ワードカウンター", "tagline": "単語数・文字数・文数・段落数を数え、入力中に読了時間と発話時間を概算。", "description": "オンライン無料のワードカウンター。単語数、文字数（スペース含む／含まない）、文数、段落数、音節数のライブカウントに加え、読了時間と発話時間の概算を提供します。"},
+        "nl": {"name": "Woordenteller", "tagline": "Tel woorden, karakters, zinnen, paragrafen en schat lees- + spreektijd terwijl je typt.", "description": "Gratis online woordenteller. Live tellingen voor woorden, karakters (met en zonder spaties), zinnen, paragrafen, lettergrepen, plus lees- en spreektijd-schattingen."},
     },
     "body": """
 <div class="tool-card">
@@ -222,6 +223,39 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>単語数はツールごとに数 % 違います。</strong> Word、Google Docs、ジャーナル投稿システムはハイフン、ダッシュ、数字の扱いが異なります。厳格な制限に合わせるなら、ゲートキーパーが使うのと同じツールで数えてください。</li>
   <li><strong>「最頻出」はストップワードを除外しません。</strong> "the" や "a" がほぼ常にトップに来ます。実質的なシグナルは長めの単語を見るとよいです。</li>
   <li><strong>読了時間の概算は人によって異なります。</strong> 250 wpm は中央値。技術文章は遅く、フィクションは速く読まれます。計画の目安として使ってください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Woorden en karakters met de hand tellen is saai en foutgevoelig, maar de getallen tellen voortdurend: tweet-limieten, SMS-segmenten, essay-woord-counts, SEO meta-descriptions, journal submission-lengtes. Deze tool geeft je live tellingen terwijl je typt — woorden, karakters (met en zonder spaties), zinnen, paragrafen, regels — plus lees- en spreektijd-schattingen en een snelle woord-frequentie-pass voor de top-vijf herhalende woorden.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een 280-karakter X/Twitter-limiet halen, een 160-karakter SMS, een 155-karakter SEO meta-description of een 100-woord LinkedIn-intro.</li>
+  <li>Een essay, blogpost, abstract of grant application word-budgeteren tegen een harde limiet.</li>
+  <li>Inschatten hoe lang een script duurt om voor te lezen (podcasts, presentaties, voice-overs).</li>
+  <li>Overgebruikte woorden spotten door naar de "meest frequente"-lijst te kijken voor submitting.</li>
+  <li>Checken of een vertaling ruwweg dezelfde lengte heeft als de bron.</li>
+</ul>
+
+<h3>Wat elk getal betekent</h3>
+<ul>
+  <li><strong>Woorden</strong> — runs van non-whitespace karakters gescheiden door whitespace. "Twenty-one" telt als één woord; "twenty one" telt als twee.</li>
+  <li><strong>Karakters</strong> vs <strong>karakters (geen spaties)</strong> — beide tellen Unicode code points, geen bytes. Een emoji kan hier 1–2 "karakters" zijn maar meer bytes wanneer opgeslagen.</li>
+  <li><strong>Zinnen</strong> — segmenten eindigend op <code>.</code>, <code>!</code> of <code>?</code> (of end-of-text). Heuristiek, zie valkuilen.</li>
+  <li><strong>Paragrafen</strong> — gescheiden door blanke regels.</li>
+  <li><strong>Leestijd</strong> gaat uit van 250 wpm (stille volwassen lezing).</li>
+  <li><strong>Spreektijd</strong> gaat uit van 130 wpm (typisch conversationeel tempo; nieuwsfellers lopen sneller, audiobooks trager).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Zin-detectie is naïef.</strong> "Mr.", "U.S.", "bijv.", "3,14" en ellipses kunnen de zinstelling opblazen. Het getal is een nuttige schatting, geen garantie.</li>
+  <li><strong>Twitter/X telt code points, geen karakters.</strong> Een vlag-emoji (🇳🇱) is 2 code points maar rendert als één symbool — Twitter behandelt het als 2 karakters. Deze tool matcht dat.</li>
+  <li><strong>SMS-karakterlimieten hangen af van encoding.</strong> Plain ASCII past 160 karakters per segment; zodra je een non-GSM karakter (em-dash, smart quote, accent-letter) opneemt, schakelt het hele bericht naar UCS-2 en valt de limit naar 70. De tool rapporteert de GSM-limit; check je provider's gedrag voor de daadwerkelijke kost.</li>
+  <li><strong>Woord-counts variëren per tool.</strong> Word, Google Docs en journal-submission systems kunnen een paar procent verschillen — ze handelen hyphens, em-dashes en getallen verschillend af. Als een harde limit telt, tel in dezelfde tool die de gatekeeper gebruikt.</li>
+  <li><strong>"Meest frequente" filtert geen stop words.</strong> "de" en "een" staan bijna altijd bovenaan. Kijk naar de langere entries voor daadwerkelijk signaal.</li>
+  <li><strong>Leestijd-schattingen zijn persoonlijk.</strong> 250 wpm is de mediaan; technische content loopt trager, fictie sneller. Behandel het getal als plannings-leidraad, geen voorspelling.</li>
 </ul>
 """,
     },

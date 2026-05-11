@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slug Generator — Toolhub</title>
+  <meta name="description" content="Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel.">
+  <meta property="og:title" content="Slug Generator — Toolhub">
+  <meta property="og:description" content="Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/slug-generator/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/nl/slug-generator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/slug-generator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/slug-generator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/slug-generator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/slug-generator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/slug-generator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/slug-generator/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/slug-generator/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/slug-generator/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/slug-generator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/slug-generator/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/slug-generator/#tool",
+        "name": "Slug Generator",
+        "description": "Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel.",
+        "url": "https://toolhub.software/nl/slug-generator/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Text Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["slug", "url", "seo", "kebab", "permalink", "transliterate"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "Slug Generator", "item": "https://toolhub.software/nl/slug-generator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: 1.35rem; }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/slug-generator/'; else location.href='/slug-generator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Slug Generator</div>
+    <h1>Slug Generator</h1>
+    <p class="tagline">Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.</p>
+    
+<div class="tool-card">
+  <label>Invoer</label>
+  <textarea id="sg-input" oninput="sgRun()" placeholder="The Quick Brown Fox: A Café Story (1956)" spellcheck="false">The Quick Brown Fox: A Café Story (1956)</textarea>
+  <div class="row-2col" style="margin-top:0.7rem">
+    <div>
+      <label>Separator</label>
+      <select id="sg-sep" onchange="sgRun()">
+        <option value="-">- (hyphen, default)</option>
+        <option value="_">_ (underscore)</option>
+        <option value=".">. (dot)</option>
+        <option value="">none</option>
+      </select>
+    </div>
+    <div>
+      <label>Case</label>
+      <select id="sg-case" onchange="sgRun()">
+        <option value="lower">lowercase</option>
+        <option value="upper">UPPERCASE</option>
+        <option value="preserve">preserve</option>
+      </select>
+    </div>
+  </div>
+  <div class="row-2col" style="margin-top:0.5rem">
+    <div>
+      <label><input type="checkbox" id="sg-stop" onchange="sgRun()"> Strip English stop words</label>
+    </div>
+    <div>
+      <label>Max length <input type="number" id="sg-max" value="80" min="1" max="500" oninput="sgRun()" style="width:80px;display:inline-block"></label>
+    </div>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Uitvoer</label>
+  <div class="output-row">
+    <pre class="output" id="sg-out">Geef hierboven invoer om het resultaat te zien.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('sg-out', this)">Kopieer</button>
+  </div>
+  <div id="sg-meta" class="meta" style="margin-top:0.5rem"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>Een URL-slug is het menselijk leesbare laatste segment van een URL — <code>/blog/the-quick-brown-fox</code> in plaats van <code>/blog/post-4827</code>. Goede slugs zijn lowercase, ge-hyphend, alleen ASCII en kort genoeg om in één oogopslag te lezen, maar ze genereren uit echte titels vol accenten, punctuation en emoji is gepriegel om goed te krijgen. Deze tool translitereert accenten, strijkt rotzooi, voegt samen met je gekozen separator en kapt op een schone grens af zodat de output veilig direct in een route of bestandsnaam te droppen is.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li><code>/blog/&lt;slug&gt;</code>-URLs genereren uit artikeltitels — vooral als titels accenten (à, ñ, ø) of punctuation (colons, parentheses, em-dashes) bevatten.</li>
+  <li>Veilige filenames produceren uit user-supplied names — uploads, exports, generated reports.</li>
+  <li>Stabiele identifiers bouwen voor tags, categorieën of anchors (<code>#getting-started</code>) uit menselijke labels.</li>
+  <li>In bulk een lijst koppen converteren naar kebab-case voor een static-site build step.</li>
+</ul>
+
+<h3>Hoe de conversie werkt</h3>
+<ol>
+  <li>NFD-normaliseert Unicode en strijkt combining diacritics (<code>café → cafe</code>).</li>
+  <li>Mapt gebruikelijke Europese ligatures en speciale letters: <code>ß → ss</code>, <code>æ → ae</code>, <code>ø → o</code>, <code>Ł → L</code>, plus een paar currency/math-symbolen (<code>€ → eur</code>, <code>& → and</code>).</li>
+  <li>Vervangt elke non-alphanumeric run met een enkele spatie.</li>
+  <li>Laat optioneel veelvoorkomende Engelse stop words vallen (<em>a, an, and, the, of, to, …</em>).</li>
+  <li>Maakt lowercase (of behoudt case), voegt samen met je separator en kapt af op de limit zonder een loszittende separator achter te laten.</li>
+</ol>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Non-Latin scripts verdwijnen.</strong> Diacritic-strippen handelt à/ñ/ø af, maar het kan Chinees, Japans, Cyrillisch, Arabisch of Hebreeuws niet karakter-voor-karakter romaniseren — die hebben taalspecifieke tabellen nodig (Hanyu Pinyin, ICU transliteration) die hier bewust buiten scope vallen. Zulke karakters verdwijnen na de strip step.</li>
+  <li><strong>Stop-word removal is Engels-only.</strong> "El gato negro" verliest geen <em>el</em>; "Le chat noir" verliest geen <em>le</em>. Laat de toggle uit voor niet-Engelse titels.</li>
+  <li><strong>Truncation kan betekenis veranderen.</strong> "introduction-to-rust-programming" gekapt op 20 tekens wordt "introduction-to-rust" — prima; gekapt op 16 wordt "introduction-to" — duidelijk slechter. Stel de limit met de hand in voor content waar de staart ertoe doet.</li>
+  <li><strong>Slugs zijn niet uniek.</strong> Twee verschillende titels kunnen tot dezelfde slug instorten ("Café" en "Cafe" worden beide → <code>cafe</code>). Als je slugs als URL-keys gebruikt, voeg een korte ID of suffix toe bij collision.</li>
+  <li><strong>Verander geen geshipte slugs.</strong> Zodra een URL live en geïndexeerd is, breekt zijn slug regenereren links en SEO. Als een titel verandert, behoud de oude slug of zet een 301-redirect op.</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/case-converter/">Case Converter</a> <a href="/nl/url-encoder/">URL Encoder / Decoder</a> <a href="/nl/lorem-ipsum/">Lorem Ipsum Generator</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+const SG_STOP = new Set(['a','an','and','the','of','to','in','on','at','for','by','with','from','is','are','was','were','be','been','as','it','this','that','these','those']);
+function sgTransliterate(s){
+  // NFD normalize then strip combining diacritics
+  s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  // common European ligatures + special letters
+  const map = {
+    'ß':'ss','æ':'ae','Æ':'AE','œ':'oe','Œ':'OE',
+    'ø':'o','Ø':'O','å':'a','Å':'A','ł':'l','Ł':'L',
+    'ð':'d','Ð':'D','þ':'th','Þ':'Th',
+    '€':'eur','£':'gbp','$':'usd','¥':'jpy','%':'pct','&':'and','@':'at','+':'plus','=':'eq'
+  };
+  return s.replace(/[ßæÆœŒøØåÅłŁðÐþÞ€£$¥%&@+=]/g, c => map[c] || c);
+}
+function sgRun(){
+  const raw = document.getElementById('sg-input').value;
+  const sep = document.getElementById('sg-sep').value;
+  const cas = document.getElementById('sg-case').value;
+  const strip = document.getElementById('sg-stop').checked;
+  const maxLen = Math.max(1, parseInt(document.getElementById('sg-max').value) || 80);
+  const out = document.getElementById('sg-out');
+  const meta = document.getElementById('sg-meta');
+  if(!raw.trim()){ out.textContent = 'Geef hierboven invoer om het resultaat te zien.'; meta.textContent=''; return; }
+  let s = sgTransliterate(raw);
+  // collapse anything not letter/digit to a space
+  s = s.replace(/[^A-Za-z0-9]+/g, ' ').trim();
+  let words = s.split(/\s+/);
+  if(strip) words = words.filter(w => !SG_STOP.has(w.toLowerCase()));
+  if(words.length === 0) words = [s.replace(/\s+/g,'')];
+  if(cas === 'lower') words = words.map(w => w.toLowerCase());
+  else if(cas === 'upper') words = words.map(w => w.toUpperCase());
+  let slug = words.join(sep);
+  if(slug.length > maxLen){
+    slug = slug.slice(0, maxLen);
+    if(sep) slug = slug.replace(new RegExp('\\' + sep + '+$'), '');
+  }
+  out.textContent = slug || '—';
+  meta.textContent = `${slug.length} characters · ${words.length} words${strip?' (after stop-word removal)':''}`;
+}
+document.addEventListener('DOMContentLoaded', sgRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

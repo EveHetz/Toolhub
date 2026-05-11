@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "CSV para JSON", "tagline": "Converta dados CSV em arrays JSON. Detecção de cabeçalho, delimitadores customizados, campos entre aspas e quebras de linha embutidas.", "description": "Conversor CSV para JSON online gratuito. Detecta cabeçalhos automaticamente, suporta delimitadores customizados e campos multilinha entre aspas. Roda no seu browser."},
         "pl": {"name": "CSV do JSON", "tagline": "Konwertuj dane CSV na tablice JSON. Wykrywanie nagłówka, własne delimitery, pola w cudzysłowach i osadzone końce linii.", "description": "Darmowy online konwerter CSV do JSON. Auto-wykrywanie nagłówków, wsparcie dla własnych delimiterów i wielowierszowych pól w cudzysłowach. Działa w przeglądarce."},
         "ja": {"name": "CSV から JSON", "tagline": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。", "description": "オンライン無料の CSV → JSON コンバーター。ヘッダーの自動検出、カスタム区切り文字、引用符で囲まれた複数行フィールドに対応。すべてブラウザ内で動作します。"},
+        "nl": {"name": "CSV naar JSON", "tagline": "Converteer CSV-data naar JSON-arrays. Header-detectie, custom delimiters, quoted fields en embedded newlines worden afgehandeld.", "description": "Gratis online CSV naar JSON converter. Detecteert headers automatisch, ondersteunt custom delimiters en quoted multi-line fields. Draait in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -185,6 +186,25 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>型推論には方針があります。</strong> 数値文字列、<code>true</code>、<code>false</code>、リテラル <code>null</code> は JSON の型に変換されます。郵便番号、ISBN、電話番号など、見た目は数値だが実は違うデータは先頭の 0 が落ちます。型変換を無効にするか、変換後に補正してください。</li>
   <li><strong>空セルは <code>null</code> ではなく空文字列になります。</strong> 多くの API はこの 2 つを区別します。</li>
   <li><strong>実際のファイルにある BOM。</strong> Excel は Windows で UTF-8 をバイトオーダーマーク付きで保存することがあります。パーサーは許容しますが、他のコンシューマは許容しない場合があります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>CSV is de lingua franca van spreadsheet-exports; JSON is de lingua franca van API's en config. Deze converter pakt correct-quoted CSV (RFC 4180-compatible) en levert een JSON-array — ofwel een array van objects (als er een header-row is) of een array van arrays. Nuttig als je een sheet hebt geëxporteerd en het in iets moet voeren dat JSON spreekt.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een eenmalige Google Sheets / Excel-export omzetten naar seed-data voor een API-mock of test fixture.</li>
+  <li>Reference-tabellen (landen, currency codes, lookup-data) laden in een frontend die JSON consumeert.</li>
+  <li>Een CSV inspecteren met embedded comma's / newlines die overal verkeerd rendert behalve in een echte RFC 4180-parser.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Delimiter-detectie is geen magie.</strong> Als je file puntkomma's gebruikt (gebruikelijk in EU-locales) of tabs (TSV), schakel de delimiter-dropdown — auto-detectie raadt maar kan voor de gek gehouden worden door data met het verkeerde karakter erin.</li>
+  <li><strong>Type-coercion heeft een mening.</strong> Numerieke strings, <code>true</code>, <code>false</code> en letterlijk <code>null</code> worden geconverteerd naar JSON-types. Dingen die numeriek lijken maar niet zijn (postcodes, ISBN's met leading zeros, telefoonnummers) verliezen leading zeros — schakel coercion uit of post-process.</li>
+  <li><strong>Lege cellen worden lege strings, geen <code>null</code>.</strong> De meeste API's behandelen die twee verschillend.</li>
+  <li><strong>BOM's in het wild.</strong> Excel slaat UTF-8 op Windows vaak op met een byte-order mark; de parser tolereert het maar andere consumers misschien niet.</li>
 </ul>
 """,
     },

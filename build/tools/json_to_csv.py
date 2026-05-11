@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "JSON para CSV", "tagline": "Converte arrays JSON de objetos em CSV. Detecta os campos automaticamente, suporta delimitadores customizados e faz escape correto pra Excel e Google Sheets.", "description": "Conversor JSON para CSV grátis online. Achata arrays de objetos em linhas, faz escape de aspas conforme a RFC 4180, suporta delimitadores vírgula/ponto e vírgula/tab."},
         "pl": {"name": "JSON do CSV", "tagline": "Konwertuj tablice obiektów JSON na CSV. Auto-wykrywanie pól, własne delimitery, poprawny escape pod Excela i Google Sheets.", "description": "Darmowy online konwerter JSON do CSV. Spłaszcza tablice obiektów w wiersze, escape'uje cudzysłowy wg RFC 4180, wspiera delimitery przecinek/średnik/tab."},
         "ja": {"name": "JSON から CSV", "tagline": "JSON のオブジェクト配列を CSV に変換。フィールド自動検出、カスタム区切り、Excel・Google Sheets 向けに正しくエスケープ。", "description": "オンライン無料の JSON → CSV コンバーター。オブジェクト配列を行に展開し、RFC 4180 に従って引用符をエスケープ。カンマ／セミコロン／タブの区切り文字に対応します。"},
+        "nl": {"name": "JSON naar CSV", "tagline": "Converteer JSON-arrays van objects naar CSV. Detecteert velden automatisch, ondersteunt custom delimiters, escapet correct voor Excel en Google Sheets.", "description": "Gratis online JSON-naar-CSV converter. Flat arrays van objects naar rows, escapet quotes volgens RFC 4180, ondersteunt komma/puntkomma/tab delimiters."},
     },
     "body": """
 <div class="tool-card">
@@ -170,6 +171,25 @@ document.addEventListener('DOMContentLoaded', jcRun);
   <li><strong>ネストされたオブジェクトや配列は文字列化されます。</strong> フラットな CSV（ネストキーごとに 1 列）が必要な場合は、入力前に JSON を平坦化してください。</li>
   <li><strong>Excel と区切り文字。</strong> ヨーロッパロケールはセミコロン区切りがデフォルトです。区切りを切り替えて、1 行になってしまうのを避けてください。RFC 4180 のエスケープはどちらの場合も適用されます。</li>
   <li><strong>UTF-8 BOM。</strong> macOS の Excel は BOM がないと非 ASCII を化けさせることがあります。本ツールは BOM を付与しません。文字化けが見えたら BOM を付ける処理を別途挟んでください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>De omgekeerde reis: voer een JSON-array in en krijg een CSV terug klaar voor Excel, Google Sheets of elke data-tool die tabellaire formaten prefereert. Headers worden auto-gedetecteerd uit object-keys; geneste waarden worden JSON-gestringified in losse cellen zodat niets stilletjes verdwijnt.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een API-response omzetten naar een CSV voor een stakeholder die alleen spreadsheets opent.</li>
+  <li>Een berg records uit een JSON-dump exporteren naar iets dat je kunt pivoteren/filteren in Sheets.</li>
+  <li>Fixture-rows genereren voor database-imports die CSV nemen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Header-inferentie gebruikt de union van alle object-keys.</strong> Een row die een key mist wordt een lege cel; de kolom verdwijnt niet.</li>
+  <li><strong>Geneste objects/arrays worden gestringified.</strong> Als je een flattened CSV nodig hebt (één kolom per geneste key), pre-flatten je het JSON voor je het invoert.</li>
+  <li><strong>Excel + delimiters.</strong> Europese locales defaulten op puntkomma's; switch de delimiter zodat het bestand met kolommen opent in plaats van één grote regel. RFC 4180-escaping wordt sowieso toegepast.</li>
+  <li><strong>UTF-8 BOM.</strong> Excel op macOS verprutst non-ASCII soms zonder een BOM. Deze tool zet er GEEN voor — pak de output door een BOM-toevoegende stap als je mojibake ziet.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Diff de Texto", "tagline": "Compare dois blocos de texto e veja adições, remoções e contexto inalterado linha a linha. Visão lado a lado ou unificada.", "description": "Ferramenta de diff de texto gratuita online. Diff de Myers em nível de linha com visão lado a lado e unificada, com toggles para ignorar whitespace e ignorar case. Roda no navegador."},
         "pl": {"name": "Diff Tekstu", "tagline": "Porównaj dwa bloki tekstu i zobacz dodania, usunięcia i niezmieniony kontekst linia po linii. Widok side-by-side albo unified.", "description": "Darmowe narzędzie do diffowania tekstu online. Myers diff na poziomie linii z widokiem side-by-side i unified, togle do ignorowania białych znaków i wielkości liter. Działa w przeglądarce."},
         "ja": {"name": "テキスト差分", "tagline": "2 つのテキストブロックを比較し、行単位で追加・削除・変更されない部分を表示。並列または統合表示。", "description": "オンライン無料のテキスト差分ツール。Myers アルゴリズムによる行単位の差分を、並列／統合ビューで表示。空白無視、大小無視のトグルにも対応します。すべてブラウザ内で動作します。"},
+        "nl": {"name": "Text Diff", "tagline": "Vergelijk twee blokken tekst en zie regel-voor-regel additions, removals en unchanged context. Side-by-side of unified view.", "description": "Gratis online text-diff tool. Line-level Myers-diff met side-by-side en unified views, ignore-whitespace en ignore-case toggles. Draait in je browser."},
     },
     "body": """
 <div class="td-grid">
@@ -261,6 +262,35 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>順序が重要です。</strong> 2 行を入れ替えると、両方とも削除＋追加として表示されます。「移動」検出はありません。</li>
   <li><strong>巨大な入力（1 万行超）は遅くなります。</strong> LCS は O(m·n) です。通常のファイルなら問題ありませんが、巨大データでは小分けで diff してください。</li>
   <li><strong>末尾改行は 1 行と数えます。</strong> 末尾に改行があるかないかだけが違う 2 入力では、末尾に追加か削除が 1 件出ます。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Twee versies van een stuk tekst vergelijken — een paragraaf, een config-file, een SQL-query, een lijst — en precies zien welke regels werden toegevoegd, verwijderd of met rust gelaten. Zelfs als je geen <code>git diff</code> bij de hand hebt of de tekst niet in version control staat. De output is dezelfde line-level diff die je in een code review zou zien: groen voor additions, rood voor removals, plain voor unchanged context.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Spotten wat er verschilt tussen twee emails, contracten of geplakte blobs die "hetzelfde lijken".</li>
+  <li>Config-files of environment variables vergelijken tussen twee omgevingen (staging vs prod).</li>
+  <li>Wijzigingen reviewen aan een stuk copy dat door iemand anders in Word/Docs is bewerkt.</li>
+  <li>Twee query-resultaten, log-snippets of JSON-blobs diffen (gebruik de JSON Formatter eerst om te canonicaliseren).</li>
+  <li>Snelle sanity check op een search-and-replace voor je 'm commit.</li>
+</ul>
+
+<h3>Side-by-side vs unified</h3>
+<ul>
+  <li><strong>Side-by-side</strong> — makkelijker om kleine wijzigingen regel-voor-regel te scannen; het origineel staat links, de nieuwe versie rechts.</li>
+  <li><strong>Unified</strong> — dichter bij <code>git diff</code>-output; beter voor delen of printen, en makkelijker te volgen als wijzigingen schaars zijn.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Dit is een line-diff, geen word-diff.</strong> Eén karakter veranderd in het midden van een lange regel markeert de hele regel als gewijzigd. Voor prose-level diff-en van paragrafen wil je misschien een tool die in woorden tokeniseert.</li>
+  <li><strong>"Ignore whitespace" beïnvloedt alleen vergelijking, niet display.</strong> Regels die alleen verschillen in trailing spaces of indentatie storten in de unchanged kolom in, maar de oorspronkelijke whitespace wordt nog steeds getoond.</li>
+  <li><strong>"Ignore case" idem.</strong> "TODO" en "todo" vergelijken gelijk, maar de oorspronkelijke casing wordt gerenderd.</li>
+  <li><strong>Volgorde doet ertoe.</strong> Als je twee regels omwisselt, toont de diff beide als removed-and-re-added, niet als een "moved" paar. Er is geen move-detectie.</li>
+  <li><strong>Grote inputs (10k+ regels) kunnen traag zijn.</strong> Het LCS-algoritme is O(m·n) — prima voor typische files, traag voor heel grote. Diff kleine stukken tegelijk.</li>
+  <li><strong>Trailing newlines</strong> tellen als een regel. Twee inputs die alleen verschillen in of ze met een newline eindigen, tonen één trailing addition of removal.</li>
 </ul>
 """,
     },

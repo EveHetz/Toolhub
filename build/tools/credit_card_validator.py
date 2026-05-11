@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Validador de Cartão de Crédito", "tagline": "Valide um número de cartão com a verificação de Luhn e detecte a bandeira. Roda localmente — seu número nunca é transmitido.", "description": "Validador de cartão de crédito online gratuito. Checksum de Luhn (mod-10), detecção de bandeira (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) e verificação de tamanho. 100% client-side."},
         "pl": {"name": "Walidator Karty Kredytowej", "tagline": "Sprawdź numer karty algorytmem Luhna i wykryj wystawcę. Działa lokalnie — twój numer nigdy nie jest wysyłany.", "description": "Darmowy walidator kart kredytowych online. Checksum Luhna (mod-10), wykrywanie wystawcy (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) i sprawdzanie długości. 100% po stronie klienta."},
         "ja": {"name": "クレジットカード検証ツール", "tagline": "Luhn チェックでカード番号を検証し、ブランドを検出。ローカル動作で、番号は送信されません。", "description": "オンライン無料のクレジットカード検証ツール。Luhn (mod-10) チェックサム、ブランド検出（Visa、Mastercard、Amex、Discover、JCB、Diners、UnionPay）、桁数検証を行います。100% クライアントサイドで動作します。"},
+        "nl": {"name": "Creditcard-validator", "tagline": "Valideer een kaartnummer met de Luhn-check en detecteer het kaartmerk. Draait lokaal — je nummer wordt nooit verzonden.", "description": "Gratis online creditcard-validator. Luhn (mod-10) checksum, brand-detectie (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) en lengtecontrole. 100% client-side."},
     },
     "body": """
 <div class="tool-card">
@@ -172,6 +173,28 @@ document.addEventListener('DOMContentLoaded', cvRun);
 </ul>
 
 <h3>テスト用番号（貼り付けても安全）</h3>
+<p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Kaartnummers dragen een ingebouwde checksum (het Luhn / mod-10 algoritme) en beginnen met prefixes die het uitgevende merk identificeren. Samen laten die je typo's vangen en het merk identificeren voor je een nummer naar een payment processor stuurt. Deze tool draait beide checks 100% in je browser — het nummer dat je plakt verlaat de pagina nooit. Het is developer-grade structurele validatie, geen fraud-check of live-card lookup.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Valideren dat een test-kaartnummer dat je hebt gekopieerd well-formed is (test-kaarten uit <a href="https://docs.stripe.com/testing" rel="noopener">Stripe's docs</a> of vergelijkbaar passeren allemaal Luhn).</li>
+  <li>Sanity check op input-velden in een formulier — voldoet het nummer aan de basisstructuur voor je het round-trippt naar een payments-API die anders kosten in rekening brengt voor de lookup?</li>
+  <li>Een kaartnummer audit doen dat "verkeerd lijkt" om te zien of het een typo is (Luhn faalt) of een brand-mismatch (lengte klopt niet bij de prefix).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>"Structureel geldig" betekent niet "uitgegeven" of "actief".</strong> Echte validatie vereist een payment processor — wat kost of een autorisatie plaatst. Deze tool vangt typo's, geen gesloten rekeningen.</li>
+  <li><strong>Plak nergens echte kaartnummers</strong> — ook niet in deze tool. De browser stuurt ze niet door, maar een screen-recorder, browser-extensie of geopend dev-tools panel kan dat wel. Gebruik in plaats daarvan een bekend testnummer.</li>
+  <li><strong>Sommige 16-cijferige nummers zijn geen kaarten.</strong> Loyalty cards, cadeaukaarten en sommige prepaid SKU's hergebruiken het formaat; Luhn-pass + brand-match garandeert geen betalingsinstrument.</li>
+  <li><strong>Co-branded kaarten.</strong> Kaarten uitgegeven onder één merk tonen mogelijk het logo van een ander merk. De brand-detectie hier gebruikt de canonieke issuer-prefix, niet het gedrukte logo.</li>
+</ul>
+
+<h3>Testnummers (veilig om te plakken)</h3>
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },

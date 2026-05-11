@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Conversor de Capitalização", "tagline": "Converta texto entre MAIÚSCULAS, minúsculas, Título, Frase, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE e dot.case.", "description": "Conversor de capitalização online gratuito. Alterne texto entre maiúsculas, minúsculas, título, frase, camel, pascal, snake, kebab, constant e dot case com um clique."},
         "pl": {"name": "Konwerter Wielkości Liter", "tagline": "Konwertuj tekst między WIELKIMI, małymi, Tytułowymi, Zdaniowymi, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE i dot.case.", "description": "Darmowy konwerter wielkości liter online. Zmień tekst między upper, lower, title, sentence, camel, pascal, snake, kebab, constant i dot case jednym kliknięciem."},
         "ja": {"name": "ケース変換ツール", "tagline": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "description": "オンライン無料のケース変換ツール。upper、lower、title、sentence、camel、pascal、snake、kebab、constant、dot ケースをワンクリックで切り替えできます。"},
+        "nl": {"name": "Case Converter", "tagline": "Converteer tekst tussen UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE en dot.case.", "description": "Gratis online case converter. Schakel tekst tussen upper, lower, title, sentence, camel, pascal, snake, kebab, constant en dot case in één klik."},
     },
     "body": """
 <div class="tool-card">
@@ -167,6 +168,26 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>数字は前の単語にくっつきます。</strong> "Item2" は "item2" 1 単語になり、2 つには分かれません。分けたい場合は区切り記号を入れてください。</li>
   <li><strong>"camelCase の最初の文字"</strong> は、入力が大文字で始まっていても常に小文字になります。PascalCase は大文字を保持します。</li>
   <li><strong>ラウンドトリップは必ずしも無損失ではありません。</strong> camelCase → kebab-case → camelCase と変換すると、元の単語境界の大文字情報は失われます。検出ヒューリスティックは可能な限り頑張りますが、保持されていない情報は復元できません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Elke taal en elk platform heeft eigen conventies voor het benoemen van dingen — JavaScript wil <code>camelCase</code>, Python wil <code>snake_case</code>, CSS wil <code>kebab-case</code>, environment variables willen <code>CONSTANT_CASE</code>. Daartussen vertalen met de hand is gepriegel, vooral bij edge cases (acroniemen, getallen, bestaande separators). Deze tool splitst elke input in woorden door case-overgangen, separators (<code>_ - . /</code>) en whitespace te detecteren, en plakt ze daarna in 14 verschillende stijlen terug aan elkaar.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een veld hernoemen van API-JSON (camelCase) naar een Python ORM-kolom (snake_case).</li>
+  <li>CSS-classnames genereren uit design-system tokennamen die in PascalCase binnenkomen.</li>
+  <li>Een lijst koppen converteren naar kebab-case slugs, of environment variable-namen naar CONSTANT_CASE.</li>
+  <li>Snel "The Quick Brown Fox" omzetten naar Title Case, Sentence case of Train-Case voor een kop / button-label.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Acroniemen zijn lastig.</strong> Moet "XMLHttpRequest" worden tot "XML_Http_Request" of "Xml_Http_Request"? Deze tool behandelt opeenvolgende hoofdletters als één woordgrens (<code>xml http request</code>) en re-cased dan — wat overeenkomt met Java/JS-conventies maar niet met alle stijlgidsen.</li>
+  <li><strong>Getallen plakken aan het vorige woord.</strong> "Item2" wordt één woord "item2", geen twee. Voeg een separator toe als je ze gesplitst wilt.</li>
+  <li><strong>"camelCase eerste letter"</strong> is altijd kleine letter, ook als de input met een hoofdletter begon. PascalCase behoudt de hoofdletter.</li>
+  <li><strong>Round-trippen is niet altijd lossless.</strong> camelCase → kebab-case → camelCase verliest de oorspronkelijke hoofdletterhint bij woordgrenzen; de case-detectie heuristiek doet zijn best maar kan niet terughalen wat niet bewaard is.</li>
 </ul>
 """,
     },

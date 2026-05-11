@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Parser — Toolhub</title>
+  <meta name="description" content="Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser.">
+  <meta property="og:title" content="URL Parser — Toolhub">
+  <meta property="og:description" content="Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/url-parser/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/nl/url-parser/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/url-parser/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/url-parser/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/url-parser/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/url-parser/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/url-parser/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/url-parser/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/url-parser/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/url-parser/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/url-parser/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/url-parser/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/url-parser/#tool",
+        "name": "URL Parser",
+        "description": "Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser.",
+        "url": "https://toolhub.software/nl/url-parser/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["url", "parse", "query", "host", "path", "fragment", "search params"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "URL Parser", "item": "https://toolhub.software/nl/url-parser/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { display: none; font-weight: 500; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); }
+    .related a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; }
+    .footer a:hover { color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: 1.35rem; }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <link rel="stylesheet" href="/js/monetize.css">
+  <script>
+    /* Toolhub monetization config — fill these in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "",
+      githubSponsorsUrl: ""
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <select class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/url-parser/'; else location.href='/url-parser/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / URL Parser</div>
+    <h1>URL Parser</h1>
+    <p class="tagline">Plak elke URL — zie protocol, host, port, path, query parameters (gedecodeerd), hash en origin uitgesplitst.</p>
+    
+<div class="tool-card">
+  <label>URL</label>
+  <input type="text" id="up-in" oninput="upRun()" placeholder="https://user:pw@example.com:8080/path/to?lang=en&items=1&items=2#section" value="https://www.example.com:8080/products/search?q=hello%20world&category=books&page=2#reviews" autocomplete="off" spellcheck="false" style="font-family:ui-monospace,monospace">
+  <div class="meta" style="margin-top:0.5rem">Both URL-encoded and decoded views shown for query values.</div>
+</div>
+<div class="tool-card">
+  <label>Components</label>
+  <div id="up-components" class="output">Geef hierboven invoer om het resultaat te zien.</div>
+</div>
+<div class="tool-card">
+  <label>Query parameters</label>
+  <div id="up-params" class="output">Geef hierboven invoer om het resultaat te zien.</div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>Een URL is een gestructureerde string met zeven goed-gedefinieerde delen (scheme, authority, host, port, path, query, fragment) die je als één blob inschat. Als er iets mis is — de verkeerde parameter, een onverwachte port, een extra encoded karakter — is dat veel makkelijker te spotten in een geparseerde tabel dan in de raw string. Deze tool gebruikt het native <code>URL</code>-object van de browser zodat de parse precies matcht met wat JavaScript ziet, en splitst dan elke query-parameter uit zodat de decoded values naast de raw vorm zichtbaar zijn.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een OAuth callback-URL debuggen waar de <code>state</code> of <code>code</code> verkeerd lijkt.</li>
+  <li>Een tracking-URL (UTM-tags, click-tokens) inspecteren en de daadwerkelijke values zien in plaats van de encoded blob.</li>
+  <li>Bevestigen dat een webhook-URL parset zoals de ontvangende service verwacht — vooral het path en de eventuele query.</li>
+  <li>Inschatten waarom een deep link in de ene app werkt en niet in de andere (port? scheme? authority?).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Herhaalde query-keys zijn echt.</strong> <code>?a=1&amp;a=2</code> is twee values voor <code>a</code>; tools die alleen de eerste lezen missen data. De parser toont alle values per key.</li>
+  <li><strong>Het fragment bereikt nooit de server.</strong> Alles na <code>#</code> blijft in de browser. Als je backend data niet ziet die je in de URL hebt gezet, check of die eigenlijk in het fragment staat.</li>
+  <li><strong>Encoding doet ertoe.</strong> <code>%20</code> in een query-value decodeert naar spatie; <code>+</code> in een query-value <em>ook</em> naar spatie (volgens <code>application/x-www-form-urlencoded</code>). De browser's <code>URL.searchParams</code> handelt beide af.</li>
+  <li><strong>Default ports verschijnen niet in <code>port</code>.</strong> Een URL als <code>https://example.com/</code> heeft <code>port</code> leeg (de default 443 wordt geïmpliceerd).</li>
+  <li><strong>Punycode hostnames.</strong> <code>example.中国</code> wordt intern opgeslagen als <code>xn--fiqs8s</code>; <code>hostname</code> kan de ASCII-vorm tonen afhankelijk van de browser.</li>
+  <li><strong>Origin is soms "null".</strong> Voor <code>file://</code>, <code>data:</code> of sandboxed contexts is origin opaque.</li>
+  <li><strong>Dit is parsing, geen validatie.</strong> Een URL kan schoon parsen en nog steeds verkeerd zijn voor je applicatie (bijv. verkeerde host, missing path).</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/url-encoder/">URL Encoder / Decoder</a> <a href="/nl/query-string-builder/">Query String Builder</a> <a href="/nl/jwt-decoder/">JWT Decoder</a> <a href="/nl/base64-encoder/">Base64 Encoder / Decoder</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.up-table { width: 100%; }
+.up-table td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border); font-family: ui-monospace, monospace; font-size: 0.85rem; vertical-align: top; word-break: break-all; }
+.up-table td:first-child { width: 30%; color: var(--text-muted); }
+.up-empty { color: var(--text-muted); font-style: italic; }
+</style>
+<script>
+function upEsc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function upRun(){
+  const v = document.getElementById('up-in').value.trim();
+  const comps = document.getElementById('up-components');
+  const params = document.getElementById('up-params');
+  comps.classList.remove('error');
+  params.classList.remove('error');
+  if(!v){ comps.textContent = 'Geef hierboven invoer om het resultaat te zien.'; params.textContent = 'Geef hierboven invoer om het resultaat te zien.'; return; }
+  let url;
+  try { url = new URL(v); }
+  catch(e){
+    // Try with prepended https:// for hostname-only inputs
+    try { url = new URL('https://' + v); }
+    catch(e2){
+      comps.classList.add('error');
+      comps.textContent = '✗ Not a valid URL — ' + e.message;
+      params.textContent = '';
+      return;
+    }
+  }
+
+  const rows = [
+    ['Origin', url.origin || '<i class="up-empty">(opaque)</i>'],
+    ['Protocol', url.protocol],
+    ['Username', url.username || '<i class="up-empty">(none)</i>'],
+    ['Password', url.password ? '<i class="up-empty">(set)</i>' : '<i class="up-empty">(none)</i>'],
+    ['Host', url.host],
+    ['Hostname', url.hostname],
+    ['Port', url.port || '<i class="up-empty">(default)</i>'],
+    ['Pathname', url.pathname || '<i class="up-empty">(empty)</i>'],
+    ['Search', url.search || '<i class="up-empty">(empty)</i>'],
+    ['Hash', url.hash || '<i class="up-empty">(empty)</i>'],
+  ];
+  comps.innerHTML = '<table class="up-table">' + rows.map(r => `<tr><td>${r[0]}</td><td>${typeof r[1] === 'string' && !r[1].startsWith('<') ? upEsc(r[1]) : r[1]}</td></tr>`).join('') + '</table>';
+
+  const sp = url.searchParams;
+  const keys = [];
+  for(const k of sp.keys()) if(!keys.includes(k)) keys.push(k);
+  if(keys.length === 0){
+    params.innerHTML = '<i class="up-empty">No query parameters.</i>';
+  } else {
+    let rowsHtml = '<table class="up-table"><tr><td><b>Key</b></td><td><b>Decoded value</b></td><td><b>Raw</b></td></tr>';
+    for(const k of keys){
+      const all = sp.getAll(k);
+      all.forEach((vv, i) => {
+        // Re-encode to show "raw" form as it would appear in the URL
+        const raw = encodeURIComponent(k) + '=' + encodeURIComponent(vv);
+        const keyDisp = i === 0 ? upEsc(k) : '';
+        rowsHtml += `<tr><td>${keyDisp}${all.length > 1 ? ' <span class="up-empty">[' + i + ']</span>' : ''}</td><td>${upEsc(vv)}</td><td><span style="color:var(--text-muted)">${upEsc(raw)}</span></td></tr>`;
+      });
+    }
+    rowsHtml += '</table>';
+    params.innerHTML = rowsHtml;
+  }
+}
+document.addEventListener('DOMContentLoaded', upRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.style.display = 'inline-block';
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.style.display = 'none';
+      });
+      window.addEventListener('appinstalled', () => { btn.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>

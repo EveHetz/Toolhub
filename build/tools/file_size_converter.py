@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Conversor de Tamanho de Arquivo", "tagline": "Converta entre bytes, KB, MB, GB, TB e os binários KiB, MiB, GiB, TiB. Decimal vs binário bem distinguidos.", "description": "Conversor gratuito de unidades de tamanho de arquivo. Converta qualquer quantidade de bytes entre unidades decimais (B, KB, MB, GB, TB, PB) e unidades binárias IEC (KiB, MiB, GiB, TiB, PiB). Veja os dois lado a lado, com a distinção exata."},
         "pl": {"name": "Konwerter Rozmiaru Plików", "tagline": "Konwertuj między bajtami, KB, MB, GB, TB a binarnymi KiB, MiB, GiB, TiB. Decimal vs binary jasno rozdzielone.", "description": "Darmowy konwerter jednostek rozmiaru pliku. Przelicz dowolną liczbę bajtów między jednostkami dziesiętnymi (B, KB, MB, GB, TB, PB) i binarnymi IEC (KiB, MiB, GiB, TiB, PiB). Zobacz obie naraz, z dokładnym rozróżnieniem."},
         "ja": {"name": "ファイルサイズコンバーター", "tagline": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。", "description": "無料のファイルサイズ単位変換ツール。任意のバイト値を、10 進系単位（B、KB、MB、GB、TB、PB）と IEC バイナリ単位（KiB、MiB、GiB、TiB、PiB）の間で変換し、両方を同時に表示します。違いを正確に把握できます。"},
+        "nl": {"name": "Bestandsgrootte-converter", "tagline": "Converteer tussen bytes, KB, MB, GB, TB en de binaire KiB, MiB, GiB, TiB. Decimaal vs binair duidelijk gescheiden.", "description": "Gratis converter voor bestandsgrootte-units. Converteer elk aantal bytes tussen decimale units (B, KB, MB, GB, TB, PB) en IEC binaire units (KiB, MiB, GiB, TiB, PiB). Zie beide tegelijk, met het exacte onderscheid."},
     },
     "body": """
 <div class="tool-card">
@@ -293,6 +294,33 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>ネットワーク速度はビット単位です。</strong> 100 Mbps = 100 メガビット/秒 = 最大 12.5 MB/s。「100 Mbit 光」が 100 MB のファイルを 1 秒でダウンロードするわけではありません。</li>
   <li><strong>ツールの一貫性に乏しいことがあります。</strong> macOS Finder は 10.6 で 2 進（KB ラベル）から 10 進に切り替え、おおむね 10 進のままです。Windows Explorer は依然として 2 進を KB ラベルで表示しており、紛らわしいですが変わっていません。</li>
   <li><strong>ブラウザの <code>Content-Length</code> はバイトです。</strong> 常に厳密で、SI/IEC の曖昧さはありません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>"Hoe groot is 4 GB?" hangt af van wie het vraagt. Harde-schijf-fabrikanten, netwerkengineers en SI-volgende standaarden bedoelen 4.000.000.000 bytes (machten van 1000). Besturingssystemen, RAM-modules en de meeste filemanagers bedoelden historisch 4.294.967.296 bytes (machten van 1024). De twee getallen liggen 7% uit elkaar op gigabyte-schaal en 10% op terabyte-schaal — genoeg om je belazerd te voelen als een "1 TB"-schijf als "931 GiB" op je computer verschijnt. Deze tool converteert tussen beide systemen zodat je altijd weet welk je bekijkt.</p>
+
+<h3>De twee systemen</h3>
+<ul>
+  <li><strong>SI / decimaal</strong> — KB, MB, GB, TB. <code>1 KB = 1.000 bytes</code>. Gebruikt door storage-fabrikanten, netwerksnelheden (Mbps, Gbps) en de SI-standaard sinds 1960.</li>
+  <li><strong>IEC / binair</strong> — KiB, MiB, GiB, TiB. <code>1 KiB = 1.024 bytes</code>. De IEC introduceerde deze in 1998 om te disambigueren. Linux <code>du</code> met <code>-h</code> gebruikt deze, net als macOS Finder voor memory.</li>
+</ul>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een backup, upload of Docker image inschatten en matchen wat een tool rapporteert.</li>
+  <li>"150 Mbps" downloadsnelheid converteren naar MB/s (deel door 8 — bits naar bytes).</li>
+  <li>Cloud-storage kosten inschatten als de ene provider GB quoteert en de andere GiB.</li>
+  <li>Uitvogelen hoeveel "1 GB" email eigenlijk is op disk.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Harde schijven gebruiken decimaal.</strong> Een "1 TB"-schijf bevat 1.000.000.000.000 bytes ≈ 931 GiB. De OS liegt niet — de marketing gebruikt de kleinere unit.</li>
+  <li><strong>RAM gebruikt binair.</strong> "8 GB RAM" is bijna altijd 8 GiB (8.589.934.592 bytes). RAM wordt gebouwd in machten van twee.</li>
+  <li><strong>Netwerksnelheid is in bits, geen bytes.</strong> 100 Mbps = 100 megabit per seconde = 12,5 MB/s piek. Je "100 Mbit glasvezel" downloadt geen 100 MB file in één seconde.</li>
+  <li><strong>Sommige tools zijn inconsistent.</strong> macOS Finder schakelde in 10.6 van binair (met KB-labels) naar decimaal, en bleef daar grotendeels. Windows Explorer gebruikt nog steeds binair met KB-labels — verwarrend maar ongewijzigd.</li>
+  <li><strong>Browsers' <code>Content-Length</code> is bytes.</strong> Altijd exact, geen SI/IEC-ambiguïteit.</li>
 </ul>
 """,
     },

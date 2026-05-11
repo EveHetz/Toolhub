@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。",
             "description": "オンライン無料の JSON Web Token デコーダー。ヘッダーとペイロードのデコード、有効期限のタイムスタンプ確認、署名の表示まで対応。完全にオフライン（ブラウザ内）で動作します。",
         },
+        "nl": {"name": "JWT Decoder", "tagline": "Plak een JWT om header en payload te decoderen. Alle decodering draait in je browser — tokens verlaten de pagina nooit.", "description": "Gratis online JSON Web Token decoder. Decodeer header en payload, verifieer expiry-timestamps, inspecteer signature. Werkt volledig offline in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -248,6 +249,36 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>本番のトークンを貼り付けないこと。</strong> 有効な JWT を持つ者は <code>exp</code> までユーザーになりすませます。本ツールはブラウザから外に送信しませんが、拡張機能、画面録画、開発者ツールから漏れる可能性はあります。共有が必要なら、テスト環境の新しいトークンを使ってください。</li>
   <li><strong><code>alg: none</code> のトークンは既知の攻撃クラスです。</strong> ヘッダに <code>alg: none</code> があり、ライブラリがそれを受け入れると、攻撃者がトークンを偽造できます。サーバー側で必ず拒否してください。</li>
   <li><strong>クロックスキューに注意。</strong> <code>exp</code> は検証側の時計と比較されます。時刻ずれのあるサーバーでは、ここで有効に見えるトークンが落ちることがあります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een JWT (JSON Web Token) bestaat uit drie base64url-encoded delen verbonden door dots: <code>header.payload.signature</code>. De header en payload zijn JSON-objects die je kunt inspecteren; de signature bewijst dat het token na issuance niet is geknoeid. Deze tool decodeert de eerste twee delen zodat je kunt zien wat erin zit zonder de ruis van base64 — nuttig bij het debuggen van auth-flows, verlopen sessions of "voor welke user is dit token precies?".</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een OAuth / OpenID Connect login debuggen die faalt — plak het access of ID token, zie wat de IdP daadwerkelijk uitgaf.</li>
+  <li>Token-expiry bevestigen: de tool decodeert <code>exp</code> als echte datum en vlagt het als het in het verleden ligt.</li>
+  <li>Sanity check op custom claims die een backend asseert (roles, permissions, tenant IDs).</li>
+  <li>Een token lezen dat je library "rejected as invalid" om te zien of het issue structureel, expiry of signature is.</li>
+</ul>
+
+<h3>Gebruikelijke claims</h3>
+<ul>
+  <li><code>iss</code> — issuer (wie het token maakte)</li>
+  <li><code>sub</code> — subject (de user/account die het representeert)</li>
+  <li><code>aud</code> — audience (wie het zou moeten accepteren)</li>
+  <li><code>exp</code> — expiry (Unix timestamp)</li>
+  <li><code>iat</code> — issued-at (Unix timestamp)</li>
+  <li><code>nbf</code> — not-valid-before (Unix timestamp)</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Een decoded JWT is GEEN verified JWT.</strong> De signature wordt hier niet gecheckt — dat vereist de public key van de issuer (RSA/EC) of shared secret (HMAC). Decoded contents vertellen je wat het token <em>zegt</em>, niet of je het moet vertrouwen. Verifieer altijd op de server voor je claims honoreert.</li>
+  <li><strong>Plak production-tokens nergens.</strong> Iedereen met een live JWT kan de user impersoneren tot <code>exp</code>. De browser stuurt het vanaf deze tool niet door, maar extensies, screen-recordings en dev tools kunnen dat wel. Gebruik een fresh token uit een test-omgeving als je moet delen.</li>
+  <li><strong><code>alg: none</code> tokens zijn een bekende aanvalsklasse.</strong> Als een header <code>alg: none</code> heeft en je library accepteert het, kunnen aanvallers tokens forgen. Wijs dit af op de server.</li>
+  <li><strong>Time skew doet ertoe.</strong> Een token's <code>exp</code> wordt gecheckt tegen de klok van de verifier. Servers met drift falen tokens die hier valide lijken.</li>
 </ul>
 """,
     },

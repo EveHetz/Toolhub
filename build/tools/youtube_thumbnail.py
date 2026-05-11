@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Baixar Thumbnail do YouTube", "tagline": "Cole qualquer URL ou ID de vídeo do YouTube e baixe todos os tamanhos de thumbnail disponíveis — links diretos, sem upload, sem cadastro.", "description": "Downloader de thumbnails do YouTube gratuito. Extrai o ID do vídeo de qualquer URL do YouTube (watch, youtu.be, shorts, embed, /v/) e mostra todas as resoluções de thumbnail disponíveis com links de download diretos."},
         "pl": {"name": "Pobieranie Miniatur YouTube", "tagline": "Wklej dowolny URL albo ID wideo YouTube i pobierz każdy dostępny rozmiar miniatury — bezpośrednie linki, bez uploadu, bez rejestracji.", "description": "Darmowy downloader miniatur YouTube. Wyciąga ID wideo z dowolnej formy URL YouTube (watch, youtu.be, shorts, embed, /v/) i pokazuje wszystkie dostępne rozdzielczości miniatur z bezpośrednimi linkami do pobrania."},
         "ja": {"name": "YouTube サムネイルダウンローダー", "tagline": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。", "description": "無料の YouTube サムネイルダウンローダー。YouTube の各種 URL 形式（watch、youtu.be、shorts、embed、/v/）から動画 ID を抽出し、利用可能なすべての解像度のサムネイルを直接ダウンロードリンクとともに表示します。"},
+        "nl": {"name": "YouTube Thumbnail Downloader", "tagline": "Plak elke YouTube-URL of video-ID en grijp elke beschikbare thumbnail-size — directe downloadlinks, geen upload, geen registratie.", "description": "Gratis YouTube thumbnail downloader. Extraheert de video-ID uit elke YouTube-URL (watch, youtu.be, shorts, embed, /v/) en toont alle beschikbare thumbnail-resoluties met directe downloadlinks."},
     },
     "body": """
 <div class="tool-card">
@@ -224,6 +225,37 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>画像は YouTube のものです。</strong> ホットリンクは問題ありません。自前 CDN への再ホスティングも技術的には可能ですが、商用利用ならライセンスを確認してください。動画フレームの視覚内容に作者の著作権がある場合があります。</li>
   <li><strong>本ツールは WebP に対応しません。</strong> YouTube は <code>.webp</code> 版（より小さい）も配信していますが、別の CDN パスから提供されており、本ツールでは扱いません。</li>
   <li><strong>ライブ配信や Shorts</strong> も問題なく動作します（URL パーサが現代的な形式を網羅）。ただしライブ配信のサムネイルは配信中に変化します。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Elke YouTube-video heeft een kleine set pre-gegenereerde thumbnail-images op voorspelbare URLs — YouTube gebruikt ze zelf in zoekresultaten, embeds en previews. Deze tool extraheert de 11-karakter video-ID uit elke YouTube-URL-vorm (watch, youtu.be, Shorts, embed, /v/) en zet elke beschikbare size uit met directe downloadlinks en copy-URL-knoppen. Nuttig als je een offline preview nodig hebt, een hero-image voor een blogpost, een Discord/Slack rich link of een fallback-poster voor een custom video player.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een YouTube-video embedden in een blogpost en dezelfde thumbnail willen die YouTube toont, lokaal gehost.</li>
+  <li>Een klikbare "watch this video"-tile maken in Notion / Slack / email waar je een still image nodig hebt.</li>
+  <li>Een custom video player bouwen en een poster-image nodig hebben voor de iframe laadt.</li>
+  <li>Een thumbnail opslaan voor offline gebruik als referentie, content of moodboard-materiaal.</li>
+  <li>De thumbnail in hoogste resolutie krijgen zonder gedoe met de YouTube Data API.</li>
+</ul>
+
+<h3>De varianten uitgelegd</h3>
+<ul>
+  <li><strong>maxresdefault</strong> (1280×720) — de originele full-HD thumbnail. Bestaat alleen voor video's geüpload in HD; anders geeft de URL 404 en blijft de preview leeg.</li>
+  <li><strong>sddefault</strong> (640×480) — gegenereerd voor de meeste video's in het moderne tijdperk.</li>
+  <li><strong>hqdefault</strong> (480×360) — <strong>bestaat altijd</strong>, terug tot de vroegste YouTube-video's. Gebruik dit als je fallback.</li>
+  <li><strong>mqdefault</strong> (320×180) en <strong>default</strong> (120×90) — kleine previews; nuttig voor in-list rendering.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>maxresdefault 404't vaak.</strong> Oudere of lager-resolutie uploads hebben hem niet. Bouw je fallback-ketting: <code>maxresdefault → sddefault → hqdefault</code>.</li>
+  <li><strong>Zwarte balken op hqdefault.</strong> De 480×360 thumbnail is letterboxed voor non-4:3 bronnen — er zijn balken boven en onder. <code>mqdefault</code> (320×180) heeft de juiste 16:9 aspect voor moderne uploads.</li>
+  <li><strong>Frames 1/2/3.</strong> YouTube exposet ook <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code> op hetzelfde pad — drie auto-extracted frames uit de video. Soms is een daarvan wat je daadwerkelijk wil voor een custom poster, en ze staan niet in de default-variantenlijst.</li>
+  <li><strong>Het is nog steeds YouTube's image.</strong> Hot-linking is prima; rehosten op je eigen CDN is technisch prima maar check de licensing als je het commercieel gebruikt. De videomaker kan copyright hebben op de visuele content van het frame.</li>
+  <li><strong>WebP hier niet ondersteund.</strong> YouTube serveert ook <code>.webp</code>-versies (kleinere files), maar die worden vanaf een ander CDN-pad geserveerd en niet door deze tool blootgesteld.</li>
+  <li><strong>Live streams en Shorts</strong> werken prima — de URL-parser handelt alle moderne vormen af — maar live-stream thumbnails veranderen terwijl de stream live is.</li>
 </ul>
 """,
     },

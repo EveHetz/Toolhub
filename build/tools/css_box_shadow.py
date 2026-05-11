@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Box Shadow CSS", "tagline": "Crie sombras CSS de uma ou várias camadas visualmente. Ajuste offset, blur, spread, cor e copie o CSS.", "description": "Gerador gratuito de box-shadow CSS. Empilhe várias sombras, alterne inset, ajuste blur e spread, copie CSS pronto para produção em um clique."},
         "pl": {"name": "Generator CSS Box Shadow", "tagline": "Buduj jedno- lub wielowarstwowe cienie CSS wizualnie. Dostosuj offset, blur, spread, kolor i kopiuj CSS.", "description": "Darmowy generator box-shadow CSS. Stackuj wiele cieni dla realistycznej elewacji, włączaj inset, dostrajaj blur i spread, kopiuj produkcyjny CSS jednym kliknięciem."},
         "ja": {"name": "CSS box-shadow ジェネレーター", "tagline": "1 層または多層の CSS box-shadow をビジュアルに作成。オフセット・ぼかし・広がり・色を調整し、CSS をコピー。", "description": "無料の CSS box-shadow ジェネレーター。複数のシャドウを重ねてリアルな立体感を表現でき、inset の切り替え、blur と spread の微調整、本番投入できる CSS のワンクリックコピーに対応します。"},
+        "nl": {"name": "CSS Box-Shadow Generator", "tagline": "Bouw visueel single- of multi-layer CSS box shadows. Stel offset, blur, spread en kleur in en kopieer CSS.", "description": "Gratis CSS box-shadow generator. Stack meerdere shadows voor realistische elevation, toggle inset, fine-tune blur en spread en kopieer production-ready CSS in één klik."},
     },
     "body": """
 <div class="tool-card">
@@ -234,6 +235,38 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>背景が透明なボックスのシャドウ。</strong> ボックスに <code>background</code> がないと、シャドウがボックスを透過して見えてしまいます（だいたい意図しない結果）。</li>
   <li><strong>パフォーマンス：</strong> 大きな blur を多数の要素に適用すると、低スペックモバイルで重くなることがあります。派手なグローを出す前に実機で確認しましょう。</li>
   <li><strong>ダークモード。</strong> 暗背景に微妙な暗いシャドウはほとんど見えません。明るいインナーボーダーや、明色寄りのシャドウを検討してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>De CSS <code>box-shadow</code>-property is de werkpaard om diepte toe te voegen — drop shadows op cards, button-highlights, focus rings, glows, neon-effecten, zelfs nep-3D. De syntax (<code>x y blur spread color</code>, optionele <code>inset</code>, meerdere shadows komma-gescheiden) is makkelijk te lezen maar omslachtig om blind te tweaken. Deze tool geeft je sliders voor elke waarde plus een live preview, plus presets die overeenkomen met de gangbare design-system elevations.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Card- of modal-elevation ontwerpen die er niet "goedkoop en hard" uitziet.</li>
+  <li>Een focus-ring-stijl bouwen voor toegankelijkheid (bijv. een 2px outline-glow).</li>
+  <li>Een neon- of glow-effect maken voor een hero-CTA.</li>
+  <li>Material Design- of Apple-stijl elevation tokens repliceren voor een design system.</li>
+  <li>Nep-"inset" diepte maken voor een ingedrukt-knop-effect of een card-recess.</li>
+</ul>
+
+<h3>Wat elke waarde doet</h3>
+<ul>
+  <li><strong>X / Y offset</strong> — richting waar de shadow valt (positieve Y = naar beneden). Voor een "licht van boven"-gevoel gebruik je Y > 0 en kleine of nul X.</li>
+  <li><strong>Blur</strong> — hoe zacht de rand is. 0 = scherp; groter = zachtere fade.</li>
+  <li><strong>Spread</strong> — hoeveel groter (of kleiner, bij negatief) de shadow is dan de box zelf.</li>
+  <li><strong>Color &amp; alpha</strong> — meestal een partial-alpha zwart of brand-kleur. Puur <code>#000</code> ziet er te zwaar uit; probeer <code>#0003</code> tot <code>#0002</code> voor natuurlijke diepte.</li>
+  <li><strong>Inset</strong> — keert de shadow naar binnen, als een recess.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Eén grote shadow lijkt kunstmatig.</strong> Echte elevation is twee of drie lagen gestapeld: een strakke, donkere, dichtbije shadow plus een brede, zachte, ver-uit. De "Material elevation"-preset toont het patroon.</li>
+  <li><strong>Puur zwart is te zwaar.</strong> Gebruik ~10–25% alpha-zwart, of tint de shadow met de complementkleur van het oppervlak voor warmte.</li>
+  <li><strong>Shadows renderen buiten de box.</strong> Als je container <code>overflow: hidden</code> heeft, wordt de shadow geclipt. Gebruik een wrapper of verplaats <code>overflow</code> naar een child.</li>
+  <li><strong>Shadow op transparante achtergrond.</strong> Als de box geen <code>background</code> heeft, schijnt de shadow door de box zelf — meestal verrassend.</li>
+  <li><strong>Performance:</strong> heel grote blur op veel elementen kan duur zijn op low-end mobile. Test op een echt device voor je fancy glows uitlevert.</li>
+  <li><strong>Dark mode.</strong> Subtiele dark-on-dark shadows verdwijnen bijna; overweeg een heldere inner border of een licht-getinte shadow in donkere thema's.</li>
 </ul>
 """,
     },

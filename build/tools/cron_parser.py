@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "cron 式をパースし、次の 10 回の発火時刻を表示。標準 5 フィールドの crontab。",
             "description": "オンライン無料の cron 式パーサー。5 フィールドの crontab 構文を検証し、ローカルタイムゾーンで次の 10 回の予定実行時刻を一覧表示します。",
         },
+        "nl": {"name": "Cron Expression Parser", "tagline": "Parse cron-expressies en zie de volgende 10 fire times. Standaard 5-veld crontab.", "description": "Gratis online cron expression parser. Valideert 5-veld crontab-syntax en lijst de volgende 10 geplande fire times in je lokale tijdzone."},
     },
     "body": """
 <div class="tool-card">
@@ -285,6 +286,37 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>step + range の組み合わせ。</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30。step は範囲内のみに適用されます。</li>
   <li><strong>タイムゾーンはブラウザのローカルです。</strong> 実際の cron デーモンはサーバー時間（多くは UTC）で動きます。ブラウザでは正しく見えても、サーバーでは別の壁時計時刻に発火することがあります。貼り付ける前に確認してください。</li>
   <li><strong>cron の方言にはフィールドが多いものがあります。</strong> Quartz cron は秒と年を含む 6〜7 フィールド、systemd タイマーは全く別の形式です。本ツールは標準 5 フィールドの crontab を解析します。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Cron-expressies zijn krachtig en makkelijk verkeerd te schrijven. <code>0 0 * * 1-5</code> lijkt op een weekdag-om-middernacht schedule en is dat ook. <code>*/15 0-9 * * *</code> lijkt elke vijftien minuten tijdens kantooruren en is dat ook. <code>0 0 1 */3 *</code> lijkt op kwartaals... als je je herinnert dat <code>*/3</code> "elke derde maand" betekent. Met deze tool kun je een expressie plakken, zien wat-ie echt betekent in gewoon Nederlands, en de volgende 10 fire times previewen zodat je kunt bevestigen voor je deployt.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Sanity check op een cron-regel in <code>crontab -e</code> voor opslaan.</li>
+  <li>Een Kubernetes <code>CronJob</code> schedule-string vertalen naar "hoe laat draait dit eigenlijk?".</li>
+  <li>Een nieuwe schedule ontwerpen — start met Nederlands ("elke werkdag-ochtend") en itereer de expressie tot de preview matcht.</li>
+  <li>Een job debuggen die "niet draaide toen ik dacht" — plak de schedule, kijk naar de volgende 10 tijden, zie of de realiteit de verrassing is of de expressie.</li>
+</ul>
+
+<h3>Cron-veld referentie</h3>
+<table>
+  <tr><th>Veld</th><th>Range</th><th>Wildcards</th></tr>
+  <tr><td>Minuut</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>Uur</td><td>0-23</td><td>idem</td></tr>
+  <tr><td>Day of month</td><td>1-31</td><td>idem</td></tr>
+  <tr><td>Maand</td><td>1-12</td><td>idem</td></tr>
+  <tr><td>Day of week</td><td>0-6 (0 = zondag, 7 ook = zondag)</td><td>idem</td></tr>
+</table>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week interacteren.</strong> Als beide beperkt zijn (bijv. <code>15 * * * 1</code> oftewel "de 15e OF een maandag"), OR'en de meeste cron-implementaties ze. Deze tool volgt die conventie.</li>
+  <li><strong><code>*/N</code> is niet helemaal "elke N".</strong> Het is "elke N startend bij de ondergrens", dus <code>*/15</code> in minuut = 0,15,30,45 (niet 12,27,42,57). Om later te beginnen, gebruik een lijst: <code>5,20,35,50</code>.</li>
+  <li><strong>Step + range combinaties.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. De step werkt alleen binnen de range.</li>
+  <li><strong>Tijdzone is hier browser-lokaal.</strong> Echte cron-daemons draaien in servertijd (vaak UTC). Een schedule die in je browser prima lijkt, kan op de server op een andere wandkloktijd vuren. Bevestig de tijdzone voor je plakt.</li>
+  <li><strong>Sommige cron-varianten voegen velden toe.</strong> Quartz cron heeft 6 of 7 velden (met seconden en jaar). systemd timers gebruiken een heel ander formaat. Deze tool parset standaard 5-veld crontab.</li>
 </ul>
 """,
     },

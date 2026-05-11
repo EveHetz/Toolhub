@@ -44,6 +44,7 @@ TOOL = {
             "tagline": "2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換。",
             "description": "オンライン無料の進数変換ツール。2 進、8 進、10 進、16 進、そして 2〜36 の任意の基数を相互変換できます。負数や大きな整数も BigInt によって扱えます。",
         },
+        "nl": {"name": "Getalstelsel-converter", "tagline": "Converteer tussen binair, octaal, decimaal, hexadecimaal en elk grondtal van 2 tot 36.", "description": "Gratis online converter voor getalstelsels. Converteer tussen binair, octaal, decimaal, hex en willekeurige grondtallen 2-36. Verwerkt negatieve getallen en grote integers via BigInt."},
     },
     "body": """
 <div class="tool-card">
@@ -256,6 +257,34 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>大きな数で精度を失いません。</strong> JavaScript の <code>Number</code> は 2<sup>53</sup> で頭打ちになりますが、本ツールは <code>BigInt</code> を使うため、64 bit 整数や大きなハッシュ、暗号値も正確にラウンドトリップします。</li>
   <li><strong>基数と大文字小文字を混同しないでください。</strong> 16 進の文字は大文字でも小文字でも受け付け、出力は大文字。32 進・36 進は慣例で小文字です。</li>
   <li><strong>先頭のゼロは落ちます。</strong> <code>0x000F</code> は <code>F</code> になります。固定幅の hex（バイト表現など）が必要なら、後続のコードでパディングしてください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Getallen zijn hetzelfde getal ongeacht het grondtal — <code>255</code>, <code>0xff</code>, <code>0b11111111</code> en <code>0o377</code> zijn identiek. Maar in welk grondtal je leest of schrijft doet ertoe als je vertaalt tussen memory layouts, kleurcodes parset, bit fields decodeert of gewoon hex uit een debugger leest. Deze tool converteert tussen binair, octaal, decimaal, hexadecimaal en elk grondtal van 2 tot 36, met BigInt onder de motorkap zodat je geen precisie verliest op grote getallen.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een hex-waarde uit een stack trace lezen en uitvogelen wat hij is in decimaal.</li>
+  <li>CSS-kleur <code>0xff8800</code> converteren naar een RGB-tripel, of andersom.</li>
+  <li>Een bitmask of flags-integer in binair inspecteren om te zien welke bits gezet zijn.</li>
+  <li>Vertalen tussen base-36 korte IDs en decimale tellers.</li>
+</ul>
+
+<h3>Herkende prefixen</h3>
+<ul>
+  <li>Hex: <code>0x</code>, <code>0X</code>, <code>#</code></li>
+  <li>Binair: <code>0b</code>, <code>0B</code></li>
+  <li>Octaal: <code>0o</code>, <code>0O</code></li>
+  <li>Underscore-groepering: <code>1_000_000</code></li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Negatieve getallen zijn sign-prefixed, geen two's complement.</strong> <code>-128</code> wordt als <code>-10000000</code> in binair getoond, niet <code>10000000</code>. De meeste talen tonen het op dezelfde manier voor arbitrary-precision integers.</li>
+  <li><strong>Grote getallen verliezen hier geen precisie.</strong> JavaScript <code>Number</code> kapt af bij 2<sup>53</sup>; deze tool gebruikt <code>BigInt</code>, dus 64-bit integers, grote hashes en crypto-waarden round-trip allemaal exact.</li>
+  <li><strong>Verwar grondtal niet met case.</strong> Base-16 letters kunnen upper- of lowercase zijn; de tool accepteert beide en geeft uppercase. Base-32 / base-36 outputs zijn per conventie lowercase.</li>
+  <li><strong>Leading zeros worden gedropt.</strong> <code>0x000F</code> wordt <code>F</code>. Als je een fixed-width hex nodig hebt (bijv. voor byte-representaties), pad daarna in je code.</li>
 </ul>
 """,
     },

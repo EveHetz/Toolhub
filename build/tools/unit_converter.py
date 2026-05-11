@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Conversor de Unidades", "tagline": "Converta entre unidades métricas e imperiais de comprimento, peso, temperatura, volume e área.", "description": "Conversor de unidades online gratuito. Converta comprimento (mm, cm, m, km, in, ft, yd, mi), peso (g, kg, lb, oz), temperatura (C, F, K), volume (mL, L, gal, fl oz) e área (m², ft², acre, ha)."},
         "pl": {"name": "Konwerter Jednostek", "tagline": "Konwertuj między metrycznymi i imperialnymi jednostkami długości, wagi, temperatury, objętości i powierzchni.", "description": "Darmowy online konwerter jednostek. Konwertuj długość (mm, cm, m, km, in, ft, yd, mi), wagę (g, kg, lb, oz), temperaturę (C, F, K), objętość (mL, L, gal, fl oz) i powierzchnię (m², ft², acre, ha)."},
         "ja": {"name": "単位変換ツール", "tagline": "メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。", "description": "オンライン無料の単位変換ツール。長さ（mm、cm、m、km、in、ft、yd、mi）、重さ（g、kg、lb、oz）、温度（C、F、K）、体積（mL、L、gal、fl oz）、面積（m²、ft²、acre、ha）を相互変換できます。"},
+        "nl": {"name": "Unit Converter", "tagline": "Converteer tussen metrische en imperiale eenheden van lengte, gewicht, temperatuur, volume en oppervlakte.", "description": "Gratis online unit-converter. Converteer lengte (mm, cm, m, km, in, ft, yd, mi), gewicht (g, kg, lb, oz), temperatuur (C, F, K), volume (mL, L, gal, fl oz) en oppervlakte (m², ft², acre, ha)."},
     },
     "body": """
 <div class="tool-card">
@@ -313,6 +314,37 @@ document.addEventListener('DOMContentLoaded', () => { ucCatChanged(); ucRun(); }
   <li><strong>質量と重量。</strong> 厳密には kg もポンドも質量です（口語では「体重 70 kg」と言いますが）。本ツールは質量↔質量の変換として扱います。力（ニュートン、pound-force）には別カテゴリが必要です。</li>
   <li><strong>丸めは最後に、途中ではしない。</strong> m → ft で丸めて、さらに ft → in と進めると誤差が積み重なります。直接ターゲット単位に変換してください。</li>
   <li><strong>ストーンとポンド。</strong> 英国の重量で 1 stone = 14 lb。本ツールは stone（st）を持ちますが、「11 st 4 lb」のような表記の lb 部分は別途処理してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Het grootste deel van de wereld is metrisch, de VS is imperiaal, het VK is half-en-half, recepten zijn in cups als ze in grammen hadden moeten zijn, en ergens daartussen vraagt een schoolwerkstuk om "5 yards in centimeters". Deze tool draait de conversies voor lengte, gewicht, temperatuur, volume, oppervlakte, tijd en snelheid met high-precision definities — en spreidt het resultaat tegelijk over elke unit in de categorie, zodat je niet twee keer hoeft te converteren.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een recept in cups lezen als je in grammen kookt (of andersom).</li>
+  <li>Een vluchtafstand in nautische mijlen vertalen naar kilometers.</li>
+  <li>Een buitentemperatuur-forecast converteren van °C naar °F voor reizen.</li>
+  <li>Een meubelstuk meten: 72 inches breed → past het door een deuropening van 1,9 m?</li>
+  <li>Wetenschappelijke paper-metingen in SI lezen als je in imperiaal denkt.</li>
+</ul>
+
+<h3>Wat accuraat is, en wat niet</h3>
+<ul>
+  <li><strong>Lengte, gewicht, temperatuur, oppervlakte, snelheid</strong> gebruiken de SI-definities en het international yard-and-pound agreement (1959), dus ze zijn precies tot de precisie die je input heeft.</li>
+  <li><strong>Volume</strong> kan gepriegel zijn: een US "gallon" (3,785 L) en een UK "imperial gallon" (4,546 L) zijn verschillend. De tool labelt welke welke is.</li>
+  <li><strong>Cup / tablespoon / teaspoon</strong> defaulten hier op US-maat. UK en Australische cups zijn lichtjes anders (250 mL in AU, 240 mL in US).</li>
+  <li><strong>"Maand" en "jaar"</strong> in de tijd-categorie gebruiken gemiddelden (30,44 dagen / 365,25 dagen). Gebruik dit niet voor legal- of accounting-berekeningen waar exacte maanden tellen — gebruik in plaats daarvan een datum-calculator.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Temperatuur is geen ratio.</strong> 0°C is geen "geen temperatuur" — het is een referentiepunt. Celsius verdubbelen verdubbelt de hitte niet. De conversie gebruikt de additieve offsets (273,15 naar/van Kelvin, 32 tussen C en F) wat de reden is dat de tool functies gebruikt voor temperatuur, geen multipliers.</li>
+  <li><strong>US vs UK fluid ounces zijn verschillend.</strong> 1 US fl oz = 29,57 mL, 1 UK fl oz = 28,41 mL. Check altijd welke standaard een recept gebruikt.</li>
+  <li><strong>"Tonne" vs "ton".</strong> Metrische tonne = 1000 kg. US short ton = 907 kg. UK long ton = 1016 kg. De "t" van de tool is de metrische tonne.</li>
+  <li><strong>Mass vs weight.</strong> Strikt is kg massa en pounds ook massa (ondanks het spreektalige "ik weeg 70 kg"). De tool behandelt ze als een mass-to-mass conversie. Voor force (newtons, pound-force) heb je een andere categorie nodig.</li>
+  <li><strong>Rond af op het einde, niet in het midden.</strong> Niet m → ft, afronden, dan ft → in — fouten stapelen op. Ga rechtstreeks naar de doel-unit.</li>
+  <li><strong>Stones &amp; pounds.</strong> Een Brits gewicht: 1 stone = 14 lb. De tool heeft stone (st) maar je moet het lb-gedeelte apart doen voor "11 st 4 lb"-stijl entries.</li>
 </ul>
 """,
     },

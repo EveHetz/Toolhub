@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Lorem Ipsum", "tagline": "Gere parágrafos, frases, palavras ou itens de lista de texto placeholder em latim. Tamanho e frase inicial configuráveis.", "description": "Gerador de Lorem Ipsum gratuito. Crie parágrafos, frases, palavras ou listas HTML para mockups e composições de design. Abertura clássica 'Lorem ipsum dolor sit amet…' opcional."},
         "pl": {"name": "Generator Lorem Ipsum", "tagline": "Generuj akapity, zdania, słowa albo elementy listy tekstu placeholder po łacinie. Konfigurowalny rozmiar i fraza otwierająca.", "description": "Darmowy generator Lorem Ipsum. Buduj akapity, zdania, słowa albo listy HTML do mockupów i komp designerskich. Opcjonalna klasyczna otwarka 'Lorem ipsum dolor sit amet…'."},
         "ja": {"name": "Lorem Ipsum ジェネレーター", "tagline": "段落・文・単語・リスト項目の単位でラテン語のプレースホルダーテキストを生成。長さと冒頭フレーズを設定可能。", "description": "無料の Lorem Ipsum ジェネレーター。モックアップやデザインカンプ用に、段落・文・単語・HTML リストを生成できます。古典的な「Lorem ipsum dolor sit amet…」で始める設定もオプションで利用可能です。"},
+        "nl": {"name": "Lorem Ipsum Generator", "tagline": "Genereer paragrafen, zinnen, woorden of list items van placeholder Latijnse tekst. Configureerbare lengte en startfrase.", "description": "Gratis Lorem Ipsum-generator. Bouw paragrafen, zinnen, woorden of HTML-lijsten voor mockups en design comps. Optionele klassieke 'Lorem ipsum dolor sit amet…'-opener."},
     },
     "body": """
 <div class="tool-card">
@@ -194,6 +195,26 @@ document.addEventListener('DOMContentLoaded', liRun);
   <li><strong>実コピーはプレースホルダーより短かったり長かったりします。</strong> 実際の見出しはもっと簡潔、本文は大きくばらつきます。lorem ipsum で整って見えるレイアウトは、実コンテンツで崩れることがあります。サインオフ前に実テキストで検証してください。</li>
   <li><strong>国際化は lorem が隠していたものを露わにします。</strong> ラテン語の穴埋めだけでテストしたデザインは、ドイツ語の複合語やアラビア語の右から左のレイアウトで破綻しがちです。i18n を意識する場合は多言語のプレースホルダーで検証してください。</li>
   <li><strong>慣習も大事です。</strong> 最初の段落は伝統的に「Lorem ipsum dolor sit amet…」で始まり、デザイナーはこれをプレースホルダーと認識します。これを外すと差し替え漏れに気づきにくくなります。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Lorem ipsum is gescrambled Latijn afgeleid van Cicero's <em>De Finibus Bonorum et Malorum</em> (45 v.C.), in gebruik als filler sinds de jaren 1500 omdat de karakterfrequenties en woordlengtes ruwweg matchen met echte tekst zonder leesbaar genoeg te zijn om af te leiden. Designers gebruiken het zodat het brein blokken tekst als <em>vorm</em> verwerkt in plaats van <em>betekenis</em> — precies wat je wil bij het beoordelen van typografie, layout of paginaritme.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li><strong>Mockups</strong> — placeholder voor "de woorden doen er niet toe, de layout wel".</li>
+  <li><strong>Design comps</strong> — testen van wrapping, regellengtes, font-fallbacks op meerdere groottes.</li>
+  <li><strong>CMS / template testing</strong> — velden vullen voor de echte copy aankomt.</li>
+  <li><strong>Capacity planning</strong> — sanity check op hoe een card / preview / search-result lange bodies afhandelt.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Niet naar productie shippen.</strong> Lorem ipsum is meer dan eens live gegaan omdat niemand het voor de echte copy heeft omgewisseld.</li>
+  <li><strong>Echte copy is korter of langer dan placeholder.</strong> Echte headlines zijn punchier. Echte body-copy varieert wild. Een layout die met lorem ipsum gebalanceerd lijkt, kan met de daadwerkelijke content uit elkaar vallen; verifieer met echte tekst voor sign-off.</li>
+  <li><strong>Internationalisatie onthult wat lorem verbergt.</strong> Designs die alleen met Latijnse filler getest zijn, breken vaak met Duitse samenstellingen of Arabische right-to-left layouts. Test met multilingual placeholders voor i18n-aware designs.</li>
+  <li><strong>Conventie doet ertoe.</strong> De eerste paragraaf begint traditioneel met "Lorem ipsum dolor sit amet…" — designers herkennen dat als placeholder. Het uitschakelen kan betekenen dat iemand de swap mist.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Conversor XML ↔ JSON", "tagline": "Converta XML para JSON ou JSON de volta para XML. Lida com attributes, text nodes e arrays de forma sensata.", "description": "Conversor XML para JSON online gratuito (e JSON de volta para XML). Usa o parser XML nativo do navegador; attributes vão para um prefixo configurável; elementos repetidos viram arrays. Roda inteiramente no seu navegador."},
         "pl": {"name": "Konwerter XML ↔ JSON", "tagline": "Konwertuj XML na JSON albo JSON z powrotem na XML. Sensownie obsługuje atrybuty, węzły tekstowe i tablice.", "description": "Darmowy online konwerter XML do JSON (i JSON z powrotem na XML). Używa natywnego parsera XML przeglądarki; atrybuty trafiają z konfigurowalnym prefiksem; powtórzone elementy zwijają się do tablic. Działa w całości w przeglądarce."},
         "ja": {"name": "XML ↔ JSON コンバーター", "tagline": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。", "description": "オンライン無料の XML → JSON（および JSON → XML）コンバーター。ブラウザの XML パーサを使用し、属性は設定可能なプレフィックス付き、繰り返し要素は配列にまとめます。すべてブラウザ内で動作します。"},
+        "nl": {"name": "XML ↔ JSON Converter", "tagline": "Converteer XML naar JSON of JSON terug naar XML. Handelt attributes, text-nodes en arrays verstandig af.", "description": "Gratis online XML-naar-JSON converter (en JSON terug naar XML). Gebruikt de native XML-parser van de browser; attributes krijgen een configureerbaar prefix; herhaalde elementen storten in arrays. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -360,6 +361,29 @@ document.addEventListener('DOMContentLoaded', xjRun);
   <li><strong>名前空間はそのまま保持。</strong> <code>ns:tag</code> は JSON キーでも <code>"ns:tag"</code>。<code>xmlns:</code> 属性も同様です。</li>
   <li><strong>数値や真偽値の自動変換は行いません。</strong> XML テキストは常に文字列であり、<code>"1"</code> は JSON でも <code>"1"</code> のまま。必要ならアプリ側で型変換してください。</li>
   <li><strong>JSON → XML には単一ルートキーが必要。</strong> XML はルート要素がちょうど 1 つ必要です。入力 JSON はトップレベルにキーが 1 つだけのオブジェクトでなければなりません。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>XML en JSON zijn de twee dominante data-interchange formaten en je moet regelmatig tussen ze vertalen — om van een SOAP API naar een REST over te stappen, legacy feeds in een moderne stack te plumbing, of gewoon XML te lezen in een tool die alleen JSON spreekt. De mapping heeft een mening in plaats van reversible-by-default, omdat XML features heeft (attributes, mixed content, ordered children) die JSON niet heeft. Deze tool gebruikt de conventionele <a href="https://www.npmjs.com/package/fast-xml-parser" target="_blank" rel="noopener noreferrer">fast-xml-parser</a>-stijl mapping: attributes krijgen een prefix (default <code>@</code>), text-nodes gaan naar een key (default <code>#text</code>), en herhaalde child-elementen storten in arrays. Beide richtingen draaien in je browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een RSS / Atom / SOAP-response converteren naar JSON om in een JS-app te consumeren.</li>
+  <li>XML-config genereren uit een JSON-template (build configs, Spring beans, OOXML scaffolds).</li>
+  <li>Snel geneste values extraheren — converteer XML naar JSON, gebruik dan elke JSON-tool die je al kent.</li>
+  <li>Data round-trippen en bevestigen dat de vorm de conversie overleeft.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Single child vs array.</strong> Een document met één <code>&lt;item&gt;</code> wordt <code>{"item": {...}}</code>; hetzelfde document met twee wordt <code>{"item": [..., ...]}</code>. Consumers moeten beide vormen afhandelen (of normaliseren op de weg uit).</li>
+  <li><strong>Element-volgorde wordt niet gegarandeerd.</strong> JSON-objects behouden key-volgorde niet over alle parsers/transmissies. Als je XML order-significante siblings heeft, is JSON de verkeerde bestemming.</li>
+  <li><strong>Mixed content stort in.</strong> Een element als <code>&lt;p&gt;hello &lt;b&gt;world&lt;/b&gt;!&lt;/p&gt;</code> round-trippt niet — text en inline-elementen interleaven op een manier die geen schone object-representatie heeft.</li>
+  <li><strong>Attribute-prefix collisions.</strong> Als een XML-element een child heeft wiens naam met <code>@</code> begint, verander het prefix eerst naar iets anders.</li>
+  <li><strong>Namespaces blijven letterlijk behouden.</strong> <code>ns:tag</code> blijft als JSON-key <code>"ns:tag"</code>. <code>xmlns:</code>-attributes idem.</li>
+  <li><strong>Getallen en booleans worden niet auto-gecoerced.</strong> XML-text is altijd strings; <code>"1"</code> blijft <code>"1"</code> in JSON. Coerce types in je applicatiecode als je ze nodig hebt.</li>
+  <li><strong>JSON → XML vereist één root-key.</strong> XML eist precies één root-element; de input-JSON moet een object zijn met één top-level key.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Tabela ASCII", "tagline": "Referência ASCII completa 0–127 com decimal, hex, binário, caractere e entidade HTML. Filtrável.", "description": "Tabela ASCII gratuita. Todos os 128 códigos ASCII com decimal, hex, octal, binário, caractere, entidade HTML e descrição dos caracteres de controle. Filtre enquanto digita."},
         "pl": {"name": "Tabela ASCII", "tagline": "Pełna referencja ASCII 0–127 z wartościami dec, hex, bin, znakiem i encją HTML. Z filtrem.", "description": "Darmowa tabela ASCII. Wszystkie 128 kodów ASCII z wartościami decimal, hex, octal, binary, znakiem, encją HTML i opisem znaków sterujących. Filtruj w trakcie pisania."},
         "ja": {"name": "ASCII テーブル", "tagline": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "description": "無料の ASCII テーブルリファレンス。128 個の標準 ASCII コードすべてを 10 進・16 進・8 進・2 進・文字・HTML エンティティ付きで表示し、制御文字には説明も併記。入力に応じてリアルタイムにフィルタリングできます。"},
+        "nl": {"name": "ASCII-tabel", "tagline": "Volledige ASCII-referentie 0–127 met decimaal, hex, binair, teken en HTML-entiteit. Filterbaar.", "description": "Gratis ASCII-tabelreferentie. Alle 128 standaard ASCII-codes met decimaal, hex, octaal, binair, teken, HTML-entiteit en een omschrijving voor stuurtekens. Filter tijdens het typen."},
     },
     "body": """
 <div class="tool-card">
@@ -267,6 +268,28 @@ document.addEventListener('DOMContentLoaded', asciiRun);
   <li><strong>制御文字は見えない妨害者になり得ます。</strong> ターミナルや PDF からのコピペで <code>0x1F</code>、<code>0x07</code>（BEL — 実際にターミナルが鳴ります）、ASCII ですらないゼロ幅 Unicode 文字が混入することがあります。テキストが「見た目は同じ」なのに比較で一致しないときは、バイト列にダンプして確認しましょう。</li>
   <li><strong>HTML エンティティは常に必要なわけではありません。</strong> 現代の UTF-8 文書では <code>&amp;#65;</code> とリテラルの <code>A</code> は等価です。エスケープが必要なのは HTML で構文的意味を持つ文字だけ：<code>&amp;</code>、<code>&lt;</code>、<code>&gt;</code>、属性値の中の <code>"</code>。</li>
   <li><strong>NUL（<code>0x00</code>）は C 文字列の終端です。</strong> C 文字列バッファに何も考えずに埋め込まないでください。多くの API は最初の NUL で黙って切り捨てます。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>ASCII (American Standard Code for Information Interchange) is het 128-tekens coderingssysteem dat cijfers, letters, leestekens en een handvol stuurtekens afbeeldt op de gehele getallen 0–127. Het is het fundament dat elke moderne tekstcodering (UTF-8, Latin-1, Windows-1252) uitbreidt, dus de waarden kennen is af en toe cruciaal — een vreemde byte in een binair bestand opsporen, een regex bouwen voor "elk afdrukbaar teken", een hex dump lezen, of onthouden of 0x0A of 0x0D een newline is.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een hex dump lezen en uitzoeken wat die bytes <em>zeggen</em>.</li>
+  <li>Een parser schrijven en de grenswaarden nodig hebben: <code>0x20</code> (spatie), <code>0x7E</code> (tilde) — het afdrukbare bereik.</li>
+  <li>Een CSV debuggen die brak omdat er <code>0x09</code> (Tab) of <code>0x1F</code> (Unit Separator) in zat.</li>
+  <li>Een HTML-entiteit maken voor een lastig teken — <code>&amp;#65;</code> = <code>A</code>.</li>
+  <li>Een discussie beslechten over of <code>\r</code> 0x0D is (ja — Carriage Return) en <code>\n</code> 0x0A (ja — Line Feed).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>ASCII is 7-bit, geen 8-bit.</strong> Codes 128–255 zijn <em>geen</em> ASCII — die horen bij de 8-bit encoding (Latin-1, CP-1252, …) die het document opgeeft, of zijn de leading bytes van een UTF-8-sequence.</li>
+  <li><strong>Newlines verschillen per platform.</strong> Unix/macOS gebruiken alleen <code>LF</code> (0x0A); de oude Mac Classic gebruikte <code>CR</code> (0x0D); Windows gebruikt <code>CRLF</code>. Bestanden die ze mengen breken naïeve regeltellingen.</li>
+  <li><strong>Stuurtekens zijn onzichtbare saboteurs.</strong> Copy/paste vanuit een terminal of PDF kan <code>0x1F</code>, <code>0x07</code> (BEL — laat de terminal echt piepen), of zero-width Unicode-tekens oppikken die <em>geen</em> ASCII zijn. Als tekst er gelijk uitziet maar ongelijk vergelijkt, dump je het naar bytes.</li>
+  <li><strong>HTML-entiteiten zijn niet altijd nodig.</strong> In moderne UTF-8-documenten zijn <code>&amp;#65;</code> en de letterlijke <code>A</code> equivalent. Escape alleen tekens met syntactische betekenis in HTML: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> en <code>"</code> in attributen.</li>
+  <li><strong>NUL (<code>0x00</code>) sluit strings af in C.</strong> Embed het niet zomaar in C-string buffers — veel API's kappen stilletjes af bij de eerste NUL.</li>
 </ul>
 """,
     },

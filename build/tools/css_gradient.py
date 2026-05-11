@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Gradiente CSS", "tagline": "Crie gradientes CSS lineares e radiais visualmente. Edite paradas de cor, copie CSS pronto para colar.", "description": "Gerador gratuito de gradiente CSS. Crie gradientes lineares ou radiais com quantas paradas quiser, copie CSS pronto para produção em um clique."},
         "pl": {"name": "Generator Gradientów CSS", "tagline": "Buduj liniowe i radialne gradienty CSS wizualnie. Edytuj color stopy, kopiuj CSS gotowy do wklejenia.", "description": "Darmowy generator gradientów CSS. Buduj linear lub radial gradienty z dowolną liczbą color stopów, dostosuj kąt i kształt, kopiuj produkcyjny CSS jednym kliknięciem."},
         "ja": {"name": "CSS グラデーションジェネレーター", "tagline": "線形・放射状の CSS グラデーションをビジュアルに作成。カラーストップを編集して、貼り付けるだけの CSS をコピー。", "description": "無料の CSS グラデーションジェネレーター。任意の数のカラーストップで線形・放射状グラデーションを作成し、角度と形状を調整して、本番投入できる CSS をワンクリックでコピーできます。"},
+        "nl": {"name": "CSS Gradient Generator", "tagline": "Bouw visueel lineaire en radiale CSS-gradients. Bewerk color stops, kopieer ready-to-paste CSS.", "description": "Gratis CSS gradient generator. Bouw lineaire of radiale gradients met zoveel color stops als je wilt, stel hoek en vorm in, kopieer production-ready CSS in één klik."},
     },
     "body": """
 <div class="tool-card">
@@ -243,6 +244,34 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
   <li><strong>大面積でのバンディング。</strong> 長くて低コントラストなグラデーションは、8-bit ディスプレイで段差が見えることがあります。微小な SVG ノイズオーバーレイ（<code>filter: url(#noise)</code>）を重ねるか、ストップを少しずらしてください。</li>
   <li><strong>パフォーマンス。</strong> グラデーションの描画自体は速いですが、<code>background-image</code> をアニメーションするとフレームごとに paint が走ります。代わりに上のレイヤーで <code>transform</code> をアニメーションしてください。</li>
   <li><strong>アクセシビリティ。</strong> グラデーション上にテキストを置く場合、平均ではなく、テキストが乗る最も<em>悪い</em>箇所のコントラスト比を確認してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>CSS-gradients zijn één regel CSS die soepele kleurovergangen tekent voor achtergronden, knoppen, hero-panelen en overlays — zonder enige image asset. De syntax is krachtig maar lastig met de hand te schrijven: hoeken, percentage-stops, repeating-varianten, lineair mixen met radiaal. Deze tool geeft je een visuele builder die de CSS realtime spiegelt, zodat je een stop op zijn plek kunt slepen en de exacte <code>linear-gradient(...)</code>- of <code>radial-gradient(...)</code>-string kunt kopiëren.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een hero- of call-to-action-sectie-achtergrond bouwen zonder die in een image te bakken.</li>
+  <li>Button- of card-hover states maken die er "modern" uitzien zonder een image asset.</li>
+  <li>Een brand-gekleurde overlay mocken (gradient + lage-opacity solid voor tekstleesbaarheid).</li>
+  <li>Decoratieve dividers, mesh-style achtergronden of geanimeerde SVG-fills genereren.</li>
+</ul>
+
+<h3>Lineair vs radiaal</h3>
+<ul>
+  <li><strong>Lineair</strong> — kleuren overgaan langs een rechte lijn onder een gekozen hoek (0° = bottom-to-top, 90° = left-to-right, 180° = top-to-bottom).</li>
+  <li><strong>Radiaal</strong> — kleuren spreiden vanuit een middelpunt naar buiten als cirkel of ellips. Top voor spotlight- of vignette-effecten.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Gebruik als <code>background</code>, niet <code>background-color</code>.</strong> Gradients zijn images, geen kleuren. <code>background-color</code> wordt genegeerd.</li>
+  <li><strong>Stops moeten op volgorde staan</strong> voor voorspelbare rendering. De tool sorteert ze automatisch — als je CSS kopieert en met de hand bewerkt, houd de percentages monotoon.</li>
+  <li><strong>Hard stops</strong> (twee stops op hetzelfde percentage) maken een scherpe grens in plaats van een fade — handig voor gestreepte of band-effecten.</li>
+  <li><strong>Banding op grote oppervlakken.</strong> Lange, low-contrast gradients kunnen zichtbare "banden" tonen op 8-bit schermen. Voeg een kleine SVG noise-overlay toe (<code>filter: url(#noise)</code>) of verschuif de stops iets.</li>
+  <li><strong>Performance.</strong> Browsers schilderen gradients snel, maar <code>background-image</code> animeren triggert paint op elke frame — animeer in plaats daarvan <code>transform</code> op een layer erboven.</li>
+  <li><strong>Toegankelijkheid.</strong> Als tekst op een gradient zit, check de contrastratio tegen het <em>slechtste</em> punt langs de gradient waar de tekst verschijnt, niet het gemiddelde.</li>
 </ul>
 """,
     },

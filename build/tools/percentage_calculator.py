@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Calculadora de Porcentagem", "tagline": "Cinco calculadoras de porcentagem em uma: de, qual %, aumento/desconto, variação e gorjeta/imposto.", "description": "Calculadora de porcentagem gratuita online. Calcule X% de Y, qual % X é de Y, variação percentual, aumento/desconto percentual e valores de gorjeta ou imposto."},
         "pl": {"name": "Kalkulator Procentów", "tagline": "Pięć kalkulatorów procentów w jednym: ile %, ile to %, zmiana, wzrost/spadek i napiwek/podatek.", "description": "Darmowy online kalkulator procentów. Policz X% z Y, ile % X stanowi Y, zmianę procentową, procentowy wzrost/spadek oraz wartość napiwku albo podatku."},
         "ja": {"name": "パーセンテージ計算機", "tagline": "5 つの百分率計算をひとつに：%、何%、増加／減少、変化、チップ／税。", "description": "オンライン無料のパーセンテージ計算機。Y の X%、X は Y の何 %、パーセンテージ変化、増加／減少、チップや税の金額を計算できます。"},
+        "nl": {"name": "Percentage-calculator", "tagline": "Vijf percentage-calculators in één: of, hoeveel %, increase/decrease, change en tip/tax.", "description": "Gratis online percentage-calculator. Bereken X% van Y, welk % is X van Y, percentage-wijziging, percentage-verhoging/-verlaging en tip- of belastingbedragen."},
     },
     "body": """
 <div class="tool-card">
@@ -170,6 +171,27 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>パーセンテージは合成されます。</strong> 20% 上げて 20% 下げても元には戻りません（1.20 × 0.80 = 0.96、4% の純減）。連続した値上げ・値引きはステップごとに計算してください。</li>
   <li><strong>税抜き／税込みのチップ。</strong> 慣習は国や店によって異なります。本ツールは入力した値に対する % を計算しますので、基準としたい値を選んで入力してください。</li>
   <li><strong>丸め。</strong> 出力は小数 6 桁で丸めて末尾を整理します。法務／会計上の正確さ（銀行家丸め、通貨別ルール）が必要な場合は、本ツールではなくドメイン層で処理してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Zes verschillende "percentage"-berekeningen komen dagelijks voor en zijn makkelijk te verwarren: hoeveel is X% van Y? Welk percentage is X uit Y? Wat is de verandering tussen twee waarden? Een opslag of korting toepassen? Tip of belasting? Elk is een lichtjes andere formule, en ze verwarren leidt tot foute facturen, foute kortingen en gênante reviews. Deze tool draait alle zes side by side met de formule uitgespeld, zodat je de juiste kunt kiezen en de rekensom kunt dubbelchecken.</p>
+
+<h3>Wat elke mode doet</h3>
+<ul>
+  <li><strong>Wat is X% van Y</strong> — voor kortingen, commissies, percentage van een totaal. <em>20% van 150 → 30</em>.</li>
+  <li><strong>X is welk % van Y</strong> — voor "score / max"-stijl ratio's. <em>30 van 150 → 20%</em>.</li>
+  <li><strong>% verandering</strong> — signed: positief is een toename, negatief is een afname. <em>100 → 125 = +25%</em>.</li>
+  <li><strong>Verhoging / Verlaging</strong> — past een percentage-aanpassing toe op een startwaarde.</li>
+  <li><strong>Tip / Tax</strong> — gemak voor een percentage op een rekening opbouwen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Percentage-wijziging is niet symmetrisch.</strong> 100 → 125 is +25%; 125 → 100 is −20%, geen −25%. De noemer is de startwaarde, die in elke richting verschilt.</li>
+  <li><strong>Percentages stacken compounded.</strong> Een 20%-toename gevolgd door een 20%-afname brengt je niet terug naar het begin (1.20 × 0.80 = 0.96, een netto 4%-verlies). Voor sequentiële markups/discounts bereken je elke stap.</li>
+  <li><strong>Fooi op pre-tax vs post-tax.</strong> Conventie varieert per land en venue. De tool berekent het percentage van de waarde die je invoert — kies welke waarde je daadwerkelijk wil als basis.</li>
+  <li><strong>Afronding.</strong> Output is afgerond op 6 decimalen en daarna getrimd; als je legal/accounting-precisie nodig hebt (banker's rounding, currency-specifieke regels), doe die stap in je domain-laag, niet hier.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Consulta de MIME Types", "tagline": "Busque MIME types por extensão ou por tipo. ~120 tipos comuns — image, video, audio, application, text, font.", "description": "Ferramenta gratuita de consulta de MIME types. Busque por extensão de arquivo (.pdf, .png, .json) ou por MIME type (image/jpeg, application/pdf) entre cerca de 120 Internet media types comuns."},
         "pl": {"name": "Wyszukiwarka MIME Types", "tagline": "Wyszukuj MIME types po rozszerzeniu albo po typie. ~120 typowych — image, video, audio, application, text, font.", "description": "Darmowe narzędzie do wyszukiwania MIME types. Szukaj po rozszerzeniu pliku (.pdf, .png, .json) albo po MIME type (image/jpeg, application/pdf) wśród około 120 typowych Internet media types."},
         "ja": {"name": "MIME タイプ検索", "tagline": "拡張子やタイプから MIME タイプを検索。image・video・audio・application・text・font の約 120 種を収録。", "description": "無料の MIME タイプ検索ツール。ファイル拡張子（.pdf、.png、.json）や MIME タイプ（image/jpeg、application/pdf）から、よく使われる約 120 種のインターネットメディアタイプを検索できます。"},
+        "nl": {"name": "MIME Type Lookup", "tagline": "Zoek MIME types op extensie of type. ~120 gangbare types — image, video, audio, application, text, font.", "description": "Gratis MIME-type-lookup tool. Zoek op bestandsextensie (.pdf, .png, .json) of op MIME-type (image/jpeg, application/pdf) over ruwweg 120 gangbare Internet media types."},
     },
     "body": """
 <div class="tool-card">
@@ -349,6 +350,29 @@ document.addEventListener('DOMContentLoaded', mtRun);
   <li><strong><code>application/octet-stream</code> は「分からない」の意味です。</strong> タイプを制御できるなら本物のタイプを使ってください。レンダリング可能なコンテンツでも、ブラウザがダウンロード扱いにすることがあります。</li>
   <li><strong>テキスト系では charset が重要です。</strong> <code>Content-Type: text/html; charset=utf-8</code>。これがないとブラウザは推測し、時々間違えて文字化けします。</li>
   <li><strong>マジックバイトのスニッフィングが宣言型と違うことがあります。</strong> ブラウザは <code>Content-Type</code> をファイル内容で再判定することがあります。<code>X-Content-Type-Options: nosniff</code> でこれを無効化できます。セキュリティのため設定を推奨します。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een MIME-type (nu Internet media type genoemd) is een tweedelig label als <code>image/png</code> of <code>application/json</code> dat een server, browser of library vertelt hoe een blok bytes te interpreteren. Het is wat in HTTP <code>Content-Type</code>-headers staat, wat Multipart-message-parts declareren, en wat <code>file --mime</code> rapporteert. De IANA-registry heeft duizenden entries; deze tool dekt ruwweg 120 die je in webwerk daadwerkelijk tegenkomt.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li><code>Content-Type</code> instellen op een API-response en de juiste willen voor <code>.docx</code>, <code>.heic</code> of <code>.webmanifest</code>.</li>
+  <li>Het <code>accept</code>-attribuut van een upload-veld configureren of een S3-bucket allow-list.</li>
+  <li>Een hex-dump of tcpdump lezen en opzoeken wat <code>application/grpc-web</code> eigenlijk is.</li>
+  <li>Een statische-file-server of CDN-config bouwen en extension-to-mime mapping nodig hebben.</li>
+  <li>Beslechten of <code>text/xml</code> of <code>application/xml</code> te gebruiken (gebruik de laatste voor nieuwe code volgens RFC 7303).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Extensie is niet gelijk aan MIME-type.</strong> <code>.json</code> mapt meestal naar <code>application/json</code>, maar een server kan het als <code>text/plain</code> serveren en browsers gehoorzamen de header. Stel de header altijd expliciet in.</li>
+  <li><strong>JavaScript is rommelig.</strong> RFC 9239 zegt <code>text/javascript</code> is het preferred type. <code>application/javascript</code>, <code>application/ecmascript</code> en andere zijn obsolete maar nog te zien.</li>
+  <li><strong>OOXML-types zijn heel lang.</strong> <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code> voor <code>.docx</code>. Probeer ze niet te onthouden — kopieer ze.</li>
+  <li><strong><code>application/octet-stream</code> betekent "ik weet het niet".</strong> Als je het type controleert, gebruik een echte — browsers kunnen octet-stream content force-downloaden zelfs als die renderbaar is.</li>
+  <li><strong>Charset doet ertoe voor text-types.</strong> <code>Content-Type: text/html; charset=utf-8</code> — zonder gokt de browser en gokt soms verkeerd (mojibake).</li>
+  <li><strong>Magic-byte sniffing verschilt van het gedeclareerde type.</strong> Browsers kunnen <code>Content-Type</code> tweede-raden op basis van file-contents (<code>X-Content-Type-Options: nosniff</code> schakelt dit uit — zet het voor security).</li>
 </ul>
 """,
     },

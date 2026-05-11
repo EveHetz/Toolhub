@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Calculadora de IMC", "tagline": "Índice de Massa Corporal a partir de altura e peso. Métrico ou imperial. Mostra a categoria da OMS — não é orientação médica.", "description": "Calculadora gratuita de Índice de Massa Corporal. Informe altura e peso em métrico (cm + kg) ou imperial (pés/polegadas + libras) e veja o valor de IMC mais a classificação da OMS (abaixo do peso, normal, sobrepeso, obesidade). Apenas educacional — não é orientação médica."},
         "pl": {"name": "Kalkulator BMI", "tagline": "Wskaźnik masy ciała z wzrostu i wagi. Metryczny lub imperialny. Pokazuje kategorię WHO — nie jest poradą medyczną.", "description": "Darmowy kalkulator BMI (Body Mass Index). Wpisz wzrost i wagę w jednostkach metrycznych (cm + kg) albo imperialnych (stopy/cale + funty) i zobacz wartość BMI oraz klasyfikację WHO (niedowaga, prawidłowa, nadwaga, otyłość). Tylko cele edukacyjne — nie jest poradą medyczną."},
         "ja": {"name": "BMI 計算機", "tagline": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "description": "無料の BMI（体格指数）計算ツール。身長と体重をメートル法（cm + kg）またはヤード・ポンド法（フィート/インチ + ポンド）で入力すると、BMI 値と WHO 分類（低体重・標準・肥満気味・肥満）が表示されます。教育目的のみで、医療助言ではありません。"},
+        "nl": {"name": "BMI-calculator", "tagline": "Body Mass Index uit lengte en gewicht. Metrisch of imperiaal. Toont de WHO-categorie — geen medisch advies.", "description": "Gratis Body Mass Index-calculator. Voer lengte en gewicht in metrisch (cm + kg) of imperiaal (feet/inches + pounds) in en zie de BMI-waarde plus de WHO-classificatie (ondergewicht, normaal, overgewicht, obesitas). Alleen educatief — geen medisch advies."},
     },
     "body": """
 <div class="tool-card">
@@ -343,6 +344,34 @@ document.addEventListener('DOMContentLoaded', bmiRun);
   <li><strong>人種・民族による違いがあります。</strong> NHS や WHO のアジア太平洋ガイドラインなど、いくつかの保健機関は南アジア、中国系、その他の集団に対して、より低い閾値（過体重 ≥23、肥満 ≥27.5）を採用しています。これらの集団では低い BMI でも心血管リスクが上がるためです。</li>
   <li><strong>身長が高い人と低い人。</strong> 身長の 2 乗を使う式は、構造的に背の高い人を「低体重」、背の低い人を「過体重」と過大に分類しがちです。代替式（Trefethen の BMI は身長^2.5 を使用）はこれを補正しようとします。</li>
   <li><strong>医療助言ではありません。</strong> 体重について不安がある場合は専門家に相談してください。ウエスト周囲径、血圧、血液検査、生活習慣など、単一の数値では分からない情報を併せて評価してくれます。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Body Mass Index (BMI) is één getal — gewicht in kilo's gedeeld door het kwadraat van de lengte in meters — dat door de Wereldgezondheidsorganisatie en veel gezondheidssystemen wordt gebruikt als snelle screening voor gewichtscategorieën. Het is geen diagnose; het is een signaal. De klassieke volwassen drempels zijn: onder 18,5 ondergewicht, 18,5–24,9 normaal, 25–29,9 overgewicht, 30 en hoger obesitas (klasse I/II/III bij 35 en 40). Deze tool berekent de waarde en de categorie uit lengte en gewicht in metrisch of imperiaal.</p>
+
+<h3>Hoe het berekend wordt</h3>
+<ul>
+  <li><strong>Metrisch:</strong> BMI = kg ÷ (m × m). 70 kg bij 1,75 m → 70 / 3,0625 = 22,9.</li>
+  <li><strong>Imperiaal:</strong> BMI = (lb × 703) ÷ (in × in). De tool converteert intern naar metrisch voor nauwkeurigheid.</li>
+  <li>De WHO-categorieën zijn hetzelfde ongeacht het eenhedensysteem — BMI zelf is eenheidsloos.</li>
+</ul>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Snelle self-check of een formulier invullen dat erom vraagt (verzekering, fitness apps, sportschool-intake).</li>
+  <li>Een waarde vergelijken over populaties of studies heen.</li>
+  <li>Trend over tijd volgen (stijgend, stabiel, dalend) — de trend is nuttiger dan een enkele meting.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>BMI meet geen lichaamssamenstelling.</strong> Spier weegt meer dan vet, dus een fitte, gespierde persoon kan "overgewicht" scoren met laag vetpercentage. Andersom kan iemand met weinig spiermassa "normaal" scoren terwijl die ongezond is ("skinny fat").</li>
+  <li><strong>Het is een volwassen-metric.</strong> Voor kinderen en jongeren (onder 18) gebruik je in plaats daarvan de leeftijd- en geslachtspecifieke BMI-percentielcurven.</li>
+  <li><strong>Zwangerschap wordt niet ondersteund.</strong> BMI geldt niet tijdens zwangerschap; overleg met je zorgverlener.</li>
+  <li><strong>Etniciteit doet ertoe.</strong> Diverse gezondheidsinstanties (NHS, WHO Asia-Pacific-richtlijnen) hanteren lagere drempels (overgewicht ≥23, obesitas ≥27,5) voor Zuid-Aziatische, Chinese en andere groepen, omdat cardiovasculair risico bij lagere BMI stijgt.</li>
+  <li><strong>Lange vs korte mensen.</strong> De gekwadrateerde-lengte formule classificeert lange mensen systematisch als "ondergewicht" en korte mensen als "overgewicht" — alternatieve formules (Trefethen's BMI gebruikt lengte^2.5) proberen dit te corrigeren.</li>
+  <li><strong>Geen medisch advies.</strong> Als je je zorgen maakt over je gewicht, overleg met een arts. Die heeft de rest van het plaatje (buikomvang, bloeddruk, bloedwaarden, leefstijl) dat één getal niet biedt.</li>
 </ul>
 """,
     },

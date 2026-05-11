@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Imagem para Base64", "tagline": "Converte qualquer imagem em um data URI Base64 pronto pra uso inline em HTML, CSS ou Markdown. O arquivo fica no seu browser.", "description": "Encoder grátis online de imagem para data URI Base64. Solte ou escolha uma imagem e receba uma URL data: pronta pra colar em HTML inline, background-image de CSS ou e-mail."},
         "pl": {"name": "Obrazek do Base64", "tagline": "Konwertuj dowolny obrazek na data URI Base64 gotowy do inline'owego użycia w HTML, CSS albo Markdown. Pliki zostają w przeglądarce.", "description": "Darmowy online encoder obrazków do data URI Base64. Upuść albo wybierz obrazek i dostań gotowy do wklejenia data: URL do inline HTML, CSS background-image albo maila."},
         "ja": {"name": "画像から Base64 へ", "tagline": "任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。", "description": "オンライン無料の画像 → Base64 データ URI エンコーダー。画像をドロップまたは選択すると、HTML インライン・CSS の background-image・メール用に貼り付け可能な data: URL を得られます。"},
+        "nl": {"name": "Afbeelding naar Base64", "tagline": "Converteer elke afbeelding naar een Base64-data-URI klaar voor inline gebruik in HTML, CSS of Markdown. Bestanden blijven in je browser.", "description": "Gratis online afbeelding-naar-Base64-data-URI encoder. Drop of kies een afbeelding en krijg een ready-to-paste data: URL voor inline HTML, CSS background-image of email."},
     },
     "body": """
 <div class="tool-card">
@@ -144,6 +145,26 @@ function i2bRun(){
   <li><strong>ページ間で重複排除されません。</strong> URI を埋め込むページごとにバイト列が再送されます。再利用するアセットは実 URL のままにし、ブラウザに 1 度だけキャッシュさせてください。</li>
   <li><strong>メールクライアントの対応はまちまちです。</strong> 多くのモダンクライアントは data URI を表示しますが、Windows 版 Outlook は歴史的に <code>&lt;img src&gt;</code> でブロックしてきました。大量配信は CID 添付の方が安全です。</li>
   <li><strong>SVG はラスタとは別です。</strong> SVG はマークアップ直挿し（または URL エンコード）の方が Base64 より小さくなることが多いです。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een <em>data URI</em> embedt de bytes van een bestand direct in een URL met Base64 — geen apart request, geen extern bestand. Deze converter leest elke afbeelding die je erop drop't en produceert een <code>data:image/...;base64,...</code>-string klaar om in HTML, CSS, Markdown of JSON te plakken. Het bestand verlaat je browser nooit; conversie gebeurt via <code>FileReader.readAsDataURL</code>.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Kleine icons (&lt; 4 KB) inline in CSS — bespaart een HTTP-request en voorkomt een flash bij first paint.</li>
+  <li>Zelfstandige HTML-emails, single-file demos of offline-capable PWA's.</li>
+  <li>Snelle pastes in Markdown-notities, Notion-pagina's of chat-threads die met de afbeelding moeten reizen.</li>
+  <li>Test fixtures en snapshot-bestanden waar je het asset committed wil hebben naast de test.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Size penalty.</strong> Base64 blaast payload op met ~33%. Boven ~4–8 KB weegt de embedding-cost zwaarder dan het bespaarde request, zeker omdat data URIs niet apart door de browser gecached kunnen worden.</li>
+  <li><strong>Geen de-duplicatie over pagina's heen.</strong> Elke pagina die de URI embedt stuurt de bytes opnieuw mee. Voor alles dat hergebruikt wordt, houd het als echte URL zodat de browser het één keer cached.</li>
+  <li><strong>Email-clients verschillen.</strong> De meeste moderne clients renderen data URIs, maar Outlook op Windows blokkeerde ze historisch in <code>&lt;img src&gt;</code>. CID-attachments zijn nog steeds veiliger voor mass email.</li>
+  <li><strong>SVG ≠ raster.</strong> Voor SVG is de markup direct embedden (of de SVG url-encoderen) meestal kleiner dan Base64.</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Formatador de XML", "tagline": "Formate e minifique XML. Valide se está bem-formado com linha e coluna em caso de erro.", "description": "Formatador e minificador de XML online gratuito. Pretty-print de XML com indentação configurável, ou remova whitespace para minificar. Valida well-formedness usando o parser XML do navegador — linha e coluna do erro são exibidos."},
         "pl": {"name": "Formatter XML", "tagline": "Sformatuj i zminifikuj XML. Waliduj poprawność (well-formed) z linią i kolumną przy błędach.", "description": "Darmowy online formatter i minifikator XML. Pretty-print XML z konfigurowalnym wcięciem albo wycinanie białych znaków do minifikacji. Waliduje well-formedness parserem XML przeglądarki — linia i kolumna błędu pokazane."},
         "ja": {"name": "XML フォーマッター", "tagline": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。", "description": "オンライン無料の XML フォーマッター／ミニファイア。設定可能なインデントでの整形、または空白除去によるミニファイに対応します。ブラウザの XML パーサで well-formed を検証し、エラー時は行と列を表示します。"},
+        "nl": {"name": "XML Formatter", "tagline": "Formatteer en minify XML. Valideer well-formedness met regel en kolom bij fouten.", "description": "Gratis online XML formatter en minifier. Pretty-print XML met configureerbare indent, of strip whitespace om te minify-en. Valideert well-formedness via de XML-parser van de browser — foutregel en -kolom getoond."},
     },
     "body": """
 <div class="tool-card">
@@ -397,6 +398,30 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>名前空間は維持されます。</strong> <code>xmlns:foo</code> 宣言や <code>foo:bar</code> の修飾名はそのままラウンドトリップします。</li>
   <li><strong>属性順は変わることがあります。</strong> XML パーサはツール間で属性順を厳密には維持しません。チェックサムを取るなら先に正規化（XML C14N）してください。</li>
   <li><strong>ブラウザのパーサ差異。</strong> ブラウザによってエラー報告のフォーマットが異なります。行・列の抽出はベストエフォートで、ブラウザによってはメッセージのみ表示されます。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>XML is nog steeds overal — SOAP-responses, configuratiebestanden, RSS/Atom-feeds, SVG-markup, OOXML-binnenwerk. Als je een stuk XML moet lezen, diffen of delen, is het verschil tussen een one-line geminifieerde blob en een correct geïndenteerde boom het verschil tussen gokwerk en lezen. Deze tool pretty-print elk well-formed XML met configureerbare indentatie, of minified het voor transport, en gebruikt de native XML-parser van de browser om malformedness te flaggen met een regel en kolom waar mogelijk.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een SOAP-envelope of een vendor's XML-config inspecteren die als één geminifieerde regel aankwam.</li>
+  <li>Een SVG opschonen zodat de path-data één element per regel is.</li>
+  <li>Pretty-print whitespace strippen voor XML over de lijn te sturen.</li>
+  <li>Sanity check dat een XML-bestand dat je hebt gegenereerd well-formed is voor je het naar een strikte parser geeft.</li>
+  <li>Twee XML-documenten diffen — pretty-print eerst, dan de bomen side by side diffen.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Well-formed ≠ valid.</strong> "Well-formed" betekent dat de syntax parset (tags balanceren, attributes ge-quote'd, één root). "Valid" betekent dat het voldoet aan een DTD of schema. Deze tool checkt alleen well-formedness — schema-validatie vereist het schema-bestand.</li>
+  <li><strong>Whitespace kan significant zijn.</strong> In <code>&lt;name&gt; Alice &lt;/name&gt;</code> zijn de leading/trailing spaties onderdeel van de value (XML defaultet op <code>xml:space="preserve"</code>). Her-indenteren verandert ze. Als je XML whitespace-gevoelig is (XHTML <code>&lt;pre&gt;</code>, embedded code blocks), is pretty-print het verkeerde gereedschap.</li>
+  <li><strong>Self-closing vs expliciet leeg.</strong> <code>&lt;br/&gt;</code> en <code>&lt;br&gt;&lt;/br&gt;</code> zijn equivalent in XML maar verschillen in HTML. De formatter normaliseert lege elementen naar self-closing form.</li>
+  <li><strong>CDATA, comments en processing instructions blijven behouden.</strong> Hun inner content wordt niet herformatteerd.</li>
+  <li><strong>Namespaces overleven.</strong> <code>xmlns:foo</code> declarations en <code>foo:bar</code> qualified names round-trippen zonder wijziging.</li>
+  <li><strong>Attribute-volgorde kan verschuiven.</strong> De XML-parser behoudt attribute-volgorde niet strikt tussen tools; als je XML checksumt, canonicaliseer eerst (XML C14N).</li>
+  <li><strong>Browser-parser quirks.</strong> Verschillende browsers rapporteren parse-fouten met verschillende formaten. De regel/kolom-extractie is best-effort en toont op sommige browsers alleen het bericht.</li>
 </ul>
 """,
     },

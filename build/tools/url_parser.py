@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Parser de URL", "tagline": "Cole qualquer URL — veja protocol, host, porta, path, query parameters (decodificados), hash e origin organizados.", "description": "Parser de URL online gratuito. Decodifica qualquer URL em protocol, host, porta, path, query string, hash e origin, com cada query parameter exibido decodificado. Roda inteiramente no seu navegador."},
         "pl": {"name": "Parser URL", "tagline": "Wklej dowolny URL — zobacz protocol, host, port, path, query parameters (zdekodowane), hash i origin rozłożone na części.", "description": "Darmowy online parser URL. Dekoduje dowolny URL na protocol, host, port, path, query string, hash i origin, z każdym query parameterem wyświetlonym zdekodowanym. Działa w całości w przeglądarce."},
         "ja": {"name": "URL パーサー", "tagline": "URL を貼ると、protocol・host・port・path・query パラメータ（デコード済み）・hash・origin に分解して表示。", "description": "オンライン無料の URL パーサー。任意の URL を protocol、host、port、path、query string、hash、origin に分解し、各クエリパラメータをデコード済みで表示します。すべてブラウザ内で動作します。"},
+        "nl": {"name": "URL Parser", "tagline": "Plak elke URL — zie protocol, host, port, path, query parameters (gedecodeerd), hash en origin uitgesplitst.", "description": "Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -274,6 +275,29 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>Punycode のホスト名。</strong> <code>example.中国</code> は内部的に <code>xn--fiqs8s</code>。ブラウザによって ASCII 表記で表示されることがあります。</li>
   <li><strong>origin が "null" のことがあります。</strong> <code>file://</code>、<code>data:</code>、サンドボックスコンテキストでは origin は不透明値です。</li>
   <li><strong>これはパースであって検証ではありません。</strong> パースに成功しても、アプリにとって正しい URL とは限りません（host が違う、path が抜けているなど）。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een URL is een gestructureerde string met zeven goed-gedefinieerde delen (scheme, authority, host, port, path, query, fragment) die je als één blob inschat. Als er iets mis is — de verkeerde parameter, een onverwachte port, een extra encoded karakter — is dat veel makkelijker te spotten in een geparseerde tabel dan in de raw string. Deze tool gebruikt het native <code>URL</code>-object van de browser zodat de parse precies matcht met wat JavaScript ziet, en splitst dan elke query-parameter uit zodat de decoded values naast de raw vorm zichtbaar zijn.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een OAuth callback-URL debuggen waar de <code>state</code> of <code>code</code> verkeerd lijkt.</li>
+  <li>Een tracking-URL (UTM-tags, click-tokens) inspecteren en de daadwerkelijke values zien in plaats van de encoded blob.</li>
+  <li>Bevestigen dat een webhook-URL parset zoals de ontvangende service verwacht — vooral het path en de eventuele query.</li>
+  <li>Inschatten waarom een deep link in de ene app werkt en niet in de andere (port? scheme? authority?).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Herhaalde query-keys zijn echt.</strong> <code>?a=1&amp;a=2</code> is twee values voor <code>a</code>; tools die alleen de eerste lezen missen data. De parser toont alle values per key.</li>
+  <li><strong>Het fragment bereikt nooit de server.</strong> Alles na <code>#</code> blijft in de browser. Als je backend data niet ziet die je in de URL hebt gezet, check of die eigenlijk in het fragment staat.</li>
+  <li><strong>Encoding doet ertoe.</strong> <code>%20</code> in een query-value decodeert naar spatie; <code>+</code> in een query-value <em>ook</em> naar spatie (volgens <code>application/x-www-form-urlencoded</code>). De browser's <code>URL.searchParams</code> handelt beide af.</li>
+  <li><strong>Default ports verschijnen niet in <code>port</code>.</strong> Een URL als <code>https://example.com/</code> heeft <code>port</code> leeg (de default 443 wordt geïmpliceerd).</li>
+  <li><strong>Punycode hostnames.</strong> <code>example.中国</code> wordt intern opgeslagen als <code>xn--fiqs8s</code>; <code>hostname</code> kan de ASCII-vorm tonen afhankelijk van de browser.</li>
+  <li><strong>Origin is soms "null".</strong> Voor <code>file://</code>, <code>data:</code> of sandboxed contexts is origin opaque.</li>
+  <li><strong>Dit is parsing, geen validatie.</strong> Een URL kan schoon parsen en nog steeds verkeerd zijn voor je applicatie (bijv. verkeerde host, missing path).</li>
 </ul>
 """,
     },

@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Encoder / Decoder de URL", "tagline": "Faça percent-encoding de strings para URLs ou decodifique de volta para texto puro.", "description": "Encoder e decoder de URL online gratuito. Codifica caracteres especiais como percent-escapes para URLs, query strings e dados de formulário. Component-safe."},
         "pl": {"name": "Encoder / Decoder URL", "tagline": "Percent-encoduj stringi pod URL-e albo dekoduj zakodowane procentowo z powrotem na zwykły tekst.", "description": "Darmowy online encoder i decoder URL. Koduje znaki specjalne jako percent-escape pod URL-e, query stringi i form data. Component-safe."},
         "ja": {"name": "URL エンコーダー / デコーダー", "tagline": "URL 用に文字列を percent-encode、または percent-encoded をテキストにデコード。", "description": "オンライン無料の URL エンコーダー／デコーダー。URL、クエリ文字列、フォームデータ用に特殊文字を percent-escape にエンコードします。コンポーネントセーフ。"},
+        "nl": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode strings voor URLs of decodeer percent-encoded strings terug naar plain text.", "description": "Gratis online URL encoder en decoder. Encodet speciale tekens als percent-escapes voor URLs, query strings en form data. Component-safe."},
     },
     "body": """
 <div class="tool-card">
@@ -136,6 +137,24 @@ document.addEventListener('DOMContentLoaded', urlRun);
   <li><strong>空白は常に <code>%20</code> ではありません。</strong> <em>application/x-www-form-urlencoded</em> ボディでは空白は <code>+</code> です。本ツールは JS の <code>encodeURIComponent</code> 慣習（常に <code>%20</code>）に従い、デコードはどちらも受け付けます。</li>
   <li><strong>UTF-8 と Latin-1。</strong> モダンブラウザや <code>encodeURIComponent</code> は常に UTF-8。古いシステムが Latin-1 percent-escape を生成する場合、ここでは綺麗にラウンドトリップしないことがあります。</li>
   <li><strong>予約文字の percent-escape は大小無視ですが、デコード結果は大小区別あり。</strong> <code>%2F</code> も <code>%2f</code> も <code>/</code> にデコードされますが、元の文字の大小は保持されます。</li>
+</ul>
+""",
+        "nl": """
+<h2>Wat URL-encoding doet</h2>
+<p>URLs en HTTP-headers zijn beperkt tot een kleine ASCII-subset. Alles buiten die set — inclusief spaties, accenten, emoji en diverse reserved leestekens — moet <em>percent-encoded</em> worden: vervangen door <code>%</code> gevolgd door twee hex-cijfers per byte. <code>café</code> wordt <code>caf%C3%A9</code> (UTF-8). Decoderen keert dat om.</p>
+
+<h3>Wanneer welke scope</h3>
+<ul>
+  <li><strong>Component</strong> — kies dit voor individuele <em>values</em> die je in een URL plakt: query-string values, path segments, fragment text, header values. Encodet de structurele karakters <code>/ ? # &amp; = +</code> zodat ze niet per ongeluk als URL-syntax geparseerd worden.</li>
+  <li><strong>Full URI</strong> — kies dit voor een hele URL die je wil opschonen. Behoudt <code>/ ? # &amp; = +</code> als URL-structuur, encodet alleen <em>illegale</em> karakters (spaties, non-ASCII, etc.).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Encode niet dubbel.</strong> Een al-encoded string encoderen verandert <code>%20</code> in <code>%2520</code>. Als je input <code>%XX</code>-sequences toont, decodeer eerst.</li>
+  <li><strong>Spaties zijn niet altijd <code>%20</code>.</strong> In <em>application/x-www-form-urlencoded</em>-bodies zijn spaties <code>+</code>. Deze tool volgt de JavaScript <code>encodeURIComponent</code>-conventie (altijd <code>%20</code>); decode handelt beide af.</li>
+  <li><strong>UTF-8 vs Latin-1.</strong> Moderne browsers en <code>encodeURIComponent</code> gebruiken altijd UTF-8. Sommige oudere systemen produceren nog Latin-1 percent-escapes — die round-trippen hier niet schoon.</li>
+  <li><strong>Reserved karakters zijn case-insensitive in de percent-escape maar case-sensitive in het decoded resultaat</strong> — <code>%2F</code> en <code>%2f</code> decoderen beide naar <code>/</code>, maar de case van het oorspronkelijke karakter blijft behouden.</li>
 </ul>
 """,
     },

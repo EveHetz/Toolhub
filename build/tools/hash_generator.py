@@ -16,6 +16,7 @@ TOOL = {
         "pt": {"name": "Gerador de Hash", "tagline": "Gere hash de texto com SHA-1, SHA-256, SHA-384 ou SHA-512 usando WebCrypto do browser. Calculado localmente — o input nunca sai da página.", "description": "Gerador de hash online gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Saída em hex, fácil de copiar. Roda inteiramente no seu browser."},
         "pl": {"name": "Generator Hashy", "tagline": "Hashuj tekst za pomocą SHA-1, SHA-256, SHA-384 lub SHA-512 używając WebCrypto przeglądarki. Liczone lokalnie — input nigdy nie opuszcza strony.", "description": "Darmowy online generator hashy. SHA-1, SHA-256, SHA-384, SHA-512 przez WebCrypto. Wyjście hex, łatwe do skopiowania. Działa w całości w przeglądarce."},
         "ja": {"name": "ハッシュ生成ツール", "tagline": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。", "description": "オンライン無料のハッシュ生成ツール。WebCrypto を用いて SHA-1、SHA-256、SHA-384、SHA-512 を計算します。hex 出力でコピーしやすく、すべてブラウザ内で動作します。"},
+        "nl": {"name": "Hash Generator", "tagline": "Hash tekst met SHA-1, SHA-256, SHA-384 of SHA-512 via WebCrypto in je browser. Lokaal berekend — input verlaat de pagina nooit.", "description": "Gratis online hash generator. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Hex output, copy-friendly. Draait volledig in je browser."},
     },
     "body": """
 <div class="tool-card">
@@ -141,6 +142,26 @@ document.addEventListener('DOMContentLoaded', hRun);
   <li><strong>パスワードを生の SHA-256 でハッシュしないこと。</strong> 素の SHA は高速で、攻撃側のブルートフォースに有利です。パスワード保管には遅い KDF（Argon2id、bcrypt、scrypt）を使ってください。</li>
   <li><strong>MD5 は意図的に提供していません。</strong> 2000 年代初頭から破られています。「MD5 が必要」と思った場面では、まずセキュリティレビューを検討してください。</li>
   <li><strong>空白文字は重要です。</strong> 末尾の改行があるかないかでハッシュは変わります。hex 出力を厳密に比較してください。</li>
+</ul>
+""",
+        "nl": """
+<h2>Waarvoor is dit?</h2>
+<p>Een cryptografische hash neemt elke input en produceert een fingerprint van vaste lengte. Twee identieke inputs hashen altijd naar dezelfde digest; één bit veranderen verandert de digest volledig. Hashes onderbouwen file-integrity checks, content-addressable storage, digital signatures en password-hashing pipelines (waar ze met een trage functie als Argon2 of bcrypt worden gecombineerd).</p>
+<p>Al het hashen hier gebruikt <code>crypto.subtle.digest</code> van de browser — dezelfde primitives die TLS aansturen. Je input verlaat de pagina nooit.</p>
+
+<h3>Wanneer welke</h3>
+<ul>
+  <li><strong>SHA-256</strong> — verstandige default voor integrity checks, content addressing (Git, IPFS-style), HMAC-keys en signatures.</li>
+  <li><strong>SHA-384 / SHA-512</strong> — nuttig als je een bredere digest nodig hebt (PBKDF2/HKDF-tuning, grotere HMAC-keys, post-quantum-marge-gewoontes).</li>
+  <li><strong>SHA-1</strong> — alleen voor compatibiliteit (Git object IDs, legacy CI-checksums). Niet gebruiken voor security boundaries — praktische collision attacks bestaan sinds 2017.</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Hashen is geen encryptie.</strong> Hashes zijn one-way; je krijgt het origineel niet terug. Als je vertrouwelijkheid nodig hebt, versleutel.</li>
+  <li><strong>Hash wachtwoorden niet met raw SHA-256.</strong> Plain SHA is snel — dat helpt aanvallers brute-forcen. Gebruik een trage KDF (Argon2id, bcrypt, scrypt) voor wachtwoordopslag.</li>
+  <li><strong>MD5 is opzettelijk afwezig.</strong> Gebroken sinds begin jaren 2000. Overal waar je MD5 "nodig" hebt, moet je ook een security review aanvragen.</li>
+  <li><strong>Whitespace doet ertoe.</strong> Een trailing newline produceert een andere hash dan dezelfde tekst zonder. Vergelijk hex output exact.</li>
 </ul>
 """,
     },
