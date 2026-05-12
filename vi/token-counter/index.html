@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đếm Token — Toolhub</title>
+  <meta name="description" content="Công cụ ước tính token miễn phí trong trình duyệt cho LLM. Dán bất kỳ văn bản nào và xem số token cho GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini và Mistral. Heuristic riêng cho từng model — chính xác ±5% với tiếng Anh, ±10% với mã nguồn và CJK. Hữu ích để lên kế hoạch ngân sách prompt, ước lượng cửa sổ ngữ cảnh, và ước tính chi phí API.">
+  <meta property="og:title" content="Đếm Token — Toolhub">
+  <meta property="og:description" content="Công cụ ước tính token miễn phí trong trình duyệt cho LLM. Dán bất kỳ văn bản nào và xem số token cho GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini và Mistral. Heuristic riêng cho từng model — chính xác ±5% với tiếng Anh, ±10% với mã nguồn và CJK. Hữu ích để lên kế hoạch ngân sách prompt, ước lượng cửa sổ ngữ cảnh, và ước tính chi phí API.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/vi/token-counter/">
+  <meta property="og:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/token-counter.png">
+  <link rel="canonical" href="https://toolhub.software/vi/token-counter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/">
+  <meta property="og:locale" content="vi_VN">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/vi/token-counter/#tool",
+        "name": "Đếm Token",
+        "description": "Công cụ ước tính token miễn phí trong trình duyệt cho LLM. Dán bất kỳ văn bản nào và xem số token cho GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini và Mistral. Heuristic riêng cho từng model — chính xác ±5% với tiếng Anh, ±10% với mã nguồn và CJK. Hữu ích để lên kế hoạch ngân sách prompt, ước lượng cửa sổ ngữ cảnh, và ước tính chi phí API.",
+        "url": "https://toolhub.software/vi/token-counter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "vi",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Tất cả công cụ", "item": "https://toolhub.software/vi/"},
+          {"@type": "ListItem", "position": 2, "name": "Đếm Token", "item": "https://toolhub.software/vi/token-counter/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Công cụ này để làm gì?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mỗi tương tác với LLM được tính phí theo token — đơn vị sub-từ mà tokenizer của model cắt ra từ văn bản của bạn. Token quyết định cả giới hạn context window (\"có vừa không?\") lẫn giá (\"tốn bao nhiêu?\"). Số đếm chính xác phụ thuộc vào tokenizer của model — thường bạn không có sẵn. Công cụ này cho ước tính nhanh cho từng model lớn cạnh nhau, cộng với chi phí USD cho văn bản này theo giá công bố."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Khi nào nên dùng",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Đo lường system prompt để chắc rằng (cộng với input người dùng và phần dư cho output) vừa với context window. Ước tính chi phí API của một batch job trước khi chạy — dán 100 input đại diện và nhân. So sánh các phiên bản prompt: prompt mới thực sự ngắn hơn hay chỉ cảm giác vậy? Sanity check khi lỗi \"quá dài\" có thể đến từ whitespace ẩn, BOM, hoặc nhiễu copy-paste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Trung thực về độ chính xác",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Đây là heuristic, không phải tokenizer thật. tiktoken (OpenAI), tokenizer của Anthropic, và SentencePiece (Llama, Gemini, Mistral) cắt văn bản khác nhau. Với văn xuôi tiếng Anh, chúng tôi nằm trong ±5%. Mã nguồn, JSON dày đặc, và CJK lệch lên ±10% hoặc tệ hơn. Tại sao không nhúng tokenizer thật. Riêng tiktoken đã ~1 MB WASM + data files; tải chỉ để đếm token sẽ làm trang phình to gấp 10. Cần số đếm chính xác thì chạy tiktoken bằng Python cục bộ hoặc gọi endpoint /v1/tokenize của model. Cái mà chúng tôi đúng. Thứ tự tương đối (model nào dùng nhiều token hơn cho cùng văn bản) đáng tin cậy. Xếp hạng chi phí thường đúng. Ước tính bậc độ lớn (\"500 hay 5000 token?\") rất chính xác."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ghi chú về giá",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chi phí là giá input trên 1M token tính đến 2025. Output token thường đắt hơn — nhân 3–5× cho ước tính tệ nhất. Llama 3 hiển thị chi phí 0 vì deployment thường là self-hosted. Các nhà cung cấp hosted (Together, Groq, Fireworks) thu $0.20–$1 mỗi 1M tùy kích thước. Giá thay đổi. Kiểm tra trang giá của nhà cung cấp trước khi dựa vào con số này cho ngân sách thật."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Lưu ý thường gặp",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Token ≠ từ. Một từ tiếng Anh trung bình 1.3 token; \"antidisestablishmentarianism\" khoảng 7. Mã nguồn và văn bản có cấu trúc tokenize dày đặc hơn nhiều trên mỗi ký tự. Văn bản CJK dày. Mỗi ký tự Trung / Nhật / Hàn có thể là một token, nên 1000 ký tự ≈ 1000 token — đắt hơn nhiều trên mỗi \"ký tự\" so với tiếng Anh. Ký tự ẩn cộng dồn. Văn bản dán với zero-width joiner, NBSP, hoặc BOM cũng được tính. Dùng Unicode Inspector nếu số token có vẻ cao đáng ngờ. System + user + assistant cộng dồn. Ngân sách context window bao gồm mọi tin nhắn trong cuộc trò chuyện. Đừng tính input theo giới hạn thô; chừa 30–50% margin cho câu trả lời."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Đếm Token",
+  "description": "Ước tính số token cho GPT-4, Claude, Llama, Gemini và các LLM khác. Dán văn bản, xem số đếm theo từng model cạnh nhau. File không bao giờ rời khỏi trình duyệt của bạn.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Nhập các giá trị của bạn",
+      "text": "Gõ dữ liệu văn bản mà công cụ cần."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Đọc kết quả tính toán",
+      "text": "Kết quả văn bản cập nhật tức thì — không cần nút."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Dùng hoặc sao chép kết quả",
+      "text": "Bấm Sao chép nếu bạn cần giá trị văn bản ở nơi khác."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/vi/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Ngôn ngữ</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/token-counter/'; else location.href='/token-counter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" selected="selected">🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Đếm Token</div>
+    <h1>Đếm Token</h1>
+    <p class="tagline">Ước tính số token cho GPT-4, Claude, Llama, Gemini và các LLM khác. Dán văn bản, xem số đếm theo từng model cạnh nhau. File không bao giờ rời khỏi trình duyệt của bạn.</p>
+    
+<div class="tool-card">
+  <label for="tc-input">Đầu vào</label>
+  <textarea id="tc-input" oninput="tcRun()" spellcheck="false" placeholder="Paste any text here — a prompt, a chunk of code, a JSON payload…"></textarea>
+  <div class="meta" id="tc-stats" style="margin-top:0.5rem"></div>
+</div>
+<div class="tool-card">
+  <label>Token counts per model</label>
+  <div class="tc-table-wrap">
+    <table class="tc-table" id="tc-table">
+      <thead>
+        <tr><th>Model</th><th>Tokens</th><th>Input $/1M</th><th>Cost (this text)</th></tr>
+      </thead>
+      <tbody id="tc-tbody"></tbody>
+    </table>
+  </div>
+  <div class="button-row" style="margin-top:0.6rem">
+    <button class="secondary" onclick="tcCopyJson(this)">Copy as JSON</button>
+  </div>
+  <div class="meta" style="margin-top:0.6rem">Estimates only. Real tokenizers (tiktoken, SentencePiece, etc.) may differ by ±10%. For exact counts, run the model's tokenizer locally.</div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Công cụ này để làm gì?</h2>
+<p>Mỗi tương tác với LLM được tính phí theo <em>token</em> — đơn vị sub-từ mà tokenizer của model cắt ra từ văn bản của bạn. Token quyết định cả giới hạn context window ("có vừa không?") lẫn giá ("tốn bao nhiêu?"). Số đếm chính xác phụ thuộc vào tokenizer của model — thường bạn không có sẵn. Công cụ này cho ước tính nhanh cho từng model lớn cạnh nhau, cộng với chi phí USD cho văn bản này theo giá công bố.</p>
+
+<h3>Khi nào nên dùng</h3>
+<ul>
+  <li>Đo lường system prompt để chắc rằng (cộng với input người dùng và phần dư cho output) vừa với context window.</li>
+  <li>Ước tính chi phí API của một batch job trước khi chạy — dán 100 input đại diện và nhân.</li>
+  <li>So sánh các phiên bản prompt: prompt mới thực sự ngắn hơn hay chỉ cảm giác vậy?</li>
+  <li>Sanity check khi lỗi "quá dài" có thể đến từ whitespace ẩn, BOM, hoặc nhiễu copy-paste.</li>
+</ul>
+
+<h3>Trung thực về độ chính xác</h3>
+<ul>
+  <li><strong>Đây là heuristic, không phải tokenizer thật.</strong> tiktoken (OpenAI), tokenizer của Anthropic, và SentencePiece (Llama, Gemini, Mistral) cắt văn bản khác nhau. Với văn xuôi tiếng Anh, chúng tôi nằm trong ±5%. Mã nguồn, JSON dày đặc, và CJK lệch lên ±10% hoặc tệ hơn.</li>
+  <li><strong>Tại sao không nhúng tokenizer thật.</strong> Riêng tiktoken đã ~1 MB WASM + data files; tải chỉ để đếm token sẽ làm trang phình to gấp 10. Cần số đếm chính xác thì chạy <code>tiktoken</code> bằng Python cục bộ hoặc gọi endpoint <code>/v1/tokenize</code> của model.</li>
+  <li><strong>Cái mà chúng tôi đúng.</strong> Thứ tự tương đối (model nào dùng nhiều token hơn cho cùng văn bản) đáng tin cậy. Xếp hạng chi phí thường đúng. Ước tính bậc độ lớn ("500 hay 5000 token?") rất chính xác.</li>
+</ul>
+
+<h3>Ghi chú về giá</h3>
+<ul>
+  <li>Chi phí là giá <em>input</em> trên 1M token tính đến 2025. Output token thường đắt hơn — nhân 3–5× cho ước tính tệ nhất.</li>
+  <li>Llama 3 hiển thị chi phí 0 vì deployment thường là self-hosted. Các nhà cung cấp hosted (Together, Groq, Fireworks) thu $0.20–$1 mỗi 1M tùy kích thước.</li>
+  <li>Giá thay đổi. Kiểm tra trang giá của nhà cung cấp trước khi dựa vào con số này cho ngân sách thật.</li>
+</ul>
+
+<h3>Lưu ý thường gặp</h3>
+<ul>
+  <li><strong>Token ≠ từ.</strong> Một từ tiếng Anh trung bình 1.3 token; "antidisestablishmentarianism" khoảng 7. Mã nguồn và văn bản có cấu trúc tokenize dày đặc hơn nhiều trên mỗi ký tự.</li>
+  <li><strong>Văn bản CJK dày.</strong> Mỗi ký tự Trung / Nhật / Hàn có thể là một token, nên 1000 ký tự ≈ 1000 token — đắt hơn nhiều trên mỗi "ký tự" so với tiếng Anh.</li>
+  <li><strong>Ký tự ẩn cộng dồn.</strong> Văn bản dán với zero-width joiner, NBSP, hoặc BOM cũng được tính. Dùng Unicode Inspector nếu số token có vẻ cao đáng ngờ.</li>
+  <li><strong>System + user + assistant cộng dồn.</strong> Ngân sách context window bao gồm mọi tin nhắn trong cuộc trò chuyện. Đừng tính input theo giới hạn thô; chừa 30–50% margin cho câu trả lời.</li>
+</ul>
+<div class="related"><span class="meta">Công cụ liên quan:</span> <a href="/vi/unicode-inspector/">Trình kiểm tra Unicode</a> <a href="/vi/word-counter/">Đếm Từ</a> <a href="/vi/json-formatter/">JSON Formatter</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/vi/privacy/">Quyền riêng tư</a> · <a href="/vi/how-we-handle-your-data/">Xử lý dữ liệu</a> · <a href="/vi/affiliate-disclosure/">Tiết lộ affiliate</a> · <a href="/vi/companion-tools/">Công cụ bổ sung</a> · <a href="/vi/about/">Giới thiệu</a> · <a href="/vi/contact/">Liên hệ</a> · <a href="/vi/for-schools/">Dành cho trường học</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.tc-table-wrap{overflow:auto;border:1px solid var(--border);border-radius:8px}
+.tc-table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.tc-table th,.tc-table td{padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid var(--border);font-family:ui-monospace,monospace}
+.tc-table th{background:var(--bg);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);font-family:inherit}
+.tc-table tbody tr:last-child td{border-bottom:none}
+.tc-table td.num{text-align:right;font-variant-numeric:tabular-nums}
+.tc-name{font-weight:600}
+.tc-cost{color:var(--accent)}
+.tc-stat{display:inline-block;margin-right:1rem}
+.tc-stat strong{color:var(--text)}
+</style>
+<script>
+const TC_MODELS = [
+  {id:'gpt-4o',            label:'GPT-4o',            divisor:3.8, codeFactor:0.3, costPerM:2.50},
+  {id:'gpt-3.5-turbo',     label:'GPT-3.5 Turbo',     divisor:3.8, codeFactor:0.3, costPerM:0.50},
+  {id:'claude-3.5-sonnet', label:'Claude 3.5 Sonnet', divisor:3.6, codeFactor:0.3, costPerM:3.00},
+  {id:'claude-3.5-haiku',  label:'Claude 3.5 Haiku',  divisor:3.6, codeFactor:0.3, costPerM:0.80},
+  {id:'claude-3-opus',     label:'Claude 3 Opus',     divisor:3.6, codeFactor:0.3, costPerM:15.00},
+  {id:'llama-3',           label:'Llama 3',           divisor:3.7, codeFactor:0.3, costPerM:0},
+  {id:'gemini-1.5-pro',    label:'Gemini 1.5 Pro',    divisor:4.0, codeFactor:0.25, costPerM:1.25},
+  {id:'mistral-large',     label:'Mistral Large',     divisor:3.5, codeFactor:0.3, costPerM:2.00},
+];
+const TC_CJK_RE = /[぀-ヿ㐀-䶿一-鿿가-힯]/g;
+const TC_CODE_RE = /[{}()\[\];:.<>=]/g;
+function tcEstimate(text, m){
+  if(!text) return 0;
+  const len = text.length;
+  const cjk = (text.match(TC_CJK_RE) || []).length;
+  const code = (text.match(TC_CODE_RE) || []).length;
+  const en = Math.max(0, len - cjk);
+  return Math.ceil(en / m.divisor + cjk + code * m.codeFactor);
+}
+function tcFmtNum(n){
+  if(n >= 1000) return n.toLocaleString();
+  return String(n);
+}
+function tcFmtCost(usd){
+  if(usd === 0) return 'free / self-host';
+  if(usd < 0.000001) return '$0.000000';
+  if(usd < 0.01) return '$' + usd.toFixed(6);
+  if(usd < 1) return '$' + usd.toFixed(4);
+  return '$' + usd.toFixed(2);
+}
+function tcRun(){
+  const text = document.getElementById('tc-input').value;
+  const tbody = document.getElementById('tc-tbody');
+  const rows = TC_MODELS.map(m => {
+    const tokens = tcEstimate(text, m);
+    const cost = (tokens / 1_000_000) * m.costPerM;
+    return `<tr><td class="tc-name">${m.label}</td><td class="num">${tcFmtNum(tokens)}</td><td class="num">${m.costPerM === 0 ? '—' : '$' + m.costPerM.toFixed(2)}</td><td class="num tc-cost">${tcFmtCost(cost)}</td></tr>`;
+  });
+  tbody.innerHTML = rows.join('');
+  // Stats
+  const chars = text.length;
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+  const lines = text === '' ? 0 : text.split('\n').length;
+  const avg = TC_MODELS.reduce((s, m) => s + tcEstimate(text, m), 0) / TC_MODELS.length;
+  document.getElementById('tc-stats').innerHTML =
+    `<span class="tc-stat"><strong>${tcFmtNum(chars)}</strong> chars</span>` +
+    `<span class="tc-stat"><strong>${tcFmtNum(words)}</strong> words</span>` +
+    `<span class="tc-stat"><strong>${tcFmtNum(lines)}</strong> lines</span>` +
+    `<span class="tc-stat">~<strong>${tcFmtNum(Math.round(avg))}</strong> tokens (avg)</span>`;
+}
+function tcCopyJson(btn){
+  const text = document.getElementById('tc-input').value;
+  const obj = {};
+  TC_MODELS.forEach(m => {
+    const tokens = tcEstimate(text, m);
+    obj[m.id] = { tokens: tokens, cost_usd: +((tokens / 1_000_000) * m.costPerM).toFixed(6) };
+  });
+  const json = JSON.stringify(obj, null, 2);
+  navigator.clipboard.writeText(json).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied';
+    setTimeout(() => btn.textContent = orig, 1400);
+  });
+}
+document.addEventListener('DOMContentLoaded', tcRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

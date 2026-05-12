@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Schema → Pydantic — Toolhub</title>
+  <meta name="description" content="Darmowy generator kodu JSON Schema → Pydantic v2. Wklej obiekt JSON Schema i dostań klasę Pydantic BaseModel z type hintami, defaultami Field(), walidatorami i rozwiniętymi Optional/Union. Przydatne, kiedy zaprojektowałeś schema structured-outputu dla LLM-a (OpenAI / Claude / etc.) i potrzebujesz dopasowanej klasy Pydantic. Tylko w przeglądarce, bez uploadu.">
+  <meta property="og:title" content="JSON Schema → Pydantic — Toolhub">
+  <meta property="og:description" content="Darmowy generator kodu JSON Schema → Pydantic v2. Wklej obiekt JSON Schema i dostań klasę Pydantic BaseModel z type hintami, defaultami Field(), walidatorami i rozwiniętymi Optional/Union. Przydatne, kiedy zaprojektowałeś schema structured-outputu dla LLM-a (OpenAI / Claude / etc.) i potrzebujesz dopasowanej klasy Pydantic. Tylko w przeglądarce, bez uploadu.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/pl/json-schema-to-pydantic/">
+  <meta property="og:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <link rel="canonical" href="https://toolhub.software/pl/json-schema-to-pydantic/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/">
+  <meta property="og:locale" content="pl_PL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/pl/json-schema-to-pydantic/#tool",
+        "name": "JSON Schema → Pydantic",
+        "description": "Darmowy generator kodu JSON Schema → Pydantic v2. Wklej obiekt JSON Schema i dostań klasę Pydantic BaseModel z type hintami, defaultami Field(), walidatorami i rozwiniętymi Optional/Union. Przydatne, kiedy zaprojektowałeś schema structured-outputu dla LLM-a (OpenAI / Claude / etc.) i potrzebujesz dopasowanej klasy Pydantic. Tylko w przeglądarce, bez uploadu.",
+        "url": "https://toolhub.software/pl/json-schema-to-pydantic/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "pl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Wszystkie narzędzia", "item": "https://toolhub.software/pl/"},
+          {"@type": "ListItem", "position": 2, "name": "JSON Schema → Pydantic", "item": "https://toolhub.software/pl/json-schema-to-pydantic/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do czego to służy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON Schema i Pydantic to dwa główne sposoby opisywania ustrukturyzowanego obiektu — JSON Schema to lingua franca dla OpenAPI, function calling LLM-ów i structured output; Pydantic to faktyczny standard walidacji w Pythonie. Często masz jedno, a potrzebujesz drugiego. To narzędzie robi konwersję w jedną stronę: wklej JSON Schema, dostań klasę Pydantic gotową do wklejenia do pliku .py."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kiedy tego użyć",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Structured output LLM-a. response_format z OpenAI i tool-use z Anthropica oba biorą JSON Schema. Po zaprojektowaniu zwykle chcesz model Pydantic do walidacji i dostępu do pól w Pythonie. Generowanie klienta OpenAPI. Spec OpenAPI daje JSON Schema na request/response body; szybki sposób na modele Pydantic bez pełnego generatora. Migracja Schema → Python. Odziedziczyłeś system z walidacją JSON Schema, chcesz przejść na Pydantic. Wklej każdy schema, dostań klasę startową, dopracuj. Szybki scaffolding. Naszkicowałeś kształt w JSON-ie w notebooku; zamień to w prawdziwy model jednym wklejeniem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co narzędzie obsługuje",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "type: object z properties + required — zagnieżdżona klasa BaseModel. type: array z items — List[X] . Prymitywy: string → str , integer → int , number → float , boolean → bool , null → None . format na stringu: date-time → datetime , email → EmailStr , uri/url → HttpUrl , uuid → UUID . enum → Literal[...] ; const → Literal[X] . oneOf / anyOf → Union[...] ; wariant null składa się do Optional[...] . type: [\"string\", \"null\"] → Optional[str] . description → Field(..., description=...) . default → default pola. minimum/maximum/minLength/maxLength → Field(ge=..., le=..., min_length=..., max_length=...) . Nazwy nie-pythonowe są oczyszczane, dodawany alias= ; model konfigurowany z populate_by_name=True . Obiekty zagnieżdżone → klasy zagnieżdżone, nazwane wg title jeśli jest, inaczej wg pola. $defs/definitions → osobne klasy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czego (jeszcze) nie obsługuje",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zewnętrzne $ref (URLe). Lokalne do $defs działają. patternProperties — komentarz TODO. additionalProperties z schemą — komentarz TODO. Wielobazowa kompozycja allOf . Jednoelementowe allOf jest rozpakowywane. Custom walidatory na pattern — pole jest, regex pomijany. Dodaj @field_validator po wklejeniu, jeśli potrzeba."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Częste pułapki",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pydantic v2 vs v1. Default v2. Przełącz w dropdownie, jeśli codebase to v1. Wyjście to punkt startowy. Zrób review, zwłaszcza dla złożonych unii i typów rekurencyjnych. Nazwy się liczą. Pole \"Root class name\" kontroluje nazwę top-levelowej klasy. Podklasy: title lub nazwa pola. Required vs Optional w v2. Required bez defaultu używa ... . Optional spada do None w Optional[T] ."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON Schema → Pydantic",
+  "description": "Konwertuj JSON Schema na kod modelu Pydantic v2 w przeglądarce. Wklej schema, dostań klasę Pythona gotową do wklejenia. Przydatne dla LLM-owych workflowów ze structured output.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Wklej JSON",
+      "text": "Umieść JSON w polu Wejście."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Kliknij Konwertuj",
+      "text": "Naciśnij przycisk Konwertuj, aby uruchomić narzędzie."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Skopiuj wynik",
+      "text": "Naciśnij Kopiuj, aby skopiować Wyjście."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/pl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Język</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-schema-to-pydantic/'; else location.href='/json-schema-to-pydantic/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" selected="selected">🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / JSON Schema → Pydantic</div>
+    <h1>JSON Schema → Pydantic</h1>
+    <p class="tagline">Konwertuj JSON Schema na kod modelu Pydantic v2 w przeglądarce. Wklej schema, dostań klasę Pythona gotową do wklejenia. Przydatne dla LLM-owych workflowów ze structured output.</p>
+    
+<div class="tool-card">
+  <label for="js-input">JSON Schema</label>
+  <textarea id="js-input" oninput="jsRun()" spellcheck="false" placeholder='{ "type": "object", "properties": { "name": {"type": "string"} } }'></textarea>
+  <div class="row-2col" style="margin-top:0.7rem">
+    <div>
+      <label>Pydantic version</label>
+      <select id="js-version" onchange="jsRun()">
+        <option value="v2">Pydantic v2 (default)</option>
+        <option value="v1">Pydantic v1</option>
+      </select>
+    </div>
+    <div>
+      <label>Sample schema</label>
+      <select id="js-sample" onchange="jsLoadSample()">
+        <option value="">— Load an example —</option>
+        <option value="user">User profile</option>
+        <option value="address">Address</option>
+        <option value="nested">Nested API response</option>
+        <option value="enums">Status with enum</option>
+      </select>
+    </div>
+  </div>
+  <div>
+    <label for="js-name" style="margin-top:0.7rem">Root class name</label>
+    <input type="text" id="js-name" value="Model" oninput="jsRun()" style="font-family:ui-monospace,monospace">
+  </div>
+</div>
+<div class="tool-card">
+  <label>Generated Pydantic code</label>
+  <div class="output-row">
+    <pre class="output" id="js-output">Wpisz dane powyżej, aby zobaczyć wynik.</pre>
+    <button class="copy-btn secondary" onclick="jsCopy(this)">Kopiuj</button>
+  </div>
+  <div class="meta" id="js-meta"></div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Do czego to służy?</h2>
+<p>JSON Schema i Pydantic to dwa główne sposoby opisywania ustrukturyzowanego obiektu — JSON Schema to lingua franca dla OpenAPI, function calling LLM-ów i structured output; Pydantic to faktyczny standard walidacji w Pythonie. Często masz jedno, a potrzebujesz drugiego. To narzędzie robi konwersję w jedną stronę: wklej JSON Schema, dostań klasę Pydantic gotową do wklejenia do pliku .py.</p>
+
+<h3>Kiedy tego użyć</h3>
+<ul>
+  <li><strong>Structured output LLM-a.</strong> <code>response_format</code> z OpenAI i tool-use z Anthropica oba biorą JSON Schema. Po zaprojektowaniu zwykle chcesz model Pydantic do walidacji i dostępu do pól w Pythonie.</li>
+  <li><strong>Generowanie klienta OpenAPI.</strong> Spec OpenAPI daje JSON Schema na request/response body; szybki sposób na modele Pydantic bez pełnego generatora.</li>
+  <li><strong>Migracja Schema → Python.</strong> Odziedziczyłeś system z walidacją JSON Schema, chcesz przejść na Pydantic. Wklej każdy schema, dostań klasę startową, dopracuj.</li>
+  <li><strong>Szybki scaffolding.</strong> Naszkicowałeś kształt w JSON-ie w notebooku; zamień to w prawdziwy model jednym wklejeniem.</li>
+</ul>
+
+<h3>Co narzędzie obsługuje</h3>
+<ul>
+  <li><code>type: object</code> z <code>properties</code> + <code>required</code> — zagnieżdżona klasa BaseModel.</li>
+  <li><code>type: array</code> z <code>items</code> — <code>List[X]</code>.</li>
+  <li>Prymitywy: <code>string</code> → <code>str</code>, <code>integer</code> → <code>int</code>, <code>number</code> → <code>float</code>, <code>boolean</code> → <code>bool</code>, <code>null</code> → <code>None</code>.</li>
+  <li><code>format</code> na stringu: <code>date-time</code> → <code>datetime</code>, <code>email</code> → <code>EmailStr</code>, <code>uri/url</code> → <code>HttpUrl</code>, <code>uuid</code> → <code>UUID</code>.</li>
+  <li><code>enum</code> → <code>Literal[...]</code>; <code>const</code> → <code>Literal[X]</code>.</li>
+  <li><code>oneOf</code>/<code>anyOf</code> → <code>Union[...]</code>; wariant null składa się do <code>Optional[...]</code>.</li>
+  <li><code>type: ["string", "null"]</code> → <code>Optional[str]</code>.</li>
+  <li><code>description</code> → <code>Field(..., description=...)</code>.</li>
+  <li><code>default</code> → default pola.</li>
+  <li><code>minimum/maximum/minLength/maxLength</code> → <code>Field(ge=..., le=..., min_length=..., max_length=...)</code>.</li>
+  <li>Nazwy nie-pythonowe są oczyszczane, dodawany <code>alias=</code>; model konfigurowany z <code>populate_by_name=True</code>.</li>
+  <li>Obiekty zagnieżdżone → klasy zagnieżdżone, nazwane wg <code>title</code> jeśli jest, inaczej wg pola.</li>
+  <li><code>$defs/definitions</code> → osobne klasy.</li>
+</ul>
+
+<h3>Czego (jeszcze) nie obsługuje</h3>
+<ul>
+  <li>Zewnętrzne <code>$ref</code> (URLe). Lokalne do <code>$defs</code> działają.</li>
+  <li><code>patternProperties</code> — komentarz TODO.</li>
+  <li><code>additionalProperties</code> z schemą — komentarz TODO.</li>
+  <li>Wielobazowa kompozycja <code>allOf</code>. Jednoelementowe <code>allOf</code> jest rozpakowywane.</li>
+  <li>Custom walidatory na <code>pattern</code> — pole jest, regex pomijany. Dodaj <code>@field_validator</code> po wklejeniu, jeśli potrzeba.</li>
+</ul>
+
+<h3>Częste pułapki</h3>
+<ul>
+  <li><strong>Pydantic v2 vs v1.</strong> Default v2. Przełącz w dropdownie, jeśli codebase to v1.</li>
+  <li><strong>Wyjście to punkt startowy.</strong> Zrób review, zwłaszcza dla złożonych unii i typów rekurencyjnych.</li>
+  <li><strong>Nazwy się liczą.</strong> Pole "Root class name" kontroluje nazwę top-levelowej klasy. Podklasy: <code>title</code> lub nazwa pola.</li>
+  <li><strong>Required vs Optional w v2.</strong> Required bez defaultu używa <code>...</code>. Optional spada do <code>None</code> w <code>Optional[T]</code>.</li>
+</ul>
+<div class="related"><span class="meta">Powiązane narzędzia:</span> <a href="/pl/json-formatter/">Formatter JSON</a> <a href="/pl/json-diff/">Diff JSON</a> <a href="/pl/yaml-json/">Konwerter YAML ↔ JSON</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/pl/privacy/">Prywatność</a> · <a href="/pl/how-we-handle-your-data/">Obsługa danych</a> · <a href="/pl/affiliate-disclosure/">Ujawnienie partnerów</a> · <a href="/pl/companion-tools/">Narzędzia uzupełniające</a> · <a href="/pl/about/">O nas</a> · <a href="/pl/contact/">Kontakt</a> · <a href="/pl/for-schools/">Dla szkół</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+#js-output{white-space:pre;overflow:auto;font-family:ui-monospace,monospace;font-size:0.88rem;tab-size:4}
+#js-output.error{color:#f85149}
+</style>
+<script>
+const JS_SAMPLES = {
+  user: {
+    "title": "User",
+    "type": "object",
+    "properties": {
+      "id":   {"type": "integer", "description": "Unique user id"},
+      "name": {"type": "string"},
+      "email":{"type": "string", "format": "email"},
+      "age":  {"type": "integer", "minimum": 0},
+      "tags": {"type": "array", "items": {"type": "string"}, "default": []}
+    },
+    "required": ["id", "name", "email"]
+  },
+  address: {
+    "title": "Address",
+    "type": "object",
+    "properties": {
+      "street":      {"type": "string"},
+      "city":        {"type": "string"},
+      "postal_code": {"type": "string", "description": "ZIP or postal code"},
+      "country":     {"type": "string", "enum": ["US", "GB", "DE", "FR"]}
+    },
+    "required": ["street", "city", "country"]
+  },
+  nested: {
+    "title": "APIResponse",
+    "type": "object",
+    "properties": {
+      "ok":      {"type": "boolean"},
+      "data":    {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id":   {"type": "integer"},
+                "name": {"type": "string"}
+              },
+              "required": ["id", "name"]
+            }
+          }
+        }
+      },
+      "created_at": {"type": "string", "format": "date-time"}
+    },
+    "required": ["ok"]
+  },
+  enums: {
+    "title": "Job",
+    "type": "object",
+    "properties": {
+      "id":     {"type": "string"},
+      "status": {"type": "string", "enum": ["pending", "running", "done", "failed"]},
+      "result": {"oneOf": [{"type": "string"}, {"type": "null"}]}
+    },
+    "required": ["id", "status"]
+  }
+};
+function jsLoadSample(){
+  const sel = document.getElementById('js-sample').value;
+  if(!sel) return;
+  const sample = JS_SAMPLES[sel];
+  document.getElementById('js-input').value = JSON.stringify(sample, null, 2);
+  document.getElementById('js-name').value = sample.title || 'Model';
+  jsRun();
+}
+function jsToPascal(s){
+  if(!s) return 'Model';
+  return s.replace(/[^a-zA-Z0-9]+/g, ' ').trim().split(/\s+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('') || 'Model';
+}
+function jsEscString(s){
+  return '"' + String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
+}
+function jsPyRepr(v){
+  if(v === null) return 'None';
+  if(v === true) return 'True';
+  if(v === false) return 'False';
+  if(typeof v === 'number') return String(v);
+  if(typeof v === 'string') return jsEscString(v);
+  if(Array.isArray(v)) return '[' + v.map(jsPyRepr).join(', ') + ']';
+  if(typeof v === 'object'){
+    const entries = Object.entries(v).map(([k,vv]) => jsEscString(k) + ': ' + jsPyRepr(vv));
+    return '{' + entries.join(', ') + '}';
+  }
+  return 'None';
+}
+function jsGenerate(schema, rootName, v2){
+  const imports = { typing: new Set(), datetime: new Set(), uuid: false, pydantic: new Set(['BaseModel']) };
+  const classes = [];
+  const seenNames = new Set();
+  function uniqueName(base){
+    let n = base;
+    let i = 2;
+    while(seenNames.has(n)){ n = base + i; i++; }
+    seenNames.add(n);
+    return n;
+  }
+  function resolveRef(ref){
+    return ref.split('/').pop();
+  }
+  function typeFor(s, parentName, fieldName){
+    if(s === true) return 'Any';
+    if(!s || typeof s !== 'object') return 'Any';
+    if(s.$ref){
+      return resolveRef(s.$ref);
+    }
+    if(Array.isArray(s.oneOf) || Array.isArray(s.anyOf)){
+      imports.typing.add('Union');
+      const variants = (s.oneOf || s.anyOf).map(sub => typeFor(sub, parentName, fieldName));
+      if(variants.includes('None')){
+        imports.typing.add('Optional');
+        const others = variants.filter(v => v !== 'None');
+        if(others.length === 1) return 'Optional[' + others[0] + ']';
+        return 'Optional[Union[' + others.join(', ') + ']]';
+      }
+      return 'Union[' + variants.join(', ') + ']';
+    }
+    if(Array.isArray(s.allOf) && s.allOf.length === 1){
+      return typeFor(s.allOf[0], parentName, fieldName);
+    }
+    if(s.const !== undefined){
+      imports.typing.add('Literal');
+      return 'Literal[' + jsPyRepr(s.const) + ']';
+    }
+    if(Array.isArray(s.enum)){
+      imports.typing.add('Literal');
+      return 'Literal[' + s.enum.map(jsPyRepr).join(', ') + ']';
+    }
+    let t = s.type;
+    if(Array.isArray(t)){
+      // type: ["string", "null"] -> Optional[str]
+      const nonNull = t.filter(x => x !== 'null');
+      if(nonNull.length === 1 && t.includes('null')){
+        imports.typing.add('Optional');
+        const inner = typeFor({...s, type: nonNull[0]}, parentName, fieldName);
+        return 'Optional[' + inner + ']';
+      }
+      imports.typing.add('Union');
+      const variants = t.map(tt => typeFor({...s, type: tt}, parentName, fieldName));
+      return 'Union[' + variants.join(', ') + ']';
+    }
+    if(t === 'string'){
+      const f = s.format;
+      if(f === 'date-time'){ imports.datetime.add('datetime'); return 'datetime'; }
+      if(f === 'date'){ imports.datetime.add('date'); return 'date'; }
+      if(f === 'time'){ imports.datetime.add('time'); return 'time'; }
+      if(f === 'email'){ imports.pydantic.add('EmailStr'); return 'EmailStr'; }
+      if(f === 'uri' || f === 'url'){ imports.pydantic.add('HttpUrl'); return 'HttpUrl'; }
+      if(f === 'uuid'){ imports.uuid = true; return 'UUID'; }
+      return 'str';
+    }
+    if(t === 'integer') return 'int';
+    if(t === 'number') return 'float';
+    if(t === 'boolean') return 'bool';
+    if(t === 'null') return 'None';
+    if(t === 'array'){
+      imports.typing.add('List');
+      const itemType = s.items ? typeFor(s.items, parentName, (fieldName || 'Item') + 'Item') : 'Any';
+      return 'List[' + itemType + ']';
+    }
+    if(t === 'object' || s.properties){
+      // Nested class
+      const nestedBase = s.title ? jsToPascal(s.title) : jsToPascal((fieldName || 'Nested'));
+      const nestedName = uniqueName(nestedBase);
+      buildClass(s, nestedName);
+      return nestedName;
+    }
+    imports.typing.add('Any');
+    return 'Any';
+  }
+  function buildClass(s, name){
+    const props = s.properties || {};
+    const required = new Set(s.required || []);
+    const fieldLines = [];
+    for(const [propName, propSchema] of Object.entries(props)){
+      const t = typeFor(propSchema, name, propName);
+      const isRequired = required.has(propName);
+      const hasDefault = propSchema && propSchema.default !== undefined;
+      const desc = propSchema && typeof propSchema === 'object' ? propSchema.description : null;
+      let typeAnn = t;
+      if(!isRequired && !t.startsWith('Optional[') && !hasDefault){
+        imports.typing.add('Optional');
+        typeAnn = 'Optional[' + t + ']';
+      }
+      let defaultExpr;
+      if(hasDefault){
+        defaultExpr = jsPyRepr(propSchema.default);
+      } else if(!isRequired){
+        defaultExpr = 'None';
+      } else {
+        defaultExpr = '...';
+      }
+      const safeName = /^[a-zA-Z_][a-zA-Z0-9_]*$/.test(propName) && !JS_PY_KW.has(propName) ? propName : (propName.replace(/[^a-zA-Z0-9_]/g, '_') + '_');
+      const aliasNeeded = safeName !== propName;
+      const fieldArgs = [];
+      if(defaultExpr === '...' && (desc || aliasNeeded)){
+        fieldArgs.push('...');
+      } else if(defaultExpr !== '...'){
+        fieldArgs.push('default=' + defaultExpr);
+      }
+      if(aliasNeeded) fieldArgs.push('alias=' + jsEscString(propName));
+      if(desc) fieldArgs.push('description=' + jsEscString(desc));
+      if(propSchema && propSchema.minimum !== undefined) fieldArgs.push('ge=' + propSchema.minimum);
+      if(propSchema && propSchema.maximum !== undefined) fieldArgs.push('le=' + propSchema.maximum);
+      if(propSchema && propSchema.minLength !== undefined) fieldArgs.push('min_length=' + propSchema.minLength);
+      if(propSchema && propSchema.maxLength !== undefined) fieldArgs.push('max_length=' + propSchema.maxLength);
+      let rhs;
+      if(fieldArgs.length === 0){
+        rhs = '';
+      } else if(fieldArgs.length === 1 && fieldArgs[0] === '...'){
+        rhs = ' = Field(...)';
+        imports.pydantic.add('Field');
+      } else if(fieldArgs.length === 1 && fieldArgs[0].startsWith('default=') && !aliasNeeded && !desc){
+        rhs = ' = ' + fieldArgs[0].slice('default='.length);
+      } else {
+        rhs = ' = Field(' + fieldArgs.join(', ') + ')';
+        imports.pydantic.add('Field');
+      }
+      fieldLines.push('    ' + safeName + ': ' + typeAnn + rhs);
+    }
+    const todoLines = [];
+    if(s.patternProperties) todoLines.push('    # TODO: patternProperties not yet supported');
+    if(s.additionalProperties && typeof s.additionalProperties === 'object') todoLines.push('    # TODO: additionalProperties as schema not yet supported');
+    if(Array.isArray(s.allOf) && s.allOf.length > 1) todoLines.push('    # TODO: allOf composition (multi-base) not yet supported');
+    let body;
+    if(fieldLines.length === 0 && todoLines.length === 0){
+      body = '    pass';
+    } else {
+      body = [...todoLines, ...fieldLines].join('\n');
+    }
+    let configBlock = '';
+    if(fieldLines.some(l => l.includes('alias='))){
+      if(v2){
+        imports.pydantic.add('ConfigDict');
+        configBlock = '    model_config = ConfigDict(populate_by_name=True)\n\n';
+      } else {
+        configBlock = '    class Config:\n        allow_population_by_field_name = True\n\n';
+      }
+    }
+    classes.push('class ' + name + '(BaseModel):\n' + configBlock + body);
+  }
+  // root
+  const rootClassName = uniqueName(jsToPascal(rootName));
+  if(schema && typeof schema === 'object' && (schema.type === 'object' || schema.properties)){
+    buildClass(schema, rootClassName);
+  } else {
+    // Top-level is a primitive / array / union — wrap with a single-field model
+    const t = typeFor(schema, rootClassName, 'value');
+    classes.push('class ' + rootClassName + '(BaseModel):\n    root: ' + t);
+  }
+  // Definitions ($defs / definitions)
+  const defs = schema.$defs || schema.definitions;
+  if(defs && typeof defs === 'object'){
+    for(const [name, defSchema] of Object.entries(defs)){
+      if(seenNames.has(name)) continue;
+      seenNames.add(name);
+      buildClass(defSchema, name);
+    }
+  }
+  // Build header
+  const lines = [];
+  if(imports.typing.size){
+    lines.push('from typing import ' + [...imports.typing].sort().join(', '));
+  }
+  if(imports.datetime.size){
+    lines.push('from datetime import ' + [...imports.datetime].sort().join(', '));
+  }
+  if(imports.uuid){
+    lines.push('from uuid import UUID');
+  }
+  lines.push('from pydantic import ' + [...imports.pydantic].sort().join(', '));
+  lines.push('');
+  lines.push('');
+  // Classes are pushed after their fields are built, so nested ones land
+  // earlier in the array than their parents — which is exactly the order
+  // Python needs (definition before reference).
+  lines.push(classes.join('\n\n\n'));
+  return lines.join('\n') + '\n';
+}
+const JS_PY_KW = new Set(['False','None','True','and','as','assert','async','await','break','class','continue','def','del','elif','else','except','finally','for','from','global','if','import','in','is','lambda','nonlocal','not','or','pass','raise','return','try','while','with','yield']);
+function jsRun(){
+  const raw = document.getElementById('js-input').value.trim();
+  const out = document.getElementById('js-output');
+  const meta = document.getElementById('js-meta');
+  if(!raw){
+    out.classList.remove('error');
+    out.textContent = 'Wpisz dane powyżej, aby zobaczyć wynik.';
+    meta.textContent = '';
+    return;
+  }
+  let schema;
+  try { schema = JSON.parse(raw); }
+  catch(e){
+    out.classList.add('error');
+    out.textContent = '✗ JSON parse error: ' + e.message;
+    meta.textContent = '';
+    return;
+  }
+  const v2 = document.getElementById('js-version').value === 'v2';
+  const name = document.getElementById('js-name').value || 'Model';
+  try {
+    const code = jsGenerate(schema, name, v2);
+    out.classList.remove('error');
+    out.textContent = code;
+    const classCount = (code.match(/^class /gm) || []).length;
+    meta.textContent = classCount + ' class' + (classCount === 1 ? '' : 'es') + ' generated · ' + (v2 ? 'Pydantic v2' : 'Pydantic v1');
+  } catch(e){
+    out.classList.add('error');
+    out.textContent = '✗ ' + e.message;
+    meta.textContent = '';
+  }
+}
+function jsCopy(btn){
+  const text = document.getElementById('js-output').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = orig, 1400);
+  });
+}
+document.addEventListener('DOMContentLoaded', jsRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

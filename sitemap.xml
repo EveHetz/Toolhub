@@ -25740,4 +25740,994 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/image-color-picker/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-color-picker/"/>
   </url>
+  <url>
+    <loc>https://toolhub.software/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/token-counter/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/token-counter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/token-counter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/prompt-diff/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/prompt-diff/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/prompt-diff/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/json-schema-to-pydantic/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/json-schema-to-pydantic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-schema-to-pydantic/"/>
+  </url>
 </urlset>
