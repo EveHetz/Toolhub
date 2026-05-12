@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ワードカウンター", "tagline": "単語数・文字数・文数・段落数を数え、入力中に読了時間と発話時間を概算。", "description": "オンライン無料のワードカウンター。単語数、文字数（スペース含む／含まない）、文数、段落数、音節数のライブカウントに加え、読了時間と発話時間の概算を提供します。"},
         "nl": {"name": "Woordenteller", "tagline": "Tel woorden, karakters, zinnen, paragrafen en schat lees- + spreektijd terwijl je typt.", "description": "Gratis online woordenteller. Live tellingen voor woorden, karakters (met en zonder spaties), zinnen, paragrafen, lettergrepen, plus lees- en spreektijd-schattingen."},
         "tr": {"name": "Kelime Sayacı", "tagline": "Kelimeleri, karakterleri, cümleleri, paragrafları say ve yazdıkça okuma + konuşma süresini tahmin et.", "description": "Ücretsiz online kelime sayacı. Kelimeler, karakterler (boşluklu ve boşluksuz), cümleler, paragraflar, heceler için canlı sayım, ayrıca okuma ve konuşma süresi tahminleri."},
+        "id": {"name": "Penghitung Kata", "tagline": "Hitung kata, karakter, kalimat, paragraf, dan estimasi waktu baca + bicara saat mengetik.", "description": "Penghitung kata online gratis. Hitung kata, karakter (dengan dan tanpa spasi), kalimat, dan paragraf secara real-time saat mengetik. Estimasi waktu baca dan waktu bicara untuk teks panjang."},
     },
     "body": """
 <div class="tool-card">
@@ -290,6 +291,39 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Kelime sayıları araca göre değişir.</strong> Word, Google Docs ve dergi gönderim sistemleri birkaç yüzde anlaşmazlık çıkarabilir — tireler, em dash'ler ve sayıları farklı ele alırlar. Sert sınır önemliyse, geçit bekçisinin kullandığı aynı araçta say.</li>
   <li><strong>"En sık" stop word'leri filtrelemez.</strong> "the" ve "a" neredeyse her zaman listenin başında olur. Gerçek sinyal için daha uzun girdilere bak.</li>
   <li><strong>Okuma süresi tahminleri kişiseldir.</strong> 250 wpm medyandır; teknik içerik daha yavaş, kurgu daha hızlı gider. Sayıyı bir tahmin değil, bir planlama rehberi olarak ele al.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Menghitung kata dan karakter secara manual itu membosankan dan rawan error, padahal angkanya selalu penting: batas tweet, segmen SMS, jumlah kata esai, meta description SEO, panjang submission majalah. Tool ini memberi hitungan live saat kamu mengetik — kata, karakter (dengan dan tanpa spasi), kalimat, paragraf, baris — plus estimasi waktu baca dan waktu bicara, dan ringkasan cepat lima kata paling sering muncul untuk frekuensi kata.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengejar batas 280 karakter X/Twitter, SMS 160 karakter, meta description SEO 155 karakter, atau intro LinkedIn 100 kata.</li>
+  <li>Mem-budget esai, blog post, abstract, atau aplikasi hibah terhadap batas keras.</li>
+  <li>Memperkirakan berapa lama script akan dibaca keras-keras (podcast, presentasi, voice-over).</li>
+  <li>Mendeteksi kata yang terlalu sering dipakai dengan melihat daftar "paling sering" sebelum submit.</li>
+  <li>Mengecek apakah terjemahan datang kira-kira sepanjang sumber.</li>
+</ul>
+
+<h3>Arti setiap angka</h3>
+<ul>
+  <li><strong>Kata</strong> — kelompok karakter non-whitespace yang dipisah whitespace. "Twenty-one" dihitung satu kata; "twenty one" dihitung dua.</li>
+  <li><strong>Karakter</strong> vs <strong>karakter (tanpa spasi)</strong> — keduanya menghitung Unicode code point, bukan byte. Sebuah emoji di sini bisa 1–2 "karakter" tapi lebih banyak byte saat disimpan.</li>
+  <li><strong>Kalimat</strong> — segmen yang diakhiri <code>.</code>, <code>!</code>, atau <code>?</code> (atau akhir teks). Bersifat heuristik, lihat common gotchas.</li>
+  <li><strong>Paragraf</strong> — dipisah baris kosong.</li>
+  <li><strong>Waktu baca</strong> mengasumsikan 250 wpm (baca diam dewasa).</li>
+  <li><strong>Waktu bicara</strong> mengasumsikan 130 wpm (tempo bicara tipikal; news anchor lebih cepat, audiobook lebih lambat).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Deteksi kalimat itu naif.</strong> "Mr.", "U.S.", "e.g.", "3.14", dan ellipsis bisa menggelembungkan hitungan kalimat. Angkanya adalah estimasi berguna, bukan jaminan.</li>
+  <li><strong>Twitter/X menghitung code point, bukan karakter.</strong> Emoji bendera (🇮🇩) adalah 2 code point tapi di-render sebagai satu simbol — Twitter memperlakukannya sebagai 2 karakter. Tool ini mencocokkan itu.</li>
+  <li><strong>Batas karakter SMS tergantung encoding.</strong> ASCII murni muat 160 karakter per segmen; tambahkan satu karakter non-GSM (em dash, smart quote, huruf beraksen) dan seluruh pesan beralih ke UCS-2 dan batas turun ke 70. Tool melaporkan batas GSM; cek perilaku provider untuk biaya sebenarnya.</li>
+  <li><strong>Jumlah kata berbeda antar tool.</strong> Word, Google Docs, dan sistem submission majalah bisa beda beberapa persen — mereka menangani tanda hubung, em dash, dan angka secara berbeda. Jika batas keras penting, hitung di tool yang sama dengan yang dipakai gatekeeper.</li>
+  <li><strong>"Paling sering" tidak memfilter stop word.</strong> "the" dan "a" hampir selalu di atas. Lihat input yang lebih panjang untuk sinyal nyata.</li>
+  <li><strong>Estimasi waktu baca itu personal.</strong> 250 wpm adalah median; konten teknis lebih lambat, fiksi lebih cepat. Perlakukan angka sebagai panduan planning, bukan prediksi.</li>
 </ul>
 """,
     },

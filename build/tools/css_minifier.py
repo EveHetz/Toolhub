@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "CSS ミニファイア", "tagline": "CSS からコメント・空白・冗長な記述を除去。ビフォア／アフターのサイズと圧縮率を表示。", "description": "オンライン無料の CSS ミニファイア。コメント除去、空白の圧縮、末尾セミコロンとゼロ単位のトリミングを実施し、圧縮率を表示します。"},
         "nl": {"name": "CSS Minifier", "tagline": "Strip comments, whitespace en redundantie uit CSS. Zie size voor/na en het besparingspercentage.", "description": "Gratis online CSS minifier. Verwijdert comments, collapseert whitespace, trimt trailing semicolons en zero-units. Toont compressieratio."},
         "tr": {"name": "CSS Minifier", "tagline": "CSS'ten yorumları, boşlukları ve gereksizliği temizle. Öncesi/sonrası boyutunu ve tasarruf yüzdesini gör.", "description": "Ücretsiz online CSS minifier. Yorumları kaldırır, boşlukları daraltır, sondaki noktalı virgülleri ve sıfır birimlerini keser. Sıkıştırma oranını gösterir."},
+        "id": {"name": "CSS Minifier", "tagline": "Strip komentar, whitespace, dan redundansi dari CSS. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "CSS minifier gratis. Strip komentar, whitespace, dan stylesheet kosong dari CSS-mu. Lihat ukuran sebelum/sesudah dan persen byte yang dihemat — semuanya di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -263,6 +264,34 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>Source map üretilmez.</strong> Production'da minified CSS'i debug ediyorsan, onları ayrıca gönder.</li>
   <li><strong>Commit ettiğin CSS'i minify etme.</strong> Güzel kaynak commit et; build/deploy'da minify et. İkisini karıştırmak diff incelemesini sefil yapar.</li>
   <li><strong>Modern sıkıştırma baskın.</strong> Wire üzerindeki Brotli/gzip minification'ın çoğunu yapar. En büyük tasarruflar kullanılmayan kuralları çıkarmaktan gelir — bir tree-shaking işidir, minification değil.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>CSS yang readable di source — dengan comment, indentasi, dan whitespace yang bermakna — membengkakkan file yang diunduh user kamu. Structural minifier menghilangkan semua byte kosmetik (comment, deretan whitespace, nol redundan, hex code yang setara tapi lebih pendek) tanpa mengubah arti rule-nya. Tool ini menjalankan pass tersebut di browser kamu dan menampilkan ukuran sebelum/sesudah supaya kamu bisa melihat penghematannya.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengirim snippet CSS inline secara one-off di email HTML atau template blog post, di mana kamu ingin byte-nya mengecil tapi tidak punya build chain.</li>
+  <li>Cek cepat berapa banyak "lemak" di sebuah stylesheet sebelum memutuskan apakah optimizer sungguhan layak dipasang.</li>
+  <li>Menempelkan CSS pretty-printed dari vendor untuk diramping demi dimasukkan ke third-party widget.</li>
+</ul>
+
+<h3>Apa yang dilakukan</h3>
+<ul>
+  <li>Menghapus block comment (<code>/* … */</code>) — single-line <code>//</code> toh bukan plain CSS yang valid.</li>
+  <li>Mengciutkan whitespace di sekitar <code>{ } : ; ,</code> dan combinator (<code>&gt; ~ +</code>).</li>
+  <li>Membuang trailing semicolon sebelum <code>}</code>.</li>
+  <li>Memotong leading zero (<code>0.5</code> → <code>.5</code>) dan menghapus unit dari nol (<code>0px</code> → <code>0</code>).</li>
+  <li>Memendekkan hex color jika persis sama (<code>#aabbcc</code> → <code>#abc</code>).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini structural minify, bukan optimizer penuh.</strong> Tool ini tidak menggabungkan selector duplikat, mengubah urutan rule, atau menulis ulang shorthand. Untuk itu, jalankan <code>cssnano</code> atau <code>esbuild</code> di build pipeline kamu.</li>
+  <li><strong>Source map tidak dihasilkan.</strong> Jika kamu mendebug CSS minified di production, kirim mereka secara terpisah.</li>
+  <li><strong>Jangan minify CSS yang kamu commit.</strong> Commit source yang pretty; minify saat build/deploy. Mencampur keduanya membuat review diff jadi menderita.</li>
+  <li><strong>Kompresi modern dominan.</strong> Brotli/gzip di wire melakukan sebagian besar pekerjaan minification. Penghematan terbesar datang dari menghapus rule yang tidak terpakai — itu pekerjaan tree-shaking, bukan minification.</li>
 </ul>
 """,
     },

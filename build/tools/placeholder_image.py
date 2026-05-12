@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "プレースホルダー画像ジェネレーター", "tagline": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。", "description": "無料のプレースホルダー画像ジェネレーター。横×高さ、ラベルテキスト、配色を指定し、貼り付けに使えるインライン SVG（data URI、生のマークアップ、ダウンロード）を取得できます。すべてブラウザ内で動作します。"},
         "nl": {"name": "Placeholder Image Generator", "tagline": "Genereer inline-SVG placeholder images op elke size met custom tekst en kleuren. Output als data URI of downloadbaar SVG.", "description": "Gratis placeholder image-generator. Specificeer width × height, labeltekst en kleuren; krijg een inline SVG die je overal kunt plakken — data URI, raw markup of download. Draait volledig in je browser."},
         "tr": {"name": "Placeholder Görsel Üretici", "tagline": "Özel metin ve renklerle her boyutta inline-SVG placeholder görseller üret. Data URI veya indirilebilir SVG olarak çıkar.", "description": "Ücretsiz placeholder görsel üretici. Genişlik × yükseklik, etiket metni ve renkleri belirle; her yere yapıştırabileceğin inline SVG al — data URI, ham işaretleme veya indirme. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Generator Placeholder Image", "tagline": "Hasilkan placeholder image SVG inline ukuran apa pun dengan teks dan warna custom. Output sebagai data URI atau SVG yang dapat diunduh.", "description": "Generator placeholder image gratis. Buat placeholder image SVG inline ukuran apa pun dengan teks, warna background, dan warna foreground custom. Output sebagai data URI atau SVG yang dapat diunduh — sempurna untuk mockup dan wireframe."},
     },
     "body": """
 <div class="tool-card">
@@ -329,6 +330,28 @@ document.addEventListener('DOMContentLoaded', phRun);
   <li><strong>Renkler sadece HTML hex'tir.</strong> Renk seçiciler <code>#rrggbb</code> üretir. <code>rgba()</code> gerekiyorsa, kopyaladıktan sonra SVG markup'ını doğrudan düzenle.</li>
   <li><strong>Genişlik/yükseklik içseldir, display değildir.</strong> CSS'i farklı bir boyuta ayarlamak SVG'yi ölçeklendirir — görsel olarak iyi, ama en-boy oranı değişirse gömülü metin gerilmiş görünebilir.</li>
   <li><strong>Placeholder'ı gönderme.</strong> Unutmak kolaydır — yayına geçmeden önce gerçek varlıkla değiştir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Saat mendesain halaman, kamu sering butuh gambar dengan ukuran tertentu sebelum gambar aslinya siap — hero banner, thumbnail card, avatar, OG card. Memuat <code>via.placeholder.com</code> atau <code>placehold.co</code> bisa, tapi menambah request eksternal dan dependency pihak ketiga. Tool ini menghasilkan SVG inline self-contained dengan ukuran dan label yang kamu mau, siap di-drop ke HTML, CSS <code>background-image</code>, atau komponen React kamu sebagai data URI. Tidak ada yang meninggalkan browser kamu.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Wireframing layout di mana kamu butuh placeholder berbentuk sebelum asset asli siap.</li>
+  <li>Menyusun Storybook atau export Figma dan butuh grafik placeholder per komponen.</li>
+  <li>Mengetes kode image-loading, threshold lazy-loading, atau CSS aspect-ratio.</li>
+  <li>Mengganti layanan placeholder pihak ketiga di project yang harus bekerja offline atau di bawah CSP yang ketat.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>SVG ≠ raster.</strong> Data URI itu string SVG; ia scale tanpa blur sampai tak terhingga tapi designer yang menunggu PNG mungkin tidak. Untuk gambar raster, screenshot preview atau jalankan SVG melalui converter SVG-to-PNG.</li>
+  <li><strong>Data URI panjang itu canggung di <code>img src</code>.</strong> Browser menanganinya, tapi tool (linter, search-and-replace, diff tool) sering tersedak di attribute value multi-KB. Untuk mockup besar, pakai download file SVG.</li>
+  <li><strong>Teks label tidak dilokalkan.</strong> Auto-label adalah "WxH" dengan tanda perkalian; jika kamu butuh terjemahan, ketik label custom.</li>
+  <li><strong>Warna hanya HTML hex.</strong> Color picker menghasilkan <code>#rrggbb</code>. Jika kamu butuh <code>rgba()</code>, edit markup SVG langsung setelah menyalin.</li>
+  <li><strong>Width/height bersifat intrinsic, bukan display.</strong> Mengatur CSS ke ukuran berbeda akan men-scale SVG — secara visual oke, tapi teks yang ter-embed mungkin terlihat melar jika aspect ratio berubah; kami pakai <code>preserveAspectRatio="none"</code> untuk scaling yang predictable.</li>
+  <li><strong>Jangan ship placeholder.</strong> Mudah terlupa — ganti dengan asset asli sebelum go live.</li>
 </ul>
 """,
     },

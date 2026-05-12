@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "HTML フォーマッター", "tagline": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "description": "オンライン無料の HTML フォーマッター / ミニファイア。設定可能なインデントでの整形、コメントの任意除去、void / 自己終了タグの認識に対応。すべてブラウザ内で動作します。"},
         "nl": {"name": "HTML Formatter", "tagline": "Formatteer en beautify HTML of minify het. Indent size, comment stripping en self-closing tag awareness.", "description": "Gratis online HTML formatter en minifier. Pretty-print met configureerbare indentatie, optioneel comments strippen, en void/self-closing tags respecteren. Draait volledig in je browser."},
         "tr": {"name": "HTML Formatter", "tagline": "HTML'i biçimlendir ve güzelleştir ya da küçült. Indent boyutu, yorum temizleme ve self-closing tag farkındalığı.", "description": "Ücretsiz online HTML formatter ve minifier. Ayarlanabilir indent ile güzel yazdır, opsiyonel olarak yorumları sil, void/self-closing tag'lere uy. Tamamen tarayıcında çalışır."},
+        "id": {"name": "HTML Formatter", "tagline": "Format dan beautify HTML atau minify-nya. Ukuran indent, pengupasan komentar, dan kesadaran self-closing tag.", "description": "HTML formatter gratis. Beautify HTML berantakan dengan indentasi yang tepat atau minify HTML rapi dengan menghapus whitespace dan komentar. Sadar self-closing tag dan mempertahankan konten pre/code."},
     },
     "body": """
 <div class="tool-card">
@@ -468,6 +469,28 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>"Boşluğu daralt" bazı içerik için render edilen çıktıyı değiştirir.</strong> İki boşluk bir olur. Tasarımın birden fazla boşluğa veya non-breaking dizilere dayanıyorsa, kapat.</li>
   <li><strong>HTML'de self-closing notasyon kozmetiktir.</strong> <code>&lt;br/&gt;</code> ve <code>&lt;br&gt;</code> HTML5'te eşdeğerdir; bu araç ne yazdıysan korur.</li>
   <li><strong>Minify güvenlik sınırı değildir.</strong> Sırları gizlemek için yorumları temizlemeye güvenme — zaten istemciye gönderilmişlerdi.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Markup HTML datang ke editor kamu dalam berbagai keadaan — di-minify untuk production, dihasilkan template engine yang tidak peduli whitespace, diketik manual dengan indentasi tidak konsisten. Tool ini memformat ulang fragment HTML apa pun dengan indentasi konsisten per elemen bersarang, mengenali void element (<code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;meta&gt;</code>) dan inline element (<code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) sehingga output terlihat seperti HTML asli, bukan layout satu-baris-per-aturan. Mode minify menyatukan whitespace antar tag dan opsional menghapus comment. Semuanya tetap di browser kamu.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Pretty-print email HTML yang di-minify atau salinan "view source" dari halaman supaya kamu bisa membaca strukturnya.</li>
+  <li>Membersihkan snippet dari CMS / WYSIWYG sebelum di-paste ke code review.</li>
+  <li>Minify aset HTML statis sebelum deploy — lebih sedikit byte di kabel, tidak ada comment yang bocor.</li>
+  <li>Menghapus comment author dari template sebelum publish.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini tokenizer pragmatis, bukan parser HTML5 lengkap.</strong> Bekerja baik pada fragment dunia nyata tapi tidak melakukan recovery dari input yang sangat malformed seperti browser (browser menjalankan algoritma parsing HTML lengkap dan memperbaiki error secara diam-diam — tool ini tidak).</li>
+  <li><strong>Whitespace di dalam <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code> dipertahankan.</strong> Element-element ini diperlakukan sebagai raw dan tidak diindent ulang.</li>
+  <li><strong>Inline element tetap di baris yang sama dengan text parent</strong> — <code>&lt;p&gt;some &lt;b&gt;bold&lt;/b&gt; text&lt;/p&gt;</code> tidak akan dipecah ke beberapa baris.</li>
+  <li><strong>"Collapse whitespace" mengubah output rendered untuk sebagian content.</strong> Dua spasi jadi satu. Kalau desainmu bergantung pada multiple space atau sekuens non-breaking, biarkan off.</li>
+  <li><strong>Notasi self-closing di HTML itu kosmetik.</strong> <code>&lt;br/&gt;</code> dan <code>&lt;br&gt;</code> ekuivalen di HTML5; tool ini mempertahankan yang kamu tulis.</li>
+  <li><strong>Minify bukan batas keamanan.</strong> Jangan andalkan strip comment untuk menyembunyikan secret — secret itu sudah dikirim ke client.</li>
 </ul>
 """,
     },

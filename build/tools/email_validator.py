@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "メールアドレス検証ツール", "tagline": "メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。", "description": "オンライン無料のメールアドレス検証ツール。RFC 5322 準拠の構文チェック、ローカル部とドメインの解析、使い捨てドメインの検出、長さ検証を行います。"},
         "nl": {"name": "Email-validator", "tagline": "Check of een emailadres syntactisch geldig is (RFC 5322-friendly), met breakdown van local part, domain en veelvoorkomende valkuilen.", "description": "Gratis online email-validator. RFC 5322-aware syntax check, analyse van local part en domain, disposable-domain hint en lengtecontrole."},
         "tr": {"name": "E-posta Doğrulayıcı", "tagline": "Bir e-posta adresinin sözdizimsel olarak geçerli olup olmadığını kontrol et (RFC 5322 uyumlu); local part, domain ve yaygın hataları ayrıştırır.", "description": "Ücretsiz online e-posta doğrulayıcı. RFC 5322 uyumlu sözdizimi kontrolü, local-part ve domain analizi, geçici domain ipucu ve uzunluk doğrulaması."},
+        "id": {"name": "Validator Email", "tagline": "Cek apakah alamat email valid secara sintaks (RFC 5322-compliant); mengurai local part, domain, dan kesalahan umum.", "description": "Validator email gratis. Cek apakah alamat email valid secara sintaks per RFC 5322 dan urai local part, domain, dan TLD. Menandai typo umum (gmial.com, gmal.com) dan domain yang kemungkinan typo."},
     },
     "body": """
 <div class="tool-card">
@@ -235,6 +236,27 @@ document.addEventListener('DOMContentLoaded', evRun);
   <li><strong>Internationalised email (IDN).</strong> <code>用户@例.中国</code> teknik olarak RFC 6530'a göre geçerlidir ama SMTP sunucuları tarafından henüz geniş çapta desteklenmez. Bu araç muhafazakar ASCII kurallarını izler; gerçekten IDN gerekliyse gevşet.</li>
   <li><strong>Geçici domain tespiti sadece ipucu.</strong> Liste zorunlu olarak eksiktir ve işaretlenmiş herhangi bir domain hâlâ gerçek bir kullanıcı olabilir.</li>
   <li><strong>Case farklarını reddetme.</strong> Local part'lar RFC 5321'e göre teknik olarak case-sensitive'dir; pratikte her modern sağlayıcı case-insensitive ele alır. Depolamada küçük harfe çevirme.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sebagian besar "email validator" hanyalah regex satu baris yang meloloskan <code>not@an.email</code> dan menolak <code>edge@case.io</code>. Tool ini menjalankan pengecekan struktural yang sebenarnya diwajibkan oleh RFC 5321 / 5322 — charset local part, aturan titik, panjang label, bentuk TLD, batas hard length — plus hint disposable domain. Tool ini memberitahu apakah sebuah alamat <em>well-formed</em>; tool ini tidak memberitahu apakah mailbox-nya ada (itu butuh probe MX/SMTP sisi server).</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Pre-flight daftar alamat email sebelum diumpankan ke API validasi berbayar atau mass-mailer (menangkap typo gratis, menghemat kredit).</li>
+  <li>Membangun form signup yang menolak sampah yang jelas-jelas salah di level field.</li>
+  <li>Audit CSV kontak untuk menemukan typo sebelum import.</li>
+  <li>Mengecek apakah alamat yang "kelihatan aneh" (TLD internasional, plus-addressing, sub-addressing) sebenarnya diizinkan.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Valid secara sintaksis ≠ deliverable.</strong> <code>does-not-exist@gmail.com</code> lolos setiap pengecekan struktural. Verifikasi nyata butuh respons dari server MX. Pakai ini sebagai filter lini pertama, bukan sinyal kepercayaan.</li>
+  <li><strong>Plus addressing diizinkan.</strong> <code>name+tag@gmail.com</code> valid dan di-route ke <code>name@gmail.com</code> — jangan strip; itu fitur.</li>
+  <li><strong>Internationalised email (IDN).</strong> <code>用户@例.中国</code> secara teknis valid per RFC 6530 tapi belum didukung luas oleh server SMTP. Tool ini mengikuti aturan ASCII konservatif; longgarkan kalau kamu memang butuh IDN.</li>
+  <li><strong>Deteksi disposable domain hanya hint.</strong> Daftarnya pasti tidak lengkap dan domain yang di-flag pun masih bisa jadi user sungguhan.</li>
+  <li><strong>Jangan tolak perbedaan case.</strong> Local part secara teknis case-sensitive per RFC 5321; dalam praktiknya setiap provider modern memperlakukannya sebagai case-insensitive. Jangan lowercase saat disimpan.</li>
 </ul>
 """,
     },

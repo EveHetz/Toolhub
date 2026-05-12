@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "CSV から JSON", "tagline": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。", "description": "オンライン無料の CSV → JSON コンバーター。ヘッダーの自動検出、カスタム区切り文字、引用符で囲まれた複数行フィールドに対応。すべてブラウザ内で動作します。"},
         "nl": {"name": "CSV naar JSON", "tagline": "Converteer CSV-data naar JSON-arrays. Header-detectie, custom delimiters, quoted fields en embedded newlines worden afgehandeld.", "description": "Gratis online CSV naar JSON converter. Detecteert headers automatisch, ondersteunt custom delimiters en quoted multi-line fields. Draait in je browser."},
         "tr": {"name": "CSV'den JSON'a", "tagline": "CSV verisini JSON dizilerine dönüştür. Başlık tespiti, özel sınırlayıcılar, tırnaklı alanlar ve gömülü satır sonları işlenir.", "description": "Ücretsiz online CSV'den JSON'a dönüştürücü. Başlıkları otomatik tespit eder, özel sınırlayıcıları ve tırnaklı çok satırlı alanları destekler. Tarayıcıda çalışır."},
+        "id": {"name": "CSV ke JSON", "tagline": "Konversi data CSV ke array JSON. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip.", "description": "Konverter CSV ke JSON gratis. Tempel CSV apa pun dan dapatkan array JSON dari objek. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip. Berjalan di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -225,6 +226,25 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>Tür dönüşümü tarafsız değildir.</strong> Sayısal string'ler, <code>true</code>, <code>false</code> ve literal <code>null</code> JSON türlerine dönüştürülür. Sayısal görünen ama olmayan şeyler (zip kodları, baştaki sıfırlı ISBN'ler, telefon numaraları) baştaki sıfırları kaybeder — coercion'u kapat veya post-process.</li>
   <li><strong>Boş hücreler boş string olur, <code>null</code> değil.</strong> Çoğu API ikisini farklı ele alır.</li>
   <li><strong>Doğadaki BOM'lar.</strong> Excel sıklıkla Windows'ta UTF-8'i byte-order mark ile kaydeder; parser bunu tolere eder ama diğer tüketiciler edemeyebilir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>CSV adalah lingua franca dari export spreadsheet; JSON adalah lingua franca dari API dan config. Converter ini mengambil CSV yang ter-quote dengan benar (kompatibel RFC 4180) dan menghasilkan array JSON — bisa array of object (kalau ada header row) atau array of array. Berguna saat kamu sudah meng-export sheet dan perlu memberinya makan ke sesuatu yang berbicara JSON.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengubah export one-off dari Google Sheets / Excel menjadi seed data untuk API mock atau test fixture.</li>
+  <li>Memuat tabel referensi (negara, kode mata uang, data lookup) ke frontend yang mengonsumsi JSON.</li>
+  <li>Memeriksa CSV dengan koma / newline yang embedded yang ter-render salah di mana-mana kecuali di parser RFC 4180 sungguhan.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Deteksi delimiter bukan sihir.</strong> Jika file kamu menggunakan semicolon (umum di locale EU) atau tab (TSV), ubah dropdown delimiter — auto-detection menebak tapi bisa tertipu oleh data yang mengandung karakter yang salah.</li>
+  <li><strong>Type coercion punya opini.</strong> String numerik, <code>true</code>, <code>false</code>, dan literal <code>null</code> dikonversi ke tipe JSON. Hal-hal yang terlihat numerik tapi sebenarnya bukan (kode pos, ISBN dengan leading zero, nomor telepon) kehilangan leading zero — matikan coercion atau post-process.</li>
+  <li><strong>Sel kosong jadi string kosong, bukan <code>null</code>.</strong> Sebagian besar API memperlakukan keduanya secara berbeda.</li>
+  <li><strong>BOM di dunia nyata.</strong> Excel sering menyimpan UTF-8 dengan byte-order mark di Windows; parser mentoleransinya tapi consumer lain mungkin tidak.</li>
 </ul>
 """,
     },

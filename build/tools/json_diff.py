@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "JSON 差分", "tagline": "2 つの JSON ドキュメントの構造的差分 — 追加・削除・変更されたキーと値の変化を並べて表示。", "description": "オンライン無料の JSON 差分ツール。2 つの JSON ドキュメントの構造的なデルタ（追加／削除されたキー、値の変化）を計算し、見やすい並列表示を提供します。すべてブラウザ内で動作します。"},
         "nl": {"name": "JSON Diff", "tagline": "Structurele diff voor twee JSON-documenten — keys toegevoegd, verwijderd, gewijzigd en waarde-wijzigingen naast elkaar getoond.", "description": "Gratis online JSON-diff. Berekent een structurele delta tussen twee JSON-documenten — toegevoegde/verwijderde keys, gewijzigde waarden en een schone side-by-side view. Draait volledig in je browser."},
         "tr": {"name": "JSON Diff", "tagline": "İki JSON belgesi için yapısal diff — eklenen, silinen, değişen anahtarlar ve değer değişiklikleri yan yana gösterilir.", "description": "Ücretsiz online JSON diff. İki JSON belgesi arasında yapısal delta hesaplar — eklenen/silinen anahtarlar, değişen değerler ve temiz yan yana görünüm. Tamamen tarayıcında çalışır."},
+        "id": {"name": "JSON Diff", "tagline": "Diff struktural dua dokumen JSON — kunci yang ditambah, dihapus, diubah, dan perubahan nilai ditampilkan berdampingan.", "description": "Tool JSON diff gratis. Bandingkan dua dokumen JSON secara struktural dan lihat kunci yang ditambah, dihapus, diubah, dan perubahan nilai berdampingan. Tidak peduli urutan kunci, fokus pada struktur."},
     },
     "body": """
 <div class="tool-card">
@@ -300,6 +301,26 @@ document.addEventListener('DOMContentLoaded', jdRun);
   <li><strong>Sayı-vs-string yapısal değildir.</strong> <code>{"id": 1}</code> ve <code>{"id": "1"}</code> türler farklı olduğu için değişiklik olarak gösterilir. Önemliyse, diff'lemeden önce türleri normalize et.</li>
   <li><strong>RFC 6902 tek yönlü bir patch'tir, merge değil.</strong> String-değiştirme ile değil, gerçek bir RFC 6902 uygulamasıyla uygula.</li>
   <li><strong>Büyük ağaçlar gürültülü olur.</strong> Diff yüzlerce işlem uzunsa, muhtemelen iki ilgisiz belgeyi karşılaştırıyorsun — girdileri yeniden kontrol et.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Plain-text diff pada JSON memberitahu kamu baris mana yang berubah; structural diff memberitahu <em>data point</em> mana yang berubah. Sering kali keduanya sangat berbeda — dokumen yang diformat ulang tanpa perubahan semantik akan tampak "setiap baris berbeda" bagi text diff tapi "tidak ada perubahan" di sini. Tool ini menelusuri kedua tree JSON dan melaporkan setiap path tempat keduanya berbeda, menggunakan sintaks <a href="https://datatracker.ietf.org/doc/html/rfc6901" target="_blank" rel="noopener noreferrer">RFC 6901 JSON Pointer</a> (<code>/users/0/name</code>) supaya output-nya tidak ambigu apa pun formattingnya.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membandingkan dua response API untuk melihat apa yang sebenarnya berubah di sebuah release, mengabaikan noise whitespace/urutan key.</li>
+  <li>Mendiff file config sebelum/sesudah migrasi untuk memastikan hanya field yang dimaksud yang bergerak.</li>
+  <li>Menghasilkan dokumen RFC 6902 JSON Patch untuk dikirim ke sistem yang mendukungnya (endpoint PATCH, fallback JSON-Merge-Patch).</li>
+  <li>Melihat dua test fixture untuk memahami apa yang membuat satu fail sementara yang lain pass.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Mode pembandingan array itu penting.</strong> "By index" melaporkan satu element yang disisipkan sebagai remove+add untuk semua element setelahnya. "By value" memperlakukan array sebagai set, kehilangan reorder yang sesungguhnya. Pilih yang sesuai dengan bagaimana data kamu seharusnya tersusun.</li>
+  <li><strong>Number-vs-string bukan struktural.</strong> <code>{"id": 1}</code> dan <code>{"id": "1"}</code> muncul sebagai perubahan karena type-nya beda. Normalisasi type sebelum diff jika itu penting.</li>
+  <li><strong>RFC 6902 adalah patch satu arah, bukan merge.</strong> Apply dengan implementasi RFC 6902 asli, bukan dengan string-replacement.</li>
+  <li><strong>Tree besar jadi noisy.</strong> Kalau diff-nya ratusan operasi, kemungkinan kamu membandingkan dua dokumen yang tidak berkaitan — periksa lagi input-nya.</li>
 </ul>
 """,
     },

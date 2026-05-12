@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "日付計算機", "tagline": "2 つの日付の差・日付に対する日／週／月／年の加減・年齢を年・月・日で算出。", "description": "オンライン無料の日付計算機。2 つの日付の期間を計算し、任意の日付に対して期間を加減算し、年・月・日で正確な年齢を算出します。すべてブラウザ内で実行されます。"},
         "nl": {"name": "Datum-calculator", "tagline": "Dagen tussen twee datums · dagen/weken/maanden/jaren optellen of aftrekken · leeftijd in jaren, maanden en dagen.", "description": "Gratis online datum-calculator. Bereken de duur tussen twee datums, tel een span op of trek af van een datum, en bepaal exacte leeftijd in jaren/maanden/dagen. Alle berekeningen draaien in je browser."},
         "tr": {"name": "Tarih Hesaplayıcı", "tagline": "İki tarih arasındaki gün sayısı · bir tarihe gün/hafta/ay/yıl ekle veya çıkar · yıl, ay ve gün cinsinden yaş.", "description": "Ücretsiz online tarih hesaplayıcı. İki tarih arasındaki süreyi hesapla, bir tarihten ekle veya çıkar, yıl/ay/gün cinsinden tam yaş bul. Tüm hesaplamalar tarayıcında çalışır."},
+        "id": {"name": "Kalkulator Tanggal", "tagline": "Hari antara dua tanggal · tambah/kurang hari/minggu/bulan/tahun ke tanggal · umur dalam tahun, bulan, dan hari.", "description": "Kalkulator tanggal gratis. Hitung hari antara dua tanggal, tambah atau kurangi hari/minggu/bulan/tahun ke tanggal apa pun, atau hitung umur dalam tahun, bulan, dan hari. Mendukung hari dalam minggu dan output presisi durasi."},
     },
     "body": """
 <div class="tool-card">
@@ -350,6 +351,27 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>İş günleri tatilleri içermez.</strong> Hesaplama hafta sonlarını bilir ama banka tatillerini bilmez — önemliyse elle ayarla.</li>
   <li><strong>Yaş görünümünde "Toplam ay" yaklaşıktır</strong> (yıl × 12 + ay) — sondaki günleri yok sayar. Y/A/G rakamı kesindir.</li>
   <li><strong>UTC sabitleme locale ile değiş tokuş yapar.</strong> Yerel saat dilimindeki bir tarih biraz farklı bir UTC gününe haritalanabilir. Çoğu kullanım için (son tarihler, yaşlar) UTC öğle daha güvenli sabitlemedir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Tiga hal yang sebenarnya orang inginkan dari date calculator: jarak antara dua tanggal ("berapa hari sampai launch?"), menggeser tanggal sejauh rentang tertentu ("90 hari setelah tanggal invoice"), dan umur yang presisi ("tahun, bulan, dan hari dari tanggal lahir"). Tool ini melakukan ketiganya, di browser kamu, ditambatkan ke UTC tengah hari supaya DST dan pergeseran timezone tidak diam-diam membuat jawaban jadi salah saat kamu bepergian.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menghitung durasi kontrak, timeline project, dan deadline.</li>
+  <li>Mencari tahu persis berapa hari kerja (Sen–Jum) jatuh di antara dua tanggal untuk invoicing atau estimasi project.</li>
+  <li>Memverifikasi batas usia (kelayakan visa, tahun sekolah, ulang tahun milestone).</li>
+  <li>Menambahkan periode "30 hari net" atau "90 hari cooling-off" ke tanggal baseline dengan cara yang menangani akhir bulan dengan benar.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Tanggal akhir inklusif vs eksklusif.</strong> "Hari dari Sen ke Jum" itu 4 kalau kamu menghitung gap, 5 kalau kamu menghitung hari. Toggle mengontrol konvensi mana; keduanya benar tergantung pertanyaannya.</li>
+  <li><strong>Urutan tambah/kurang itu penting.</strong> Tahun dan bulan diterapkan dulu, lalu minggu dan hari. Menambah "1 bulan + 1 hari" ke 30 Jan menghasilkan 1 Mar (Feb 30 → Feb 28/29 → +1), bukan 2 Mar — itu adalah konvensi calendar-safe yang dipakai hampir semua library datetime.</li>
+  <li><strong>Hari kerja tidak termasuk hari libur.</strong> Perhitungan ini tahu akhir pekan tapi tidak tahu hari libur nasional — sesuaikan manual kalau itu penting.</li>
+  <li><strong>"Total bulan" itu perkiraan</strong> di tampilan umur (tahun × 12 + bulan) — mengabaikan sisa hari. Angka Y/M/D itu eksak.</li>
+  <li><strong>Penambatan UTC trade-off dengan locale.</strong> Tanggal di timezone lokal kamu mungkin map ke hari UTC yang sedikit berbeda. Untuk sebagian besar penggunaan (deadline, umur) UTC tengah hari adalah anchor yang lebih aman; untuk pekerjaan timezone presisi menit pakai timezone converter.</li>
 </ul>
 """,
     },

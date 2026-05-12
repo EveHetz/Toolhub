@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "Markdown テーブルエディター", "tagline": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。", "description": "オンライン無料の Markdown テーブルエディター。セルをクリックして編集、行や列を追加／削除、列ごとの揃えを設定し、GitHub 風 Markdown 出力をコピーできます。すべてブラウザ内で動作します。"},
         "nl": {"name": "Markdown Table Editor", "tagline": "Bewerk visueel een tabel — rows, kolommen, alignment per kolom — en kopieer de GitHub-flavoured Markdown.", "description": "Gratis online Markdown table editor. Klik cellen om te bewerken, voeg rows en kolommen toe of verwijder, stel per-kolom alignment in en kopieer de GitHub-flavoured Markdown output. Draait volledig in je browser."},
         "tr": {"name": "Markdown Tablo Editörü", "tagline": "Bir tabloyu görsel olarak düzenle — satırlar, sütunlar, sütun başına hizalama — ve GitHub uyumlu Markdown'u kopyala.", "description": "Ücretsiz online Markdown tablo editörü. Düzenlemek için hücrelere tıkla, satır/sütun ekle/kaldır, sütun başına hizalama ayarla ve GitHub uyumlu Markdown çıktısını kopyala. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Editor Tabel Markdown", "tagline": "Edit tabel secara visual — baris, kolom, alignment per kolom — dan salin Markdown yang kompatibel dengan GitHub.", "description": "Editor tabel Markdown gratis. Edit tabel di antarmuka spreadsheet, atur alignment kolom, tambah/hapus baris dan kolom, dan dapatkan Markdown GFM siap-tempel. Tempel CSV/TSV untuk import cepat."},
     },
     "body": """
 <div class="tool-card">
@@ -437,6 +438,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>İlk satır her zaman başlık olarak ele alınır.</strong> GFM tabloları zorunlu bir başlığa sahiptir.</li>
   <li><strong>Bazı Markdown lehçeleri GFM'den daha katıdır.</strong> CommonMark'ın kendisi tabloları tanımlamaz; GFM, MultiMarkdown ve diğerleri biraz farklı varyantları destekler.</li>
   <li><strong>Biçimlendirilmemiş CSV yapıştırmak çalışmaz.</strong> "Import" textarea bir Markdown tablosu (<code>|---|</code> ayraç ile) bekler.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Tabel Markdown bagus di output yang sudah ter-render dan menyebalkan ditulis manual. Karakter pipe, colon alignment, jumlah dash yang pas per kolom — saat semuanya akhirnya pada tempatnya, kamu sudah bisa menulisnya sebagai HTML. Editor ini memberi kamu grid yang familiar: klik sel mana saja untuk edit, pakai tombol untuk menambah/menghapus row dan kolom, atur alignment per kolom dari dropdown, dan copy Markdown ber-flavour GitHub kalau sudah selesai. Kamu juga bisa paste tabel Markdown yang sudah ada di bawah dan akan dimuat ke grid untuk diedit lebih lanjut.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menulis tabel perbandingan untuk README, issue GitHub, atau deskripsi PR.</li>
+  <li>Re-edit tabel dari sebuah dokumen — paste Markdown yang ada, tweak di grid, copy kembali.</li>
+  <li>Menghasilkan tabel ASCII yang ter-pad rapi (output di-pad ke kanan supaya juga terbaca sebagai plain text).</li>
+  <li>Membuat draft tabel release-notes tanpa berkelahi dengan sintaks pipe-and-dash.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Pipe inline merusak tabel GFM.</strong> <code>|</code> literal di dalam sel akan mengakhiri sel. Escape sebagai <code>\\|</code> saat kamu butuh.</li>
+  <li><strong>Konten sel bersifat single-line.</strong> Tabel Markdown tidak mendukung line break di dalam sel tanpa HTML (<code>&lt;br&gt;</code>). Untuk konten multi-line, tulis tabelnya dalam HTML.</li>
+  <li><strong>Alignment di-render, bukan dipaksakan.</strong> Output juga melakukan padding untuk meratakan di source, tapi alignment ter-render sebenarnya berasal dari colon di baris separator, bukan dari spasi.</li>
+  <li><strong>Row pertama selalu diperlakukan sebagai header.</strong> Tabel GFM memiliki header yang wajib. Kalau data kamu tidak punya header natural, pakai sel kosong di row 1.</li>
+  <li><strong>Beberapa flavour Markdown lebih ketat dari GFM.</strong> CommonMark sendiri tidak mendefinisikan tabel; GFM, MultiMarkdown, dan beberapa yang lain mendukung varian yang sedikit berbeda. Output di sini menargetkan GFM (GitHub, GitLab, kebanyakan renderer modern).</li>
+  <li><strong>Paste CSV mentah tidak akan bekerja.</strong> Textarea "import" mengharapkan tabel Markdown (dengan separator <code>|---|</code>). Untuk CSV → Markdown, pakai tool CSV-to-JSON dulu atau paste row secara manual.</li>
 </ul>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "cron 式ビルダー", "tagline": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。", "description": "オンライン無料の cron 式ビルダー。ドロップダウンとプリセットでフィールドを選び、cron 文字列を生成。あなたのローカルタイムゾーンで次の 5 回の実行時刻まで確認できます。標準 5 フィールドの crontab です。"},
         "nl": {"name": "Cron Expression Builder", "tagline": "Bouw visueel een cron-expressie — minuut, uur, dag, maand, weekdag — en preview de volgende 5 fire times.", "description": "Gratis online cron expression builder. Kies velden met dropdowns en presets, krijg de cron-string eruit en zie de volgende 5 fire times in je lokale tijdzone. Standaard 5-veld crontab."},
         "tr": {"name": "Cron İfadesi Oluşturucu", "tagline": "Görsel olarak cron ifadesi kur — dakika, saat, gün, ay, hafta günü — ve sonraki 5 çalışma zamanını önizle.", "description": "Ücretsiz online cron ifadesi oluşturucu. Alanları açılır menü ve hazır ayarlardan seç, cron string'ini al ve yerel saat diliminde sonraki 5 çalışma zamanını gör. Standart 5 alanlı crontab."},
+        "id": {"name": "Pembangun Ekspresi Cron", "tagline": "Bangun ekspresi cron secara visual — menit, jam, hari, bulan, hari dalam minggu — dan pratinjau 5 waktu run berikutnya.", "description": "Pembangun ekspresi cron gratis. Susun jadwal cron secara visual dengan dropdown untuk menit, jam, hari, bulan, hari dalam minggu — lalu pratinjau 5 waktu eksekusi berikutnya. Crontab 5-field standar."},
     },
     "body": """
 <div class="tool-card">
@@ -472,6 +473,37 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Adım + aralık kombinasyonları.</strong> <code>0-30/5</code> sadece 0,5,10,15,20,25,30'u kapsar.</li>
   <li><strong>Bazı cron lehçeleri alan ekler.</strong> Quartz cron 6 veya 7 alana sahiptir (saniyeler ve yıl ile). systemd timer'lar tamamen farklı bir biçim kullanır. Bu builder standart 5 alanlı crontab'ı hedefler.</li>
   <li><strong>Friday-the-13th cron'da ifade edilmesi zordur.</strong> Cron'un day-of-month ve day-of-week'i OR ile etkileşir, bu yüzden bunları katı şekilde birleştirmek bir wrapper script gerektirir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sintaks cron terkenal padat — lima field, masing-masing menerima wildcard, range, list, dan step. Menulis dari awal setiap kali mengundang typo. Builder ini memungkinkanmu mulai dari preset (setiap-5-menit, hari-kerja-pukul-09:00, dll.) atau mengetik di field individu, melihat cron string yang dihasilkan, mendapat ringkasan dalam bahasa polos, dan memverifikasi terhadap lima fire time berikutnya di timezone lokalmu. Pelengkapnya adalah <a href="/cron-parser/">Cron Expression Parser</a>.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengatur entry <code>crontab</code> baru, <code>CronJob</code> Kubernetes, schedule GitHub Actions, atau aturan AWS EventBridge.</li>
+  <li>Menerjemahkan kebutuhan "jalan setiap pagi hari kerja" ke baris cron yang sintaksisnya benar.</li>
+  <li>Sanity check ekspresi yang kamu draft akan benar-benar berjalan kapan yang kamu pikir, sebelum deploy.</li>
+  <li>Onboarding orang baru ke cron — biarkan dropdown dan preview mengajarkan sintaksnya.</li>
+</ul>
+
+<h3>Cheat sheet sintaks field</h3>
+<ul>
+  <li><code>*</code> — setiap nilai di range field.</li>
+  <li><code>*/N</code> — setiap N (mulai dari batas bawah).</li>
+  <li><code>A-B</code> — range, inklusif.</li>
+  <li><code>A,B,C</code> — daftar nilai spesifik.</li>
+  <li><code>A-B/N</code> — setiap N di dalam range A–B.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week berinteraksi.</strong> Kebanyakan implementasi cron meng-OR keduanya bila keduanya dibatasi: <code>* * 15 * 1</code> jalan pada tanggal 15 ATAU Senin, bukan "tanggal 15 jika itu Senin".</li>
+  <li><strong>Timezone di sini adalah zona lokal browser-mu.</strong> Daemon cron sungguhan berjalan di timezone server (sering UTC). Konfirmasi sebelum menempel ke server.</li>
+  <li><strong><code>*/N</code> bukan persis "setiap N".</strong> <code>*/15</code> di menit = 0,15,30,45 — bukan 12,27,42,57. Pakai list jika butuh fase spesifik.</li>
+  <li><strong>Kombinasi step + range.</strong> <code>0-30/5</code> hanya mencakup 0,5,10,15,20,25,30.</li>
+  <li><strong>Beberapa varian cron menambah field.</strong> Quartz cron punya 6 atau 7 field (dengan detik dan tahun). Timer systemd pakai format totally berbeda. Builder ini menargetkan crontab 5-field standar.</li>
+  <li><strong>Jumat tanggal 13 sulit diekspresikan di cron.</strong> Day-of-month dan day-of-week cron berinteraksi via OR, jadi menggabungkan keduanya secara strict butuh wrapper script.</li>
 </ul>
 """,
     },

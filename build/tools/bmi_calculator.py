@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "BMI 計算機", "tagline": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "description": "無料の BMI（体格指数）計算ツール。身長と体重をメートル法（cm + kg）またはヤード・ポンド法（フィート/インチ + ポンド）で入力すると、BMI 値と WHO 分類（低体重・標準・肥満気味・肥満）が表示されます。教育目的のみで、医療助言ではありません。"},
         "nl": {"name": "BMI-calculator", "tagline": "Body Mass Index uit lengte en gewicht. Metrisch of imperiaal. Toont de WHO-categorie — geen medisch advies.", "description": "Gratis Body Mass Index-calculator. Voer lengte en gewicht in metrisch (cm + kg) of imperiaal (feet/inches + pounds) in en zie de BMI-waarde plus de WHO-classificatie (ondergewicht, normaal, overgewicht, obesitas). Alleen educatief — geen medisch advies."},
         "tr": {"name": "BMI Hesaplayıcı", "tagline": "Boy ve kilodan vücut kitle indeksi. Metrik veya imperial. DSÖ kategorisini gösterir — tıbbi tavsiye değildir.", "description": "Ücretsiz vücut kitle indeksi hesaplayıcı. Boy ve kiloyu metrik (cm + kg) veya imperial (feet/inç + pound) gir; BMI değeri ve DSÖ sınıflandırmasını (zayıf, normal, fazla kilolu, obez) gör. Sadece bilgilendirme amaçlıdır — tıbbi tavsiye değildir."},
+        "id": {"name": "Kalkulator BMI", "tagline": "Body Mass Index dari tinggi dan berat. Metrik atau imperial. Menampilkan kategori WHO — bukan saran medis.", "description": "Kalkulator BMI gratis. Hitung Body Mass Index dari tinggi dan berat dalam satuan metrik atau imperial. Menampilkan kategori klasifikasi WHO. Berjalan di browser-mu — tanpa pelacakan, bukan saran medis."},
     },
     "body": """
 <div class="tool-card">
@@ -401,6 +402,34 @@ document.addEventListener('DOMContentLoaded', bmiRun);
   <li><strong>Etnik köken önemli.</strong> Birkaç sağlık kuruluşu (NHS, DSÖ Asya-Pasifik kılavuzu) Güney Asyalı, Çinli ve diğer gruplar için kardiyovasküler risk daha düşük BMI'lerde arttığı için daha düşük eşikler (fazla kilolu ≥23, obez ≥27,5) kullanır.</li>
   <li><strong>Uzun - kısa insanlar.</strong> Karesi alınmış boy formülü sistematik olarak uzun insanları "zayıf" ve kısa insanları "fazla kilolu" olarak fazla sınıflandırır.</li>
   <li><strong>Tıbbi tavsiye değildir.</strong> Kilonla ilgili endişen varsa, bir klinisyenle konuş. Tek bir sayının vermediği bel çevresi, kan basıncı, kan değerleri, yaşam tarzı gibi resmin geri kalanına sahipler.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Body Mass Index (BMI) adalah satu angka — berat (kg) dibagi kuadrat tinggi (m) — yang digunakan WHO dan banyak sistem kesehatan sebagai skrining cepat. Bukan diagnosis, melainkan bendera. Ambang dewasa klasik: di bawah 18,5 kurang berat, 18,5–24,9 normal, 25–29,9 kelebihan berat, 30 ke atas obesitas (dibagi Kelas I/II/III di 35 dan 40). Tool ini menghitung nilai dan kategori dari tinggi dan berat dalam metrik atau imperial.</p>
+
+<h3>Cara dihitung</h3>
+<ul>
+  <li><strong>Metrik:</strong> BMI = kg ÷ (m × m). 70 kg pada 1,75 m → 22,9.</li>
+  <li><strong>Imperial:</strong> Dikonversi ke metrik secara internal untuk akurasi.</li>
+  <li>Kategori WHO sama terlepas dari sistem satuan — BMI sendiri tidak berdimensi.</li>
+</ul>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Self-check cepat atau mengisi formulir yang memintanya.</li>
+  <li>Membandingkan nilai antar populasi atau studi.</li>
+  <li>Melacak arah perubahan dari waktu ke waktu — tren lebih berguna daripada pembacaan tunggal.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>BMI tidak mengukur komposisi tubuh.</strong> Otot lebih berat daripada lemak, jadi orang fit dan berotot bisa "kelebihan berat" dengan lemak tubuh rendah. Sebaliknya orang dengan otot sedikit bisa "normal" padahal tidak sehat ("skinny fat").</li>
+  <li><strong>Ini metrik dewasa.</strong> Untuk anak dan remaja (di bawah 18) gunakan kurva persentil BMI menurut usia dan jenis kelamin.</li>
+  <li><strong>Kehamilan tidak didukung.</strong> BMI tidak berlaku saat hamil; bicarakan dengan tenaga kesehatanmu.</li>
+  <li><strong>Etnis itu penting.</strong> Beberapa otoritas kesehatan (NHS, panduan WHO Asia-Pasifik) menggunakan ambang lebih rendah (kelebihan ≥23, obesitas ≥27,5) untuk populasi Asia Selatan, Tionghoa, dan lainnya karena risiko kardiovaskular naik di BMI lebih rendah.</li>
+  <li><strong>Orang tinggi vs pendek.</strong> Rumus tinggi kuadrat secara sistematis mengklasifikasikan orang tinggi sebagai "kurang berat" dan orang pendek sebagai "kelebihan berat".</li>
+  <li><strong>Bukan saran medis.</strong> Jika kamu khawatir tentang beratmu, bicaralah dengan klinisi. Mereka memiliki sisa gambaran (lingkar pinggang, tekanan darah, kerja darah, gaya hidup) yang tidak diberikan oleh satu angka.</li>
 </ul>
 """,
     },

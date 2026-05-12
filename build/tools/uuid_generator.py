@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "UUID Generator", "tagline": "Genereer RFC 4122 UUIDs (v4 random of v7 time-ordered). Batch tot 100. Cryptografisch veilig.", "description": "Gratis online UUID-generator. RFC 4122 v4 (random) en v7 (time-ordered, sorteerbaar). Genereer er één of veel tegelijk, allemaal in je browser."},
         "tr": {"name": "UUID Üretici", "tagline": "RFC 4122 UUID üret (v4 rastgele veya v7 zaman sıralı). 100'e kadar toplu. Kriptografik olarak güvenli.", "description": "Ücretsiz online UUID üretici. RFC 4122 v4 (rastgele) ve v7 (zaman sıralı, sıralanabilir). Bir veya birden fazlasını üret, hepsi tarayıcında."},
+        "id": {"name": "UUID Generator", "tagline": "Hasilkan UUID RFC 4122 (v4 acak atau v7 time-sortable). Bulk hingga 100. Kripto-aman.", "description": "UUID generator gratis. Hasilkan UUID RFC 4122 dalam jumlah berapa pun (hingga 100 sekaligus). Pilih antara UUID v4 acak atau v7 time-sortable. Menggunakan crypto.getRandomValues — kripto-aman."},
     },
     "body": """
 <div class="tool-card">
@@ -279,6 +280,35 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>v4 veritabanı indekslerini parçalar.</strong> Rastgele ID'ler yazmaları indeks boyunca dağıtır, sayfa cache hit oranına ve yazma throughput'una zarar verir. Bu v7 için orijinal argümandır.</li>
   <li><strong>v1 kullanma.</strong> Eski zaman-ve-MAC varyantı üreten makinenin MAC adresini sızdırır. v7 modern yedektir.</li>
   <li><strong>Kripto-güvenli rastgelelik kullan.</strong> Bu araç <code>crypto.getRandomValues</code> kullanır; asla <code>Math.random</code> ile kendini yapma — yeterince rastgele değildir ve ID'ler öngörülebilir olur.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>UUID (atau GUID) adalah identifier 128-bit — ditulis sebagai 32 digit hex dalam 5 grup seperti <code>550e8400-e29b-41d4-a716-446655440000</code>. UUID bebas tabrakan antar sistem tanpa koordinasi: proses mana pun di mana pun bisa men-generate satu, dan probabilitas dua di antaranya bertabrakan praktis nol. Berguna saat kamu butuh ID sebelum bicara ke database, ingin mencegah jumlah baris bocor, atau saat ID perlu di-generate di sisi client lalu disinkronkan. Tool ini menghasilkan UUID yang sesuai RFC 4122 / RFC 9562 dalam bentuk v4 (random) atau v7 (time-sortable), di-generate di browser kamu dengan randomness yang aman secara kriptografis.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Primary key untuk sistem terdistribusi di mana kamu tidak ingin round-trip ke database hanya untuk dapat ID.</li>
+  <li>Idempotency key untuk API request (stripe, payment provider, queue message).</li>
+  <li>Identifier file upload, session token, correlation ID di log.</li>
+  <li>Di mana pun kamu seharusnya meng-expose auto-increment ID dan membocorkan berapa banyak record yang kamu punya.</li>
+  <li>Data testing — seed seratus record dengan identifier realistis dalam satu klik.</li>
+</ul>
+
+<h3>v4 vs v7 — mana yang dipakai?</h3>
+<ul>
+  <li><strong>v4 (random)</strong> — 122 bit randomness, tanpa creation time tertanam. Pakai saat kamu ingin korelasi nol antara ID dan urutan pembuatan, atau saat ID akan tinggal di hash-map / index non-clustered di mana sorting tidak penting.</li>
+  <li><strong>v7 (time-sortable)</strong> — prefix timestamp Unix-ms 48-bit + ekor random. <strong>Pakai ini secara default untuk primary key database baru.</strong> Prefix timestamp memberi locality pada B-tree index (insert terbaru masuk ke page yang sama, perilaku cache jauh lebih baik dari v4) dan ID terurut kurang lebih kronologis. Didefinisikan di RFC 9562 (Mei 2024) — menggantikan ULID dan v1/v6 untuk sebagian besar use case.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>UUID bukan secret.</strong> v4 punya 122 bit entropy dan tidak bisa ditebak, tapi format itu sendiri tidak meng-authorize apa-apa. Jangan pakai UUID sebagai session token atau password reset token kecuali kamu memperlakukannya seperti secret (HTTPS-only, time-limited, single-use).</li>
+  <li><strong>v7 membocorkan creation time.</strong> 48 bit pertama meng-encode milidetik saat di-generate. Bagus untuk ID internal; buruk jika kamu tidak ingin user tahu kapan record dibuat. Pakai v4 dalam kasus itu.</li>
+  <li><strong>Ukuran index penting.</strong> UUID itu 16 byte vs 8 byte untuk bigint — B-tree index kamu jadi lebih besar. Nilainya jelas untuk yang terdistribusi/tanpa koordinasi; sering tidak sepadan untuk aplikasi single-server di mana ID sekuensial sudah baik.</li>
+  <li><strong>v4 memfragmentasi index database.</strong> ID random menyebarkan write ke seluruh index, menyakiti page cache hit rate dan write throughput. Ini argumen orisinal untuk v7.</li>
+  <li><strong>Jangan pakai v1.</strong> Varian time-and-MAC lama membocorkan MAC address mesin yang men-generate. v7 adalah pengganti modern.</li>
+  <li><strong>Pakai randomness crypto-secure.</strong> Tool ini pakai <code>crypto.getRandomValues</code>; jangan pernah bikin sendiri dengan <code>Math.random</code> — tidak cukup random dan ID jadi bisa diprediksi.</li>
 </ul>
 """,
     },

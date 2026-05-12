@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "絵文字ピッカー", "tagline": "名前とキーワードで検索できる絵文字パレット。クリックでコピー。カテゴリ：スマイリー、動物、食べ物、旅行、オブジェクト、記号、国旗。", "description": "キーワード検索付きの無料絵文字ピッカー。クリックして絵文字をコピーできます。スマイリー、人物、動物、食べ物、旅行、オブジェクト、記号、国旗をカバーする厳選セットです。Unicode のみなのでどこでも動作します。"},
         "nl": {"name": "Emoji-picker", "tagline": "Doorzoekbaar emoji-palet op naam en keyword. Klik een emoji om te kopiëren. Categorieën: smileys, dieren, eten, reizen, objecten, symbolen, vlaggen.", "description": "Gratis emoji-picker met keyword-search. Klik om elke emoji te kopiëren. Gecureerde set met smileys, mensen, dieren, eten, reizen, objecten, symbolen en vlaggen. Pure Unicode — werkt overal."},
         "tr": {"name": "Emoji Seçici", "tagline": "Ad ve anahtar kelimeye göre aranabilir emoji paleti. Kopyalamak için herhangi bir emojiye tıkla. Kategoriler: gülümseyenler, hayvanlar, yiyecekler, seyahat, nesneler, semboller, bayraklar.", "description": "Anahtar kelime aramalı ücretsiz emoji seçici. Herhangi bir emojiyi kopyalamak için tıkla. Gülümseyenler, insanlar, hayvanlar, yiyecekler, seyahat, nesneler, semboller ve bayrakları kapsayan derli toplu set. Saf Unicode — her yerde çalışır."},
+        "id": {"name": "Pemilih Emoji", "tagline": "Palet emoji yang bisa dicari berdasarkan nama dan kata kunci. Klik emoji mana pun untuk menyalin. Kategori: smiley, hewan, makanan, perjalanan, objek, simbol, bendera.", "description": "Pemilih emoji online gratis. Cari emoji berdasarkan nama atau kata kunci dan salin dengan satu klik. Mencakup smiley, hewan, makanan, perjalanan, objek, simbol, dan bendera. Tanpa pelacakan, tanpa pendaftaran."},
     },
     "body": """
 <div class="tool-card">
@@ -501,6 +502,30 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Bu araç derli toplu, kapsamlı değildir.</strong> Unicode 15'te yüzlerce cilt tonu ve cinsiyet varyantı dahil 3.664 emoji vardır. Seçici muhtemelen isteyeceğin ~600'e odaklanır; tam liste için Unicode'un emoji verisini veya OS seçicini gör.</li>
   <li><strong>Bazı karakterler emoji gibi görünür ama metin olarak render olur.</strong> "Variation selector" (U+FE0F) renderer'a "bunu emoji olarak çiz" der. Onsuz, ☂ düz metin olarak render olabilir 🌂 yerine. Araç gerekli yerlerde seçicileri içerir.</li>
   <li><strong>Pano desteği değişir.</strong> Bazı tarayıcıların pano API'si kullanıcı hareketi gerektirir (tıklama bunu yapar), ama izin reddi sessizce başarısız olur.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Semua sistem operasi punya emoji picker bawaan (Win+. di Windows, Cmd+Ctrl+Space di macOS, keyboard di ponsel), tapi mereka tidak konsisten, kadang tersembunyi, dan sering lambat. Tool ini memberi kamu grid kurasi dari emoji yang paling sering dipakai, terorganisir per kategori dan bisa dicari lewat keyword. Klik tile mana pun untuk menyalin emoji ke clipboard. Emoji yang baru disalin diingat antar kunjungan di local storage browser — tidak ada yang dikirim ke server.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Kamu di desktop tanpa shortcut emoji cepat di level OS.</li>
+  <li>Kamu butuh pencarian keyword yang lebih luas dari yang ditawarkan picker OS kamu.</li>
+  <li>Kamu pakai remote desktop atau sistem lama yang tidak punya picker native.</li>
+  <li>Kamu butuh emoji untuk di-paste ke text field yang tidak menerima IME kamu.</li>
+</ul>
+
+<h3>Bagaimana rendering bekerja</h3>
+<p>Sebuah emoji itu hanya satu atau lebih Unicode code point. <em>Bagaimana</em> tampilannya tergantung font yang dipilih browser/OS kamu: emoji Apple beda dengan Google Noto, Microsoft Segoe UI Emoji, dan Twemoji dari Twitter. Byte-nya identik — gambarnya lokal. Kalau sebuah emoji muncul sebagai kotak atau fallback "unsupported", font sistem kamu tidak punya glyph untuknya; meng-update OS atau menginstal font seperti Noto Color Emoji akan memperbaikinya.</p>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Skin tone dan varian family/profession adalah sequence.</strong> 👨‍🍳 itu "man" + ZWJ + "cooking" — lima code point. Beberapa sistem menampilkan komponen secara terpisah kalau tidak mendukung sequence-nya.</li>
+  <li><strong>Bendera adalah regional indicator.</strong> 🇬🇧 itu "🇬" + "🇧" — dua huruf regional-indicator. Sequence untuk territory (Skotlandia, Texas) butuh karakter tag tambahan dan mungkin tidak ter-render di setiap sistem.</li>
+  <li><strong>Tool ini terkurasi, tidak exhaustive.</strong> Unicode 15 punya 3.664 emoji termasuk ratusan varian skin tone dan gender. Picker fokus pada ~600 yang paling mungkin kamu inginkan; untuk daftar lengkap, lihat data emoji Unicode atau picker OS kamu.</li>
+  <li><strong>Beberapa karakter terlihat seperti emoji tapi di-render sebagai teks.</strong> "Variation selector" (U+FE0F) memberitahu renderer "gambar ini sebagai emoji". Tanpa itu, ☂ mungkin di-render sebagai teks biasa bukan 🌂. Tool ini menyertakan selector di tempat yang dibutuhkan.</li>
+  <li><strong>Dukungan clipboard bervariasi.</strong> Clipboard API beberapa browser butuh user gesture (klik melakukan itu), tapi penolakan izin akan gagal secara diam-diam. Kalau copy tidak bekerja, pakai shortcut keyboard untuk menyalin dari address bar.</li>
 </ul>
 """,
     },

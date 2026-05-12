@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "JSONPath テスター", "tagline": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。", "description": "オンライン無料の JSONPath テスター。$.. やワイルドカード、配列スライス、フィルタ式を使ってネストされた JSON を検索できます。結果はライブ表示。JSON を貼り付けてすぐに使い始められます。"},
         "nl": {"name": "JSONPath Tester", "tagline": "Voer JSONPath-queries uit op elk JSON-document. Zie matched nodes en hun paden real-time.", "description": "Gratis online JSONPath-tester. Query genest JSON met $.., wildcards, array slices en filter-expressies. Live resultaten, plak je JSON en begin met queryen."},
         "tr": {"name": "JSONPath Tester", "tagline": "Herhangi bir JSON belgesine JSONPath sorgusu çalıştır. Eşleşen düğümleri ve yollarını gerçek zamanlı gör.", "description": "Ücretsiz online JSONPath tester. İç içe JSON'u $.., joker karakterler, dizi dilimleri ve filtre ifadeleriyle sorgula. Canlı sonuçlar, JSON'unu yapıştır ve sorgulamaya başla."},
+        "id": {"name": "JSONPath Tester", "tagline": "Jalankan query JSONPath terhadap dokumen JSON apa pun. Lihat node yang cocok dan path-nya secara real-time.", "description": "JSONPath tester gratis. Tempel JSON apa pun, ketik query JSONPath, dan lihat node yang cocok beserta path-nya secara real-time. Mendukung notasi titik dan kurung, wildcard, slice, dan filter."},
     },
     "body": """
 <div class="tool-card">
@@ -412,6 +413,40 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong><code>$..*</code></strong> ağaçtaki her node'u döndürür (depth-first), bu çok olabilir. Tanıdık olmayan bir belgeyi keşfetmek için kullanışlıdır.</li>
   <li><strong>Sayısal string'ler.</strong> <code>{"1": "a"}</code> — <code>$['1']</code> ile erişim çalışır; <code>$.1</code> çalışmaz (sayılar nokta-özellik adları olarak geçerli değildir).</li>
   <li><strong>Sıralama.</strong> Nesne özellik sırası JSON tarafından garanti edilmez. Filtren sıraya bağlıysa önce sırala.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>JSONPath bagi JSON itu seperti XPath bagi XML — sebuah query language untuk mengambil value spesifik dari dokumen bersarang tanpa menulis kode custom. <code>$.store.books[*].title</code> berkata "berikan setiap judul buku di bawah store"; <code>$..price</code> berkata "setiap <em>price</em> di mana pun di dokumen". Tool ini menjalankan query secara live terhadap JSON apa pun yang kamu paste, menampilkan baik value yang matched maupun path asalnya, jadi kamu bisa iterasi query sampai mengembalikan persis yang kamu mau.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menyusun query untuk tool yang menggunakan JSONPath: CLI utility ala jq, test Postman, Stedi, n8n, atau AWS CloudWatch / Step Functions.</li>
+  <li>Mengekstrak field spesifik dari response API besar tanpa menulis script.</li>
+  <li>Memfilter array berdasarkan nilai field (mis. "semua order dengan total &gt; 100").</li>
+  <li>Sanity check bahwa path bersarang dalam benar-benar resolve ke value sebelum kamu menanamkannya di kode.</li>
+</ul>
+
+<h3>Referensi syntax cepat</h3>
+<ul>
+  <li><strong><code>$</code></strong> — root dokumen.</li>
+  <li><strong><code>.name</code></strong> atau <strong><code>['name']</code></strong> — child berdasarkan nama.</li>
+  <li><strong><code>..</code></strong> — recursive descent (kedalaman apa pun).</li>
+  <li><strong><code>*</code></strong> — wildcard (property atau element array apa pun).</li>
+  <li><strong><code>[n]</code></strong> — index array (negatif menghitung dari belakang).</li>
+  <li><strong><code>[start:end:step]</code></strong> — slice array (gaya Python).</li>
+  <li><strong><code>[a, b, c]</code></strong> — union dari index atau nama.</li>
+  <li><strong><code>[?(@.field &gt; 5)]</code></strong> — ekspresi filter. <code>@</code> = item saat ini; mendukung <code>== != &lt; &gt; &lt;= &gt;= &amp;&amp; ||</code> dan <code>=~ /regex/</code>.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>JSONPath tidak punya satu spec resmi.</strong> Draft asli Stefan Gössner sudah jadi referensi de facto selama bertahun-tahun; RFC 9535 (Feb 2024) akhirnya menstandarisasinya. Implementasi sedikit berbeda — yang jalan di Postman belum tentu jalan di Jaeger.</li>
+  <li><strong>Dot vs bracket.</strong> <code>$.foo-bar</code> terlihat seperti "foo minus bar" bagi parser; gunakan <code>$['foo-bar']</code> untuk nama property dengan hyphen, dot, atau spasi.</li>
+  <li><strong>Ekspresi filter di sini ber-flavor JavaScript</strong> — itu kenyamanan yang disengaja tapi tidak persis cocok dengan RFC 9535. Jangan andalkan filter tool ini bekerja byte-identik di implementasi lain.</li>
+  <li><strong><code>$..*</code></strong> mengembalikan setiap node di tree (depth-first), yang bisa sangat banyak. Berguna untuk mengeksplorasi dokumen yang belum dikenal.</li>
+  <li><strong>String key numerik.</strong> <code>{"1": "a"}</code> — akses dengan <code>$['1']</code> bekerja; <code>$.1</code> tidak (angka bukan nama dot-property yang valid).</li>
+  <li><strong>Ordering.</strong> Urutan property object tidak dijamin oleh JSON. Kalau filtermu bergantung pada urutan, sort dulu.</li>
 </ul>
 """,
     },

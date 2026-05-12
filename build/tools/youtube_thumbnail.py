@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "YouTube サムネイルダウンローダー", "tagline": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。", "description": "無料の YouTube サムネイルダウンローダー。YouTube の各種 URL 形式（watch、youtu.be、shorts、embed、/v/）から動画 ID を抽出し、利用可能なすべての解像度のサムネイルを直接ダウンロードリンクとともに表示します。"},
         "nl": {"name": "YouTube Thumbnail Downloader", "tagline": "Plak elke YouTube-URL of video-ID en grijp elke beschikbare thumbnail-size — directe downloadlinks, geen upload, geen registratie.", "description": "Gratis YouTube thumbnail downloader. Extraheert de video-ID uit elke YouTube-URL (watch, youtu.be, shorts, embed, /v/) en toont alle beschikbare thumbnail-resoluties met directe downloadlinks."},
         "tr": {"name": "YouTube Thumbnail İndirici", "tagline": "Herhangi bir YouTube URL'i veya video ID'sini yapıştır ve mevcut her thumbnail boyutunu yakala — doğrudan indirme linkleri, upload yok, kayıt yok.", "description": "Ücretsiz YouTube thumbnail indirici. Herhangi bir YouTube URL'inden (watch, youtu.be, shorts, embed, /v/) video ID'sini çıkarır ve doğrudan indirme linkleriyle mevcut tüm thumbnail çözünürlüklerini gösterir."},
+        "id": {"name": "Pengunduh Thumbnail YouTube", "tagline": "Tempel URL YouTube atau ID video, dan ambil setiap ukuran thumbnail yang tersedia — link unduh langsung, tanpa upload, tanpa pendaftaran.", "description": "Pengunduh thumbnail YouTube gratis. Tempel URL YouTube atau ID video dan dapatkan link unduh langsung untuk setiap ukuran thumbnail yang tersedia (default, medium, high, standard, maxres). Tanpa upload, tanpa pelacakan."},
     },
     "body": """
 <div class="tool-card">
@@ -288,6 +289,37 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>Hâlâ YouTube'un görseli.</strong> Hot-link yapma iyidir; kendi CDN'inde yeniden barındırma teknik olarak iyidir ama ticari kullanıyorsan lisanslamayı kontrol et. Video oluşturucusu karenin görsel içeriği üzerinde telif hakkına sahip olabilir.</li>
   <li><strong>WebP burada desteklenmiyor.</strong> YouTube ayrıca <code>.webp</code> sürümlerini de sunar (daha küçük dosyalar), ama farklı bir CDN path'ten servis edilirler ve bu araç tarafından açığa çıkarılmazlar.</li>
   <li><strong>Canlı yayınlar ve Shorts</strong> iyi çalışır — URL parser tüm modern formları işler — ama canlı yayın thumbnail'leri yayın sırasında değişir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Setiap video YouTube punya sekumpulan thumbnail image yang sudah di-generate sebelumnya di URL yang bisa diprediksi — YouTube sendiri menggunakannya di hasil pencarian, embed, dan preview. Tool ini mengekstrak video ID 11 karakter dari bentuk URL YouTube apa pun (watch, youtu.be, Shorts, embed, /v/) dan menyusun setiap ukuran yang tersedia dengan link download langsung dan tombol copy-URL. Berguna saat kamu butuh preview offline, hero image untuk blog post, rich link Discord/Slack, atau poster fallback untuk video player custom.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengembed video YouTube di blog post dan meng-host sendiri thumbnail yang sama dengan yang ditampilkan YouTube.</li>
+  <li>Membuat tile "tonton video ini" yang clickable di Notion / Slack / email di mana kamu masih perlu image.</li>
+  <li>Menyiapkan video player custom dan butuh poster image sebelum iframe dimuat.</li>
+  <li>Menyimpan thumbnail untuk pemakaian offline sebagai referensi, materi konten, atau moodboard.</li>
+  <li>Mendapatkan thumbnail resolusi tertinggi tanpa berurusan dengan YouTube Data API.</li>
+</ul>
+
+<h3>Varian dijelaskan</h3>
+<ul>
+  <li><strong>maxresdefault</strong> (1280×720) — thumbnail full-HD orisinal. Hanya ada untuk video yang di-upload di HD; jika tidak, URL mengembalikan 404 dan preview akan kosong.</li>
+  <li><strong>sddefault</strong> (640×480) — di-generate untuk sebagian besar video di era modern.</li>
+  <li><strong>hqdefault</strong> (480×360) — <strong>selalu ada</strong>, kembali ke video YouTube paling awal. Pakai ini sebagai fallback.</li>
+  <li><strong>mqdefault</strong> (320×180) dan <strong>default</strong> (120×90) — preview kecil; berguna untuk render in-list.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>maxresdefault sering 404.</strong> Tidak ada di upload lama atau resolusi rendah. Susun rantai fallback: <code>maxresdefault → sddefault → hqdefault</code>.</li>
+  <li><strong>Black bar di hqdefault.</strong> Thumbnail 480×360 di-letterbox untuk sumber non-4:3 — ada bar di atas dan bawah. <code>mqdefault</code> (320×180) punya aspect ratio 16:9 yang benar untuk upload modern.</li>
+  <li><strong>Frame 1/2/3.</strong> YouTube juga meng-expose <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code> di path yang sama — tiga frame yang diekstrak otomatis dari video. Kadang salah satunya adalah yang sebenarnya kamu inginkan untuk poster custom, dan mereka tidak ada di daftar varian default.</li>
+  <li><strong>Tetap image milik YouTube.</strong> Hot-linking baik-baik saja; meng-host ulang di CDN sendiri secara teknis boleh tapi cek lisensi jika kamu menggunakannya secara komersial. Pembuat video mungkin punya copyright atas konten visual frame.</li>
+  <li><strong>WebP tidak didukung di sini.</strong> YouTube juga menyajikan versi <code>.webp</code> (file lebih kecil), tapi disajikan dari path CDN berbeda dan tidak di-expose oleh tool ini.</li>
+  <li><strong>Live stream dan Shorts</strong> bekerja dengan baik — URL parser menangani semua bentuk modern — tapi thumbnail live stream berubah selama broadcast.</li>
 </ul>
 """,
     },

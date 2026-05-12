@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "画像から Base64 へ", "tagline": "任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。", "description": "オンライン無料の画像 → Base64 データ URI エンコーダー。画像をドロップまたは選択すると、HTML インライン・CSS の background-image・メール用に貼り付け可能な data: URL を得られます。"},
         "nl": {"name": "Afbeelding naar Base64", "tagline": "Converteer elke afbeelding naar een Base64-data-URI klaar voor inline gebruik in HTML, CSS of Markdown. Bestanden blijven in je browser.", "description": "Gratis online afbeelding-naar-Base64-data-URI encoder. Drop of kies een afbeelding en krijg een ready-to-paste data: URL voor inline HTML, CSS background-image of email."},
         "tr": {"name": "Görsel'den Base64'e", "tagline": "Herhangi bir görseli HTML, CSS veya Markdown'da inline kullanım için Base64 data URI'a dönüştür. Dosyalar tarayıcında kalır.", "description": "Ücretsiz online görselden Base64 data URI encoder. Bir görseli bırak veya seç, inline HTML, CSS background-image veya e-posta için yapıştırılmaya hazır data: URL al."},
+        "id": {"name": "Gambar ke Base64", "tagline": "Konversi gambar apa pun ke Base64 data URI untuk penggunaan inline di HTML, CSS, atau Markdown. File tetap di browser-mu.", "description": "Konverter gambar ke Base64 gratis. Drop gambar apa pun dan dapatkan Base64 data URI siap pakai untuk disematkan di HTML, CSS, atau Markdown. File tetap di browser-mu — tanpa upload, tanpa pelacakan."},
     },
     "body": """
 <div class="tool-card">
@@ -186,6 +187,26 @@ function i2bRun(){
   <li><strong>Sayfalar arası deduplikasyon yok.</strong> URI'yi gömen her sayfa byte'ları yeniden gönderir. Yeniden kullanılan herhangi bir şey için tarayıcı bir kez önbelleğe alsın diye gerçek URL olarak tut.</li>
   <li><strong>E-posta istemcileri değişir.</strong> Çoğu modern istemci data URI'ları render eder, ancak Windows'ta Outlook tarihsel olarak bunları <code>&lt;img src&gt;</code> içinde engeller. CID ekleri toplu e-posta için hâlâ daha güvenlidir.</li>
   <li><strong>SVG ≠ raster.</strong> SVG için, markup'ı doğrudan gömme (veya SVG'yi url-encode etme) genellikle Base64'ten daha küçüktür.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sebuah <em>data URI</em> menyematkan byte file langsung ke dalam URL menggunakan Base64 — tanpa request terpisah, tanpa file eksternal. Converter ini membaca image apa pun yang kamu drop dan menghasilkan string <code>data:image/...;base64,...</code> yang siap di-paste ke HTML, CSS, Markdown, atau JSON. File tidak pernah meninggalkan browser kamu; konversi terjadi via <code>FileReader.readAsDataURL</code>.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Icon kecil (&lt; 4 KB) inline di CSS — menghemat satu request HTTP dan menghindari flash di first paint.</li>
+  <li>Email HTML mandiri, demo satu-file, atau PWA yang offline-capable.</li>
+  <li>Paste cepat ke catatan Markdown, halaman Notion, atau thread chat yang harus ikut bersama gambarnya.</li>
+  <li>Test fixture dan file snapshot ketika kamu ingin aset itu di-commit bersama test-nya.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Penalti ukuran.</strong> Base64 membengkakkan payload sekitar ~33%. Di atas ~4–8 KB, biaya embedding melebihi penghematan request, terutama karena data URI tidak bisa di-cache terpisah oleh browser.</li>
+  <li><strong>Tidak ada deduplikasi antar halaman.</strong> Setiap halaman yang menyematkan URI itu mengirim byte-nya lagi. Untuk apa pun yang dipakai ulang, simpan sebagai URL asli supaya browser meng-cache-nya sekali.</li>
+  <li><strong>Email client berbeda-beda.</strong> Kebanyakan client modern me-render data URI, tapi Outlook di Windows secara historis memblokirnya di <code>&lt;img src&gt;</code>. CID attachment masih lebih aman untuk mass email.</li>
+  <li><strong>SVG ≠ raster.</strong> Untuk SVG, menyematkan markup langsung (atau url-encode SVG-nya) biasanya lebih kecil dibanding Base64.</li>
 </ul>
 """,
     },

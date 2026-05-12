@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "Base64 エンコーダー / デコーダー", "tagline": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "description": "オンライン無料の Base64 エンコーダー・デコーダー。UTF-8 安全で、URL や JWT 向けの base64url バリアントにも対応。すべてブラウザ内で処理されます。"},
         "nl": {"name": "Base64 Encoder / Decoder", "tagline": "Codeer tekst naar Base64 of decodeer Base64 terug naar tekst. UTF-8 safe met base64url-variant.", "description": "Gratis online Base64 encoder en decoder. UTF-8 safe met optionele base64url-variant voor URLs en JWTs. Draait in je browser."},
         "tr": {"name": "Base64 Encoder / Decoder", "tagline": "Metni Base64'e kodla veya Base64'ü metne çöz. UTF-8 güvenli, base64url varyantı destekli.", "description": "Ücretsiz online Base64 encoder ve decoder. UTF-8 güvenli, URL ve JWT'ler için opsiyonel base64url varyantı. Tarayıcıda çalışır."},
+        "id": {"name": "Base64 Encoder / Decoder", "tagline": "Encode teks ke Base64 atau decode Base64 kembali ke teks. Aman untuk UTF-8 dengan dukungan varian base64url.", "description": "Encoder dan decoder Base64 online gratis. Aman untuk UTF-8 dengan varian base64url opsional untuk URL dan JWT. Berjalan di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -234,6 +235,31 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>UTF-8 burada doğru round-trip yapar</strong> — ASCII olmayan (é, 你好, 🚀) doğrudan <code>btoa</code>/<code>atob</code>'dan değil, <code>TextEncoder</code>/<code>TextDecoder</code>'dan geçer. JavaScript'te naif <code>btoa(str)</code> Latin olmayan karakterlerde bozulur.</li>
   <li><strong>Padding</strong> — standart Base64 giriş uzunluğuna bağlı olarak her zaman 0/1/2 <code>=</code> karakteriyle biter. base64url genellikle bunları atlar. Padding gerektiren decoder'lar padding'siz girişi reddeder; bu araç decode sırasında eksikse yeniden ekler.</li>
   <li><strong>Kodlanmış string içindeki boşluk</strong> — buradaki decoder boşluklar ve satır sonlarını temizler (kopyala-yapıştırdan yaygın), ancak bazı kütüphaneler temizlemez, bu nedenle birine pipe yapıyorsan yeniden kodla.</li>
+</ul>
+""",
+        "id": """
+<h2>Apa yang sebenarnya Base64 lakukan</h2>
+<p>Base64 mengubah byte arbitrer menjadi 64 karakter ASCII (A–Z, a–z, 0–9 ditambah dua karakter ekstra). Tiga byte input menjadi empat karakter output, jadi hasilnya sekitar 33% lebih besar dari input. Ini adalah <em>encoding</em>, bukan enkripsi — siapa saja bisa decode-nya.</p>
+
+<h3>Kapan menggunakan Base64</h3>
+<ul>
+  <li>Menanamkan data biner kecil di dalam format yang hanya teks: data URI, value JSON, environment variable, string YAML.</li>
+  <li>Meng-encode token biner (signature, key, hash) untuk dimasukkan ke URL, header, atau cookie.</li>
+  <li>Attachment email dan SMIME — historis tapi masih hidup.</li>
+</ul>
+
+<h3>Standard vs base64url</h3>
+<ul>
+  <li><strong>Standard</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>) pakai <code>+</code>, <code>/</code>, <code>=</code>. Aman di email, value JSON, sebagian besar XML.</li>
+  <li><strong>base64url</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>) pakai <code>-</code>, <code>_</code>, dan biasanya menghilangkan trailing padding <code>=</code>. Dipakai di JWT, OAuth token, dan di mana pun value-nya hidup di URL di mana <code>+</code>/<code>/</code>/<code>=</code> akan butuh escape tambahan.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Jangan keliru dengan enkripsi.</strong> Base64 reversible oleh siapa pun. Kalau datanya sensitif, enkripsi dulu.</li>
+  <li><strong>UTF-8 round-trip dengan benar di sini</strong> — non-ASCII (é, 你好, 🚀) lewat <code>TextEncoder</code>/<code>TextDecoder</code>, bukan <code>btoa</code>/<code>atob</code> langsung. <code>btoa(str)</code> naif di JavaScript rusak pada karakter non-Latin.</li>
+  <li><strong>Padding</strong> — Base64 standard selalu berakhir dengan 0/1/2 karakter <code>=</code> tergantung panjang input. base64url sering menghilangkannya. Decoder yang butuh padding akan menolak input tanpa padding; tool ini menambahkannya kembali saat decode kalau hilang.</li>
+  <li><strong>Whitespace di dalam string yang sudah di-encode</strong> — decoder di sini menghapus spasi dan line break (umum dari copy-paste), tapi beberapa library tidak, jadi encode ulang kalau kamu menyalurkan ke library seperti itu.</li>
 </ul>
 """,
     },

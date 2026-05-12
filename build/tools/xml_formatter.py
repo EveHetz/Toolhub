@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "XML フォーマッター", "tagline": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。", "description": "オンライン無料の XML フォーマッター／ミニファイア。設定可能なインデントでの整形、または空白除去によるミニファイに対応します。ブラウザの XML パーサで well-formed を検証し、エラー時は行と列を表示します。"},
         "nl": {"name": "XML Formatter", "tagline": "Formatteer en minify XML. Valideer well-formedness met regel en kolom bij fouten.", "description": "Gratis online XML formatter en minifier. Pretty-print XML met configureerbare indent, of strip whitespace om te minify-en. Valideert well-formedness via de XML-parser van de browser — foutregel en -kolom getoond."},
         "tr": {"name": "XML Formatter", "tagline": "XML'i biçimlendir ve küçült. Hatalarda satır ve sütun ile well-formedness doğrula.", "description": "Ücretsiz online XML formatter ve minifier. XML'i ayarlanabilir indent ile güzel yazdır veya boşlukları temizleyerek küçült. Tarayıcının XML parser'ı ile well-formedness'i doğrular — hata satırı ve sütunu gösterilir."},
+        "id": {"name": "XML Formatter", "tagline": "Format dan minify XML. Validasi well-formedness dengan baris dan kolom pada error.", "description": "XML formatter dan validator gratis. Beautify XML berantakan dengan indentasi atau minify untuk transport. Validasi well-formedness dan tampilkan error sintaks dengan baris dan kolom. Berjalan di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -447,6 +448,30 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>Namespace'ler hayatta kalır.</strong> <code>xmlns:foo</code> tanımları ve <code>foo:bar</code> nitelikli adlar değişiklik olmadan round-trip yapar.</li>
   <li><strong>Nitelik sırası kayabilir.</strong> XML parser araçlar arasında nitelik sırasını katı şekilde korumaz; XML checksum'ı yapıyorsan, önce kanonikleştir (XML C14N).</li>
   <li><strong>Tarayıcı parser tuhaflıkları.</strong> Farklı tarayıcılar parse hatalarını farklı biçimlerde raporlar. Satır/sütun çıkarımı en iyi çabadır ve bazı tarayıcılarda yalnızca mesajı gösterebilir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>XML masih ada di mana-mana — response SOAP, file konfigurasi, feed RSS/Atom, markup SVG, internal OOXML. Saat kamu perlu membaca, mem-diff, atau membagikan potongan XML, perbedaan antara blob minify satu baris dan tree yang ter-indent rapi adalah perbedaan antara menebak dan membaca. Tool ini melakukan pretty-print pada XML well-formed apa pun dengan indent yang bisa dikonfigurasi, atau mem-minify-nya untuk transport, dan menggunakan parser XML bawaan browser untuk menandai kerusakan dengan baris dan kolom sebisa mungkin.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Memeriksa SOAP envelope atau XML config vendor yang datang sebagai satu baris ter-minify.</li>
+  <li>Membersihkan SVG sehingga data path menjadi satu element per baris.</li>
+  <li>Memangkas whitespace pretty-print sebelum mengirim XML lewat wire.</li>
+  <li>Sanity check bahwa file XML yang kamu generate well-formed sebelum diberikan ke parser yang ketat.</li>
+  <li>Mem-diff dua dokumen XML — pretty-print dulu, lalu diff tree berdampingan.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Well-formed ≠ valid.</strong> "Well-formed" artinya syntax-nya ter-parse (tag seimbang, attribute ber-quote, root tunggal). "Valid" artinya cocok dengan DTD atau schema. Tool ini hanya mengecek well-formedness — validasi schema membutuhkan file schema.</li>
+  <li><strong>Whitespace bisa signifikan.</strong> Di <code>&lt;name&gt; Alice &lt;/name&gt;</code>, whitespace di awal/akhir adalah bagian dari value (XML adalah <code>xml:space="preserve"</code> secara default). Re-indenting mengubahnya. Jika XML-mu sensitif whitespace (XHTML <code>&lt;pre&gt;</code>, code block embedded), pretty-print adalah tool yang salah.</li>
+  <li><strong>Self-closing vs empty terbuka.</strong> <code>&lt;br/&gt;</code> dan <code>&lt;br&gt;&lt;/br&gt;</code> ekivalen di XML tapi berbeda di HTML. Formatter menormalkan element kosong ke bentuk self-closing.</li>
+  <li><strong>CDATA, comment, dan processing instruction dipertahankan.</strong> Isi dalamnya tidak diformat ulang.</li>
+  <li><strong>Namespace bertahan.</strong> Deklarasi <code>xmlns:foo</code> dan nama berkualifikasi <code>foo:bar</code> round-trip tanpa perubahan.</li>
+  <li><strong>Urutan attribute bisa bergeser.</strong> Parser XML tidak secara ketat mempertahankan urutan attribute lintas tool; jika kamu melakukan checksum XML, kanonikalisasi dulu (XML C14N).</li>
+  <li><strong>Keanehan parser browser.</strong> Browser berbeda melaporkan error parse dalam format berbeda. Ekstraksi baris/kolom adalah best-effort dan di beberapa browser hanya akan menampilkan pesannya.</li>
 </ul>
 """,
     },

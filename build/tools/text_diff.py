@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "テキスト差分", "tagline": "2 つのテキストブロックを比較し、行単位で追加・削除・変更されない部分を表示。並列または統合表示。", "description": "オンライン無料のテキスト差分ツール。Myers アルゴリズムによる行単位の差分を、並列／統合ビューで表示。空白無視、大小無視のトグルにも対応します。すべてブラウザ内で動作します。"},
         "nl": {"name": "Text Diff", "tagline": "Vergelijk twee blokken tekst en zie regel-voor-regel additions, removals en unchanged context. Side-by-side of unified view.", "description": "Gratis online text-diff tool. Line-level Myers-diff met side-by-side en unified views, ignore-whitespace en ignore-case toggles. Draait in je browser."},
         "tr": {"name": "Metin Diff", "tagline": "İki metin bloğunu karşılaştır ve satır satır eklemeleri, silmeleri ve değişmeyen bağlamı gör. Yan yana veya birleşik görünüm.", "description": "Ücretsiz online metin diff aracı. Yan yana ve birleşik görünümlü, ignore-whitespace ve ignore-case anahtarlı satır seviyesi Myers diff. Tarayıcında çalışır."},
+        "id": {"name": "Text Diff", "tagline": "Bandingkan dua blok teks dan lihat penambahan, penghapusan, dan konteks tak berubah baris demi baris. Tampilan side-by-side atau unified.", "description": "Tool diff teks gratis. Bandingkan dua blok teks dan lihat perbedaannya baris demi baris dengan penambahan, penghapusan, dan konteks tak berubah disorot. Beralih antara tampilan side-by-side dan unified."},
     },
     "body": """
 <div class="td-grid">
@@ -321,6 +322,35 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>Sıra önemlidir.</strong> İki satırı takas edersen, diff her ikisini de "taşınan" çifti olarak değil, kaldırıldı-ve-yeniden-eklendi olarak gösterir. Taşıma tespiti yoktur.</li>
   <li><strong>Büyük girdiler (10k+ satır) yavaş olabilir.</strong> LCS algoritması O(m·n)'dir — tipik dosyalar için iyidir, çok büyükler için ağırdır. Bir seferde küçük parçaları diff'le.</li>
   <li><strong>Sondaki yeni satırlar</strong> satır olarak sayılır. Yalnızca yeni satırla bitip bitmediği konusunda farklı iki girdi sondaki bir ekleme veya çıkarma gösterir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Membandingkan dua versi sebuah teks — paragraf, file config, query SQL, list — dan melihat persis baris mana yang ditambahkan, dihapus, atau dibiarkan. Bahkan ketika kamu tidak punya <code>git diff</code> di tangan atau teksnya tidak ada di version control. Output-nya adalah diff level baris yang sama dengan yang kamu lihat di code review: hijau untuk penambahan, merah untuk penghapusan, polos untuk konteks yang tidak berubah.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menemukan perbedaan antara dua email, kontrak, atau blob yang ditempel yang "kelihatan sama".</li>
+  <li>Membandingkan file config atau environment variable di dua lingkungan (staging vs prod).</li>
+  <li>Me-review perubahan pada sebuah copy yang diedit di Word/Docs oleh orang lain.</li>
+  <li>Mem-diff dua hasil query, snippet log, atau blob JSON (pakai JSON Formatter dulu untuk kanonikalisasi).</li>
+  <li>Sanity check cepat untuk search-and-replace sebelum commit.</li>
+</ul>
+
+<h3>Side-by-side vs unified</h3>
+<ul>
+  <li><strong>Side-by-side</strong> — lebih mudah memindai perubahan kecil baris per baris; original di kiri, versi baru di kanan.</li>
+  <li><strong>Unified</strong> — lebih mirip output <code>git diff</code>; lebih cocok untuk dibagikan atau dicetak, dan lebih mudah diikuti saat perubahan jarang.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini adalah diff per baris, bukan diff per kata.</strong> Satu karakter berubah di tengah baris panjang akan menandai seluruh baris sebagai berubah. Untuk diff prosa level paragraf, kamu mungkin butuh tool yang melakukan tokenisasi ke kata.</li>
+  <li><strong>"Ignore whitespace" hanya memengaruhi perbandingan, bukan tampilan.</strong> Baris yang hanya berbeda di trailing spaces atau indentasi akan masuk ke kolom unchanged, tapi whitespace asli tetap ditampilkan.</li>
+  <li><strong>"Ignore case" juga begitu.</strong> "TODO" dan "todo" dianggap sama, tapi case asli tetap dirender.</li>
+  <li><strong>Urutan penting.</strong> Jika kamu menukar dua baris, diff akan menunjukkan keduanya sebagai removed-and-re-added, bukan sebagai pasangan "moved". Tidak ada deteksi pemindahan.</li>
+  <li><strong>Input besar (10k+ baris) bisa lambat.</strong> Algoritma LCS itu O(m·n) — oke untuk file biasa, lambat untuk yang sangat besar. Diff potongan kecil satu per satu.</li>
+  <li><strong>Trailing newline</strong> dihitung sebagai baris. Dua input yang hanya berbeda di apakah berakhir dengan newline akan menampilkan satu penambahan atau penghapusan di akhir.</li>
 </ul>
 """,
     },

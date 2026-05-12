@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "チップ＆割り勘計算機", "tagline": "請求額 + チップ % + 人数 = 1 人あたり。切り上げオプションあり、チップ額と合計を表示。", "description": "無料のチップ・割り勘計算ツール。請求額、チップ率、人数を入力すると、チップ額、合計、1 人あたりの支払額が表示されます。切り上げオプションも利用可能です。"},
         "nl": {"name": "Tip & Split Calculator", "tagline": "Rekeningtotaal + tip % + personen = per-persoon bedrag. Round-up optie, tip en grand total getoond.", "description": "Gratis tip- en rekening-split-calculator. Voer de rekening, tip-percentage en aantal personen in. Zie het tip-bedrag, het grand total en het per-persoon-aandeel. Optionele round-up."},
         "tr": {"name": "Bahşiş & Bölüştürme Hesaplayıcı", "tagline": "Hesap toplamı + bahşiş % + kişi sayısı = kişi başı tutar. Yukarı yuvarlama seçeneği, bahşiş ve genel toplam gösterilir.", "description": "Ücretsiz bahşiş ve hesap bölüştürme hesaplayıcı. Hesabı, bahşiş yüzdesini ve kişi sayısını gir. Bahşiş tutarını, genel toplamı ve kişi başı payı gör. Opsiyonel yukarı yuvarlama."},
+        "id": {"name": "Kalkulator Tip & Bagi Tagihan", "tagline": "Total tagihan + % tip + jumlah orang = jumlah per orang. Opsi pembulatan ke atas, menampilkan tip dan grand total.", "description": "Kalkulator tip dan bagi tagihan gratis. Masukkan jumlah tagihan, persentase tip, dan jumlah orang — dapatkan jumlah per orang, total tip, dan grand total. Opsi pembulatan ke atas untuk angka yang rapi."},
     },
     "body": """
 <div class="tool-card">
@@ -311,6 +312,27 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>Hizmet ücreti ≠ tip.</strong> Hesapta zaten bir "hizmet ücreti" varsa (6+ kişilik İngiltere gruplarında ve çoğu kıta Avrupa'sında yaygın), ek tip vermek isteğe bağlıdır. Bazı mekanlar hizmet ücretlerini mutfakla böler; sunucuya ulaşmasını istiyorsan doğrudan nakit tip ver.</li>
   <li><strong>Kişi başına yuvarlama eşit olmayan yemeyi gizleyebilir.</strong> Eşit bölme en hızlıdır ama biri şarap içtiyken diğeri su içtiyse adil değildir — bu durumda kalemli bölüşmeye geç.</li>
   <li><strong>Nakit - kart.</strong> Bazı personel nakit tipleri tercih eder çünkü kart tipleri toplanır, hemen vergilendirilir veya mekan tarafından sıyrılır. Bu hesaplayıcıdaki kişi başı rakam tip'i içeriyorsa, tip'i üstüne nakit olarak kapatmak isteyip istemediğine karar ver.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Membagi tagihan restoran di akhir makan malam adalah contoh klasik "matematikanya mudah, tapi wine-nya sudah mengalir". Tiga angka masuk (tagihan, persentase tip, jumlah orang) dan tiga keluar (jumlah tip, total keseluruhan, bagian per orang). Tool ini melakukan itu tanpa mengirim apa pun ke server, plus opsi round-up sehingga angka per orang jatuh ke unit bulat dan kamu kasih tip sedikit lebih banyak daripada repot dengan recehan kecil.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Akhir makan grup — split rata.</li>
+  <li>Menambahkan persentase tip yang sudah diketahui ke tagihan layanan.</li>
+  <li>Cepat menguji berbagai level tip (10/15/18/20/25) sebelum memutuskan.</li>
+  <li>Menyelesaikan ronde kopi, taksi, atau bagian per kepala apa pun.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Konvensi tip sangat bervariasi.</strong> Amerika Serikat: 18–22% itu normal; di bawah 15% adalah keluhan. Sebagian besar Eropa: bulatkan ke atas atau 5–10%; service sering sudah termasuk. Jepang: jangan kasih tip — bisa dianggap kasar. Selalu cek kebiasaan lokal daripada menerapkan persentase secara membabi buta.</li>
+  <li><strong>Tip pre-tax atau post-tax?</strong> Di AS, kasih tip dari subtotal pre-tax itu etiket umum tapi sebagian besar terminal kartu menawarkan persentase post-tax. Tool ini menghitung persentase dari total tagihan yang kamu masukkan — pilih base-nya secara sengaja.</li>
+  <li><strong>Service charge ≠ tip.</strong> Jika "service charge" sudah ada di tagihan (umum di grup 6+ orang di UK dan sebagian besar Eropa kontinental), tip tambahan sifatnya opsional. Beberapa tempat membagi service charge dengan dapur; kasih tip cash langsung jika kamu ingin sampai ke server.</li>
+  <li><strong>Pembulatan per orang bisa menyembunyikan makan yang tidak setara.</strong> Split rata itu paling cepat tapi tidak adil jika satu orang minum wine dan yang lain minum air — beralih ke itemised splitting dalam kasus itu.</li>
+  <li><strong>Cash vs kartu.</strong> Sebagian staf lebih suka tip cash karena tip kartu di-pool, langsung kena pajak, atau dipotong tempat. Jika angka per orang di kalkulator ini sudah termasuk tip, putuskan apakah kamu ingin melunasi tip secara cash di atasnya.</li>
 </ul>
 """,
     },

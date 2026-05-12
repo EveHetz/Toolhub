@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "Markdown から HTML", "tagline": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。", "description": "オンライン無料の Markdown → HTML コンバーター。CommonMark 風に対応：見出し、リスト、フェンス付きコード、テーブル、画像、ブロッククォート、インライン書式。ライブプレビューとコピーに対応。"},
         "nl": {"name": "Markdown naar HTML", "tagline": "Converteer Markdown naar schone HTML met een live preview. Ondersteunt headings, lists, code, tables, images en links.", "description": "Gratis online Markdown-naar-HTML converter. CommonMark-flavoured: headings, lists, fenced code, tables, images, blockquotes, inline formatting. Live preview + copy."},
         "tr": {"name": "Markdown'dan HTML'e", "tagline": "Markdown'u canlı önizlemeyle temiz HTML'e dönüştür. Başlıkları, listeleri, kodu, tabloları, görselleri ve linkleri destekler.", "description": "Ücretsiz online Markdown'dan HTML'e dönüştürücü. CommonMark uyumlu: başlıklar, listeler, çitli kod, tablolar, görseller, blok alıntılar, satır içi biçimlendirme. Canlı önizleme + kopyala."},
+        "id": {"name": "Markdown ke HTML", "tagline": "Konversi Markdown ke HTML bersih dengan pratinjau langsung. Mendukung heading, list, kode, tabel, gambar, dan link.", "description": "Konverter Markdown ke HTML gratis. Ketik Markdown dan lihat HTML yang dirender secara real-time. Mendukung heading, list, kode, tabel, gambar, link, blockquote, dan formatting GFM dasar."},
     },
     "body": """
 <div class="md-grid">
@@ -306,6 +307,28 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>Tablolar - hizalama.</strong> Pipe tabloları bir ayraç satırı (<code>|---|</code>) gerektirir ve merkez/sol/sağ hizalama için <code>:---:</code> / <code>:---</code> / <code>---:</code> kullanır.</li>
   <li><strong>Smart noktalama.</strong> Bazı renderer'lar <code>--</code>'i en dash'e ve düz tırnakları kıvrılmıştırılmışa dönüştürür. Bu araç dönüştürmez.</li>
   <li><strong>Round-trip kayıpsız değildir.</strong> Markdown → HTML → Markdown başlık stilini, liste aralıklarını ve link biçimini normalize edecektir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Markdown adalah format authoring yang paling banyak ditulis di planet ini — file README, post blog, issue GitHub, pesan chat, situs dokumentasi. HTML adalah yang di-render oleh browser. Tool ini mengkonversi Markdown menjadi HTML yang bersih dengan live preview sehingga kamu bisa lihat seperti apa output ter-render sebelum di-paste ke CMS, men-generate halaman statis, atau merilisnya sebagai bagian dari template email.</p>
+
+<h3>Sintaks yang didukung</h3>
+<ul>
+  <li>Heading <code>#</code> sampai <code>######</code>; bold, italic, strike</li>
+  <li>Inline <code>`code`</code> dan block fenced <code>```lang</code></li>
+  <li>List bullet / nomor / nested</li>
+  <li>Link <code>[text](url)</code> dan gambar <code>![alt](url)</code></li>
+  <li>Blockquote, tabel pipe dengan alignment, horizontal rule</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini adalah parser cepat in-browser, bukan spec suite.</strong> CommonMark dan GFM punya edge case (nested emphasis, link reference definitions, autolink expansion) yang berbeda antar implementasi. Untuk konformans ketat, pakai <code>marked</code>, <code>markdown-it</code>, atau <code>remark</code> di build step.</li>
+  <li><strong>HTML yang embedded di dalam Markdown</strong> umumnya lewat apa adanya, tapi beberapa implementasi men-sanitize. Jangan andalkan ini untuk security; perlakukan markdown yang untrusted sebagai HTML yang untrusted.</li>
+  <li><strong>Tabel vs alignment.</strong> Tabel pipe butuh sebuah row separator (<code>|---|</code>) dan memakai <code>:---:</code> / <code>:---</code> / <code>---:</code> untuk alignment center/left/right. Lupa separator adalah alasan paling umum sebuah "tabel" me-render sebagai satu paragraf.</li>
+  <li><strong>Smart punctuation.</strong> Beberapa renderer mengkonversi <code>--</code> jadi en-dash dan straight quote jadi curly. Tool ini tidak — lewatkan melalui typography pass kalau kamu butuh itu.</li>
+  <li><strong>Round-tripping tidak lossless.</strong> Markdown → HTML → Markdown akan menormalkan gaya heading, spasi list, dan bentuk link. Semantiknya bertahan; byte persisnya tidak.</li>
 </ul>
 """,
     },

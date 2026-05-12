@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "QR Code Generator", "tagline": "Genereer QR codes voor elke tekst, URL, Wi-Fi of vCard. Custom size, kleuren en error correction. Export PNG of SVG.", "description": "Gratis online QR code generator. Custom size, foreground/background-kleuren, error correction levels. Download als PNG of SVG. Geen watermerken."},
         "tr": {"name": "QR Kod Üretici", "tagline": "Herhangi bir metin, URL, Wi-Fi veya vCard için QR kod üret. Özel boyut, renkler ve hata düzeltme. PNG veya SVG olarak dışa aktar.", "description": "Ücretsiz online QR kod üretici. Özel boyut, ön plan/arka plan renkleri, hata düzeltme seviyeleri. PNG veya SVG olarak indir. Filigran yok."},
+        "id": {"name": "Generator Kode QR", "tagline": "Hasilkan kode QR untuk teks, URL, Wi-Fi, atau vCard apa pun. Ukuran custom, warna, dan koreksi error. Export sebagai PNG atau SVG.", "description": "Generator kode QR online gratis. Hasilkan kode QR untuk URL, teks, Wi-Fi, vCard, email, telepon, dan SMS. Ukuran, warna, level error correction yang dapat dikonfigurasi. Export PNG atau SVG. Berjalan offline di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -268,6 +269,27 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
   <li><strong>Uzun içerik daha yoğun bir kod zorlar.</strong> 200 karakterlik bir URL kodlamak zorundaysan, sonuç kod yoğundur ve uzaktan taranması daha zordur. Boyut önemliyse önce bir yönlendirme ile kısalt.</li>
   <li><strong>SVG - PNG.</strong> SVG kalite kaybı olmadan ölçeklenir — baskı veya büyük ekranlar için en iyisi. PNG evrensel olarak kabul edilir ama ölçeklendirildiğinde pikselleşir; kullanacağın boyutta dışa aktar.</li>
   <li><strong>Wi-Fi preset biçimi.</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;parola&gt;;;</code> — modern iOS/Android tarar ve otomatik katılır; çok eski telefonlar desteklemeyebilir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>QR code adalah URL mungil yang bisa dibaca kamera ponsel dalam sepersekian detik. Encode URL, jaringan Wi-Fi, draft email, nomor telepon, atau teks pendek apa pun — cetak di poster, kartu nama, atau menu, dan siapa pun dengan ponsel bisa beraksi tanpa mengetik. Generator ini berjalan sepenuhnya di browser kamu menggunakan library open-source <a href="https://github.com/soldair/node-qrcode" rel="noopener">qrcode</a>. Teks input kamu tidak pernah meninggalkan halaman.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Berbagi URL di slide, poster, kartu nama, atau sisipan kemasan.</li>
+  <li>Membiarkan tamu bergabung Wi-Fi kamu tanpa mengetik password (gunakan preset Wi-Fi).</li>
+  <li>Memasang "scan to pay / book / order" di papan tanda di ruang fisik.</li>
+  <li>Meng-encode vCard untuk import kartu kontak instan di ponsel penerima.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Error correction trade-off dengan density.</strong> Level lebih tinggi (Q, H) bertahan terhadap goresan dan logo yang ditumpuk; level lebih rendah (L, M) menjaga code tetap kecil dan lebih cepat di-scan. Gunakan <strong>H</strong> jika kamu berencana menumpuk logo, jika tidak <strong>M</strong> adalah default yang waras.</li>
+  <li><strong>Kontras itu penting.</strong> QR code yang distilisasi dengan kontras foreground/background rendah sering terlihat cantik tapi sulit di-scan di cahaya buruk. Test dengan men-scan dari output cetakan/layar sebelum ship.</li>
+  <li><strong>Konten panjang memaksa code lebih padat.</strong> Jika kamu harus encode URL 200 karakter, hasilnya padat dan lebih sulit di-scan dari jauh. Persingkat lewat redirect dulu jika ukuran penting.</li>
+  <li><strong>SVG vs PNG.</strong> SVG scale tanpa kehilangan kualitas — terbaik untuk cetak atau display besar. PNG diterima universal tapi piksel jika di-scale ke atas; export di ukuran yang akan kamu pakai.</li>
+  <li><strong>Format preset Wi-Fi.</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — iOS/Android modern men-scan dan join otomatis; ponsel sangat lama mungkin tidak mendukung.</li>
 </ul>
 """,
     },

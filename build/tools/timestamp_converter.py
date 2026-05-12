@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "Unix タイムスタンプ変換", "tagline": "Unix タイムスタンプと人間可読な日時を相互変換。秒・ミリ秒、UTC・ローカルに対応。", "description": "オンライン無料の Unix タイムスタンプ変換ツール。エポック秒、ミリ秒、ISO 8601、UTC およびローカル時刻の人間可読な日時間で変換できます。"},
         "nl": {"name": "Unix Timestamp Converter", "tagline": "Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.", "description": "Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd."},
         "tr": {"name": "Unix Timestamp Dönüştürücü", "tagline": "Unix timestamp'leri ile insan tarafından okunabilir tarihler arasında dönüştür. Saniyeler ve milisaniyeler, UTC ve yerel.", "description": "Ücretsiz online Unix timestamp dönüştürücü. Epoch saniyeleri, milisaniyeler, ISO 8601 ve UTC veya yerel saatte insan tarafından okunabilir tarihler arasında dönüştür."},
+        "id": {"name": "Konverter Unix Timestamp", "tagline": "Konversi antara Unix timestamp dan tanggal yang dapat dibaca manusia. Detik dan milidetik, UTC dan lokal.", "description": "Konverter Unix timestamp gratis. Konversi antara timestamp Unix (detik atau milidetik sejak epoch) dan tanggal/waktu yang dapat dibaca manusia. Tampilkan dalam UTC dan zona waktu lokal-mu, dengan format ISO 8601."},
     },
     "body": """
 <div class="tool-card">
@@ -277,6 +278,35 @@ document.addEventListener('DOMContentLoaded', tsNow);
   <li><strong>Negatif timestamp'lar</strong> geçerlidir ve 1970'ten önceki tarihleri temsil eder. Bazı kütüphaneler bunları reddeder — güvenmeden önce test et.</li>
   <li><strong>Otomatik tespit kusursuz değildir.</strong> 10 basamaklı bir değer 1970'ten bir milisaniye timestamp'i <em>olabilir</em> — pratikte yok denecek kadar olası değildir, ama hangi birimin olduğunu biliyorsan, sezgisele güvenme.</li>
   <li><strong>Her zaman UTC sakla.</strong> Timestamp'lar saat dilimsizdir; "yerel saat" sadece gösterim içindir. Çıktıdaki "Yerel" satırı tarayıcının dilimini kullanır, ama temel tamsayı her zaman UTC'dir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sebuah Unix timestamp adalah satu integer — jumlah detik (atau milidetik) sejak 1970-01-01 00:00:00 UTC. Mereka ada di mana-mana: file log, response API, claim <code>iat</code>/<code>exp</code> di JWT, kolom <code>created_at</code> di database, header cache. Mereka tidak ambigu dan bebas timezone, tapi tidak bisa dibaca manusia, jadi ketika sesuatu rusak di <code>1735689600</code>, kamu perlu tahu apakah itu jam 2 siang atau jam 4 pagi, hari ini atau tahun lalu. Tool ini mengubah antara bentuk integer dan bentuk readable di kedua arah, dengan auto-detect detik/ms dan petunjuk waktu relatif.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Men-decode field <code>"timestamp": 1735689600</code> dari entry log atau response API.</li>
+  <li>Mengecek kapan JWT diterbitkan atau kapan expired (claim <code>iat</code> / <code>exp</code> adalah seconds-since-epoch).</li>
+  <li>Menghitung timestamp masa depan untuk header <code>retry-after</code>, scheduled job, atau cache TTL.</li>
+  <li>Sanity check apakah tanggal yang disimpan di database dalam detik, milidetik, atau mikrodetik.</li>
+  <li>Mengkonversi "sekarang" ke format yang dibutuhkan tool yang sedang kamu pakai.</li>
+</ul>
+
+<h3>Detik, milidetik, mikrodetik</h3>
+<ul>
+  <li><strong>Detik</strong> — konvensi Unix orisinal; ~10 digit sekarang (misal <code>1735689600</code>). Dipakai di C, Linux, JWT, sebagian besar API, sebagian besar kolom <code>integer</code> database.</li>
+  <li><strong>Milidetik</strong> — <code>Date.now()</code> JavaScript, <code>System.currentTimeMillis()</code> Java, Kafka, banyak API JSON. ~13 digit.</li>
+  <li><strong>Mikrodetik (16 digit) / nanodetik (19 digit)</strong> — <code>time.time_ns()</code> Python, <code>time.Now().UnixNano()</code> Go, beberapa sistem metrik. Tool ini tidak meng-handle ini secara otomatis — bagi dengan 1.000 atau 1.000.000 dulu.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Masalah Tahun 2038.</strong> Timestamp signed 32-bit overflow di <code>2147483647</code> = <strong>03:14:07 UTC, 19 Januari 2038</strong>. Kode C lama, kolom <code>TIMESTAMP</code> MySQL, dan embedded system bisa wrap ke 1901. Sistem modern pakai 64-bit dan aman sampai sekitar tahun 292.277.026.596.</li>
+  <li><strong>Unix time melewatkan leap second.</strong> Satu hari Unix tepat 86.400 detik, bahkan ketika UTC punya 86.401. Ini memang by design (biar aritmetika simpel) tapi artinya kamu tidak bisa pakai Unix timestamp untuk astronomi atau GPS dengan akurasi sub-detik.</li>
+  <li><strong>Timestamp negatif</strong> valid dan merepresentasikan tanggal sebelum 1970. Beberapa library menolaknya — tes dulu sebelum bergantung padanya.</li>
+  <li><strong>Auto-detection tidak sempurna.</strong> Nilai 10 digit <em>bisa</em> jadi milisecond timestamp dari 1970 — sangat tidak mungkin dalam praktik, tapi kalau kamu tahu unit-nya, jangan andalkan heuristik.</li>
+  <li><strong>Selalu simpan UTC.</strong> Timestamp itu bebas timezone; "local time" hanya untuk tampilan. Baris "Local" di output pakai zone browser kamu, tapi integer di baliknya selalu UTC.</li>
 </ul>
 """,
     },

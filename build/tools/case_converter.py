@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ケース変換ツール", "tagline": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "description": "オンライン無料のケース変換ツール。upper、lower、title、sentence、camel、pascal、snake、kebab、constant、dot ケースをワンクリックで切り替えできます。"},
         "nl": {"name": "Case Converter", "tagline": "Converteer tekst tussen UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE en dot.case.", "description": "Gratis online case converter. Schakel tekst tussen upper, lower, title, sentence, camel, pascal, snake, kebab, constant en dot case in één klik."},
         "tr": {"name": "Case Converter", "tagline": "Metni UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE ve dot.case arasında dönüştür.", "description": "Ücretsiz online büyük/küçük harf dönüştürücü. Metni tek tıkla upper, lower, title, sentence, camel, pascal, snake, kebab, constant ve dot case arasında değiştir."},
+        "id": {"name": "Pengubah Case", "tagline": "Ubah teks antara UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case.", "description": "Pengubah case teks gratis. Konversi antara UPPER, lower, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case. Sadar-Unicode dan cepat."},
     },
     "body": """
 <div class="tool-card">
@@ -209,6 +210,26 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>Sayılar önceki kelimeye yapışır.</strong> "Item2" tek kelime "item2" olur, iki değil. Ayrılmasını istiyorsan ayraç ekle.</li>
   <li><strong>"camelCase ilk harfi"</strong> giriş büyükle başlasa bile her zaman küçüktür. PascalCase büyük harfi korur.</li>
   <li><strong>Round-trip her zaman kayıpsız değildir.</strong> camelCase → kebab-case → camelCase, kelime sınırlarındaki orijinal büyük harf ipucunu kaybeder.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Setiap bahasa dan platform punya konvensi penamaan sendiri — JavaScript ingin <code>camelCase</code>, Python ingin <code>snake_case</code>, CSS ingin <code>kebab-case</code>, environment variable ingin <code>CONSTANT_CASE</code>. Menerjemahkan antar bentuk secara manual itu ribet, terutama untuk edge case (akronim, angka, separator yang sudah ada). Tool ini memecah input apa pun jadi kata-kata dengan mendeteksi transisi case, separator (<code>_ - . /</code>), dan whitespace, lalu menggabungkan kembali dalam 14 gaya berbeda.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengubah nama field dari JSON API (camelCase) ke kolom ORM Python (snake_case).</li>
+  <li>Membuat nama class CSS dari nama token design-system yang datang dalam PascalCase.</li>
+  <li>Mengkonversi daftar heading menjadi slug kebab-case, atau nama environment variable menjadi CONSTANT_CASE.</li>
+  <li>Cepat mengubah "The Quick Brown Fox" menjadi Title Case, Sentence case, atau Train-Case untuk headline / label tombol.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Akronim itu tricky.</strong> Haruskah "XMLHttpRequest" jadi "XML_Http_Request" atau "Xml_Http_Request"? Tool ini memperlakukan huruf kapital berurutan sebagai satu batas kata (<code>xml http request</code>), lalu re-case — yang cocok dengan konvensi Java/JS tapi bukan semua style guide.</li>
+  <li><strong>Angka menempel ke kata sebelumnya.</strong> "Item2" jadi satu kata "item2", bukan dua. Tambahkan separator jika kamu ingin memisahkannya.</li>
+  <li><strong>"Huruf pertama camelCase"</strong> selalu lowercase meski input mulai dengan kapital. PascalCase mempertahankan kapital.</li>
+  <li><strong>Round-tripping tidak selalu lossless.</strong> Beralih camelCase → kebab-case → camelCase kehilangan petunjuk kapitalisasi asli di batas kata.</li>
 </ul>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "CSS box-shadow ジェネレーター", "tagline": "1 層または多層の CSS box-shadow をビジュアルに作成。オフセット・ぼかし・広がり・色を調整し、CSS をコピー。", "description": "無料の CSS box-shadow ジェネレーター。複数のシャドウを重ねてリアルな立体感を表現でき、inset の切り替え、blur と spread の微調整、本番投入できる CSS のワンクリックコピーに対応します。"},
         "nl": {"name": "CSS Box-Shadow Generator", "tagline": "Bouw visueel single- of multi-layer CSS box shadows. Stel offset, blur, spread en kleur in en kopieer CSS.", "description": "Gratis CSS box-shadow generator. Stack meerdere shadows voor realistische elevation, toggle inset, fine-tune blur en spread en kopieer production-ready CSS in één klik."},
         "tr": {"name": "CSS Box Shadow Oluşturucu", "tagline": "Tek veya çok katmanlı CSS box shadow'ları görsel olarak kur. Offset, blur, spread, renk ayarla ve CSS'i kopyala.", "description": "Ücretsiz CSS box-shadow oluşturucu. Gerçekçi yükseklik için birden fazla gölgeyi üst üste bin, inset'i aç/kapa, blur ve spread'i ince ayarla ve üretime hazır CSS'i tek tıkla kopyala."},
+        "id": {"name": "Pembangun CSS Box Shadow", "tagline": "Susun box-shadow CSS tunggal atau berlapis secara visual. Atur offset, blur, spread, warna, dan salin CSS-nya.", "description": "Pembangun CSS box shadow gratis. Susun shadow tunggal atau berlapis secara visual dengan kontrol offset, blur, spread, warna, dan inset. Pratinjau langsung dan CSS siap-salin."},
     },
     "body": """
 <div class="tool-card">
@@ -300,6 +301,38 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>Şeffaf arka planda gölge.</strong> Kutunun <code>background</code>'u yoksa, gölge kutunun kendisinden geçer — genellikle sürpriz.</li>
   <li><strong>Performans:</strong> Çok elemanda çok büyük blur düşük seviye mobilde maliyetli olabilir. Süslü glow'ları göndermeden önce gerçek cihazda test et.</li>
   <li><strong>Dark mode.</strong> Subtle koyu üzeri koyu gölgeler neredeyse kaybolur; karanlık temalarda parlak bir iç kenarlık veya açık tonlu bir gölge düşün.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Properti CSS <code>box-shadow</code> adalah workhorse untuk menambah kedalaman — drop shadow di card, highlight tombol, focus ring, glow, efek neon, bahkan 3D palsu. Sintaksisnya (<code>x y blur spread color</code>, opsional <code>inset</code>, beberapa shadow dipisah koma) mudah dibaca tapi ribet diatur secara buta. Tool ini memberikan slider untuk tiap nilai dengan preview live, plus preset yang cocok dengan elevation design system umum.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mendesain elevation card atau modal yang tidak terlihat "murah dan kaku".</li>
+  <li>Membuat style focus-ring untuk aksesibilitas (mis. glow outline 2px).</li>
+  <li>Menyiapkan efek neon atau glow untuk CTA hero.</li>
+  <li>Menyalin token elevation gaya Material Design atau Apple ke design system.</li>
+  <li>Menghasilkan efek tombol pressed palsu atau inset card lewat "inset" depth.</li>
+</ul>
+
+<h3>Apa yang dilakukan tiap nilai</h3>
+<ul>
+  <li><strong>X / Y offset</strong> — arah jatuhnya shadow (Y positif = ke bawah). Pakai Y > 0 dan X kecil atau nol untuk kesan "cahaya dari atas".</li>
+  <li><strong>Blur</strong> — seberapa lembut tepinya. 0 = tajam; makin besar = makin lembut.</li>
+  <li><strong>Spread</strong> — seberapa lebih besar (atau lebih kecil bila negatif) shadow dari kotaknya.</li>
+  <li><strong>Color &amp; alpha</strong> — biasanya hitam dengan alpha parsial atau warna brand. Pure <code>#000</code> terasa terlalu berat; coba <code>#0003</code> sampai <code>#0002</code> untuk kedalaman natural.</li>
+  <li><strong>Inset</strong> — membalik shadow ke dalam, seperti indent.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Satu shadow besar terlihat artifisial.</strong> Elevation sungguhan adalah dua atau tiga layer ditumpuk: shadow ketat, gelap, dekat plus shadow lebar, lembut, jauh. Preset "Material elevation" menunjukkan polanya.</li>
+  <li><strong>Hitam murni terlalu berat.</strong> Pakai ~10–25% alpha hitam, atau tint shadow dengan komplemen warna permukaan.</li>
+  <li><strong>Shadow di-render di luar kotak.</strong> Kalau container-mu punya <code>overflow: hidden</code>, shadow akan terpotong. Pakai wrapper atau pindahkan <code>overflow</code> ke child.</li>
+  <li><strong>Shadow di background transparan.</strong> Kalau kotak tidak punya <code>background</code>, shadow akan menembus kotaknya sendiri — biasanya mengagetkan.</li>
+  <li><strong>Performance:</strong> blur sangat besar di banyak elemen bisa mahal di mobile low-end. Test di device sungguhan sebelum ship glow yang mewah.</li>
+  <li><strong>Dark mode.</strong> Shadow dark-on-dark yang subtle hampir hilang; pertimbangkan inner border terang atau shadow ber-tint terang di tema gelap.</li>
 </ul>
 """,
     },

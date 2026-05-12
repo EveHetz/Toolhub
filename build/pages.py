@@ -233,6 +233,25 @@ PAGES = {
                     h_no_ai="AI saçmalığı yok",
                 ),
             },
+            "id": {
+                "title": "Tentang Toolhub",
+                "h1": "Tentang Toolhub",
+                "description": "Toolhub adalah situs utilitas kecil tanpa pelacakan yang dibangun oleh satu orang. Alat developer gratis yang berjalan sepenuhnya di browser, tanpa pendaftaran, tanpa pengumpulan data.",
+                "body": _about_body(
+                    intro_what="Toolhub adalah kumpulan alat developer dan utilitas sehari-hari yang gratis dan berjalan sepenuhnya di browser. Tanpa pendaftaran, tanpa akun, tanpa pelacakan, tanpa pemrosesan di sisi server. Tempel data, dapatkan hasil, tutup tab — tidak ada yang disimpan atau dikirim.",
+                    intro_why="Kebanyakan situs alat online adalah halaman parkir yang penuh iklan, atau melewatkan datamu melalui empat belas pelacak pihak ketiga sebelum kamu sempat mengklik apa pun. Toolhub adalah alternatifnya: satu halaman, satu alat, berjalan lokal, dan membiarkanmu sendiri.",
+                    intro_who=f'JXXR1, maintainer independen. Tanpa perusahaan, tanpa putaran pendanaan, tanpa investor. Toolhub dimulai sebagai proyek sampingan untuk menggaruk gatal pribadi — satu halaman yang melakukan satu alat dengan baik — dan tumbuh dari sana. Bisa dihubungi via <a href="{REPO_URL}">GitHub</a>.',
+                    intro_how="Situs ini adalah HTML statis yang di-host di GitHub Pages. Setiap alat berjalan sebagai JavaScript di browser-mu — tanpa panggilan API, tanpa komputasi sisi server, tanpa data yang meninggalkan perangkatmu kecuali dinyatakan secara eksplisit (misalnya alat YouTube Thumbnail mengambil gambar dari CDN YouTube; semua yang lain sepenuhnya lokal).",
+                    intro_oss=f'Seluruh source code ada di <a href="{REPO_URL}">{REPO_URL}</a>. Kontribusi, laporan bug, dan ide alat diterima dengan baik melalui GitHub Issues.',
+                    intro_no_ai="Blok bantuan alat dan terjemahan secara wajar ditinjau oleh manusia, tidak ditempel dari LLM. Jika kamu melihat terjemahan yang terdengar robotik atau salah, buka issue — itu perbaikan yang mudah dan jenis kontribusi yang membuat situs ini lebih baik untuk semua orang.",
+                    h_what="Apa itu Toolhub",
+                    h_why="Mengapa",
+                    h_who="Siapa",
+                    h_how="Cara kerjanya",
+                    h_oss="Open source",
+                    h_no_ai="Tanpa omong kosong AI",
+                ),
+            },
         },
     },
 
@@ -428,6 +447,25 @@ PAGES = {
 
 <h2>Yanıt süreleri</h2>
 <p>Her şeyi bir hafta içinde okumaya çalışırım, ama Toolhub gündüz işiminin yanında boş zamanlarımda inşa edilir ve sürdürülür. Bir şey acilse (örneğin güvenlik), bunu subject satırına koy.</p>
+""".strip(),
+            },
+            "id": {
+                "title": "Kontak",
+                "h1": "Kontak",
+                "description": "Hubungi maintainer Toolhub melalui GitHub Issues untuk laporan bug, permintaan fitur, dan ide alat — atau via email untuk hal lainnya.",
+                "body": f"""
+<p>Toolhub adalah proyek sampingan satu orang. Waktu respons best-effort, bukan komersial. Tidak ada formulir kontak — situs ini sengaja tidak punya backend.</p>
+
+<h2>GitHub Issues</h2>
+<p>Untuk laporan bug, permintaan fitur, perbaikan terjemahan, dan ide alat baru — buka issue:</p>
+<p><a href="{REPO_ISSUES}">{REPO_ISSUES}</a></p>
+<p>GitHub Issues lebih disukai karena memberi diskusi URL permanen yang bisa ditemukan kemudian oleh orang lain dengan pertanyaan yang sama.</p>
+
+<h2>Email</h2>
+<p>Untuk hal-hal yang tidak cocok di GitHub Issues — pers, kemitraan, laporan kerentanan keamanan, permintaan takedown — kirim email ke <code>{CONTACT_EMAIL}</code>.</p>
+
+<h2>Waktu respons</h2>
+<p>Saya berusaha membaca semuanya dalam waktu seminggu, tetapi Toolhub dibangun dan dirawat di waktu luang di samping pekerjaan utama. Jika sesuatu mendesak (misalnya keamanan), tulis itu di baris subjek.</p>
 """.strip(),
             },
         },
@@ -928,6 +966,57 @@ PAGES = {
 <p>Toolhub'ı bir sınıfta kullanıyorsan ve haberdar etmek istersen, dersine bir araç önermek istersen veya hâlâ zayıf kapsadığımız bir dil için çeviriye katkıda bulunmak istersen — <a href="/tr/contact/">iletişim sayfası</a> üzerinden ulaş. Native konuşurlardan toplu çeviri katkıları — özellikle daha az hizmet verilen diller için — sevinçle karşılanır.</p>
 """.strip(),
             },
+            "id": {
+                "title": "Toolhub untuk Sekolah",
+                "h1": "Toolhub untuk Sekolah",
+                "description": "Alat developer dan utilitas yang mengutamakan privasi untuk kelas. Tanpa pendaftaran, tanpa pelacakan, multibahasa, bisa self-host. Ramah filter dan aman dibagikan ke siswa.",
+                "body": f"""
+<h2>Toolhub di kelas</h2>
+<p>Toolhub adalah serangkaian alat kecil dalam browser yang bisa digunakan siswa tanpa membuat akun, tanpa dilacak, dan tanpa diarahkan ke corong iklan atau afiliasi. Setiap alat berjalan sepenuhnya di browser, artinya apa pun yang diketik siswa tidak pernah meninggalkan jaringan sekolah — tidak ada backend yang dipanggil.</p>
+<p>Jika kamu mengajar di sekolah dasar, menengah, atau perguruan tinggi dan butuh utilitas dengan cepat (regex tester, konverter warna, encoder Base64, generator kata sandi untuk pelajaran keamanan), Toolhub dibangun supaya aman diproyeksikan dan dibagikan ke kelas.</p>
+
+<h2>Sejajar dengan kurikulum</h2>
+<ul>
+<li><strong>Ilmu komputer:</strong> <a href="/id/regex-tester/">regex tester</a> untuk pattern matching, <a href="/id/base64-encoder/">Base64 encoder</a> untuk pelajaran data, <a href="/id/hash-generator/">generator hash</a> untuk membicarakan integritas, <a href="/id/cidr-calculator/">kalkulator CIDR</a> untuk topik jaringan.</li>
+<li><strong>Desain dan media digital:</strong> <a href="/id/color-converter/">konverter warna</a> dan <a href="/id/color-picker/">pemilih warna</a> untuk membicarakan model warna, <a href="/id/wcag-contrast/">pemeriksa kontras WCAG</a> untuk aksesibilitas.</li>
+<li><strong>Kesadaran keamanan:</strong> <a href="/id/password-generator/">generator kata sandi</a> untuk membicarakan entropi dan kekuatan kata sandi, <a href="/id/jwt-decoder/">JWT decoder</a> untuk menunjukkan apa yang sebenarnya ada di dalam token.</li>
+<li><strong>Matematika dan kesehatan:</strong> <a href="/id/percentage-calculator/">kalkulator persentase</a>, <a href="/id/unit-converter/">konverter satuan</a>, dan <a href="/id/bmi-calculator/">kalkulator BMI</a> (halaman BMI punya catatan "bukan saran medis" sendiri).</li>
+</ul>
+
+<h2>Bahasa yang didukung</h2>
+<p>Setiap alat diterjemahkan ke sebelas bahasa supaya siswa bisa bekerja dalam bahasa ibu mereka:</p>
+<ul>
+<li>English (Inggris)</li>
+<li>Deutsch (Jerman)</li>
+<li>Español (Spanyol)</li>
+<li>Français (Prancis)</li>
+<li>Italiano (Italia)</li>
+<li>Português (Portugis)</li>
+<li>Polski (Polandia)</li>
+<li>日本語 (Jepang)</li>
+<li>Nederlands (Belanda)</li>
+<li>Türkçe (Turki)</li>
+<li>Bahasa Indonesia</li>
+</ul>
+
+<h2>Opsi self-hosted</h2>
+<p>Jika jaringan sekolah memblokir situs eksternal atau kamu ingin kontrol penuh, seluruh situs berukuran sekitar 5 MB dan berjalan offline sebagai Progressive Web App. Kamu bisa mirror di intranet sekolah — ini folder statis berisi HTML, CSS, dan JavaScript, tanpa langkah build untuk menyajikannya: letakkan file di belakang web server apa saja.</p>
+<p>Seluruh source code ada di <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+
+<h2>Ramah filter</h2>
+<p>Toolhub didesain agar bermain baik dengan filter web sekolah:</p>
+<ul>
+<li>Tidak ada widget media sosial yang disematkan.</li>
+<li>Tidak ada widget chat atau overlay chat langsung.</li>
+<li>Tidak ada pengalihan otomatis ke situs lain.</li>
+<li>Tidak ada video atau audio yang berjalan otomatis.</li>
+<li>Konten ramah SafeSearch — tanpa alat dewasa, tanpa judi, tanpa penempatan afiliasi crypto.</li>
+</ul>
+
+<h2>Kontak untuk guru</h2>
+<p>Jika kamu menggunakan Toolhub di kelas dan ingin memberi tahu, menyarankan alat untuk pelajaranmu, atau berkontribusi terjemahan untuk bahasa yang masih kami cakup buruk — hubungi melalui <a href="/id/contact/">halaman kontak</a>. Kontribusi terjemahan massal dari penutur asli — terutama untuk bahasa yang kurang terlayani — sangat diterima.</p>
+""".strip(),
+            },
         },
     },
 
@@ -1333,6 +1422,46 @@ PAGES = {
 
 <h2>İletişim</h2>
 <p>Bu politika hakkında sorular? <a href="/tr/contact/">İletişim sayfası</a> üzerinden ulaş veya <a href="{REPO_URL}">{REPO_URL}</a> üzerinde bir issue aç.</p>
+""".strip(),
+            },
+            "id": {
+                "title": "Kebijakan Privasi",
+                "h1": "Kebijakan Privasi",
+                "description": "Kebijakan privasi Toolhub: alat berjalan sepenuhnya di browser, tanpa pendaftaran, tanpa akun, data alat tidak meninggalkan perangkatmu. Plausible untuk statistik agregat, AdSense hanya dengan persetujuan eksplisit.",
+                "body": f"""
+<p><strong>Terakhir diperbarui:</strong> {LAST_UPDATED}</p>
+
+<h2>Versi singkat</h2>
+<p>Alat berjalan sepenuhnya di browser-mu — apa pun yang kamu ketik di dalamnya tidak dikirim ke mana pun. Kami mengukur kunjungan secara agregat dan anonim dengan <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> (tanpa cookie). Jika kamu memilih, kami juga bisa menampilkan iklan display melalui Google AdSense yang menggunakan cookie. Kamu bisa menolak iklan di banner persetujuan; sisa situs bekerja sama saja.</p>
+
+<h2>Apa yang kami kumpulkan</h2>
+<ul>
+<li><strong>Input alat:</strong> tidak ada. Apa pun yang kamu tempel ke sebuah alat tetap di browser-mu. Tidak ada alat yang mengirim data ke server.</li>
+<li><strong>Statistik kunjungan:</strong> Plausible menghitung tampilan halaman, referrer, negara, dan tipe perangkat — anonim, agregat, tanpa cookie. <a href="https://plausible.io/data-policy" rel="noopener">Kebijakan data Plausible</a> menjelaskan apa yang mereka kumpulkan dan tidak.</li>
+<li><strong>Jika kamu menerima iklan:</strong> Google AdSense menempatkan cookie dan bisa menggunakannya untuk mempersonalisasi iklan. Praktik Google tunduk pada <a href="https://policies.google.com/technologies/ads" rel="noopener">kebijakan privasi iklan Google</a>.</li>
+<li><strong>Jika kamu menolak iklan:</strong> skrip iklan tidak dimuat, cookie iklan tidak ditempatkan, dan blok iklan menghilang dari halaman.</li>
+</ul>
+
+<h2>Cookie</h2>
+<p>Situs ini menggunakan satu entri localStorage (<code>toolhub:consent</code>) untuk mengingat preferensi iklanmu, plus entri <code>theme</code> untuk preferensi gelap/terang. Tidak ada yang meninggalkan browser-mu.</p>
+<p>Plausible tidak menggunakan cookie. Google AdSense menggunakan cookie <em>hanya</em> jika kamu menerima — kamu selalu bisa mengubah pilihanmu via tautan persetujuan di footer.</p>
+
+<h2>Layanan eksternal</h2>
+<ul>
+<li><strong>Plausible Analytics</strong> — ramah privasi, sesuai GDPR, di-host di EU. Tanpa data pribadi.</li>
+<li><strong>Google AdSense</strong> — hanya dengan persetujuan eksplisit. Memuat <code>pagead2.googlesyndication.com</code> dan bisa menempatkan cookie iklan.</li>
+<li><strong>GitHub Pages</strong> — host situs. GitHub secara default menyimpan log server (IP, timestamp, URL) sesuai <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">pernyataan privasinya</a>.</li>
+<li><strong>Alat YouTube Thumbnail</strong> — khusus jika kamu menggunakan alat ini, browser-mu mengambil gambar langsung dari <code>i.ytimg.com</code> (CDN YouTube). Tanpa otentikasi, tanpa upload. Detail di <a href="/id/how-we-handle-your-data/">penanganan data</a>.</li>
+</ul>
+
+<h2>Tautan afiliasi</h2>
+<p>Beberapa tautan di footer adalah tautan afiliasi — jika kamu mengklik dan mendaftar ke layanan yang direkomendasikan (misalnya penyedia hosting), Toolhub bisa mendapat komisi. Harga yang kamu bayar tidak berubah. Tautan afiliasi ditandai dengan <code>rel="sponsored"</code>. Daftar lengkap di <a href="/id/affiliate-disclosure/">pengungkapan afiliasi</a>.</p>
+
+<h2>Hak kamu</h2>
+<p>Berdasarkan GDPR / UK GDPR / CCPA / undang-undang privasi Slovakia, kamu bisa meminta akses atau penghapusan data pribadi yang kami simpan tentangmu. Kami tidak menyimpan apa-apa — tanpa backend, tanpa akun, tanpa database pengguna. Plausible hanya menyimpan data kunjungan agregat. Data iklan Google melalui saluran permintaan mereka sendiri.</p>
+
+<h2>Kontak</h2>
+<p>Pertanyaan tentang kebijakan ini? Hubungi via <a href="/id/contact/">halaman kontak</a> atau buka issue di <a href="{REPO_URL}">{REPO_URL}</a>.</p>
 """.strip(),
             },
         },
@@ -1872,6 +2001,59 @@ PAGES = {
 <p>Burada bir şey net değilse, <a href="{REPO_URL}">{REPO_URL}</a> üzerinde bir issue aç veya <a href="/tr/contact/">iletişim sayfası</a>\'nı kullan. Açıklayıcı sorular bu sayfayı sonraki okuyucu için daha iyi yapmanın iyi bir yoludur.</p>
 """.strip(),
             },
+            "id": {
+                "title": "Bagaimana kami menangani datamu",
+                "h1": "Bagaimana kami menangani datamu",
+                "description": "Penjelasan bahasa polos tentang bagaimana Toolhub menangani datamu. Alat berjalan di browser, tidak ada yang disimpan, tiga pengecualian disebut secara eksplisit.",
+                "body": f"""
+<p><strong>Terakhir diperbarui:</strong> {LAST_UPDATED}</p>
+<p>Halaman ini adalah versi bahasa polos. Ini melengkapi <a href="/id/privacy/">kebijakan privasi</a>; jika keduanya bertentangan di suatu tempat, halaman ini lebih spesifik dan yang berlaku.</p>
+
+<h2>Ke mana data pergi</h2>
+<p>Alat di Toolhub berjalan di browser-mu. Apa pun yang kamu tempel, ketik, atau unggah ke sebuah alat tetap di perangkatmu — tidak ada eksekutor alat sisi server, dan tidak ada endpoint upload di balik alat.</p>
+<p>Ada tepat tiga pengecualian yang disebut eksplisit terhadap "tidak ada yang meninggalkan perangkatmu":</p>
+<ol>
+<li><strong>Alat YouTube Thumbnail</strong> — ketika kamu mengirimkan URL YouTube, browser-mu mengambil thumbnail langsung dari <code>i.ytimg.com</code> (CDN publik YouTube untuk gambar). Tanpa otentikasi, tanpa upload, tanpa kunci API. YouTube hanya melihat video ID dari URL, dan hanya karena browser-mu memintanya.</li>
+<li><strong>AdSense (hanya ketika diaktifkan dan dengan persetujuan)</strong> — sistem iklan display Google. Dengan persetujuan, Google bisa melihat alamat IP-mu dan menempatkan cookie sesuai kebijakannya. Ketika ditolak (default), AdSense tidak dimuat sama sekali.</li>
+<li><strong>Plausible Analytics</strong> — menghitung kunjungan halaman, referrer, negara, dan kelas perangkat. Tanpa cookie, tanpa fingerprinting, hanya statistik agregat. Server Plausible ada di EU.</li>
+</ol>
+
+<h2>Apa yang kami simpan</h2>
+<p>Tidak ada tentangmu. Tanpa akun, tanpa ID pengguna, tanpa email, tanpa profil. Kami tidak menyimpan konten yang kamu masukkan ke alat.</p>
+<p>Browser-mu menyimpan dua entri localStorage kecil hanya di perangkatmu sendiri — keduanya bisa dibaca dan dihapus via developer tools browser:</p>
+<ul>
+<li><code>theme</code> — "light" atau "dark", preferensi sekitar satu byte.</li>
+<li><code>toolhub:consent</code> — preferensi iklanmu (ya/tidak/belum jelas). Supaya kami tidak menanyakan ulang.</li>
+</ul>
+
+<h2>GDPR, UK GDPR, CCPA, dan DPA Slovakia</h2>
+<p>Toolhub memproses data minimal:</p>
+<ul>
+<li><strong>EU / UK (GDPR / UK GDPR):</strong> Plausible (di-host di EU) menyediakan dasar analitik yang sesuai. Ketika AdSense aktif, Google menjalankan lapisan persetujuannya sendiri di bawah TCF v2.</li>
+<li><strong>California (CCPA):</strong> kami tidak menjual data pribadi. Tidak ada data pribadi untuk dijual.</li>
+<li><strong>Slovakia (otoritas perlindungan data Slovakia):</strong> maintainer Toolhub berada di Slovakia. Aturan Slovakia berlaku untuk pemrosesan apa pun yang benar-benar terjadi — yang dalam praktiknya hanya berarti pengukuran agregat Plausible dan (ketika diaktifkan) alur persetujuan AdSense sendiri.</li>
+</ul>
+<p>Hak akses atau penghapusan data pribadi dalam praktiknya tidak berlaku karena tidak ada data pribadi yang disimpan untuk diakses atau dihapus. Untuk pertanyaan spesifik, kirim email via <a href="/id/contact/">halaman kontak</a>.</p>
+
+<h2>Cookie</h2>
+<ul>
+<li><strong>Plausible:</strong> tanpa cookie, tidak pernah.</li>
+<li><strong>Preferensi tema:</strong> sebuah entri localStorage, bukan cookie. Tetap di perangkatmu. Tidak dilampirkan ke request HTTP.</li>
+<li><strong>AdSense (jika aktif):</strong> Google menempatkan cookie iklan pihak ketiganya sendiri. Banner persetujuan muncul sebelum skrip AdSense dimuat, dan jika kamu menolak, AdSense tidak dimuat sama sekali.</li>
+</ul>
+
+<h2>Anak-anak</h2>
+<p>Toolhub ramah sekolah (lihat <a href="/id/for-schools/">Toolhub untuk Sekolah</a>). Tanpa pelacakan perilaku, tanpa iklan tertarget. Penggunaan di bawah 13 tahun diperbolehkan dalam syarat AdSense menurut wilayah — di tempat AdSense membatasi iklan yang ditujukan untuk anak-anak secara regional, batas-batas itu ditegakkan oleh sistem Google sendiri.</p>
+
+<h2>PDF yang bisa diunduh</h2>
+<p>Versi PDF halaman ini tersedia untuk penggunaan offline atau untuk dicetak sebagai bagian dari dokumentasi IT sekolah:</p>
+<p><a href="{PDF_URL}">how-we-handle-your-data.pdf</a></p>
+<p>PDF saat ini hanya dalam bahasa Inggris; PDF per bahasa di luar cakupan rilis ini.</p>
+
+<h2>Pertanyaan</h2>
+<p>Jika ada yang tidak jelas di sini, buka issue di <a href="{REPO_URL}">{REPO_URL}</a> atau gunakan <a href="/id/contact/">halaman kontak</a>. Pertanyaan klarifikasi adalah cara yang baik untuk membuat halaman ini lebih baik bagi pembaca berikutnya.</p>
+""".strip(),
+            },
         },
     },
 
@@ -2307,6 +2489,49 @@ PAGES = {
 
 <h2>İletişim</h2>
 <p>Belirli bir affiliate hakkında soruların var mı, veya burada olmaması gereken bir şeyi işaret etmek istiyorsan? <a href="{REPO_URL}">{REPO_URL}</a> üzerinde bir issue aç veya <a href="/tr/contact/">iletişim sayfası</a>\'nı kullan.</p>
+""".strip(),
+            },
+            "id": {
+                "title": "Pengungkapan afiliasi",
+                "h1": "Pengungkapan afiliasi",
+                "description": "Pengungkapan hubungan afiliasi Toolhub yang sesuai FTC dan EU. Vendor yang membayar, kamu tidak bayar tambahan apa pun, dan liputan editorial tidak digerakkan afiliasi.",
+                "body": f"""
+<p><strong>Terakhir diperbarui:</strong> {LAST_UPDATED}</p>
+
+<h2>Apa itu tautan afiliasi</h2>
+<p>Tautan afiliasi adalah tautan biasa dengan kode pelacak yang dilampirkan. Jika kamu mengkliknya dan kemudian mendaftar ke layanan yang ditautkan, layanan tersebut membayar Toolhub komisi rujukan kecil. Harga yang <em>kamu</em> bayar identik dengan versi non-afiliasi — kamu tidak membayar komisinya, vendor yang membayar.</p>
+
+<h2>Di mana mereka di Toolhub</h2>
+<p>Saat ini tautan afiliasi ada di dua tempat:</p>
+<ul>
+<li>Di footer situs, ditandai dengan badge <code>(affiliate)</code> kecil.</li>
+<li>Di mana pun blok bantuan alat atau bagian "alat terkait" menyebut layanan berbayar tertentu yang kami rekomendasikan — afiliasi muncul di tempatnya.</li>
+</ul>
+<p>Tautan afiliasi membawa <code>rel="sponsored"</code> di HTML, yang merupakan standar mesin pencari untuk menandakan hubungan komersial.</p>
+
+<h2>Siapa yang membayar</h2>
+<p>Vendor yang membayar komisi, bukan kamu. Jika kamu mengabaikan tautan afiliasi dan mendaftar langsung dari beranda vendor, kamu mendapat layanan yang sama dengan harga yang sama; kami hanya tidak melihat rujukan.</p>
+
+<h2>Kepatuhan FTC dan EU</h2>
+<p>Halaman ini ada karena baik panduan endorsement Komisi Perdagangan Federal AS maupun aturan EU untuk perlindungan konsumen mewajibkan pembuat konten untuk mengungkapkan hubungan finansial dengan produk yang ditautkan. Pengungkapan harus jelas dan di muka — itulah sebabnya ada halaman top-level terpisah, dan itulah sebabnya ada tautan di footer setiap halaman.</p>
+
+<h2>Afiliasi spesifik</h2>
+<p>Toolhub saat ini menggunakan afiliasi dan akun dukungan berikut (operator: JXXR1):</p>
+<ul>
+<li><strong>DigitalOcean</strong> (cloud hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
+</ul>
+<p>Ketika hubungan afiliasi lain ditambahkan, mereka akan dicantumkan di sini dan tanggal halaman akan diperbarui.</p>
+
+<h2>Tanpa penempatan berbayar</h2>
+<p>Ulasan alat, urutan kemunculan alat di beranda, dan tautan "alat terkait" di bawah tiap alat <strong>tidak</strong> digerakkan afiliasi. Kami tidak menerima uang untuk menampilkan alat atau menempatkan satu alat di atas alat lainnya. Jika penempatan berbayar ditambahkan (tidak akan, tapi untuk berjaga-jaga), itu akan diberi label seperti tautan afiliasi: jelas, di muka, bisa dibedakan dari konten editorial.</p>
+
+<h2>Independensi editorial</h2>
+<p>Hubungan afiliasi tidak memengaruhi alat mana yang dibangun, bagaimana blok bantuan ditulis, atau "alat terkait" mana yang muncul di bawah alat tertentu. Alat di Toolhub adalah alat yang akan kami bangun bahkan tanpa program afiliasi — program hanya berkontribusi sedikit pada hosting dan perawatan.</p>
+
+<h2>Kontak</h2>
+<p>Punya pertanyaan tentang afiliasi tertentu, atau ingin menunjukkan sesuatu yang seharusnya tidak ada di sini? Buka issue di <a href="{REPO_URL}">{REPO_URL}</a> atau gunakan <a href="/id/contact/">halaman kontak</a>.</p>
 """.strip(),
             },
         },

@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "JWT Decoder", "tagline": "Plak een JWT om header en payload te decoderen. Alle decodering draait in je browser — tokens verlaten de pagina nooit.", "description": "Gratis online JSON Web Token decoder. Decodeer header en payload, verifieer expiry-timestamps, inspecteer signature. Werkt volledig offline in je browser."},
         "tr": {"name": "JWT Decoder", "tagline": "JWT'yi yapıştır, header ve payload'ı çöz. Tüm decode tarayıcında çalışır — token'lar sayfayı asla terk etmez.", "description": "Ücretsiz online JSON Web Token decoder. Header ve payload'ı çöz, expiry timestamp'leri doğrula, imzayı incele. Tarayıcında tamamen çevrimdışı çalışır."},
+        "id": {"name": "JWT Decoder", "tagline": "Tempel JWT, decode header dan payload. Semua decoding terjadi di browser-mu — token tidak pernah meninggalkan halaman.", "description": "JWT decoder gratis. Tempel JSON Web Token apa pun dan lihat header dan payload yang di-decode dengan format yang dapat dibaca. Semua decoding lokal — token tidak pernah dikirim ke server kami atau server mana pun."},
     },
     "body": """
 <div class="tool-card">
@@ -310,6 +311,36 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>Production token'larını hiçbir yere yapıştırma.</strong> Canlı bir JWT olan herkes <code>exp</code>'e kadar kullanıcıyı taklit edebilir. Tarayıcı bu araçtan iletmez ama uzantılar, ekran kayıtları ve dev tools yapabilir. Paylaşman gerekiyorsa test ortamından taze bir token kullan.</li>
   <li><strong><code>alg: none</code> token'ları bilinen bir saldırı sınıfıdır.</strong> Bir header'da <code>alg: none</code> varsa ve kütüphanen kabul ediyorsa, saldırganlar token sahteleyebilir. Sunucuda reddet.</li>
   <li><strong>Zaman kayması önemlidir.</strong> Bir token'ın <code>exp</code>'i doğrulayıcının saatine karşı kontrol edilir. Kayan saatler burada geçerli görünen token'ları başarısız yapar.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sebuah JWT (JSON Web Token) terdiri dari tiga bagian ter-encode base64url yang disambung dengan titik: <code>header.payload.signature</code>. Header dan payload adalah JSON object yang bisa kamu inspect; signature membuktikan token tidak diutak-atik setelah diterbitkan. Tool ini mendecode dua bagian pertama sehingga kamu bisa lihat isinya tanpa kebisingan base64 — berguna saat men-debug auth flow, session yang kadaluarsa, atau "token ini untuk user yang mana sebenarnya?".</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Men-debug login OAuth / OpenID Connect yang gagal — paste access atau ID token, lihat apa yang sebenarnya diterbitkan IdP.</li>
+  <li>Mengkonfirmasi expiry token: tool ini mendecode <code>exp</code> sebagai tanggal asli dan menandainya jika sudah lewat.</li>
+  <li>Sanity-check custom claim yang di-assert backend (role, permission, tenant ID).</li>
+  <li>Membaca token yang "ditolak sebagai invalid" oleh library kamu untuk melihat apakah masalahnya struktural, expiry, atau signature.</li>
+</ul>
+
+<h3>Claim umum</h3>
+<ul>
+  <li><code>iss</code> — issuer (siapa yang membuat token)</li>
+  <li><code>sub</code> — subject (user/account yang diwakili)</li>
+  <li><code>aud</code> — audience (siapa yang seharusnya menerima)</li>
+  <li><code>exp</code> — expiry (Unix timestamp)</li>
+  <li><code>iat</code> — issued-at (Unix timestamp)</li>
+  <li><code>nbf</code> — not-valid-before (Unix timestamp)</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>JWT yang di-decode BUKAN JWT yang sudah diverifikasi.</strong> Signature tidak dicek di sini — itu butuh public key issuer (RSA/EC) atau shared secret (HMAC). Konten yang sudah di-decode hanya memberitahu kamu apa yang token <em>katakan</em>, bukan apakah kamu harus mempercayainya. Selalu verifikasi di server sebelum menghormati claim.</li>
+  <li><strong>Jangan paste token production di mana pun.</strong> Siapa pun yang punya JWT yang masih hidup bisa menyamar sebagai user sampai <code>exp</code>. Browser tidak mengirimnya keluar dari tool ini, tapi extension, screen-recording, dan dev tools bisa. Pakai token baru dari environment test jika kamu harus berbagi.</li>
+  <li><strong>Token <code>alg: none</code> adalah kelas serangan yang dikenal.</strong> Kalau sebuah header punya <code>alg: none</code> dan library kamu menerimanya, attacker bisa memalsukan token. Tolak ini di server.</li>
+  <li><strong>Time skew itu penting.</strong> <code>exp</code> sebuah token dicek terhadap jam verifier. Server yang drift akan menolak token yang di sini terlihat valid.</li>
 </ul>
 """,
     },

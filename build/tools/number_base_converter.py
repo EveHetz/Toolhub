@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "Getalstelsel-converter", "tagline": "Converteer tussen binair, octaal, decimaal, hexadecimaal en elk grondtal van 2 tot 36.", "description": "Gratis online converter voor getalstelsels. Converteer tussen binair, octaal, decimaal, hex en willekeurige grondtallen 2-36. Verwerkt negatieve getallen en grote integers via BigInt."},
         "tr": {"name": "Sayı Tabanı Dönüştürücü", "tagline": "İkilik, sekizlik, ondalık, onaltılık ve 2'den 36'ya kadar her taban arasında dönüştür.", "description": "Ücretsiz online sayı tabanı dönüştürücü. İkilik, sekizlik, ondalık, hex ve 2-36 arası rastgele tabanlar arasında dönüştür. BigInt üzerinden negatif sayıları ve büyük tamsayıları işler."},
+        "id": {"name": "Konverter Basis Angka", "tagline": "Konversi antara biner, oktal, desimal, heksadesimal, dan basis 2 sampai 36.", "description": "Konverter basis angka gratis. Konversi antara biner (basis-2), oktal (basis-8), desimal (basis-10), heksadesimal (basis-16), dan basis arbitrer 2 sampai 36. Pengubah basis-N umum untuk programmer."},
     },
     "body": """
 <div class="tool-card">
@@ -314,6 +315,34 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>Burada büyük sayılar hassasiyet kaybetmez.</strong> JavaScript <code>Number</code> 2<sup>53</sup>'te tepe yapar; bu araç <code>BigInt</code> kullanır, bu nedenle 64-bit tamsayılar, büyük hash'ler ve kripto değerleri hepsi tam round-trip yapar.</li>
   <li><strong>Tabanla büyük/küçük harfi karıştırma.</strong> Base-16 harfler büyük veya küçük olabilir; araç ikisini de kabul eder ve büyük harf yayınlar. Base-32 / base-36 çıktıları konvansiyon gereği küçüktür.</li>
   <li><strong>Baştaki sıfırlar düşürülür.</strong> <code>0x000F</code> <code>F</code> olur. Sabit genişlikli hex (örn. byte temsilleri için) gerekiyorsa, kodunda sonradan pad et.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Angka tetap angka yang sama tanpa peduli base-nya — <code>255</code>, <code>0xff</code>, <code>0b11111111</code>, dan <code>0o377</code> identik. Tapi base mana yang kamu baca atau tulis itu penting saat kamu menerjemahkan antar layout memory, parsing color code, decode bit field, atau sekadar membaca hex di debugger. Tool ini mengkonversi antara binary, octal, decimal, hexadecimal, dan base apa pun dari 2 sampai 36, memakai BigInt di bawah supaya kamu tidak kehilangan presisi pada angka besar.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membaca nilai hex dari stack trace dan ingin tahu nilainya dalam desimal.</li>
+  <li>Mengkonversi warna CSS <code>0xff8800</code> ke triple RGB, atau sebaliknya.</li>
+  <li>Memeriksa bitmask atau flags integer dalam binary untuk melihat bit mana yang di-set.</li>
+  <li>Menerjemahkan antara short ID base-36 dan counter desimal.</li>
+</ul>
+
+<h3>Prefix yang dikenali</h3>
+<ul>
+  <li>Hex: <code>0x</code>, <code>0X</code>, <code>#</code></li>
+  <li>Binary: <code>0b</code>, <code>0B</code></li>
+  <li>Octal: <code>0o</code>, <code>0O</code></li>
+  <li>Underscore digit grouping: <code>1_000_000</code></li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Angka negatif memakai sign-prefix, bukan two's complement.</strong> <code>-128</code> ditampilkan sebagai <code>-10000000</code> dalam binary, bukan <code>10000000</code>. Kebanyakan bahasa menampilkan dengan cara yang sama untuk integer arbitrary-precision.</li>
+  <li><strong>Angka besar tidak kehilangan presisi di sini.</strong> <code>Number</code> JavaScript dibatasi pada 2<sup>53</sup>; tool ini memakai <code>BigInt</code>, jadi integer 64-bit, hash besar, dan nilai crypto semua round-trip dengan akurat.</li>
+  <li><strong>Jangan campur base dengan case.</strong> Huruf base-16 bisa upper- atau lowercase; tool ini menerima keduanya dan menghasilkan uppercase. Output base-32 / base-36 adalah lowercase secara konvensi.</li>
+  <li><strong>Leading zero dibuang.</strong> <code>0x000F</code> jadi <code>F</code>. Kalau kamu butuh hex dengan fixed-width (misal untuk representasi byte), pad di kode kamu setelahnya.</li>
 </ul>
 """,
     },

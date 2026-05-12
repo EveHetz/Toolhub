@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ASCII テーブル", "tagline": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "description": "無料の ASCII テーブルリファレンス。128 個の標準 ASCII コードすべてを 10 進・16 進・8 進・2 進・文字・HTML エンティティ付きで表示し、制御文字には説明も併記。入力に応じてリアルタイムにフィルタリングできます。"},
         "nl": {"name": "ASCII-tabel", "tagline": "Volledige ASCII-referentie 0–127 met decimaal, hex, binair, teken en HTML-entiteit. Filterbaar.", "description": "Gratis ASCII-tabelreferentie. Alle 128 standaard ASCII-codes met decimaal, hex, octaal, binair, teken, HTML-entiteit en een omschrijving voor stuurtekens. Filter tijdens het typen."},
         "tr": {"name": "ASCII Tablosu", "tagline": "0–127 tam ASCII referansı: ondalık, hex, ikilik, karakter ve HTML entity. Filtrelenebilir.", "description": "Ücretsiz ASCII tablo referansı. 128 standart ASCII kodunun tamamı; ondalık, hex, octal, ikilik, karakter, HTML entity ve kontrol karakterleri için açıklama. Yazdıkça filtrele."},
+        "id": {"name": "Tabel ASCII", "tagline": "Referensi ASCII lengkap 0–127 dengan desimal, hex, biner, karakter, dan entity HTML. Bisa difilter.", "description": "Referensi tabel ASCII gratis. Semua 128 kode ASCII standar dengan desimal, hex, oktal, biner, karakter, entity HTML, dan deskripsi untuk karakter kontrol. Filter saat kamu mengetik."},
     },
     "body": """
 <div class="tool-card">
@@ -313,6 +314,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Kontrol karakterleri görünmez sabotajcılar olabilir.</strong> Terminal veya PDF'ten kopyala/yapıştır <code>0x1F</code>, <code>0x07</code> (BEL — gerçekten terminali ötürür) veya ASCII <em>olmayan</em> sıfır-genişlik Unicode karakterleri yakalayabilir. Metin "iyi görünüyor" ama eşit karşılaştırmıyorsa, byte'lara dök.</li>
   <li><strong>HTML entity'ler her zaman gerekli değildir.</strong> Modern UTF-8 belgelerinde, <code>&amp;#65;</code> ve literal <code>A</code> eşdeğerdir. Yalnızca HTML'de sözdizimsel anlamı olan karakterleri escape et: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> ve nitelik içinde <code>"</code>.</li>
   <li><strong>NUL (<code>0x00</code>) C'de string'leri sonlandırır.</strong> C-string buffer'larına düşünmeden gömme — birçok API ilk NUL'da sessizce keser.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>ASCII (American Standard Code for Information Interchange) adalah sistem encoding 128-karakter yang memetakan digit, huruf, tanda baca, dan beberapa kode kontrol ke integer 0–127. Ini adalah fondasi yang diperluas oleh setiap encoding teks modern (UTF-8, Latin-1, Windows-1252), jadi mengetahui nilainya kadang penting — mendiagnosis byte aneh di file biner, membangun regex untuk "karakter cetak apa pun", membaca hex dump, atau mengingat apakah 0x0A atau 0x0D adalah newline.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membaca hex dump dan mencoba mencari tahu apa yang <em>dikatakan</em> byte-byte itu.</li>
+  <li>Menulis parser dan membutuhkan nilai batas: <code>0x20</code> (spasi), <code>0x7E</code> (tilde) — rentang cetak.</li>
+  <li>Debug CSV yang rusak karena ada <code>0x09</code> (Tab) atau <code>0x1F</code> (Unit Separator).</li>
+  <li>Membuat entity HTML untuk karakter tricky — <code>&amp;#65;</code> = <code>A</code>.</li>
+  <li>Menyelesaikan perdebatan apakah <code>\\r</code> adalah 0x0D (ya — Carriage Return) dan <code>\\n</code> adalah 0x0A (ya — Line Feed).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>ASCII itu 7-bit, bukan 8-bit.</strong> Kode 128–255 <em>bukan</em> ASCII — mereka milik encoding 8-bit (Latin-1, CP-1252, …) yang dideklarasikan dokumen, atau lead byte dari sequence UTF-8.</li>
+  <li><strong>Newline berbeda per platform.</strong> Unix/macOS hanya pakai <code>LF</code> (0x0A); Mac Classic lama pakai <code>CR</code> (0x0D); Windows pakai <code>CRLF</code>. File yang mencampurkan keduanya akan merusak penghitungan baris naif.</li>
+  <li><strong>Karakter kontrol bisa jadi penyabot tak terlihat.</strong> Copy/paste dari terminal atau PDF bisa membawa <code>0x1F</code>, <code>0x07</code> (BEL — benar-benar membunyikan terminal), atau karakter Unicode zero-width yang <em>bukan</em> ASCII sama sekali. Kalau teks "kelihatan sama" tapi tidak cocok saat dibandingkan, dump ke byte.</li>
+  <li><strong>Entity HTML tidak selalu dibutuhkan.</strong> Di dokumen UTF-8 modern, <code>&amp;#65;</code> dan literal <code>A</code> ekuivalen. Escape hanya karakter dengan makna sintaksis di HTML: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, dan <code>"</code> di atribut.</li>
+  <li><strong>NUL (<code>0x00</code>) mengakhiri string di C.</strong> Jangan menyisipkannya ke buffer C-string tanpa berpikir — banyak API akan memotong di NUL pertama tanpa peringatan.</li>
 </ul>
 """,
     },

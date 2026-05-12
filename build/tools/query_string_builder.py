@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "クエリ文字列ビルダー", "tagline": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "description": "オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。"},
         "nl": {"name": "Query String Builder", "tagline": "Voeg key/value-rijen toe; krijg een correct URL-encoded query-string. Ondersteunt array (a[]=1) en bracket-loze herhaalde keys.", "description": "Gratis online query string builder. Voeg rijen van key/value-paren toe en krijg een correct percent-encoded ?a=1&b=hello%20world string uit, met optionele array bracket-notatie. Draait volledig in je browser."},
         "tr": {"name": "Query String Builder", "tagline": "key/value satırları ekle; doğru URL-encoded query string çıkar. Dizi (a[]=1) ve braket'siz tekrarlayan anahtarları destekler.", "description": "Ücretsiz online query string builder. key/value çiftleri satırları ekle ve düzgün percent-encoded ?a=1&b=hello%20world string çıkar, opsiyonel dizi braket notasyonu ile. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Query String Builder", "tagline": "Tambahkan baris key/value; dapatkan output query string yang di-URL-encode dengan benar. Mendukung array (a[]=1) dan kunci berulang tanpa kurung.", "description": "Query string builder gratis. Tambahkan key/value secara visual dan dapatkan query string yang di-URL-encode dengan benar. Mendukung notasi array (a[]=1) atau kunci berulang sederhana. Sempurna untuk testing API."},
     },
     "body": """
 <div class="tool-card">
@@ -358,6 +359,29 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>Sıra önemli olabilir.</strong> Bazı imzalı URL şemaları (S3, Stripe webhook'ları, OAuth 1.0) imzalamadan önce parametrelerin belirli bir sırada olmasını gerektirir. Araç satır sıranı korur.</li>
   <li><strong>Uzunluk sınırları.</strong> Tarayıcılar ve sunucular query-string uzunluğunu yaklaşık 2–8 KB'da tepe yapar. Bir query parametresine JSON tıkıştırmak bir kokudur.</li>
   <li><strong>Query string'e sırlar koyma.</strong> Sunucu loglarında, tarayıcı geçmişinde ve Referer header'larında görünürler. Bunun yerine istek gövdesini veya Authorization header'ı kullan.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Query string hanyalah daftar pasangan key/value yang direkatkan dengan <code>?</code>, <code>=</code>, dan <code>&amp;</code>, tapi menulisnya manual dengan benar itu ribet: spasi jadi <code>%20</code> (atau <code>+</code>, tergantung), setiap value di-percent-encode, dan array punya setidaknya tiga konvensi yang bersaing. Tool ini membiarkan kamu mengetik key dan value yang kamu mau, mencentang "multi" untuk yang ingin diulang, dan menghasilkan string yang ter-encode dengan benar, siap di-paste setelah <code>?</code>.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menyusun URL API dengan beberapa parameter yang mengandung spasi, aksen, atau tanda baca.</li>
+  <li>Membuat link tracking (UTM tag) tanpa typo di value yang ter-encode.</li>
+  <li>Membangun deep link atau share URL yang harus round-trip lewat email, chat, atau social.</li>
+  <li>Mengkonfirmasi notasi array yang benar untuk API — <code>a[]=1</code>, <code>a=1&amp;a=2</code>, atau <code>a=1,2</code> — dengan mencoba masing-masing.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Konvensi array tidak standar.</strong> PHP dan Rails menggunakan <code>a[]=1&amp;a[]=2</code>; <code>requests</code> Python default ke pengulangan <code>a=1&amp;a=2</code>; ASP.NET sering pakai koma. Sesuaikan dengan yang diharapkan API kamu.</li>
+  <li><strong><code>+</code> vs <code>%20</code>.</strong> <code>application/x-www-form-urlencoded</code> menggunakan <code>+</code> untuk spasi; URI query string ketat menggunakan <code>%20</code>. Sebagian besar server menerima keduanya, tapi beberapa tidak — pilih yang didokumentasikan API kamu.</li>
+  <li><strong>Empty value berbeda dari key yang hilang.</strong> <code>?a=</code> berarti "a adalah empty string"; menghilangkan <code>a</code> berarti "tidak ada value diberikan". Beberapa API memperlakukan keduanya berbeda.</li>
+  <li><strong>Interaksi karakter reserved.</strong> <code>=</code>, <code>&amp;</code>, <code>#</code>, <code>?</code> di dalam value akan di-encode; versi literal di key/value akan mengakhiri parameter atau seluruh query.</li>
+  <li><strong>Urutan bisa penting.</strong> Beberapa skema signed-URL (S3, webhook Stripe, OAuth 1.0) mensyaratkan parameter dalam urutan tertentu sebelum signing. Tool mempertahankan urutan baris kamu.</li>
+  <li><strong>Batas panjang.</strong> Browser dan server membatasi panjang query-string sekitar 2–8 KB. Menjejalkan JSON ke parameter query adalah code smell.</li>
+  <li><strong>Jangan menaruh secret di query string.</strong> Secret akan muncul di log server, history browser, dan header Referer. Gunakan request body atau header Authorization sebagai gantinya.</li>
 </ul>
 """,
     },

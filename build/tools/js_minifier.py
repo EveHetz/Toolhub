@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "JavaScript ミニファイア", "tagline": "高速で構造的な JavaScript ミニファイ — コメント除去、空白圧縮、空行削除。ビフォア／アフターのサイズと節約率を表示。", "description": "オンライン無料の JavaScript ミニファイア。1 行コメント・複数行コメント・冗長な空白・空行を除去しつつ、文字列、正規表現リテラル、テンプレートリテラルは正確に保持します。"},
         "nl": {"name": "JavaScript Minifier", "tagline": "Snelle structurele JavaScript-minify — strip comments, collapseer whitespace, drop blank lines. Zie size voor/na en het besparingspercentage.", "description": "Gratis online JavaScript minifier. Verwijdert single- en multi-line comments, redundante whitespace en blank lines terwijl strings, regex literals en template literals behouden blijven."},
         "tr": {"name": "JavaScript Minifier", "tagline": "Hızlı yapısal JavaScript minify — yorumları sil, boşlukları daralt, boş satırları at. Öncesi/sonrası boyutunu ve tasarruf yüzdesini gör.", "description": "Ücretsiz online JavaScript minifier. Tek ve çok satırlı yorumları, gereksiz boşlukları ve boş satırları kaldırırken string'leri, regex literal'larını ve template literal'larını korur."},
+        "id": {"name": "JavaScript Minifier", "tagline": "Minify JavaScript struktural cepat — strip komentar, kompres whitespace, buang baris kosong. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "JavaScript minifier gratis. Strip komentar dan whitespace dari JS tanpa mengubah perilaku. Bukan minifier full-parse — hanya minifikasi struktural yang aman. Lihat persen byte yang dihemat dan diff sebelum/sesudah."},
     },
     "body": """
 <div class="tool-card">
@@ -292,6 +293,26 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>Source map üretilmez.</strong> Production'a minified JS gönderiyorsan, debug'ın sağlıklı olması için gerçek bir toolchain ile source map üret.</li>
   <li><strong>Modern sıkıştırma baskın.</strong> Wire üzerindeki Brotli/gzip minify'ın çoğunu yapar. En büyük kazanımlar kullanılmayan kodu çıkarmaktan gelir — bu yapısal minifier'ın yapamadığı statik analiz gerektirir.</li>
   <li><strong>Commit ettiğini minify etme.</strong> Kaynak güzel girer; build/deploy'da minify et.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Structural JavaScript minifier menghapus comment dan whitespace yang tidak perlu tanpa mengubah apa yang kode lakukan. Output secara fungsional identik dengan input — identifier sama, logika sama — hanya lebih pendek. Tool ini menjalankan pass tersebut di browser kamu, termasuk bagian-bagian rumitnya: ia mempertahankan isi string dan regex literal tanpa diutak-atik, dan menjaga newline di tempat ASI (Automatic Semicolon Insertion) akan mengubah behavior bila dihapus.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Memangkas snippet dengan cepat untuk dimasukkan ke HTML bookmarklet atau demo satu-file, ketika kamu tidak punya build chain.</li>
+  <li>Sanity check seberapa banyak "lemak" yang ada di script hand-written sebelum kamu memutuskan apakah optimizer beneran sepadan.</li>
+  <li>Meng-inline library kecil di static site tanpa harus menyeret bundler.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini structural minify, bukan compressor.</strong> Ia tidak me-rename variabel, tidak melakukan dead-code elimination, tidak me-mangle property atau tree-shake. Untuk build production gunakan <code>terser</code>, <code>esbuild</code>, atau <code>swc</code> di pipeline-mu — mereka memangkas 30–60% lagi di atas structural minify.</li>
+  <li><strong>Jebakan ASI.</strong> JavaScript menyisipkan semicolon di tempat-tempat tak terduga. Minifier mempertahankan newline ketika menghapusnya akan mengubah makna (mis. <code>return\n{}</code> ≠ <code>return {}</code>). Kalau bisa, tetap pakai semicolon eksplisit di source — itu membuat minification lebih aman untuk semua orang.</li>
+  <li><strong>Source map tidak di-generate.</strong> Kalau kamu mengirim JS minified ke production, generate source map dengan toolchain beneran supaya debugging tetap waras.</li>
+  <li><strong>Kompresi modern dominan.</strong> Brotli/gzip di kabel melakukan sebagian besar yang minify lakukan. Kemenangan terbesar datang dari menghapus kode yang tidak terpakai — itu butuh static analysis yang structural minifier tidak bisa.</li>
+  <li><strong>Jangan minify yang kamu commit.</strong> Source masuk dalam keadaan rapi; minify di tahap build/deploy.</li>
 </ul>
 """,
     },

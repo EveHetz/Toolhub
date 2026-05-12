@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "カラーピッカー", "tagline": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "description": "オンライン無料のカラーピッカー。HEX、RGB(A)、HSL(A)、HSV、CMYK の間をライブプレビュー・不透明度スライダー・コピーボタンで変換できます。"},
         "nl": {"name": "Kleur-picker", "tagline": "Kies een kleur en zie 'm direct in HEX, RGB, RGBA, HSL, HSLA, HSV en CMYK. Stel transparantie in en kopieer elke waarde.", "description": "Gratis online color picker. Converteer tussen HEX, RGB(A), HSL(A), HSV en CMYK met live preview, opacity-slider en kopieerknoppen."},
         "tr": {"name": "Renk Seçici", "tagline": "Bir renk seç; HEX, RGB, RGBA, HSL, HSLA, HSV ve CMYK olarak anında gör. Opaklığı ayarla ve istediğin değeri kopyala.", "description": "Ücretsiz online renk seçici. HEX, RGB(A), HSL(A), HSV ve CMYK arasında canlı önizleme, opaklık kaydırıcısı ve kopyala düğmeleriyle dönüştür."},
+        "id": {"name": "Pemilih Warna", "tagline": "Pilih warna; lihat HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK secara instan. Atur opasitas dan salin nilai yang kamu butuhkan.", "description": "Pemilih warna online gratis. Pilih warna apa pun dan lihat instan dalam HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK. Atur opasitas, salin nilai mana pun dengan satu klik."},
     },
     "body": """
 <div class="tool-card">
@@ -228,6 +229,26 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>HSL hue derece cinsindendir.</strong> 0 = kırmızı, 120 = yeşil, 240 = mavi. CSS <code>turn</code>, <code>rad</code>, <code>grad</code> da kabul eder ama buradaki çıktı derecedir.</li>
   <li><strong>CMYK dönüşümü naiftir.</strong> Gerçek baskı bir ICC profili gerektirir (rendering intent ile sRGB → CMYK). Bu aracın çıktısı marka deck mockup'ları için uygundur, basım dosyaları için değil.</li>
   <li><strong>OKLCH ve OKLAB</strong> (modern perceptually-uniform alanlar) burada gösterilmiyor — yeniler ve henüz geniş destekleri yok. Tasarım sistemi araçları için şimdilik HSL/HSV'de kal.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Pilih warna — atau tempel nilai HEX / <code>rgb()</code> / <code>hsl()</code> apa pun — dan lihat instan dalam tiap notasi umum: HEX (3 dan 8 digit dengan alpha), RGB(A), HSL(A), HSV, dan CMYK. Berguna saat kamu punya nilai di satu space dan butuh di space lain, saat menyesuaikan warna brand antara CSS / tool desain / cetak, atau saat menyesuaikan opasitas tanpa harus melihat hasil dengan mata.</p>
+
+<h3>Kapan memakai tiap space</h3>
+<ul>
+  <li><strong>HEX / RGB</strong> — CSS, tool desain, template email. Universal didukung.</li>
+  <li><strong>HSL</strong> — palet mudah dibaca. Tweak hue, saturation, atau lightness secara independen tanpa warna bergeser di sumbu lain.</li>
+  <li><strong>HSV</strong> — software desain (Photoshop, Figma) untuk shading; cocok dengan cara sebagian besar color picker memikirkan "warna ini, lebih terang".</li>
+  <li><strong>CMYK</strong> — output siap cetak. Hanya pendekatan: layar adalah RGB dan tiap printer tidak berbagi satu profil warna.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Encoding alpha berbeda per space.</strong> CSS mendukung <code>rgba()</code>, <code>hsla()</code>, dan HEX 8-digit (<code>#RRGGBBAA</code>). Template email lama dan beberapa tool desain tidak mengenal <code>#RRGGBBAA</code> — fallback ke <code>rgba()</code>.</li>
+  <li><strong>HSL hue dalam derajat.</strong> 0 = merah, 120 = hijau, 240 = biru. CSS juga menerima <code>turn</code>, <code>rad</code>, <code>grad</code> tapi output di sini dalam derajat.</li>
+  <li><strong>Konversi CMYK itu naif.</strong> Cetak sungguhan butuh profil ICC (sRGB → CMYK dengan rendering intent). Output tool ini cocok untuk mockup brand deck, bukan file siap cetak.</li>
+  <li><strong>OKLCH dan OKLAB</strong> (space modern yang seragam perseptual) tidak ditampilkan di sini — masih baru dan belum didukung luas. Tetap pakai HSL/HSV untuk tooling design system saat ini.</li>
 </ul>
 """,
     },

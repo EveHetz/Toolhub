@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "WCAG コントラストチェッカー", "tagline": "2 色のコントラスト比をチェック。各テキストサイズの WCAG AA／AAA で合否を判定。", "description": "無料の WCAG コントラスト比チェッカー。前景色と背景色を選ぶと比率（1:1〜21:1）と、WCAG 2.1 AA／AAA の合否（通常テキスト、大きい文字、UI コンポーネント別）を判定します。"},
         "nl": {"name": "WCAG Contrast Checker", "tagline": "Check de contrastratio tussen twee kleuren. Pass/fail-verdict voor WCAG AA en AAA op elke tekstgrootte.", "description": "Gratis WCAG contrastratio-checker. Kies foreground- en background-kleuren, krijg de ratio (1:1 tot 21:1) en pass/fail-verdicts voor WCAG 2.1 AA en AAA — voor normale tekst, grote tekst en UI-componenten."},
         "tr": {"name": "WCAG Kontrast Denetleyici", "tagline": "İki renk arasındaki kontrast oranını kontrol et. Her metin boyutu için WCAG AA ve AAA'da geçer/kalır yargısı.", "description": "Ücretsiz WCAG kontrast oranı denetleyici. Ön plan ve arka plan renklerini seç, oranı (1:1 ile 21:1) ve WCAG 2.1 AA ve AAA için geçer/kalır yargılarını al — normal metin, büyük metin ve UI bileşenleri için."},
+        "id": {"name": "Pemeriksa Kontras WCAG", "tagline": "Cek rasio kontras antara dua warna. Penilaian lulus/gagal di WCAG AA dan AAA untuk setiap ukuran teks.", "description": "Pemeriksa kontras WCAG gratis. Cek rasio kontras antara warna teks dan background sesuai WCAG 2.1. Penilaian lulus/gagal untuk AA dan AAA, teks normal dan besar. Penting untuk a11y."},
     },
     "body": """
 <div class="tool-card">
@@ -316,6 +317,36 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Hover ve focus durumları sayılır.</strong> Düğmen rest'te AA'yı geçer ama hover'da başarısız olursa, bu gerçek bir erişilebilirlik hatasıdır.</li>
   <li><strong>WCAG 2.1 vs APCA.</strong> WCAG 3 için önerilen yeni APCA (Erişilebilir Algısal Kontrast Algoritması) farklı ve tartışmasız daha iyi sayılar verir — ama WCAG 2.1 çoğu yargı yetkisinin hâlâ atıfta bulunduğu yasal standarttır.</li>
   <li><strong>Şeffaflıkla pad etme.</strong> Bilinen bir arka plan üzerinde %50 alfalı bir ön plan farklı bir etkili kontrasta sahiptir — orijinaline değil, gerçek render edilen renge karşı hesapla.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) mendefinisikan contrast ratio minimum antara teks dan background-nya, agar orang dengan low vision, color blindness, atau dalam kondisi silau tetap bisa membaca. Tool ini menghitung rasio itu (1:1 = sama, 21:1 = hitam pekat di atas putih pekat) dan memberi tahu kamu apakah pasangan warna lolos WCAG 2.1 Level AA atau AAA, secara terpisah untuk teks normal, teks besar, dan komponen UI. Matematikanya mengikuti formula luminance W3C secara persis.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengecek apakah warna brand di atas card putih memenuhi standar accessibility.</li>
+  <li>Memilih warna teks tombol yang lolos AA di atas background berwarna brand.</li>
+  <li>Mengaudit design system token demi token — sebelum submit.</li>
+  <li>Menjustifikasi permintaan ganti warna ke stakeholder dengan pernyataan pass/fail yang konkret.</li>
+  <li>Menguji apa yang sebenarnya dilihat user dengan preferensi reduced contrast.</li>
+</ul>
+
+<h3>Threshold</h3>
+<ul>
+  <li><strong>Teks normal</strong> (di bawah 18pt / 14pt bold): <strong>4.5:1</strong> untuk AA, <strong>7:1</strong> untuk AAA.</li>
+  <li><strong>Teks besar</strong> (≥18pt atau ≥14pt bold): <strong>3:1</strong> untuk AA, <strong>4.5:1</strong> untuk AAA.</li>
+  <li><strong>Komponen UI &amp; grafis</strong> (ikon, focus ring, border form, elemen grafis pembawa informasi): <strong>3:1</strong> untuk AA (WCAG 2.1 §1.4.11). Tidak ada tier AAA.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>"Teks besar" lebih besar dari yang kamu kira.</strong> 18pt kira-kira 24px. 14pt bold kira-kira 19px bold. Body copy di 16px <em>bukan</em> teks besar — perlu threshold 4.5:1.</li>
+  <li><strong>Teks terang di atas foto padat akan gagal.</strong> Contrast ratio ada di antara piksel spesifik — taruh gradient gelap atau panel solid di belakang teks untuk memberinya background terkontrol.</li>
+  <li><strong>Anti-aliasing melembutkan kontras.</strong> 4.5:1 itu lantai, bukan target. Bacaan yang nyaman sering minta 7:1 atau lebih, terutama untuk body copy.</li>
+  <li><strong>State hover dan focus dihitung.</strong> Jika tombolmu lolos AA saat rest tapi gagal saat hover, itu bug accessibility nyata.</li>
+  <li><strong>WCAG 2.1 vs APCA.</strong> APCA (Accessible Perceptual Contrast Algorithm) baru yang diusulkan untuk WCAG 3 memberi angka berbeda dan bisa dibilang lebih baik — tapi WCAG 2.1 adalah standar legal yang masih dirujuk sebagian besar yurisdiksi.</li>
+  <li><strong>Padding dengan transparansi.</strong> Foreground dengan 50% alpha di atas background yang diketahui punya contrast efektif berbeda — hitung terhadap warna render yang sebenarnya, bukan aslinya.</li>
 </ul>
 """,
     },

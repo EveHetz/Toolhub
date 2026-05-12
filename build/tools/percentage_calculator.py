@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "パーセンテージ計算機", "tagline": "5 つの百分率計算をひとつに：%、何%、増加／減少、変化、チップ／税。", "description": "オンライン無料のパーセンテージ計算機。Y の X%、X は Y の何 %、パーセンテージ変化、増加／減少、チップや税の金額を計算できます。"},
         "nl": {"name": "Percentage-calculator", "tagline": "Vijf percentage-calculators in één: of, hoeveel %, increase/decrease, change en tip/tax.", "description": "Gratis online percentage-calculator. Bereken X% van Y, welk % is X van Y, percentage-wijziging, percentage-verhoging/-verlaging en tip- of belastingbedragen."},
         "tr": {"name": "Yüzde Hesaplayıcı", "tagline": "Tek araçta beş yüzde hesaplayıcı: of, what %, artış/azalış, değişim ve tip/vergi.", "description": "Ücretsiz online yüzde hesaplayıcı. Y'nin X%'si, X Y'nin yüzde kaçı, yüzde değişim, yüzde artış/azalış ve tip veya vergi tutarlarını hesapla."},
+        "id": {"name": "Kalkulator Persentase", "tagline": "Lima kalkulator persentase dalam satu tool: of, what %, increase/decrease, change, dan tip/tax.", "description": "Kalkulator persentase gratis. Lima kalkulator dalam satu: X% dari Y, Y berapa persen dari Z, kenaikan/penurunan, persen perubahan antara dua nilai, dan kalkulator tip/pajak."},
     },
     "body": """
 <div class="tool-card">
@@ -214,6 +215,27 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>Yüzdeleri üst üste koymak bileşik etki yapar.</strong> %20 artış ve ardından %20 azalış seni başlangıca döndürmez (1,20 × 0,80 = 0,96, net %4 kayıp). Sıralı markup'lar/indirimler için her adımı hesapla.</li>
   <li><strong>Vergi öncesi - vergi sonrası tip.</strong> Konvansiyon ülke ve mekana göre değişir. Araç girdiğin değerin yüzdesini hesaplar — temel olarak hangi değeri istediğini seç.</li>
   <li><strong>Yuvarlama.</strong> Çıktı 6 ondalığa yuvarlanır ve sonra kırpılır; yasal/muhasebe hassasiyeti gerekiyorsa (banker's yuvarlama, para birimine özgü kurallar), bu adımı burada değil domain katmanında yap.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Enam perhitungan "persentase" yang berbeda muncul setiap hari dan mudah tertukar: berapa X% dari Y? X adalah berapa persen dari Y? Berapa perubahan antara dua nilai? Terapkan markup atau diskon? Tip atau pajak? Masing-masing adalah formula yang sedikit berbeda, dan tertukar menyebabkan invoice salah, diskon salah, dan review memalukan. Tool ini menjalankan keenamnya berdampingan dengan formula yang dijabarkan, sehingga kamu bisa pilih yang tepat dan double-check perhitungannya.</p>
+
+<h3>Apa yang dilakukan tiap mode</h3>
+<ul>
+  <li><strong>Berapa X% dari Y</strong> — untuk diskon, komisi, persentase dari total. <em>20% dari 150 → 30</em>.</li>
+  <li><strong>X adalah berapa % dari Y</strong> — untuk rasio gaya "score / max". <em>30 dari 150 → 20%</em>.</li>
+  <li><strong>% perubahan</strong> — bertanda: positif berarti naik, negatif berarti turun. <em>100 → 125 = +25%</em>.</li>
+  <li><strong>Increase / Decrease</strong> — menerapkan penyesuaian persentase ke nilai awal.</li>
+  <li><strong>Tip / Tax</strong> — kemudahan untuk menambahkan persentase di atas tagihan.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Perubahan persentase tidak simetris.</strong> Dari 100 → 125 adalah +25%; dari 125 → 100 adalah −20%, bukan −25%. Penyebutnya adalah nilai awal, yang berbeda di setiap arah.</li>
+  <li><strong>Menumpuk persentase itu compound.</strong> Kenaikan 20% diikuti penurunan 20% tidak mengembalikan kamu ke awal (1,20 × 0,80 = 0,96, net kerugian 4%). Untuk markup/diskon sekuensial, hitung setiap langkah.</li>
+  <li><strong>Tip pre-tax vs post-tax.</strong> Konvensi berbeda menurut negara dan tempat. Tool menghitung persentase dari nilai yang kamu masukkan — pilih nilai mana yang benar-benar kamu mau sebagai base.</li>
+  <li><strong>Rounding.</strong> Output dibulatkan ke 6 desimal lalu dipangkas; jika kamu butuh presisi legal/akuntansi (banker's rounding, aturan spesifik mata uang), lakukan langkah itu di domain layer kamu, bukan di sini.</li>
 </ul>
 """,
     },

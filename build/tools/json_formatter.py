@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "JSON Formatter", "tagline": "Formatteer, valideer en minify JSON direct. Errors gehighlight met regel en kolom.", "description": "Gratis online JSON-formatter en -validator. Pretty-print, minify en check JSON-syntax met precieze foutmeldingen."},
         "tr": {"name": "JSON Formatter", "tagline": "JSON'u anında biçimlendir, doğrula ve küçült. Hatalar satır ve sütunla vurgulanır.", "description": "Ücretsiz online JSON formatter ve doğrulayıcı. JSON sözdizimini güzel yazdır, küçült ve hassas hata mesajlarıyla denetle."},
+        "id": {"name": "JSON Formatter", "tagline": "Format, validasi, dan minify JSON secara instan. Error disorot dengan baris dan kolom.", "description": "JSON formatter dan validator online gratis. Beautify JSON berantakan dengan indentasi, atau minify-nya untuk transport. Error sintaks disorot dengan nomor baris dan kolom. Berjalan di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -243,6 +244,26 @@ function jfValidate(){
   <li><strong>Kopyala-yapıştırdan smart quote'lar.</strong> Word ve sohbet uygulamaları <code>"</code>'yi <code>"</code> / <code>"</code> ile "yardımcı" şekilde değiştirmeyi sever. Bunlar geçerli JSON sınırlayıcılar değildir.</li>
   <li><strong>JSON'da yorum yoktur.</strong> "JSON"un <code>//</code> veya <code>/* */</code> içeriyorsa, aslında JSONC'tir (VS Code config tarafından kullanılır) — parse etmeden önce bunları temizle.</li>
   <li><strong>2⁵³'ten büyük sayılar.</strong> JavaScript <code>9007199254740992</code> üzerindeki tamsayıları tam olarak temsil edemez. Twitter snowflake ID'leri ve benzerleri string olarak tırnaklanmalıdır.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>JSON dikirim dalam bentuk minified — setiap byte penting saat response API melayang di kabel. Tapi JSON minified susah dibaca. Tool ini melakukan round-trip lewat <code>JSON.parse</code> / <code>JSON.stringify</code> bawaan browser untuk menghasilkan output yang ter-indent dan bisa di-copy, memvalidasi struktur, atau menghapus whitespace lagi. Tidak ada yang di-upload; semuanya terjadi di halaman.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mem-paste response API yang minified dan mendapatkan sesuatu yang bisa di-scan manusia.</li>
+  <li>Menangkap syntax error — trailing comma, key tanpa quote, smart quote — dengan line/column persis tempat parser tersandung.</li>
+  <li>Menghapus whitespace sebelum mem-paste JSON ke konteks yang sensitif ukuran (URL param, environment variable, file config).</li>
+  <li>Memastikan JSON hand-written valid sebelum kamu menyalurkannya ke tool lain.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>JSON ≠ object literal JavaScript.</strong> Key harus pakai double quote. Single quote, key tanpa quote, dan trailing comma semua akan gagal. Kalau kamu punya object literal JS, lewatkan dulu ke converter.</li>
+  <li><strong>Smart quote dari copy-paste.</strong> Word processor dan aplikasi chat suka "membantu" mengganti <code>"</code> jadi <code>"</code> / <code>"</code>. Itu bukan delimiter JSON yang valid.</li>
+  <li><strong>JSON tidak punya comment.</strong> Kalau "JSON"-mu mengandung <code>//</code> atau <code>/* */</code>, sebenarnya itu JSONC (dipakai di config VS Code) — hapus dulu sebelum parse.</li>
+  <li><strong>Angka di atas 2⁵³.</strong> JavaScript tidak bisa merepresentasikan integer di atas <code>9007199254740992</code> dengan tepat. ID snowflake Twitter dan semacamnya harus di-quote sebagai string.</li>
 </ul>
 """,
     },

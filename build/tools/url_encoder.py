@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "URL エンコーダー / デコーダー", "tagline": "URL 用に文字列を percent-encode、または percent-encoded をテキストにデコード。", "description": "オンライン無料の URL エンコーダー／デコーダー。URL、クエリ文字列、フォームデータ用に特殊文字を percent-escape にエンコードします。コンポーネントセーフ。"},
         "nl": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode strings voor URLs of decodeer percent-encoded strings terug naar plain text.", "description": "Gratis online URL encoder en decoder. Encodet speciale tekens als percent-escapes voor URLs, query strings en form data. Component-safe."},
         "tr": {"name": "URL Encoder / Decoder", "tagline": "String'leri URL'ler için percent-encode et veya percent-encoded string'leri düz metne çöz.", "description": "Ücretsiz online URL encoder ve decoder. URL'ler, query string'ler ve form verisi için özel karakterleri percent-escape olarak kodlar. Component-safe."},
+        "id": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode string untuk URL atau decode string percent-encoded kembali ke teks biasa.", "description": "URL encoder dan decoder gratis. Percent-encode string apa pun untuk penggunaan aman di URL (path, query string, fragment) atau decode string percent-encoded kembali ke karakter aslinya. UTF-8 aman."},
     },
     "body": """
 <div class="tool-card">
@@ -174,6 +175,24 @@ document.addEventListener('DOMContentLoaded', urlRun);
   <li><strong>Boşluklar her zaman <code>%20</code> değildir.</strong> <em>application/x-www-form-urlencoded</em> gövdelerinde, boşluklar <code>+</code>'tır. Bu araç JavaScript <code>encodeURIComponent</code> konvansiyonunu izler (her zaman <code>%20</code>); çözme her ikisini de işler.</li>
   <li><strong>UTF-8 vs Latin-1.</strong> Modern tarayıcılar ve <code>encodeURIComponent</code> her zaman UTF-8 kullanır. Bazı eski sistemler hâlâ Latin-1 percent-escape'leri üretir — bunlar burada temiz round-trip yapmaz.</li>
   <li><strong>Rezerve karakterler percent-escape'te büyük/küçük harfe duyarsızdır ama çözülmüş sonuçta büyük/küçük harfe duyarlıdır</strong> — <code>%2F</code> ve <code>%2f</code> ikisi de <code>/</code>'a çözülür, ama orijinal karakterin case'i korunur.</li>
+</ul>
+""",
+        "id": """
+<h2>Apa yang dilakukan URL encoding</h2>
+<p>URL dan HTTP header dibatasi pada subset ASCII yang kecil. Apa pun di luar set itu — termasuk spasi, huruf beraksen, emoji, dan beberapa karakter punctuation reserved — harus di-<em>percent-encoded</em>: diganti dengan <code>%</code> diikuti dua digit hex per byte. <code>café</code> menjadi <code>caf%C3%A9</code> (UTF-8). Decoding membalikkan itu.</p>
+
+<h3>Kapan pakai scope mana</h3>
+<ul>
+  <li><strong>Component</strong> — pilih ini untuk <em>value</em> individual yang akan kamu sisipkan ke URL: nilai query-string, segment path, teks fragment, nilai header. Meng-encode karakter struktural <code>/ ? # &amp; = +</code> supaya tidak terparse sebagai sintaks URL secara tidak sengaja.</li>
+  <li><strong>Full URI</strong> — pilih ini untuk seluruh URL yang ingin kamu bersihkan. Mempertahankan <code>/ ? # &amp; = +</code> sebagai struktur URL, hanya meng-encode karakter <em>ilegal</em> (spasi, non-ASCII, dll).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Jangan double-encode.</strong> Meng-encode string yang sudah di-encode mengubah <code>%20</code> jadi <code>%2520</code>. Jika input kamu menampilkan sequence <code>%XX</code>, decode dulu.</li>
+  <li><strong>Spasi tidak selalu <code>%20</code>.</strong> Di body <em>application/x-www-form-urlencoded</em>, spasi adalah <code>+</code>. Tool ini mengikuti konvensi <code>encodeURIComponent</code> JavaScript (selalu <code>%20</code>); decode meng-handle keduanya.</li>
+  <li><strong>UTF-8 vs Latin-1.</strong> Browser modern dan <code>encodeURIComponent</code> selalu pakai UTF-8. Beberapa sistem lama masih menghasilkan percent-escape Latin-1 — itu tidak akan round-trip dengan bersih di sini.</li>
+  <li><strong>Karakter reserved itu case-insensitive di percent-escape tapi case-sensitive di hasil decoded</strong> — <code>%2F</code> dan <code>%2f</code> keduanya di-decode jadi <code>/</code>, tapi case karakter asli dipertahankan.</li>
 </ul>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ファイルサイズコンバーター", "tagline": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。", "description": "無料のファイルサイズ単位変換ツール。任意のバイト値を、10 進系単位（B、KB、MB、GB、TB、PB）と IEC バイナリ単位（KiB、MiB、GiB、TiB、PiB）の間で変換し、両方を同時に表示します。違いを正確に把握できます。"},
         "nl": {"name": "Bestandsgrootte-converter", "tagline": "Converteer tussen bytes, KB, MB, GB, TB en de binaire KiB, MiB, GiB, TiB. Decimaal vs binair duidelijk gescheiden.", "description": "Gratis converter voor bestandsgrootte-units. Converteer elk aantal bytes tussen decimale units (B, KB, MB, GB, TB, PB) en IEC binaire units (KiB, MiB, GiB, TiB, PiB). Zie beide tegelijk, met het exacte onderscheid."},
         "tr": {"name": "Dosya Boyutu Dönüştürücü", "tagline": "byte, KB, MB, GB, TB ve ikilik KiB, MiB, GiB, TiB arasında dönüştür. Ondalık - ikilik ayrımı net.", "description": "Ücretsiz dosya boyutu birim dönüştürücü. Herhangi bir byte sayısını ondalık birimler (B, KB, MB, GB, TB, PB) ile IEC ikilik birimleri (KiB, MiB, GiB, TiB, PiB) arasında çevir. İkisini birden, kesin ayrımıyla gör."},
+        "id": {"name": "Konverter Ukuran File", "tagline": "Konversi antara byte, KB, MB, GB, TB dan biner KiB, MiB, GiB, TiB. Pemisahan desimal vs biner yang jelas.", "description": "Konverter ukuran file gratis. Konversi antara satuan desimal (KB, MB, GB, TB) dan biner (KiB, MiB, GiB, TiB) dengan pemisahan yang jelas. Menjelaskan perbedaan 1000 vs 1024 yang membingungkan banyak orang."},
     },
     "body": """
 <div class="tool-card">
@@ -349,6 +350,33 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>Ağ hızı bit'tir, byte değil.</strong> 100 Mbps = saniyede 100 megabit = tepe 12,5 MB/s. "100 Mbit fiber"in bir saniyede 100 MB dosya indirmez.</li>
   <li><strong>Bazı araçlar tutarsızdır.</strong> macOS Finder 10.6'da ikilikten (KB etiketleri ile) ondalığa geçti, sonra çoğunlukla orada kaldı. Windows Explorer hâlâ KB etiketleri ile ikilik kullanır — kafa karıştırıcı ama değişmemiş.</li>
   <li><strong>Tarayıcıların <code>Content-Length</code>'i byte'tır.</strong> Her zaman kesin, SI/IEC belirsizliği yok.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>"Seberapa besar 4 GB?" tergantung siapa yang bertanya. Pabrikan hard drive, network engineer, dan standar yang mengikuti SI berarti 4.000.000.000 byte (pangkat 1000). Operating system, modul RAM, dan kebanyakan file manager secara historis berarti 4.294.967.296 byte (pangkat 1024). Dua angka itu berbeda 7% di skala gigabyte dan 10% di skala terabyte — cukup untuk membuat kamu merasa tertipu ketika drive "1 TB" muncul sebagai "931 GiB" di komputer kamu. Tool ini mengkonversi antara kedua sistem sehingga kamu selalu tahu yang mana yang sedang kamu lihat.</p>
+
+<h3>Dua sistem</h3>
+<ul>
+  <li><strong>SI / desimal</strong> — KB, MB, GB, TB. <code>1 KB = 1.000 byte</code>. Dipakai oleh pabrikan storage, kecepatan jaringan (Mbps, Gbps), dan standar SI sejak 1960.</li>
+  <li><strong>IEC / biner</strong> — KiB, MiB, GiB, TiB. <code>1 KiB = 1.024 byte</code>. IEC memperkenalkan ini di 1998 untuk menghilangkan ambiguitas. Linux <code>du</code> dengan <code>-h</code> menggunakan ini, begitu juga macOS Finder untuk memory.</li>
+</ul>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengukur backup, upload, atau Docker image dan mencocokkan dengan apa yang dilaporkan tool.</li>
+  <li>Mengkonversi kecepatan download "150 Mbps" menjadi MB/s (bagi 8 — bit ke byte).</li>
+  <li>Mengestimasi biaya cloud storage saat satu provider mengutip GB dan yang lain mengutip GiB.</li>
+  <li>Mencari tahu berapa "1 GB" email sebenarnya di disk.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Hard drive pakai desimal.</strong> Drive "1 TB" memuat 1.000.000.000.000 byte ≈ 931 GiB. OS tidak berbohong — marketing-nya yang pakai unit lebih kecil.</li>
+  <li><strong>RAM pakai biner.</strong> "8 GB RAM" hampir selalu 8 GiB (8.589.934.592 byte). RAM dibangun dalam pangkat dua.</li>
+  <li><strong>Kecepatan jaringan dalam bit, bukan byte.</strong> 100 Mbps = 100 megabit per detik = 12,5 MB/s puncak. "100 Mbit fiber" kamu tidak mendownload file 100 MB dalam satu detik.</li>
+  <li><strong>Beberapa tool tidak konsisten.</strong> macOS Finder berganti dari biner (dengan label KB) ke desimal di 10.6, lalu sebagian besar tetap di sana. Windows Explorer masih pakai biner dengan label KB — membingungkan tapi tidak berubah.</li>
+  <li><strong><code>Content-Length</code> browser itu byte.</strong> Selalu eksak, tidak ada ambiguitas SI/IEC.</li>
 </ul>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "カラー変換ツール", "tagline": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "description": "オンライン無料のカラー変換ツール。hex（#3498db）、rgb()、hsl()、そしてモダンな oklch() 形式の間で変換できます。スウォッチのライブプレビューと、ワンクリックでの値コピーに対応。"},
         "nl": {"name": "Kleur-converter", "tagline": "Converteer elke kleur tussen hex, RGB, HSL en OKLCH. Live preview, kopieer in één klik.", "description": "Gratis online kleurconverter. Vertaal tussen hex (#3498db), rgb(), hsl() en het moderne oklch()-formaat. Live swatch-preview, kopieer elke waarde in één klik."},
         "tr": {"name": "Renk Dönüştürücü", "tagline": "Herhangi bir rengi hex, RGB, HSL ve OKLCH arasında dönüştür. Canlı önizleme, tek tıkla kopyala.", "description": "Ücretsiz online renk dönüştürücü. hex (#3498db), rgb(), hsl() ve modern oklch() biçimi arasında çevir. Canlı renk önizlemesi, herhangi bir değeri tek tıkla kopyala."},
+        "id": {"name": "Konverter Warna", "tagline": "Konversi warna apa pun antara hex, RGB, HSL, dan OKLCH. Pratinjau langsung, salin sekali klik.", "description": "Konverter warna online gratis. Konversi antara hex, RGB, HSL, dan OKLCH dengan pratinjau langsung. Cocok untuk desain web, CSS, dan sistem desain."},
     },
     "body": """
 <div class="tool-card">
@@ -346,6 +347,35 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
   <li><strong>HSL HSV ile aynı değildir.</strong> HSV'nin "value"'su en parlak kanaldır; HSL'nin "lightness"'i en parlak ve en karanlığın orta noktasıdır. Aynı renk için farklı sayılar verirler.</li>
   <li><strong>Round-trip her zaman kayıpsız değildir.</strong> hex → hsl → hex yuvarlamadan tek bir tamsayı kaydırabilir. Tam reprodüksiyon için hex'i sakla.</li>
   <li><strong>Hex ve RGB varsayılan olarak sRGB'dir,</strong> Display P3 veya Rec. 2020 değil. Tasarım aracın geniş gamut profildeyse aynı hex farklı görünür.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Desainer dan developer front-end terus-menerus memindahkan warna antar format — Figma memberimu hex, spec design tokens ingin OKLCH, CSS-mu pakai HSL, dan gambar yang kamu ambil dalam RGB. Tool ini menjaga semua notasi tetap sinkron: edit satu, yang lain update live. Termasuk format modern <code>oklch()</code> yang ditambahkan di CSS Color Module 4 (dan didukung di semua browser utama sejak 2023), yang menghasilkan warna seragam secara perseptual yang jauh lebih mudah dipahami daripada HSL.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menerjemahkan hex code brand ke <code>rgb()</code> dengan alpha untuk overlay CSS.</li>
+  <li>Konversi antara HSL dan OKLCH saat migrasi design system ke warna perseptual.</li>
+  <li>Membaca <code>rgb(52, 152, 219)</code> yang ditempel dari tool screenshot kembali ke hex code untuk stylesheet-mu.</li>
+  <li>Sanity check nilai chroma OKLCH (apa pun di atas ~0,4 kemungkinan di luar sRGB gamut).</li>
+</ul>
+
+<h3>Referensi cepat format</h3>
+<ul>
+  <li><strong>Hex</strong> — <code>#RRGGBB</code> (atau shorthand 3 digit <code>#RGB</code>). Universal, tanpa alpha kecuali 8 digit (<code>#RRGGBBAA</code>).</li>
+  <li><strong>RGB</strong> — <code>rgb(0–255, 0–255, 0–255)</code>. Nilai channel sRGB aktual yang diterima layar.</li>
+  <li><strong>HSL</strong> — hue (0–360°), saturation (0–100%), lightness (0–100%). Mudah untuk berpikir tentang keluarga warna, tapi lightness tidak perseptual: hijau HSL 50% terlihat lebih terang dari biru HSL 50%.</li>
+  <li><strong>OKLCH</strong> — lightness perseptual (0–1), chroma (0–~0,4 di sRGB), hue (0–360°). Dua warna dengan L sama tampak sama-sama terang; ideal untuk design system dan aksesibilitas.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Lightness OKLCH pakai 0–1, bukan 0–100.</strong> CSS menerima keduanya (<code>0.65</code> atau <code>65%</code>); tool ini menerima keduanya.</li>
+  <li><strong>Beberapa nilai OKLCH jatuh di luar sRGB</strong> (mis. chroma tinggi untuk biru). Tool melakukan clamp ke sRGB yang dapat ditampilkan saat konversi — hasilnya perkiraan, bukan persis.</li>
+  <li><strong>HSL tidak sama dengan HSV.</strong> "Value" HSV adalah channel paling terang; "lightness" HSL adalah titik tengah antara paling terang dan paling gelap.</li>
+  <li><strong>Round-tripping tidak selalu lossless.</strong> hex → hsl → hex bisa menggeser satu integer karena pembulatan. Untuk reproduksi persis, simpan hex.</li>
+  <li><strong>Hex dan RGB default sRGB,</strong> bukan Display P3 atau Rec. 2020. Kalau tool desain-mu di profil wide-gamut, hex yang sama tampak berbeda.</li>
 </ul>
 """,
     },

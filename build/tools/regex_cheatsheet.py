@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "正規表現チートシート", "tagline": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "description": "無料の正規表現チートシート。アンカー、文字クラス、量指定子、グループ、ルックアラウンド、フラグを網羅し、クリックでコピー、ライブフィルタにも対応。PCRE / JavaScript 風です。"},
         "nl": {"name": "Regex Spiekbrief", "tagline": "Snelle referentie: anchors, character classes, quantifiers, groups, lookarounds, flags. Klik elk patroon om te kopiëren.", "description": "Gratis regex (regular expression)-spiekbrief. Anchors, character classes, quantifiers, groups, lookarounds en flags — met click-to-copy patronen en een live filter. PCRE / JavaScript flavour."},
         "tr": {"name": "Regex Çetel", "tagline": "Hızlı referans: çapalar, karakter sınıfları, niceleyiciler, gruplar, lookaround'lar, bayraklar. Kopyalamak için herhangi bir desene tıkla.", "description": "Ücretsiz regex (düzenli ifade) çeteli. Çapalar, karakter sınıfları, niceleyiciler, gruplar, lookaround'lar ve bayraklar — tıkla-kopyala desenler ve canlı filtre ile. PCRE / JavaScript lehçesi."},
+        "id": {"name": "Cheatsheet Regex", "tagline": "Referensi cepat: anchor, character class, quantifier, group, lookaround, flag. Klik pattern mana pun untuk menyalin.", "description": "Cheatsheet regex gratis. Referensi pattern regex umum: anchor, character class, quantifier, group, lookaround, dan flag. Klik pattern mana pun untuk menyalin. Cocok untuk yang baru belajar regex atau yang perlu refresh."},
     },
     "body": """
 <div class="tool-card">
@@ -398,6 +399,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Regex bir HTML veya JSON parser değildir.</strong> Buradaki "yaygın desenler" tek seferlik kazıma veya doğrulama ipuçları için iyidir, yapılandırılmış girdiyi bir string olarak ele almak için değil.</li>
   <li><strong>E-posta regex'leri her zaman yanlıştır.</strong> Buradaki örnek kaba bir şekil kontrolüdür; production doğrulama için bunun yerine bir onay e-postası gönder.</li>
   <li><strong>Kopya-yapıştırılmış "mükemmel" regex'lere güvenme.</strong> Deploy etmeden önce gerçek verinle Regex Tester ile test et.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Ringkasan yang bisa dicetak dan dicari dari bagian-bagian sintaks regex yang selalu kamu ingat setengah-setengah. Tabel di sini mencakup kategori utama — anchor, character class, quantifier, group, lookaround, flag — plus starter set pattern umum. Klik pattern apa pun untuk menyalinnya; ketik di filter untuk mempersempit. Pasangkan ini dengan <a href="/regex-tester/">Regex Tester</a> untuk benar-benar mencoba pattern terhadap teks.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Kamu butuh <code>(?&lt;=foo)</code> dan tidak ingat apakah <code>?</code> sebelum atau sesudah <code>&lt;</code>.</li>
+  <li>Kamu sedang menjelaskan regex ke seseorang dan butuh halaman referensi yang stabil daripada mengaduk-aduk tab Stack Overflow.</li>
+  <li>Kamu ingin starter pattern (UUID, email, ISO date) yang bisa kamu copy dan tweak daripada menulis dari nol.</li>
+  <li>Kamu perlu tahu flag mana melakukan apa — khususnya <code>s</code> (dotall) vs <code>m</code> (multi-line), yang rutin tertukar.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Flavour itu penting.</strong> Sebagian besar ini adalah JavaScript / PCRE modern, tapi fitur berbeda. Lookbehind baru masuk JavaScript dengan ES2018; <code>x</code> (extended) adalah PCRE/Python dan tidak ada di JS; possessive quantifier <code>++</code> hanya PCRE.</li>
+  <li><strong><code>m</code> ≠ "multi-line matching".</strong> <code>m</code> mengubah arti <code>^</code> dan <code>$</code> (per baris bukan per string). Untuk mencocokkan lintas line break dengan <code>.</code>, kamu butuh <code>s</code> (dotall).</li>
+  <li><strong>Greedy match memakan terlalu banyak.</strong> <code>&lt;.*&gt;</code> terhadap <code>&lt;a&gt;b&lt;/a&gt;</code> cocok dengan seluruhnya, bukan hanya <code>&lt;a&gt;</code>. Gunakan <code>&lt;.*?&gt;</code> untuk versi lazy, atau lebih baik class yang lebih spesifik seperti <code>&lt;[^&gt;]+&gt;</code>.</li>
+  <li><strong>Regex bukan parser HTML atau JSON.</strong> "Common pattern" di sini bagus untuk scraping sekali pakai atau hint validasi, bukan untuk memperlakukan input terstruktur sebagai string.</li>
+  <li><strong>Regex email selalu salah.</strong> Contoh di sini adalah shape-check kasar; untuk validasi production, kirim email konfirmasi sebagai gantinya.</li>
+  <li><strong>Jangan percaya regex "sempurna" hasil copy-paste.</strong> Test terhadap data nyata kamu dengan Regex Tester sebelum deploy.</li>
 </ul>
 """,
     },

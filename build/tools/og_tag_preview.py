@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "OG タグプレビュー", "tagline": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。", "description": "無料の Open Graph タグプレビュー。<meta> タグの貼り付けか、タイトル／説明／画像の入力で、リンクが Twitter/X、Facebook、LinkedIn、Discord でどう見えるかを確認できます。すべてブラウザ内で動作します。"},
         "nl": {"name": "OG Tag Preview", "tagline": "Plak OG meta tags of vul title/description/image — preview share cards zoals ze er op Twitter/X, Facebook, LinkedIn en Discord uitzien.", "description": "Gratis Open Graph tag preview. Plak je <meta>-tags of vul gewoon title/description/image in en zie hoe je link zal renderen in Twitter/X, Facebook, LinkedIn en Discord share-previews. Draait volledig in je browser."},
         "tr": {"name": "OG Tag Önizleme", "tagline": "OG meta tag'lerini yapıştır veya title/description/image doldur — paylaşım kartlarını Twitter/X, Facebook, LinkedIn ve Discord'da nasıl görüneceği gibi önizle.", "description": "Ücretsiz Open Graph tag önizleme. <meta> tag'lerini yapıştır veya sadece title/description/image doldur ve linkinin Twitter/X, Facebook, LinkedIn ve Discord paylaşım önizlemelerinde nasıl görüneceğini gör. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Pratinjau OG Tag", "tagline": "Tempel meta tag OG atau isi title/description/image — pratinjau kartu sosial seperti yang muncul di Twitter/X, Facebook, LinkedIn, dan Discord.", "description": "Pratinjau tag Open Graph gratis. Tempel meta tag dari HTML atau isi field, dan lihat seperti apa pratinjau link-mu di Twitter/X, Facebook, LinkedIn, dan Discord. Bantu pastikan kartu sosial-mu terlihat benar sebelum dipublikasikan."},
     },
     "body": """
 <div class="tool-card">
@@ -488,6 +489,40 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>Cache geçersizleştirme gerçek.</strong> Bir platform URL'ini kazıdığında, kartı önbelleğe alır. Yeniden kazımayı zorlamak için platform debugger'larını kullan.</li>
   <li><strong>Başlık/açıklama uzunluk sınırları değişir.</strong> Twitter/X başlığı ~70 karakterde, Facebook ~88'de, LinkedIn ~100'de keser. Önemli kelimeleri öne yükle.</li>
   <li><strong>Discord <code>theme-color</code>'ı tercih eder.</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> eklemek Discord embed'lerindeki sol kenarlık rengini ayarlar.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Saat kamu membagikan sebuah link di Twitter/X, Facebook, LinkedIn, Discord, Slack, atau aplikasi chat atau social modern apa pun, link itu di-unfurl menjadi "card" — title, description, dan image — berdasarkan meta tag <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> di head halaman. Berbagai platform me-render card ini secara berbeda dan memotong teks pada panjang yang berbeda. Tool ini memberi kamu preview side-by-side bagaimana konten yang sama akan muncul di masing-masingnya, tanpa kamu harus benar-benar membagikan URL-nya di setiap platform.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Kamu mengganti OG image atau copy dan ingin memastikannya terlihat oke sebelum deploy.</li>
+  <li>Kamu memilih hero image dan ingin lihat apakah focal point-nya selamat dari crop 1.91:1.</li>
+  <li>Kamu menulis copy title/description dan ingin tahu di mana setiap platform akan memotongnya.</li>
+  <li>Kamu mewarisi halaman tanpa OG tag dan ingin mendraft-nya dengan mem-preview card hasil render.</li>
+</ul>
+
+<h3>Tag minimum</h3>
+<ul>
+  <li><code>&lt;meta property="og:title" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:description" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:image" content="https://…"&gt;</code> (URL absolut, 1200×630 ideal)</li>
+  <li><code>&lt;meta property="og:url" content="https://…"&gt;</code></li>
+  <li><code>&lt;meta property="og:type" content="website"&gt;</code></li>
+  <li><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code> (untuk gaya big-image X/Twitter)</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Ini preview statis, bukan fetcher live.</strong> Platform sebenarnya men-scrape halaman kamu dari server mereka; kalau site asli kamu punya image yang berbeda, tool ini tidak akan menangkapnya. Pakai debugger milik platform sendiri (Twitter <a href="https://cards-dev.twitter.com/validator" target="_blank" rel="noopener noreferrer">card validator</a>, Facebook Sharing Debugger, LinkedIn Post Inspector) untuk pengecekan yang otoritatif.</li>
+  <li><strong>URL image harus absolut.</strong> <code>/og.png</code> tidak akan bekerja — scraper tidak mengenal origin kamu.</li>
+  <li><strong>Image harus bisa diakses publik.</strong> Auth wall, CDN yang butuh referer, atau hot-link protection akan meninggalkan kamu dengan card yang rusak.</li>
+  <li><strong>Aspect ratio penting.</strong> 1.91:1 (1200×630 canonical) render bagus di setiap platform. Square atau portrait di-crop dengan buruk.</li>
+  <li><strong>Ukuran file penting.</strong> Beberapa scraper menolak image di atas 8 MB; targetkan &lt;1 MB supaya first-load tetap cepat.</li>
+  <li><strong>Cache invalidation itu nyata.</strong> Begitu sebuah platform men-scrape URL kamu, ia akan men-cache card-nya. Pakai debugger platform untuk memaksa re-scrape.</li>
+  <li><strong>Batas panjang title/description berbeda-beda.</strong> Twitter/X memotong title sekitar 70 karakter; Facebook sekitar 88; LinkedIn sekitar 100. Letakkan kata-kata penting di depan.</li>
+  <li><strong>Discord menyukai <code>theme-color</code>.</strong> Menambahkan <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> mengatur warna border kiri di embed Discord.</li>
 </ul>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ダイスローラー", "tagline": "標準 D&D 記法でダイスをロール — 2d6+3、1d20、4d6 keep highest 3 など。暗号論的に安全な RNG。", "description": "オンライン無料のダイスローラー。標準的な TRPG 記法（1d20、2d6+3、4d6kh3、3d8-1）に対応し、各ダイスの目と合計を表示します。crypto.getRandomValues を使用し、公平で予測不能なロールを行います。"},
         "nl": {"name": "Dobbelsteen-roller", "tagline": "Gooi dobbelstenen met standaard D&D-notatie — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.", "description": "Gratis online dobbelsteen-roller met standaard tabletop-notatie: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zie elke individuele worp plus het totaal. Gebruikt crypto.getRandomValues voor eerlijke, onvoorspelbare worpen."},
         "tr": {"name": "Zar Atıcı", "tagline": "Standart D&D notasyonuyla zar at — 2d6+3, 1d20, 4d6 en yüksek 3'ü tut. Kripto-güvenli RNG.", "description": "Standart masaüstü notasyonuyla ücretsiz online zar atıcı: 1d20, 2d6+3, 4d6kh3, 3d8-1. Her tek atışı ve toplamı gör. Adil, öngörülemez atışlar için crypto.getRandomValues kullanır."},
+        "id": {"name": "Pelempar Dadu", "tagline": "Lempar dadu dengan notasi D&D standar — 2d6+3, 1d20, 4d6 ambil 3 tertinggi. RNG kripto-aman.", "description": "Pelempar dadu online gratis. Mendukung notasi D&D standar (2d6+3, 1d20, 4d6kh3, 3d6!), advantage/disadvantage, eksplosi, dan keep-highest/lowest. Menggunakan crypto.getRandomValues — RNG kripto-aman."},
     },
     "body": """
 <div class="tool-card">
@@ -457,6 +458,40 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>Bu patlayan zar değildir.</strong> <code>!</code>-stili patlamalar yok, reroll'lar yok (<code>r1</code>), başarı sayımı yok (<code>3d10>=7</code>). Buradaki notasyon yaygın atışların ~%95'ini kapsayan basit "topla ve değiştir" alt kümesidir.</li>
   <li><strong>Kritikler sadece d20 için işaretlenir.</strong> 20 yeşil, 1 kırmızı vurgulanır. Diğer zar boyutları renklendirme almaz.</li>
   <li><strong>Atış başına 1000 zar sınırı.</strong> Sayfayı yanıt verir tutmak için makul üst sınır.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Tabletop role-playing game (Dungeons & Dragons, Pathfinder, OSR, dan banyak lainnya) menggunakan notasi ringkas untuk roll dice: <code>NdS</code> berarti "roll N dice dengan S sisi masing-masing". <code>2d6+3</code> berarti "roll dua dice enam sisi dan tambahkan 3". Tool ini mem-parse notasi itu dan me-roll dice menggunakan RNG kriptografi browser, yang unpredictable dan unbiased — jauh lebih baik daripada <code>Math.random()</code> untuk roll yang taruhannya tinggi.</p>
+
+<h3>Notasi yang didukung</h3>
+<ul>
+  <li><code>1d20</code> — satu dice dua puluh sisi.</li>
+  <li><code>2d6+3</code> — dua d6, jumlahkan, plus modifier 3.</li>
+  <li><code>3d8-1</code> — tiga d8, jumlahkan, minus 1.</li>
+  <li><code>4d6kh3</code> — empat d6, <strong>k</strong>eep <strong>h</strong>ighest 3 (ability score klasik D&D 5e).</li>
+  <li><code>2d20kl1</code> — dua d20, keep lowest 1 (disadvantage).</li>
+  <li><code>2d20kh1</code> — advantage.</li>
+  <li><code>1d100</code> atau <code>1d%</code> — dice percentile.</li>
+  <li><code>d20</code> — N default ke 1.</li>
+</ul>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Kamu main online, dice fisik kamu di luar jangkauan, atau kamu jadi DM secara remote.</li>
+  <li>Kamu butuh roll yang terasa reproducible tanpa langganan app dice.</li>
+  <li>Kamu ingin menyelesaikan "ayo flip aja" tanpa cari koin (1d2).</li>
+  <li>Kamu memprototipekan probabilitas untuk game design (coba sejuta roll — ubah formula di kode kalau kamu ingin stats).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Tab browser adalah trust boundary.</strong> Roll terjadi di tab kamu, di JavaScript — siapa pun dengan devtools terbuka bisa memalsukannya. Untuk permainan kompetitif dengan orang asing, pakai roller yang di-arbitrasi server.</li>
+  <li><strong>Crypto RNG itu unpredictable, bukan "lebih random".</strong> PRNG yang bagus dan crypto RNG menghasilkan distribusi yang tidak bisa dibedakan untuk dice. Keunggulan crypto adalah tidak ada yang bisa memprediksi angka berikutnya dari yang sebelumnya.</li>
+  <li><strong>Modifier diterapkan sekali, setelah keep.</strong> <code>4d6kh3+2</code> me-roll 4d6, menyimpan 3 teratas, lalu menambah 2 — bukan "menambah 2 ke setiap dice".</li>
+  <li><strong>Ini bukan exploding dice.</strong> Tidak ada explosion gaya <code>!</code>, tidak ada reroll (<code>r1</code>), tidak ada penghitungan sukses (<code>3d10>=7</code>). Notasi di sini adalah subset sederhana "sum and modify" yang menutupi ~95% roll umum.</li>
+  <li><strong>Crit ditandai hanya untuk d20.</strong> Angka 20 di-highlight hijau, angka 1 di-highlight merah. Ukuran dice lain tidak mendapat pewarnaan.</li>
+  <li><strong>Cap 1000 dice per roll.</strong> Batas atas yang masuk akal untuk menjaga halaman tetap responsif.</li>
 </ul>
 """,
     },

@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "Regex Tester", "tagline": "Test JavaScript regular expressions live. Zie matches, capture groups, en pas replacements toe terwijl je typt.", "description": "Gratis online JavaScript regex tester met live highlighting, capture groups en replace mode. PCRE-compatible flags (g/i/m/s/u/y)."},
         "tr": {"name": "Regex Tester", "tagline": "JavaScript düzenli ifadelerini canlı test et. Eşleşmeleri, capture gruplarını gör ve yazdıkça değiştirme uygula.", "description": "Canlı vurgulama, capture grupları ve değiştirme moduyla ücretsiz online JavaScript regex tester. PCRE uyumlu bayraklar (g/i/m/s/u/y)."},
+        "id": {"name": "Regex Tester", "tagline": "Tes regex JavaScript secara langsung. Lihat match, capture group, dan terapkan replace sambil mengetik.", "description": "Regex tester online gratis. Tes regular expression JavaScript secara real-time terhadap teks sampel. Sorot semua match, lihat capture group dengan nomor dan nama, dan terapkan operasi replace sambil mengetik."},
     },
     "body": """
 <div class="tool-card">
@@ -333,6 +334,37 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>Satır - string sınırlarında çapalar.</strong> <code>^</code> ve <code>$</code> varsayılan olarak string uçlarıyla eşleşir; <code>m</code> bayrağı ile her satırla eşleşir.</li>
   <li><strong>Replacement özellikleri.</strong> <code>$&amp;</code> tüm eşleşmedir; <code>$1</code>, <code>$2</code>, … capture gruplarıdır; <code>$$</code> literal <code>$</code>'dır. Bunu unutmak "neden regex'im dolarlarımı yiyor"un yaygın bir kaynağıdır.</li>
   <li><strong>Ciddi bir şey için regex ile HTML parse etme.</strong> Klasik uyarı doğrudur: iç içe tag'ler, yorumlar ve CDATA gerçek bir parser gerektirir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Regex itu padat dan tidak memaafkan. Cara menulis regex yang benar-benar bekerja adalah secara iteratif — pattern, sample text, lihat apa yang cocok, sesuaikan. Tool ini memberi kamu loop tersebut di browser menggunakan <code>RegExp</code> native dari engine JavaScript, plus inspeksi capture group dan preview replacement. Pattern dan input tidak pernah meninggalkan halaman.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Memvalidasi input user (berbentuk email, berbentuk telepon, berbentuk kode pos) dan melihat persis input mana yang lolos dan gagal.</li>
+  <li>Mem-parse baris log, mengekstrak field, membangun filter log.</li>
+  <li>Mendesain pattern find-and-replace sebelum menjalankannya di codebase nyata.</li>
+  <li>Men-debug regex yang kamu copy dari Stack Overflow yang tidak bekerja — paste di sini, lihat apa yang sebenarnya cocok.</li>
+</ul>
+
+<h3>Pattern umum</h3>
+<ul>
+  <li><code>\\b\\w+@\\w+\\.\\w+\\b</code> — mirip email</li>
+  <li><code>^\\s*$</code> — baris kosong/hanya whitespace (dengan flag <code>m</code>)</li>
+  <li><code>(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})</code> — named capture group</li>
+  <li><code>(?:.*)</code> — non-capturing group</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — lookahead / negative lookahead</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>JavaScript ≠ PCRE.</strong> Tidak ada <code>\\K</code>, tidak ada pattern recursive, lookbehind hanya sejak ES2018. Pattern dari Perl, PHP, atau Python sering butuh penyesuaian.</li>
+  <li><strong>Tanpa flag <code>g</code> kamu hanya dapat match pertama.</strong> Tambahkan <code>g</code> untuk "find all"; kombinasikan dengan <code>m</code> jika anchor harus cocok per baris.</li>
+  <li><strong>Greedy vs lazy.</strong> <code>.*</code> mengambil sebanyak mungkin; <code>.*?</code> mengambil sesedikit mungkin. Perbedaan antara mencocokkan <code>&lt;b&gt;hi&lt;/b&gt; and &lt;i&gt;there&lt;/i&gt;</code> sebagai satu blok atau dua.</li>
+  <li><strong>Anchor di batas baris vs string.</strong> <code>^</code> dan <code>$</code> default cocok dengan ujung string; dengan flag <code>m</code> mereka cocok dengan tiap baris.</li>
+  <li><strong>Replacement special.</strong> <code>$&amp;</code> adalah seluruh match; <code>$1</code>, <code>$2</code>, … adalah capture group; <code>$$</code> adalah literal <code>$</code>. Lupa ini adalah sumber umum "kenapa regex saya memakan dolar saya".</li>
+  <li><strong>Jangan parse HTML dengan regex</strong> untuk apa pun yang serius. Peringatan klasik itu benar: nested tag, comment, dan CDATA butuh parser asli. Regex oke untuk scraping log sekali pakai atau input terkontrol.</li>
 </ul>
 """,
     },

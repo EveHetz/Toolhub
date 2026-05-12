@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "Wachtwoord-generator", "tagline": "Sterke random wachtwoorden of memorabele passphrases. Lokaal gegenereerd — nergens heen gestuurd.", "description": "Gratis veilige wachtwoord-generator. Custom karakterregels, passphrase-mode en batch-generatie. Draait volledig in je browser."},
         "tr": {"name": "Parola Üretici", "tagline": "Güçlü rastgele parolalar veya akılda kalıcı passphrase'ler. Yerel olarak üretilir — hiçbir yere gönderilmez.", "description": "Ücretsiz güvenli parola üretici. Özel karakter kuralları, passphrase modu ve toplu üretim. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Password Generator", "tagline": "Password acak yang kuat atau passphrase yang mudah diingat. Dihasilkan lokal — tidak pernah dikirim ke mana pun.", "description": "Password generator online gratis. Buat password acak kuat atau passphrase yang mudah diingat menggunakan CSPRNG browser. Panjang dan kelas karakter yang dapat dikonfigurasi. Berjalan lokal — password tidak pernah meninggalkan perangkatmu."},
     },
     "body": """
 <div class="tool-card">
@@ -390,6 +391,40 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>Üretilen parolaları korumasız yazma.</strong> Bir parola yöneticisi (1Password, Bitwarden, KeePass) kullan — Notes uygulaması, metin dosyası veya e-posta taslağı değil.</li>
   <li><strong>Uzun &gt; karmaşık.</strong> Sadece küçük harfler kullanan 24 karakterlik bir parola, her sembol sınıfı olan 10 karakterlikten daha fazla entropiye sahiptir. Uzunluk kazanır.</li>
   <li><strong>Siteye özgü kurallar kopyala-yapıştırı bozabilir.</strong> Bazı siteler belirli sembolleri yasaklar veya uzunluğu 16'da sınırlar. Sinir bozucu ama gerçek — üret, sonra gerekirse uydurmak için kırp/değiştir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Password yang baik adalah password yang tidak bisa ditebak attacker dan tidak perlu kamu ingat (karena tersimpan di password manager). Generator ini menghasilkan password random yang kuat atau passphrase yang mudah diingat sepenuhnya di browser kamu, menggunakan <code>crypto.getRandomValues</code> — sumber random kriptografis aman yang sama yang dipakai TLS. Tidak ada yang dikirim; password tidak pernah meninggalkan device kamu.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membuat password unik untuk setiap akun baru yang masuk ke password manager.</li>
+  <li>Menghasilkan master password atau passphrase recovery yang akan kamu hafalkan — mode passphrase lebih mudah diketik dan diingat.</li>
+  <li>Menghasilkan secret non-manusia untuk CI variable, API token, atau jaringan Wi-Fi.</li>
+  <li>Hasilkan password secara batch untuk batch user baru (atur count sampai 50).</li>
+</ul>
+
+<h3>Karakter random vs passphrase</h3>
+<ul>
+  <li><strong>Karakter random</strong> — entropy paling banyak per panjang. 20 karakter campuran ≈ 130 bit. Cocok untuk hal yang kamu paste, bukan ketik.</li>
+  <li><strong>Passphrase</strong> — lebih mudah diketik dan diingat. Empat kata ≈ 40 bit, enam kata ≈ 60 bit. Cocok untuk master password, unlock device, dan apa pun yang akan kamu ketik manual secara rutin.</li>
+  <li>"Exclude ambiguous" membuang <code>0/O/1/l/I</code> agar lebih aman dibaca dari layar atau catatan tulisan tangan.</li>
+</ul>
+
+<h3>Berapa banyak entropy yang dibutuhkan?</h3>
+<ul>
+  <li>≥ 60 bit — cukup untuk akun bernilai rendah</li>
+  <li>≥ 80 bit — bagus untuk sebagian besar akun</li>
+  <li>≥ 100 bit — bernilai tinggi (finansial, master password, root credential)</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Jangan menggunakan ulang password.</strong> Upgrade keamanan terbesar yang bisa kamu lakukan adalah satu password unik per situs, disimpan di manager. Kekuatan generator sia-sia jika password yang sama dipakai di lima situs.</li>
+  <li><strong>Jangan menulis password yang dihasilkan tanpa proteksi.</strong> Gunakan password manager (1Password, Bitwarden, KeePass) — bukan app Notes, bukan file teks, bukan draft email.</li>
+  <li><strong>Panjang &gt; kompleks.</strong> Password 24 karakter yang hanya pakai huruf kecil punya entropy lebih banyak dibanding 10 karakter dengan setiap kelas simbol. Panjang yang menang.</li>
+  <li><strong>Aturan spesifik situs bisa merusak copy-paste.</strong> Beberapa situs melarang simbol tertentu atau membatasi panjang di 16. Menyebalkan tapi nyata — hasilkan, lalu trim/swap agar sesuai jika perlu (dan simpan password aktual yang dipakai di manager kamu).</li>
 </ul>
 """,
     },

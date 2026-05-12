@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "SQL フォーマッター", "tagline": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。", "description": "オンライン無料の SQL フォーマッター。SELECT / INSERT / UPDATE / DDL を一貫したインデント、キーワード大文字小文字、句の整列で整形できます。1 行へのミニファイにも対応。すべてブラウザ内で動作します。"},
         "nl": {"name": "SQL Formatter", "tagline": "Formatteer en beautify SQL met goede indentatie, of minify naar een enkele regel. Dialect-aware (ANSI / MySQL / Postgres).", "description": "Gratis online SQL-formatter. Pretty-print elke SELECT/INSERT/UPDATE/DDL met consistente indentatie, keyword-casing en clause-alignment. Minify ook naar een enkele regel. Draait volledig in je browser."},
         "tr": {"name": "SQL Formatter", "tagline": "SQL'i düzgün indent ile biçimlendir ve güzelleştir veya tek satıra küçült. Lehçe farkında (ANSI / MySQL / Postgres).", "description": "Ücretsiz online SQL formatter. Herhangi bir SELECT/INSERT/UPDATE/DDL'yi tutarlı indent, anahtar kelime büyük/küçük harf ve clause hizalaması ile güzel yazdırır. Aynı zamanda tek satıra küçültür. Tamamen tarayıcında çalışır."},
+        "id": {"name": "SQL Formatter", "tagline": "Format dan beautify SQL dengan indentasi yang tepat, atau minify ke satu baris. Sadar dialek (ANSI / MySQL / Postgres).", "description": "SQL formatter gratis. Beautify SQL berantakan dengan indentasi dan baris baru yang tepat, atau minify ke satu baris. Sadar dialek untuk ANSI SQL, MySQL, PostgreSQL, dan SQLite. Berjalan di browser-mu."},
     },
     "body": """
 <div class="tool-card">
@@ -524,6 +525,28 @@ document.addEventListener('DOMContentLoaded', sfRun);
   <li><strong>Yorumlar hayatta kalır ama kendi satırlarında izole olur.</strong> Satır ortasında bir <code>-- inline yorum</code> varsa, güzel-yazdırma sırasında kendi satırına taşınır.</li>
   <li><strong>Minify yorumları temizler.</strong> Onlara ihtiyacın varsa, minify etme.</li>
   <li><strong>Bu bir linter değildir.</strong> Doğrulama, stil zorlaması ve CI'da lehçe kontrolü için gerçek bir SQL parser (örn. <code>sqlfluff</code>) kullan.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>SQL bisa berupa one-liner yang kamu ketik di <code>psql</code> sampai query analitik 200 baris yang tidak bisa dibaca siapa pun sebelum di-indent dengan benar. Formatter ini mengambil SELECT, INSERT, UPDATE, atau DDL apa pun dan menulis ulang dengan indentasi konsisten, line break sebelum setiap clause, dan casing keyword yang seragam. Mode minify melakukan sebaliknya — memampatkan semuanya jadi satu baris untuk dimasukkan ke kode atau script. Semuanya berjalan di browser; query tidak pernah meninggalkan halaman.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Memformat ulang query yang kamu salin dari file log, ORM, atau pesan chat menjadi sesuatu yang bisa di-diff dan di-review.</li>
+  <li>Menormalisasi konvensi tim (keyword UPPERCASE, indent 2-spasi) sebelum commit script migration.</li>
+  <li>Memampatkan query pretty-printed yang panjang menjadi satu baris agar muat di config YAML atau argumen CLI satu baris.</li>
+  <li>Menemukan masalah struktural — kurung tidak seimbang, koma yang hilang di SELECT list, atau JOIN tanpa ON — yang jelas terlihat setelah query di-indent.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Formatter ini struktural, bukan semantik.</strong> Tool ini tidak akan memberitahu apakah query itu SQL yang benar, hanya bagaimana meng-indent token yang dilihatnya. Syntax error di input akan jadi syntax error di output.</li>
+  <li><strong>Keyword spesifik dialek berbeda-beda.</strong> <code>ILIKE</code>, <code>RETURNING</code>, <code>LATERAL</code> adalah Postgres; <code>STRAIGHT_JOIN</code>, <code>SQL_CALC_FOUND_ROWS</code> adalah MySQL. Pilih dialek yang tepat atau kata-kata tersebut tidak akan dikenali sebagai keyword.</li>
+  <li><strong>String literal dipertahankan apa adanya.</strong> String multi-baris dalam single quote mempertahankan line break-nya; formatter tidak reflow teks di dalam <code>'...'</code>.</li>
+  <li><strong>Komentar tetap ada tapi diisolasi di baris sendiri.</strong> Jika kamu punya <code>-- inline comment</code> di tengah baris, itu akan pindah ke barisnya sendiri saat pretty-print.</li>
+  <li><strong>Minify menghapus komentar.</strong> Jika kamu butuh komentar, jangan minify.</li>
+  <li><strong>Ini bukan linter.</strong> Pakai parser SQL sungguhan (misalnya <code>sqlfluff</code>) untuk validasi, penegakan style, dan pengecekan dialek di CI.</li>
 </ul>
 """,
     },

@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "Cron Expression Parser", "tagline": "Parse cron-expressies en zie de volgende 10 fire times. Standaard 5-veld crontab.", "description": "Gratis online cron expression parser. Valideert 5-veld crontab-syntax en lijst de volgende 10 geplande fire times in je lokale tijdzone."},
         "tr": {"name": "Cron İfadesi Parser", "tagline": "Cron ifadelerini parse et ve sonraki 10 çalışma zamanını gör. Standart 5 alanlı crontab.", "description": "Ücretsiz online cron ifadesi parser. 5 alanlı crontab sözdizimini doğrular ve yerel saat diliminde planlanan sonraki 10 çalışma zamanını listeler."},
+        "id": {"name": "Cron Expression Parser", "tagline": "Parse ekspresi cron dan lihat 10 waktu run berikutnya. Crontab 5-field standar.", "description": "Parser ekspresi cron gratis. Tempel ekspresi cron apa pun dan lihat 10 waktu eksekusi berikutnya dengan zona waktu yang dapat dipilih. Mendukung crontab 5-field standar dengan steps, ranges, dan list."},
     },
     "body": """
 <div class="tool-card">
@@ -349,6 +350,37 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>Adım + aralık kombinasyonları.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. Adım sadece aralık içinde geçerlidir.</li>
   <li><strong>Saat dilimi burada tarayıcının yerel dilimidir.</strong> Gerçek cron daemon'ları sunucu zamanında (genellikle UTC) çalışır. Tarayıcında iyi görünen bir zaman çizelgesi sunucuda farklı saatte çalışabilir.</li>
   <li><strong>Bazı cron lehçeleri alan ekler.</strong> Quartz cron 6 veya 7 alana sahiptir (saniyeler ve yıl ile). systemd timer'lar tamamen farklı bir biçim kullanır. Bu araç standart 5 alanlı crontab'ı parse eder.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Ekspresi cron itu kuat dan mudah salah tulis. <code>0 0 * * 1-5</code> kelihatan seperti schedule tengah malam di hari kerja, dan memang begitu. <code>*/15 0-9 * * *</code> kelihatan seperti setiap lima belas menit di jam kerja, dan memang begitu. <code>0 0 1 */3 *</code> kelihatan seperti tiap kuartal... kalau kamu ingat bahwa <code>*/3</code> berarti "tiap bulan ketiga". Tool ini memungkinkan kamu menempel ekspresi, melihat artinya dalam bahasa sederhana, dan mempreview 10 waktu run berikutnya untuk memvalidasinya sebelum deploy.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Sanity check baris cron di <code>crontab -e</code> sebelum disimpan.</li>
+  <li>Menerjemahkan schedule string Kubernetes <code>CronJob</code> ke "kapan sebenarnya ini akan jalan?"</li>
+  <li>Mendesain schedule baru — mulai dengan kalimat bahasa Inggris ("setiap pagi hari kerja") dan iterasi ekspresinya sampai preview cocok.</li>
+  <li>Mendebug job yang "tidak jalan saat seharusnya" — tempel schedule-nya, lihat 10 waktu berikutnya, lihat apakah kejutannya berasal dari kenyataan atau dari ekspresi.</li>
+</ul>
+
+<h3>Referensi field cron</h3>
+<table>
+  <tr><th>Field</th><th>Range</th><th>Wildcard</th></tr>
+  <tr><td>Menit</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>Jam</td><td>0-23</td><td>sama</td></tr>
+  <tr><td>Day of month</td><td>1-31</td><td>sama</td></tr>
+  <tr><td>Bulan</td><td>1-12</td><td>sama</td></tr>
+  <tr><td>Day of week</td><td>0-6 (0 = Minggu, 7 juga = Minggu)</td><td>sama</td></tr>
+</table>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week berinteraksi.</strong> Kalau keduanya dibatasi (mis. <code>15 * * * 1</code> berarti "tanggal 15 ATAU hari Senin"), kebanyakan implementasi cron meng-OR keduanya. Tool ini mengikuti konvensi tersebut.</li>
+  <li><strong><code>*/N</code> bukan persis "setiap N".</strong> Ini "setiap N mulai dari batas bawah", jadi <code>*/15</code> di menit = 0,15,30,45 (bukan 12,27,42,57). Untuk mulai belakangan, pakai list: <code>5,20,35,50</code>.</li>
+  <li><strong>Kombinasi step + range.</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30. Step hanya berlaku dalam range.</li>
+  <li><strong>Timezone di sini adalah zona lokal browser.</strong> Daemon cron sungguhan jalan di server time (sering UTC). Schedule yang tampak baik di browser-mu bisa jalan di waktu wall-clock berbeda di server.</li>
+  <li><strong>Beberapa dialek cron menambah field.</strong> Quartz cron punya 6 atau 7 field (dengan detik dan tahun). systemd timer pakai format yang sama sekali berbeda. Tool ini mem-parse crontab standar 5-field.</li>
 </ul>
 """,
     },

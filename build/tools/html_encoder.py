@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "HTML エンコーダー / デコーダー", "tagline": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "description": "オンライン無料の HTML エンティティエンコーダー / デコーダー。&amp; &lt; &gt; &quot; ' と名前付きエンティティをエスケープし、名前付き・10 進・16 進のエンティティ参照をデコードします。"},
         "nl": {"name": "HTML Encoder / Decoder", "tagline": "Escape HTML-speciale tekens of decodeer entities terug. Nuttig voor veilig embedden van user input of debuggen van encoded markup.", "description": "Gratis online HTML-entity encoder en decoder. Escapet &amp; &lt; &gt; &quot; ' en named entities. Decodeert named, decimal en hex entity references."},
         "tr": {"name": "HTML Encoder / Decoder", "tagline": "HTML özel karakterlerini escape et veya entity'leri geri çöz. Kullanıcı girdisini güvenle gömmek veya kodlanmış işaretlemeyi debug etmek için kullanışlı.", "description": "Ücretsiz online HTML entity encoder ve decoder. &amp; &lt; &gt; &quot; ' ve adlandırılmış entity'leri escape eder. Adlandırılmış, sayısal ve hex entity referanslarını çözer."},
+        "id": {"name": "HTML Encoder / Decoder", "tagline": "Escape karakter khusus HTML atau decode entity kembali. Berguna untuk menyematkan input pengguna dengan aman atau debug markup yang ter-encode.", "description": "HTML encoder dan decoder gratis. Escape karakter khusus HTML (<, >, &, \", ') ke entity atau decode entity kembali ke karakter aslinya. Aman untuk menyematkan input pengguna dan mencegah XSS."},
     },
     "body": """
 <div class="tool-card">
@@ -174,6 +175,26 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>Nitelikler - gövde.</strong> Her iki bağlam da aynı beş karakteri escape etmeyi gerektirir, ancak <code>onclick</code> gibi JavaScript olay işleyicileri ek escape gerektirir (bu araç bunu yapmaz — güvenilmeyen veriyi niteliklerden uzak tut).</li>
   <li><strong>Decoder hoşgörülüdür.</strong> Adlandırılmış entity'ler (<code>&amp;ldquo;</code>), ondalık (<code>&amp;#34;</code>) ve hex (<code>&amp;#x22;</code>) hepsi tarayıcının parser'ı aracılığıyla çözülür, bu yüzden gerçek bir tarayıcının kabul edeceği her şeyi kabul eder.</li>
   <li><strong>Çift kodlama yapma.</strong> Zaten kodlanmış bir değeri kodlamak <code>&amp;amp;amp;</code> verir. Girişinde entity'ler görüyorsan önce decode et.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>HTML mereservasi lima karakter yang punya makna struktural — <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>'</code>. Memasukkan salah satunya ke halaman sebagai <em>content</em> mengharuskan kamu meng-escape-nya menjadi HTML entity supaya browser tidak menafsirkannya sebagai markup. Tool ini bekerja dua arah: encode raw text menjadi entity yang aman, atau decode HTML hasil scrape kembali menjadi plain text.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menyisipkan user content yang tidak dipercaya ke HTML — encode dulu untuk mencegah XSS.</li>
+  <li>Decode markup hasil scrape atau paste yang datang dengan entity (<code>&amp;amp;</code>, <code>&amp;#x27;</code>, <code>&amp;ldquo;</code>).</li>
+  <li>Membersihkan template yang tanpa sengaja ter-escape dua kali.</li>
+  <li>Menyiapkan snippet untuk JSDoc, XML tanpa CDATA, atau code fence Markdown yang butuh angle bracket literal.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Encoding bukan sanitization.</strong> Encoding membuat text aman ditampilkan; jika kamu juga ingin <em>menghapus</em> tag, kamu butuh HTML sanitizer.</li>
+  <li><strong>Attribute vs body.</strong> Kedua konteks butuh lima karakter yang sama di-escape, tapi event handler JavaScript seperti <code>onclick</code> butuh escape tambahan (yang tool ini tidak lakukan — jauhkan data tidak terpercaya dari attribute).</li>
+  <li><strong>Decoder permisif.</strong> Named entity (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>), dan hex (<code>&amp;#x22;</code>) semua di-decode lewat parser browser, jadi ia menerima apa pun yang akan diterima browser sungguhan.</li>
+  <li><strong>Jangan double-encode.</strong> Meng-encode value yang sudah di-encode menghasilkan <code>&amp;amp;amp;</code>. Decode dulu kalau kamu melihat entity di input.</li>
 </ul>
 """,
     },

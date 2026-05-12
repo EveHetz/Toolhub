@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "CSS グラデーションジェネレーター", "tagline": "線形・放射状の CSS グラデーションをビジュアルに作成。カラーストップを編集して、貼り付けるだけの CSS をコピー。", "description": "無料の CSS グラデーションジェネレーター。任意の数のカラーストップで線形・放射状グラデーションを作成し、角度と形状を調整して、本番投入できる CSS をワンクリックでコピーできます。"},
         "nl": {"name": "CSS Gradient Generator", "tagline": "Bouw visueel lineaire en radiale CSS-gradients. Bewerk color stops, kopieer ready-to-paste CSS.", "description": "Gratis CSS gradient generator. Bouw lineaire of radiale gradients met zoveel color stops als je wilt, stel hoek en vorm in, kopieer production-ready CSS in één klik."},
         "tr": {"name": "CSS Gradient Oluşturucu", "tagline": "Lineer ve radial CSS gradient'larını görsel olarak kur. Renk durak noktalarını düzenle, yapıştırılmaya hazır CSS'i kopyala.", "description": "Ücretsiz CSS gradient oluşturucu. İstediğin kadar renk durak noktasıyla lineer veya radial gradient kur, açıyı ve şekli ayarla, üretime hazır CSS'i tek tıkla kopyala."},
+        "id": {"name": "Pembangun CSS Gradient", "tagline": "Susun gradient linear dan radial CSS secara visual. Edit color stop, salin CSS siap-tempel.", "description": "Pembangun CSS gradient gratis. Buat gradient linear dan radial dengan stop warna yang dapat di-drag, kontrol sudut, dan pratinjau langsung. Salin CSS siap-tempel."},
     },
     "body": """
 <div class="tool-card">
@@ -301,6 +302,34 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
   <li><strong>Büyük alanlarda banding.</strong> Uzun, düşük kontrastlı gradient'lar 8-bit ekranlarda görünür "bantlar" gösterebilir. Küçük bir SVG noise overlay ekle (<code>filter: url(#noise)</code>) veya durakları hafifçe kaydır.</li>
   <li><strong>Performans.</strong> Tarayıcılar gradient'ları hızlı boyar ama <code>background-image</code>'ı animate etmek her karede paint tetikler — yukarıdaki bir katmanda <code>transform</code>'u animate et.</li>
   <li><strong>Erişilebilirlik.</strong> Bir gradient üzerinde metin oturuyorsa, kontrast oranını gradient boyunca metnin göründüğü <em>en kötü</em> noktaya karşı kontrol et, ortalamasına değil.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>CSS gradient adalah satu baris CSS yang menggambar transisi warna mulus untuk background, tombol, panel hero, dan overlay tanpa aset gambar apa pun. Sintaksisnya kuat tapi ribet ditulis manual: angle, persen stop, varian repeating, mencampur linear dengan radial. Tool ini menyediakan builder visual yang mencerminkan CSS real-time, jadi kamu bisa men-drag stop ke posisinya dan menyalin string <code>linear-gradient(...)</code> atau <code>radial-gradient(...)</code> yang lengkap.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membuat background section hero atau call-to-action tanpa membakar gambar.</li>
+  <li>Membuat hover state tombol atau card yang tampak "modern" tanpa aset gambar.</li>
+  <li>Mockup overlay warna brand (gradient + solid low-opacity untuk keterbacaan teks).</li>
+  <li>Menghasilkan divider dekoratif, background gaya mesh, atau fill SVG animated.</li>
+</ul>
+
+<h3>Linear vs radial</h3>
+<ul>
+  <li><strong>Linear</strong> — warna bertransisi sepanjang garis lurus di angle yang dipilih (0° = bawah ke atas, 90° = kiri ke kanan, 180° = atas ke bawah).</li>
+  <li><strong>Radial</strong> — warna menyebar keluar dari titik tengah sebagai lingkaran atau elips. Cocok untuk efek spotlight atau vignette.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Pakai sebagai <code>background</code>, bukan <code>background-color</code>.</strong> Gradient itu image, bukan warna. <code>background-color</code> akan diabaikan.</li>
+  <li><strong>Stop harus urut</strong> untuk rendering yang predictable. Tool ini auto-sort — kalau kamu copy CSS dan edit manual, jaga persentasenya monotonic.</li>
+  <li><strong>Hard stop</strong> (dua stop di persentase yang sama) menghasilkan batas tajam alih-alih fade — berguna untuk efek stripe atau band.</li>
+  <li><strong>Banding di area besar.</strong> Gradient panjang dengan kontras rendah bisa menampilkan "band" yang terlihat di layar 8-bit. Tambahkan SVG noise overlay kecil (<code>filter: url(#noise)</code>) atau geser stop sedikit.</li>
+  <li><strong>Performance.</strong> Browser meng-paint gradient dengan cepat, tapi meng-animate <code>background-image</code> memicu paint di tiap frame — animate <code>transform</code> di layer di atasnya sebagai gantinya.</li>
+  <li><strong>Aksesibilitas.</strong> Kalau ada teks di atas gradient, cek rasio kontras terhadap titik <em>terburuk</em> sepanjang gradient di mana teks muncul, bukan rata-rata.</li>
 </ul>
 """,
     },

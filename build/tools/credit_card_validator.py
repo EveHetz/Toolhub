@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "クレジットカード検証ツール", "tagline": "Luhn チェックでカード番号を検証し、ブランドを検出。ローカル動作で、番号は送信されません。", "description": "オンライン無料のクレジットカード検証ツール。Luhn (mod-10) チェックサム、ブランド検出（Visa、Mastercard、Amex、Discover、JCB、Diners、UnionPay）、桁数検証を行います。100% クライアントサイドで動作します。"},
         "nl": {"name": "Creditcard-validator", "tagline": "Valideer een kaartnummer met de Luhn-check en detecteer het kaartmerk. Draait lokaal — je nummer wordt nooit verzonden.", "description": "Gratis online creditcard-validator. Luhn (mod-10) checksum, brand-detectie (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) en lengtecontrole. 100% client-side."},
         "tr": {"name": "Kredi Kartı Doğrulayıcı", "tagline": "Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel çalışır — numaran asla iletilmez.", "description": "Ücretsiz online kredi kartı doğrulayıcı. Luhn (mod-10) checksum, marka tespiti (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) ve uzunluk doğrulaması. %100 istemci tarafında çalışır."},
+        "id": {"name": "Validator Kartu Kredit", "tagline": "Validasi nomor kartu dengan cek Luhn dan deteksi brand kartu. Berjalan lokal — nomormu tidak pernah dikirim.", "description": "Validator kartu kredit gratis. Cek nomor kartu dengan algoritma Luhn dan deteksi brand (Visa, Mastercard, Amex, Discover, JCB, Diners). Berjalan sepenuhnya di browser-mu — tanpa pelacakan, tanpa upload."},
     },
     "body": """
 <div class="tool-card">
@@ -218,6 +219,28 @@ document.addEventListener('DOMContentLoaded', cvRun);
 </ul>
 
 <h3>Test numaraları (yapıştırılması güvenli)</h3>
+<p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Nomor kartu memiliki checksum bawaan (algoritma Luhn / mod-10) dan diawali prefix yang mengidentifikasi brand penerbit. Bersama-sama keduanya memungkinkan kamu menangkap typo dan mengidentifikasi brand sebelum mengirim nomor ke payment processor. Tool ini menjalankan kedua pemeriksaan 100% di browser-mu — nomor yang kamu tempel tidak pernah meninggalkan halaman. Ini validasi struktural untuk developer, bukan fraud-check atau lookup kartu live.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Memvalidasi bahwa nomor kartu test yang kamu salin well-formed (kartu test dari <a href="https://docs.stripe.com/testing" rel="noopener">dokumentasi Stripe</a> atau yang serupa semua lolos Luhn).</li>
+  <li>Sanity check field input di form — apakah nomor memenuhi struktur dasar sebelum round-trip ke API pembayaran yang biasanya menarik biaya untuk lookup?</li>
+  <li>Mengaudit nomor kartu yang "kelihatannya salah" untuk melihat apakah typo (Luhn gagal) atau brand mismatch (panjang salah untuk prefix-nya).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>"Valid secara struktural" tidak berarti "diterbitkan" atau "aktif".</strong> Validasi sungguhan butuh payment processor — yang berbiaya atau menempatkan hold. Tool ini menangkap typo, bukan akun yang ditutup.</li>
+  <li><strong>Jangan tempel nomor kartu asli di mana pun</strong> — termasuk di tool ini. Browser tidak mengirimkannya, tapi screen-recorder, ekstensi browser, atau dev-tools terbuka bisa. Pakai nomor test yang dikenal.</li>
+  <li><strong>Beberapa nomor 16 digit bukan kartu.</strong> Kartu loyalty, gift card, dan beberapa SKU prepaid memakai format yang sama; lolos Luhn + brand match tidak menjamin ini instrumen pembayaran.</li>
+  <li><strong>Kartu co-branded.</strong> Kartu yang diterbitkan satu brand bisa menampilkan logo brand lain. Deteksi brand di sini memakai prefix penerbit kanonik, bukan logo cetaknya.</li>
+</ul>
+
+<h3>Nomor test (aman ditempel)</h3>
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },

@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "HTTP ステータスコード", "tagline": "任意の HTTP ステータスコード（1xx–5xx）を検索。意味、よくある原因、RFC 参照を表示。", "description": "無料の HTTP ステータスコードリファレンス。標準のすべての HTTP ステータスコード（100–599）を検索し、意味・よくある原因・定義元の RFC を確認できます。入力に応じてリアルタイムフィルタ。"},
         "nl": {"name": "HTTP-statuscodes", "tagline": "Zoek elke HTTP-statuscode op (1xx–5xx). Betekenis, veelvoorkomende oorzaken en de RFC-referentie.", "description": "Gratis HTTP-statuscode-referentie. Zoek elke standaard HTTP-statuscode (100–599), zie de betekenis, veelvoorkomende oorzaken en de RFC waarin hij is gedefinieerd. Filter tijdens het typen."},
         "tr": {"name": "HTTP Durum Kodları", "tagline": "Herhangi bir HTTP durum kodunu ara (1xx–5xx). Anlamı, yaygın sebepleri ve RFC referansı.", "description": "Ücretsiz HTTP durum kodu referansı. Her standart HTTP durum kodunu (100–599) ara, anlamını, yaygın sebeplerini ve tanımlandığı RFC'yi gör. Yazdıkça filtrele."},
+        "id": {"name": "Kode Status HTTP", "tagline": "Cari kode status HTTP apa pun (1xx–5xx). Maknanya, alasan umum, dan referensi RFC.", "description": "Referensi kode status HTTP gratis. Cari kode status apa pun (1xx informational, 2xx success, 3xx redirect, 4xx client error, 5xx server error) dengan maknanya, alasan umum, dan referensi RFC."},
     },
     "body": """
 <div class="tool-card">
@@ -362,6 +363,29 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>200 ile hata gövdesi "RESTful" değildir.</strong> İstek kaynak seviyesinde başarısız olduysa, gövdedeki hatayla bir 4xx döndür.</li>
   <li><strong>418 bir şakadır.</strong> I'm-a-teapot'u production'da kullanma — istemciler ve proxy'ler tutarsız ele alır.</li>
   <li><strong>RFC 9110, RFC 7231/7232/7233/7234/7235'in yerini alır.</strong> Spec'i alıntılarsan, özellikle daha eski bir sürüme ihtiyacın olmadıkça 9110 (Haziran 2022) kullan.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>HTTP status code adalah angka tiga digit yang dikirim balik server untuk memberitahu client bagaimana request berjalan. Mereka dikelompokkan dalam lima keluarga: 1xx (informational), 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error). Kebanyakan developer tahu kode headline — 200, 301, 404, 500 — tapi long tail (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) adalah tempat bug yang sebenarnya hidup. Tool ini memberi kamu daftar lengkap dengan makna dan RFC tempat masing-masing didefinisikan.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membaca dokumentasi API yang me-return kode yang tidak kamu kenal (425? 451?).</li>
+  <li>Memilih kode yang tepat untuk di-return dari API kamu sendiri — 404 vs 410, 401 vs 403, 422 vs 400.</li>
+  <li>Mendiagnosis 502/504 — apakah upstream down atau sekadar lambat?</li>
+  <li>Menentukan apakah 200-dengan-error-body atau 4xx asli adalah langkah yang tepat.</li>
+  <li>Mencari referensi RFC untuk code review atau design doc.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>401 berarti unauthenticated, 403 berarti unauthorized.</strong> Namanya menyesatkan — 401 berkata "saya tidak tahu kamu siapa", 403 berkata "saya tahu kamu siapa dan kamu tidak boleh memilikinya". Gunakan 403 hanya jika re-authenticate tidak akan menolong.</li>
+  <li><strong>302 ambigu soal method.</strong> Browser secara historis mengubah POST→GET pada redirect 302. Gunakan 307 (mempertahankan method) atau 303 (selalu GET) untuk eksplisit.</li>
+  <li><strong>404 bukan 410.</strong> 404 = "saya tidak tahu"; 410 = "saya tahu dan ia hilang selamanya". Gunakan 410 ketika search engine harus drop URL itu.</li>
+  <li><strong>200 dengan error body bukan "RESTful".</strong> Kalau request gagal di level resource, return 4xx dengan error di body.</li>
+  <li><strong>418 adalah lelucon.</strong> Jangan gunakan I'm-a-teapot di production — client dan proxy memperlakukannya tidak konsisten.</li>
+  <li><strong>RFC 9110 menggantikan RFC 7231/7232/7233/7234/7235.</strong> Kalau mengutip spec, gunakan 9110 (Juni 2022) kecuali kamu spesifik butuh versi lama.</li>
 </ul>
 """,
     },

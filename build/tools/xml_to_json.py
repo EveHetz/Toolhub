@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "XML ↔ JSON コンバーター", "tagline": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。", "description": "オンライン無料の XML → JSON（および JSON → XML）コンバーター。ブラウザの XML パーサを使用し、属性は設定可能なプレフィックス付き、繰り返し要素は配列にまとめます。すべてブラウザ内で動作します。"},
         "nl": {"name": "XML ↔ JSON Converter", "tagline": "Converteer XML naar JSON of JSON terug naar XML. Handelt attributes, text-nodes en arrays verstandig af.", "description": "Gratis online XML-naar-JSON converter (en JSON terug naar XML). Gebruikt de native XML-parser van de browser; attributes krijgen een configureerbaar prefix; herhaalde elementen storten in arrays. Draait volledig in je browser."},
         "tr": {"name": "XML ↔ JSON Dönüştürücü", "tagline": "XML'i JSON'a veya JSON'u XML'e geri dönüştür. Attribute'ları, text node'ları ve dizileri akıllıca işler.", "description": "Ücretsiz online XML'den JSON'a dönüştürücü (ve JSON'dan XML'e geri). Tarayıcının yerel XML parser'ını kullanır; attribute'lar ayarlanabilir bir önek alır; tekrarlayan elementler dizilere indirgenir. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Konverter XML ↔ JSON", "tagline": "Konversi XML ke JSON atau JSON kembali ke XML. Menangani attribute, text node, dan array secara cerdas.", "description": "Konverter XML ke JSON gratis (dan sebaliknya). Konversi XML ke representasi JSON yang dapat dibaca, menangani attribute, text node, dan element berulang sebagai array. Konversi balik JSON ke XML juga didukung."},
     },
     "body": """
 <div class="tool-card">
@@ -408,6 +409,29 @@ document.addEventListener('DOMContentLoaded', xjRun);
   <li><strong>Namespace'ler aynen korunur.</strong> <code>ns:tag</code> JSON anahtarı olarak <code>"ns:tag"</code> kalır. <code>xmlns:</code> nitelikleri de benzer şekilde.</li>
   <li><strong>Sayılar ve boolean'lar otomatik dönüştürülmez.</strong> XML metni her zaman string'tir; <code>"1"</code> JSON'da <code>"1"</code> kalır. İhtiyacın varsa uygulama kodunda türleri dönüştür.</li>
   <li><strong>JSON → XML tek bir kök anahtar gerektirir.</strong> XML tam olarak bir kök element ister; giriş JSON tek bir üst seviye anahtarı olan bir nesne olmalıdır.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>XML dan JSON adalah dua format pertukaran data dominan, dan kamu secara rutin perlu menerjemahkan antar keduanya — migrasi dari SOAP API ke REST, menyambungkan feed legacy ke stack modern, atau sekadar membaca XML di tool yang hanya bicara JSON. Pemetaan tidak netral dan tidak reversible secara default, karena XML punya fitur (attribute, mixed content, child yang berurutan) yang tidak dimiliki JSON. Tool ini menggunakan pemetaan gaya <a href="https://www.npmjs.com/package/fast-xml-parser" target="_blank" rel="noopener noreferrer">fast-xml-parser</a> konvensional: attribute mendapat prefix (default <code>@</code>), text node masuk ke key (default <code>#text</code>), dan element child berulang diciutkan menjadi array. Kedua arah bekerja di browser kamu.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Mengubah response RSS / Atom / SOAP ke JSON untuk dikonsumsi di aplikasi JS.</li>
+  <li>Men-generate XML config dari template JSON (build config, Spring bean, scaffold OOXML).</li>
+  <li>Mengekstrak value bersarang dengan cepat — konversi XML ke JSON, lalu pakai tool JSON apa pun yang kamu tahu.</li>
+  <li>Round-trip data dan memverifikasi bahwa shape-nya bertahan setelah konversi.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Single child vs array.</strong> Dokumen dengan satu <code>&lt;item&gt;</code> menjadi <code>{"item": {...}}</code>; dokumen sama dengan dua menjadi <code>{"item": [..., ...]}</code>. Consumer perlu menangani kedua bentuk.</li>
+  <li><strong>Urutan element tidak dijamin.</strong> Object JSON tidak mempertahankan urutan key lintas semua parser/transit. Jika XML punya sibling yang penting urutannya, JSON adalah target yang salah.</li>
+  <li><strong>Mixed content collapse.</strong> Element seperti <code>&lt;p&gt;hello &lt;b&gt;world&lt;/b&gt;!&lt;/p&gt;</code> tidak round-trip — teks dan inline element terjalin dengan cara yang tidak punya representasi object yang bersih.</li>
+  <li><strong>Konflik prefix attribute.</strong> Jika XML element punya child bernama yang diawali <code>@</code>, ubah dulu prefix-nya ke sesuatu yang lain.</li>
+  <li><strong>Namespace dipertahankan apa adanya.</strong> <code>ns:tag</code> tetap <code>"ns:tag"</code> sebagai JSON key. Demikian juga attribute <code>xmlns:</code>.</li>
+  <li><strong>Number dan boolean tidak auto-cast.</strong> Teks XML selalu string; <code>"1"</code> tetap <code>"1"</code> di JSON. Cast type di kode aplikasi jika perlu.</li>
+  <li><strong>JSON → XML butuh root key tunggal.</strong> XML butuh tepat satu element root; input JSON harus berupa object dengan satu key top-level.</li>
 </ul>
 """,
     },

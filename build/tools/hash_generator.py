@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "ハッシュ生成ツール", "tagline": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。", "description": "オンライン無料のハッシュ生成ツール。WebCrypto を用いて SHA-1、SHA-256、SHA-384、SHA-512 を計算します。hex 出力でコピーしやすく、すべてブラウザ内で動作します。"},
         "nl": {"name": "Hash Generator", "tagline": "Hash tekst met SHA-1, SHA-256, SHA-384 of SHA-512 via WebCrypto in je browser. Lokaal berekend — input verlaat de pagina nooit.", "description": "Gratis online hash generator. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Hex output, copy-friendly. Draait volledig in je browser."},
         "tr": {"name": "Hash Üretici", "tagline": "Metni tarayıcının WebCrypto'su ile SHA-1, SHA-256, SHA-384 veya SHA-512 hash'le. Yerel hesaplanır — giriş sayfayı asla terk etmez.", "description": "Ücretsiz online hash üretici. WebCrypto üzerinden SHA-1, SHA-256, SHA-384, SHA-512. Hex çıktı, kopyalanabilir. Tamamen tarayıcında çalışır."},
+        "id": {"name": "Hash Generator", "tagline": "Hash teks dengan SHA-1, SHA-256, SHA-384, atau SHA-512 menggunakan WebCrypto browser. Dihitung lokal — input tidak pernah meninggalkan halaman.", "description": "Hash generator gratis. Hitung digest SHA-1, SHA-256, SHA-384, dan SHA-512 untuk teks atau file apa pun menggunakan WebCrypto browser. Semuanya berjalan lokal — input tidak pernah meninggalkan perangkatmu."},
     },
     "body": """
 <div class="tool-card">
@@ -183,6 +184,26 @@ document.addEventListener('DOMContentLoaded', hRun);
   <li><strong>Parolaları ham SHA-256 ile hash'leme.</strong> Düz SHA hızlıdır — bu saldırganların brute-force yapmasına yardım eder. Parola depolama için yavaş bir KDF (Argon2id, bcrypt, scrypt) kullan.</li>
   <li><strong>MD5 kasıtlı olarak yok.</strong> 2000'lerin başından beri kırık. MD5'e "ihtiyaç duyduğun" her yerde bir güvenlik incelemesi de işaretlemen gerekir.</li>
   <li><strong>Boşluk önemlidir.</strong> Sondaki bir yeni satır, onsuz aynı metnin farklı bir hash'ini üretir. Hex çıktısını tam olarak karşılaştır.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Cryptographic hash mengambil input apa pun dan menghasilkan fingerprint dengan panjang tetap. Dua input yang identik selalu di-hash ke digest yang sama; mengubah satu bit saja mengubah digest sepenuhnya. Hash menjadi dasar dari pengecekan integritas file, content-addressable storage, digital signature, dan pipeline password hashing (di mana mereka digabungkan dengan fungsi lambat seperti Argon2 atau bcrypt).</p>
+<p>Semua hashing di sini menggunakan <code>crypto.subtle.digest</code> dari browser — primitive yang sama dengan yang menggerakkan TLS. Input kamu tidak pernah meninggalkan halaman.</p>
+
+<h3>Kapan pakai yang mana</h3>
+<ul>
+  <li><strong>SHA-256</strong> — default yang masuk akal untuk pengecekan integritas, content addressing (Git, gaya IPFS), HMAC key, dan signature.</li>
+  <li><strong>SHA-384 / SHA-512</strong> — berguna saat kamu butuh digest yang lebih lebar (tuning PBKDF2/HKDF, HMAC key yang lebih besar, kebiasaan margin post-quantum).</li>
+  <li><strong>SHA-1</strong> — hanya untuk kompatibilitas (Git object ID, checksum CI legacy). Jangan gunakan untuk batas keamanan — serangan collision praktis sudah ada sejak 2017.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Hashing bukan enkripsi.</strong> Hash itu one-way; kamu tidak bisa mendapatkan kembali yang asli. Kalau butuh kerahasiaan, enkripsi.</li>
+  <li><strong>Jangan hash password dengan SHA-256 mentah.</strong> Plain SHA itu cepat — itu membantu attacker brute-force. Pakai KDF lambat (Argon2id, bcrypt, scrypt) untuk penyimpanan password.</li>
+  <li><strong>MD5 sengaja tidak ada.</strong> Sudah broken sejak awal 2000-an. Di mana pun kamu "butuh" MD5, kamu juga butuh menandai security review.</li>
+  <li><strong>Whitespace itu penting.</strong> Newline di akhir menghasilkan hash yang berbeda dari teks yang sama tanpa newline. Bandingkan output hex secara eksak.</li>
 </ul>
 """,
     },

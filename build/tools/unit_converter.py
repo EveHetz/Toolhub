@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "単位変換ツール", "tagline": "メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。", "description": "オンライン無料の単位変換ツール。長さ（mm、cm、m、km、in、ft、yd、mi）、重さ（g、kg、lb、oz）、温度（C、F、K）、体積（mL、L、gal、fl oz）、面積（m²、ft²、acre、ha）を相互変換できます。"},
         "nl": {"name": "Unit Converter", "tagline": "Converteer tussen metrische en imperiale eenheden van lengte, gewicht, temperatuur, volume en oppervlakte.", "description": "Gratis online unit-converter. Converteer lengte (mm, cm, m, km, in, ft, yd, mi), gewicht (g, kg, lb, oz), temperatuur (C, F, K), volume (mL, L, gal, fl oz) en oppervlakte (m², ft², acre, ha)."},
         "tr": {"name": "Birim Dönüştürücü", "tagline": "Uzunluk, ağırlık, sıcaklık, hacim ve alan için metrik ve imperial birimler arasında dönüştür.", "description": "Ücretsiz online birim dönüştürücü. Uzunluk (mm, cm, m, km, in, ft, yd, mi), ağırlık (g, kg, lb, oz), sıcaklık (C, F, K), hacim (mL, L, gal, fl oz) ve alan (m², ft², acre, ha) dönüşümleri."},
+        "id": {"name": "Konverter Satuan", "tagline": "Konversi antara satuan metrik dan imperial untuk panjang, berat, suhu, volume, dan luas.", "description": "Konverter satuan gratis. Konversi antara satuan metrik dan imperial untuk panjang (mm, cm, m, km, in, ft, yd, mi), berat (g, kg, oz, lb), suhu (°C, °F, K), volume, dan luas."},
     },
     "body": """
 <div class="tool-card">
@@ -377,6 +378,37 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Kütle - ağırlık.</strong> Kesin olarak, kg kütledir ve pound da kütledir (günlük "70 kg ağırlığım var"a rağmen). Araç bunları kütle-kütle dönüşümü olarak ele alır. Kuvvet (newton, pound-force) için farklı bir kategoriye ihtiyacın var.</li>
   <li><strong>Sonda yuvarla, ortada değil.</strong> m → ft'a çevirme, yuvarlama, sonra ft → in'e çevirme — hatalar birikir. Hedef birime doğru git.</li>
   <li><strong>Stone &amp; pound.</strong> Bir İngiliz ağırlığı: 1 stone = 14 lb. Aracın stone (st) vardır ama "11 st 4 lb" tarzı girişler için lb kısmını ayrı yapman gerekir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Sebagian besar dunia pakai metrik, AS pakai imperial, UK setengah-setengah, resep masakan pakai cup padahal seharusnya gram, dan di suatu tempat di tengah project sekolah anak meminta "5 yard dalam sentimeter". Tool ini menjalankan konversi untuk panjang, berat, suhu, volume, area, waktu, dan kecepatan memakai definisi presisi tinggi — dan menyebar hasilnya ke setiap unit dalam kategori sekaligus, jadi kamu tidak perlu mengkonversi dua kali.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Membaca resep dalam cup ketika kamu memasak dalam gram (atau sebaliknya).</li>
+  <li>Menerjemahkan jarak penerbangan dalam nautical mile ke kilometer.</li>
+  <li>Mengkonversi prakiraan suhu outdoor dari °C ke °F sebelum bepergian.</li>
+  <li>Mengukur sepotong furniture: lebar 72 inci → apakah muat lewat pintu 1,9 m?</li>
+  <li>Membaca pengukuran paper ilmiah dalam SI ketika kamu berpikir dalam imperial.</li>
+</ul>
+
+<h3>Apa yang akurat, dan apa yang tidak</h3>
+<ul>
+  <li><strong>Panjang, berat, suhu, area, kecepatan</strong> pakai definisi SI dan international yard-and-pound agreement (1959), jadi presisinya sesuai presisi input kamu.</li>
+  <li><strong>Volume</strong> bisa rumit: "gallon" AS (3,785 L) dan "imperial gallon" UK (4,546 L) itu berbeda. Tool memberi label mana yang mana.</li>
+  <li><strong>Cup / tablespoon / teaspoon</strong> di sini default ke ukuran AS. Cup UK dan Australia sedikit berbeda (250 mL di AU, 240 mL di US).</li>
+  <li><strong>"Bulan" dan "tahun"</strong> di kategori waktu pakai rata-rata (30,44 hari / 365,25 hari). Jangan pakai ini untuk perhitungan legal atau akuntansi di mana bulan eksak penting — pakai date calculator saja.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Suhu bukan rasio.</strong> 0°C bukan "tidak ada suhu" — itu titik referensi. Menggandakan Celsius tidak menggandakan panas. Konversi pakai offset aditif (273,15 ke/dari Kelvin, 32 antara C dan F) — itu sebabnya tool memakai fungsi untuk suhu, bukan multiplier.</li>
+  <li><strong>Fluid ounce AS vs UK berbeda.</strong> 1 US fl oz = 29,57 mL, 1 UK fl oz = 28,41 mL. Selalu cek standar mana yang dipakai resep.</li>
+  <li><strong>"Tonne" vs "ton".</strong> Metric tonne = 1000 kg. US short ton = 907 kg. UK long ton = 1016 kg. "t" di tool adalah metric tonne.</li>
+  <li><strong>Massa vs berat.</strong> Secara ketat, kg itu massa dan pound juga massa (meski sehari-hari "berat saya 70 kg"). Tool memperlakukannya sebagai konversi mass-to-mass. Untuk gaya (newton, pound-force), kamu butuh kategori berbeda.</li>
+  <li><strong>Bulatkan di akhir, bukan di tengah.</strong> Jangan konversi m → ft, bulatkan, lalu ft → in — error akan akumulasi. Langsung ke unit target.</li>
+  <li><strong>Stone &amp; pound.</strong> Berat Inggris: 1 stone = 14 lb. Tool punya stone (st) tapi kamu perlu melakukan bagian lb secara terpisah untuk entry gaya "11 st 4 lb".</li>
 </ul>
 """,
     },

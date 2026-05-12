@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "Tijdzone-converter", "tagline": "Converteer een datum en tijd tussen IANA-tijdzones. Zie offsets, DST-status en weekdag voor beide kanten.", "description": "Gratis online tijdzone-converter. Converteer tussen elke IANA-tijdzone met DST-awareness. Kies uit veelgebruikte zones of een van de ~400+ die je browser ondersteunt."},
         "tr": {"name": "Saat Dilimi Dönüştürücü", "tagline": "Bir tarih ve saati IANA saat dilimleri arasında dönüştür. Her iki uç için offset, DST durumu ve haftanın gününü gör.", "description": "Ücretsiz online saat dilimi dönüştürücü. DST farkındalığıyla herhangi bir IANA saat dilimleri arasında dönüştür. Yaygın dilimlerden veya tarayıcının desteklediği ~400+ taneden birini seç."},
+        "id": {"name": "Konverter Zona Waktu", "tagline": "Konversi tanggal dan waktu antara zona waktu IANA. Lihat offset, status DST, dan hari dalam minggu untuk kedua ujung.", "description": "Konverter zona waktu gratis. Konversi waktu apa pun antara zona waktu IANA (Asia/Jakarta, America/New_York, Europe/London, dll). Menampilkan offset UTC, status DST, dan hari dalam minggu untuk zona sumber dan zona target."},
     },
     "body": """
 <div class="tool-card">
@@ -313,6 +314,31 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Ülke kısaltmaları dilim değildir.</strong> "EST" belirsizdir (ABD vs Avustralya); "IST" Hint, İrlanda veya İsrail anlamına gelebilir. Her zaman IANA dilimini seç, kısaltmayı değil.</li>
   <li><strong>Tarihsel doğruluk</strong> modern çağ için iyidir ama çok eski tarihler için bozulur. 1970 öncesi timestamp'lar bazı tarayıcılarda yaklaştırılmış ofsetler kullanabilir.</li>
   <li><strong>Tarihleri saklarken: her zaman UTC kullan.</strong> Gösterim zamanında çevir. Çıktıdaki UTC satırı veritabanına yazılacak kanonik değeri sana verir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>Timezone itu menyebalkan secara mengejutkan. Sebuah meeting jam "9 pagi" berarti momen absolut yang berbeda di Jakarta, London, dan New York — dan offset antara dua zona berubah dua kali setahun karena daylight saving, di tanggal yang berbeda. Tool ini mengambil waktu wall-clock di satu IANA timezone dan memberitahu ekuivalen persisnya di timezone lain, dengan offset terkini, momen UTC, dan hari dalam minggu untuk kedua sisi.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menjadwalkan call lintas benua — memastikan "15:00 CET" itu jam berapa di zona kolega kamu.</li>
+  <li>Membaca timestamp log yang dicatat di UTC dan menerjemahkan ke local time untuk laporan yang dilihat user.</li>
+  <li>Mengecek apakah deploy window atau slot maintenance melintasi batas DST.</li>
+  <li>Sanity check bahwa cron expression di <code>America/New_York</code> akan jalan di momen yang kamu harapkan dari zone-mu sendiri.</li>
+  <li>Menghitung perubahan hari ketika melintasi international date line.</li>
+</ul>
+
+<h3>Kenapa pakai IANA zone (bukan "GMT+2")</h3>
+<p>IANA zone seperti <code>Europe/Bratislava</code> atau <code>America/New_York</code> meng-encode aturan historis dan yang sedang berlaku untuk lokasi tersebut — tanggal mulai dan akhir DST, perubahan timezone (Rusia menghapus DST tahun 2014; Türkiye menghapus DST tahun 2016), bahkan Samoa yang melewatkan satu hari penuh tahun 2011. Offset polos seperti "GMT+2" tidak memberitahu apa pun tentang apakah DST berlaku, apa aturannya tahun lalu, atau bagaimana tahun depan. Browser membawa database IANA (via ICU/CLDR) dan meng-update otomatis, sehingga konversi tetap benar dari waktu ke waktu.</p>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Transisi DST menciptakan waktu ambigu dan waktu yang hilang.</strong> Ketika jam mundur, 02:30 terjadi dua kali; ketika maju, 02:30 tidak pernah ada. Tool memilih interpretasi standard-time secara default; jika kamu butuh sisi lain, geser satu jam ke arah yang sesuai.</li>
+  <li><strong>Offset bukan konstanta.</strong> "CET" itu UTC+1 di musim dingin dan UTC+2 di musim panas (CEST). Output selalu menampilkan offset aktual untuk tanggal yang kamu masukkan, jadi percaya pada offset yang ditampilkan, bukan singkatannya.</li>
+  <li><strong>Singkatan negara bukan zona.</strong> "EST" ambigu (US vs Australia); "IST" bisa berarti India, Irlandia, atau Israel. Selalu pilih IANA zone, bukan singkatan.</li>
+  <li><strong>Akurasi historis</strong> bagus untuk era modern tapi rusak untuk tanggal yang sangat lama. Timestamp pra-1970 mungkin pakai offset perkiraan di beberapa browser.</li>
+  <li><strong>Menyimpan tanggal: selalu pakai UTC.</strong> Konversi saat display. Baris UTC di output memberi kamu nilai kanonik untuk ditulis ke database.</li>
 </ul>
 """,
     },

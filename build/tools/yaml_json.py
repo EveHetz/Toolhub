@@ -46,6 +46,7 @@ TOOL = {
         },
         "nl": {"name": "YAML ↔ JSON Converter", "tagline": "Converteer tussen YAML en JSON in beide richtingen. Nuttig voor Kubernetes manifests, CI-configs en OpenAPI-specs.", "description": "Gratis online YAML-naar-JSON en JSON-naar-YAML converter. Bidirectioneel, draait volledig in je browser. Handelt anchors, aliases en multi-document YAML af."},
         "tr": {"name": "YAML ↔ JSON Dönüştürücü", "tagline": "YAML ve JSON arasında her iki yöne dönüştür. Kubernetes manifest'leri, CI config'leri ve OpenAPI spec'leri için kullanışlı.", "description": "Ücretsiz online YAML'den JSON'a ve JSON'dan YAML'a dönüştürücü. Çift yönlü, tamamen tarayıcında çalışır. Anchor'ları, alias'ları ve çoklu belge YAML'ı işler."},
+        "id": {"name": "Konverter YAML ↔ JSON", "tagline": "Konversi antara YAML dan JSON ke kedua arah. Berguna untuk manifest Kubernetes, config CI, dan spec OpenAPI.", "description": "Konverter YAML ke JSON gratis (dan sebaliknya). Konversi antara YAML dan JSON ke kedua arah dengan validasi. Berguna untuk manifest Kubernetes, GitHub Actions, spec OpenAPI, dan format config apa pun."},
     },
     "body": """
 <div class="tool-card">
@@ -235,6 +236,26 @@ document.addEventListener('DOMContentLoaded', yjConv);
   <li><strong>Özel tag'ler</strong> (<code>!!python/object</code>, <code>!Ref</code>, vb.) katı YAML 1.2'yi ihlal eder. CloudFormation YAML ve PyYAML pickle dump'ları başarısız olacaktır; önce tag'leri temizle.</li>
   <li><strong>Anchor'lar ve alias'lar YAML→JSON'da genişletilir.</strong> JSON'da referans yoktur, bu yüzden <code>*ref</code> node'ları inline olur. Round-trip değer-eşdeğer ama metinsel olarak daha büyük bir YAML verir.</li>
   <li><strong>Sayılar - string'ler.</strong> Tırnaksız YAML <code>3.14</code> bir float'tır; <code>"3.14"</code> bir string'tir.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>YAML dan JSON mendeskripsikan hal yang sama — map bersarang, list, primitive — tapi punya trade-off readability vs strictness yang berbeda. YAML lebih ramah manusia (manifest Kubernetes, GitHub Actions, OpenAPI, sebagian besar config CI); JSON adalah yang dikirim API dan format machine-readable. Konverter ini menerjemahkan antar keduanya secara lossless untuk struktur yang bisa diekspresikan keduanya. YAML menggunakan <a href="https://github.com/nodeca/js-yaml" rel="noopener">js-yaml</a> (YAML 1.2); JSON menggunakan API native. Kedua arah bekerja di browser kamu.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menempelkan OpenAPI / k8s / docker-compose YAML ke tool yang butuh JSON.</li>
+  <li>Mengubah response API (JSON) ke YAML untuk file config.</li>
+  <li>Mengaudit struktur sebenarnya dari file YAML saat indent yang ambigu membuat parenting tidak jelas.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>"Norway problem".</strong> YAML 1.1 mem-coerce <code>NO</code>, <code>YES</code>, <code>ON</code>, <code>OFF</code> ke boolean. YAML 1.2 tidak mem-coerce, tapi parser downstream mungkin masih. Untuk aman, quote string yang ambigu.</li>
+  <li><strong>YAML multi-dokumen</strong> (pemisah <code>---</code>) — hanya dokumen pertama yang dikonversi.</li>
+  <li><strong>Tag kustom</strong> (<code>!!python/object</code>, <code>!Ref</code>, dll.) melanggar YAML 1.2 ketat. YAML CloudFormation dan dump pickle PyYAML akan gagal; bersihkan tag-nya dulu.</li>
+  <li><strong>Anchor dan alias di-expand di YAML→JSON.</strong> Tidak ada reference di JSON, jadi node <code>*ref</code> jadi inline. Round-trip memberi YAML yang value-equivalent tapi secara tekstual lebih besar.</li>
+  <li><strong>Number vs string.</strong> YAML tanpa quote <code>3.14</code> adalah float; <code>"3.14"</code> adalah string.</li>
 </ul>
 """,
     },

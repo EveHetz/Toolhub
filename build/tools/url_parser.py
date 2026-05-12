@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "URL パーサー", "tagline": "URL を貼ると、protocol・host・port・path・query パラメータ（デコード済み）・hash・origin に分解して表示。", "description": "オンライン無料の URL パーサー。任意の URL を protocol、host、port、path、query string、hash、origin に分解し、各クエリパラメータをデコード済みで表示します。すべてブラウザ内で動作します。"},
         "nl": {"name": "URL Parser", "tagline": "Plak elke URL — zie protocol, host, port, path, query parameters (gedecodeerd), hash en origin uitgesplitst.", "description": "Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser."},
         "tr": {"name": "URL Parser", "tagline": "Herhangi bir URL'i yapıştır — protokolü, host'u, port'u, path'i, query parametrelerini (decoded), hash'i ve origin'i ayrıştırılmış olarak gör.", "description": "Ücretsiz online URL parser. Herhangi bir URL'i protokol, host, port, path, query string, hash ve origin'e çözer; her query parametresi decoded gösterilir. Tamamen tarayıcında çalışır."},
+        "id": {"name": "URL Parser", "tagline": "Tempel URL apa pun — lihat protokol, host, port, path, parameter query (di-decode), hash, dan origin yang sudah diurai.", "description": "URL parser gratis. Tempel URL apa pun dan lihat protokol, host, port, path, parameter query yang di-decode, hash, dan origin-nya. Bantu debug masalah routing dan inspeksi link yang kompleks."},
     },
     "body": """
 <div class="tool-card">
@@ -322,6 +323,29 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>Punycode hostname'leri.</strong> <code>example.中国</code> dahili olarak <code>xn--fiqs8s</code> olarak saklanır; <code>hostname</code> tarayıcıya bağlı olarak ASCII formu gösterebilir.</li>
   <li><strong>Origin bazen "null"dur.</strong> <code>file://</code>, <code>data:</code> veya sandbox'lı bağlamlar için origin opaktır.</li>
   <li><strong>Bu parsing'dir, doğrulama değil.</strong> Bir URL temiz parse edebilir ve hâlâ uygulaman için yanlış olabilir (örn. yanlış host, eksik path).</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>URL adalah string terstruktur dengan tujuh bagian yang terdefinisi dengan baik (scheme, authority, host, port, path, query, fragment) yang kamu lihat sebagai satu blob. Saat ada yang salah — parameter keliru, port tak terduga, karakter yang ke-encode berlebihan — jauh lebih mudah menemukannya di tabel yang sudah di-parse daripada di string mentah. Tool ini menggunakan objek <code>URL</code> bawaan browser, jadi hasil parse persis sama dengan yang dilihat JavaScript, lalu memecah setiap query parameter sehingga value yang sudah di-decode terlihat berdampingan dengan bentuk mentahnya.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Debug URL callback OAuth yang <code>state</code> atau <code>code</code>-nya kelihatan salah.</li>
+  <li>Memeriksa URL tracking (UTM tags, click-token) dan melihat value sebenarnya alih-alih blob yang sudah di-encode.</li>
+  <li>Memverifikasi bahwa URL webhook ter-parse seperti yang diharapkan service penerima — terutama path dan query apa pun.</li>
+  <li>Memahami kenapa sebuah deep link bekerja di satu aplikasi tapi tidak di yang lain (port? scheme? authority?).</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Key query yang berulang itu nyata.</strong> <code>?a=1&amp;a=2</code> adalah dua value untuk <code>a</code>; tool yang hanya membaca yang pertama akan kehilangan data. Parser ini menampilkan semua value per key.</li>
+  <li><strong>Fragment tidak pernah sampai ke server.</strong> Apa pun setelah <code>#</code> tetap di browser. Jika backend tidak melihat data yang kamu taruh di URL, cek apakah data itu sebenarnya ada di fragment.</li>
+  <li><strong>Encoding itu penting.</strong> <code>%20</code> di value query ter-decode menjadi spasi; <code>+</code> di value query <em>juga</em> ter-decode menjadi spasi (per <code>application/x-www-form-urlencoded</code>). <code>URL.searchParams</code> browser menangani keduanya.</li>
+  <li><strong>Port default tidak muncul di <code>port</code>.</strong> URL seperti <code>https://example.com/</code> punya <code>port</code> kosong (default 443 tersirat).</li>
+  <li><strong>Hostname punycode.</strong> <code>example.中国</code> disimpan secara internal sebagai <code>xn--fiqs8s</code>; <code>hostname</code> bisa menampilkan bentuk ASCII tergantung browser.</li>
+  <li><strong>Origin kadang-kadang "null".</strong> Untuk <code>file://</code>, <code>data:</code>, atau konteks sandbox, origin bersifat opaque.</li>
+  <li><strong>Ini parsing, bukan validasi.</strong> URL bisa ter-parse bersih dan tetap salah untuk aplikasimu (mis. host keliru, path hilang).</li>
 </ul>
 """,
     },

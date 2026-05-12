@@ -18,6 +18,7 @@ TOOL = {
         "ja": {"name": "スラグ生成ツール", "tagline": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "description": "オンライン無料の URL スラグ生成ツール。小文字化、アクセント文字の翻字（à → a、ñ → n）、句読点除去、選択した区切り文字での連結を実行します。ストップワードの除去もオプションで利用可能です。"},
         "nl": {"name": "Slug Generator", "tagline": "Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.", "description": "Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel."},
         "tr": {"name": "Slug Üretici", "tagline": "Herhangi bir başlığı temiz URL slug'a dönüştür — aksanları transliter eder, noktalama temizler, tirelerle birleştirir.", "description": "Ücretsiz online URL slug üretici. Küçük harfe çevirir, aksanlı karakterleri transliter eder (à → a, ñ → n), noktalama işaretlerini temizler ve kelimeleri seçilen ayraçla birleştirir. Stop-word kaldırma opsiyoneldir."},
+        "id": {"name": "Slug Generator", "tagline": "Ubah judul apa pun menjadi URL slug bersih — transliterate aksen, strip tanda baca, satukan dengan tanda hubung.", "description": "Slug generator gratis. Ubah judul apa pun menjadi slug URL ramah-SEO: lowercase, transliterate aksen (café → cafe), strip tanda baca, dan gabungkan kata dengan tanda hubung. Sempurna untuk permalink dan path konten."},
     },
     "body": """
 <div class="tool-card">
@@ -282,6 +283,36 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>Kesme anlamı değiştirebilir.</strong> "introduction-to-rust-programming" 20 karaktere kesilirse "introduction-to-rust" olur — iyi; 16'ya kesilirse "introduction-to" olur — açıkça daha kötü.</li>
   <li><strong>Slug'lar benzersiz değildir.</strong> İki farklı başlık aynı slug'a çökebilir ("Café" ve "Cafe" ikisi de → <code>cafe</code>). Slug'ları URL anahtarları olarak kullanıyorsan, çakışmada kısa bir ID veya sonek ekle.</li>
   <li><strong>Gönderilmiş slug'ları değiştirme.</strong> Bir URL canlı ve indekslendikten sonra, slug'unu yeniden üretmek linkleri ve SEO'yu bozar. Bir başlık değişirse, eski slug'u koru veya 301 yönlendirmesi kur.</li>
+</ul>
+""",
+        "id": """
+<h2>Untuk apa ini?</h2>
+<p>URL slug adalah segmen terakhir URL yang bisa dibaca manusia — <code>/blog/the-quick-brown-fox</code> bukan <code>/blog/post-4827</code>. Slug yang baik adalah lowercase, ber-hyphen, hanya ASCII, dan cukup pendek untuk dibaca sekilas, tapi menghasilkannya dari judul nyata yang penuh aksen, tanda baca, dan emoji itu ribet untuk dibenarkan. Tool ini men-transliterate aksen, membuang sampah, menggabungkan dengan separator pilihan kamu, dan memotong di batas yang bersih sehingga output aman untuk langsung di-drop ke route atau filename.</p>
+
+<h3>Kapan digunakan</h3>
+<ul>
+  <li>Menghasilkan URL <code>/blog/&lt;slug&gt;</code> dari judul artikel — terutama saat judul mengandung karakter beraksen (à, ñ, ø) atau tanda baca (titik dua, kurung, em dash).</li>
+  <li>Memproduksi filename aman dari nama yang disediakan user — upload, export, generated report.</li>
+  <li>Membangun identifier stabil untuk tag, kategori, atau anchor (<code>#getting-started</code>) dari label manusia.</li>
+  <li>Mengkonversi batch daftar heading ke kebab-case untuk langkah build static-site.</li>
+</ul>
+
+<h3>Cara konversi bekerja</h3>
+<ol>
+  <li>NFD-normalize Unicode dan strip combining diacritic (<code>café → cafe</code>).</li>
+  <li>Memetakan ligature Eropa umum dan huruf khusus: <code>ß → ss</code>, <code>æ → ae</code>, <code>ø → o</code>, <code>Ł → L</code>, plus beberapa simbol mata uang/matematika (<code>€ → eur</code>, <code>& → and</code>).</li>
+  <li>Mengganti setiap run non-alfanumerik dengan satu spasi.</li>
+  <li>Opsional membuang stop word umum bahasa Inggris (<em>a, an, and, the, of, to, …</em>).</li>
+  <li>Lowercase (atau pertahankan case), gabungkan dengan separator kamu, dan potong di limit tanpa meninggalkan separator menggantung.</li>
+</ol>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Aksara non-Latin terbuang.</strong> Stripping diakritik menangani à/ñ/ø, tapi tidak bisa romanize Mandarin, Jepang, Sirilik, Arab, atau Ibrani karakter-per-karakter — itu butuh tabel spesifik bahasa (Hanyu Pinyin, transliterasi ICU) yang sengaja di luar scope di sini. Karakter seperti itu hilang setelah langkah strip.</li>
+  <li><strong>Penghapusan stop-word hanya bahasa Inggris.</strong> "El gato negro" tidak kehilangan <em>el</em>; "Le chat noir" tidak kehilangan <em>le</em>. Matikan toggle untuk judul non-Inggris.</li>
+  <li><strong>Truncation bisa mengubah makna.</strong> "introduction-to-rust-programming" dipotong ke 20 karakter jadi "introduction-to-rust" — oke; dipotong ke 16 jadi "introduction-to" — jelas lebih buruk. Atur limit manual untuk konten di mana ekor penting.</li>
+  <li><strong>Slug tidak unik.</strong> Dua judul berbeda bisa collapse ke slug yang sama ("Café" dan "Cafe" keduanya → <code>cafe</code>). Jika kamu memakai slug sebagai URL key, append ID pendek atau suffix saat tabrakan.</li>
+  <li><strong>Jangan ubah slug yang sudah di-ship.</strong> Setelah URL live dan terindeks, regenerasi slug-nya merusak link dan SEO. Jika judul berubah, pertahankan slug lama atau setup 301 redirect.</li>
 </ul>
 """,
     },
