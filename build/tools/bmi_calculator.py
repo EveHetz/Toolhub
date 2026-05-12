@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kalkulator BMI", "tagline": "Body Mass Index dari tinggi dan berat. Metrik atau imperial. Menampilkan kategori WHO — bukan saran medis.", "description": "Kalkulator BMI gratis. Hitung Body Mass Index dari tinggi dan berat dalam satuan metrik atau imperial. Menampilkan kategori klasifikasi WHO. Berjalan di browser-mu — tanpa pelacakan, bukan saran medis."},
         "vi": {"name": "Máy tính BMI", "tagline": "Chỉ số khối cơ thể từ chiều cao và cân nặng. Hệ mét hoặc imperial. Hiển thị phân loại WHO — không phải lời khuyên y tế.", "description": "Máy tính BMI miễn phí trực tuyến. Tính chỉ số khối cơ thể từ chiều cao và cân nặng theo hệ mét hoặc imperial; hiển thị phân loại WHO. Không phải lời khuyên y tế."},
         "hi": {"name": "BMI कैलकुलेटर", "tagline": "Height और weight से Body Mass Index। Metric या imperial। WHO category दिखाता है — चिकित्सीय सलाह नहीं।", "description": "मुफ़्त Body Mass Index कैलकुलेटर। Metric (cm + kg) या imperial (feet/inches + pounds) में height और weight डालें और BMI value और WHO classification (underweight, normal, overweight, obese) देखें। केवल शैक्षणिक — चिकित्सीय सलाह नहीं।"},
+        "sk": {"name": 'BMI kalkulačka', "tagline": 'Body Mass Index z výšky a hmotnosti. Metric alebo imperial. Zobrazí WHO kategóriu — nie je to medicínska rada.', "description": 'Bezplatná online BMI kalkulačka. Zadaj výšku a hmotnosť v metric alebo imperial jednotkách a získaj svoj Body Mass Index s WHO kategóriou. Bez registrácie, bez sledovania.'},
+        "cs": {"name": 'BMI kalkulačka', "tagline": 'Body Mass Index z výšky a hmotnosti. Metric nebo imperial. Zobrazí WHO kategorii — nejde o lékařskou radu.', "description": 'Zdarma online BMI kalkulačka. Zadej výšku a hmotnost v metric nebo imperial jednotkách a získej svůj Body Mass Index s WHO kategorií. Bez registrace, bez sledování.'},
     },
     "body": """
 <div class="tool-card">
@@ -479,6 +481,48 @@ document.addEventListener('DOMContentLoaded', bmiRun);
   <li><strong>Ethnicity मायने रखती है।</strong> कई health bodies (NHS, WHO Asia-Pacific guidance) South Asian, Chinese और अन्य groups के लिए कम thresholds (overweight ≥23, obese ≥27.5) का इस्तेमाल करते हैं, क्योंकि कम BMIs पर cardiovascular risk बढ़ जाता है।</li>
   <li><strong>लम्बे बनाम छोटे लोग।</strong> Squared-height formula व्यवस्थित रूप से लम्बे लोगों को "underweight" और छोटे लोगों को "overweight" के रूप में अधिक-वर्गीकृत करता है — alternative formulas (Trefethen's BMI height^2.5 इस्तेमाल करता है) इसे ठीक करने की कोशिश करते हैं।</li>
   <li><strong>चिकित्सीय सलाह नहीं।</strong> अगर आप अपने वज़न को लेकर चिंतित हैं, तो clinician से बात करें। उनके पास बाकी की तस्वीर (waist circumference, blood pressure, blood-work, lifestyle) है जो एक single number नहीं देता।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Body Mass Index (BMI) je jednoduché skríningové číslo: hmotnosť (kg) delené štvorcom výšky (m). Slúži ako rýchla orientačná hodnota a WHO ho používa na kategorizáciu dospelej populácie. Tento nástroj počíta z metric aj imperial jednotiek a ukáže ti WHO kategóriu. <strong>Toto nie je medicínska rada</strong> — BMI nepozerá na svalovú hmotu, pohlavie ani vek.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Rýchla orientačná kontrola pre zdravého dospelého človeka.</li>
+  <li>Vyplnenie formulára poistenia alebo fitness aplikácie, ktorá BMI vyžaduje.</li>
+  <li>Sledovanie zmeny vlastnej hmotnosti v čase ako jeden z mnohých indikátorov.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>BMI ignoruje svaly.</strong> Kulturista s 95 kg a 180 cm bude mať „nadváhu" podľa BMI, ale percento tuku 8 %.</li>
+  <li><strong>Neplatí pre deti.</strong> Pre deti a tínedžerov sa používajú percentily podľa veku, nie raw BMI.</li>
+  <li><strong>Neplatí pre seniorov a tehotné.</strong> Tu treba klinické posúdenie.</li>
+  <li><strong>Etnicita má vplyv.</strong> WHO odporúča pre niektoré ázijské populácie iné hranice (overweight už od 23, nie 25).</li>
+  <li><strong>Nie je to medicínska diagnóza.</strong> Lekár pozerá na percento tuku, obvod pása, krvný tlak a ďalšie veci.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Body Mass Index (BMI) je jednoduché skríningové číslo: hmotnost (kg) dělená čtvercem výšky (m). Slouží jako rychlá orientační hodnota a WHO ho používá ke kategorizaci dospělé populace. Tenhle nástroj počítá z metric i imperial jednotek a ukáže ti WHO kategorii. <strong>Tohle není lékařská rada</strong> — BMI nekouká na svalovou hmotu, pohlaví ani věk.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Rychlá orientační kontrola pro zdravého dospělého člověka.</li>
+  <li>Vyplnění formuláře pojištění nebo fitness aplikace, která BMI vyžaduje.</li>
+  <li>Sledování změny vlastní hmotnosti v čase jako jeden z mnoha indikátorů.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>BMI ignoruje svaly.</strong> Kulturista s 95 kg a 180 cm bude mít podle BMI „nadváhu", ale procento tuku 8 %.</li>
+  <li><strong>Neplatí pro děti.</strong> Pro děti a teenagery se používají percentily podle věku, ne raw BMI.</li>
+  <li><strong>Neplatí pro seniory a těhotné.</strong> Tady je potřeba klinické posouzení.</li>
+  <li><strong>Etnicita má vliv.</strong> WHO doporučuje pro některé asijské populace jiné hranice (overweight už od 23, ne 25).</li>
+  <li><strong>Není to lékařská diagnóza.</strong> Lékař kouká na procento tuku, obvod pasu, krevní tlak a další věci.</li>
 </ul>
 """,
     },

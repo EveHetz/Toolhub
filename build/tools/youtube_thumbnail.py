@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pengunduh Thumbnail YouTube", "tagline": "Tempel URL YouTube atau ID video, dan ambil setiap ukuran thumbnail yang tersedia — link unduh langsung, tanpa upload, tanpa pendaftaran.", "description": "Pengunduh thumbnail YouTube gratis. Tempel URL YouTube atau ID video dan dapatkan link unduh langsung untuk setiap ukuran thumbnail yang tersedia (default, medium, high, standard, maxres). Tanpa upload, tanpa pelacakan."},
         "vi": {"name": "Tải Thumbnail YouTube", "tagline": "Dán URL YouTube hoặc ID video, và lấy mọi kích thước thumbnail có sẵn — link tải trực tiếp, không upload, không đăng ký.", "description": "Trình tải thumbnail YouTube miễn phí trực tuyến. Dán bất kỳ URL YouTube nào hoặc ID video và lấy tất cả các kích thước thumbnail có sẵn (mặc định, hq, mq, sd, maxres). Trình duyệt của bạn fetch trực tiếp từ CDN của YouTube — không có upload."},
         "hi": {"name": "YouTube Thumbnail Downloader", "tagline": "कोई भी YouTube URL या video ID पेस्ट करें और हर उपलब्ध thumbnail आकार पाएं — direct download links, कोई upload नहीं, साइनअप नहीं।", "description": "मुफ़्त YouTube thumbnail downloader। किसी भी YouTube URL (watch, youtu.be, shorts, embed, /v/) से video ID निकालता है और सभी उपलब्ध thumbnail resolutions को direct download links के साथ दिखाता है।"},
+        "sk": {"name": 'YouTube Thumbnail Downloader', "tagline": 'Vlož akúkoľvek YouTube URL alebo video ID a chyť každú dostupnú veľkosť thumbnailu — priame download linky, bez uploadu, bez registrácie.', "description": 'Bezplatný online YouTube thumbnail downloader. Vlož YouTube URL alebo video ID a získaj všetky dostupné veľkosti thumbnailov ako priame download linky. Bez uploadu, bez registrácie.'},
+        "cs": {"name": 'YouTube Thumbnail Downloader', "tagline": 'Vlož jakoukoli YouTube URL nebo video ID a chytni každou dostupnou velikost thumbnailu — přímé download odkazy, bez uploadu, bez registrace.', "description": 'Zdarma online YouTube thumbnail downloader. Vlož YouTube URL nebo video ID a získej všechny dostupné velikosti thumbnailů jako přímé download odkazy. Bez uploadu, bez registrace.'},
     },
     "body": """
 <div class="tool-card">
@@ -371,6 +373,50 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>यह अभी भी YouTube की image है।</strong> Hot-linking ठीक है; अपने स्वयं के CDN पर rehosting तकनीकी रूप से ठीक है लेकिन यदि आप इसे commercially उपयोग कर रहे हैं तो licensing की जांच करें। Video creator के पास frame की दृश्य सामग्री पर copyright हो सकता है।</li>
   <li><strong>यहां WebP समर्थित नहीं है।</strong> YouTube <code>.webp</code> versions (छोटी files) भी serve करता है, लेकिन वे एक अलग CDN path से serve होते हैं और इस टूल द्वारा expose नहीं किए जाते।</li>
   <li><strong>Live streams और Shorts</strong> ठीक काम करते हैं — URL parser सभी आधुनिक रूपों को संभालता है — लेकिन live-stream thumbnails stream live रहते समय बदलते रहते हैं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Každé YouTube video má niekoľko predgenerovaných thumbnailov v rôznych veľkostiach (od 120×90 do 1280×720) hostovaných na <code>i.ytimg.com</code>. Tento nástroj vyparsuje video ID z YouTube URL alebo zoberie raw ID a dá ti priame download odkazy na všetky dostupné veľkosti.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Použitie thumbnailu YouTube videa v blog poste / prezentácii (vždy uveď zdroj).</li>
+  <li>Príprava preview obrázka pre embedded YouTube card.</li>
+  <li>Kontrola, ako vyzerá thumbnail tvojho videa — auto-vyhraje vs. vlastný upload.</li>
+  <li>Bulk download thumbnailov z playlist-u (po jednom).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Maxres nemusí existovať.</strong> 1280×720 thumbnail nie je k dispozícii pre staršie alebo nízkokvalitné videá — fallback na <code>hqdefault</code>.</li>
+  <li><strong>Copyright.</strong> YouTube thumbnail je v autorskom práve nahravateľa. Použij ho na fair-use účely (recenzia, embed) a uveď zdroj.</li>
+  <li><strong>Privacy mode.</strong> URL z <code>youtube-nocookie.com</code> aj <code>youtu.be</code> obsahujú rovnaké video ID.</li>
+  <li><strong>Default thumbnail.</strong> Ak nahravateľ nevybral vlastný, YouTube vyberie 3 framy zo videa.</li>
+  <li><strong>Live streams.</strong> Pre prebiehajúci live stream môže thumbnail meniť, alebo byť placeholder.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Každé YouTube video má několik předgenerovaných thumbnailů v různých velikostech (od 120×90 do 1280×720) hostovaných na <code>i.ytimg.com</code>. Tenhle nástroj vyparsuje video ID z YouTube URL nebo vezme raw ID a dá ti přímé download odkazy na všechny dostupné velikosti.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Použití thumbnailu YouTube videa v blog postu / prezentaci (vždy uveď zdroj).</li>
+  <li>Příprava preview obrázku pro embedded YouTube card.</li>
+  <li>Kontrola, jak vypadá thumbnail tvého videa — auto-vyhraje vs. vlastní upload.</li>
+  <li>Bulk download thumbnailů z playlistu (po jednom).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Maxres nemusí existovat.</strong> 1280×720 thumbnail není k dispozici pro starší nebo nízkokvalitní videa — fallback na <code>hqdefault</code>.</li>
+  <li><strong>Copyright.</strong> YouTube thumbnail je v autorském právu nahravatele. Použij ho na fair-use účely (recenze, embed) a uveď zdroj.</li>
+  <li><strong>Privacy mode.</strong> URL z <code>youtube-nocookie.com</code> i <code>youtu.be</code> obsahují stejné video ID.</li>
+  <li><strong>Default thumbnail.</strong> Pokud nahravatel nevybral vlastní, YouTube vybere 3 framy z videa.</li>
+  <li><strong>Live streams.</strong> Pro probíhající live stream se thumbnail může měnit, nebo být placeholder.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Text Diff", "tagline": "Bandingkan dua blok teks dan lihat penambahan, penghapusan, dan konteks tak berubah baris demi baris. Tampilan side-by-side atau unified.", "description": "Tool diff teks gratis. Bandingkan dua blok teks dan lihat perbedaannya baris demi baris dengan penambahan, penghapusan, dan konteks tak berubah disorot. Beralih antara tampilan side-by-side dan unified."},
         "vi": {"name": "Diff Văn bản", "tagline": "So sánh hai khối văn bản và xem các thêm, xóa và ngữ cảnh không thay đổi từng dòng. Chế độ xem cạnh nhau hoặc thống nhất.", "description": "Trình so sánh văn bản miễn phí trực tuyến. Hiển thị các thêm, xóa và ngữ cảnh không thay đổi giữa hai khối văn bản từng dòng trong chế độ xem cạnh nhau hoặc thống nhất."},
         "hi": {"name": "Text Diff", "tagline": "दो text blocks की तुलना करें और line-by-line additions, removals, और अपरिवर्तित context देखें। Side-by-side या unified view।", "description": "मुफ़्त ऑनलाइन text diff tool। Side-by-side और unified views के साथ line-level Myers diff, ignore-whitespace और ignore-case toggles। आपके browser में चलता है।"},
+        "sk": {"name": 'Text Diff', "tagline": 'Porovnaj dva bloky textu a uvidíš line-by-line additions, removals a nezmenený context. Side-by-side alebo unified view.', "description": 'Bezplatný online text diff nástroj. Porovnaj dva bloky textu a uvidíš pridané, odstránené a nezmenené riadky. Prepínaj side-by-side a unified view. Beží v prehliadači.'},
+        "cs": {"name": 'Text Diff', "tagline": 'Porovnej dva bloky textu a uvidíš line-by-line additions, removals a nezměněný context. Side-by-side nebo unified view.', "description": 'Zdarma online text diff nástroj. Porovnej dva bloky textu a uvidíš přidané, odstraněné a nezměněné řádky. Přepínej side-by-side a unified view. Běží v prohlížeči.'},
     },
     "body": """
 <div class="td-grid">
@@ -400,6 +402,48 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>क्रम मायने रखता है।</strong> यदि आप दो lines की अदला-बदली करते हैं, diff दोनों को removed-and-re-added के रूप में दिखाता है, "moved" pair के रूप में नहीं। कोई move detection नहीं है।</li>
   <li><strong>बड़े inputs (10k+ lines) धीमे हो सकते हैं।</strong> LCS algorithm O(m·n) है — सामान्य files के लिए ठीक, बहुत बड़े के लिए धीमा। एक बार में छोटे chunks diff करें।</li>
   <li><strong>Trailing newlines</strong> एक line के रूप में गिने जाते हैं। दो inputs जो केवल इस बात में अलग हैं कि क्या वे newline से समाप्त होते हैं, एक trailing addition या removal दिखाएंगे।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Porovná dva bloky textu po riadkoch a ukáže ti, čo pribudlo (zelené), čo zmizlo (červené) a čo zostalo nezmenené. Prepínaj medzi side-by-side a unified view podľa toho, čo viac vyhovuje tvojmu prípadu.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Porovnanie dvoch verzií dokumentu (zmluva, dokumentácia).</li>
+  <li>Náhľad zmien v config súbore pred deployom.</li>
+  <li>Kontrola, čo presne sa zmenilo medzi dvomi log súbormi.</li>
+  <li>Code diff bez git-u — keď pracuješ s plain textom.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Riadkové vs. znakové diff.</strong> Tento nástroj robí riadkový diff — neoznačí rozdiel medzi „abc" a „abcd" v rámci jedného riadku.</li>
+  <li><strong>Line endings.</strong> CRLF vs. LF — môžu ukázať každý riadok ako zmenený. Najprv normalizuj.</li>
+  <li><strong>Whitespace.</strong> Trailing space alebo tab vs. medzery sa rátajú ako rozdiel.</li>
+  <li><strong>Encoding.</strong> UTF-8 vs. Latin-1 BOM môže ukázať celý súbor ako iný.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Porovná dva bloky textu po řádcích a ukáže ti, co přibylo (zelené), co zmizelo (červené) a co zůstalo nezměněné. Přepínej mezi side-by-side a unified view podle toho, co víc vyhovuje tvému případu.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Porovnání dvou verzí dokumentu (smlouva, dokumentace).</li>
+  <li>Náhled změn v config souboru před deployem.</li>
+  <li>Kontrola, co přesně se změnilo mezi dvěma log soubory.</li>
+  <li>Code diff bez gitu — když pracuješ s plain textem.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Řádkové vs. znakové diff.</strong> Tenhle nástroj dělá řádkový diff — neoznačí rozdíl mezi „abc" a „abcd" v rámci jednoho řádku.</li>
+  <li><strong>Line endings.</strong> CRLF vs. LF — můžou ukázat každý řádek jako změněný. Nejdřív normalizuj.</li>
+  <li><strong>Whitespace.</strong> Trailing space nebo tab vs. mezery se počítají jako rozdíl.</li>
+  <li><strong>Encoding.</strong> UTF-8 vs. Latin-1 BOM může ukázat celý soubor jako jiný.</li>
 </ul>
 """,
     },

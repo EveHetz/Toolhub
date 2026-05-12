@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Lorem Ipsum Generator", "tagline": "Hasilkan paragraf, kalimat, kata, atau item list dengan teks placeholder Latin. Panjang dan frasa awal dapat dikustomisasi.", "description": "Generator Lorem Ipsum gratis. Hasilkan placeholder Latin klasik dengan panjang yang dapat dikonfigurasi — paragraf, kalimat, kata, atau item list. Mulai dengan frasa klasik 'Lorem ipsum dolor sit amet' atau acak."},
         "vi": {"name": "Lorem Ipsum Generator", "tagline": "Tạo đoạn văn, câu, từ hoặc mục danh sách của văn bản placeholder Latin. Tùy chỉnh độ dài và cụm từ mở đầu.", "description": "Trình tạo Lorem Ipsum miễn phí trực tuyến. Tạo đoạn, câu, từ hoặc mục danh sách của văn bản placeholder Latin cổ điển cho mockup, design và bản demo."},
         "hi": {"name": "Lorem Ipsum Generator", "tagline": "Placeholder Latin text के paragraphs, sentences, words, या list items बनाएं। Configurable length और starting phrase के साथ।", "description": "मुफ़्त Lorem Ipsum generator. Mockups और design comps के लिए paragraphs, sentences, words, या HTML lists बनाएं। वैकल्पिक classic 'Lorem ipsum dolor sit amet…' opener।"},
+        "sk": {"name": 'Lorem Ipsum generátor', "tagline": 'Vygeneruj odseky, vety, slová alebo list items placeholder latinského textu. Konfigurovateľná dĺžka a úvodná fráza.', "description": 'Bezplatný online Lorem Ipsum generátor. Vyber si odseky, vety, slová alebo list items a zvoľ množstvo. Voliteľné je aj klasické „Lorem ipsum dolor sit amet“ úvodné slovo.'},
+        "cs": {"name": 'Lorem Ipsum generátor', "tagline": 'Vygeneruj odstavce, věty, slova nebo list items placeholder latinského textu. Konfigurovatelná délka a úvodní fráze.', "description": 'Zdarma online Lorem Ipsum generátor. Vyber si odstavce, věty, slova nebo list items a zvol množství. Volitelné je i klasické „Lorem ipsum dolor sit amet“ úvodní slovo.'},
     },
     "body": """
 <div class="tool-card">
@@ -297,6 +299,48 @@ document.addEventListener('DOMContentLoaded', liRun);
   <li><strong>असली copy placeholder से छोटी या लंबी होती है।</strong> असली headlines अधिक चुस्त होती हैं। असली body copy बेतहाशा बदलती है। एक layout जो lorem ipsum के साथ balanced दिखता है, वह वास्तविक content के साथ बिखर सकता है; sign-off से पहले असली text के साथ verify करें।</li>
   <li><strong>Internationalisation वह उजागर करता है जो lorem छिपाता है।</strong> केवल Latin filler के साथ test किए गए designs अक्सर German compounds या Arabic right-to-left layouts के साथ टूट जाते हैं। i18n-aware designs के लिए multilingual placeholders के साथ test करें।</li>
   <li><strong>Convention मायने रखता है।</strong> पहला paragraph traditionally "Lorem ipsum dolor sit amet…" से शुरू होता है — designers इसे placeholder के रूप में पहचानते हैं। इसे बंद करने का मतलब हो सकता है कि कोई swap से चूक जाए।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Lorem ipsum je placeholder text používaný v dizajne od 16. storočia. Tento generátor vyplodí ľubovoľný počet odsekov, viet, slov alebo list items klasického latinského textu. Voliteľne začne s „Lorem ipsum dolor sit amet…" alebo s náhodnou vetou.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Wireframe alebo mockup webu / aplikácie.</li>
+  <li>Test layoutu pri rôznej dĺžke textu.</li>
+  <li>Dummy obsah pre demo CMS-u alebo blog šablóny.</li>
+  <li>Placeholder e-maily, ktoré nemajú vyzerať ako reálny obsah.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Klient si môže myslieť, že je to skutočný text.</strong> Vyznač jasne, že ide o placeholder.</li>
+  <li><strong>Šírka textu.</strong> Lorem ipsum má iné rozloženie slov ako napr. slovenčina; reálne dáta môžu byť kratšie / dlhšie.</li>
+  <li><strong>SEO crawler.</strong> Lorem ipsum na živej stránke môže ublížiť rankingu — Google to vie.</li>
+  <li><strong>Reading time odhad.</strong> Lorem ipsum nemá slovenský / český text rozloženie hlások, takže odhad času čítania pre native čitateľa nesedí.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Lorem ipsum je placeholder text používaný v designu od 16. století. Tenhle generátor vyplodí libovolný počet odstavců, vět, slov nebo list items klasického latinského textu. Volitelně začne s „Lorem ipsum dolor sit amet…" nebo s náhodnou větou.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Wireframe nebo mockup webu / aplikace.</li>
+  <li>Test layoutu při různé délce textu.</li>
+  <li>Dummy obsah pro demo CMS nebo blog šablony.</li>
+  <li>Placeholder e-maily, které nemají vypadat jako reálný obsah.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Klient si může myslet, že je to skutečný text.</strong> Vyznač jasně, že jde o placeholder.</li>
+  <li><strong>Šířka textu.</strong> Lorem ipsum má jiné rozložení slov než např. čeština; reálná data můžou být kratší / delší.</li>
+  <li><strong>SEO crawler.</strong> Lorem ipsum na živé stránce může ublížit rankingu — Google to ví.</li>
+  <li><strong>Reading time odhad.</strong> Lorem ipsum nemá české / slovenské rozložení hlásek, takže odhad času čtení pro native čtenáře nesedí.</li>
 </ul>
 """,
     },

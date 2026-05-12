@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Markdown ke HTML", "tagline": "Konversi Markdown ke HTML bersih dengan pratinjau langsung. Mendukung heading, list, kode, tabel, gambar, dan link.", "description": "Konverter Markdown ke HTML gratis. Ketik Markdown dan lihat HTML yang dirender secara real-time. Mendukung heading, list, kode, tabel, gambar, link, blockquote, dan formatting GFM dasar."},
         "vi": {"name": "Markdown sang HTML", "tagline": "Chuyển Markdown thành HTML sạch với xem trước trực tiếp. Hỗ trợ heading, list, code, bảng, ảnh và link.", "description": "Bộ chuyển Markdown sang HTML miễn phí trực tuyến với xem trước trực tiếp. Hỗ trợ heading, list, code block, blockquote, bảng, ảnh và link. Chuyển đổi chạy hoàn toàn trong trình duyệt của bạn."},
         "hi": {"name": "Markdown से HTML", "tagline": "Markdown को साफ़ HTML में बदलें live preview के साथ। Headings, lists, code, tables, images, और links का समर्थन करता है।", "description": "मुफ़्त ऑनलाइन Markdown to HTML converter. CommonMark-flavoured: headings, lists, fenced code, tables, images, blockquotes, inline formatting. Live preview + copy।"},
+        "sk": {"name": 'Markdown na HTML', "tagline": 'Preveď Markdown na čisté HTML so živým náhľadom. Podporuje headings, lists, code, tables, images a links.', "description": 'Bezplatný online Markdown na HTML konvertor. Naživo preveď Markdown na čisté HTML s podporou headings, lists, code blocks, tables, images a links. Vidíš oba pohľady naraz.'},
+        "cs": {"name": 'Markdown na HTML', "tagline": 'Převeď Markdown na čisté HTML s živým náhledem. Podporuje headings, lists, code, tables, images a links.', "description": 'Zdarma online Markdown na HTML konvertor. Naživo převeď Markdown na čisté HTML s podporou headings, lists, code blocks, tables, images a links. Vidíš oba pohledy najednou.'},
     },
     "body": """
 <div class="md-grid">
@@ -371,6 +373,50 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>Tables बनाम alignment।</strong> Pipe tables को एक separator row (<code>|---|</code>) चाहिए और centre/left/right alignment के लिए <code>:---:</code> / <code>:---</code> / <code>---:</code> का उपयोग करते हैं। Separator भूलना सबसे आम कारण है कि एक "table" एक paragraph के रूप में render होती है।</li>
   <li><strong>Smart punctuation।</strong> कुछ renderers <code>--</code> को en-dashes में और straight quotes को curly में बदल देते हैं। यह टूल नहीं करता — यदि आपको ज़रूरत है तो typography pass से गुज़रें।</li>
   <li><strong>Round-tripping lossless नहीं है।</strong> Markdown → HTML → Markdown heading style, list spacing, और link form को normalise करेगा। Semantics बच जाती हैं; exact bytes नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Markdown je ľahko-čitateľný značkovací jazyk, ktorý ľahko premeníš na HTML. Tento konvertor robí oboje naživo — píšeš Markdown vľavo, vidíš rendered HTML vpravo. Podporuje headings, lists, code blocks (s fenced ```), tables, images, links a inline formátovanie.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Predzobrazenie README.md pred commit-om.</li>
+  <li>Náhľad blog postu napísaného v Markdown-e.</li>
+  <li>Konverzia poznámok do HTML pre statický web.</li>
+  <li>Test, či tvoj Markdown render rovnako ako GitHub.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Markdown nie je štandardizovaný úplne.</strong> CommonMark, GFM, MultiMarkdown — rôzne sa správajú na okrajových prípadoch.</li>
+  <li><strong>Newline významnosť.</strong> Jeden newline = pokračovanie odseku; dva = nový odsek.</li>
+  <li><strong>HTML inside Markdown.</strong> Väčšina parserov ho prepúšťa — pozor na XSS pri user input-e.</li>
+  <li><strong>Code blocks.</strong> Fenced ```jazyk```` blok s názvom jazyka pre syntax highlighting v GitHub-e.</li>
+  <li><strong>Smart quotes.</strong> Niektoré renderery menia rovné úvodzovky na typografické — ak píšeš kód v texte, dávaj ho do code-block-u.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Markdown je snadno čitelný značkovací jazyk, který snadno přeměníš na HTML. Tenhle konvertor dělá obojí živě — píšeš Markdown vlevo, vidíš rendered HTML vpravo. Podporuje headings, lists, code blocks (s fenced ```), tables, images, links a inline formátování.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Předzobrazení README.md před commitem.</li>
+  <li>Náhled blog postu napsaného v Markdownu.</li>
+  <li>Konverze poznámek do HTML pro statický web.</li>
+  <li>Test, jestli tvůj Markdown rendruje stejně jako GitHub.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Markdown není zcela standardizovaný.</strong> CommonMark, GFM, MultiMarkdown — různě se chovají na okrajových případech.</li>
+  <li><strong>Newline významnost.</strong> Jeden newline = pokračování odstavce; dva = nový odstavec.</li>
+  <li><strong>HTML inside Markdown.</strong> Většina parserů ho propouští — pozor na XSS při user inputu.</li>
+  <li><strong>Code blocks.</strong> Fenced ```jazyk```` blok s názvem jazyka pro syntax highlighting v GitHubu.</li>
+  <li><strong>Smart quotes.</strong> Některé renderery mění rovné uvozovky na typografické — pokud píšeš kód v textu, dávej ho do code-blocku.</li>
 </ul>
 """,
     },

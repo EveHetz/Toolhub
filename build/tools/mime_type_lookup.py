@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pencarian MIME Type", "tagline": "Cari MIME type berdasarkan ekstensi atau type. ~120 type umum — image, video, audio, application, text, font.", "description": "Pencarian MIME type gratis. Cari MIME type per ekstensi file atau cari ekstensi per MIME type. Mencakup ~120 type umum di seluruh image, video, audio, application, text, dan font."},
         "vi": {"name": "Tra cứu MIME Type", "tagline": "Tra cứu MIME type theo phần mở rộng hoặc type. ~120 loại phổ biến — image, video, audio, application, text, font.", "description": "Tra cứu MIME type miễn phí trực tuyến. Tìm theo phần mở rộng file hoặc theo chuỗi MIME type trên ~120 loại phổ biến (image, video, audio, application, text, font). Hữu ích để cấu hình server và header Content-Type."},
         "hi": {"name": "MIME Type Lookup", "tagline": "MIME types को extension या type के अनुसार खोजें। ~120 आम types — image, video, audio, application, text, font।", "description": "मुफ़्त MIME type lookup tool. File extension (.pdf, .png, .json) या MIME type (image/jpeg, application/pdf) के द्वारा लगभग 120 आम Internet media types में खोजें।"},
+        "sk": {"name": 'MIME Type Lookup', "tagline": 'Hľadaj MIME typy podľa prípony alebo typu. ~120 bežných typov — image, video, audio, application, text, font.', "description": 'Bezplatná online MIME type referencia. Hľadaj podľa prípony (.json, .pdf) alebo MIME typu (application/json, image/png). ~120 bežných typov pokrýva image, video, audio, application, text, font.'},
+        "cs": {"name": 'MIME Type Lookup', "tagline": 'Hledej MIME typy podle přípony nebo typu. ~120 běžných typů — image, video, audio, application, text, font.', "description": 'Zdarma online MIME type reference. Hledej podle přípony (.json, .pdf) nebo MIME typu (application/json, image/png). ~120 běžných typů pokrývá image, video, audio, application, text, font.'},
     },
     "body": """
 <div class="tool-card">
@@ -464,6 +466,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong><code>application/octet-stream</code> का मतलब है "मुझे नहीं पता"।</strong> यदि आप type को control करते हैं, तो असली का उपयोग करें — browsers octet-stream content को force-download कर सकते हैं भले ही वह renderable हो।</li>
   <li><strong>Text types के लिए charset मायने रखता है।</strong> <code>Content-Type: text/html; charset=utf-8</code> — इसके बिना, browsers अनुमान लगाते हैं और कभी-कभी गलत अनुमान लगाते हैं (mojibake)।</li>
   <li><strong>Magic-byte sniffing declared type से अलग है।</strong> Browsers file contents के आधार पर <code>Content-Type</code> पर दूसरा अनुमान लगा सकते हैं (<code>X-Content-Type-Options: nosniff</code> इसे disable करता है — सुरक्षा के लिए सेट करें)।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>MIME (Multipurpose Internet Mail Extensions) types popisujú typ obsahu — <code>image/png</code>, <code>application/json</code>, <code>text/html</code>. HTTP servery ich posielajú v <code>Content-Type</code> header-i. Tento nástroj má databázu ~120 bežných typov; hľadaj podľa prípony alebo MIME typu.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Nastavenie správneho <code>Content-Type</code> v server configu (Nginx, Apache).</li>
+  <li>Validácia, či file upload posiela správny MIME.</li>
+  <li>Debug, prečo prehliadač stahuje súbor namiesto rendrovania.</li>
+  <li>Príprava <code>Accept</code> hlavičky pre API request.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Prípona ≠ obsah.</strong> Útočník môže premenovať <code>.exe</code> na <code>.jpg</code>. Server by mal MIME odvodiť z obsahu (magic bytes), nie z prípony.</li>
+  <li><strong>application/octet-stream.</strong> Generický „neviem, čo to je" fallback. Prehliadač stiahne ako súbor.</li>
+  <li><strong>charset parameter.</strong> <code>text/html; charset=UTF-8</code> — bez toho prehliadač háda encoding.</li>
+  <li><strong>JSON je application/json,</strong> nie <code>text/json</code> (aj keď niektoré servery vracajú text/json).</li>
+  <li><strong>Vendor types.</strong> <code>application/vnd.api+json</code> (JSON:API), <code>application/ld+json</code> (JSON-LD) — sú špecializované.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>MIME (Multipurpose Internet Mail Extensions) types popisují typ obsahu — <code>image/png</code>, <code>application/json</code>, <code>text/html</code>. HTTP servery je posílají v <code>Content-Type</code> headeru. Tenhle nástroj má databázi ~120 běžných typů; hledej podle přípony nebo MIME typu.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Nastavení správného <code>Content-Type</code> v server configu (Nginx, Apache).</li>
+  <li>Validace, jestli file upload posílá správný MIME.</li>
+  <li>Debug, proč prohlížeč stahuje soubor místo renderování.</li>
+  <li>Příprava <code>Accept</code> hlavičky pro API request.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Přípona ≠ obsah.</strong> Útočník může přejmenovat <code>.exe</code> na <code>.jpg</code>. Server by měl MIME odvodit z obsahu (magic bytes), ne z přípony.</li>
+  <li><strong>application/octet-stream.</strong> Generický „nevím, co to je" fallback. Prohlížeč stáhne jako soubor.</li>
+  <li><strong>charset parameter.</strong> <code>text/html; charset=UTF-8</code> — bez toho prohlížeč hádá encoding.</li>
+  <li><strong>JSON je application/json,</strong> ne <code>text/json</code> (i když některé servery vrací text/json).</li>
+  <li><strong>Vendor types.</strong> <code>application/vnd.api+json</code> (JSON:API), <code>application/ld+json</code> (JSON-LD) — jsou specializované.</li>
 </ul>
 """,
     },

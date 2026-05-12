@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Konverter Zona Waktu", "tagline": "Konversi tanggal dan waktu antara zona waktu IANA. Lihat offset, status DST, dan hari dalam minggu untuk kedua ujung.", "description": "Konverter zona waktu gratis. Konversi waktu apa pun antara zona waktu IANA (Asia/Jakarta, America/New_York, Europe/London, dll). Menampilkan offset UTC, status DST, dan hari dalam minggu untuk zona sumber dan zona target."},
         "vi": {"name": "Chuyển đổi Múi giờ", "tagline": "Chuyển ngày-giờ giữa các múi giờ IANA. Xem offset, trạng thái DST và thứ trong tuần cho cả hai đầu.", "description": "Bộ chuyển múi giờ miễn phí trực tuyến. Chuyển bất kỳ ngày-giờ nào giữa các múi giờ IANA, hiển thị UTC offset, trạng thái DST và thứ trong tuần cho cả múi giờ nguồn và đích."},
         "hi": {"name": "Time Zone Converter", "tagline": "IANA time zones के बीच एक date और time को बदलें। दोनों छोरों के लिए offsets, DST status, और weekday देखें।", "description": "मुफ़्त ऑनलाइन time zone converter। DST awareness के साथ किसी भी IANA time zones के बीच बदलें। आम zones से या आपके browser द्वारा supported ~400+ में से किसी भी zone चुनें।"},
+        "sk": {"name": 'Konvertor časových zón', "tagline": 'Preveď dátum a čas medzi IANA časovými zónami. Pozri offsety, DST status a weekday pre oba konce.', "description": 'Bezplatný online konvertor časových zón. Preveď dátum a čas medzi akýmikoľvek IANA časovými zónami. Ukáže offset, DST status a deň v týždni pre zdroj aj cieľ.'},
+        "cs": {"name": 'Konvertor časových pásem', "tagline": 'Převeď datum a čas mezi IANA časovými pásmy. Podívej se na offsety, DST status a weekday pro oba konce.', "description": 'Zdarma online konvertor časových pásem. Převeď datum a čas mezi jakýmikoli IANA časovými pásmy. Ukáže offset, DST status a den v týdnu pro zdroj i cíl.'},
     },
     "body": """
 <div class="tool-card">
@@ -384,6 +386,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>देश abbreviations zones नहीं हैं।</strong> "EST" अस्पष्ट है (US vs Australian); "IST" का मतलब Indian, Irish, या Israeli हो सकता है। हमेशा IANA zone चुनें, abbreviation नहीं।</li>
   <li><strong>ऐतिहासिक सटीकता</strong> आधुनिक युग के लिए अच्छी है पर बहुत पुरानी dates के लिए टूट जाती है। 1970 पूर्व के timestamps कुछ browsers में अनुमानित offsets का इस्तेमाल कर सकते हैं।</li>
   <li><strong>Dates को संग्रहित करना: हमेशा UTC का इस्तेमाल करें।</strong> Display time पर convert करें। Output में UTC line आपको अपने database में लिखने के लिए canonical value देती है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Preveď dátum a čas medzi akýmikoľvek dvomi IANA časovými zónami (napr. <code>Europe/Bratislava</code> ↔ <code>America/New_York</code>). Ukáže ti offset, DST status a deň v týždni pre zdroj aj cieľ. Užitočné pri organizovaní meetingu s tímom na druhej strane planéty.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Plánovanie video meetingu s kolegami z iného kontinentu.</li>
+  <li>Sledovanie, kedy spustí scheduled job na serveri v inej TZ.</li>
+  <li>Konverzia rezervácie / letu medzi destinačnými TZ.</li>
+  <li>Debug, prečo tvoj cron beží o hodinu skôr v marci.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>IANA vs. abbreviation.</strong> Použij <code>Europe/Bratislava</code>, nie <code>CET</code>. Abbreviation môže byť ambiguous (CST = Central Standard Time aj China Standard Time).</li>
+  <li><strong>DST.</strong> Letný čas pridáva/uberá hodinu. Slovensko: marec/október, USA: marec/november — nie rovnako.</li>
+  <li><strong>UTC nemá DST.</strong> Použij UTC pre log timestamps a scheduling.</li>
+  <li><strong>Historické zmeny.</strong> Niektoré krajiny zmenili TZ rules — IANA databáza ich pozná.</li>
+  <li><strong>Half-hour offset.</strong> India je UTC+5:30, Nepál UTC+5:45. Nie všetky TZ sú celých hodín.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Převeď datum a čas mezi jakýmikoli dvěma IANA časovými pásmy (např. <code>Europe/Prague</code> ↔ <code>America/New_York</code>). Ukáže ti offset, DST status a den v týdnu pro zdroj i cíl. Užitečné při plánování meetingu s týmem na druhé straně planety.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Plánování video meetingu s kolegy z jiného kontinentu.</li>
+  <li>Sledování, kdy spustí scheduled job na serveru v jiné TZ.</li>
+  <li>Konverze rezervace / letu mezi destinačními TZ.</li>
+  <li>Debug, proč tvůj cron běží o hodinu dřív v březnu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>IANA vs. abbreviation.</strong> Použij <code>Europe/Prague</code>, ne <code>CET</code>. Abbreviation může být ambiguous (CST = Central Standard Time i China Standard Time).</li>
+  <li><strong>DST.</strong> Letní čas přidává/ubírá hodinu. Česko: březen/říjen, USA: březen/listopad — ne stejně.</li>
+  <li><strong>UTC nemá DST.</strong> Použij UTC pro log timestamps a scheduling.</li>
+  <li><strong>Historické změny.</strong> Některé země změnily TZ rules — IANA databáze je zná.</li>
+  <li><strong>Half-hour offset.</strong> Indie je UTC+5:30, Nepál UTC+5:45. Ne všechny TZ jsou celých hodin.</li>
 </ul>
 """,
     },

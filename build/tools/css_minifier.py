@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "CSS Minifier", "tagline": "Strip komentar, whitespace, dan redundansi dari CSS. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "CSS minifier gratis. Strip komentar, whitespace, dan stylesheet kosong dari CSS-mu. Lihat ukuran sebelum/sesudah dan persen byte yang dihemat — semuanya di browser-mu."},
         "vi": {"name": "CSS Minifier", "tagline": "Bỏ comment, whitespace và phần dư thừa khỏi CSS. Xem kích thước trước/sau và phần trăm tiết kiệm.", "description": "CSS minifier miễn phí trực tuyến. Bỏ comment và whitespace, hợp nhất các quy tắc và hiển thị tiết kiệm byte. Chạy hoàn toàn trong trình duyệt."},
         "hi": {"name": "CSS Minifier", "tagline": "CSS से comments, whitespace और redundancy हटाएं। पहले/बाद का साइज़ और बचत प्रतिशत देखें।", "description": "मुफ़्त ऑनलाइन CSS minifier। comments हटाता है, whitespace को संक्षिप्त करता है, trailing semicolons और zero units को trim करता है। compression ratio दिखाता है।"},
+        "sk": {"name": 'CSS Minifier', "tagline": 'Odstráň komentáre, whitespace a redundanciu z CSS. Pozri si veľkosť pred/po a percento úspory.', "description": 'Bezplatný online CSS minifier. Odstráni komentáre, whitespace a redundantné medzery a stredníky. Zobrazí veľkosť pred a po a percento úspory. Beží v prehliadači.'},
+        "cs": {"name": 'CSS Minifier', "tagline": 'Odstraň komentáře, whitespace a redundanci z CSS. Podívej se na velikost před/po a procento úspory.', "description": 'Zdarma online CSS minifier. Odstraní komentáře, whitespace a redundantní mezery a středníky. Zobrazí velikost před a po a procento úspory. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -340,6 +342,46 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>Source maps generate नहीं होते।</strong> यदि आप production में minified CSS को debug करते हैं, तो उन्हें अलग से ship करें।</li>
   <li><strong>commit की गई CSS को minify न करें।</strong> Pretty source commit करें; build/deploy पर minify करें। दोनों को mix करने से diff review कष्टदायक हो जाता है।</li>
   <li><strong>Modern compression प्रमुख है।</strong> wire पर Brotli/gzip वही करता है जो minification करता है का बहुत कुछ। सबसे बड़ी बचत unused rules को हटाने से आती है — यह tree-shaking का काम है, minification का नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>CSS minifier zoberie čitateľný CSS a vyhodí všetko, čo prehliadač nepotrebuje — komentáre, whitespace, koncové stredníky, prebytočné medzery. Výstup je menší súbor, ktorý rýchlejšie tečie po sieti a rýchlejšie sa parsuje.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pri deploye statickej stránky bez build pipeline (rovno minifikuj a uploaduj).</li>
+  <li>Inlineovanie CSS do <code>&lt;style&gt;</code> tagu, kde každý byte ide cez wire pri každom načítaní stránky.</li>
+  <li>Rýchla one-off optimalizácia 3rd-party CSS, ktoré dostaneš nezminifikované.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Strata komentárov.</strong> Aj komentáre s licenciami sa stratia — pre tieto použij <code>/*! ... */</code> a špecializovaný minifier (cssnano), nie tento.</li>
+  <li><strong>Žiadne sémantické optimalizácie.</strong> Tento nástroj nezlučuje selectory ani neoptimalizuje shorthand-y — robí len whitespace minify.</li>
+  <li><strong>Gzip ti dá viac.</strong> Minify šetrí ~20–30 %, gzip pridáva ďalších 70–80 %. Vždy nasaď oba.</li>
+  <li><strong>Source maps.</strong> Pri ladení produkčného CSS chceš source map — tento minifier ich negeneruje.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>CSS minifier vezme čitelné CSS a vyhodí všechno, co prohlížeč nepotřebuje — komentáře, whitespace, koncové středníky, přebytečné mezery. Výstup je menší soubor, který rychleji teče po síti a rychleji se parsuje.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Při deployi statické stránky bez build pipeline (rovnou minifikuj a uploaduj).</li>
+  <li>Inlinování CSS do <code>&lt;style&gt;</code> tagu, kde každý byte jde po wire při každém načtení stránky.</li>
+  <li>Rychlá one-off optimalizace 3rd-party CSS, které dostaneš nezminifikované.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Ztráta komentářů.</strong> I komentáře s licencemi se ztratí — pro ty použij <code>/*! ... */</code> a specializovaný minifier (cssnano), ne tenhle.</li>
+  <li><strong>Žádné sémantické optimalizace.</strong> Tenhle nástroj neslučuje selektory ani neoptimalizuje shorthand-y — dělá jen whitespace minify.</li>
+  <li><strong>Gzip ti dá víc.</strong> Minify šetří ~20–30 %, gzip přidává dalších 70–80 %. Vždy nasaď oba.</li>
+  <li><strong>Source maps.</strong> Při ladění produkčního CSS chceš source map — tenhle minifier je negeneruje.</li>
 </ul>
 """,
     },

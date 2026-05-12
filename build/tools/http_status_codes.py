@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kode Status HTTP", "tagline": "Cari kode status HTTP apa pun (1xx–5xx). Maknanya, alasan umum, dan referensi RFC.", "description": "Referensi kode status HTTP gratis. Cari kode status apa pun (1xx informational, 2xx success, 3xx redirect, 4xx client error, 5xx server error) dengan maknanya, alasan umum, dan referensi RFC."},
         "vi": {"name": "Mã trạng thái HTTP", "tagline": "Tra cứu bất kỳ mã trạng thái HTTP nào (1xx–5xx). Ý nghĩa, lý do thường gặp và tham chiếu RFC.", "description": "Tham chiếu mã trạng thái HTTP miễn phí trực tuyến. Tra cứu bất kỳ mã 1xx–5xx nào với ý nghĩa, ngữ cảnh sử dụng phổ biến và RFC định nghĩa nó. Có thể tìm kiếm."},
         "hi": {"name": "HTTP Status Codes", "tagline": "किसी भी HTTP status code (1xx–5xx) को देखें। अर्थ, सामान्य कारण, और RFC reference।", "description": "मुफ़्त HTTP status code reference। हर standard HTTP status code (100–599) को search करें, उसका अर्थ, सामान्य कारण, और जिस RFC में यह defined है वह देखें। टाइप करते समय filter करें।"},
+        "sk": {"name": 'HTTP Status kódy', "tagline": 'Vyhľadaj akýkoľvek HTTP status kód (1xx–5xx). Význam, časté príčiny a RFC referencia.', "description": 'Bezplatná referencia HTTP status kódov. Všetkých 1xx–5xx kódov s významom, typickými príčinami a RFC odkazom. Hľadaj podľa kódu alebo názvu.'},
+        "cs": {"name": 'HTTP Status kódy', "tagline": 'Vyhledej jakýkoli HTTP status kód (1xx–5xx). Význam, časté příčiny a RFC reference.', "description": 'Zdarma reference HTTP status kódů. Všech 1xx–5xx kódů s významem, typickými příčinami a RFC odkazem. Hledej podle kódu nebo názvu.'},
     },
     "body": """
 <div class="tool-card">
@@ -430,6 +432,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>200 error body के साथ "RESTful" नहीं है।</strong> यदि request resource level पर fail हुआ, तो body में error के साथ 4xx return करें।</li>
   <li><strong>418 एक joke है।</strong> production में I'm-a-teapot का उपयोग न करें — clients और proxies इसे inconsistently treat करते हैं।</li>
   <li><strong>RFC 9110, RFC 7231/7232/7233/7234/7235 का स्थान लेता है।</strong> यदि आप spec cite कर रहे हैं, तो 9110 (June 2022) का उपयोग करें जब तक आपको विशेष रूप से पुराने version की आवश्यकता न हो।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>HTTP status kódy v rozsahu 1xx–5xx popisujú výsledok HTTP requestu. 200 = OK, 404 = Not Found, 500 = Internal Server Error a tak ďalej. Tento nástroj má všetky štandardné kódy s významom, typickými príčinami a odkazom na RFC, ktorý ich definuje.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug REST API — server vracia 422, čo to znamená?</li>
+  <li>Návrh API — ktorý kód použiť pre validation error? (Hint: 400 alebo 422.)</li>
+  <li>Sanity check v load balancer / proxy configu — chápeš, čo vraciaš.</li>
+  <li>Code review PR-u, ktorý vracia 200 na všetko (nezdravé).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>200 vs. 201.</strong> 200 OK pre úspešný GET; 201 Created pre úspešný POST, ktorý vytvoril zdroj.</li>
+  <li><strong>401 vs. 403.</strong> 401 = nie si autentifikovaný; 403 = si autentifikovaný, ale nemáš oprávnenie.</li>
+  <li><strong>404 vs. 410.</strong> 404 = nenašiel som; 410 = bolo to tu, už nie je (Gone).</li>
+  <li><strong>418 I'm a teapot.</strong> Easter egg z RFC 2324 (apríl 1998). Nepoužívaj v produkcii.</li>
+  <li><strong>5xx kódy nevracaj ako 200.</strong> Klient (a CDN) sa spoľahnú, že 200 znamená úspech.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>HTTP status kódy v rozsahu 1xx–5xx popisují výsledek HTTP requestu. 200 = OK, 404 = Not Found, 500 = Internal Server Error a tak dál. Tenhle nástroj má všechny standardní kódy s významem, typickými příčinami a odkazem na RFC, který je definuje.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug REST API — server vrací 422, co to znamená?</li>
+  <li>Návrh API — který kód použít pro validation error? (Hint: 400 nebo 422.)</li>
+  <li>Sanity check v load balancer / proxy configu — chápeš, co vracíš.</li>
+  <li>Code review PR, který vrací 200 na všechno (nezdravé).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>200 vs. 201.</strong> 200 OK pro úspěšný GET; 201 Created pro úspěšný POST, který vytvořil zdroj.</li>
+  <li><strong>401 vs. 403.</strong> 401 = nejsi autentifikovaný; 403 = jsi autentifikovaný, ale nemáš oprávnění.</li>
+  <li><strong>404 vs. 410.</strong> 404 = nenašel jsem; 410 = bylo to tu, už není (Gone).</li>
+  <li><strong>418 I'm a teapot.</strong> Easter egg z RFC 2324 (apríl 1998). Nepoužívej v produkci.</li>
+  <li><strong>5xx kódy nevracej jako 200.</strong> Klient (a CDN) se spolehnou, že 200 znamená úspěch.</li>
 </ul>
 """,
     },

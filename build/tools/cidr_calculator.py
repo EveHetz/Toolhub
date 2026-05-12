@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kalkulator CIDR Subnet", "tagline": "Hitung subnet IPv4 dari notasi CIDR. Network, broadcast, mask, rentang host, dan tampilan biner.", "description": "Kalkulator CIDR / subnet IPv4 gratis. Masukkan CIDR apa pun (misal 10.0.0.0/16) dan lihat alamat network, broadcast, subnet mask, rentang host, total alamat, dan representasi biner."},
         "vi": {"name": "Máy tính CIDR Subnet", "tagline": "Tính subnet IPv4 từ notation CIDR. Network, broadcast, mask, dải host và biểu diễn nhị phân.", "description": "Máy tính CIDR / subnet IPv4 miễn phí. Nhập bất kỳ CIDR nào (ví dụ 10.0.0.0/16) và xem network address, broadcast, subnet mask, dải host, tổng số địa chỉ và biểu diễn nhị phân."},
         "hi": {"name": "CIDR Subnet कैलकुलेटर", "tagline": "CIDR notation से IPv4 subnets की गणना। Network, broadcast, mask, host range और binary view।", "description": "मुफ़्त IPv4 CIDR / subnet कैलकुलेटर। कोई भी CIDR दर्ज करें (जैसे 10.0.0.0/16) और network address, broadcast, subnet mask, host range, कुल addresses और binary representation देखें।"},
+        "sk": {"name": 'CIDR Subnet kalkulačka', "tagline": 'Vypočítaj IPv4 subnety z CIDR notácie. Network, broadcast, mask, host range a binárny pohľad.', "description": 'Bezplatná IPv4 CIDR / subnet kalkulačka. Zadaj akýkoľvek CIDR (napr. 10.0.0.0/16) a uvidíš network address, broadcast, subnet mask, host range, celkový počet adries a binárnu reprezentáciu.'},
+        "cs": {"name": 'CIDR Subnet kalkulačka', "tagline": 'Spočítej IPv4 subnety z CIDR notace. Network, broadcast, mask, host range a binární pohled.', "description": 'Zdarma IPv4 CIDR / subnet kalkulačka. Zadej jakýkoli CIDR (např. 10.0.0.0/16) a uvidíš network address, broadcast, subnet mask, host range, celkový počet adres a binární reprezentaci.'},
     },
     "body": """
 <div class="tool-card">
@@ -415,6 +417,52 @@ document.addEventListener('DOMContentLoaded', cidrRun);
   <li><strong>Class को CIDR से confuse न करें।</strong> Classes A/B/C एक legacy concept हैं (pre-1993)। एक /24 "class A" range के अंदर पड़ सकता है और यह ठीक है।</li>
   <li><strong>RFC 1918 private ranges:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>। बाकी कुछ भी publicly-routable है (या reserved है)।</li>
   <li><strong>यह tool केवल IPv4 के लिए है।</strong> IPv6 CIDR structurally समान है पर prefix /128 तक जा सकता है और address space बहुत बड़ा है; यहाँ handle नहीं किया गया।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>CIDR (Classless Inter-Domain Routing) notácia zabalí IPv4 adresu a veľkosť jej subnetu do jedného reťazca: <code>192.168.1.0/24</code> znamená „adresa 192.168.1.0 s 24-bitovým network prefixom" — tú istú sieť, čo stará maska <code>255.255.255.0</code>, len v 12 znakoch namiesto 30. Tento nástroj rozbalí akýkoľvek CIDR do ľudsky čitateľných hodnôt: ktoré adresy sú <em>v</em> subnete, broadcast, masku v dotted forme, a host range, ktorý reálne môžeš priradiť zariadeniam.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Návrh VLAN alebo VPC a zistenie, koľko hostov pojme /22 vs. /23 (1022 vs. 510).</li>
+  <li>Čítanie firewall pravidla typu <code>allow 10.42.0.0/16</code> a potvrdenie presného rozsahu.</li>
+  <li>Rozdelenie /24 na menšie subnety a kontrola, že sa hranice neprekrývajú.</li>
+  <li>Sanity-check cloud security-group pravidla pred deployom.</li>
+  <li>Prevod medzi CIDR a starou <code>255.x.x.x</code> dotted maskou v configu routera.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Usable" vylučuje network a broadcast.</strong> /24 má 256 adries, ale len 254 použiteľných pre hosty — prvá (.0) je network, posledná (.255) je broadcast.</li>
+  <li><strong>/31 a /32 sú špeciálne.</strong> /31 sa podľa RFC 3021 používa pre point-to-point linky a obe adresy sú použiteľné. /32 je jediný host (používa sa v routing entries).</li>
+  <li><strong>Adresová časť nemusí byť network address.</strong> <code>10.5.7.42/24</code> stále znamená rovnaké /24 ako <code>10.5.7.0/24</code> — záleží na dĺžke prefixu. Nástroj výstup normalizuje na network address.</li>
+  <li><strong>RFC 1918 privátne rozsahy:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Všetko ostatné je publicly-routable (alebo rezervované).</li>
+  <li><strong>Tento nástroj je len IPv4.</strong> IPv6 CIDR je štrukturálne podobné, ale prefix môže ísť až do /128.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>CIDR (Classless Inter-Domain Routing) notace zabalí IPv4 adresu a velikost jejího subnetu do jednoho řetězce: <code>192.168.1.0/24</code> znamená „adresa 192.168.1.0 s 24-bitovým network prefixem" — tutéž síť jako stará maska <code>255.255.255.0</code>, jen ve 12 znacích místo 30. Tenhle nástroj rozbalí jakýkoli CIDR do lidsky čitelných hodnot: které adresy jsou <em>v</em> subnetu, broadcast, masku v dotted formě a host range, který reálně můžeš přidělit zařízením.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Návrh VLAN nebo VPC a zjištění, kolik hostů pojme /22 vs. /23 (1022 vs. 510).</li>
+  <li>Čtení firewall pravidla typu <code>allow 10.42.0.0/16</code> a potvrzení přesného rozsahu.</li>
+  <li>Rozdělení /24 na menší subnety a kontrola, že se hranice nepřekrývají.</li>
+  <li>Sanity-check cloud security-group pravidla před deployem.</li>
+  <li>Převod mezi CIDR a starou <code>255.x.x.x</code> dotted maskou v configu routeru.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Usable" vylučuje network a broadcast.</strong> /24 má 256 adres, ale jen 254 použitelných pro hosty — první (.0) je network, poslední (.255) je broadcast.</li>
+  <li><strong>/31 a /32 jsou speciální.</strong> /31 se podle RFC 3021 používá pro point-to-point linky a obě adresy jsou použitelné. /32 je jediný host (používá se v routing entries).</li>
+  <li><strong>Adresová část nemusí být network address.</strong> <code>10.5.7.42/24</code> stále znamená stejné /24 jako <code>10.5.7.0/24</code> — záleží na délce prefixu. Nástroj výstup normalizuje na network address.</li>
+  <li><strong>RFC 1918 privátní rozsahy:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Všechno ostatní je publicly-routable (nebo rezervované).</li>
+  <li><strong>Tenhle nástroj je jen IPv4.</strong> IPv6 CIDR je strukturálně podobné, ale prefix může jít až do /128.</li>
 </ul>
 """,
     },

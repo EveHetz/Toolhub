@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Inspector Unicode", "tagline": "Tempel teks → tabel per code point. Hex, desimal, byte UTF-8, kategori. Tangkap karakter tak terlihat.", "description": "Inspector Unicode gratis. Tempel teks apa pun dan lihat tabel setiap code point dengan hex, desimal, byte UTF-8, dan kategori Unicode. Tangkap karakter tak terlihat seperti zero-width joiner dan non-breaking space."},
         "vi": {"name": "Trình kiểm tra Unicode", "tagline": "Dán văn bản → bảng theo code point. Hex, decimal, byte UTF-8, danh mục. Bắt các ký tự vô hình.", "description": "Trình kiểm tra Unicode miễn phí trực tuyến. Dán bất kỳ chuỗi nào và xem mỗi code point trong bảng với hex, decimal, byte UTF-8 và danh mục Unicode. Hữu ích để bắt các ký tự ẩn hoặc trông giống nhau."},
         "hi": {"name": "Unicode Inspector", "tagline": "टेक्स्ट पेस्ट करें → हर codepoint की तालिका। Hex, decimal, UTF-8 bytes, श्रेणी। अदृश्य अक्षरों को पहचानें।", "description": "मुफ़्त ऑनलाइन Unicode inspector। कोई भी टेक्स्ट पेस्ट करें और हर Unicode codepoint देखें: hex, decimal, UTF-8 byte क्रम, सामान्य श्रेणी और ज्ञात होने पर नाम। अदृश्य और भ्रमित करने वाले अक्षरों को हाइलाइट करता है।"},
+        "sk": {"name": 'Unicode Inspector', "tagline": 'Vlož text → tabuľka každého code pointu. Hex, decimal, UTF-8 bytes, category. Odhaľ neviditeľné znaky.', "description": 'Bezplatný online Unicode inspector. Vlož akýkoľvek text a uvidíš každý code point v tabuľke — hex, decimal, UTF-8 bytes, Unicode kategória a popis. Skvelé na odhaľovanie neviditeľných znakov.'},
+        "cs": {"name": 'Unicode Inspector', "tagline": 'Vlož text → tabulka každého code pointu. Hex, decimal, UTF-8 bytes, category. Odhal neviditelné znaky.', "description": 'Zdarma online Unicode inspector. Vlož jakýkoli text a uvidíš každý code point v tabulce — hex, decimal, UTF-8 bytes, Unicode kategorie a popis. Skvělé na odhalování neviditelných znaků.'},
     },
     "body": """
 <div class="tool-card">
@@ -534,6 +536,50 @@ document.addEventListener('DOMContentLoaded', uiRun);
   <li><strong>Right-to-left override खतरनाक हैं।</strong> U+202E वाला filename अपनी display order पलट सकता है — जिससे <code>resu&#x202E;txt.exe</code> एक file browser में <code>resuexe.txt</code> जैसा दिखता है। phishing में इस्तेमाल किया जाता है।</li>
   <li><strong>नाम column आंशिक है।</strong> एक वास्तविक Unicode database में हर codepoint के नाम होते हैं; inspector केवल control characters और सामान्य format/whitespace characters के नाम भेजता है जहां नाम सबसे उपयोगी निदान होता है।</li>
   <li><strong>Surrogate halves अकेले प्रकट नहीं होने चाहिए।</strong> यदि आप आउटपुट में U+D800–U+DFFF देखते हैं, तो input एक malformed UTF-16 string है (lone surrogate)। अधिकांश API उसे UTF-8 में encode करने से मना कर देंगे।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Vloží sa text a nástroj rozloží každý code point do tabuľky: hex, decimal, UTF-8 bajty, Unicode kategória a názov. Ideálne na odhaľovanie neviditeľných znakov (zero-width space, byte order mark, RTL override) alebo na pochopenie, prečo dva „rovnaké" reťazce nie sú rovnaké.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug, prečo regex nefunguje (možno je tam neviditeľný znak).</li>
+  <li>Audit user inputu pre confusable / homoglyph (а vs. a — cyrillic vs. latin).</li>
+  <li>Pochopenie, koľko bajtov v UTF-8 zaberá konkrétny znak.</li>
+  <li>Sanity check encoding bug-u — naozaj je to UTF-8?</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Code point ≠ glyph.</strong> Emoji s skin tone modifier-om sú dva code pointy, jeden glyph.</li>
+  <li><strong>Surrogate pairs.</strong> Code pointy nad U+FFFF v JS stringu zaberú dve „znaky" (UTF-16 surrogate pair).</li>
+  <li><strong>Normalization.</strong> <code>é</code> môže byť jeden code point alebo <code>e</code> + combining acute. NFC / NFD.</li>
+  <li><strong>BOM.</strong> Byte order mark (U+FEFF) na začiatku súboru sa občas zobrazí ako prázdny znak.</li>
+  <li><strong>Zero-width characters.</strong> ZWSP (U+200B), ZWJ (U+200D), ZWNJ (U+200C) — používajú sa pre indic skripty aj na trolling.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Vloží se text a nástroj rozloží každý code point do tabulky: hex, decimal, UTF-8 bajty, Unicode kategorie a název. Ideální na odhalování neviditelných znaků (zero-width space, byte order mark, RTL override) nebo na pochopení, proč dva „stejné" řetězce nejsou stejné.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug, proč regex nefunguje (možná tam je neviditelný znak).</li>
+  <li>Audit user inputu pro confusable / homoglyph (а vs. a — cyrilice vs. latin).</li>
+  <li>Pochopení, kolik bajtů v UTF-8 zabere konkrétní znak.</li>
+  <li>Sanity check encoding bugu — opravdu je to UTF-8?</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Code point ≠ glyph.</strong> Emoji se skin tone modifierem jsou dva code pointy, jeden glyph.</li>
+  <li><strong>Surrogate pairs.</strong> Code pointy nad U+FFFF v JS stringu zaberou dvě „znaky" (UTF-16 surrogate pair).</li>
+  <li><strong>Normalization.</strong> <code>é</code> může být jeden code point nebo <code>e</code> + combining acute. NFC / NFD.</li>
+  <li><strong>BOM.</strong> Byte order mark (U+FEFF) na začátku souboru se občas zobrazí jako prázdný znak.</li>
+  <li><strong>Zero-width characters.</strong> ZWSP (U+200B), ZWJ (U+200D), ZWNJ (U+200C) — používají se pro indické skripty i na trolling.</li>
 </ul>
 """,
     },

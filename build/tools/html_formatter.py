@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "HTML Formatter", "tagline": "Format dan beautify HTML atau minify-nya. Ukuran indent, pengupasan komentar, dan kesadaran self-closing tag.", "description": "HTML formatter gratis. Beautify HTML berantakan dengan indentasi yang tepat atau minify HTML rapi dengan menghapus whitespace dan komentar. Sadar self-closing tag dan mempertahankan konten pre/code."},
         "vi": {"name": "HTML Formatter", "tagline": "Format và làm đẹp HTML hoặc minify nó. Kích thước indent, loại bỏ comment và nhận biết self-closing tag.", "description": "HTML formatter miễn phí trực tuyến. Làm đẹp markup lộn xộn với indent có thể cấu hình, hoặc minify để loại bỏ whitespace. Self-closing tag và CSS/JS inline được xử lý đúng."},
         "hi": {"name": "HTML Formatter", "tagline": "HTML को फ़ॉर्मैट और beautify करें या minify करें। Indent size, comment stripping, और self-closing tag awareness।", "description": "मुफ़्त ऑनलाइन HTML formatter और minifier। Configurable indentation के साथ pretty-print, वैकल्पिक रूप से comments strip करें, और void/self-closing tags का सम्मान करें। पूरी तरह से आपके browser में चलता है।"},
+        "sk": {"name": 'HTML Formátovač', "tagline": 'Naformátuj a skráš HTML alebo ho minifikuj. Veľkosť indentu, strip komentárov a self-closing tagy.', "description": 'Bezplatný online HTML formátovač. Naformátuje a skráš HTML s nastaviteľným indentom alebo minifikuje na jeden riadok. Vie odstrániť komentáre a chápe self-closing tagy.'},
+        "cs": {"name": 'HTML formátovač', "tagline": 'Naformátuj a zkrášli HTML nebo ho zminifikuj. Velikost indentu, strip komentářů a self-closing tagy.', "description": 'Zdarma online HTML formátovač. Naformátuje a zkrášlí HTML s nastavitelným indentem nebo minifikuje na jeden řádek. Umí odstranit komentáře a chápe self-closing tagy.'},
     },
     "body": """
 <div class="tool-card">
@@ -533,6 +535,48 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>"Collapse whitespace" कुछ content के लिए rendered output बदलता है।</strong> दो spaces एक हो जाते हैं। यदि आपका design multiple spaces या non-breaking sequences पर निर्भर है, तो इसे off रखें।</li>
   <li><strong>HTML में self-closing notation cosmetic है।</strong> <code>&lt;br/&gt;</code> और <code>&lt;br&gt;</code> HTML5 में equivalent हैं; यह tool जो आपने लिखा वह preserve करता है।</li>
   <li><strong>Minify security boundary नहीं है।</strong> Secrets छिपाने के लिए comments strip करने पर भरोसा न करें — वे पहले से client को ship किए जा चुके हैं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Naformátuje minifikovaný alebo neusporiadaný HTML kód s konzistentným indentom, alebo naopak minifikuje (vyhodí whitespace a komentáre). Tento nástroj rozumie self-closing tagom (<code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>) a vie strip-núť komentáre.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Údržba HTML šablóny, ktorú ti niekto poslal v jednom dlhom riadku.</li>
+  <li>Príprava produkčného HTML — minifikuj na deploy.</li>
+  <li>Debug zložitého layoutu — naformátuj a uvidíš štruktúru.</li>
+  <li>Code review po prerobenom build pipeline.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Pre/textarea sú citlivé na whitespace.</strong> Pridanie newline-ov dovnútra zmení vykreslenie. Formátovač ich (ne)mal by escapovať.</li>
+  <li><strong>Inline elementy.</strong> Pridanie newline-u medzi inline elementy môže pridať medzeru, ktorá tam vizuálne nebola.</li>
+  <li><strong>Comments s podmienkami pre IE.</strong> <code>&lt;!--[if lt IE 9]--&gt;</code> sa nemajú stripnúť, ak ich potrebuješ.</li>
+  <li><strong>Žiadne sémantické zmeny.</strong> Formátovač len mení whitespace, neprestavuje atribúty ani neupravuje sémantiku.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Naformátuje minifikovaný nebo neuspořádaný HTML kód s konzistentním indentem, nebo naopak minifikuje (vyhodí whitespace a komentáře). Tenhle nástroj rozumí self-closing tagům (<code>&lt;br&gt;</code>, <code>&lt;img&gt;</code>) a umí strip-nout komentáře.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Údržba HTML šablony, kterou ti někdo poslal v jednom dlouhém řádku.</li>
+  <li>Příprava produkčního HTML — minifikuj na deploy.</li>
+  <li>Debug složitého layoutu — naformátuj a uvidíš strukturu.</li>
+  <li>Code review po předělané build pipeline.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Pre/textarea jsou citlivé na whitespace.</strong> Přidání newlinů dovnitř změní vykreslení. Formátovač by je (ne)měl escapovat.</li>
+  <li><strong>Inline elementy.</strong> Přidání newlinu mezi inline elementy může přidat mezeru, která tam vizuálně nebyla.</li>
+  <li><strong>Comments s podmínkami pro IE.</strong> <code>&lt;!--[if lt IE 9]--&gt;</code> se nemají stripovat, pokud je potřebuješ.</li>
+  <li><strong>Žádné sémantické změny.</strong> Formátovač jen mění whitespace, nepřeskupuje atributy ani neupravuje sémantiku.</li>
 </ul>
 """,
     },

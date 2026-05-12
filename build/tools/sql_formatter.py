@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "SQL Formatter", "tagline": "Format dan beautify SQL dengan indentasi yang tepat, atau minify ke satu baris. Sadar dialek (ANSI / MySQL / Postgres).", "description": "SQL formatter gratis. Beautify SQL berantakan dengan indentasi dan baris baru yang tepat, atau minify ke satu baris. Sadar dialek untuk ANSI SQL, MySQL, PostgreSQL, dan SQLite. Berjalan di browser-mu."},
         "vi": {"name": "SQL Formatter", "tagline": "Format và làm đẹp SQL với indent thích hợp, hoặc minify thành một dòng. Có nhận biết phương ngữ (ANSI / MySQL / Postgres).", "description": "SQL formatter miễn phí trực tuyến. Làm đẹp truy vấn SQL với indent thích hợp hoặc minify thành một dòng. Hỗ trợ phương ngữ ANSI, MySQL và Postgres với từ khóa và quy tắc của chúng."},
         "hi": {"name": "SQL Formatter", "tagline": "SQL को उचित indentation के साथ फ़ॉर्मैट और सुंदर बनाएं, या एक line में minify करें। Dialect-aware (ANSI / MySQL / Postgres)।", "description": "मुफ़्त ऑनलाइन SQL formatter। किसी भी SELECT/INSERT/UPDATE/DDL को सुसंगत indentation, keyword casing, और clause alignment के साथ pretty-print करता है। एक line में minify भी करता है। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'SQL Formátovač', "tagline": 'Naformátuj a skráš SQL so správnym odsadením, alebo zminifikuj na jeden riadok. Dialect-aware (ANSI / MySQL / Postgres).', "description": 'Bezplatný online SQL formátovač. Naformátuje a skráš SQL queries so správnym indentom alebo minifikuje na jeden riadok. Pozná ANSI, MySQL a Postgres syntaxiu.'},
+        "cs": {"name": 'SQL formátovač', "tagline": 'Naformátuj a zkrášli SQL se správným odsazením, nebo zminifikuj na jeden řádek. Dialect-aware (ANSI / MySQL / Postgres).', "description": 'Zdarma online SQL formátovač. Naformátuje a zkrášlí SQL queries se správným indentem nebo minifikuje na jeden řádek. Zná ANSI, MySQL a Postgres syntaxi.'},
     },
     "body": """
 <div class="tool-card">
@@ -589,6 +591,50 @@ document.addEventListener('DOMContentLoaded', sfRun);
   <li><strong>Comments बचे रहते हैं पर अपनी lines पर अलग हो जाते हैं।</strong> यदि आपके पास एक <code>-- inline comment</code> mid-line था, तो वह pretty-print के दौरान अपनी line पर चला जाएगा।</li>
   <li><strong>Minify comments को हटा देता है।</strong> यदि आपको इनकी ज़रूरत है, minify न करें।</li>
   <li><strong>यह एक linter नहीं है।</strong> CI में validation, style enforcement, और dialect checking के लिए एक वास्तविक SQL parser (जैसे <code>sqlfluff</code>) का इस्तेमाल करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Naformátuje SQL query so správnym indentom a zalamovaním riadkov, alebo naopak minifikuje na jeden riadok. Tento nástroj rozumie základným SQL dialektom (ANSI, MySQL, Postgres) a kľúčové slová prevádza na uppercase pre konzistentnosť.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>SQL query, ktoré ti dal niekto v jednom dlhom riadku — chceš ho prečítať.</li>
+  <li>Code review SQL z PR-u — naformátovaný sa lepšie hodnotí.</li>
+  <li>Príprava query do dokumentácie alebo wiki.</li>
+  <li>Minify pre embedded SQL v aplikačnom kóde.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Dialect.</strong> ANSI SQL je base; MySQL, Postgres, MSSQL majú vlastné rozšírenia. Formátovač môže nevedieť konkrétne vendor-specific syntax.</li>
+  <li><strong>Stringy a komentáre.</strong> Formátovač nemení obsah <code>'string'</code> alebo <code>-- comment</code>.</li>
+  <li><strong>Subquery vs. CTE.</strong> CTE (<code>WITH x AS (...)</code>) sú často čitateľnejšie než nested subqueries.</li>
+  <li><strong>Joins.</strong> <code>JOIN ON</code> sa zvyčajne odsadzuje rovnako ako FROM.</li>
+  <li><strong>Nesúvisí s performance.</strong> Formátovanie nemení execution plan; len čitateľnosť.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Naformátuje SQL query se správným indentem a zalamováním řádků, nebo naopak zminifikuje na jeden řádek. Tenhle nástroj rozumí základním SQL dialektům (ANSI, MySQL, Postgres) a klíčová slova převádí na uppercase pro konzistenci.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>SQL query, které ti dal někdo v jednom dlouhém řádku — chceš ho přečíst.</li>
+  <li>Code review SQL z PR — naformátovaný se lépe hodnotí.</li>
+  <li>Příprava query do dokumentace nebo wiki.</li>
+  <li>Minify pro embedded SQL v aplikačním kódu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Dialect.</strong> ANSI SQL je base; MySQL, Postgres, MSSQL mají vlastní rozšíření. Formátovač nemusí znát konkrétní vendor-specific syntaxi.</li>
+  <li><strong>Stringy a komentáře.</strong> Formátovač nemění obsah <code>'string'</code> nebo <code>-- comment</code>.</li>
+  <li><strong>Subquery vs. CTE.</strong> CTE (<code>WITH x AS (...)</code>) jsou často čitelnější než nested subqueries.</li>
+  <li><strong>Joins.</strong> <code>JOIN ON</code> se obvykle odsazuje stejně jako FROM.</li>
+  <li><strong>Nesouvisí s performance.</strong> Formátování nemění execution plan; jen čitelnost.</li>
 </ul>
 """,
     },

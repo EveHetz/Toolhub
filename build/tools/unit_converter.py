@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Konverter Satuan", "tagline": "Konversi antara satuan metrik dan imperial untuk panjang, berat, suhu, volume, dan luas.", "description": "Konverter satuan gratis. Konversi antara satuan metrik dan imperial untuk panjang (mm, cm, m, km, in, ft, yd, mi), berat (g, kg, oz, lb), suhu (°C, °F, K), volume, dan luas."},
         "vi": {"name": "Chuyển đổi Đơn vị", "tagline": "Chuyển giữa đơn vị mét và imperial cho chiều dài, trọng lượng, nhiệt độ, thể tích và diện tích.", "description": "Bộ chuyển đổi đơn vị miễn phí trực tuyến giữa hệ mét và imperial cho chiều dài, trọng lượng, nhiệt độ, thể tích và diện tích. Xử lý các đơn vị thường dùng (mét/feet, kg/lb, °C/°F, lít/gallon, m²/ft²) với độ chính xác đầy đủ."},
         "hi": {"name": "Unit Converter", "tagline": "लंबाई, वजन, तापमान, आयतन और क्षेत्रफल की metric और imperial इकाइयों के बीच बदलें।", "description": "मुफ़्त ऑनलाइन unit converter। लंबाई (mm, cm, m, km, in, ft, yd, mi), वजन (g, kg, lb, oz), तापमान (C, F, K), आयतन (mL, L, gal, fl oz) और क्षेत्रफल (m², ft², acre, ha) को बदलें।"},
+        "sk": {"name": 'Konvertor jednotiek', "tagline": 'Preveď medzi metric a imperial jednotkami dĺžky, hmotnosti, teploty, objemu a plochy.', "description": 'Bezplatný online konvertor jednotiek. Preveď medzi metric a imperial jednotkami — dĺžka, hmotnosť, teplota, objem a plocha. Beží v prehliadači, bez registrácie.'},
+        "cs": {"name": 'Konvertor jednotek', "tagline": 'Převeď mezi metric a imperial jednotkami délky, hmotnosti, teploty, objemu a plochy.', "description": 'Zdarma online konvertor jednotek. Převeď mezi metric a imperial jednotkami — délka, hmotnost, teplota, objem a plocha. Běží v prohlížeči, bez registrace.'},
     },
     "body": """
 <div class="tool-card">
@@ -460,6 +462,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>द्रव्यमान बनाम भार।</strong> कड़ाई से, kg द्रव्यमान है और pound भी द्रव्यमान है (बोलचाल "मेरा वजन 70 kg है" के बावजूद)। टूल इसे mass-to-mass रूपांतरण के रूप में मानता है। बल (newtons, pound-force) के लिए आपको एक अलग श्रेणी की आवश्यकता है।</li>
   <li><strong>अंत में round करें, बीच में नहीं।</strong> m → ft बदलें, round करें, फिर ft → in न करें — errors जमा हो जाएंगी। सीधे target unit पर जाएं।</li>
   <li><strong>Stones &amp; pounds।</strong> एक ब्रिटिश वजन: 1 stone = 14 lb। टूल में stone (st) है लेकिन आपको "11 st 4 lb"-शैली प्रविष्टियों के लिए lb भाग अलग से करना होगा।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Preveď medzi metric a imperial jednotkami v piatich kategóriách: dĺžka, hmotnosť, teplota, objem a plocha. Užitočné, keď čítaš americký recept (cup, oz, °F) alebo BS spec (feet, miles) a chceš to v EU jednotkách (alebo naopak).</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Recept v cups / oz, ktorý chceš variť v gramoch.</li>
+  <li>Manuál v palcoch / stopách (zariadenie, hardware) ako mm / cm.</li>
+  <li>Teplota: 350 °F = ? °C (rúra na pečenie).</li>
+  <li>Plánovanie cesty, kde diaľnica v UK je v míľach, v EU v km.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>°C vs. °F.</strong> 0 °C ≠ 0 °F. Vzorec: F = C × 9/5 + 32; C = (F - 32) × 5/9.</li>
+  <li><strong>US gallon ≠ UK gallon.</strong> US = 3,785 L; Imperial = 4,546 L. Pozor pri spotrebe paliva (MPG).</li>
+  <li><strong>Ounce: hmotnosť vs. objem.</strong> Fluid ounce (objem) ≠ ounce (hmotnosť). V receptoch dôležité.</li>
+  <li><strong>Pound vs. stone.</strong> 1 stone = 14 lb = ~6,35 kg. UK používa stone pre váhu osoby.</li>
+  <li><strong>Tona.</strong> Metric ton (1000 kg), short ton (US, ~907 kg), long ton (UK, ~1016 kg).</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Převeď mezi metric a imperial jednotkami v pěti kategoriích: délka, hmotnost, teplota, objem a plocha. Užitečné, když čteš americký recept (cup, oz, °F) nebo BS spec (feet, miles) a chceš to v EU jednotkách (nebo naopak).</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Recept v cups / oz, který chceš vařit v gramech.</li>
+  <li>Manuál v palcích / stopách (zařízení, hardware) jako mm / cm.</li>
+  <li>Teplota: 350 °F = ? °C (trouba na pečení).</li>
+  <li>Plánování cesty, kde dálnice v UK je v mílích, v EU v km.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>°C vs. °F.</strong> 0 °C ≠ 0 °F. Vzorec: F = C × 9/5 + 32; C = (F - 32) × 5/9.</li>
+  <li><strong>US gallon ≠ UK gallon.</strong> US = 3,785 L; Imperial = 4,546 L. Pozor při spotřebě paliva (MPG).</li>
+  <li><strong>Ounce: hmotnost vs. objem.</strong> Fluid ounce (objem) ≠ ounce (hmotnost). V receptech důležité.</li>
+  <li><strong>Pound vs. stone.</strong> 1 stone = 14 lb = ~6,35 kg. UK používá stone pro váhu osoby.</li>
+  <li><strong>Tuna.</strong> Metric ton (1000 kg), short ton (US, ~907 kg), long ton (UK, ~1016 kg).</li>
 </ul>
 """,
     },

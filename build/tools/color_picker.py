@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pemilih Warna", "tagline": "Pilih warna; lihat HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK secara instan. Atur opasitas dan salin nilai yang kamu butuhkan.", "description": "Pemilih warna online gratis. Pilih warna apa pun dan lihat instan dalam HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK. Atur opasitas, salin nilai mana pun dengan satu klik."},
         "vi": {"name": "Chọn Màu", "tagline": "Chọn một màu; xem HEX, RGB, RGBA, HSL, HSLA, HSV và CMYK ngay lập tức. Điều chỉnh opacity và sao chép giá trị bạn cần.", "description": "Công cụ chọn màu trực tuyến miễn phí. Chọn bất kỳ màu nào và sao chép giá trị của nó trong HEX, RGB, RGBA, HSL, HSLA, HSV hoặc CMYK với hỗ trợ alpha. Chạy hoàn toàn trong trình duyệt."},
         "hi": {"name": "Color Picker", "tagline": "एक color चुनें; उसे HEX, RGB, RGBA, HSL, HSLA, HSV और CMYK में तुरंत देखें। Opacity adjust करें और किसी भी value को copy करें।", "description": "मुफ़्त ऑनलाइन color picker। HEX, RGB(A), HSL(A), HSV और CMYK के बीच live preview, opacity slider और copy buttons के साथ convert करें।"},
+        "sk": {"name": 'Color Picker', "tagline": 'Vyber farbu a okamžite ju uvidíš v HEX, RGB, RGBA, HSL, HSLA, HSV a CMYK. Uprav opacity a skopíruj akúkoľvek hodnotu.', "description": 'Bezplatný online color picker. Vyber farbu vizuálne a uvidíš ju v HEX, RGB, RGBA, HSL, HSLA, HSV a CMYK formátoch. Uprav opacity a kopíruj jednotlivé hodnoty. Funguje v prehliadači.'},
+        "cs": {"name": 'Color Picker', "tagline": 'Vyber barvu a okamžitě ji uvidíš v HEX, RGB, RGBA, HSL, HSLA, HSV a CMYK. Uprav opacity a zkopíruj jakoukoli hodnotu.', "description": 'Zdarma online color picker. Vyber barvu vizuálně a uvidíš ji v HEX, RGB, RGBA, HSL, HSLA, HSV a CMYK formátech. Uprav opacity a kopíruj jednotlivé hodnoty. Funguje v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -289,6 +291,48 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>HSL hue degrees में है।</strong> 0 = red, 120 = green, 240 = blue। CSS <code>turn</code>, <code>rad</code>, <code>grad</code> भी accept करता है पर यहाँ output degrees में है।</li>
   <li><strong>CMYK conversion naive है।</strong> Real print को ICC profile चाहिए (rendering intent के साथ sRGB → CMYK)। इस tool का output brand-deck mockups के लिए ठीक है, press-ready files के लिए नहीं।</li>
   <li><strong>OKLCH और OKLAB</strong> (modern perceptually-uniform spaces) यहाँ नहीं दिखाए गए — वे नए हैं और अभी broadly supported नहीं। Design system tooling के लिए फिलहाल HSL/HSV पर ही रहें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Color picker je vizuálny nástroj na výber farby zo spektra. Pohybuješ kurzorom v 2D ploche a po hue slideri, a okamžite vidíš farbu vo všetkých bežných CSS formátoch (HEX, RGB, RGBA, HSL, HSLA, HSV, CMYK). Skopíruj akúkoľvek hodnotu jedným klikom.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Dizajn brand farieb od nuly — chceš vidieť, čo vyzerá dobre.</li>
+  <li>Doladenie odtieňa, ktorý ti niekto dal cez screenshot.</li>
+  <li>Test priehľadnosti pomocou alpha kanála.</li>
+  <li>Príprava palety pre logo, web alebo prezentáciu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>HSV vs. HSL.</strong> HSV je hue/saturation/value, HSL je hue/saturation/lightness — sú podobné, ale nie totožné. V CSS sa používa HSL.</li>
+  <li><strong>CMYK je pre tlač.</strong> Na obrazovke uvidíš RGB approximáciu; reálne CMYK farby vyžadujú profilovaný printer.</li>
+  <li><strong>Alpha 0 = úplne priehľadná.</strong> Alpha 1 = úplne nepriehľadná.</li>
+  <li><strong>Hex s alfou (8 znakov)</strong> nepodporujú všetky staré prehliadače; v moderných je v poriadku.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Color picker je vizuální nástroj na výběr barvy ze spektra. Pohybuješ kurzorem v 2D ploše a po hue slideru, a okamžitě vidíš barvu ve všech běžných CSS formátech (HEX, RGB, RGBA, HSL, HSLA, HSV, CMYK). Zkopíruj jakoukoli hodnotu jedním klikem.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Design brand barev od nuly — chceš vidět, co vypadá dobře.</li>
+  <li>Doladění odstínu, který ti někdo dal přes screenshot.</li>
+  <li>Test průhlednosti pomocí alpha kanálu.</li>
+  <li>Příprava palety pro logo, web nebo prezentaci.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>HSV vs. HSL.</strong> HSV je hue/saturation/value, HSL je hue/saturation/lightness — jsou podobné, ale ne totožné. V CSS se používá HSL.</li>
+  <li><strong>CMYK je pro tisk.</strong> Na obrazovce uvidíš RGB aproximaci; reálné CMYK barvy vyžadují profilovaný printer.</li>
+  <li><strong>Alpha 0 = úplně průhledná.</strong> Alpha 1 = úplně neprůhledná.</li>
+  <li><strong>Hex s alfou (8 znaků)</strong> nepodporují všechny staré prohlížeče; v moderních je v pořádku.</li>
 </ul>
 """,
     },

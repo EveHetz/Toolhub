@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Generator Kode QR", "tagline": "Hasilkan kode QR untuk teks, URL, Wi-Fi, atau vCard apa pun. Ukuran custom, warna, dan koreksi error. Export sebagai PNG atau SVG.", "description": "Generator kode QR online gratis. Hasilkan kode QR untuk URL, teks, Wi-Fi, vCard, email, telepon, dan SMS. Ukuran, warna, level error correction yang dapat dikonfigurasi. Export PNG atau SVG. Berjalan offline di browser-mu."},
         "vi": {"name": "Tạo Mã QR", "tagline": "Tạo mã QR cho bất kỳ văn bản, URL, Wi-Fi hoặc vCard nào. Kích thước tùy chỉnh, màu và mức sửa lỗi. Xuất dưới dạng PNG hoặc SVG.", "description": "Trình tạo mã QR miễn phí trực tuyến. Encode văn bản, URL, thông tin đăng nhập Wi-Fi hoặc vCard thành mã QR có thể xuất dưới dạng PNG hoặc SVG với màu và mức sửa lỗi tùy chỉnh."},
         "hi": {"name": "QR Code Generator", "tagline": "किसी भी text, URL, Wi-Fi, या vCard के लिए QR code बनाएं। कस्टम size, रंग, और error correction। PNG या SVG में export करें।", "description": "मुफ़्त ऑनलाइन QR code generator। कस्टम size, foreground/background रंग, error correction levels। PNG या SVG के रूप में download करें। कोई watermark नहीं।"},
+        "sk": {"name": 'Generátor QR kódu', "tagline": 'Vygeneruj QR kódy pre akýkoľvek text, URL, Wi-Fi alebo vCard. Veľkosť, farby a error correction. Export PNG alebo SVG.', "description": 'Bezplatný online QR kód generátor. Vytvor QR pre text, URL, Wi-Fi credentials alebo vCard. Nastav veľkosť, farby a level error correction. Export do PNG alebo SVG.'},
+        "cs": {"name": 'Generátor QR kódu', "tagline": 'Vygeneruj QR kódy pro jakýkoli text, URL, Wi-Fi nebo vCard. Velikost, barvy a error correction. Export PNG nebo SVG.', "description": 'Zdarma online QR kód generátor. Vytvoř QR pro text, URL, Wi-Fi credentials nebo vCard. Nastav velikost, barvy a level error correction. Export do PNG nebo SVG.'},
     },
     "body": """
 <div class="tool-card">
@@ -332,6 +334,50 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
   <li><strong>लंबी content denser code को मजबूर करती है।</strong> यदि आपको 200-character URL encode करना है, तो परिणामी code dense है और दूर से scan करना मुश्किल। यदि size मायने रखता है तो पहले redirect के माध्यम से छोटा करें।</li>
   <li><strong>SVG vs PNG।</strong> SVG बिना quality loss के scale होता है — print या बड़े displays के लिए सबसे अच्छा। PNG सार्वभौमिक रूप से स्वीकृत है पर scale up करने पर pixelate होता है; उस size पर export करें जिस पर आप इस्तेमाल करेंगे।</li>
   <li><strong>Wi-Fi preset format।</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — आधुनिक iOS/Android scan करते हैं और automatically join करते हैं; बहुत पुराने phones शायद support न करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>QR kód je 2D barcode, ktorý uloží do ~3 KB ľubovoľný text. Tento nástroj generuje QR pre text, URL, Wi-Fi credentials (SSID + password v štandardnom formáte), alebo vCard kontakt. Export do PNG alebo SVG s nastaviteľnou veľkosťou, farbami a error correction level.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Tlač na vizitku, plagát, štítok produktu.</li>
+  <li>Wi-Fi access pre hostí (skenuje sa, zariadenie sa pripojí).</li>
+  <li>Linkovanie z print / offline materiálov na online stránku.</li>
+  <li>Kontakt vCard, ktorý sa po naskenovaní pridá do telefónu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Error correction level.</strong> L (7 %), M (15 %), Q (25 %), H (30 %). Vyšší = väčší kód, ale viac toleruje poškriabanie / čiastočné zakrytie.</li>
+  <li><strong>Kontrast.</strong> Tmavé moduly na svetlom pozadí. Inverzné (svetlé na tmavom) sa nezvyknú skenovať.</li>
+  <li><strong>Tichá zóna.</strong> Okolo QR musí byť aspoň 4-modulová prázdna oblasť.</li>
+  <li><strong>Minimálna veľkosť.</strong> Skenovanie z 30 cm = ~2 cm × 2 cm; z auta = väčšie.</li>
+  <li><strong>Wi-Fi formát.</strong> Štandard: <code>WIFI:T:WPA;S:mysid;P:mypass;;</code></li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>QR kód je 2D barcode, který uloží do ~3 KB libovolný text. Tenhle nástroj generuje QR pro text, URL, Wi-Fi credentials (SSID + password ve standardním formátu), nebo vCard kontakt. Export do PNG nebo SVG s nastavitelnou velikostí, barvami a error correction level.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Tisk na vizitku, plakát, štítek produktu.</li>
+  <li>Wi-Fi access pro hosty (skenuje se, zařízení se připojí).</li>
+  <li>Linkování z print / offline materiálů na online stránku.</li>
+  <li>Kontakt vCard, který se po naskenování přidá do telefonu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Error correction level.</strong> L (7 %), M (15 %), Q (25 %), H (30 %). Vyšší = větší kód, ale víc toleruje poškrábání / částečné zakrytí.</li>
+  <li><strong>Kontrast.</strong> Tmavé moduly na světlém pozadí. Inverzní (světlé na tmavém) se obvykle nezeskenují.</li>
+  <li><strong>Tichá zóna.</strong> Kolem QR musí být aspoň 4modulová prázdná oblast.</li>
+  <li><strong>Minimální velikost.</strong> Skenování z 30 cm = ~2 cm × 2 cm; z auta = větší.</li>
+  <li><strong>Wi-Fi formát.</strong> Standard: <code>WIFI:T:WPA;S:mysid;P:mypass;;</code></li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Hash Generator", "tagline": "Hash teks dengan SHA-1, SHA-256, SHA-384, atau SHA-512 menggunakan WebCrypto browser. Dihitung lokal — input tidak pernah meninggalkan halaman.", "description": "Hash generator gratis. Hitung digest SHA-1, SHA-256, SHA-384, dan SHA-512 untuk teks atau file apa pun menggunakan WebCrypto browser. Semuanya berjalan lokal — input tidak pernah meninggalkan perangkatmu."},
         "vi": {"name": "Tạo Hash", "tagline": "Hash văn bản với SHA-1, SHA-256, SHA-384 hoặc SHA-512 bằng WebCrypto của trình duyệt. Tính cục bộ — đầu vào không bao giờ rời khỏi trang.", "description": "Trình tạo hash miễn phí trực tuyến hỗ trợ SHA-1, SHA-256, SHA-384 và SHA-512. Sử dụng API WebCrypto của trình duyệt — đầu vào của bạn không bao giờ rời khỏi thiết bị."},
         "hi": {"name": "Hash Generator", "tagline": "अपने browser के WebCrypto का उपयोग करके text को SHA-1, SHA-256, SHA-384 या SHA-512 से hash करें। Locally compute होता है — input page से बाहर नहीं जाता।", "description": "मुफ़्त ऑनलाइन hash generator। WebCrypto के माध्यम से SHA-1, SHA-256, SHA-384, SHA-512। Hex output, copy-friendly। पूरी तरह से आपके browser में चलता है।"},
+        "sk": {"name": 'Hash generátor', "tagline": 'Zhashuj text pomocou SHA-1, SHA-256, SHA-384 alebo SHA-512 cez WebCrypto v prehliadači. Počíta sa lokálne — vstup nikdy neopustí stránku.', "description": 'Bezplatný online hash generátor. Vytvor SHA-1, SHA-256, SHA-384 alebo SHA-512 hash z textu pomocou WebCrypto API. Všetko beží lokálne v prehliadači — vstup nikdy nikam neodíde.'},
+        "cs": {"name": 'Hash generátor', "tagline": 'Zahashuj text pomocí SHA-1, SHA-256, SHA-384 nebo SHA-512 přes WebCrypto v prohlížeči. Počítá se lokálně — vstup nikdy neopustí stránku.', "description": 'Zdarma online hash generátor. Vytvoř SHA-1, SHA-256, SHA-384 nebo SHA-512 hash z textu pomocí WebCrypto API. Vše běží lokálně v prohlížeči — vstup nikdy nikam neodejde.'},
     },
     "body": """
 <div class="tool-card">
@@ -245,6 +247,48 @@ document.addEventListener('DOMContentLoaded', hRun);
   <li><strong>Passwords को raw SHA-256 से hash न करें।</strong> Plain SHA fast है — यह attackers को brute-force करने में मदद करता है। Password storage के लिए slow KDF (Argon2id, bcrypt, scrypt) का उपयोग करें।</li>
   <li><strong>MD5 जानबूझकर अनुपस्थित है।</strong> 2000 के दशक की शुरुआत से broken है। जहां भी आप MD5 की "जरूरत" समझते हैं, वहां security review भी flag करें।</li>
   <li><strong>Whitespace मायने रखता है।</strong> एक trailing newline बिना उसके वही text की तुलना में अलग hash produce करता है। Hex output को सटीक रूप से compare करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Hash funkcia premení ľubovoľne dlhý vstup na fixed-size „odtlačok". Rovnaký vstup vždy dá rovnaký hash; akákoľvek zmena vstupu produkuje úplne iný hash. Tento nástroj počíta SHA-1, SHA-256, SHA-384 a SHA-512 cez WebCrypto API priamo v tvojom prehliadači — text nikdy neopustí stránku.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Overenie integrity stiahnutého súboru (porovnaj SHA-256 s tým, čo je na stránke).</li>
+  <li>Zhasovanie hesla pred poslaním? <strong>Nie — to robí backend s salt + bcrypt/argon2.</strong></li>
+  <li>Cache key z obsahu (content-addressable storage).</li>
+  <li>Sanity-check, že dva texty sú identické, bez ich porovnávania znak po znaku.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>MD5 a SHA-1 sú broken.</strong> Pre security použij SHA-256 alebo silnejšie. SHA-1 ešte občas pre git commit hash (rieši to SHA-256-aware git).</li>
+  <li><strong>Hash hesla bez salt-u je zlý nápad.</strong> Useri majú slabé heslá a rainbow tables existujú. Použij bcrypt / argon2 / scrypt.</li>
+  <li><strong>SHA-256 NIE JE šifrovanie.</strong> Nedá sa „dehashovať" — je jednosmerná. Šifrovanie je dvojsmerné.</li>
+  <li><strong>UTF-8 encoding.</strong> Hash bajtov, nie znakov — uistite sa, že encoding je rovnaký na oboch koncoch.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Hash funkce promění libovolně dlouhý vstup na fixed-size „otisk". Stejný vstup vždy dá stejný hash; jakákoli změna vstupu produkuje úplně jiný hash. Tenhle nástroj počítá SHA-1, SHA-256, SHA-384 a SHA-512 přes WebCrypto API přímo v tvém prohlížeči — text nikdy neopustí stránku.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Ověření integrity stáhnutého souboru (porovnej SHA-256 s tím, co je na stránce).</li>
+  <li>Hashování hesla před posláním? <strong>Ne — to dělá backend s salt + bcrypt/argon2.</strong></li>
+  <li>Cache key z obsahu (content-addressable storage).</li>
+  <li>Sanity-check, že dva texty jsou identické, bez jejich porovnávání znak po znaku.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>MD5 a SHA-1 jsou broken.</strong> Pro security použij SHA-256 nebo silnější. SHA-1 ještě občas pro git commit hash (řeší to SHA-256-aware git).</li>
+  <li><strong>Hash hesla bez salt-u je špatný nápad.</strong> Uživatelé mají slabá hesla a rainbow tables existují. Použij bcrypt / argon2 / scrypt.</li>
+  <li><strong>SHA-256 NENÍ šifrování.</strong> Nedá se „dehashovat" — je jednosměrná. Šifrování je obousměrné.</li>
+  <li><strong>UTF-8 encoding.</strong> Hash bajtů, ne znaků — ujisti se, že encoding je stejný na obou koncích.</li>
 </ul>
 """,
     },

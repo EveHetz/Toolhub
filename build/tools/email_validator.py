@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Validator Email", "tagline": "Cek apakah alamat email valid secara sintaks (RFC 5322-compliant); mengurai local part, domain, dan kesalahan umum.", "description": "Validator email gratis. Cek apakah alamat email valid secara sintaks per RFC 5322 dan urai local part, domain, dan TLD. Menandai typo umum (gmial.com, gmal.com) dan domain yang kemungkinan typo."},
         "vi": {"name": "Xác thực Email", "tagline": "Kiểm tra xem một địa chỉ email có hợp lệ về cú pháp không (tuân thủ RFC 5322); phân tích phần local, domain và các lỗi thường gặp.", "description": "Trình xác thực email miễn phí trực tuyến. Kiểm tra xem một địa chỉ có cú pháp hợp lệ theo RFC 5322 không, tách phần local và domain, và đánh dấu các vấn đề thường gặp như khoảng trắng, ký tự không hợp lệ hoặc TLD bị thiếu."},
         "hi": {"name": "Email Validator", "tagline": "जांचें कि एक email address syntactically valid है या नहीं (RFC 5322 friendly), local part, domain और सामान्य pitfalls के breakdown के साथ।", "description": "मुफ़्त ऑनलाइन email validator। RFC 5322-aware syntax check, local-part और domain analysis, disposable-domain hint, और length verification।"},
+        "sk": {"name": 'Email validátor', "tagline": 'Skontroluj, či je e-mailová adresa syntakticky správna (RFC 5322 friendly), s rozborom local part, domény a častých nástrah.', "description": 'Bezplatný online email validátor. Overí syntax e-mailovej adresy podľa RFC 5322 friendly pravidiel, rozloží local part a doménu a upozorní na časté nástrahy (tečka na konci, neplatné znaky atď.).'},
+        "cs": {"name": 'Email validátor', "tagline": 'Zkontroluj, jestli je e-mailová adresa syntakticky správná (RFC 5322 friendly), s rozborem local part, domény a častých nástrah.', "description": 'Zdarma online email validátor. Ověří syntaxi e-mailové adresy podle RFC 5322 friendly pravidel, rozloží local part a doménu a upozorní na časté nástrahy (tečka na konci, neplatné znaky atd.).'},
     },
     "body": """
 <div class="tool-card">
@@ -299,6 +301,48 @@ document.addEventListener('DOMContentLoaded', evRun);
   <li><strong>Internationalised email (IDN)।</strong> <code>用户@例.中国</code> technically RFC 6530 के अनुसार valid है लेकिन SMTP servers द्वारा अभी broadly supported नहीं है। यह tool conservative ASCII rules का पालन करता है; यदि आपको वास्तव में IDN चाहिए तो loosen करें।</li>
   <li><strong>Disposable-domain detection केवल hint है।</strong> List आवश्यक रूप से अधूरी है और कोई भी flagged domain अभी भी एक वास्तविक user हो सकता है।</li>
   <li><strong>Case differences को reject न करें।</strong> RFC 5321 के अनुसार local parts technically case-sensitive हैं; practice में हर modern provider उन्हें case-insensitive treat करता है। Storage में lowercase न करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Email validator skontroluje, či zadaná adresa zodpovedá RFC 5322 friendly syntaxi. Rozdelí adresu na local part (pred <code>@</code>) a doménu (za <code>@</code>) a upozorní na časté chyby: chýbajúce <code>@</code>, dvojitá tečka, nevalidné znaky, doména bez TLD.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pre-flight kontrola e-mailu, ktorý chceš ďalej spracovať.</li>
+  <li>Triedenie zoznamu kontaktov — vyhodenie zjavne pokazených adries.</li>
+  <li>Debug regex-u na e-mail validáciu, ktorý práve píšeš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Syntakticky platné ≠ existuje.</strong> Skutočná validácia vyžaduje MX lookup alebo poslať e-mail s potvrdzovacím odkazom.</li>
+  <li><strong>RFC 5322 je veľmi permissive.</strong> Validné sú aj kuriozity ako <code>"a b c"@example.com</code>. V praxi to nikto neposlal.</li>
+  <li><strong>Plus aliasing.</strong> <code>user+tag@example.com</code> je validné a smeruje na <code>user@</code>.</li>
+  <li><strong>Unicode v doméne.</strong> IDN (Internationalized Domain Names) sú validné: <code>xn--p1ai</code> punycode alebo <code>президент.рф</code> Unicode.</li>
+  <li><strong>Konečná bodka.</strong> <code>user@example.com.</code> (s trailing dot) je technicky FQDN, ale väčšina aplikácií to neakceptuje.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Email validator zkontroluje, jestli zadaná adresa odpovídá RFC 5322 friendly syntaxi. Rozdělí adresu na local part (před <code>@</code>) a doménu (za <code>@</code>) a upozorní na časté chyby: chybějící <code>@</code>, dvojitá tečka, nevalidní znaky, doména bez TLD.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Pre-flight kontrola e-mailu, který chceš dále zpracovat.</li>
+  <li>Třídění seznamu kontaktů — vyhození zjevně pokažených adres.</li>
+  <li>Debug regexu na e-mail validaci, který právě píšeš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Syntakticky platné ≠ existuje.</strong> Skutečná validace vyžaduje MX lookup nebo poslat e-mail s potvrzovacím odkazem.</li>
+  <li><strong>RFC 5322 je velmi permissive.</strong> Validní jsou i kuriozity jako <code>"a b c"@example.com</code>. V praxi to nikdo neposlal.</li>
+  <li><strong>Plus aliasing.</strong> <code>user+tag@example.com</code> je validní a směřuje na <code>user@</code>.</li>
+  <li><strong>Unicode v doméně.</strong> IDN (Internationalized Domain Names) jsou validní: <code>xn--p1ai</code> punycode nebo <code>президент.рф</code> Unicode.</li>
+  <li><strong>Koncová tečka.</strong> <code>user@example.com.</code> (s trailing dot) je technicky FQDN, ale většina aplikací to neakceptuje.</li>
 </ul>
 """,
     },

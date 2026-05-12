@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Konverter Basis Angka", "tagline": "Konversi antara biner, oktal, desimal, heksadesimal, dan basis 2 sampai 36.", "description": "Konverter basis angka gratis. Konversi antara biner (basis-2), oktal (basis-8), desimal (basis-10), heksadesimal (basis-16), dan basis arbitrer 2 sampai 36. Pengubah basis-N umum untuk programmer."},
         "vi": {"name": "Chuyển đổi Hệ cơ số", "tagline": "Chuyển giữa nhị phân, bát phân, thập phân, thập lục phân và các hệ cơ số 2 đến 36.", "description": "Bộ chuyển đổi hệ cơ số miễn phí trực tuyến. Chuyển bất kỳ số nào giữa nhị phân, bát phân, thập phân, thập lục phân và các hệ cơ số 2 đến 36. Bao gồm hỗ trợ số âm."},
         "hi": {"name": "Number Base Converter", "tagline": "Binary, octal, decimal, hexadecimal, और 2 से 36 तक किसी भी base के बीच बदलें।", "description": "मुफ़्त ऑनलाइन number base converter. Binary, octal, decimal, hex, और 2-36 तक के arbitrary bases के बीच बदलें। BigInt के माध्यम से negative numbers और बड़े integers को handle करता है।"},
+        "sk": {"name": 'Konvertor číselnej sústavy', "tagline": 'Preveď medzi binárkou, oktálkou, decimálkou, hexa a akoukoľvek sústavou od 2 do 36.', "description": 'Bezplatný online konvertor číselných sústav. Preveď čísla medzi binárkou (base 2), oktálkou (base 8), decimálkou (base 10), hexadecimálkou (base 16) a akoukoľvek sústavou od 2 do 36.'},
+        "cs": {"name": 'Konvertor číselné soustavy', "tagline": 'Převeď mezi binárkou, oktálkou, decimálkou, hexa a jakoukoli soustavou od 2 do 36.', "description": 'Zdarma online konvertor číselných soustav. Převeď čísla mezi binárkou (base 2), oktálkou (base 8), decimálkou (base 10), hexadecimálkou (base 16) a jakoukoli soustavou od 2 do 36.'},
     },
     "body": """
 <div class="tool-card">
@@ -391,6 +393,50 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>यहाँ बड़ी संख्याएँ precision नहीं खोतीं।</strong> JavaScript <code>Number</code> 2<sup>53</sup> पर रुकता है; यह टूल <code>BigInt</code> का उपयोग करता है, इसलिए 64-bit integers, बड़े hashes, और crypto values सभी exact रूप से round-trip होते हैं।</li>
   <li><strong>Base को case के साथ confuse न करें।</strong> Base-16 letters upper या lower हो सकते हैं; टूल दोनों को accept करता है और uppercase emit करता है। Base-32 / base-36 outputs convention के अनुसार lowercase हैं।</li>
   <li><strong>Leading zeros गिरा दिए जाते हैं।</strong> <code>0x000F</code> बन जाता है <code>F</code>। यदि आपको fixed-width hex चाहिए (जैसे byte representations के लिए), तो बाद में अपने code में pad करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Číslo môžeš zapísať v rôznych sústavách: binárka (0/1), oktálka (0–7), decimálka (0–9), hexa (0–9, a–f) — a všetky medzitým (2 až 36, kde po 10 nasledujú písmená). Tento konvertor preloží číslo z jednej sústavy do druhej v jednom kroku.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug binárneho protokolu, kde dostávaš bajty v hexa.</li>
+  <li>Práca s file permissions v Unixe (oktálka 755 = rwxr-xr-x).</li>
+  <li>Bitwise operations — pozri si, ako bity vyzerajú binárne.</li>
+  <li>Convert hex farby na decimálne RGB hodnoty komponentov.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Prefix.</strong> <code>0x</code> = hex, <code>0b</code> = binárka, <code>0o</code> = oktálka. Bez prefixu sa predpokladá decimálka.</li>
+  <li><strong>Veľké čísla.</strong> JavaScript number má presnosť ~53 bitov; pre väčšie použij BigInt.</li>
+  <li><strong>Záporné čísla.</strong> Two's complement reprezentácia záporných čísel v binárke závisí od šírky (8/16/32/64-bit).</li>
+  <li><strong>Case-sensitivity.</strong> Hex môže byť <code>FF</code> aj <code>ff</code> — obe sú validné, 255.</li>
+  <li><strong>Leading zeros.</strong> V JS literále <code>0123</code> bola kedysi oktálka; v strict mode chyba.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Číslo můžeš zapsat v různých soustavách: binárka (0/1), oktálka (0–7), decimálka (0–9), hexa (0–9, a–f) — a všechny mezitím (2 až 36, kde po 10 následují písmena). Tenhle konvertor přeloží číslo z jedné soustavy do druhé v jednom kroku.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug binárního protokolu, kde dostáváš bajty v hexa.</li>
+  <li>Práce s file permissions v Unixu (oktálka 755 = rwxr-xr-x).</li>
+  <li>Bitwise operations — podívej se, jak bity vypadají binárně.</li>
+  <li>Konverze hex barvy na decimální RGB hodnoty komponent.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Prefix.</strong> <code>0x</code> = hex, <code>0b</code> = binárka, <code>0o</code> = oktálka. Bez prefixu se předpokládá decimálka.</li>
+  <li><strong>Velká čísla.</strong> JavaScript number má přesnost ~53 bitů; pro větší použij BigInt.</li>
+  <li><strong>Záporná čísla.</strong> Two's complement reprezentace záporných čísel v binárce závisí na šířce (8/16/32/64-bit).</li>
+  <li><strong>Case-sensitivity.</strong> Hex může být <code>FF</code> i <code>ff</code> — obě jsou validní, 255.</li>
+  <li><strong>Leading zeros.</strong> V JS literálu <code>0123</code> byla kdysi oktálka; v strict mode chyba.</li>
 </ul>
 """,
     },

@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "JWT Decoder", "tagline": "Tempel JWT, decode header dan payload. Semua decoding terjadi di browser-mu — token tidak pernah meninggalkan halaman.", "description": "JWT decoder gratis. Tempel JSON Web Token apa pun dan lihat header dan payload yang di-decode dengan format yang dapat dibaca. Semua decoding lokal — token tidak pernah dikirim ke server kami atau server mana pun."},
         "vi": {"name": "JWT Decoder", "tagline": "Dán một JWT, decode header và payload. Toàn bộ decode xảy ra trong trình duyệt — token không bao giờ rời khỏi trang.", "description": "JWT decoder miễn phí trực tuyến. Dán token và xem header, payload và claim được giải mã. Toàn bộ decode chạy trong trình duyệt — token không bao giờ rời khỏi thiết bị của bạn."},
         "hi": {"name": "JWT Decoder", "tagline": "एक JWT paste करें ताकि उसके header और payload को decode किया जा सके। सारा decoding आपके browser में चलता है — tokens कभी page नहीं छोड़ते।", "description": "मुफ़्त ऑनलाइन JSON Web Token decoder. Header और payload decode करें, expiry timestamps की पुष्टि करें, signature का निरीक्षण करें। आपके browser में पूरी तरह offline काम करता है।"},
+        "sk": {"name": 'JWT Decoder', "tagline": 'Vlož JWT a dekóduj jeho header a payload. Celé dekódovanie beží v prehliadači — tokeny nikdy neopustia stránku.', "description": 'Bezplatný online JWT decoder. Vlož JSON Web Token a dekóduje jeho header a payload do čitateľnej JSON formy. Beží lokálne — token nikdy neopustí prehliadač.'},
+        "cs": {"name": 'JWT Decoder', "tagline": 'Vlož JWT a dekóduj jeho header a payload. Celé dekódování běží v prohlížeči — tokeny nikdy neopustí stránku.', "description": 'Zdarma online JWT decoder. Vlož JSON Web Token a dekóduje jeho header a payload do čitelné JSON podoby. Běží lokálně — token nikdy neopustí prohlížeč.'},
     },
     "body": """
 <div class="tool-card">
@@ -392,6 +394,50 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>Production tokens कहीं भी paste न करें।</strong> Live JWT वाला कोई भी व्यक्ति <code>exp</code> तक user की पहचान धारण कर सकता है। Browser इसे इस टूल से transmit नहीं करता, लेकिन extensions, screen-recordings, और dev tools कर सकते हैं। यदि आपको साझा करना है तो test environment से एक fresh token का उपयोग करें।</li>
   <li><strong><code>alg: none</code> tokens एक ज्ञात attack class हैं।</strong> यदि किसी header में <code>alg: none</code> है और आपकी library इसे accept करती है, तो हमलावर tokens forge कर सकते हैं। इसे server पर reject करें।</li>
   <li><strong>Time skew मायने रखता है।</strong> Token का <code>exp</code> verifier की घड़ी के विरुद्ध check किया जाता है। Drift वाले servers ऐसे tokens fail कर देते हैं जो यहाँ valid दिखते हैं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>JWT (JSON Web Token) je trojica base64url-encoded častí oddelených bodkami: <code>header.payload.signature</code>. Tento nástroj rozdelí token, dekóduje header a payload a zobrazí ich ako čitateľný JSON. Beží lokálne — tvoj token nikdy neopustí prehliadač.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug auth flow — chceš vidieť, čo presne backend posiela v JWT.</li>
+  <li>Kontrola, kedy token expiruje (<code>exp</code> claim).</li>
+  <li>Ladenie OIDC / OAuth identity flow.</li>
+  <li>Audit, či token obsahuje žiadne PII, ktoré by tam nemali byť.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>JWT NIE je šifrovaný.</strong> Payload je len base64url-encoded JSON — ktokoľvek vie dekódovať. NIKDY do JWT nevkladaj heslá ani tajomstvá.</li>
+  <li><strong>Tento decoder neoveruje podpis.</strong> Na to potrebuješ public key a knižnicu (jose, jsonwebtoken).</li>
+  <li><strong>Algoritmus „none".</strong> Bezpečnostná diera v starých implementáciách — nikdy neakceptuj.</li>
+  <li><strong>Expiry je v sekundách Unix epoch.</strong> Nie milisekundách. Pozri <code>exp</code> claim cez timestamp converter.</li>
+  <li><strong>Token z URL.</strong> Base64url v URL: pozor na URL-encoded <code>%</code> escape pri kopírovaní.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>JWT (JSON Web Token) je trojice base64url-encoded částí oddělených tečkami: <code>header.payload.signature</code>. Tenhle nástroj rozdělí token, dekóduje header a payload a zobrazí je jako čitelný JSON. Běží lokálně — tvůj token nikdy neopustí prohlížeč.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug auth flow — chceš vidět, co přesně backend posílá v JWT.</li>
+  <li>Kontrola, kdy token expiruje (<code>exp</code> claim).</li>
+  <li>Ladění OIDC / OAuth identity flow.</li>
+  <li>Audit, jestli token neobsahuje žádné PII, které by tam být neměly.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>JWT NENÍ šifrovaný.</strong> Payload je jen base64url-encoded JSON — kdokoli umí dekódovat. NIKDY do JWT nevkládej hesla ani tajemství.</li>
+  <li><strong>Tenhle decoder neověřuje podpis.</strong> Na to potřebuješ public key a knihovnu (jose, jsonwebtoken).</li>
+  <li><strong>Algoritmus „none".</strong> Bezpečnostní díra ve starých implementacích — nikdy neakceptuj.</li>
+  <li><strong>Expiry je v sekundách Unix epoch.</strong> Ne milisekundách. Podívej se na <code>exp</code> claim přes timestamp converter.</li>
+  <li><strong>Token z URL.</strong> Base64url v URL: pozor na URL-encoded <code>%</code> escape při kopírování.</li>
 </ul>
 """,
     },

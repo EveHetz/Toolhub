@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Editor Tabel Markdown", "tagline": "Edit tabel secara visual — baris, kolom, alignment per kolom — dan salin Markdown yang kompatibel dengan GitHub.", "description": "Editor tabel Markdown gratis. Edit tabel di antarmuka spreadsheet, atur alignment kolom, tambah/hapus baris dan kolom, dan dapatkan Markdown GFM siap-tempel. Tempel CSV/TSV untuk import cepat."},
         "vi": {"name": "Trình chỉnh sửa Bảng Markdown", "tagline": "Chỉnh sửa bảng trực quan — hàng, cột, căn lề theo cột — và sao chép Markdown tương thích GitHub.", "description": "Trình chỉnh sửa bảng Markdown miễn phí trực tuyến. Thêm/bớt hàng và cột, đặt căn lề theo cột, chỉnh sửa nội dung cell, và sao chép Markdown sẵn-dùng tương thích GitHub."},
         "hi": {"name": "Markdown Table Editor", "tagline": "एक table को visual रूप से edit करें — rows, columns, हर column के लिए alignment — और GitHub-flavoured Markdown copy करें।", "description": "मुफ़्त ऑनलाइन Markdown table editor. Edit करने के लिए cells पर click करें, rows और columns जोड़ें/हटाएं, हर column के लिए alignment सेट करें, और GitHub-flavoured Markdown output copy करें। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'Markdown Table Editor', "tagline": 'Edituj tabuľku vizuálne — riadky, stĺpce, alignment per column — a skopíruj GitHub-flavoured Markdown.', "description": 'Bezplatný online Markdown table editor. Edituj riadky a stĺpce vizuálne, nastav alignment pre každý stĺpec a skopíruj GitHub-flavoured Markdown ready-to-paste.'},
+        "cs": {"name": 'Markdown Table Editor', "tagline": 'Edituj tabulku vizuálně — řádky, sloupce, alignment per column — a zkopíruj GitHub-flavoured Markdown.', "description": 'Zdarma online Markdown table editor. Edituj řádky a sloupce vizuálně, nastav alignment pro každý sloupec a zkopíruj GitHub-flavoured Markdown ready-to-paste.'},
     },
     "body": """
 <div class="tool-card">
@@ -502,6 +504,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>पहली row को हमेशा header के रूप में treat किया जाता है।</strong> GFM tables में अनिवार्य header होता है। यदि आपके data में natural header नहीं है, तो row 1 में blank cells का उपयोग करें।</li>
   <li><strong>कुछ Markdown flavours GFM से अधिक सख्त हैं।</strong> CommonMark स्वयं tables को परिभाषित नहीं करता; GFM, MultiMarkdown, और विभिन्न अन्य सभी थोड़े-थोड़े अलग variants का समर्थन करते हैं। यहाँ output GFM (GitHub, GitLab, अधिकांश आधुनिक renderers) को target करता है।</li>
   <li><strong>एक unformatted CSV paste करना काम नहीं करेगा।</strong> "Import" textarea एक Markdown table (<code>|---|</code> separator के साथ) की अपेक्षा करता है। CSV → Markdown के लिए, पहले CSV-to-JSON टूल का उपयोग करें या rows को हाथ से paste करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>GitHub-flavoured Markdown podporuje tabuľky, ale ručne ich písať (s alignment pipe-mi a dashes) je únavné. Tento editor ti dá grid, kde edituješ bunky, pridávaš/odoberáš riadky a stĺpce, nastavuješ alignment per column — a výstup je ready-to-paste Markdown.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>README.md, ktorý potrebuje porovnávaciu tabuľku.</li>
+  <li>GitHub issue alebo PR description s tabuľkou.</li>
+  <li>Príprava tabuľky pre dokumentačnú stránku v MkDocs / Docusaurus.</li>
+  <li>Konverzia mentálneho zoznamu na štruktúrovanú tabuľku.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Alignment pipe-y.</strong> <code>:---</code> ľavo, <code>---:</code> vpravo, <code>:---:</code> stred. Bez týchto je default ľavo.</li>
+  <li><strong>Pipe vnútri bunky.</strong> Musíš ho escapovať: <code>\|</code>. Inak parser rozbije bunku.</li>
+  <li><strong>Linebreak vnútri bunky.</strong> Markdown bunky nemôžu obsahovať skutočný newline. Použij <code>&lt;br&gt;</code>.</li>
+  <li><strong>Veľmi široké tabuľky.</strong> GFM tabuľky nesúrolujú; preteká cez stránku.</li>
+  <li><strong>Renderer differs.</strong> Niektoré Markdown enginy nepodporujú alignment alebo HTML v bunkách.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>GitHub-flavoured Markdown podporuje tabulky, ale ručně je psát (s alignment pipy a dashes) je únavné. Tenhle editor ti dá grid, kde edituješ buňky, přidáváš/odebíráš řádky a sloupce, nastavuješ alignment per column — a výstup je ready-to-paste Markdown.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>README.md, který potřebuje porovnávací tabulku.</li>
+  <li>GitHub issue nebo PR description s tabulkou.</li>
+  <li>Příprava tabulky pro dokumentační stránku v MkDocs / Docusaurus.</li>
+  <li>Konverze mentálního seznamu na strukturovanou tabulku.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Alignment pipy.</strong> <code>:---</code> vlevo, <code>---:</code> vpravo, <code>:---:</code> střed. Bez těchto je default vlevo.</li>
+  <li><strong>Pipe uvnitř buňky.</strong> Musíš ho escapovat: <code>\|</code>. Jinak parser rozbije buňku.</li>
+  <li><strong>Linebreak uvnitř buňky.</strong> Markdown buňky nemůžou obsahovat skutečný newline. Použij <code>&lt;br&gt;</code>.</li>
+  <li><strong>Velmi široké tabulky.</strong> GFM tabulky nescrollují; přetéká přes stránku.</li>
+  <li><strong>Renderer differs.</strong> Některé Markdown enginy nepodporují alignment nebo HTML v buňkách.</li>
 </ul>
 """,
     },

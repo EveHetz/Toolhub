@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Password Generator", "tagline": "Password acak yang kuat atau passphrase yang mudah diingat. Dihasilkan lokal — tidak pernah dikirim ke mana pun.", "description": "Password generator online gratis. Buat password acak kuat atau passphrase yang mudah diingat menggunakan CSPRNG browser. Panjang dan kelas karakter yang dapat dikonfigurasi. Berjalan lokal — password tidak pernah meninggalkan perangkatmu."},
         "vi": {"name": "Tạo Mật khẩu", "tagline": "Mật khẩu ngẫu nhiên mạnh hoặc passphrase dễ nhớ. Được tạo cục bộ — không bao giờ được gửi đi.", "description": "Trình tạo mật khẩu miễn phí trực tuyến. Tạo mật khẩu mạnh hoặc passphrase dễ nhớ với độ dài và loại ký tự có thể cấu hình. Dùng crypto.getRandomValues của trình duyệt — không có gì được gửi đi đâu cả."},
         "hi": {"name": "Password Generator", "tagline": "मजबूत random password या याद रखने योग्य passphrase। लोकल बनते हैं — कहीं भेजे नहीं जाते।", "description": "मुफ़्त ऑनलाइन सुरक्षित password generator। कस्टम character नियम, passphrase mode, और batch generation। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'Generátor hesla', "tagline": 'Silné náhodné heslá alebo zapamätateľné passphrase. Generujú sa lokálne — nikam sa neposielajú.', "description": 'Bezplatný online generátor hesiel. Vytvor silné náhodné heslá alebo zapamätateľné passphrase pomocou crypto-secure RNG. Beží len v prehliadači — heslá nikdy nikam neodídu.'},
+        "cs": {"name": 'Generátor hesla', "tagline": 'Silná náhodná hesla nebo zapamatovatelné passphrase. Generují se lokálně — nikam se neposílají.', "description": 'Zdarma online generátor hesel. Vytvoř silná náhodná hesla nebo zapamatovatelné passphrase pomocí crypto-secure RNG. Běží jen v prohlížeči — hesla nikdy nikam neodejdou.'},
     },
     "body": """
 <div class="tool-card">
@@ -480,6 +482,50 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>बने हुए password बिना सुरक्षा के न लिखें।</strong> password manager (1Password, Bitwarden, KeePass) का उपयोग करें — Notes app नहीं, text file नहीं, email draft नहीं।</li>
   <li><strong>लंबा &gt; जटिल।</strong> सिर्फ़ lowercase अक्षरों वाला 24-character password हर symbol class वाले 10-character password से अधिक entropy रखता है। लंबाई जीतती है।</li>
   <li><strong>Site-specific नियम copy-paste तोड़ सकते हैं।</strong> कुछ sites विशिष्ट symbols मना करते हैं या लंबाई 16 तक सीमित करते हैं। परेशान करने वाला पर वास्तविक — बनाएं, फिर ज़रूरत हो तो trim/swap करें (और असली stored password अपने manager में रखें)।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Vygeneruje silné náhodné heslo (alebo zapamätateľnú passphrase z viacerých slov) pomocou crypto-secure RNG. Beží len v prehliadači — heslá nikdy nikam neodídu. Nastav dĺžku, abecedu (veľké, malé, číslice, špeciálne znaky) alebo počet slov v passphrase.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Vytvorenie hesla pre nový účet — radšej generuj než vymýšľaj.</li>
+  <li>Rotácia hesla, ktoré možno uniklo (Have I Been Pwned).</li>
+  <li>Generovanie databázových credentials, API kľúčov, dev passwords.</li>
+  <li>Passphrase pre disk encryption (BitLocker, FileVault, LUKS), ktorú si naozaj zapamätáš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Math.random nestačí.</strong> Tento nástroj používa Web Crypto API. Bežné <code>Math.random()</code> nie je bezpečné.</li>
+  <li><strong>Dĺžka &gt; komplexnosť.</strong> 20-znakové heslo z lowercase je silnejšie než 8-znakové s mixed case.</li>
+  <li><strong>Passphrase je často lepšia.</strong> Zapamätáš si „correct horse battery staple" ľahšie než <code>X#k9!Pq</code>.</li>
+  <li><strong>Heslo nikde neukladaj.</strong> Použij password manager (1Password, Bitwarden, KeePass).</li>
+  <li><strong>2FA &gt; silné heslo.</strong> Aj najsilnejšie heslo je nepoužiteľné, ak ti unikne. 2FA pridáva druhú vrstvu.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Vygeneruje silné náhodné heslo (nebo zapamatovatelnou passphrase z více slov) pomocí crypto-secure RNG. Běží jen v prohlížeči — hesla nikdy nikam neodejdou. Nastav délku, abecedu (velká, malá, číslice, speciální znaky) nebo počet slov v passphrase.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Vytvoření hesla pro nový účet — raději generuj než vymýšlej.</li>
+  <li>Rotace hesla, které možná uniklo (Have I Been Pwned).</li>
+  <li>Generování databázových credentials, API klíčů, dev passwords.</li>
+  <li>Passphrase pro disk encryption (BitLocker, FileVault, LUKS), kterou si opravdu zapamatuješ.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Math.random nestačí.</strong> Tenhle nástroj používá Web Crypto API. Běžné <code>Math.random()</code> není bezpečné.</li>
+  <li><strong>Délka &gt; komplexnost.</strong> 20znakové heslo z lowercase je silnější než 8znakové s mixed case.</li>
+  <li><strong>Passphrase je často lepší.</strong> Zapamatuješ si „correct horse battery staple" snadněji než <code>X#k9!Pq</code>.</li>
+  <li><strong>Heslo nikde neukládej.</strong> Použij password manager (1Password, Bitwarden, KeePass).</li>
+  <li><strong>2FA &gt; silné heslo.</strong> I nejsilnější heslo je nepoužitelné, pokud ti unikne. 2FA přidává druhou vrstvu.</li>
 </ul>
 """,
     },

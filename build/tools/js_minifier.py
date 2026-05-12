@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "JavaScript Minifier", "tagline": "Minify JavaScript struktural cepat — strip komentar, kompres whitespace, buang baris kosong. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "JavaScript minifier gratis. Strip komentar dan whitespace dari JS tanpa mengubah perilaku. Bukan minifier full-parse — hanya minifikasi struktural yang aman. Lihat persen byte yang dihemat dan diff sebelum/sesudah."},
         "vi": {"name": "JavaScript Minifier", "tagline": "Minify JavaScript theo cấu trúc nhanh — bỏ comment, nén whitespace, drop dòng trống. Xem kích thước trước/sau và phần trăm tiết kiệm.", "description": "JavaScript minifier miễn phí trực tuyến. Bỏ comment, nén whitespace và drop dòng trống. Một bộ minify theo cấu trúc nhanh — không phải bộ tối ưu mức compiler — chạy hoàn toàn trong trình duyệt."},
         "hi": {"name": "JavaScript Minifier", "tagline": "तेज़ structural JavaScript minify — comments हटाएं, whitespace संक्षिप्त करें, खाली लाइनें ड्रॉप करें। पहले/बाद का आकार और बचत प्रतिशत देखें।", "description": "मुफ़्त ऑनलाइन JavaScript minifier. एकल और बहु-लाइन comments, अनावश्यक whitespace, और खाली लाइनों को हटाता है, साथ ही strings, regex literals, और template literals को सुरक्षित रखता है।"},
+        "sk": {"name": 'JavaScript Minifier', "tagline": 'Rýchly štrukturálny JavaScript minify — odstránenie komentárov, zlepenie whitespace, odstránenie prázdnych riadkov. Veľkosť pred/po a percento úspory.', "description": 'Bezplatný online JavaScript minifier. Štrukturálny minify — odstráni komentáre, whitespace a prázdne riadky bez parsovania. Zobrazí veľkosť pred a po a percento úspory.'},
+        "cs": {"name": 'JavaScript Minifier', "tagline": 'Rychlý strukturální JavaScript minify — odstranění komentářů, slepení whitespace, odstranění prázdných řádků. Velikost před/po a procento úspory.', "description": 'Zdarma online JavaScript minifier. Strukturální minify — odstraní komentáře, whitespace a prázdné řádky bez parsování. Zobrazí velikost před a po a procento úspory.'},
     },
     "body": """
 <div class="tool-card">
@@ -353,6 +355,46 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>Source maps generate नहीं होते।</strong> यदि आप production में minified JS भेजते हैं, तो असली toolchain के साथ source maps generate करें ताकि debugging समझदार रहे।</li>
   <li><strong>आधुनिक compression हावी है।</strong> Wire पर Brotli/gzip वही करता है जो ज़्यादातर minify करता है। सबसे बड़े लाभ unused code हटाने से आते हैं — इसके लिए static analysis चाहिए जो एक structural minifier नहीं कर सकता।</li>
   <li><strong>जो आप commit करते हैं उसे minify न करें।</strong> Source सुंदर रूप में जाता है; build/deploy पर minify करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>JavaScript minifier zoberie čitateľný JS a vyhodí komentáre, prázdne riadky a redundantný whitespace. Tento nástroj robí <em>štrukturálny</em> minify (bez plnohodnotného parsingu) — je rýchly a spoľahlivý pre väčšinu kódu, ale nepremenuje premenné ani neoptimalizuje výrazy ako pravý minifier (Terser, esbuild).</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Rýchla jednorázová minifikácia hand-written skriptu pred deployom.</li>
+  <li>Príprava JS, ktorý ide do <code>&lt;script&gt;</code> tagu v statickej stránke.</li>
+  <li>Test, koľko šetríš pred zavedením build pipeline.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Toto NIE je Terser.</strong> Nepremenuje krátke premenné, nezloží konštanty, neviežu tree-shaking. Pre produkciu použij plný minifier.</li>
+  <li><strong>Stratíš JSDoc / licence komentáre.</strong> Tento nástroj nedáva výnimky pre <code>/*! ... */</code>.</li>
+  <li><strong>Template literals s newline-mi sa nemenia.</strong> Pre-existujúce string content musí ostať intact.</li>
+  <li><strong>Gzip pridáva ďalších 70–80 %.</strong> Minify samé šetrí ~20–30 %.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>JavaScript minifier vezme čitelný JS a vyhodí komentáře, prázdné řádky a redundantní whitespace. Tenhle nástroj dělá <em>strukturální</em> minify (bez plnohodnotného parsingu) — je rychlý a spolehlivý pro většinu kódu, ale nepřejmenuje proměnné ani neoptimalizuje výrazy jako pravý minifier (Terser, esbuild).</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Rychlá jednorázová minifikace hand-written skriptu před deployem.</li>
+  <li>Příprava JS, který jde do <code>&lt;script&gt;</code> tagu ve statické stránce.</li>
+  <li>Test, kolik šetříš před zavedením build pipeline.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Tohle NENÍ Terser.</strong> Nepřejmenuje krátké proměnné, nesloží konstanty, neudělá tree-shaking. Pro produkci použij plný minifier.</li>
+  <li><strong>Ztratíš JSDoc / licence komentáře.</strong> Tenhle nástroj nedělá výjimky pro <code>/*! ... */</code>.</li>
+  <li><strong>Template literals s newliny se nemění.</strong> Pre-existující string content musí zůstat intact.</li>
+  <li><strong>Gzip přidává dalších 70–80 %.</strong> Minify sám šetří ~20–30 %.</li>
 </ul>
 """,
     },

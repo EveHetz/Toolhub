@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pratinjau OG Tag", "tagline": "Tempel meta tag OG atau isi title/description/image — pratinjau kartu sosial seperti yang muncul di Twitter/X, Facebook, LinkedIn, dan Discord.", "description": "Pratinjau tag Open Graph gratis. Tempel meta tag dari HTML atau isi field, dan lihat seperti apa pratinjau link-mu di Twitter/X, Facebook, LinkedIn, dan Discord. Bantu pastikan kartu sosial-mu terlihat benar sebelum dipublikasikan."},
         "vi": {"name": "Xem trước OG Tag", "tagline": "Dán OG meta tag hoặc điền title/description/image — xem trước social card như chúng xuất hiện trên Twitter/X, Facebook, LinkedIn và Discord.", "description": "Trình xem trước Open Graph miễn phí trực tuyến. Dán OG meta tag hoặc điền các trường thủ công và xem chính xác cách thẻ social-share xuất hiện trên Twitter/X, Facebook, LinkedIn và Discord."},
         "hi": {"name": "OG Tag Preview", "tagline": "OG meta tags paste करें या title/description/image भरें — Twitter/X, Facebook, LinkedIn, और Discord पर share cards कैसे दिखते हैं इसका preview देखें।", "description": "मुफ़्त Open Graph tag preview. अपने <meta> tags paste करें या केवल title/description/image भरें और देखें कि आपका link Twitter/X, Facebook, LinkedIn, और Discord share previews में कैसे render होगा। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'OG Tag Preview', "tagline": 'Vlož OG meta tagy alebo vyplň title/description/image — pozri si share karty, ako vyzerajú na Twitter/X, Facebook, LinkedIn a Discord.', "description": 'Bezplatný online Open Graph preview nástroj. Vlož OG meta tagy z HTML hlavičky alebo zadaj title/description/image a uvidíš, ako bude share karta vyzerať na Twitter/X, Facebook, LinkedIn a Discord.'},
+        "cs": {"name": 'OG Tag Preview', "tagline": 'Vlož OG meta tagy nebo vyplň title/description/image — podívej se na share karty, jak vypadají na Twitter/X, Facebook, LinkedIn a Discord.', "description": 'Zdarma online Open Graph preview nástroj. Vlož OG meta tagy z HTML hlavičky nebo zadej title/description/image a uvidíš, jak bude share karta vypadat na Twitter/X, Facebook, LinkedIn a Discord.'},
     },
     "body": """
 <div class="tool-card">
@@ -577,6 +579,50 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>Cache invalidation वास्तविक है।</strong> एक बार जब platform ने आपका URL scrape कर लिया, तो वह card को cache कर लेता है। Re-scrape force करने के लिए platform debuggers का उपयोग करें।</li>
   <li><strong>Title/description length limits भिन्न होती हैं।</strong> Twitter/X लगभग 70 chars पर title clip करता है; Facebook लगभग 88; LinkedIn लगभग 100। महत्वपूर्ण शब्दों को आगे रखें।</li>
   <li><strong>Discord <code>theme-color</code> को पसंद करता है।</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> जोड़ने से Discord embeds पर left border का color सेट हो जाता है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Open Graph (OG) meta tags definujú, ako sa tvoja stránka zobrazí, keď ju niekto zdieľa na Twitter / X, Facebook, LinkedIn alebo Discord. Tento nástroj ti dá náhľad share karty pre každú platformu — vlož OG tagy z HTML hlavičky, alebo vyplň title / description / image priamo.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pred publikáciou článku — chceš vidieť, ako vyzerá social share preview.</li>
+  <li>Audit, prečo share na Discord ukazuje len plain text URL.</li>
+  <li>Optimalizácia OG image rozmerov (odporúčané 1200×630).</li>
+  <li>Príprava OG tagov pre novú stránku z hlavy.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>OG image rozmery.</strong> Odporúčané 1200×630; Twitter Card má svoje vlastné requirements.</li>
+  <li><strong>twitter:card</strong> samostatný od OG. <code>summary_large_image</code> dá veľký náhľad.</li>
+  <li><strong>Absolútne URL.</strong> <code>og:image</code> musí byť plná URL, nie relatívna.</li>
+  <li><strong>Cache.</strong> Sociálne siete cache-ujú OG metadata. Po zmene použij Facebook Sharing Debugger / Twitter Card Validator na force refresh.</li>
+  <li><strong>Description dĺžka.</strong> ~150–200 znakov; dlhšie sa orežu.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Open Graph (OG) meta tags definují, jak se tvá stránka zobrazí, když ji někdo nasdílí na Twitter / X, Facebook, LinkedIn nebo Discord. Tenhle nástroj ti dá náhled share karty pro každou platformu — vlož OG tagy z HTML hlavičky, nebo vyplň title / description / image přímo.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Před publikací článku — chceš vidět, jak vypadá social share preview.</li>
+  <li>Audit, proč share na Discord ukazuje jen plain text URL.</li>
+  <li>Optimalizace OG image rozměrů (doporučené 1200×630).</li>
+  <li>Příprava OG tagů pro novou stránku z hlavy.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>OG image rozměry.</strong> Doporučené 1200×630; Twitter Card má svoje vlastní requirements.</li>
+  <li><strong>twitter:card</strong> samostatný od OG. <code>summary_large_image</code> dá velký náhled.</li>
+  <li><strong>Absolutní URL.</strong> <code>og:image</code> musí být plná URL, ne relativní.</li>
+  <li><strong>Cache.</strong> Sociální sítě cache-ují OG metadata. Po změně použij Facebook Sharing Debugger / Twitter Card Validator na force refresh.</li>
+  <li><strong>Description délka.</strong> ~150–200 znaků; delší se ořežou.</li>
 </ul>
 """,
     },

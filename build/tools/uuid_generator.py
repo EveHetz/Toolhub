@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "UUID Generator", "tagline": "Hasilkan UUID RFC 4122 (v4 acak atau v7 time-sortable). Bulk hingga 100. Kripto-aman.", "description": "UUID generator gratis. Hasilkan UUID RFC 4122 dalam jumlah berapa pun (hingga 100 sekaligus). Pilih antara UUID v4 acak atau v7 time-sortable. Menggunakan crypto.getRandomValues — kripto-aman."},
         "vi": {"name": "Tạo UUID", "tagline": "Tạo UUID RFC 4122 (v4 ngẫu nhiên hoặc v7 sắp xếp được theo thời gian). Tạo hàng loạt lên đến 100. An toàn về mật mã.", "description": "Trình tạo UUID miễn phí trực tuyến. Tạo UUID v4 (ngẫu nhiên) hoặc v7 (sắp xếp được theo thời gian) tuân thủ RFC 4122 bằng cách dùng RNG an toàn về mật mã của trình duyệt. Tạo hàng loạt lên đến 100 cùng lúc."},
         "hi": {"name": "UUID Generator", "tagline": "RFC 4122 UUIDs बनाएं (v4 random या v7 time-ordered)। एक साथ 100 तक। क्रिप्टोग्राफिकली सुरक्षित।", "description": "मुफ़्त ऑनलाइन UUID generator। RFC 4122 v4 (random) और v7 (time-ordered, sortable)। एक साथ एक या कई बनाएं, सब आपके browser में।"},
+        "sk": {"name": 'UUID generátor', "tagline": 'Vygeneruj RFC 4122 UUIDs (v4 random alebo v7 time-ordered). Batch do 100. Kryptograficky bezpečné.', "description": 'Bezplatný online UUID generátor. Vygeneruj RFC 4122 v4 (random) alebo v7 (time-ordered) UUIDs, naraz až 100. Používa crypto-secure RNG (Web Crypto API).'},
+        "cs": {"name": 'UUID generátor', "tagline": 'Vygeneruj RFC 4122 UUIDs (v4 random nebo v7 time-ordered). Batch do 100. Kryptograficky bezpečné.', "description": 'Zdarma online UUID generátor. Vygeneruj RFC 4122 v4 (random) nebo v7 (time-ordered) UUIDs, najednou až 100. Používá crypto-secure RNG (Web Crypto API).'},
     },
     "body": """
 <div class="tool-card">
@@ -358,6 +360,50 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>v4 database indexes को fragment करता है।</strong> Random IDs writes को index में फैलाते हैं, page cache hit rate और write throughput को नुकसान पहुंचाते हैं। यह v7 के लिए मूल तर्क है।</li>
   <li><strong>v1 का उपयोग न करें।</strong> पुराना time-and-MAC variant generating machine का MAC पता leak करता है। v7 आधुनिक प्रतिस्थापन है।</li>
   <li><strong>क्रिप्टो-सुरक्षित यादृच्छिकता का उपयोग करें।</strong> यह टूल <code>crypto.getRandomValues</code> का उपयोग करता है; कभी भी <code>Math.random</code> के साथ अपना खुद का न बनाएं — यह पर्याप्त रूप से random नहीं है और IDs पूर्वानुमेय हो जाते हैं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>UUID (Universally Unique Identifier) je 128-bit identifikátor, ktorý sa praktiky nikdy nezopakuje. Tento generátor produkuje v4 (úplne náhodné) alebo v7 (time-ordered, dobré pre databázové indexy) UUIDs, naraz až 100. Používa Web Crypto API pre crypto-secure RNG.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Primary key v databázovej tabuľke (UUID je lepšie než sequential ID pre distributed systems).</li>
+  <li>Request ID pre tracing v microservices.</li>
+  <li>Session ID, file name, alebo akýkoľvek unikátny identifikátor.</li>
+  <li>Klient-generovaný ID, ktorý poskakuje servera bez koordinácie.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>v4 vs. v7.</strong> v4 je random — nesúrolovateľné v indexe. v7 obsahuje timestamp prefix, takže rastie — lepšie pre B-tree indexy.</li>
+  <li><strong>UUID je 36 znakov ako string.</strong> 16 bajtov ako binárka. Pre storage si vyber bin (PostgreSQL <code>uuid</code> type) nad string.</li>
+  <li><strong>Bezpečnosť.</strong> v1 obsahuje MAC adresu — možno privacy issue. Použij v4 alebo v7.</li>
+  <li><strong>Kolízia.</strong> Šanca na kolíziu 2 v4 UUID-iek je 1 ku 2^61 — prakticky nulová, ale teoreticky možná.</li>
+  <li><strong>Pre URL slug to nestačí.</strong> 36-znakový UUID je nečitateľný v URL; pre ľudský identifikátor použij krátky hash alebo slug.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>UUID (Universally Unique Identifier) je 128-bit identifikátor, který se prakticky nikdy nezopakuje. Tenhle generátor produkuje v4 (úplně náhodné) nebo v7 (time-ordered, dobré pro databázové indexy) UUIDs, najednou až 100. Používá Web Crypto API pro crypto-secure RNG.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Primary key v databázové tabulce (UUID je lepší než sequential ID pro distributed systems).</li>
+  <li>Request ID pro tracing v microservices.</li>
+  <li>Session ID, file name, nebo jakýkoli unikátní identifikátor.</li>
+  <li>Klient-generovaný ID, který přeskočí server bez koordinace.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>v4 vs. v7.</strong> v4 je random — neseřaditelné v indexu. v7 obsahuje timestamp prefix, takže roste — lepší pro B-tree indexy.</li>
+  <li><strong>UUID je 36 znaků jako string.</strong> 16 bajtů jako binárka. Pro storage si vyber bin (PostgreSQL <code>uuid</code> type) nad string.</li>
+  <li><strong>Bezpečnost.</strong> v1 obsahuje MAC adresu — možná privacy issue. Použij v4 nebo v7.</li>
+  <li><strong>Kolize.</strong> Šance na kolizi 2 v4 UUIDek je 1 ku 2^61 — prakticky nulová, ale teoreticky možná.</li>
+  <li><strong>Pro URL slug to nestačí.</strong> 36znakový UUID je nečitelný v URL; pro lidský identifikátor použij krátký hash nebo slug.</li>
 </ul>
 """,
     },

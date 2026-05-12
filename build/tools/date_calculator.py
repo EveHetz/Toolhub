@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kalkulator Tanggal", "tagline": "Hari antara dua tanggal · tambah/kurang hari/minggu/bulan/tahun ke tanggal · umur dalam tahun, bulan, dan hari.", "description": "Kalkulator tanggal gratis. Hitung hari antara dua tanggal, tambah atau kurangi hari/minggu/bulan/tahun ke tanggal apa pun, atau hitung umur dalam tahun, bulan, dan hari. Mendukung hari dalam minggu dan output presisi durasi."},
         "vi": {"name": "Máy tính Ngày", "tagline": "Số ngày giữa hai ngày · cộng/trừ ngày/tuần/tháng/năm vào một ngày · tuổi tính theo năm, tháng và ngày.", "description": "Máy tính ngày miễn phí trực tuyến. Tính khoảng cách giữa hai ngày, cộng hoặc trừ ngày/tuần/tháng/năm vào một ngày, hoặc tính tuổi chính xác theo năm-tháng-ngày."},
         "hi": {"name": "Date Calculator", "tagline": "दो तिथियों के बीच दिन · किसी तिथि में दिन/सप्ताह/महीने/वर्ष जोड़ें या घटाएं · वर्ष, महीने और दिन में आयु।", "description": "मुफ़्त ऑनलाइन date calculator। दो तिथियों के बीच की अवधि की गणना करें, किसी तिथि से अवधि जोड़ें या घटाएं, और वर्ष/महीने/दिन में सटीक आयु निकालें। सभी गणनाएँ आपके browser में चलती हैं।"},
+        "sk": {"name": 'Kalkulačka dátumu', "tagline": 'Dni medzi dvomi dátumami · pripočítaj alebo odpočítaj dni/týždne/mesiace/roky od dátumu · vek v rokoch, mesiacoch a dňoch.', "description": 'Bezplatná online kalkulačka dátumu. Vypočítaj počet dní medzi dvomi dátumami, pripočítaj alebo odpočítaj jednotky od dátumu, alebo zisti svoj presný vek v rokoch, mesiacoch a dňoch.'},
+        "cs": {"name": 'Kalkulačka data', "tagline": 'Dny mezi dvěma daty · připočítej nebo odečti dny/týdny/měsíce/roky od data · věk v letech, měsících a dnech.', "description": 'Zdarma online kalkulačka data. Spočítej počet dní mezi dvěma daty, připočítej nebo odečti jednotky od data, nebo zjisti svůj přesný věk v letech, měsících a dnech.'},
     },
     "body": """
 <div class="tool-card">
@@ -414,6 +416,48 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>Workdays में छुट्टियाँ शामिल नहीं होतीं।</strong> Calculation weekends जानता है लेकिन bank holidays नहीं — यदि महत्वपूर्ण है तो manually adjust करें।</li>
   <li><strong>आयु view में "Total months" अनुमानित है</strong> (वर्ष × 12 + महीने) — यह trailing days को ignore करता है। Y/M/D figure सटीक है।</li>
   <li><strong>UTC anchoring locale के साथ trade-off करता है।</strong> आपके local timezone में एक तिथि थोड़ा अलग UTC day पर map हो सकती है। अधिकांश उपयोगों (deadlines, ages) के लिए UTC noon सुरक्षित anchor है; to-the-minute timezone काम के लिए timezone converter उपयोग करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Tri praktické dátumové výpočty v jednom: koľko dní je medzi dvomi dátumami, čo dostaneš keď k dátumu pripočítaš (alebo odpočítaš) jednotky času, a presný vek v rokoch, mesiacoch a dňoch.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Koľko dní je do víkendu / dovolenky / deadlinu.</li>
+  <li>Aký deň v týždni padne na X. dátum (napr. „je 15. máj 2027 pondelok?").</li>
+  <li>Výpočet narodeninových rokov v kontextoch (poistenie, formulár).</li>
+  <li>Odpočítavanie back-from-deadline (kedy musím začať, ak chcem skončiť do 31. decembra).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Mesiac" nie je presná jednotka.</strong> 30. január + 1 mesiac = 28. február (alebo 1. marec, podľa konvencie).</li>
+  <li><strong>Leap years.</strong> Vek z 29. februára 2000 sa „posúva" každé 4 roky.</li>
+  <li><strong>Časová zóna.</strong> Tento nástroj počíta dátumy v lokálnom čase tvojho prehliadača. Pri cross-TZ použij timezone converter.</li>
+  <li><strong>Inclusive vs. exclusive.</strong> „Dni medzi 1. a 5. januárom" môžu byť 4 alebo 5 podľa interpretácie.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Tři praktické datumové výpočty v jednom: kolik dnů je mezi dvěma daty, co dostaneš, když k datu připočítáš (nebo odečteš) jednotky času, a přesný věk v letech, měsících a dnech.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Kolik dnů je do víkendu / dovolené / deadlinu.</li>
+  <li>Jaký den v týdnu padne na X. datum (např. „je 15. května 2027 pondělí?").</li>
+  <li>Výpočet narozeninových let v kontextech (pojištění, formulář).</li>
+  <li>Odpočítávání back-from-deadline (kdy musím začít, pokud chci skončit do 31. prosince).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Měsíc" není přesná jednotka.</strong> 30. ledna + 1 měsíc = 28. února (nebo 1. března, podle konvence).</li>
+  <li><strong>Leap years.</strong> Věk z 29. února 2000 se „posouvá" každé 4 roky.</li>
+  <li><strong>Časové pásmo.</strong> Tenhle nástroj počítá data v lokálním čase tvého prohlížeče. Při cross-TZ použij timezone converter.</li>
+  <li><strong>Inclusive vs. exclusive.</strong> „Dny mezi 1. a 5. lednem" můžou být 4 nebo 5 podle interpretace.</li>
 </ul>
 """,
     },

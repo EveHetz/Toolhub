@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pemilih Emoji", "tagline": "Palet emoji yang bisa dicari berdasarkan nama dan kata kunci. Klik emoji mana pun untuk menyalin. Kategori: smiley, hewan, makanan, perjalanan, objek, simbol, bendera.", "description": "Pemilih emoji online gratis. Cari emoji berdasarkan nama atau kata kunci dan salin dengan satu klik. Mencakup smiley, hewan, makanan, perjalanan, objek, simbol, dan bendera. Tanpa pelacakan, tanpa pendaftaran."},
         "vi": {"name": "Chọn Emoji", "tagline": "Bảng emoji có thể tìm kiếm theo tên và từ khóa. Click vào bất kỳ emoji nào để sao chép. Danh mục: mặt cười, động vật, thức ăn, du lịch, đồ vật, ký hiệu, cờ.", "description": "Bộ chọn emoji miễn phí trực tuyến. Tìm bằng tên hoặc từ khóa trên tất cả các emoji Unicode đã danh mục hóa và click bất kỳ emoji nào để sao chép. Hữu ích cho chat, commit message, README, và bất kỳ nơi nào bạn cần một emoji nhanh chóng."},
         "hi": {"name": "Emoji Picker", "tagline": "नाम और keyword से खोजने योग्य emoji palette। सभी emoji को copy करने के लिए click करें। श्रेणियाँ: smileys, जानवर, खाना, यात्रा, वस्तुएं, symbols, झंडे।", "description": "Keyword search के साथ मुफ़्त emoji picker। किसी भी emoji को copy करने के लिए click करें। smileys, लोग, जानवर, खाना, यात्रा, वस्तुएं, symbols, और झंडे को cover करने वाला curated set। शुद्ध Unicode — कहीं भी काम करता है।"},
+        "sk": {"name": 'Emoji Picker', "tagline": 'Vyhľadávateľná emoji paleta podľa názvu a keywordu. Klikni na emoji a skopíruje sa. Kategórie: smajlíky, zvieratá, jedlo, cestovanie, predmety, symboly, vlajky.', "description": 'Bezplatný online emoji picker. Vyhľadávaj emoji podľa názvu alebo keywordu, prepínaj kategórie (smajlíky, zvieratá, jedlo, cestovanie, predmety, symboly, vlajky). Klikni a skopíruj.'},
+        "cs": {"name": 'Emoji Picker', "tagline": 'Vyhledávatelná emoji paleta podle názvu a keywordu. Klikni na emoji a zkopíruje se. Kategorie: smajlíci, zvířata, jídlo, cestování, předměty, symboly, vlajky.', "description": 'Zdarma online emoji picker. Vyhledávej emoji podle názvu nebo keywordu, přepínej kategorie (smajlíci, zvířata, jídlo, cestování, předměty, symboly, vlajky). Klikni a zkopíruj.'},
     },
     "body": """
 <div class="tool-card">
@@ -570,6 +572,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>यह tool curated है, exhaustive नहीं।</strong> Unicode 15 में 3,664 emoji हैं जिनमें सैकड़ों skin tone और gender variants शामिल हैं। Picker उन ~600 पर focus करता है जो आप शायद चाहते हैं; पूरी list के लिए, Unicode के emoji data या अपने OS picker को देखें।</li>
   <li><strong>कुछ characters emoji की तरह दिखते हैं लेकिन text के रूप में render होते हैं।</strong> "Variation selector" (U+FE0F) renderer को कहता है "इसे emoji के रूप में draw करो"। इसके बिना, ☂ plain text के रूप में render हो सकता है, 🌂 नहीं। Tool जहां आवश्यक हो selectors include करता है।</li>
   <li><strong>Clipboard support भिन्न होता है।</strong> कुछ browsers की clipboard API को user gesture चाहिए (click यह करता है), लेकिन permission denial चुपके से fail हो जाती है। यदि copy काम नहीं करता, तो address bar से copy करने के लिए keyboard shortcut का उपयोग करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Emoji picker je vyhľadávateľná paleta Unicode emoji organizovaná do kategórií (smajlíky, ľudia, zvieratá, jedlo, cestovanie, predmety, symboly, vlajky). Hľadaj podľa názvu alebo keywordu, klikni — emoji sa skopíruje do schránky a ty ho vlepíš kdekoľvek.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pridanie emoji do commit message, GitHub issue alebo PR popisu.</li>
+  <li>Hľadanie konkrétneho emoji, ktorého názov nepoznáš (skús kľúčové slovo „srdce", „palec").</li>
+  <li>Vloženie emoji do dokumentu, kde tvoja klávesnica nemá native picker.</li>
+  <li>Kopírovanie emoji pre slug, ktoré používa tvoj nástroj.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Emoji sú Unicode.</strong> Niektoré staré systémy (Windows 7) ich nezobrazia správne.</li>
+  <li><strong>Skin tone modifiers.</strong> 👍🏼 je <code>👍</code> + skin tone modifier — dva codepointy.</li>
+  <li><strong>ZWJ sequences.</strong> 👨‍👩‍👧‍👦 (rodina) je niekoľko emoji spojených cez ZWJ (zero-width joiner).</li>
+  <li><strong>Vykreslenie sa líši.</strong> To isté Unicode emoji vyzerá inak na Apple, Google, Microsoft a Twitter (Twemoji).</li>
+  <li><strong>Compatibility.</strong> Niektoré e-maily a starší terminál nezvládnu emoji v plain texte.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Emoji picker je vyhledávatelná paleta Unicode emoji organizovaná do kategorií (smajlíci, lidé, zvířata, jídlo, cestování, předměty, symboly, vlajky). Hledej podle názvu nebo keywordu, klikni — emoji se zkopíruje do schránky a ty ho vlepíš kdekoli.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Přidání emoji do commit message, GitHub issue nebo PR popisu.</li>
+  <li>Hledání konkrétního emoji, jehož název neznáš (zkus klíčové slovo „srdce", „palec").</li>
+  <li>Vložení emoji do dokumentu, kde tvá klávesnice nemá native picker.</li>
+  <li>Kopírování emoji pro slug, který používá tvůj nástroj.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Emoji jsou Unicode.</strong> Některé staré systémy (Windows 7) je nezobrazí správně.</li>
+  <li><strong>Skin tone modifiers.</strong> 👍🏼 je <code>👍</code> + skin tone modifier — dva codepointy.</li>
+  <li><strong>ZWJ sequences.</strong> 👨‍👩‍👧‍👦 (rodina) je několik emoji spojených přes ZWJ (zero-width joiner).</li>
+  <li><strong>Vykreslení se liší.</strong> Totéž Unicode emoji vypadá jinak na Apple, Google, Microsoft a Twitter (Twemoji).</li>
+  <li><strong>Compatibility.</strong> Některé e-maily a starší terminál nezvládnou emoji v plain textu.</li>
 </ul>
 """,
     },

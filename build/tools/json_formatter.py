@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "JSON Formatter", "tagline": "Format, validasi, dan minify JSON secara instan. Error disorot dengan baris dan kolom.", "description": "JSON formatter dan validator online gratis. Beautify JSON berantakan dengan indentasi, atau minify-nya untuk transport. Error sintaks disorot dengan nomor baris dan kolom. Berjalan di browser-mu."},
         "vi": {"name": "JSON Formatter", "tagline": "Format, xác thực và minify JSON tức thì. Lỗi được làm nổi bật với dòng và cột.", "description": "JSON formatter và validator miễn phí trực tuyến. Làm đẹp JSON lộn xộn với indent, hoặc minify để truyền tải. Lỗi cú pháp được làm nổi bật với số dòng và cột. Chạy trong trình duyệt của bạn."},
         "hi": {"name": "JSON Formatter", "tagline": "JSON को तुरंत फ़ॉर्मैट करें, जांचें, और minify करें। Errors को line और column के साथ highlight किया जाता है।", "description": "मुफ़्त ऑनलाइन JSON formatter और validator. JSON syntax को pretty-print, minify, और सटीक error messages के साथ जांचें।"},
+        "sk": {"name": 'JSON formátovač', "tagline": 'Naformátuj, over a minifikuj JSON okamžite. Chyby zvýraznené s riadkom a stĺpcom.', "description": 'Bezplatný online JSON formátovač a validátor. Naformátuje, validuje a minifikuje JSON okamžite. Chyby ukazuje s riadkom a stĺpcom. Beží v prehliadači.'},
+        "cs": {"name": 'JSON formátovač', "tagline": 'Naformátuj, ověř a zminifikuj JSON okamžitě. Chyby zvýrazněné s řádkem a sloupcem.', "description": 'Zdarma online JSON formátovač a validátor. Naformátuje, validuje a minifikuje JSON okamžitě. Chyby ukazuje s řádkem a sloupcem. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -306,6 +308,50 @@ function jfValidate(){
   <li><strong>Copy-paste से smart quotes।</strong> Word processors और chat apps "मदद" के नाम पर <code>"</code> को <code>"</code> / <code>"</code> से बदलना पसंद करते हैं। वे वैध JSON delimiters नहीं हैं।</li>
   <li><strong>JSON में comments नहीं होते।</strong> यदि आपके "JSON" में <code>//</code> या <code>/* */</code> है, तो वह वास्तव में JSONC है (VS Code config में उपयोग होता है) — parse करने से पहले उन्हें हटाएं।</li>
   <li><strong>2⁵³ से बड़ी संख्याएं।</strong> JavaScript <code>9007199254740992</code> से ऊपर के integers को सटीक रूप से represent नहीं कर सकता। Twitter snowflake IDs और इसी तरह की संख्याओं को strings के रूप में quote किया जाना चाहिए।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>JSON formátovač naformátuje JSON s konzistentným indentom (alebo ho minifikuje na jeden riadok), zároveň validuje syntax. Pri chybe ti ukáže presný riadok a stĺpec, aby si nehľadal čiarku navyše hodinu.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>API odpoveď, ktorú dostaneš ako jeden dlhý riadok, premeniť na čitateľnú.</li>
+  <li>Validácia, či JSON, ktorý práve píšeš, parse-uje.</li>
+  <li>Minify pred poslaním cez network (alebo do localStorage).</li>
+  <li>Príprava pretty-printed JSON-u do dokumentácie.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Trailing comma.</strong> JSON nepovoľuje čiarku za posledným prvkom (na rozdiel od JS objektov).</li>
+  <li><strong>Komentáre.</strong> Štandardný JSON ich nemá. Použij JSON5 alebo JSONC, ak ich nutne potrebuješ.</li>
+  <li><strong>Single quotes.</strong> JSON keys aj string values musia byť v double quotes.</li>
+  <li><strong>NaN / Infinity / undefined.</strong> Nie sú validné JSON — JS to dovoľuje, ale JSON.parse zlyhá.</li>
+  <li><strong>Veľké čísla.</strong> JSON nedefinuje presnosť — 64-bit JS čísla strácajú presnosť cez 2^53.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>JSON formátovač naformátuje JSON s konzistentním indentem (nebo ho zminifikuje na jeden řádek), zároveň validuje syntaxi. Při chybě ti ukáže přesný řádek a sloupec, abys nehledal čárku navíc hodinu.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>API odpověď, kterou dostaneš jako jeden dlouhý řádek, proměnit na čitelnou.</li>
+  <li>Validace, jestli JSON, který právě píšeš, parsuje.</li>
+  <li>Minify před posláním přes network (nebo do localStorage).</li>
+  <li>Příprava pretty-printed JSONu do dokumentace.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Trailing comma.</strong> JSON nepovoluje čárku za posledním prvkem (na rozdíl od JS objektů).</li>
+  <li><strong>Komentáře.</strong> Standardní JSON je nemá. Použij JSON5 nebo JSONC, pokud je nutně potřebuješ.</li>
+  <li><strong>Single quotes.</strong> JSON keys i string values musí být v double quotes.</li>
+  <li><strong>NaN / Infinity / undefined.</strong> Nejsou validní JSON — JS to dovoluje, ale JSON.parse selže.</li>
+  <li><strong>Velká čísla.</strong> JSON nedefinuje přesnost — 64-bit JS čísla ztrácí přesnost přes 2^53.</li>
 </ul>
 """,
     },

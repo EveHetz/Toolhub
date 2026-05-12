@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Cheatsheet Regex", "tagline": "Referensi cepat: anchor, character class, quantifier, group, lookaround, flag. Klik pattern mana pun untuk menyalin.", "description": "Cheatsheet regex gratis. Referensi pattern regex umum: anchor, character class, quantifier, group, lookaround, dan flag. Klik pattern mana pun untuk menyalin. Cocok untuk yang baru belajar regex atau yang perlu refresh."},
         "vi": {"name": "Cheatsheet Regex", "tagline": "Tham chiếu nhanh: anchor, character class, quantifier, group, lookaround, flag. Click bất kỳ pattern nào để sao chép.", "description": "Tham chiếu nhanh regex miễn phí trực tuyến. Cú pháp anchor, character class, quantifier, group và lookaround với ví dụ. Click bất kỳ pattern nào để sao chép."},
         "hi": {"name": "Regex Cheatsheet", "tagline": "त्वरित संदर्भ: anchors, character classes, quantifiers, groups, lookarounds, flags। किसी भी pattern को copy करने के लिए click करें।", "description": "मुफ़्त regex (regular expression) cheatsheet। Anchors, character classes, quantifiers, groups, lookarounds और flags — click-to-copy patterns और live filter के साथ। PCRE / JavaScript flavour।"},
+        "sk": {"name": 'Regex Cheatsheet', "tagline": 'Rýchla referencia: anchors, character classes, quantifiery, groups, lookarounds, flags. Klikni na pattern a skopíruje sa.', "description": 'Bezplatná regex cheatsheet. Rýchla referencia anchors, character classes, kvantifikátorov, groups, lookarounds a flags. Klikni na akýkoľvek pattern a skopíruje sa do schránky.'},
+        "cs": {"name": 'Regex Cheatsheet', "tagline": 'Rychlá reference: anchors, character classes, kvantifikátory, groups, lookarounds, flags. Klikni na pattern a zkopíruje se.', "description": 'Zdarma regex cheatsheet. Rychlá reference anchors, character classes, kvantifikátorů, groups, lookarounds a flags. Klikni na jakýkoli pattern a zkopíruje se do schránky.'},
     },
     "body": """
 <div class="tool-card">
@@ -463,6 +465,48 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Regex HTML या JSON parser नहीं है।</strong> यहाँ के "common patterns" एक-बार scraping या validation hints के लिए अच्छे हैं, structured input को string के रूप में treat करने के लिए नहीं।</li>
   <li><strong>Email regexes हमेशा गलत होते हैं।</strong> यहाँ का example एक rough shape-check है; production validation के लिए, इसके बजाय एक confirmation email भेजें।</li>
   <li><strong>Copy-paste किए "perfect" regexes पर भरोसा न करें।</strong> deploy करने से पहले Regex Tester से अपने वास्तविक data के विरुद्ध इन्हें test करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Regex (regular expressions) je mini-jazyk na hľadanie patternov v texte. Tento cheatsheet pokrýva anchors, character classes, quantifiery, groups, lookarounds a flags pre JavaScript regex. Klikni na akýkoľvek pattern, skopíruje sa do schránky.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pripomenutie si syntaxe, ktorú nepoužívaš každý deň (lookbehind, named groups).</li>
+  <li>Rýchla referencia pri review PR-u, kde niekto pridáva regex.</li>
+  <li>Príprava patternu pre validáciu form-u, search-and-replace alebo extrakciu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Greedy vs. lazy.</strong> <code>.*</code> je greedy (vezme čo najviac), <code>.*?</code> je lazy (čo najmenej).</li>
+  <li><strong>Anchors.</strong> <code>^</code> = začiatok riadku (alebo stringu bez <code>m</code> flag-u). <code>$</code> = koniec.</li>
+  <li><strong>Escape v inom kontexte.</strong> V JS literále <code>/foo\bar/</code> ti <code>\b</code> znamená word boundary. V string <code>"foo\\bar"</code> potrebuješ dvojitý backslash.</li>
+  <li><strong>Capture vs. non-capture.</strong> <code>(abc)</code> capture; <code>(?:abc)</code> non-capture (rýchlejšie).</li>
+  <li><strong>Unicode flag.</strong> Bez <code>u</code> flag-u sa <code>.</code> nevyrovná code points mimo BMP.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Regex (regular expressions) je mini-jazyk na hledání patternů v textu. Tenhle cheatsheet pokrývá anchors, character classes, kvantifikátory, groups, lookarounds a flags pro JavaScript regex. Klikni na jakýkoli pattern, zkopíruje se do schránky.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Připomenutí si syntaxe, kterou nepoužíváš každý den (lookbehind, named groups).</li>
+  <li>Rychlá reference při review PR, kde někdo přidává regex.</li>
+  <li>Příprava patternu pro validaci formu, search-and-replace nebo extrakci.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Greedy vs. lazy.</strong> <code>.*</code> je greedy (vezme co nejvíc), <code>.*?</code> je lazy (co nejmíň).</li>
+  <li><strong>Anchors.</strong> <code>^</code> = začátek řádku (nebo stringu bez <code>m</code> flagu). <code>$</code> = konec.</li>
+  <li><strong>Escape v jiném kontextu.</strong> V JS literálu <code>/foo\bar/</code> ti <code>\b</code> znamená word boundary. V stringu <code>"foo\\bar"</code> potřebuješ dvojitý backslash.</li>
+  <li><strong>Capture vs. non-capture.</strong> <code>(abc)</code> capture; <code>(?:abc)</code> non-capture (rychlejší).</li>
+  <li><strong>Unicode flag.</strong> Bez <code>u</code> flagu se <code>.</code> nevyrovná code points mimo BMP.</li>
 </ul>
 """,
     },

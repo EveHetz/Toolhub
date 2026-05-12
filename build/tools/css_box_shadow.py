@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pembangun CSS Box Shadow", "tagline": "Susun box-shadow CSS tunggal atau berlapis secara visual. Atur offset, blur, spread, warna, dan salin CSS-nya.", "description": "Pembangun CSS box shadow gratis. Susun shadow tunggal atau berlapis secara visual dengan kontrol offset, blur, spread, warna, dan inset. Pratinjau langsung dan CSS siap-salin."},
         "vi": {"name": "CSS Box Shadow Builder", "tagline": "Soạn box-shadow CSS đơn hoặc xếp lớp một cách trực quan. Điều chỉnh offset, blur, spread, màu và sao chép CSS.", "description": "Trình xây dựng CSS box-shadow miễn phí trực tuyến. Soạn shadow đơn hoặc nhiều lớp; điều chỉnh offset, blur, spread, màu và inset, sau đó sao chép CSS sẵn-dùng."},
         "hi": {"name": "CSS Box Shadow Generator", "tagline": "Single या multi-layer CSS box shadows visually बनाएं। Offset, blur, spread, color adjust करें और CSS copy करें।", "description": "मुफ़्त CSS box-shadow generator। Realistic elevation के लिए कई shadows stack करें, inset toggle करें, blur और spread को fine-tune करें, और एक click में production-ready CSS copy करें।"},
+        "sk": {"name": 'Generátor CSS box-shadow', "tagline": 'Postav single alebo multi-layer CSS box shadows vizuálne. Uprav offset, blur, spread, farbu a skopíruj CSS.', "description": 'Bezplatný online CSS box-shadow generátor. Postav single alebo multi-layer tiene vizuálne — offset, blur, spread, color, inset. Skopíruj ready-to-paste CSS jedným klikom.'},
+        "cs": {"name": 'Generátor CSS box-shadow', "tagline": 'Postav single nebo multi-layer CSS box shadows vizuálně. Uprav offset, blur, spread, barvu a zkopíruj CSS.', "description": 'Zdarma online CSS box-shadow generátor. Postav single nebo multi-layer stíny vizuálně — offset, blur, spread, color, inset. Zkopíruj ready-to-paste CSS jedním klikem.'},
     },
     "body": """
 <div class="tool-card">
@@ -387,6 +389,50 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>Transparent background पर shadow।</strong> अगर box का कोई <code>background</code> नहीं है, तो shadow खुद box के through दिखती है — आम तौर पर surprising।</li>
   <li><strong>Performance:</strong> कई elements पर बहुत बड़ा blur low-end mobile पर expensive हो सकता है। Fancy glows ship करने से पहले real device पर test करें।</li>
   <li><strong>Dark mode।</strong> Subtle dark-on-dark shadows लगभग गायब हो जाती हैं; dark themes में bright inner border या light-tinted shadow consider करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>CSS <code>box-shadow</code> má syntax <code>offset-x offset-y blur spread color</code> a môže byť multi-layer (cez čiarku zoznam tieňov). Vizuálne ladiť tieto čísla v editore je únavné. Tento generátor ti dá slidery na offset, blur, spread a color picker — nakoniec skopíruješ CSS, čo môžeš rovno vložiť.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pri pridávaní jemnej elevation pre card komponent.</li>
+  <li>Pri reprodukcii Material Design alebo iOS-like tieňa.</li>
+  <li>Layered shadow pre realistickejší vizuál (multiple layers s rôznym blur).</li>
+  <li>Inset tieň pre dojem „vsadenia" elementu (napr. input field).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Blur ≠ spread.</strong> Blur jemne rozmazáva tieň. Spread rozširuje (alebo zmenšuje pri zápornej hodnote) plochu tieňa pred blurom.</li>
+  <li><strong>Veľký blur je drahý.</strong> Na mobile sa silne rozmazaný tieň môže prejaviť na výkone počas scrollu.</li>
+  <li><strong>Z-fighting na hraniciach.</strong> Pri tmavom pozadí použij svetlejší alebo polopriehľadný tieň.</li>
+  <li><strong>Inset vs. outset.</strong> <code>inset</code> kľúčové slovo prepne tieň dovnútra elementu.</li>
+  <li><strong>Multi-layer poradie.</strong> Prvý tieň v zozname kreslí nad ostatnými — poradie záleží.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>CSS <code>box-shadow</code> má syntax <code>offset-x offset-y blur spread color</code> a může být multi-layer (přes čárku seznam stínů). Vizuálně ladit tato čísla v editoru je únavné. Tenhle generátor ti dá slidery na offset, blur, spread a color picker — nakonec zkopíruješ CSS, které můžeš rovnou vložit.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Při přidávání jemné elevation pro card komponentu.</li>
+  <li>Při reprodukci Material Design nebo iOS-like stínu.</li>
+  <li>Layered shadow pro realističtější vizuál (multiple layers s různým blurem).</li>
+  <li>Inset stín pro dojem „zasazení" elementu (např. input field).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Blur ≠ spread.</strong> Blur jemně rozmazává stín. Spread rozšiřuje (nebo zmenšuje při záporné hodnotě) plochu stínu před blurem.</li>
+  <li><strong>Velký blur je drahý.</strong> Na mobilu se silně rozmazaný stín může projevit na výkonu během scrollu.</li>
+  <li><strong>Z-fighting na hranách.</strong> Při tmavém pozadí použij světlejší nebo poloprůhledný stín.</li>
+  <li><strong>Inset vs. outset.</strong> <code>inset</code> klíčové slovo přepne stín dovnitř elementu.</li>
+  <li><strong>Multi-layer pořadí.</strong> První stín v seznamu kreslí nad ostatními — pořadí záleží.</li>
 </ul>
 """,
     },

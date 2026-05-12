@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Query String Builder", "tagline": "Tambahkan baris key/value; dapatkan output query string yang di-URL-encode dengan benar. Mendukung array (a[]=1) dan kunci berulang tanpa kurung.", "description": "Query string builder gratis. Tambahkan key/value secara visual dan dapatkan query string yang di-URL-encode dengan benar. Mendukung notasi array (a[]=1) atau kunci berulang sederhana. Sempurna untuk testing API."},
         "vi": {"name": "Trình xây dựng Query String", "tagline": "Thêm dòng key/value; nhận query string được URL-encode đúng cách. Hỗ trợ mảng (a[]=1) và key lặp lại không có dấu ngoặc.", "description": "Trình xây dựng query string miễn phí trực tuyến. Soạn URL parameter cặp key/value, với encoding chính xác cho ký tự đặc biệt và hỗ trợ ký hiệu mảng (a[]=1) cũng như key lặp lại không có dấu ngoặc."},
         "hi": {"name": "Query String Builder", "tagline": "key/value rows जोड़ें; एक सही URL-encoded query string प्राप्त करें। Array (a[]=1) और bracket-less repeated keys का समर्थन।", "description": "मुफ़्त ऑनलाइन query string builder। key/value pairs की rows जोड़ें और एक उचित percent-encoded ?a=1&b=hello%20world string पाएं, वैकल्पिक array bracket notation के साथ। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'Query String Builder', "tagline": 'Pridaj key/value riadky; dostaneš správne URL-encoded query string. Podpora array (a[]=1) a bracket-less opakovaných kľúčov.', "description": 'Bezplatný online query string builder. Pridaj páry kľúč/hodnota a získaj správne percent-encoded query string. Podporuje array notáciu (a[]=1) aj opakované kľúče bez bracketov.'},
+        "cs": {"name": 'Query String Builder', "tagline": 'Přidej key/value řádky; dostaneš správně URL-encoded query string. Podpora array (a[]=1) a bracket-less opakovaných klíčů.', "description": 'Zdarma online query string builder. Přidej páry klíč/hodnota a získej správně percent-encoded query string. Podporuje array notaci (a[]=1) i opakované klíče bez bracketů.'},
     },
     "body": """
 <div class="tool-card">
@@ -425,6 +427,50 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>क्रम मायने रख सकता है।</strong> कुछ signed-URL schemes (S3, Stripe webhooks, OAuth 1.0) signing से पहले एक विशिष्ट क्रम में parameters की मांग करते हैं। Tool आपकी row order संरक्षित करता है।</li>
   <li><strong>Length limits।</strong> Browsers और servers query-string length को 2–8 KB के आसपास cap करते हैं। एक query parameter में JSON भरना एक smell है।</li>
   <li><strong>Query string में secrets न डालें।</strong> वे server logs, browser history, और Referer headers में दिखते हैं। इसके बजाय request body या Authorization header का उपयोग करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Query string je časť URL za <code>?</code>, ktorá nesie parametre vo formáte <code>kľúč=hodnota&amp;ďalší=hodnota</code>. Hodnoty musia byť percent-encoded. Tento builder ti dá rows na pridanie kľúč/hodnota párov a postaví správne URL-encoded query string vrátane podpory pre arrays (<code>a[]=1&amp;a[]=2</code>) a opakované kľúče bez bracketov.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Príprava komplexnej API URL s viacerými filtrami.</li>
+  <li>Test, ako sa rôzne query string conventions parsujú v backend-e.</li>
+  <li>Debug, prečo daný parameter neprichádza ako očakávaš.</li>
+  <li>Konverzia user-friendly form-data na URL parameters.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Percent-encoding.</strong> Medzera = <code>%20</code> alebo <code>+</code> (form-encoded). Pre URL preferuj <code>%20</code>.</li>
+  <li><strong>Špeciálne znaky.</strong> <code>&amp;</code>, <code>=</code>, <code>?</code>, <code>#</code> musia byť v hodnote escapované.</li>
+  <li><strong>Array konvencia.</strong> PHP/Rails očakávajú <code>a[]=1</code>, Java / .NET zvyknú akceptovať <code>a=1&amp;a=2</code>. Líši sa.</li>
+  <li><strong>Order matters?</strong> RFC nedefinuje. Niektoré frameworky berú prvý, niektoré posledný hodnotu duplicitného kľúča.</li>
+  <li><strong>Limit dĺžky URL.</strong> Praktický limit ~2000 znakov; nad to použij POST.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Query string je část URL za <code>?</code>, která nese parametry ve formátu <code>klíč=hodnota&amp;další=hodnota</code>. Hodnoty musí být percent-encoded. Tenhle builder ti dá rows na přidání klíč/hodnota párů a postaví správně URL-encoded query string včetně podpory pro arrays (<code>a[]=1&amp;a[]=2</code>) a opakované klíče bez bracketů.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Příprava komplexní API URL s více filtry.</li>
+  <li>Test, jak se různé query string conventions parsují v backendu.</li>
+  <li>Debug, proč daný parametr nepřichází jak očekáváš.</li>
+  <li>Konverze user-friendly form-data na URL parameters.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Percent-encoding.</strong> Mezera = <code>%20</code> nebo <code>+</code> (form-encoded). Pro URL preferuj <code>%20</code>.</li>
+  <li><strong>Speciální znaky.</strong> <code>&amp;</code>, <code>=</code>, <code>?</code>, <code>#</code> musí být v hodnotě escapované.</li>
+  <li><strong>Array konvence.</strong> PHP/Rails očekávají <code>a[]=1</code>, Java / .NET zvyklejší akceptovat <code>a=1&amp;a=2</code>. Liší se.</li>
+  <li><strong>Order matters?</strong> RFC nedefinuje. Některé frameworky berou první, některé poslední hodnotu duplicitního klíče.</li>
+  <li><strong>Limit délky URL.</strong> Praktický limit ~2000 znaků; nad to použij POST.</li>
 </ul>
 """,
     },

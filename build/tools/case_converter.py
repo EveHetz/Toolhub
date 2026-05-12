@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pengubah Case", "tagline": "Ubah teks antara UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case.", "description": "Pengubah case teks gratis. Konversi antara UPPER, lower, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case. Sadar-Unicode dan cepat."},
         "vi": {"name": "Chuyển đổi Case", "tagline": "Chuyển văn bản giữa UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE và dot.case.", "description": "Công cụ chuyển đổi case văn bản miễn phí trực tuyến. Chuyển bất kỳ chuỗi nào sang UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE hoặc dot.case ngay lập tức."},
         "hi": {"name": "Case Converter", "tagline": "Text को UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE और dot.case के बीच बदलें।", "description": "मुफ़्त ऑनलाइन case converter। Text को एक click में upper, lower, title, sentence, camel, pascal, snake, kebab, constant और dot case के बीच switch करें।"},
+        "sk": {"name": 'Konvertor veľkosti písmen', "tagline": 'Prevod textu medzi UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE a dot.case.', "description": 'Bezplatný online konvertor veľkosti písmen. Prevedie text medzi všetkými bežnými case formátmi — UPPER, lower, Title, camelCase, snake_case, kebab-case a ďalšie. Funguje v prehliadači.'},
+        "cs": {"name": 'Konvertor velikosti písmen', "tagline": 'Převod textu mezi UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE a dot.case.', "description": 'Zdarma online konvertor velikosti písmen. Převede text mezi všemi běžnými case formáty — UPPER, lower, Title, camelCase, snake_case, kebab-case a další. Funguje v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -272,6 +274,48 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>Numbers पिछले word से जुड़ जाते हैं।</strong> "Item2" एक ही word "item2" बनता है, दो नहीं। अगर आप उन्हें split करना चाहते हैं तो separator जोड़ें।</li>
   <li><strong>"camelCase का पहला letter"</strong> हमेशा lowercase होता है, भले ही input capital से शुरू हुआ हो। PascalCase capital बनाए रखता है।</li>
   <li><strong>Round-tripping हमेशा lossless नहीं होती।</strong> camelCase → kebab-case → camelCase करने पर word boundaries पर original capitalisation hint खो जाती है; case-detection heuristic अपनी पूरी कोशिश करती है पर जो preserve नहीं हुआ उसे recover नहीं कर सकती।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Programátorský kód, JSON kľúče, CSS triedy a URL slugy používajú rôzne case konvencie — <code>camelCase</code>, <code>PascalCase</code>, <code>snake_case</code>, <code>kebab-case</code>, <code>CONSTANT_CASE</code>, <code>dot.case</code>. Tento nástroj zoberie akýkoľvek text a okamžite ho prepíše do ľubovoľného z nich.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Konverzia API JSON keys z <code>snake_case</code> (Python) na <code>camelCase</code> (JavaScript).</li>
+  <li>Generovanie CSS class mien z titulku komponentu.</li>
+  <li>Príprava CONSTANT_CASE názvov pre environment variables.</li>
+  <li>Rýchla normalizácia copy-paste textu pred vložením do dokumentu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Akronymy.</strong> <code>HTMLParser</code> v PascalCase je validný — keď to prevedieš na snake_case, môže to skončiť ako <code>h_t_m_l_parser</code> aj keď chceš <code>html_parser</code>. Dohodnúť konvenciu vopred.</li>
+  <li><strong>Sentence case ≠ Title Case.</strong> Sentence: prvé slovo veľké; Title: každé slovo veľké okrem spojok.</li>
+  <li><strong>Čísla.</strong> <code>foo2bar</code> sa pri konverzii môže rozdeliť ako <code>foo_2_bar</code> alebo <code>foo2_bar</code> — záleží na implementácii.</li>
+  <li><strong>Diakritika.</strong> Slovenské znaky (š, č, ž…) zostávajú pri väčšine konverzií, ale nie sú validné v slug-formátoch.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Programátorský kód, JSON klíče, CSS třídy a URL slugy používají různé case konvence — <code>camelCase</code>, <code>PascalCase</code>, <code>snake_case</code>, <code>kebab-case</code>, <code>CONSTANT_CASE</code>, <code>dot.case</code>. Tenhle nástroj vezme jakýkoli text a okamžitě ho přepíše do libovolného z nich.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Konverze API JSON keys z <code>snake_case</code> (Python) na <code>camelCase</code> (JavaScript).</li>
+  <li>Generování CSS class jmen z titulku komponenty.</li>
+  <li>Příprava CONSTANT_CASE názvů pro environment variables.</li>
+  <li>Rychlá normalizace copy-paste textu před vložením do dokumentu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Akronymy.</strong> <code>HTMLParser</code> v PascalCase je validní — když to převedeš na snake_case, může to skončit jako <code>h_t_m_l_parser</code>, i když chceš <code>html_parser</code>. Domluvit konvenci předem.</li>
+  <li><strong>Sentence case ≠ Title Case.</strong> Sentence: první slovo velké; Title: každé slovo velké kromě spojek.</li>
+  <li><strong>Čísla.</strong> <code>foo2bar</code> se při konverzi může rozdělit jako <code>foo_2_bar</code> nebo <code>foo2_bar</code> — záleží na implementaci.</li>
+  <li><strong>Diakritika.</strong> České znaky (š, č, ž…) zůstávají při většině konverzí, ale nejsou validní ve slug-formátech.</li>
 </ul>
 """,
     },

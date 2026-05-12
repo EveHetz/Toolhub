@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "URL Parser", "tagline": "Tempel URL apa pun — lihat protokol, host, port, path, parameter query (di-decode), hash, dan origin yang sudah diurai.", "description": "URL parser gratis. Tempel URL apa pun dan lihat protokol, host, port, path, parameter query yang di-decode, hash, dan origin-nya. Bantu debug masalah routing dan inspeksi link yang kompleks."},
         "vi": {"name": "Trình phân tích URL", "tagline": "Dán bất kỳ URL nào — xem protocol, host, port, path, tham số query (đã decode), hash và origin đã phân tích.", "description": "Trình phân tích URL miễn phí trực tuyến. Tách bất kỳ URL nào thành protocol, host, port, path, tham số query (đã decode), hash và origin để debug API và tích hợp."},
         "hi": {"name": "URL Parser", "tagline": "कोई भी URL पेस्ट करें — protocol, host, port, path, query parameters (decoded), hash और origin का विवरण देखें।", "description": "मुफ़्त ऑनलाइन URL parser। किसी भी URL को protocol, host, port, path, query string, hash और origin में decode करता है, और प्रत्येक query parameter को decoded रूप में दिखाता है। पूरी तरह से आपके browser में चलता है।"},
+        "sk": {"name": 'URL Parser', "tagline": 'Vlož akúkoľvek URL — uvidíš protokol, host, port, path, query parametre (dekódované), hash a origin.', "description": 'Bezplatný online URL parser. Vlož URL a uvidíš všetky jej časti — protocol, host, port, path, query parametre (dekódované), hash a origin. Užitočné na debugging.'},
+        "cs": {"name": 'URL Parser', "tagline": 'Vlož jakoukoli URL — uvidíš protokol, host, port, path, query parametry (dekódované), hash a origin.', "description": 'Zdarma online URL parser. Vlož URL a uvidíš všechny její části — protocol, host, port, path, query parametry (dekódované), hash a origin. Užitečné pro debugging.'},
     },
     "body": """
 <div class="tool-card">
@@ -389,6 +391,50 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>Punycode hostnames।</strong> <code>example.中国</code> आंतरिक रूप से <code>xn--fiqs8s</code> के रूप में संग्रहीत है; browser के आधार पर <code>hostname</code> ASCII रूप दिखा सकता है।</li>
   <li><strong>Origin कभी-कभी "null" होता है।</strong> <code>file://</code>, <code>data:</code>, या sandboxed contexts के लिए, origin अपारदर्शी है।</li>
   <li><strong>यह parsing है, validation नहीं।</strong> एक URL साफ-सुथरा parse हो सकता है और फिर भी आपके application के लिए गलत हो सकता है (जैसे गलत host, missing path)।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>URL má niekoľko častí: protocol (<code>https</code>), host (<code>example.com</code>), port, path, query parameters, fragment (hash). Tento parser rozloží URL na tieto časti, dekóduje query parametre a ukáže origin (protocol + host + port).</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug komplexnej URL, kde nie je jasné, čo je query a čo path.</li>
+  <li>Extrakcia konkrétneho parametra z URL.</li>
+  <li>Kontrola, čo presne ide server-u (origin pre CORS).</li>
+  <li>Sanity check redirect URL pred použitím.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Fragment (#) ide len browser-u.</strong> Server nikdy nevidí <code>#fragment</code>.</li>
+  <li><strong>Default port.</strong> <code>https://example.com</code> implicitne 443; <code>http://</code> implicitne 80.</li>
+  <li><strong>Origin definícia.</strong> Pre CORS: scheme + host + port. <code>https://example.com:443</code> a <code>https://example.com</code> sú rovnaký origin.</li>
+  <li><strong>Trailing slash.</strong> <code>https://a.com</code> a <code>https://a.com/</code> sú technicky rôzne path-y; server-y väčšinou redirectujú.</li>
+  <li><strong>Punycode.</strong> Doména s diakritikou je v URL ako <code>xn--...</code>; parser ti môže ukázať obe formy.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>URL má několik částí: protocol (<code>https</code>), host (<code>example.com</code>), port, path, query parameters, fragment (hash). Tenhle parser rozloží URL na tyto části, dekóduje query parametry a ukáže origin (protocol + host + port).</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug komplexní URL, kde není jasné, co je query a co path.</li>
+  <li>Extrakce konkrétního parametru z URL.</li>
+  <li>Kontrola, co přesně jde serveru (origin pro CORS).</li>
+  <li>Sanity check redirect URL před použitím.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Fragment (#) jde jen prohlížeči.</strong> Server nikdy nevidí <code>#fragment</code>.</li>
+  <li><strong>Default port.</strong> <code>https://example.com</code> implicitně 443; <code>http://</code> implicitně 80.</li>
+  <li><strong>Origin definice.</strong> Pro CORS: scheme + host + port. <code>https://example.com:443</code> a <code>https://example.com</code> jsou stejný origin.</li>
+  <li><strong>Trailing slash.</strong> <code>https://a.com</code> a <code>https://a.com/</code> jsou technicky různé pathy; servery většinou redirectují.</li>
+  <li><strong>Punycode.</strong> Doména s diakritikou je v URL jako <code>xn--...</code>; parser ti může ukázat obě formy.</li>
 </ul>
 """,
     },

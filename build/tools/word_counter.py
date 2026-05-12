@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Penghitung Kata", "tagline": "Hitung kata, karakter, kalimat, paragraf, dan estimasi waktu baca + bicara saat mengetik.", "description": "Penghitung kata online gratis. Hitung kata, karakter (dengan dan tanpa spasi), kalimat, dan paragraf secara real-time saat mengetik. Estimasi waktu baca dan waktu bicara untuk teks panjang."},
         "vi": {"name": "Đếm Từ", "tagline": "Đếm từ, ký tự, câu, đoạn và thời gian đọc + nói ước tính khi bạn gõ.", "description": "Bộ đếm từ miễn phí trực tuyến. Cập nhật trực tiếp số lượng từ, ký tự (có và không có khoảng trắng), câu, đoạn và thời gian đọc/nói ước tính khi bạn gõ hoặc dán văn bản."},
         "hi": {"name": "Word Counter", "tagline": "जैसे आप टाइप करते हैं, शब्द, अक्षर, वाक्य, अनुच्छेद गिनें और पढ़ने + बोलने का समय अनुमानित करें।", "description": "मुफ़्त ऑनलाइन word counter। शब्द, अक्षर (spaces के साथ और बिना), वाक्य, अनुच्छेद, syllables की live गिनती, साथ ही पढ़ने और बोलने के समय का अनुमान।"},
+        "sk": {"name": 'Počítadlo slov', "tagline": 'Počítaj slová, znaky, vety, odseky a odhadni reading + speaking time pri písaní.', "description": 'Bezplatné online počítadlo slov. Pri písaní spočítava slová, znaky (s a bez medzier), vety, odseky a odhaduje čas čítania aj hovorenia. Beží v prehliadači.'},
+        "cs": {"name": 'Počítadlo slov', "tagline": 'Počítej slova, znaky, věty, odstavce a odhadni reading + speaking time při psaní.', "description": 'Zdarma online počítadlo slov. Při psaní spočítává slova, znaky (s a bez mezer), věty, odstavce a odhaduje čas čtení i mluvení. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -378,6 +380,50 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>शब्द गणनाएं टूल के अनुसार बदलती हैं।</strong> Word, Google Docs, और journal-submission systems कुछ प्रतिशत असहमत हो सकते हैं — वे hyphens, em dashes, और संख्याओं को अलग-अलग संभालते हैं। यदि एक कठिन सीमा मायने रखती है, तो उसी टूल में गिनें जिसका gatekeeper उपयोग करता है।</li>
   <li><strong>"Most frequent" stop शब्दों को filter नहीं करता।</strong> "the" और "a" लगभग हमेशा सूची में सबसे ऊपर होते हैं। वास्तविक संकेत के लिए लंबे entries देखें।</li>
   <li><strong>पढ़ने के समय के अनुमान व्यक्तिगत हैं।</strong> 250 wpm median है; तकनीकी content धीमा चलता है, fiction तेज़। संख्या को एक योजना गाइड के रूप में मानें, पूर्वानुमान के रूप में नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Pri písaní okamžite ukazuje počet slov, znakov (so a bez medzier), viet, odsekov a odhad času čítania (priemer 200 slov/min) aj hovorenia (priemer 130 slov/min). Užitočné pri kontrolovaní dĺžky príspevku oproti limit-u (Twitter, abstract, meta description).</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Twitter post — max 280 znakov.</li>
+  <li>Meta description — ~150–160 znakov pre SEO.</li>
+  <li>Slovenská maturitná esej — typicky 300–500 slov.</li>
+  <li>Speech prep — koľko minút bude trvať tvoja prezentácia.</li>
+  <li>Akademický abstract — typicky 150–250 slov.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Slovo" definícia.</strong> Word counter zvyčajne počíta whitespace-separated tokens. Spojovník (hyphen) môže byť alebo nemusí byť jedno slovo.</li>
+  <li><strong>Reading time je odhad.</strong> Závisí od jazyka, čitateľa, zložitosti textu. ±30 % je normálne.</li>
+  <li><strong>Znaky vs. bajty.</strong> Slovenský znak (š) je 1 znak ale 2 bajty v UTF-8.</li>
+  <li><strong>Veta = veta?</strong> Detekcia viet podľa <code>. ! ?</code> — skratky („napr.") sa môžu rátať ako vety.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Při psaní okamžitě ukazuje počet slov, znaků (s i bez mezer), vět, odstavců a odhad času čtení (průměr 200 slov/min) i mluvení (průměr 130 slov/min). Užitečné při kontrole délky příspěvku proti limitu (Twitter, abstract, meta description).</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Twitter post — max 280 znaků.</li>
+  <li>Meta description — ~150–160 znaků pro SEO.</li>
+  <li>Česká maturitní esej — typicky 300–500 slov.</li>
+  <li>Speech prep — kolik minut bude trvat tvá prezentace.</li>
+  <li>Akademický abstract — typicky 150–250 slov.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>„Slovo" definice.</strong> Word counter obvykle počítá whitespace-separated tokens. Spojovník (hyphen) může nebo nemusí být jedno slovo.</li>
+  <li><strong>Reading time je odhad.</strong> Závisí na jazyku, čtenáři, složitosti textu. ±30 % je normální.</li>
+  <li><strong>Znaky vs. bajty.</strong> Český znak (š) je 1 znak ale 2 bajty v UTF-8.</li>
+  <li><strong>Věta = věta?</strong> Detekce vět podle <code>. ! ?</code> — zkratky („např.") se můžou počítat jako věty.</li>
 </ul>
 """,
     },

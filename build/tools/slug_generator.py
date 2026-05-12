@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Slug Generator", "tagline": "Ubah judul apa pun menjadi URL slug bersih — transliterate aksen, strip tanda baca, satukan dengan tanda hubung.", "description": "Slug generator gratis. Ubah judul apa pun menjadi slug URL ramah-SEO: lowercase, transliterate aksen (café → cafe), strip tanda baca, dan gabungkan kata dengan tanda hubung. Sempurna untuk permalink dan path konten."},
         "vi": {"name": "Tạo Slug", "tagline": "Biến bất kỳ tiêu đề nào thành URL slug sạch — chuyển tự chữ có dấu, bỏ dấu câu, nối bằng dấu gạch ngang.", "description": "Trình tạo slug miễn phí trực tuyến. Biến tiêu đề thành URL slug thân thiện với SEO — chuyển tự chữ có dấu sang ASCII, bỏ dấu câu, viết thường tất cả và nối các từ bằng dấu gạch ngang."},
         "hi": {"name": "Slug Generator", "tagline": "किसी भी title को साफ़ URL slug में बदलें — accents को transliterate करें, punctuation हटाएं, hyphens से जोड़ें।", "description": "मुफ़्त ऑनलाइन URL slug generator। Lowercases, accented characters को transliterate करता है (à → a, ñ → n), punctuation हटाता है, और चुने हुए separator से शब्दों को जोड़ता है। Stop-word removal वैकल्पिक।"},
+        "sk": {"name": 'Slug generátor', "tagline": 'Preveď akýkoľvek titulok na čistý URL slug — transliteruj diakritiku, odstráň interpunkciu, spoj pomlčkami.', "description": 'Bezplatný online slug generátor. Premení titulok alebo nadpis na URL-safe slug — transliteruje diakritiku, odstráni interpunkciu a špeciálne znaky, spojí slová pomlčkami. SEO-friendly.'},
+        "cs": {"name": 'Slug generátor', "tagline": 'Převeď jakýkoli titulek na čistý URL slug — transliteruj diakritiku, odstraň interpunkci, spoj pomlčkami.', "description": 'Zdarma online slug generátor. Promění titulek nebo nadpis na URL-safe slug — transliteruje diakritiku, odstraní interpunkci a speciální znaky, spojí slova pomlčkami. SEO-friendly.'},
     },
     "body": """
 <div class="tool-card">
@@ -363,6 +365,50 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>Truncation अर्थ बदल सकता है।</strong> "introduction-to-rust-programming" को 20 chars तक काटा गया तो "introduction-to-rust" बनता है — ठीक; 16 तक काटा गया तो "introduction-to" — स्पष्ट रूप से बदतर। ऐसी content के लिए limit को हाथ से set करें जहाँ tail मायने रखती है।</li>
   <li><strong>Slugs unique नहीं हैं।</strong> दो अलग titles एक ही slug में collapse हो सकते हैं ("Café" और "Cafe" दोनों → <code>cafe</code>)। यदि आप slugs को URL keys के रूप में इस्तेमाल कर रहे हैं, collision पर एक short ID या suffix append करें।</li>
   <li><strong>Shipped slugs न बदलें।</strong> एक बार URL live और indexed हो जाने पर, इसके slug को फिर से generate करने से links और SEO टूटते हैं। यदि title बदलता है, पुराने slug को रखें या एक 301 redirect set up करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Slug je URL-safe verzia titulku — bez diakritiky, bez interpunkcie, spojený pomlčkami. „Naša najlepšia kniha o JSON-e" → <code>nasa-najlepsia-kniha-o-json-e</code>. Tento nástroj transliteruje slovenské / české / poľské znaky, odstráni špeciálne znaky a spojí slová pomlčkami.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>SEO-friendly URL pre blog post alebo článok.</li>
+  <li>Identifikátor pre súbor (filename) bez problematických znakov.</li>
+  <li>Kebab-case z titulku pre React route alebo CSS class.</li>
+  <li>Konzistentné slugy pre veľký import obsahu z CMS-u.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Transliterácia nie je perfect.</strong> ž → z, š → s, ale niektoré jazyky preferujú iné transliterácie (čínština pinyin, japončina romaji).</li>
+  <li><strong>Krátke slová.</strong> Niektoré CMS-y vyhadzujú „a", „the", „of" — náš nástroj nevyhadzuje, ostáva to na tebe.</li>
+  <li><strong>Slug má byť stabilný.</strong> Po publikácii ho nemeň — staré linky sa zlomia. Použij redirect, nie zmenu slug-u.</li>
+  <li><strong>Dĺžka URL.</strong> Praktický limit ~60 znakov pre SEO.</li>
+  <li><strong>Veľké písmená.</strong> Slug má byť všetko lowercase — case-insensitive URL je v poriadku v doménu, nie v path-i.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Slug je URL-safe verze titulku — bez diakritiky, bez interpunkce, spojený pomlčkami. „Naše nejlepší kniha o JSONu" → <code>nase-nejlepsi-kniha-o-jsonu</code>. Tenhle nástroj transliteruje české / slovenské / polské znaky, odstraní speciální znaky a spojí slova pomlčkami.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>SEO-friendly URL pro blog post nebo článek.</li>
+  <li>Identifikátor pro soubor (filename) bez problematických znaků.</li>
+  <li>Kebab-case z titulku pro React route nebo CSS class.</li>
+  <li>Konzistentní slugy pro velký import obsahu z CMS.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Transliterace není perfect.</strong> ž → z, š → s, ale některé jazyky preferují jiné transliterace (čínština pinyin, japonština romaji).</li>
+  <li><strong>Krátká slova.</strong> Některé CMS vyhazují „a", „the", „of" — náš nástroj nevyhazuje, zůstává to na tobě.</li>
+  <li><strong>Slug má být stabilní.</strong> Po publikaci ho neměň — staré linky se zlomí. Použij redirect, ne změnu slugu.</li>
+  <li><strong>Délka URL.</strong> Praktický limit ~60 znaků pro SEO.</li>
+  <li><strong>Velká písmena.</strong> Slug má být všechno lowercase — case-insensitive URL je v pořádku v doméně, ne v pathu.</li>
 </ul>
 """,
     },

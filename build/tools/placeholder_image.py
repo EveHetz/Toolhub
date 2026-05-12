@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Generator Placeholder Image", "tagline": "Hasilkan placeholder image SVG inline ukuran apa pun dengan teks dan warna custom. Output sebagai data URI atau SVG yang dapat diunduh.", "description": "Generator placeholder image gratis. Buat placeholder image SVG inline ukuran apa pun dengan teks, warna background, dan warna foreground custom. Output sebagai data URI atau SVG yang dapat diunduh — sempurna untuk mockup dan wireframe."},
         "vi": {"name": "Tạo Placeholder Image", "tagline": "Tạo placeholder image SVG inline với bất kỳ kích thước nào với văn bản và màu tùy chỉnh. Xuất ra dưới dạng data URI hoặc SVG có thể tải về.", "description": "Trình tạo placeholder image miễn phí trực tuyến. Tạo SVG inline ở bất kỳ kích thước nào với văn bản và màu tùy chỉnh — sao chép dưới dạng data URI để dùng inline hoặc tải file SVG về. Hữu ích cho mockup và wireframe."},
         "hi": {"name": "Placeholder Image Generator", "tagline": "किसी भी size पर कस्टम text और रंगों के साथ inline-SVG placeholder image बनाएं। Data URI या download योग्य SVG के रूप में output।", "description": "मुफ़्त placeholder image generator। width × height, label text, और रंग specify करें; एक inline SVG पाएं जिसे आप कहीं भी paste कर सकते हैं — data URI, raw markup, या download। पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'Generátor placeholder obrázkov', "tagline": 'Vygeneruj inline-SVG placeholder obrázky akejkoľvek veľkosti s vlastným textom a farbami. Výstup ako data URI alebo stiahnuteľné SVG.', "description": 'Bezplatný online generátor placeholder obrázkov. Nastav veľkosť, popredie, pozadie a text — dostaneš inline-SVG placeholder pre wireframy a mockupy. Stiahni alebo skopíruj ako data URI.'},
+        "cs": {"name": 'Generátor placeholder obrázků', "tagline": 'Vygeneruj inline-SVG placeholder obrázky jakékoli velikosti s vlastním textem a barvami. Výstup jako data URI nebo stáhnutelné SVG.', "description": 'Zdarma online generátor placeholder obrázků. Nastav velikost, popředí, pozadí a text — dostaneš inline-SVG placeholder pro wireframy a mockupy. Stáhni nebo zkopíruj jako data URI.'},
     },
     "body": """
 <div class="tool-card">
@@ -394,6 +396,48 @@ document.addEventListener('DOMContentLoaded', phRun);
   <li><strong>रंग केवल HTML hex हैं।</strong> color pickers <code>#rrggbb</code> बनाते हैं। यदि आपको <code>rgba()</code> चाहिए, copy करने के बाद सीधे SVG markup को edit करें।</li>
   <li><strong>Width/height intrinsic हैं, display नहीं।</strong> CSS को अलग size पर set करने से SVG scale होगा — दृष्टिगत रूप से ठीक, पर embedded text aspect ratio बदलने पर खिंचा हुआ दिख सकता है; हम predictable scaling के लिए <code>preserveAspectRatio="none"</code> का इस्तेमाल करते हैं।</li>
   <li><strong>placeholder को ship न करें।</strong> भूलना आसान है — live जाने से पहले real asset से बदलें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Vygeneruje inline SVG placeholder obrázok zvolenej veľkosti, s vlastným textom (default je „WxH") a farbami. Výstup je buď stiahnuteľný SVG súbor, alebo data URI, ktoré môžeš inline vložiť do HTML / CSS.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Wireframe / mockup, kde nemáš ešte skutočné obrázky.</li>
+  <li>Test layoutu pri rôznych rozmeroch obrázkov.</li>
+  <li>Demo galérie, kde každý obrázok má rozumnú veľkosť.</li>
+  <li>Náhrada za externý placeholder.com — beží lokálne, nezaťažuje sieť.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>SVG ≠ raster.</strong> SVG je vektor — zachová ostrosť pri akejkoľvek veľkosti. Aspect ratio testuj v HTML.</li>
+  <li><strong>data URI v src.</strong> Funguje vždy, ale veľké data URI zvyšujú HTML size.</li>
+  <li><strong>Aspect ratio.</strong> CSS s <code>aspect-ratio</code> zachová rozmery; bez toho sa môže placeholder roztiahnuť.</li>
+  <li><strong>Accessibility.</strong> Placeholder má mať <code>alt</code> atribút, najmä keď je tam meaningful text.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Vygeneruje inline SVG placeholder obrázek zvolené velikosti, s vlastním textem (default je „WxH") a barvami. Výstup je buď stáhnutelný SVG soubor, nebo data URI, který můžeš inline vložit do HTML / CSS.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Wireframe / mockup, kde nemáš ještě skutečné obrázky.</li>
+  <li>Test layoutu při různých rozměrech obrázků.</li>
+  <li>Demo galerie, kde každý obrázek má rozumnou velikost.</li>
+  <li>Náhrada za externí placeholder.com — běží lokálně, nezatěžuje síť.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>SVG ≠ raster.</strong> SVG je vektor — zachová ostrost při jakékoli velikosti. Aspect ratio testuj v HTML.</li>
+  <li><strong>data URI v src.</strong> Funguje vždy, ale velké data URI zvyšují HTML size.</li>
+  <li><strong>Aspect ratio.</strong> CSS s <code>aspect-ratio</code> zachová rozměry; bez toho se může placeholder roztáhnout.</li>
+  <li><strong>Accessibility.</strong> Placeholder má mít <code>alt</code> atribut, zvláště když je tam meaningful text.</li>
 </ul>
 """,
     },

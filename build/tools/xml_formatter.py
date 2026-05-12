@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "XML Formatter", "tagline": "Format dan minify XML. Validasi well-formedness dengan baris dan kolom pada error.", "description": "XML formatter dan validator gratis. Beautify XML berantakan dengan indentasi atau minify untuk transport. Validasi well-formedness dan tampilkan error sintaks dengan baris dan kolom. Berjalan di browser-mu."},
         "vi": {"name": "XML Formatter", "tagline": "Format và minify XML. Xác thực well-formedness với dòng và cột khi có lỗi.", "description": "XML formatter và validator miễn phí trực tuyến. Làm đẹp XML lộn xộn với indent thích hợp hoặc minify để truyền tải. Lỗi well-formedness được làm nổi bật với số dòng và cột."},
         "hi": {"name": "XML Formatter", "tagline": "XML को फ़ॉर्मैट और minify करें। त्रुटियों पर line और column के साथ well-formedness जांचें।", "description": "मुफ़्त ऑनलाइन XML formatter और minifier। कॉन्फ़िगर करने योग्य indent के साथ XML का सुंदर मुद्रण, या whitespace हटाकर minify। browser के XML parser का उपयोग करके well-formedness को सत्यापित करता है — त्रुटि line और column दिखाई जाती है।"},
+        "sk": {"name": 'XML Formátovač', "tagline": 'Naformátuj a minifikuj XML. Over well-formedness s riadkom a stĺpcom pri chybách.', "description": 'Bezplatný online XML formátovač. Naformátuje a minifikuje XML so správnym indentom. Overí well-formedness a chyby ukáže s riadkom a stĺpcom. Beží v prehliadači.'},
+        "cs": {"name": 'XML formátovač', "tagline": 'Naformátuj a zminifikuj XML. Ověř well-formedness s řádkem a sloupcem při chybách.', "description": 'Zdarma online XML formátovač. Naformátuje a zminifikuje XML se správným indentem. Ověří well-formedness a chyby ukáže s řádkem a sloupcem. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -516,6 +518,50 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>Namespaces जीवित रहते हैं।</strong> <code>xmlns:foo</code> declarations और <code>foo:bar</code> qualified names बिना संशोधन के round-trip करते हैं।</li>
   <li><strong>Attribute क्रम बदल सकता है।</strong> XML parser tools के बीच attribute क्रम को कड़ाई से संरक्षित नहीं करता है; यदि आप XML का checksum कर रहे हैं, तो इसे पहले canonicalise करें (XML C14N)।</li>
   <li><strong>Browser parser quirks।</strong> विभिन्न browsers parse errors को अलग-अलग प्रारूपों में रिपोर्ट करते हैं। line/column निष्कर्षण best-effort है और कुछ browsers पर केवल message दिखा सकता है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Naformátuje XML s konzistentným indentom alebo ho minifikuje na jeden riadok. Súčasne overí well-formedness — či sú tagy správne uzavreté, atribúty v úvodzovkách atď. Pri chybe ukáže riadok a stĺpec.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Náhľad XML konfigurácie (Maven pom.xml, Spring config).</li>
+  <li>Debug SOAP request/response, ktorý prišiel ako jeden riadok.</li>
+  <li>Validácia, či XML, ktorý generuješ, je well-formed.</li>
+  <li>Minify pred poslaním cez SOAP endpoint.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Well-formed ≠ valid.</strong> Well-formed = syntakticky správny XML. Valid = aj schémou (DTD/XSD) potvrdený.</li>
+  <li><strong>Self-closing tagy.</strong> <code>&lt;br/&gt;</code> alebo <code>&lt;br /&gt;</code> — oba sú validné.</li>
+  <li><strong>CDATA blocks.</strong> <code>&lt;![CDATA[ ... ]]&gt;</code> obsah sa nemení.</li>
+  <li><strong>XML deklarácia.</strong> <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code> má byť prvý riadok bez whitespace predtým.</li>
+  <li><strong>Namespaces.</strong> <code>xmlns:foo="..."</code> — pri minifikácii zostávajú, ale poradie atribútov sa môže meniť.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Naformátuje XML s konzistentním indentem nebo ho zminifikuje na jeden řádek. Současně ověří well-formedness — jestli jsou tagy správně uzavřené, atributy v uvozovkách atd. Při chybě ukáže řádek a sloupec.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Náhled XML konfigurace (Maven pom.xml, Spring config).</li>
+  <li>Debug SOAP request/response, který přišel jako jeden řádek.</li>
+  <li>Validace, jestli XML, který generuješ, je well-formed.</li>
+  <li>Minify před posláním přes SOAP endpoint.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Well-formed ≠ valid.</strong> Well-formed = syntakticky správný XML. Valid = i schématem (DTD/XSD) potvrzený.</li>
+  <li><strong>Self-closing tagy.</strong> <code>&lt;br/&gt;</code> nebo <code>&lt;br /&gt;</code> — oba jsou validní.</li>
+  <li><strong>CDATA blocks.</strong> <code>&lt;![CDATA[ ... ]]&gt;</code> obsah se nemění.</li>
+  <li><strong>XML deklarace.</strong> <code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code> má být první řádek bez whitespace předtím.</li>
+  <li><strong>Namespaces.</strong> <code>xmlns:foo="..."</code> — při minifikaci zůstávají, ale pořadí atributů se může měnit.</li>
 </ul>
 """,
     },

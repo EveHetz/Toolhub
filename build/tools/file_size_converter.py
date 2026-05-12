@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Konverter Ukuran File", "tagline": "Konversi antara byte, KB, MB, GB, TB dan biner KiB, MiB, GiB, TiB. Pemisahan desimal vs biner yang jelas.", "description": "Konverter ukuran file gratis. Konversi antara satuan desimal (KB, MB, GB, TB) dan biner (KiB, MiB, GiB, TiB) dengan pemisahan yang jelas. Menjelaskan perbedaan 1000 vs 1024 yang membingungkan banyak orang."},
         "vi": {"name": "Chuyển đổi Kích thước File", "tagline": "Chuyển giữa byte, KB, MB, GB, TB và KiB nhị phân, MiB, GiB, TiB. Phân tách thập phân vs nhị phân rõ ràng.", "description": "Bộ chuyển kích thước file miễn phí trực tuyến giữa byte, KB, MB, GB, TB và KiB nhị phân, MiB, GiB, TiB. Phân biệt đơn vị thập phân (1000) và nhị phân (1024) một cách rõ ràng."},
         "hi": {"name": "File Size Converter", "tagline": "bytes, KB, MB, GB, TB और binary KiB, MiB, GiB, TiB के बीच बदलें। Decimal बनाम binary स्पष्ट रूप से अलग।", "description": "मुफ़्त file size unit converter। किसी भी byte count को decimal units (B, KB, MB, GB, TB, PB) और IEC binary units (KiB, MiB, GiB, TiB, PiB) के बीच बदलें। दोनों एक साथ देखें, सटीक अंतर के साथ।"},
+        "sk": {"name": 'Konvertor veľkosti súboru', "tagline": 'Preveď medzi bytes, KB, MB, GB, TB a binárnymi KiB, MiB, GiB, TiB. Decimal vs. binary jasne oddelené.', "description": 'Bezplatný online konvertor veľkosti súboru. Preveď medzi bytes, KB, MB, GB, TB (decimal) aj KiB, MiB, GiB, TiB (binary). Jasne rozlišuje 1000 vs. 1024 základ. Funguje v prehliadači.'},
+        "cs": {"name": 'Konvertor velikosti souboru', "tagline": 'Převeď mezi bytes, KB, MB, GB, TB a binárními KiB, MiB, GiB, TiB. Decimal vs. binary jasně oddělené.', "description": 'Zdarma online konvertor velikosti souboru. Převeď mezi bytes, KB, MB, GB, TB (decimal) i KiB, MiB, GiB, TiB (binary). Jasně rozlišuje 1000 vs. 1024 základ. Funguje v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -424,6 +426,48 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>Network speed bits में है, bytes में नहीं।</strong> 100 Mbps = 100 megabits per second = 12.5 MB/s peak। आपकी "100 Mbit fiber" एक 100 MB file को एक second में download नहीं करती।</li>
   <li><strong>कुछ tools inconsistent हैं।</strong> macOS Finder 10.6 में binary (KB labels के साथ) से decimal में switch हुआ, फिर वहीं रहा। Windows Explorer अभी भी KB labels के साथ binary का उपयोग करता है — confusing लेकिन अपरिवर्तित।</li>
   <li><strong>Browsers का <code>Content-Length</code> bytes है।</strong> हमेशा सटीक, कोई SI/IEC ambiguity नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Veľkosť súboru sa udáva dvojakým systémom: decimal (1 KB = 1000 B, používa to disk maker) a binary (1 KiB = 1024 B, používa to operating system). Tento konvertor rozlišuje oba a prevedie medzi všetkými jednotkami až po TB / TiB.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Disk maker tvrdí 1 TB, OS ukazuje 931 GB — prepočet medzi decimálnym TB a binárnym TiB.</li>
+  <li>Plánovanie storage budgetu (raw bytes na základe počtu súborov × priemerná veľkosť).</li>
+  <li>Prevod transfer rýchlosti (Mbps vs. MB/s) — pozor, 1 byte = 8 bitov.</li>
+  <li>Sanity check Docker image alebo VM disk size.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>KB ≠ KiB.</strong> KB je 1000 B (decimálny SI prefix), KiB je 1024 B (binárny IEC prefix).</li>
+  <li><strong>RAM používa binárne, disk decimálne.</strong> Preto „1 TB disk" vyzerá ako „931 GB" v Windows-och, ktorí používajú KiB ale ich označujú ako „KB".</li>
+  <li><strong>Bit vs. byte.</strong> 100 Mbps = 12,5 MB/s. Internet sa meria v bitoch, súbory v bajtoch.</li>
+  <li><strong>Network overhead.</strong> Reálny throughput je nižší než nominálna rýchlosť linky kvôli protokol headerom.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Velikost souboru se udává dvojakým systémem: decimal (1 KB = 1000 B, používá to disk maker) a binary (1 KiB = 1024 B, používá to operating system). Tenhle konvertor rozlišuje oba a převede mezi všemi jednotkami až po TB / TiB.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Disk maker tvrdí 1 TB, OS ukazuje 931 GB — přepočet mezi decimálním TB a binárním TiB.</li>
+  <li>Plánování storage budgetu (raw bytes na základě počtu souborů × průměrná velikost).</li>
+  <li>Převod transfer rychlosti (Mbps vs. MB/s) — pozor, 1 byte = 8 bitů.</li>
+  <li>Sanity check Docker image nebo VM disk size.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>KB ≠ KiB.</strong> KB je 1000 B (decimální SI prefix), KiB je 1024 B (binární IEC prefix).</li>
+  <li><strong>RAM používá binární, disk decimální.</strong> Proto „1 TB disk" vypadá jako „931 GB" v Windows, který používá KiB ale označuje je jako „KB".</li>
+  <li><strong>Bit vs. byte.</strong> 100 Mbps = 12,5 MB/s. Internet se měří v bitech, soubory v bajtech.</li>
+  <li><strong>Network overhead.</strong> Reálný throughput je nižší než nominální rychlost linky kvůli protokol headerům.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kalkulator Tip & Bagi Tagihan", "tagline": "Total tagihan + % tip + jumlah orang = jumlah per orang. Opsi pembulatan ke atas, menampilkan tip dan grand total.", "description": "Kalkulator tip dan bagi tagihan gratis. Masukkan jumlah tagihan, persentase tip, dan jumlah orang — dapatkan jumlah per orang, total tip, dan grand total. Opsi pembulatan ke atas untuk angka yang rapi."},
         "vi": {"name": "Máy tính Tip & Chia Hóa đơn", "tagline": "Tổng hóa đơn + % tip + số người = số tiền mỗi người. Tùy chọn làm tròn lên, hiển thị tip và grand total.", "description": "Máy tính tip và chia hóa đơn miễn phí trực tuyến. Nhập tổng hóa đơn, % tip và số người để xem số tiền mỗi người trả, với tùy chọn làm tròn lên đến đồng tiền gần nhất."},
         "hi": {"name": "Tip & Split Calculator", "tagline": "बिल कुल + tip % + लोग = प्रति व्यक्ति राशि। राउंड-अप विकल्प, tip और कुल योग दिखाया जाता है।", "description": "मुफ़्त ऑनलाइन tip और बिल split calculator। बिल, tip प्रतिशत और लोगों की संख्या डालें। tip राशि, कुल योग और प्रति व्यक्ति हिस्सा देखें। वैकल्पिक राउंड-अप।"},
+        "sk": {"name": 'Kalkulačka tipu a delenia účtu', "tagline": 'Účet + tip % + ľudia = suma na človeka. Možnosť zaokrúhliť nahor, zobrazený tip aj celkom.', "description": 'Bezplatná online kalkulačka tipu a delenia účtu. Zadaj celkový účet, percento tipu a počet ľudí — dostaneš sumu na osobu, výšku tipu a celkový účet. Voliteľne zaokrúhlenie nahor.'},
+        "cs": {"name": 'Kalkulačka tipu a dělení účtu', "tagline": 'Účet + tip % + lidi = částka na osobu. Možnost zaokrouhlit nahoru, zobrazený tip i celkem.', "description": 'Zdarma online kalkulačka tipu a dělení účtu. Zadej celkový účet, procento tipu a počet lidí — dostaneš částku na osobu, výši tipu a celkový účet. Volitelně zaokrouhlení nahoru.'},
     },
     "body": """
 <div class="tool-card">
@@ -374,6 +376,50 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>Service charge ≠ tip।</strong> यदि "service charge" पहले से बिल पर है (UK में 6+ लोगों के समूह और महाद्वीपीय यूरोप के अधिकांश हिस्सों में आम), तो अतिरिक्त tip देना वैकल्पिक है। कुछ स्थान service charge को रसोई के साथ बांटते हैं; यदि आप चाहते हैं कि यह सर्वर तक पहुंचे तो सीधे cash में tip दें।</li>
   <li><strong>प्रति व्यक्ति राउंडिंग असमान खाने को छिपा सकती है।</strong> बराबर बंटवारा सबसे तेज़ है लेकिन अनुचित है यदि एक व्यक्ति ने वाइन ली और दूसरे ने पानी — उस स्थिति में आइटम-वार बंटवारे पर स्विच करें।</li>
   <li><strong>Cash बनाम card।</strong> कुछ कर्मचारी cash tip पसंद करते हैं क्योंकि card tip एकत्रित किए जाते हैं, तुरंत कर लगाया जाता है, या स्थान द्वारा काट लिए जाते हैं। यदि इस calculator पर प्रति व्यक्ति आंकड़े में tip शामिल है, तो तय करें कि क्या आप ऊपर से cash में tip चुकाना चाहते हैं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Zadaj sumu účtu, percento tipu (alebo prázdne pre 0) a počet ľudí. Kalkulačka vyráta tip, celkovú sumu s tipom a sumu na osobu. Voliteľne zaokrúhli sumu na osobu nahor na celé euro (alebo dolár), aby to bolo praktické.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Rozdelenie účtu v reštaurácii medzi viacero ľudí.</li>
+  <li>Výpočet tipu v krajine, kde sa to očakáva (USA, Kanada).</li>
+  <li>Service charge na business účet.</li>
+  <li>Vlastnoručné checkovanie, že reštaurácia neúčtovala viac, než má.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Tip pred alebo po dane?</strong> V USA sa tipy bežne počítajú zo subtotalu pred sales tax-om.</li>
+  <li><strong>15 % vs. 20 %.</strong> Štandardný tip v USA — 15 % minimum, 20 % za dobrú obsluhu.</li>
+  <li><strong>EU nemusí tipovať.</strong> V Európe je „service compris" alebo service inclusive bežný; tip je dobrovoľný bonus.</li>
+  <li><strong>Zaokrúhľovanie na osobu.</strong> Smerom hore = nikto nezostane dlžný malou sumou.</li>
+  <li><strong>Card vs. cash tip.</strong> Hotovostný tip ide priamo čašníkovi; cez kartu ho dostane reštaurácia.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Zadej částku účtu, procento tipu (nebo prázdné pro 0) a počet lidí. Kalkulačka spočítá tip, celkovou částku s tipem a částku na osobu. Volitelně zaokrouhli částku na osobu nahoru na celé euro (nebo korunu), aby to bylo praktické.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Rozdělení účtu v restauraci mezi víc lidí.</li>
+  <li>Výpočet tipu v zemi, kde se to očekává (USA, Kanada).</li>
+  <li>Service charge na business účet.</li>
+  <li>Vlastnoruční checkování, že restaurace neúčtovala víc, než má.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Tip před nebo po dani?</strong> V USA se tipy běžně počítají ze subtotalu před sales taxem.</li>
+  <li><strong>15 % vs. 20 %.</strong> Standardní tip v USA — 15 % minimum, 20 % za dobrou obsluhu.</li>
+  <li><strong>EU nemusí tipovat.</strong> V Evropě je „service compris" nebo service inclusive běžný; tip je dobrovolný bonus.</li>
+  <li><strong>Zaokrouhlování na osobu.</strong> Směrem nahoru = nikdo nezůstane dlužný malou sumou.</li>
+  <li><strong>Card vs. cash tip.</strong> Hotovostní tip jde přímo číšníkovi; přes kartu ho dostane restaurace.</li>
 </ul>
 """,
     },

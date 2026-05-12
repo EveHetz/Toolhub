@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pemeriksa Kontras WCAG", "tagline": "Cek rasio kontras antara dua warna. Penilaian lulus/gagal di WCAG AA dan AAA untuk setiap ukuran teks.", "description": "Pemeriksa kontras WCAG gratis. Cek rasio kontras antara warna teks dan background sesuai WCAG 2.1. Penilaian lulus/gagal untuk AA dan AAA, teks normal dan besar. Penting untuk a11y."},
         "vi": {"name": "Kiểm tra Tương phản WCAG", "tagline": "Kiểm tra tỷ lệ tương phản giữa hai màu. Đánh giá đạt/không đạt cho WCAG AA và AAA cho mỗi kích thước văn bản.", "description": "Trình kiểm tra tương phản WCAG miễn phí trực tuyến. Nhập hai màu và xem tỷ lệ tương phản tính được với đánh giá đạt/không đạt cho WCAG 2.1 cấp độ AA và AAA cho cả văn bản thường và lớn."},
         "hi": {"name": "WCAG contrast Checker", "tagline": "दो रंगों के बीच contrast अनुपात जांचें। हर text आकार पर WCAG AA और AAA के लिए pass/fail निर्णय।", "description": "मुफ़्त WCAG contrast अनुपात जांचकर्ता। foreground और background रंग चुनें, अनुपात (1:1 से 21:1) और WCAG 2.1 AA और AAA के लिए pass/fail निर्णय प्राप्त करें — सामान्य text, बड़े text और UI components के लिए।"},
+        "sk": {"name": 'WCAG Contrast Checker', "tagline": 'Skontroluj contrast ratio medzi dvomi farbami. Pass/fail verdikt pre WCAG AA a AAA pri každej veľkosti textu.', "description": 'Bezplatný online WCAG contrast checker. Skontroluj contrast ratio medzi popredím a pozadím — verdikt pass/fail pre AA a AAA pre normálny aj veľký text. Užitočné na accessibility audit.'},
+        "cs": {"name": 'WCAG Contrast Checker', "tagline": 'Zkontroluj contrast ratio mezi dvěma barvami. Pass/fail verdikt pro WCAG AA a AAA při každé velikosti textu.', "description": 'Zdarma online WCAG contrast checker. Zkontroluj contrast ratio mezi popředím a pozadím — verdikt pass/fail pro AA a AAA pro normální i velký text. Užitečné pro accessibility audit.'},
     },
     "body": """
 <div class="tool-card">
@@ -397,6 +399,50 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>Hover और focus states गिने जाते हैं।</strong> यदि आपका button rest पर AA पास करता है लेकिन hover पर fail हो जाता है, तो यह एक वास्तविक accessibility bug है।</li>
   <li><strong>WCAG 2.1 बनाम APCA।</strong> WCAG 3 के लिए प्रस्तावित नया APCA (Accessible Perceptual Contrast Algorithm), अलग और यकीनन बेहतर संख्याएं देता है — लेकिन WCAG 2.1 कानूनी मानक है जिसका अधिकांश अधिकार क्षेत्र अभी भी संदर्भ देते हैं। EN 301 549, ADA, या AA-conformance दावों को पूरा करते समय इस टूल की संख्याओं का उपयोग करें।</li>
   <li><strong>पारदर्शिता के साथ pad न करें।</strong> एक ज्ञात background पर 50% alpha foreground का एक अलग प्रभावी contrast होता है — मूल के विरुद्ध नहीं, बल्कि वास्तविक रेंडर किए गए रंग के विरुद्ध गणना करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) určujú minimálny contrast ratio medzi textom a pozadím pre čitateľnosť. AA: 4,5:1 (normálny text), 3:1 (veľký text). AAA: 7:1 (normálny), 4,5:1 (veľký). Tento nástroj vypočíta ratio dvoch farieb a povie ti, či splňujú AA / AAA pre malý aj veľký text.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Audit existujúcej stránky na accessibility compliance.</li>
+  <li>Dizajn brand farieb — overiť, či text na primárnej farbe je čitateľný.</li>
+  <li>Compliance — WCAG 2.1 AA je požiadavka pre EU public sector a US federal.</li>
+  <li>Test, či dark mode farby majú dostatočný kontrast.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Large text definícia.</strong> 18pt regular alebo 14pt bold. Iné fonty = iné body size.</li>
+  <li><strong>Logos a UI komponenty.</strong> Sú výnimkou. Logo nemusí splňať contrast požiadavky.</li>
+  <li><strong>Tlačidlá.</strong> Border alebo background color tlačidla musí mať 3:1 voči pozadiu (graphic contrast).</li>
+  <li><strong>Hover stavy.</strong> Aj hover/focus/active musia mať dostatočný kontrast.</li>
+  <li><strong>APCA.</strong> Novší contrast algoritmus, ktorý lepšie modeluje skutočné vnímanie. WCAG 3.0 ho preberá.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) určují minimální contrast ratio mezi textem a pozadím pro čitelnost. AA: 4,5:1 (normální text), 3:1 (velký text). AAA: 7:1 (normální), 4,5:1 (velký). Tenhle nástroj spočítá ratio dvou barev a řekne ti, jestli splňují AA / AAA pro malý i velký text.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Audit existující stránky na accessibility compliance.</li>
+  <li>Design brand barev — ověřit, jestli text na primární barvě je čitelný.</li>
+  <li>Compliance — WCAG 2.1 AA je požadavek pro EU public sector a US federal.</li>
+  <li>Test, jestli dark mode barvy mají dostatečný kontrast.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Large text definice.</strong> 18pt regular nebo 14pt bold. Jiné fonty = jiné body size.</li>
+  <li><strong>Loga a UI komponenty.</strong> Jsou výjimkou. Logo nemusí splňovat contrast požadavky.</li>
+  <li><strong>Tlačítka.</strong> Border nebo background color tlačítka musí mít 3:1 vůči pozadí (graphic contrast).</li>
+  <li><strong>Hover stavy.</strong> I hover/focus/active musí mít dostatečný kontrast.</li>
+  <li><strong>APCA.</strong> Novější contrast algoritmus, který lépe modeluje skutečné vnímání. WCAG 3.0 ho přebírá.</li>
 </ul>
 """,
     },

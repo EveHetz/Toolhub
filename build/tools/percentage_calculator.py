@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Kalkulator Persentase", "tagline": "Lima kalkulator persentase dalam satu tool: of, what %, increase/decrease, change, dan tip/tax.", "description": "Kalkulator persentase gratis. Lima kalkulator dalam satu: X% dari Y, Y berapa persen dari Z, kenaikan/penurunan, persen perubahan antara dua nilai, dan kalkulator tip/pajak."},
         "vi": {"name": "Máy tính Phần trăm", "tagline": "Năm máy tính phần trăm trong một công cụ: của, bao nhiêu %, tăng/giảm, thay đổi và tip/thuế.", "description": "Máy tính phần trăm miễn phí trực tuyến. Năm chế độ trong một công cụ: X% của Y, X là bao nhiêu phần trăm của Y, tăng/giảm theo phần trăm, phần trăm thay đổi giữa hai giá trị, và tip/thuế."},
         "hi": {"name": "Percentage Calculator", "tagline": "एक में पाँच percentage calculator: of, क्या %, बढ़ोतरी/कमी, बदलाव, और tip/tax।", "description": "मुफ़्त ऑनलाइन percentage calculator। Y का X%, X, Y का कितना % है, percentage बदलाव, percentage बढ़ोतरी/कमी, और tip या tax राशि की गणना करें।"},
+        "sk": {"name": 'Kalkulačka percent', "tagline": 'Päť kalkulačiek percent v jednej: of, koľko %, nárast/pokles, zmena a tip/DPH.', "description": 'Bezplatná online kalkulačka percent. Päť kalkulátorov v jednom — X percent z Y, koľko percent je X z Y, percentuálny nárast/pokles, percentuálna zmena a výpočet tipu/DPH.'},
+        "cs": {"name": 'Kalkulačka procent', "tagline": 'Pět kalkulaček procent v jedné: of, kolik %, nárůst/pokles, změna a tip/DPH.', "description": 'Zdarma online kalkulačka procent. Pět kalkulátorů v jednom — X procent z Y, kolik procent je X z Y, procentuální nárůst/pokles, procentuální změna a výpočet tipu/DPH.'},
     },
     "body": """
 <div class="tool-card">
@@ -278,6 +280,60 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>Percentages को stack करना compound करता है।</strong> 20% बढ़ोतरी के बाद 20% कमी आपको शुरुआत में वापस नहीं ले जाती (1.20 × 0.80 = 0.96, शुद्ध 4% हानि)। क्रमिक markups/discounts के लिए, हर कदम की गणना करें।</li>
   <li><strong>Tip pre-tax पर बनाम post-tax पर।</strong> परंपरा देश और स्थान के अनुसार बदलती है। Tool आपके द्वारा डाले गए मान का percentage गणना करता है — चुनें कि आप वास्तव में किस मान को base के रूप में चाहते हैं।</li>
   <li><strong>Rounding।</strong> Output को 6 दशमलव तक round किया जाता है फिर trim किया जाता है; यदि आपको legal/accounting precision चाहिए (banker's rounding, currency-specific नियम), उस कदम को अपनी domain layer में करें, यहाँ नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Päť bežných percentových výpočtov v jednej kalkulačke:</p>
+<ul>
+  <li><strong>X % z Y</strong> = 15 % zo 200 = 30.</li>
+  <li><strong>Koľko % je X z Y</strong> = 30 z 200 = 15 %.</li>
+  <li><strong>Nárast / pokles z X o Y %</strong> = 200 + 15 % = 230.</li>
+  <li><strong>Zmena medzi X a Y</strong> = z 200 na 230 = +15 %.</li>
+  <li><strong>Tip / DPH</strong> = 200 + 20 % tip = 240 (alebo si oddel DPH zo 240).</li>
+</ul>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Zľava na produkt, vlastný výpočet kontroly.</li>
+  <li>Vyrátanie DPH (alebo VAT) na faktúru.</li>
+  <li>Týždenná zmena pokladne / KPI z minulého obdobia.</li>
+  <li>Tip v reštaurácii (15 % v US, väčšinou dobrovoľné v EU).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Nárast a pokles nie sú symetrické.</strong> +50 % a potom -50 % ťa nevráti na pôvodnú hodnotu (z 100 na 150 na 75).</li>
+  <li><strong>DPH na top.</strong> 20 % DPH zo 100 = 20; cena s DPH = 120. Ale ak je v cene 120 zahrnuté 20 % DPH, samotná DPH je 20, nie 24.</li>
+  <li><strong>Percentage points vs. percent.</strong> Z 5 % na 7 % = +2 percentuálne body, ale aj +40 %.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Pět běžných procentových výpočtů v jedné kalkulačce:</p>
+<ul>
+  <li><strong>X % z Y</strong> = 15 % z 200 = 30.</li>
+  <li><strong>Kolik % je X z Y</strong> = 30 z 200 = 15 %.</li>
+  <li><strong>Nárůst / pokles z X o Y %</strong> = 200 + 15 % = 230.</li>
+  <li><strong>Změna mezi X a Y</strong> = z 200 na 230 = +15 %.</li>
+  <li><strong>Tip / DPH</strong> = 200 + 20 % tip = 240 (nebo si oddělej DPH z 240).</li>
+</ul>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Sleva na produkt, vlastní výpočet kontroly.</li>
+  <li>Spočítání DPH (nebo VAT) na fakturu.</li>
+  <li>Týdenní změna pokladny / KPI z minulého období.</li>
+  <li>Tip v restauraci (15 % v US, většinou dobrovolné v EU).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Nárůst a pokles nejsou symetrické.</strong> +50 % a pak -50 % tě nevrátí na původní hodnotu (z 100 na 150 na 75).</li>
+  <li><strong>DPH na top.</strong> 20 % DPH z 100 = 20; cena s DPH = 120. Ale pokud je v ceně 120 zahrnuto 20 % DPH, samotná DPH je 20, ne 24.</li>
+  <li><strong>Percentage points vs. percent.</strong> Z 5 % na 7 % = +2 procentní body, ale i +40 %.</li>
 </ul>
 """,
     },

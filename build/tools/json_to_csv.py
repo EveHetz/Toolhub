@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "JSON ke CSV", "tagline": "Konversi array JSON berisi objek ke CSV. Mendeteksi field otomatis, mendukung delimiter custom, escape yang benar untuk Excel dan Google Sheets.", "description": "Konverter JSON ke CSV gratis. Tempel array JSON berisi objek dan dapatkan CSV bersih siap diimpor ke Excel, Google Sheets, atau database apa pun. Deteksi field otomatis dengan delimiter dan quoting yang dapat dikonfigurasi."},
         "vi": {"name": "JSON sang CSV", "tagline": "Chuyển mảng JSON các object thành CSV. Phát hiện trường tự động, hỗ trợ delimiter tùy chỉnh, escape chính xác cho Excel và Google Sheets.", "description": "Bộ chuyển JSON sang CSV miễn phí trực tuyến. Phát hiện trường tự động trên các object, hỗ trợ delimiter tùy chỉnh và escape chính xác cho Excel và Google Sheets. Chuyển đổi chạy cục bộ."},
         "hi": {"name": "JSON से CSV", "tagline": "Objects के JSON arrays को CSV में बदलें। Fields का auto-detection, custom delimiters का समर्थन, Excel और Google Sheets के लिए सही ढंग से escape करता है।", "description": "मुफ़्त ऑनलाइन JSON to CSV converter. Objects के arrays को rows में flatten करता है, RFC 4180 के अनुसार quotes escape करता है, comma/semicolon/tab delimiters का समर्थन करता है।"},
+        "sk": {"name": 'JSON na CSV', "tagline": 'Preveď JSON arrays objektov na CSV. Autodetekcia polí, custom delimitery, správny escape pre Excel a Google Sheets.', "description": 'Bezplatný online JSON na CSV konvertor. Preveď JSON array objektov na CSV s autodetekciou polí, custom delimitermi a správnym escapingom pre Excel a Google Sheets.'},
+        "cs": {"name": 'JSON na CSV', "tagline": 'Převeď JSON arrays objektů na CSV. Autodetekce polí, custom delimitery, správný escape pro Excel a Google Sheets.', "description": 'Zdarma online JSON na CSV konvertor. Převeď JSON array objektů na CSV s autodetekcí polí, custom delimitery a správným escapingem pro Excel a Google Sheets.'},
     },
     "body": """
 <div class="tool-card">
@@ -269,6 +271,48 @@ document.addEventListener('DOMContentLoaded', jcRun);
   <li><strong>Nested objects/arrays को stringify किया जाता है।</strong> यदि आपको flattened CSV चाहिए (हर nested key के लिए एक column), तो इसे feed करने से पहले JSON को pre-flatten करें।</li>
   <li><strong>Excel + delimiters।</strong> यूरोपीय locales default रूप से semicolons का उपयोग करते हैं; delimiter switch करें ताकि file एक विशाल line के बजाय columns के साथ खुले। RFC 4180 escaping किसी भी तरह apply होती है।</li>
   <li><strong>UTF-8 BOM।</strong> macOS पर Excel कभी-कभी BOM के बिना non-ASCII को बिगाड़ देता है। यह टूल एक नहीं जोड़ता — यदि आप mojibake देखते हैं तो output को BOM-adding step से paste करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Preveď JSON array of objects na CSV (alebo TSV — zmeň delimiter). Autodetekuje stĺpce zo zjednotenia kľúčov v objektoch, escapuje hodnoty pre Excel a Google Sheets, podporuje custom delimiter a riešenie nested polí.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Export API dát do Excelu pre manažéra / analytika.</li>
+  <li>Príprava CSV pre import do databázy z JSON dump-u.</li>
+  <li>Konverzia logu (JSON Lines) na ľahko zoraditeľný CSV.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Nested objekty.</strong> CSV je plochý — vnorené objekty sa musia flatten-núť alebo serializovať ako JSON string.</li>
+  <li><strong>Excel + UTF-8.</strong> Excel niekedy potrebuje BOM (\uFEFF) na začiatku, aby správne čítal UTF-8.</li>
+  <li><strong>Bunky s newline.</strong> Musia byť v úvodzovkách, alebo Excel rozbije riadky.</li>
+  <li><strong>Bunka s úvodzovkou.</strong> Escapuje sa zdvojením: <code>"He said ""hi"</code> (dve úvodzovky pre jeden znak).</li>
+  <li><strong>Delimiter v Európe.</strong> Excel SK / CZ často očakáva bodkočiarku, nie čiarku.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Převeď JSON array of objects na CSV (nebo TSV — změň delimiter). Autodetekuje sloupce ze sjednocení klíčů v objektech, escapuje hodnoty pro Excel a Google Sheets, podporuje custom delimiter a řešení nested polí.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Export API dat do Excelu pro manažera / analytika.</li>
+  <li>Příprava CSV pro import do databáze z JSON dumpu.</li>
+  <li>Konverze logu (JSON Lines) na snadno seřaditelný CSV.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Nested objekty.</strong> CSV je plochý — vnořené objekty se musí flatten-out nebo serializovat jako JSON string.</li>
+  <li><strong>Excel + UTF-8.</strong> Excel někdy potřebuje BOM (\uFEFF) na začátku, aby správně četl UTF-8.</li>
+  <li><strong>Buňky s newline.</strong> Musí být v uvozovkách, jinak Excel rozbije řádky.</li>
+  <li><strong>Buňka s uvozovkou.</strong> Escapuje se zdvojením: <code>"He said ""hi"</code> (dvě uvozovky pro jeden znak).</li>
+  <li><strong>Delimiter v Evropě.</strong> Excel CZ / SK často očekává středník, ne čárku.</li>
 </ul>
 """,
     },

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toolhub.software — Bezplatné online nástroje pro vývojáře</title>
+  <meta name="description" content="25+ bezplatných online nástrojů pro vývojáře — JSON formátovač, generátor hesel, Base64 encoder, regex tester a další. Bez registrace, bez sledování, okamžitý výsledek.">
+  <meta property="og:title" content="toolhub.software — Bezplatné online nástroje pro vývojáře">
+  <meta property="og:description" content="25+ bezplatných online nástrojů pro vývojáře. Rychlé, soukromé, bez registrace.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/cs/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/cs/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta property="og:locale" content="cs_CZ">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "toolhub.software",
+    "url": "https://toolhub.software",
+    "description": "Free online developer tools — fast, private, no signup.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://toolhub.software/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --card-hover: #1c2129;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --card-hover: #f3f4f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    .header { padding: 2rem 1.5rem 1rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .lang-select { background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+    .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero { text-align: center; padding: 2rem 1.5rem 1.5rem; max-width: 700px; margin: 0 auto; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; overflow-wrap: anywhere; }
+
+    .search-wrap { max-width: 600px; margin: 1.5rem auto; padding: 0 1.5rem; }
+    .search-wrap input { width: 100%; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; outline: none; }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+
+    .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.5rem 1.5rem 1rem; max-width: 800px; margin: 0 auto; }
+    .filter-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.35rem 0.85rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.15s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
+    .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
+    .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text); }
+    .card p { font-size: 0.85rem; color: var(--text-muted); }
+    .card-meta { margin-top: 0.6rem; display: flex; gap: 0.5rem; }
+    .tag { font-size: 0.7rem; background: var(--bg); padding: 0.15rem 0.5rem; border-radius: 10px; color: var(--text-muted); }
+
+    .footer { text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+
+    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 1.5rem 1rem 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .header { padding: 1.25rem 1rem 0.75rem; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .header { padding: 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.25rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      .hero { padding: 1.25rem 1rem 1rem; }
+      .hero h1 { font-size: clamp(1.15rem, 5vw, 1.65rem); }
+      .hero p { font-size: 1rem; }
+      .search-wrap { padding: 0 1rem; margin: 1rem auto; }
+      .search-wrap input { padding: 0.75rem 1rem; font-size: 1rem; min-height: 44px; }
+      .filters { padding: 0.5rem 1rem 1rem; }
+      .filter-btn { padding: 0.5rem 0.85rem; font-size: 0.85rem; min-height: 36px; }
+      .grid { grid-template-columns: 1fr; padding: 0 1rem 2rem; }
+      .card { padding: 1rem; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config — fill in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><span>Tool</span>hub</div>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Jazyk</label>
+      <select id="lang-select" class="lang-select" onchange="switchLang(this.value)">
+        <option value="">🇬🇧 English</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇧🇷 Português</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+      <option value="vi">🇻🇳 Tiếng Việt</option>
+      <option value="hi">🇮🇳 हिन्दी</option>
+      <option value="sk">🇸🇰 Slovenčina</option>
+      <option value="cs" selected>🇨🇿 Čeština</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+    </div>
+  </header>
+
+  <main>
+  <section class="hero">
+    <h1>Bezplatné online nástroje pro vývojáře</h1>
+    <p id="hero-sub"></p>
+  </section>
+
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Hledat nástroje…  (stiskni / pro focus)" oninput="filterTools()">
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="ad-slot" data-slot="indexTop"></div>
+
+  <h2 class="visually-hidden">Všechny nástroje</h2>
+  <div class="grid" id="grid"></div>
+  <div class="ad-slot" data-slot="indexBottom"></div>
+  <div class="no-results" id="no-results">Žádné nástroje. Zkus jiné hledání.</div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 toolhub.software — Bezplatné nástroje pro vývojáře.</p>
+    <p><a href="/cs/privacy/">Soukromí</a> · <a href="/cs/how-we-handle-your-data/">Zpracování dat</a> · <a href="/cs/affiliate-disclosure/">Affiliate zveřejnění</a> · <a href="/cs/about/">O nás</a> · <a href="/cs/contact/">Kontakt</a> · <a href="/cs/for-schools/">Pro školy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+
+  <script>
+                                                                                                                        const TOOLS = [
+      {"slug": "ascii-table", "name": "ASCII tabulka", "desc": "Kompletní ASCII reference 0–127 s decimálním, hex, binárním, znakem a HTML entitou. Filtrovatelná.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
+      {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Zakóduj text do Base64 nebo dekóduj Base64 zpět na text. UTF-8 safe a base64url varianta.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
+      {"slug": "bmi-calculator", "name": "BMI kalkulačka", "desc": "Body Mass Index z výšky a hmotnosti. Metric nebo imperial. Zobrazí WHO kategorii — nejde o lékařskou radu.", "icon": "⚖️", "cat": "math", "tags": ["bmi", "body mass index", "health", "weight", "height", "metric", "imperial"]},
+      {"slug": "case-converter", "name": "Konvertor velikosti písmen", "desc": "Převod textu mezi UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE a dot.case.", "icon": "Aa", "cat": "text", "tags": ["case", "convert", "camel", "snake", "kebab", "pascal", "title", "upper", "lower"]},
+      {"slug": "cidr-calculator", "name": "CIDR Subnet kalkulačka", "desc": "Spočítej IPv4 subnety z CIDR notace. Network, broadcast, mask, host range a binární pohled.", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
+      {"slug": "color-converter", "name": "Konvertor barev", "desc": "Převede jakoukoli barvu mezi hex, RGB, HSL a OKLCH. Živý náhled, jedním klikem zkopíruj.", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
+      {"slug": "color-picker", "name": "Color Picker", "desc": "Vyber barvu a okamžitě ji uvidíš v HEX, RGB, RGBA, HSL, HSLA, HSV a CMYK. Uprav opacity a zkopíruj jakoukoli hodnotu.", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
+      {"slug": "credit-card-validator", "name": "Validátor čísla karty", "desc": "Ověř číslo karty pomocí Luhn checku a zjisti značku karty. Běží lokálně — tvoje číslo se nikam nepřenáší.", "icon": "💳", "cat": "validation", "tags": ["credit card", "validate", "luhn", "visa", "mastercard", "amex", "discover"]},
+      {"slug": "cron-builder", "name": "Cron Expression Builder", "desc": "Postav cron výraz vizuálně — minuta, hodina, den, měsíc, weekday — a podívej se na náhled dalších 5 fire times.", "icon": "⏱", "cat": "developer", "tags": ["cron", "schedule", "builder", "crontab", "next run"]},
+      {"slug": "cron-parser", "name": "Cron Expression Parser", "desc": "Rozparsuj cron výrazy a podívej se na dalších 10 fire times. Standardní 5-field crontab.", "icon": "🕒", "cat": "developer", "tags": ["cron", "schedule", "crontab", "next run", "expression"]},
+      {"slug": "css-box-shadow", "name": "Generátor CSS box-shadow", "desc": "Postav single nebo multi-layer CSS box shadows vizuálně. Uprav offset, blur, spread, barvu a zkopíruj CSS.", "icon": "▣", "cat": "design", "tags": ["css", "shadow", "box-shadow", "design", "depth", "elevation"]},
+      {"slug": "css-gradient", "name": "Generátor CSS gradientu", "desc": "Postav lineární a radiální CSS gradienty vizuálně. Uprav color stops, zkopíruj ready-to-paste CSS.", "icon": "🌈", "cat": "design", "tags": ["css", "gradient", "linear", "radial", "design", "background"]},
+      {"slug": "css-minifier", "name": "CSS Minifier", "desc": "Odstraň komentáře, whitespace a redundanci z CSS. Podívej se na velikost před/po a procento úspory.", "icon": "{}", "cat": "developer", "tags": ["css", "minify", "compress", "optimize", "stylesheet"]},
+      {"slug": "csv-to-json", "name": "CSV na JSON", "desc": "Převeď CSV data na JSON arrays. Header detection, custom delimitery, quoted fields a embedded newlines.", "icon": "📊", "cat": "data", "tags": ["csv", "json", "convert", "data", "import"]},
+      {"slug": "date-calculator", "name": "Kalkulačka data", "desc": "Dny mezi dvěma daty · připočítej nebo odečti dny/týdny/měsíce/roky od data · věk v letech, měsících a dnech.", "icon": "📅", "cat": "datetime", "tags": ["date", "calculator", "duration", "between", "add", "subtract", "age", "weekday"]},
+      {"slug": "dice-roller", "name": "Dice Roller", "desc": "Házej kostky standardní D&D notací — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.", "icon": "🎲", "cat": "utility", "tags": ["dice", "roll", "d20", "rpg", "dnd", "random", "tabletop", "notation"]},
+      {"slug": "email-validator", "name": "Email validátor", "desc": "Zkontroluj, jestli je e-mailová adresa syntakticky správná (RFC 5322 friendly), s rozborem local part, domény a častých nástrah.", "icon": "✉", "cat": "validation", "tags": ["email", "validate", "rfc", "syntax", "mx", "domain"]},
+      {"slug": "emoji-picker", "name": "Emoji Picker", "desc": "Vyhledávatelná emoji paleta podle názvu a keywordu. Klikni na emoji a zkopíruje se. Kategorie: smajlíci, zvířata, jídlo, cestování, předměty, symboly, vlajky.", "icon": "😀", "cat": "text", "tags": ["emoji", "picker", "search", "copy", "unicode", "smiley", "symbol"]},
+      {"slug": "file-size-converter", "name": "Konvertor velikosti souboru", "desc": "Převeď mezi bytes, KB, MB, GB, TB a binárními KiB, MiB, GiB, TiB. Decimal vs. binary jasně oddělené.", "icon": "📦", "cat": "math", "tags": ["file size", "convert", "byte", "kilobyte", "megabyte", "gigabyte", "kib", "mib", "binary", "decimal"]},
+      {"slug": "hash-generator", "name": "Hash generátor", "desc": "Zahashuj text pomocí SHA-1, SHA-256, SHA-384 nebo SHA-512 přes WebCrypto v prohlížeči. Počítá se lokálně — vstup nikdy neopustí stránku.", "icon": "🔑", "cat": "security", "tags": ["hash", "md5", "sha", "sha-256", "sha-512", "checksum"]},
+      {"slug": "html-encoder", "name": "HTML Encoder / Decoder", "desc": "Escapuj HTML speciální znaky nebo dekóduj entity zpět. Užitečné pro bezpečné vkládání user inputu nebo debugging encoded markupu.", "icon": "&lt;&gt;", "cat": "encoding", "tags": ["html", "encode", "entities", "escape", "xss"]},
+      {"slug": "html-formatter", "name": "HTML formátovač", "desc": "Naformátuj a zkrášli HTML nebo ho zminifikuj. Velikost indentu, strip komentářů a self-closing tagy.", "icon": "</>", "cat": "developer", "tags": ["html", "format", "beautify", "minify", "indent", "tidy"]},
+      {"slug": "http-status-codes", "name": "HTTP Status kódy", "desc": "Vyhledej jakýkoli HTTP status kód (1xx–5xx). Význam, časté příčiny a RFC reference.", "icon": "🌐", "cat": "developer", "tags": ["http", "status", "code", "rest", "api", "response", "rfc"]},
+      {"slug": "image-to-base64", "name": "Obrázek na Base64", "desc": "Převeď jakýkoli obrázek na Base64 data URI připravené na inline použití v HTML, CSS nebo Markdown. Soubory zůstávají v prohlížeči.", "icon": "🖼️", "cat": "encoding", "tags": ["image", "base64", "data-uri", "convert", "embed"]},
+      {"slug": "js-minifier", "name": "JavaScript Minifier", "desc": "Rychlý strukturální JavaScript minify — odstranění komentářů, slepení whitespace, odstranění prázdných řádků. Velikost před/po a procento úspory.", "icon": "{}", "cat": "developer", "tags": ["javascript", "js", "minify", "compress", "optimize"]},
+      {"slug": "json-diff", "name": "JSON Diff", "desc": "Strukturální diff dvou JSON dokumentů — přidané, odstraněné, změněné klíče a změny hodnot vedle sebe.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
+      {"slug": "json-formatter", "name": "JSON formátovač", "desc": "Naformátuj, ověř a zminifikuj JSON okamžitě. Chyby zvýrazněné s řádkem a sloupcem.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
+      {"slug": "json-path", "name": "JSONPath Tester", "desc": "Spustí JSONPath dotazy na jakémkoli JSON dokumentu. Podívej se na matched nody a jejich cesty v reálném čase.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
+      {"slug": "json-to-csv", "name": "JSON na CSV", "desc": "Převeď JSON arrays objektů na CSV. Autodetekce polí, custom delimitery, správný escape pro Excel a Google Sheets.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
+      {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "Vlož JWT a dekóduj jeho header a payload. Celé dekódování běží v prohlížeči — tokeny nikdy neopustí stránku.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
+      {"slug": "lorem-ipsum", "name": "Lorem Ipsum generátor", "desc": "Vygeneruj odstavce, věty, slova nebo list items placeholder latinského textu. Konfigurovatelná délka a úvodní fráze.", "icon": "¶", "cat": "text", "tags": ["lorem", "ipsum", "placeholder", "filler", "dummy", "text"]},
+      {"slug": "markdown-table-editor", "name": "Markdown Table Editor", "desc": "Edituj tabulku vizuálně — řádky, sloupce, alignment per column — a zkopíruj GitHub-flavoured Markdown.", "icon": "▦", "cat": "text", "tags": ["markdown", "table", "editor", "github", "gfm", "alignment"]},
+      {"slug": "markdown-to-html", "name": "Markdown na HTML", "desc": "Převeď Markdown na čisté HTML s živým náhledem. Podporuje headings, lists, code, tables, images a links.", "icon": "M↓", "cat": "text", "tags": ["markdown", "md", "html", "convert", "preview", "render"]},
+      {"slug": "mime-type-lookup", "name": "MIME Type Lookup", "desc": "Hledej MIME typy podle přípony nebo typu. ~120 běžných typů — image, video, audio, application, text, font.", "icon": "📎", "cat": "developer", "tags": ["mime", "type", "extension", "content-type", "file", "media"]},
+      {"slug": "number-base-converter", "name": "Konvertor číselné soustavy", "desc": "Převeď mezi binárkou, oktálkou, decimálkou, hexa a jakoukoli soustavou od 2 do 36.", "icon": "0b", "cat": "developer", "tags": ["binary", "hex", "octal", "decimal", "base", "convert", "number"]},
+      {"slug": "og-tag-preview", "name": "OG Tag Preview", "desc": "Vlož OG meta tagy nebo vyplň title/description/image — podívej se na share karty, jak vypadají na Twitter/X, Facebook, LinkedIn a Discord.", "icon": "🪟", "cat": "design", "tags": ["og", "open graph", "twitter", "facebook", "linkedin", "discord", "preview", "social"]},
+      {"slug": "password-generator", "name": "Generátor hesla", "desc": "Silná náhodná hesla nebo zapamatovatelné passphrase. Generují se lokálně — nikam se neposílají.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
+      {"slug": "percentage-calculator", "name": "Kalkulačka procent", "desc": "Pět kalkulaček procent v jedné: of, kolik %, nárůst/pokles, změna a tip/DPH.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
+      {"slug": "placeholder-image", "name": "Generátor placeholder obrázků", "desc": "Vygeneruj inline-SVG placeholder obrázky jakékoli velikosti s vlastním textem a barvami. Výstup jako data URI nebo stáhnutelné SVG.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
+      {"slug": "qr-code-generator", "name": "Generátor QR kódu", "desc": "Vygeneruj QR kódy pro jakýkoli text, URL, Wi-Fi nebo vCard. Velikost, barvy a error correction. Export PNG nebo SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
+      {"slug": "query-string-builder", "name": "Query String Builder", "desc": "Přidej key/value řádky; dostaneš správně URL-encoded query string. Podpora array (a[]=1) a bracket-less opakovaných klíčů.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
+      {"slug": "regex-cheatsheet", "name": "Regex Cheatsheet", "desc": "Rychlá reference: anchors, character classes, kvantifikátory, groups, lookarounds, flags. Klikni na pattern a zkopíruje se.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
+      {"slug": "regex-tester", "name": "Regex Tester", "desc": "Testuj JavaScript regular expressions naživo. Podívej se na matches, capture groups a aplikuj replacements při psaní.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
+      {"slug": "slug-generator", "name": "Slug generátor", "desc": "Převeď jakýkoli titulek na čistý URL slug — transliteruj diakritiku, odstraň interpunkci, spoj pomlčkami.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
+      {"slug": "sql-formatter", "name": "SQL formátovač", "desc": "Naformátuj a zkrášli SQL se správným odsazením, nebo zminifikuj na jeden řádek. Dialect-aware (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
+      {"slug": "text-diff", "name": "Text Diff", "desc": "Porovnej dva bloky textu a uvidíš line-by-line additions, removals a nezměněný context. Side-by-side nebo unified view.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
+      {"slug": "timestamp-converter", "name": "Konvertor Unix timestamp", "desc": "Převeď mezi Unix timestampem a lidsky čitelnými daty. Sekundy i milisekundy, UTC i local.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
+      {"slug": "timezone-converter", "name": "Konvertor časových pásem", "desc": "Převeď datum a čas mezi IANA časovými pásmy. Podívej se na offsety, DST status a weekday pro oba konce.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
+      {"slug": "tip-split-calculator", "name": "Kalkulačka tipu a dělení účtu", "desc": "Účet + tip % + lidi = částka na osobu. Možnost zaokrouhlit nahoru, zobrazený tip i celkem.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
+      {"slug": "unicode-inspector", "name": "Unicode Inspector", "desc": "Vlož text → tabulka každého code pointu. Hex, decimal, UTF-8 bytes, category. Odhal neviditelné znaky.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
+      {"slug": "unit-converter", "name": "Konvertor jednotek", "desc": "Převeď mezi metric a imperial jednotkami délky, hmotnosti, teploty, objemu a plochy.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
+      {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Percent-encode řetězce pro URL nebo dekóduj percent-encoded zpět na obyčejný text.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
+      {"slug": "url-parser", "name": "URL Parser", "desc": "Vlož jakoukoli URL — uvidíš protokol, host, port, path, query parametry (dekódované), hash a origin.", "icon": "🔍", "cat": "developer", "tags": ["url", "parse", "query", "host", "path", "fragment", "search params"]},
+      {"slug": "uuid-generator", "name": "UUID generátor", "desc": "Vygeneruj RFC 4122 UUIDs (v4 random nebo v7 time-ordered). Batch do 100. Kryptograficky bezpečné.", "icon": "🆔", "cat": "developer", "tags": ["uuid", "guid", "v4", "v7", "random", "unique", "identifier"]},
+      {"slug": "wcag-contrast", "name": "WCAG Contrast Checker", "desc": "Zkontroluj contrast ratio mezi dvěma barvami. Pass/fail verdikt pro WCAG AA a AAA při každé velikosti textu.", "icon": "◐", "cat": "design", "tags": ["wcag", "contrast", "accessibility", "a11y", "color", "ratio"]},
+      {"slug": "word-counter", "name": "Počítadlo slov", "desc": "Počítej slova, znaky, věty, odstavce a odhadni reading + speaking time při psaní.", "icon": "#", "cat": "text", "tags": ["word", "count", "character", "sentence", "paragraph", "reading", "writing"]},
+      {"slug": "xml-formatter", "name": "XML formátovač", "desc": "Naformátuj a zminifikuj XML. Ověř well-formedness s řádkem a sloupcem při chybách.", "icon": "&lt;/&gt;", "cat": "developer", "tags": ["xml", "format", "beautify", "minify", "validate", "well-formed"]},
+      {"slug": "xml-to-json", "name": "XML ↔ JSON konvertor", "desc": "Převeď XML na JSON nebo JSON zpět na XML. Atributy, text nody a arrays rozumně ošetřené.", "icon": "⇄", "cat": "data", "tags": ["xml", "json", "convert", "transform", "attributes", "data"]},
+      {"slug": "yaml-json", "name": "YAML ↔ JSON konvertor", "desc": "Převeď mezi YAML a JSON v obou směrech. Užitečné pro Kubernetes manifesty, CI configy a OpenAPI specy.", "icon": "🔁", "cat": "data", "tags": ["yaml", "json", "convert", "kubernetes", "config", "data"]},
+      {"slug": "youtube-thumbnail", "name": "YouTube Thumbnail Downloader", "desc": "Vlož jakoukoli YouTube URL nebo video ID a chytni každou dostupnou velikost thumbnailu — přímé download odkazy, bez uploadu, bez registrace.", "icon": "▶", "cat": "media", "tags": ["youtube", "thumbnail", "preview", "image", "download", "video"]}
+    ];
+
+    const LBL_ALL = "Vše";
+    const HERO_SUB_POST = "nástrojů — rychlé, soukromé, bez registrace. Hotové k použití.";
+    const CAT_LABELS = {"developer": "Developer", "text": "Text", "encoding": "Encoding", "data": "Data", "security": "Bezpečnost", "media": "Média", "validation": "Validation", "design": "Design", "datetime": "Datum a čas", "math": "Matematika"};
+
+    function renderFilters() {
+      const counts = {};
+      for (const t of TOOLS) counts[t.cat] = (counts[t.cat] || 0) + 1;
+      const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const wrap = document.getElementById('filters');
+      let html = `<button class="filter-btn active" data-cat="all">${LBL_ALL} <span class="cnt">${TOOLS.length}</span></button>`;
+      for (const c of cats) {
+        const label = CAT_LABELS[c] || c.charAt(0).toUpperCase() + c.slice(1);
+        html += `<button class="filter-btn" data-cat="${c}">${label} <span class="cnt">${counts[c]}</span></button>`;
+      }
+      wrap.innerHTML = html;
+    }
+
+    function renderHero() {
+      document.getElementById('hero-sub').textContent = `${TOOLS.length} ${HERO_SUB_POST}`;
+    }
+
+
+    function render(tools) {
+      const grid = document.getElementById('grid');
+      const noResults = document.getElementById('no-results');
+      if (tools.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
+      noResults.style.display = 'none';
+      grid.innerHTML = tools.map(t => `
+        <a class="card" href="/cs/${t.slug}/" data-cat="${t.cat}">
+          <div class="card-icon">${t.icon}</div>
+          <h3>${t.name}</h3>
+          <p>${t.desc}</p>
+          <div class="card-meta"><span class="tag">${t.cat}</span></div>
+        </a>
+      `).join('');
+    }
+
+    function filterTools() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const activeCat = document.querySelector('.filter-btn.active')?.dataset.cat || 'all';
+      const filtered = TOOLS.filter(t => {
+        const matchQ = !q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.tags.some(tag => tag.includes(q));
+        const matchCat = activeCat === 'all' || t.cat === activeCat;
+        return matchQ && matchCat;
+      });
+      render(filtered);
+    }
+
+    document.getElementById('filters').addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      filterTools();
+    });
+
+    function switchLang(lang) {
+      window.location.href = lang ? `/${lang}/` : '/';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+    }
+
+    // Init
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '🌙';
+    } else {
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+    renderFilters();
+    renderHero();
+    render(TOOLS);
+
+    // `/` keyboard shortcut to focus search
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        document.getElementById('search').focus();
+      }
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+</body>
+</html>

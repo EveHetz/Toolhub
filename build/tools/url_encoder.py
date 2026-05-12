@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode string untuk URL atau decode string percent-encoded kembali ke teks biasa.", "description": "URL encoder dan decoder gratis. Percent-encode string apa pun untuk penggunaan aman di URL (path, query string, fragment) atau decode string percent-encoded kembali ke karakter aslinya. UTF-8 aman."},
         "vi": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode chuỗi cho URL hoặc decode chuỗi percent-encoded trở lại văn bản thường.", "description": "URL encoder và decoder miễn phí trực tuyến. Percent-encode chuỗi để dùng an toàn trong query string và path, hoặc decode chuỗi percent-encoded trở lại văn bản thường. UTF-8 an toàn."},
         "hi": {"name": "URL Encoder / Decoder", "tagline": "URL के लिए strings को percent-encode करें या percent-encoded strings को वापस सादे टेक्स्ट में decode करें।", "description": "मुफ़्त ऑनलाइन URL encoder और decoder। URLs, query strings और form data के लिए विशेष अक्षरों को percent-escape के रूप में encode करें। Component-safe।"},
+        "sk": {"name": 'URL Encoder / Decoder', "tagline": 'Percent-encode reťazce pre URL alebo dekóduj percent-encoded späť na obyčajný text.', "description": 'Bezplatný online URL encoder / decoder. Percent-encode reťazce na bezpečné použitie v URL alebo dekóduj percent-encoded reťazce späť na obyčajný text. UTF-8 safe.'},
+        "cs": {"name": 'URL Encoder / Decoder', "tagline": 'Percent-encode řetězce pro URL nebo dekóduj percent-encoded zpět na obyčejný text.', "description": 'Zdarma online URL encoder / decoder. Percent-encode řetězce pro bezpečné použití v URL nebo dekóduj percent-encoded řetězce zpět na obyčejný text. UTF-8 safe.'},
     },
     "body": """
 <div class="tool-card">
@@ -231,6 +233,50 @@ document.addEventListener('DOMContentLoaded', urlRun);
   <li><strong>Spaces हमेशा <code>%20</code> नहीं होते।</strong> <em>application/x-www-form-urlencoded</em> bodies में, spaces <code>+</code> होते हैं। यह टूल JavaScript <code>encodeURIComponent</code> सम्मेलन का पालन करता है (हमेशा <code>%20</code>); decode दोनों को संभालता है।</li>
   <li><strong>UTF-8 बनाम Latin-1.</strong> आधुनिक browsers और <code>encodeURIComponent</code> हमेशा UTF-8 का उपयोग करते हैं। कुछ पुराने systems अभी भी Latin-1 percent-escapes उत्पन्न करते हैं — वे यहां स्वच्छ रूप से round-trip नहीं करेंगे।</li>
   <li><strong>Reserved अक्षर percent-escape में case-insensitive हैं लेकिन decoded परिणाम में case-sensitive हैं</strong> — <code>%2F</code> और <code>%2f</code> दोनों <code>/</code> में decode होते हैं, लेकिन मूल अक्षर का case सुरक्षित रहता है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>URL môže obsahovať len ASCII a niektoré špeciálne znaky. Všetko ostatné — diakritika, medzery, ampersands — musí byť percent-encoded (<code>%20</code> pre medzeru, <code>%C3%A1</code> pre <code>á</code>). Tento nástroj percent-encoduje vstup alebo dekóduje percent-encoded reťazec späť.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Príprava query parametra s diakritikou alebo špeciálnymi znakmi.</li>
+  <li>Dekódovanie URL z log-u, kde je <code>%C3%A1</code> namiesto <code>á</code>.</li>
+  <li>Encoding hodnoty pre Header alebo Cookie.</li>
+  <li>Debug, prečo URL nefunguje (čo je tam zle escapované).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>encodeURI vs. encodeURIComponent.</strong> JS má dve funkcie. <code>encodeURIComponent</code> escapuje viac (vrátane <code>&amp;</code>, <code>=</code>), použij pre hodnoty parametrov.</li>
+  <li><strong>Medzera: <code>%20</code> alebo <code>+</code>.</strong> V query stringu <code>+</code> = medzera (form-encoding); v path-i len <code>%20</code>.</li>
+  <li><strong>Double encoding.</strong> Ak encoduješ už encoded reťazec, dostaneš dvojito encoded — <code>%2520</code>.</li>
+  <li><strong>UTF-8 bytes.</strong> Percent-encoding zakóduje UTF-8 bajty, nie codepointy. <code>á</code> = 2 bajty = <code>%C3%A1</code>.</li>
+  <li><strong>Reserved characters.</strong> <code>:/?#[]@!$&amp;'()*+,;=</code> majú špeciálny význam — pri použití v hodnote ich treba encodovať.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>URL může obsahovat jen ASCII a některé speciální znaky. Všechno ostatní — diakritika, mezery, ampersands — musí být percent-encoded (<code>%20</code> pro mezeru, <code>%C3%A1</code> pro <code>á</code>). Tenhle nástroj percent-encoduje vstup nebo dekóduje percent-encoded řetězec zpět.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Příprava query parametru s diakritikou nebo speciálními znaky.</li>
+  <li>Dekódování URL z logu, kde je <code>%C3%A1</code> místo <code>á</code>.</li>
+  <li>Encoding hodnoty pro Header nebo Cookie.</li>
+  <li>Debug, proč URL nefunguje (co je tam špatně escapované).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>encodeURI vs. encodeURIComponent.</strong> JS má dvě funkce. <code>encodeURIComponent</code> escapuje víc (včetně <code>&amp;</code>, <code>=</code>), použij pro hodnoty parametrů.</li>
+  <li><strong>Mezera: <code>%20</code> nebo <code>+</code>.</strong> V query stringu <code>+</code> = mezera (form-encoding); v pathu jen <code>%20</code>.</li>
+  <li><strong>Double encoding.</strong> Pokud encoduješ už encoded řetězec, dostaneš dvojitě encoded — <code>%2520</code>.</li>
+  <li><strong>UTF-8 bytes.</strong> Percent-encoding zakóduje UTF-8 bajty, ne codepointy. <code>á</code> = 2 bajty = <code>%C3%A1</code>.</li>
+  <li><strong>Reserved characters.</strong> <code>:/?#[]@!$&amp;'()*+,;=</code> mají speciální význam — při použití v hodnotě je třeba je encodovat.</li>
 </ul>
 """,
     },

@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Cron Expression Parser", "tagline": "Parse ekspresi cron dan lihat 10 waktu run berikutnya. Crontab 5-field standar.", "description": "Parser ekspresi cron gratis. Tempel ekspresi cron apa pun dan lihat 10 waktu eksekusi berikutnya dengan zona waktu yang dapat dipilih. Mendukung crontab 5-field standar dengan steps, ranges, dan list."},
         "vi": {"name": "Cron Expression Parser", "tagline": "Phân tích biểu thức cron và xem 10 lần chạy kế tiếp. Crontab 5-trường chuẩn.", "description": "Cron parser miễn phí trực tuyến. Dán biểu thức crontab 5-trường chuẩn và xem 10 lần chạy kế tiếp được tính theo múi giờ của bạn."},
         "hi": {"name": "Cron Expression Parser", "tagline": "Cron expressions parse करें और अगले 10 fire times देखें। Standard 5-field crontab।", "description": "मुफ़्त ऑनलाइन cron expression parser। 5-field crontab syntax को validate करता है और आपकी local timezone में अगले 10 scheduled fire times list करता है।"},
+        "sk": {"name": 'Cron Expression Parser', "tagline": 'Rozanalyzuj cron výrazy a pozri si ďalších 10 fire times. Štandardný 5-field crontab.', "description": 'Bezplatný online cron parser. Vlož crontab výraz a získaj ďalších 10 fire times v ľudsky čitateľnej forme. Štandardný 5-field formát (minúta hodina deň mesiac weekday).'},
+        "cs": {"name": 'Cron Expression Parser', "tagline": 'Rozparsuj cron výrazy a podívej se na dalších 10 fire times. Standardní 5-field crontab.', "description": 'Zdarma online cron parser. Vlož crontab výraz a získej dalších 10 fire times v lidsky čitelné formě. Standardní 5-field formát (minuta hodina den měsíc weekday).'},
     },
     "body": """
 <div class="tool-card">
@@ -432,6 +434,50 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>Step + range combos।</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30। Step केवल range के अंदर apply होता है।</li>
   <li><strong>यहाँ timezone browser-local है।</strong> Real cron daemons server time (अक्सर UTC) में चलते हैं। आपके browser में जो schedule सही लगे वह server पर अलग wall-clock time पर fire कर सकता है। Paste करने से पहले timezone confirm करें।</li>
   <li><strong>कुछ cron flavours fields जोड़ते हैं।</strong> Quartz cron में 6 या 7 fields हैं (seconds और year के साथ)। systemd timers पूरी तरह से अलग format इस्तेमाल करते हैं। यह tool standard 5-field crontab parse करता है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Tento nástroj zoberie hotový cron expression (5-field POSIX) a povie ti, čo presne robí. Vypíše ďalších 10 fire times v lokálnom čase a v ľudsky čitateľnej forme, aby si vedel rýchlo overiť, že výraz, ktorý si dostal alebo zdedil, robí, čo si myslíš.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Audit existujúceho crontabu, ktorý napísal niekto iný.</li>
+  <li>Kontrola, že <code>0 2 * * 1-5</code> naozaj znamená „pracovné dni o 2:00".</li>
+  <li>Debug schedule, čo neštartuje, keď čakáš.</li>
+  <li>Vysvetlenie kolegovi, čo daný výraz robí.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Časová zóna.</strong> Cron beží v lokálnom čase servera. Ak nástroj ukazuje fire times v tvojom prehliadači, server môže byť v inej TZ.</li>
+  <li><strong>Day-of-week numbering.</strong> POSIX cron: 0=nedeľa. Quartz: 1=nedeľa. Pozri si dokumentáciu svojho schedulera.</li>
+  <li><strong>DOM a DOW spolu.</strong> V POSIX cron-e platí OR, nie AND — <code>0 0 1 * 1</code> beží na 1. v mesiaci ALEBO každý pondelok.</li>
+  <li><strong>Špeciálne reťazce (<code>@daily</code>, <code>@hourly</code>)</strong> tu nie sú podporované — používaj len 5-field formát.</li>
+  <li><strong>Sekundy.</strong> 6-field varianta (so sekundami) tu nie je podporovaná. Mnohé Java schedulery ich majú, POSIX cron nie.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Tenhle nástroj vezme hotový cron expression (5-field POSIX) a řekne ti, co přesně dělá. Vypíše dalších 10 fire times v lokálním čase a v lidsky čitelné formě, abys mohl rychle ověřit, že výraz, který jsi dostal nebo zdědil, dělá, co si myslíš.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Audit existujícího crontabu, který napsal někdo jiný.</li>
+  <li>Kontrola, že <code>0 2 * * 1-5</code> opravdu znamená „pracovní dny ve 2:00".</li>
+  <li>Debug schedule, co neštartuje, když čekáš.</li>
+  <li>Vysvětlení kolegovi, co daný výraz dělá.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Časové pásmo.</strong> Cron běží v lokálním čase serveru. Pokud nástroj ukazuje fire times v tvém prohlížeči, server může být v jiném TZ.</li>
+  <li><strong>Day-of-week numbering.</strong> POSIX cron: 0=neděle. Quartz: 1=neděle. Podívej se na dokumentaci svého scheduleru.</li>
+  <li><strong>DOM a DOW spolu.</strong> V POSIX cronu platí OR, ne AND — <code>0 0 1 * 1</code> běží 1. v měsíci NEBO každé pondělí.</li>
+  <li><strong>Speciální řetězce (<code>@daily</code>, <code>@hourly</code>)</strong> tu nejsou podporovány — používej jen 5-field formát.</li>
+  <li><strong>Sekundy.</strong> 6-field varianta (se sekundami) tu není podporována. Mnoho Java schedulerů je má, POSIX cron ne.</li>
 </ul>
 """,
     },

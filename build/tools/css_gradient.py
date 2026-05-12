@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pembangun CSS Gradient", "tagline": "Susun gradient linear dan radial CSS secara visual. Edit color stop, salin CSS siap-tempel.", "description": "Pembangun CSS gradient gratis. Buat gradient linear dan radial dengan stop warna yang dapat di-drag, kontrol sudut, dan pratinjau langsung. Salin CSS siap-tempel."},
         "vi": {"name": "CSS Gradient Builder", "tagline": "Soạn gradient linear và radial CSS một cách trực quan. Chỉnh sửa color stop, sao chép CSS sẵn-dùng.", "description": "Trình xây dựng CSS gradient miễn phí trực tuyến. Soạn linear hoặc radial gradient với nhiều color stop, sau đó sao chép CSS sẵn-dùng."},
         "hi": {"name": "CSS Gradient Generator", "tagline": "Linear और radial CSS gradients को visually बनाएं। Color stops edit करें, ready-to-paste CSS copy करें।", "description": "मुफ़्त CSS gradient generator। जितने चाहें उतने color stops के साथ linear या radial gradients बनाएं, angle और shape adjust करें, और एक click में production-ready CSS copy करें।"},
+        "sk": {"name": 'Generátor CSS gradientu', "tagline": 'Postav lineárne a radiálne CSS gradienty vizuálne. Uprav color stops, skopíruj ready-to-paste CSS.', "description": 'Bezplatný online CSS gradient generátor. Postav lineárne aj radiálne gradienty vizuálne, uprav color stops a uhol/typ. Skopíruj hotové CSS jedným klikom. Beží v prehliadači.'},
+        "cs": {"name": 'Generátor CSS gradientu', "tagline": 'Postav lineární a radiální CSS gradienty vizuálně. Uprav color stops, zkopíruj ready-to-paste CSS.', "description": 'Zdarma online CSS gradient generátor. Postav lineární i radiální gradienty vizuálně, uprav color stops a úhel/typ. Zkopíruj hotové CSS jedním klikem. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -379,6 +381,50 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
   <li><strong>बड़े area पर banding।</strong> Long, low-contrast gradients 8-bit screens पर दिखाई देने वाली "bands" दिखा सकती हैं। एक छोटा SVG noise overlay जोड़ें (<code>filter: url(#noise)</code>) या stops को थोड़ा move करें।</li>
   <li><strong>Performance।</strong> Browsers gradients को जल्दी paint करते हैं, पर <code>background-image</code> को animate करना हर frame पर paint trigger करता है — इसके बजाय ऊपर के एक layer पर <code>transform</code> animate करें।</li>
   <li><strong>Accessibility।</strong> अगर text gradient पर है, तो contrast ratio को gradient के साथ <em>सबसे खराब</em> point पर check करें जहाँ text दिखता है, average पर नहीं।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>CSS gradient ti dá plynulý prechod medzi farbami ako pozadie elementu. Lineárny gradient ide v zvolenom uhle, radiálny vychádza zo stredu. Tento generátor má vizuálne ovládanie color stops, uhla/typu a okamžitý náhľad. Vyklikáš, skopíruješ, vlepíš.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Hero section pozadie pre landing page.</li>
+  <li>Button background s jemným prechodom.</li>
+  <li>Skeleton loader animácie (gradient ako shimmer).</li>
+  <li>Overlays nad obrázkami (od priehľadnej k pevnej).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Uhol v <code>linear-gradient</code>.</strong> 0deg = zdola hore. 90deg = zľava doprava. Líši sa od bežného „kompasového" smerovania.</li>
+  <li><strong>Hard stops.</strong> Dve color stops na rovnakej pozícii vytvoria ostrý prechod — užitočné na pruhy.</li>
+  <li><strong>Banding.</strong> Plynulý gradient cez tmavé farby môže ukázať pruhy na 8-bit displejoch. Pomáha pridať noise alebo použiť dithering.</li>
+  <li><strong>Konický (<code>conic-gradient</code>)</strong> tu nie je generovaný — len lineárny a radiálny.</li>
+  <li><strong>Background na transparente.</strong> Gradient s alpha pracuje krásne na obrázku, ale aj pozor na čitateľnosť textu.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>CSS gradient ti dá plynulý přechod mezi barvami jako pozadí elementu. Lineární gradient jde ve zvoleném úhlu, radiální vychází ze středu. Tenhle generátor má vizuální ovládání color stops, úhlu/typu a okamžitý náhled. Vyklikáš, zkopíruješ, vlepíš.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Hero section pozadí pro landing page.</li>
+  <li>Button background s jemným přechodem.</li>
+  <li>Skeleton loader animace (gradient jako shimmer).</li>
+  <li>Overlays nad obrázky (od průhledné k pevné).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Úhel v <code>linear-gradient</code>.</strong> 0deg = zdola nahoru. 90deg = zleva doprava. Liší se od běžného „kompasového" směrování.</li>
+  <li><strong>Hard stops.</strong> Dvě color stops na stejné pozici vytvoří ostrý přechod — užitečné na pruhy.</li>
+  <li><strong>Banding.</strong> Plynulý gradient přes tmavé barvy může ukázat pruhy na 8-bit displejích. Pomáhá přidat noise nebo použít dithering.</li>
+  <li><strong>Konický (<code>conic-gradient</code>)</strong> tu není generován — jen lineární a radiální.</li>
+  <li><strong>Background na transparentu.</strong> Gradient s alpha pracuje krásně na obrázku, ale pozor na čitelnost textu.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Gambar ke Base64", "tagline": "Konversi gambar apa pun ke Base64 data URI untuk penggunaan inline di HTML, CSS, atau Markdown. File tetap di browser-mu.", "description": "Konverter gambar ke Base64 gratis. Drop gambar apa pun dan dapatkan Base64 data URI siap pakai untuk disematkan di HTML, CSS, atau Markdown. File tetap di browser-mu — tanpa upload, tanpa pelacakan."},
         "vi": {"name": "Ảnh sang Base64", "tagline": "Chuyển bất kỳ ảnh nào thành Base64 data URI để dùng inline trong HTML, CSS hoặc Markdown. File ở lại trong trình duyệt của bạn.", "description": "Bộ chuyển ảnh sang Base64 miễn phí trực tuyến. Thả bất kỳ file ảnh nào và nhận data URI sẵn-dùng cho CSS, HTML hoặc Markdown. File không bao giờ rời khỏi trình duyệt của bạn."},
         "hi": {"name": "Image to Base64", "tagline": "किसी भी image को HTML, CSS, या Markdown में inline उपयोग के लिए तैयार Base64 data URI में बदलें। Files आपके browser में रहती हैं।", "description": "मुफ़्त ऑनलाइन image से Base64 data URI encoder। एक image drop या pick करें और inline HTML, CSS background-image, या email के लिए ready-to-paste data: URL प्राप्त करें।"},
+        "sk": {"name": 'Obrázok na Base64', "tagline": 'Preveď akýkoľvek obrázok na Base64 data URI pripravené na inline použitie v HTML, CSS alebo Markdown. Súbory zostávajú v prehliadači.', "description": 'Bezplatný online image-to-Base64 konvertor. Nahraj akýkoľvek obrázok a dostaneš data URI pripravené na inline použitie v HTML, CSS background-image alebo Markdown. Súbory neopúšťajú tvoj prehliadač.'},
+        "cs": {"name": 'Obrázek na Base64', "tagline": 'Převeď jakýkoli obrázek na Base64 data URI připravené na inline použití v HTML, CSS nebo Markdown. Soubory zůstávají v prohlížeči.', "description": 'Zdarma online image-to-Base64 konvertor. Nahraj jakýkoli obrázek a dostaneš data URI připravené na inline použití v HTML, CSS background-image nebo Markdown. Soubory neopouštějí tvůj prohlížeč.'},
     },
     "body": """
 <div class="tool-card">
@@ -247,6 +249,50 @@ function i2bRun(){
   <li><strong>Pages के बीच कोई de-duplication नहीं।</strong> हर page जो URI embed करता है bytes को फिर से ship करता है। पुनः उपयोग की जाने वाली किसी भी चीज़ के लिए, इसे एक real URL के रूप में रखें ताकि browser इसे एक बार cache करे।</li>
   <li><strong>Email clients भिन्न होते हैं।</strong> अधिकांश modern clients data URIs render करते हैं, लेकिन Windows पर Outlook historically उन्हें <code>&lt;img src&gt;</code> में block करता है। Mass email के लिए CID attachments अभी भी सुरक्षित हैं।</li>
   <li><strong>SVG ≠ raster।</strong> SVG के लिए, markup को सीधे embed करना (या SVG को url-encoding करना) आमतौर पर Base64 से छोटा होता है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Premení obrázok na Base64 data URI — reťazec, ktorý môžeš inline vložiť do HTML <code>&lt;img src="data:image/png;base64,..."&gt;</code>, CSS <code>background-image: url(data:...)</code> alebo Markdown. Súbor sa konvertuje v tvojom prehliadači a nikam sa neuploaduje.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Inline SVG/PNG ikona, ktorá ide do CSS a chceš sa vyhnúť dodatočnému HTTP requestu.</li>
+  <li>Pripojenie obrázka do e-mailovej šablóny, ktorá nemôže linkovať externé zdroje.</li>
+  <li>Príprava data URI pre Markdown dokument, ktorý sa rozdistribuuje samostatne.</li>
+  <li>Demo / prototyp bez backendu na hosting súborov.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Base64 zväčší súbor o ~33 %.</strong> Pre veľké obrázky to nemusí byť výhra.</li>
+  <li><strong>Nemôže sa cache-ovať samostatne.</strong> Inline obrázok sa znovu stiahne s každou stránkou.</li>
+  <li><strong>Veľké data URI v HTML zvyšujú parse time.</strong> Pre obrázky &gt; 1–2 KB radšej externý súbor.</li>
+  <li><strong>SVG netreba base64.</strong> Inline SVG ako <code>&lt;svg&gt;</code> element je menší a flexibilnejší.</li>
+  <li><strong>MIME type.</strong> Uisti sa, že <code>image/jpeg</code> vs. <code>image/png</code> sedí so skutočným formátom súboru.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Promění obrázek na Base64 data URI — řetězec, který můžeš inline vložit do HTML <code>&lt;img src="data:image/png;base64,..."&gt;</code>, CSS <code>background-image: url(data:...)</code> nebo Markdown. Soubor se konvertuje v tvém prohlížeči a nikam se neuploaduje.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Inline SVG/PNG ikona, která jde do CSS a chceš se vyhnout dodatečnému HTTP requestu.</li>
+  <li>Připojení obrázku do e-mailové šablony, která nemůže linkovat externí zdroje.</li>
+  <li>Příprava data URI pro Markdown dokument, který se distribuuje samostatně.</li>
+  <li>Demo / prototyp bez backendu na hosting souborů.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Base64 zvětší soubor o ~33 %.</strong> Pro velké obrázky to nemusí být výhra.</li>
+  <li><strong>Nemůže se cache-ovat samostatně.</strong> Inline obrázek se znovu stáhne s každou stránkou.</li>
+  <li><strong>Velké data URI v HTML zvyšují parse time.</strong> Pro obrázky &gt; 1–2 KB raději externí soubor.</li>
+  <li><strong>SVG netřeba base64.</strong> Inline SVG jako <code>&lt;svg&gt;</code> element je menší a flexibilnější.</li>
+  <li><strong>MIME type.</strong> Ujisti se, že <code>image/jpeg</code> vs. <code>image/png</code> sedí se skutečným formátem souboru.</li>
 </ul>
 """,
     },

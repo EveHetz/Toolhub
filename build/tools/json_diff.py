@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "JSON Diff", "tagline": "Diff struktural dua dokumen JSON — kunci yang ditambah, dihapus, diubah, dan perubahan nilai ditampilkan berdampingan.", "description": "Tool JSON diff gratis. Bandingkan dua dokumen JSON secara struktural dan lihat kunci yang ditambah, dihapus, diubah, dan perubahan nilai berdampingan. Tidak peduli urutan kunci, fokus pada struktur."},
         "vi": {"name": "JSON Diff", "tagline": "Diff theo cấu trúc của hai tài liệu JSON — key được thêm, bị xóa, được thay đổi và thay đổi giá trị hiển thị cạnh nhau.", "description": "JSON diff miễn phí trực tuyến. So sánh hai tài liệu JSON theo cấu trúc, hiển thị key được thêm, bị xóa, được thay đổi và thay đổi giá trị một cách trực quan. Chạy hoàn toàn trong trình duyệt."},
         "hi": {"name": "JSON Diff", "tagline": "दो JSON documents के लिए structural diff — जोड़े गए, हटाए गए, बदले गए keys और value परिवर्तन साथ-साथ दिखाए गए।", "description": "मुफ़्त ऑनलाइन JSON diff. दो JSON documents के बीच structural delta निकालता है — जोड़े गए/हटाए गए keys, बदले गए values, और साफ़ side-by-side view. पूरी तरह आपके browser में चलता है।"},
+        "sk": {"name": 'JSON Diff', "tagline": 'Štrukturálny diff dvoch JSON dokumentov — pridané, odstránené, zmenené kľúče a zmeny hodnôt vedľa seba.', "description": 'Bezplatný online JSON diff. Vlož dva JSON dokumenty a uvidíš štrukturálny rozdiel — ktoré kľúče pribudli, zmizli alebo zmenili hodnotu. Side-by-side a vnorené diffovanie.'},
+        "cs": {"name": 'JSON Diff', "tagline": 'Strukturální diff dvou JSON dokumentů — přidané, odstraněné, změněné klíče a změny hodnot vedle sebe.', "description": 'Zdarma online JSON diff. Vlož dva JSON dokumenty a uvidíš strukturální rozdíl — které klíče přibyly, zmizely nebo změnily hodnotu. Side-by-side a vnořené diffování.'},
     },
     "body": """
 <div class="tool-card">
@@ -361,6 +363,50 @@ document.addEventListener('DOMContentLoaded', jdRun);
   <li><strong>Number-vs-string structural नहीं है।</strong> <code>{"id": 1}</code> और <code>{"id": "1"}</code> change के रूप में दिखते हैं क्योंकि types अलग हैं। यदि यह मायने रखता है तो diff से पहले types को normalise करें।</li>
   <li><strong>RFC 6902 एक one-way patch है, merge नहीं।</strong> इसे असली RFC 6902 implementation के साथ apply करें, string-replacement से नहीं।</li>
   <li><strong>बड़े trees noisy हो जाते हैं।</strong> यदि diff सैकड़ों operations लंबा है, तो आप शायद दो असंबंधित documents की तुलना कर रहे हैं — inputs को फिर से जाँचें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>JSON diff porovná dva JSON dokumenty štrukturálne, nie textovo. Povie ti, ktoré kľúče pribudli, ktoré zmizli, a ktoré zmenili hodnotu — bez ohľadu na to, ako sú vstupy naformátované alebo akým poradím sú kľúče v objektoch.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pred/po diff API odpovede po code change.</li>
+  <li>Porovnanie config súborov medzi prostrediami (staging vs. prod).</li>
+  <li>Audit zmien v package-lock.json alebo Terraform state.</li>
+  <li>Debug, prečo dva endpointy vracajú „rovnaké" dáta, ale sa rôzne správajú.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Poradie kľúčov sa neráta.</strong> <code>{"a":1,"b":2}</code> a <code>{"b":2,"a":1}</code> sú rovnaké.</li>
+  <li><strong>Poradie v poliach sa ráta.</strong> <code>[1,2]</code> a <code>[2,1]</code> sú rôzne.</li>
+  <li><strong>Číslo vs. string.</strong> <code>"1"</code> a <code>1</code> sú odlišné — JSON je striktne typovaný.</li>
+  <li><strong>Whitespace v stringoch.</strong> Trailing space v stringu sa ráta ako rozdiel.</li>
+  <li><strong>Veľké JSON-y.</strong> Pre veľmi veľké súbory môže byť diff pomalý.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>JSON diff porovná dva JSON dokumenty strukturálně, ne textově. Řekne ti, které klíče přibyly, které zmizely, a které změnily hodnotu — bez ohledu na to, jak jsou vstupy naformátované nebo v jakém pořadí jsou klíče v objektech.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Před/po diff API odpovědi po code change.</li>
+  <li>Porovnání config souborů mezi prostředími (staging vs. prod).</li>
+  <li>Audit změn v package-lock.json nebo Terraform state.</li>
+  <li>Debug, proč dva endpointy vrací „stejná" data, ale chovají se různě.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Pořadí klíčů se nepočítá.</strong> <code>{"a":1,"b":2}</code> a <code>{"b":2,"a":1}</code> jsou stejné.</li>
+  <li><strong>Pořadí v polích se počítá.</strong> <code>[1,2]</code> a <code>[2,1]</code> jsou různé.</li>
+  <li><strong>Číslo vs. string.</strong> <code>"1"</code> a <code>1</code> jsou odlišné — JSON je striktně typovaný.</li>
+  <li><strong>Whitespace ve stringách.</strong> Trailing space ve stringu se počítá jako rozdíl.</li>
+  <li><strong>Velké JSONy.</strong> Pro velmi velké soubory může být diff pomalý.</li>
 </ul>
 """,
     },

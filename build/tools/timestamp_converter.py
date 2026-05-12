@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Konverter Unix Timestamp", "tagline": "Konversi antara Unix timestamp dan tanggal yang dapat dibaca manusia. Detik dan milidetik, UTC dan lokal.", "description": "Konverter Unix timestamp gratis. Konversi antara timestamp Unix (detik atau milidetik sejak epoch) dan tanggal/waktu yang dapat dibaca manusia. Tampilkan dalam UTC dan zona waktu lokal-mu, dengan format ISO 8601."},
         "vi": {"name": "Chuyển đổi Unix Timestamp", "tagline": "Chuyển giữa Unix timestamp và ngày-giờ con người đọc được. Giây và mili giây, UTC và local.", "description": "Bộ chuyển Unix timestamp miễn phí trực tuyến. Chuyển epoch seconds hoặc milliseconds sang ngày-giờ con người đọc được trong cả UTC và múi giờ địa phương — và ngược lại."},
         "hi": {"name": "Unix Timestamp Converter", "tagline": "Unix timestamps और मानव-पठनीय dates के बीच बदलें। Seconds और milliseconds, UTC और local।", "description": "मुफ़्त ऑनलाइन Unix timestamp converter। UTC या local time में epoch seconds, milliseconds, ISO 8601, और मानव-पठनीय dates के बीच बदलें।"},
+        "sk": {"name": 'Konvertor Unix timestamp', "tagline": 'Preveď medzi Unix timestampom a ľudsky čitateľnými dátumami. Sekundy aj milisekundy, UTC aj local.', "description": 'Bezplatný online Unix timestamp konvertor. Preveď medzi Unix timestampom (sekundy alebo milisekundy) a ľudsky čitateľným dátumom. UTC aj local time. ISO 8601 výstup.'},
+        "cs": {"name": 'Konvertor Unix timestamp', "tagline": 'Převeď mezi Unix timestampem a lidsky čitelnými daty. Sekundy i milisekundy, UTC i local.', "description": 'Zdarma online Unix timestamp konvertor. Převeď mezi Unix timestampem (sekundy nebo milisekundy) a lidsky čitelným datem. UTC i local time. ISO 8601 výstup.'},
     },
     "body": """
 <div class="tool-card">
@@ -357,6 +359,48 @@ document.addEventListener('DOMContentLoaded', tsNow);
   <li><strong>Negative timestamps</strong> मान्य हैं और 1970 से पहले की dates को represent करते हैं। कुछ libraries इन्हें अस्वीकार करती हैं — इस पर भरोसा करने से पहले test करें।</li>
   <li><strong>Auto-detection foolproof नहीं है।</strong> एक 10-digit value <em>हो सकता है</em> 1970 से एक millisecond timestamp हो — व्यवहार में लगभग असंभव, पर यदि आप जानते हैं कि आपके पास कौन सी unit है, heuristic पर भरोसा न करें।</li>
   <li><strong>हमेशा UTC store करें।</strong> Timestamps timezone-मुक्त हैं; "local time" केवल display के लिए है। Output में "Local" line आपके browser के zone का इस्तेमाल करती है, पर underlying integer हमेशा UTC है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Unix timestamp je počet sekúnd od 1. januára 1970 UTC (Unix epoch). Tento nástroj prevedie medzi timestampom (sekundy alebo milisekundy) a ľudsky čitateľným dátumom v UTC aj v lokálnej časovej zóne, výstup tiež ako ISO 8601.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Debug log, kde čas je v Unix timestampe.</li>
+  <li>Konverzia <code>created_at</code> v databáze na čitateľný dátum.</li>
+  <li>Príprava timestampu pre API (mnohé chcú milisekundy).</li>
+  <li>Plánovanie cron job-u na konkrétny moment v UTC.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Sekundy vs. milisekundy.</strong> Unix epoch je v sekundách; JavaScript <code>Date.now()</code> je v milisekundách. Pozor na konverziu.</li>
+  <li><strong>Časová zóna.</strong> Timestamp je vždy UTC. Pri zobrazení sa konvertuje do lokálnej TZ — pozor, ak ladíš medzi serverom v UTC a klientom v CET.</li>
+  <li><strong>Year 2038 problem.</strong> 32-bit signed timestamp pretečie 19. januára 2038. Moderné systémy používajú 64-bit.</li>
+  <li><strong>Záporné timestampy.</strong> Pred 1970 (Beatles?) sú validné, ale niektoré systémy ich nezvládnu.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Unix timestamp je počet sekund od 1. ledna 1970 UTC (Unix epoch). Tenhle nástroj převede mezi timestampem (sekundy nebo milisekundy) a lidsky čitelným datem v UTC i v lokálním časovém pásmu, výstup taky jako ISO 8601.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Debug logu, kde čas je v Unix timestampu.</li>
+  <li>Konverze <code>created_at</code> v databázi na čitelné datum.</li>
+  <li>Příprava timestampu pro API (mnohé chtějí milisekundy).</li>
+  <li>Plánování cron jobu na konkrétní moment v UTC.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Sekundy vs. milisekundy.</strong> Unix epoch je v sekundách; JavaScript <code>Date.now()</code> je v milisekundách. Pozor na konverzi.</li>
+  <li><strong>Časové pásmo.</strong> Timestamp je vždy UTC. Při zobrazení se konvertuje do lokálního TZ — pozor, pokud ladíš mezi serverem v UTC a klientem v CET.</li>
+  <li><strong>Year 2038 problem.</strong> 32-bit signed timestamp přeteče 19. ledna 2038. Moderní systémy používají 64-bit.</li>
+  <li><strong>Záporné timestampy.</strong> Před 1970 (Beatles?) jsou validní, ale některé systémy je nezvládnou.</li>
 </ul>
 """,
     },

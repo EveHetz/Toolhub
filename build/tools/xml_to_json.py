@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Konverter XML ↔ JSON", "tagline": "Konversi XML ke JSON atau JSON kembali ke XML. Menangani attribute, text node, dan array secara cerdas.", "description": "Konverter XML ke JSON gratis (dan sebaliknya). Konversi XML ke representasi JSON yang dapat dibaca, menangani attribute, text node, dan element berulang sebagai array. Konversi balik JSON ke XML juga didukung."},
         "vi": {"name": "Chuyển đổi XML ↔ JSON", "tagline": "Chuyển XML thành JSON hoặc JSON thành XML. Xử lý attribute, text node và mảng một cách thông minh.", "description": "Bộ chuyển XML ↔ JSON miễn phí trực tuyến. Chuyển một chiều hoặc chiều khác với xử lý thông minh cho attribute, text node và phần tử lặp lại biến thành mảng. Chạy hoàn toàn trong trình duyệt."},
         "hi": {"name": "XML ↔ JSON Converter", "tagline": "XML को JSON में या JSON को वापस XML में बदलें। attributes, text nodes और arrays को समझदारी से संभालता है।", "description": "मुफ़्त ऑनलाइन XML से JSON converter (और JSON वापस XML में)। browser के native XML parser का उपयोग करता है; attributes को कॉन्फ़िगर करने योग्य prefix मिलता है; दोहराए गए elements arrays में बदल जाते हैं। पूरी तरह से आपके browser में चलता है।"},
+        "sk": {"name": 'XML ↔ JSON konvertor', "tagline": 'Preveď XML na JSON alebo JSON späť na XML. Atribúty, text nody a arrays rozumne ošetrené.', "description": 'Bezplatný online XML ↔ JSON konvertor. Konverzia oboma smermi — XML na JSON aj JSON späť na XML. Rozumne pracuje s atribútmi, text nodes a arrays.'},
+        "cs": {"name": 'XML ↔ JSON konvertor', "tagline": 'Převeď XML na JSON nebo JSON zpět na XML. Atributy, text nody a arrays rozumně ošetřené.', "description": 'Zdarma online XML ↔ JSON konvertor. Konverze oběma směry — XML na JSON i JSON zpět na XML. Rozumně pracuje s atributy, text nodes a arrays.'},
     },
     "body": """
 <div class="tool-card">
@@ -475,6 +477,50 @@ document.addEventListener('DOMContentLoaded', xjRun);
   <li><strong>Namespaces शब्दशः रखे जाते हैं।</strong> <code>ns:tag</code> JSON key के रूप में <code>"ns:tag"</code> रहता है। <code>xmlns:</code> attributes भी इसी तरह।</li>
   <li><strong>Numbers और booleans auto-coerce नहीं होते हैं।</strong> XML text हमेशा strings होता है; <code>"1"</code> JSON में <code>"1"</code> रहता है। यदि आपको आवश्यकता हो तो अपने application code में types को coerce करें।</li>
   <li><strong>JSON → XML के लिए एक single root key की आवश्यकता है।</strong> XML के लिए ठीक एक root element की मांग है; input JSON एक top-level key वाला एक object होना चाहिए।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Konvertuje XML na JSON (a JSON späť na XML). Atribúty XML elementu sa väčšinou ukladajú ako kľúče s <code>@</code> prefixom, text content ako <code>#text</code> kľúč. Užitočné pri migrácii z legacy SOAP / XML API na moderné JSON.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Konzumácia legacy XML API z aplikácie, ktorá natívne pracuje s JSON-om.</li>
+  <li>Konverzia config súboru z XML na JSON / YAML formát.</li>
+  <li>Sanity check, či XML obsahuje to, čo si myslíš (cez JSON je to čitateľnejšie).</li>
+  <li>Export XML dump-u do JSON-u pre Elasticsearch / MongoDB.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Atribúty.</strong> Konvencia sa líši — <code>@attr</code> (Badgerfish) alebo <code>$</code> alebo zlúčené do flat objektu.</li>
+  <li><strong>Polia.</strong> XML s viacerými rovnakými child-mi sa mapuje na JSON array. Jeden child = single? array?</li>
+  <li><strong>Mixed content.</strong> XML s text + child elementmi je v JSON-e neprirodzený.</li>
+  <li><strong>Namespaces.</strong> Pri konverzii sa väčšinou stratia alebo prefix-ujú kľúče.</li>
+  <li><strong>Round-trip.</strong> XML → JSON → XML nemusí dať byte-identický výsledok.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Konvertuje XML na JSON (a JSON zpět na XML). Atributy XML elementu se obvykle ukládají jako klíče s <code>@</code> prefixem, text content jako <code>#text</code> klíč. Užitečné při migraci z legacy SOAP / XML API na moderní JSON.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Konzumace legacy XML API z aplikace, která nativně pracuje s JSONem.</li>
+  <li>Konverze config souboru z XML na JSON / YAML formát.</li>
+  <li>Sanity check, jestli XML obsahuje to, co si myslíš (přes JSON je to čitelnější).</li>
+  <li>Export XML dumpu do JSONu pro Elasticsearch / MongoDB.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Atributy.</strong> Konvence se liší — <code>@attr</code> (Badgerfish) nebo <code>$</code> nebo sloučené do flat objektu.</li>
+  <li><strong>Pole.</strong> XML s více stejnými child-y se mapuje na JSON array. Jeden child = single? array?</li>
+  <li><strong>Mixed content.</strong> XML s text + child elementy je v JSON nepřirozený.</li>
+  <li><strong>Namespaces.</strong> Při konverzi se obvykle ztratí nebo prefix-ují klíče.</li>
+  <li><strong>Round-trip.</strong> XML → JSON → XML nemusí dát byte-identický výsledek.</li>
 </ul>
 """,
     },

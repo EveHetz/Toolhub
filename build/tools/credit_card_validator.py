@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Validator Kartu Kredit", "tagline": "Validasi nomor kartu dengan cek Luhn dan deteksi brand kartu. Berjalan lokal — nomormu tidak pernah dikirim.", "description": "Validator kartu kredit gratis. Cek nomor kartu dengan algoritma Luhn dan deteksi brand (Visa, Mastercard, Amex, Discover, JCB, Diners). Berjalan sepenuhnya di browser-mu — tanpa pelacakan, tanpa upload."},
         "vi": {"name": "Xác thực Thẻ Tín dụng", "tagline": "Xác thực số thẻ bằng kiểm tra Luhn và phát hiện brand. Chạy cục bộ — số thẻ của bạn không bao giờ được gửi đi.", "description": "Xác thực số thẻ tín dụng miễn phí trực tuyến. Kiểm tra Luhn checksum và phát hiện brand thẻ (Visa, Mastercard, Amex, Discover, JCB và các loại khác). Toàn bộ kiểm tra chạy trong trình duyệt của bạn — số thẻ không bao giờ được gửi đi."},
         "hi": {"name": "Credit Card Validator", "tagline": "Luhn check से card number जांचें और card brand का पता लगाएं। Locally चलता है — आपका number कभी transmit नहीं होता।", "description": "मुफ़्त ऑनलाइन credit card validator। Luhn (mod-10) checksum, brand detection (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay), और length verification। 100% client-side।"},
+        "sk": {"name": 'Validátor čísla karty', "tagline": 'Over číslo karty pomocou Luhn checku a zisti značku karty. Beží lokálne — tvoje číslo sa nikam neprenáša.', "description": 'Bezplatný validátor čísla kreditnej karty. Overuje Luhn algoritmom a deteguje značku (Visa, Mastercard, Amex, Discover atď.). Celý výpočet beží v prehliadači — číslo neopúšťa tvoje zariadenie.'},
+        "cs": {"name": 'Validátor čísla karty', "tagline": 'Ověř číslo karty pomocí Luhn checku a zjisti značku karty. Běží lokálně — tvoje číslo se nikam nepřenáší.', "description": 'Zdarma validátor čísla kreditní karty. Ověřuje Luhn algoritmem a detekuje značku (Visa, Mastercard, Amex, Discover atd.). Celý výpočet běží v prohlížeči — číslo neopouští tvé zařízení.'},
     },
     "body": """
 <div class="tool-card">
@@ -285,6 +287,46 @@ document.addEventListener('DOMContentLoaded', cvRun);
 
 <h3>Test numbers (paste करने के लिए safe)</h3>
 <p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Tento nástroj over číslo platobnej karty pomocou Luhn algoritmu (mod-10 checksum) a zistí značku (Visa, Mastercard, American Express, Discover atď.) podľa IIN/BIN prefixu. Validuje len <em>matematickú správnosť</em> čísla — nepotvrdzuje, že karta existuje, je aktivná alebo má prostriedky. Celé to beží lokálne — číslo nikdy neopustí tvoj prehliadač.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pri písaní form-validation logiky a chceš overiť, či používateľ neprehodil dve číslice.</li>
+  <li>Pri kontrole testovacích kariet (Stripe, Adyen) v sandbox prostredí.</li>
+  <li>Pri debugovaní BIN tabuľky alebo merchant routing logiky.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Luhn nie je bezpečnostná kontrola.</strong> Je to len checksum, ktorý chytí preklepy. Útočník si vie ľahko vygenerovať Luhn-valid číslo.</li>
+  <li><strong>Číslo karty NIKDY neukladaj.</strong> PCI DSS je veľmi prísne. Ak nemusíš, ani sa ho nedotýkaj.</li>
+  <li><strong>Detekcia značky je len heuristika.</strong> Niektoré novšie karty (najmä prepaid a virtual) môžu mať netradičné BIN-y.</li>
+  <li><strong>Mestrovaná validácia ≠ autorizácia.</strong> Skutočná autorizácia ide cez bránu (Stripe, Adyen) a kontroluje aj CVV, expiráciu a limit.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Tenhle nástroj ověří číslo platební karty pomocí Luhn algoritmu (mod-10 checksum) a zjistí značku (Visa, Mastercard, American Express, Discover atd.) podle IIN/BIN prefixu. Validuje jen <em>matematickou správnost</em> čísla — nepotvrzuje, že karta existuje, je aktivní nebo má prostředky. Celé to běží lokálně — číslo nikdy neopustí tvůj prohlížeč.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Při psaní form-validation logiky a chceš ověřit, že uživatel nepřehodil dvě číslice.</li>
+  <li>Při kontrole testovacích karet (Stripe, Adyen) v sandbox prostředí.</li>
+  <li>Při debugování BIN tabulky nebo merchant routing logiky.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Luhn není bezpečnostní kontrola.</strong> Je to jen checksum, který chytí překlepy. Útočník si umí snadno vygenerovat Luhn-valid číslo.</li>
+  <li><strong>Číslo karty NIKDY neukládej.</strong> PCI DSS je velmi přísné. Pokud nemusíš, ani se ho nedotýkej.</li>
+  <li><strong>Detekce značky je jen heuristika.</strong> Některé novější karty (zvlášť prepaid a virtual) můžou mít netradiční BIN-y.</li>
+  <li><strong>Strukturální validace ≠ autorizace.</strong> Skutečná autorizace jde přes bránu (Stripe, Adyen) a kontroluje i CVV, expiraci a limit.</li>
+</ul>
 """,
     },
     "related": ["email-validator", "hash-generator", "regex-tester"],

@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Regex Tester", "tagline": "Tes regex JavaScript secara langsung. Lihat match, capture group, dan terapkan replace sambil mengetik.", "description": "Regex tester online gratis. Tes regular expression JavaScript secara real-time terhadap teks sampel. Sorot semua match, lihat capture group dengan nomor dan nama, dan terapkan operasi replace sambil mengetik."},
         "vi": {"name": "Regex Tester", "tagline": "Test regex JavaScript trực tiếp. Xem match, capture group và áp dụng replace khi bạn gõ.", "description": "Regex tester miễn phí trực tuyến cho regex JavaScript. Xem match, capture group và áp dụng replace theo thời gian thực khi bạn gõ pattern và mẫu thử."},
         "hi": {"name": "Regex Tester", "tagline": "JavaScript regular expressions live test करें। Matches, capture groups देखें, और टाइप करते समय replacements लागू करें।", "description": "मुफ़्त ऑनलाइन JavaScript regex tester जिसमें live highlighting, capture groups, और replace mode है। PCRE-compatible flags (g/i/m/s/u/y)।"},
+        "sk": {"name": 'Regex Tester', "tagline": 'Testuj JavaScript regular expressions naživo. Pozri matches, capture groups a aplikuj replacements pri písaní.', "description": 'Bezplatný online regex tester. Testuj JavaScript regulárne výrazy naživo, pozri si matches a capture groups, aplikuj replacements. Všetko naživo pri písaní. Beží v prehliadači.'},
+        "cs": {"name": 'Regex Tester', "tagline": 'Testuj JavaScript regular expressions naživo. Podívej se na matches, capture groups a aplikuj replacements při psaní.', "description": 'Zdarma online regex tester. Testuj JavaScript regulární výrazy naživo, podívej se na matches a capture groups, aplikuj replacements. Vše naživo při psaní. Běží v prohlížeči.'},
     },
     "body": """
 <div class="tool-card">
@@ -416,6 +418,50 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>Line vs string boundaries पर anchors।</strong> <code>^</code> और <code>$</code> default में string ends को match करते हैं; <code>m</code> flag के साथ वे हर line को match करते हैं।</li>
   <li><strong>Replacement specials।</strong> <code>$&amp;</code> पूरा match है; <code>$1</code>, <code>$2</code>, … capture groups हैं; <code>$$</code> एक literal <code>$</code> है। यह भूलना "मेरा regex मेरे dollars क्यों खा रहा है" का एक आम स्रोत है।</li>
   <li><strong>HTML को regex से parse न करें</strong> किसी भी गंभीर चीज़ के लिए। क्लासिक चेतावनी सच है: nested tags, comments, और CDATA को एक real parser की ज़रूरत है। Regex one-off log scraping या controlled inputs के लिए ठीक है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Test JavaScript regulárnych výrazov naživo. Píšeš pattern, vidíš matches v inpute, capture groups a vieš naživo aplikovať replacement. Užitočné pri ladení regex-u, ktorý potom použiješ v kóde alebo find-and-replace v editore.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Príprava regex-u na validáciu form-u (e-mail, postal code, identifikátor).</li>
+  <li>Extrakcia dát z neštandardného textu (logy, scraped HTML).</li>
+  <li>Search-and-replace v dokumente alebo v code-base-e.</li>
+  <li>Učenie sa regex-u — uvidíš naživo, čo robí každý kúsok patternu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Flags.</strong> <code>g</code> = global, <code>i</code> = case-insensitive, <code>m</code> = multiline, <code>s</code> = dotall, <code>u</code> = unicode.</li>
+  <li><strong>Bez <code>g</code> flagu vráti len prvý match.</strong> V real kóde to často chceš s globálnym.</li>
+  <li><strong>$ a ^ s newline-mi.</strong> Bez <code>m</code> flagu sú $/^ start/end celého stringu, nie riadku.</li>
+  <li><strong>Catastrophic backtracking.</strong> Pattern ako <code>(a+)+b</code> môže mať exponenciálnu zložitosť na vstupe <code>aaaaaaaa...</code>.</li>
+  <li><strong>JS vs. PCRE.</strong> JS regex je trochu odlišný od PCRE (PHP) alebo RE2 (Go) — niektoré features sa neprenášajú.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Test JavaScript regulárních výrazů živě. Píšeš pattern, vidíš matches v inputu, capture groups a umíš živě aplikovat replacement. Užitečné při ladění regexu, který pak použiješ v kódu nebo find-and-replace v editoru.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Příprava regexu na validaci formu (e-mail, postal code, identifikátor).</li>
+  <li>Extrakce dat z nestandardního textu (logy, scraped HTML).</li>
+  <li>Search-and-replace v dokumentu nebo v code-base.</li>
+  <li>Učení se regexu — uvidíš živě, co dělá každý kousek patternu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Flags.</strong> <code>g</code> = global, <code>i</code> = case-insensitive, <code>m</code> = multiline, <code>s</code> = dotall, <code>u</code> = unicode.</li>
+  <li><strong>Bez <code>g</code> flagu vrátí jen první match.</strong> V real kódu to často chceš s globálním.</li>
+  <li><strong>$ a ^ s newliny.</strong> Bez <code>m</code> flagu jsou $/^ start/end celého stringu, ne řádku.</li>
+  <li><strong>Catastrophic backtracking.</strong> Pattern jako <code>(a+)+b</code> může mít exponenciální složitost na vstupu <code>aaaaaaaa...</code>.</li>
+  <li><strong>JS vs. PCRE.</strong> JS regex je trochu odlišný od PCRE (PHP) nebo RE2 (Go) — některé features se nepřenášejí.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Konverter Warna", "tagline": "Konversi warna apa pun antara hex, RGB, HSL, dan OKLCH. Pratinjau langsung, salin sekali klik.", "description": "Konverter warna online gratis. Konversi antara hex, RGB, HSL, dan OKLCH dengan pratinjau langsung. Cocok untuk desain web, CSS, dan sistem desain."},
         "vi": {"name": "Chuyển đổi Màu", "tagline": "Chuyển bất kỳ màu nào giữa hex, RGB, HSL và OKLCH. Xem trước trực tiếp, sao chép một-cú-click.", "description": "Bộ chuyển đổi màu trực tuyến miễn phí giữa hex, RGB, HSL và OKLCH với xem trước trực tiếp. Hữu ích cho CSS, design và quy trình thiết kế."},
         "hi": {"name": "Color Converter", "tagline": "किसी भी color को hex, RGB, HSL और OKLCH के बीच बदलें। Live preview, एक click में copy करें।", "description": "मुफ़्त ऑनलाइन color converter। hex (#3498db), rgb(), hsl() और modern oklch() format के बीच translate करें। Live swatch preview, किसी भी value को एक click में copy करें।"},
+        "sk": {"name": 'Konvertor farieb', "tagline": 'Prevedie akúkoľvek farbu medzi hex, RGB, HSL a OKLCH. Živý náhľad, jedným klikom skopíruj.', "description": 'Bezplatný online konvertor farieb. Prevedie akúkoľvek farbu medzi hex, RGB, HSL a OKLCH s živým náhľadom. Skopíruj akúkoľvek hodnotu jedným klikom. Bez registrácie, bez sledovania.'},
+        "cs": {"name": 'Konvertor barev', "tagline": 'Převede jakoukoli barvu mezi hex, RGB, HSL a OKLCH. Živý náhled, jedním klikem zkopíruj.', "description": 'Zdarma online konvertor barev. Převede jakoukoli barvu mezi hex, RGB, HSL a OKLCH s živým náhledem. Zkopíruj jakoukoli hodnotu jedním klikem. Bez registrace, bez sledování.'},
     },
     "body": """
 <div class="tool-card">
@@ -426,6 +428,48 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
   <li><strong>HSL HSV जैसा नहीं है।</strong> HSV का "value" सबसे bright channel है; HSL का "lightness" सबसे bright और सबसे dark का midpoint है। वे एक ही color के लिए अलग numbers देते हैं।</li>
   <li><strong>Round-tripping हमेशा lossless नहीं होती।</strong> hex → hsl → hex rounding की वजह से एक single integer shift कर सकता है। Exact reproduction के लिए, hex store करें।</li>
   <li><strong>Hex और RGB default रूप से sRGB हैं,</strong> Display P3 या Rec. 2020 नहीं। अगर आपका design tool wide-gamut profile में है, तो वही hex अलग दिखेगा।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Webové farby žijú v niekoľkých modeloch: hex (<code>#58a6ff</code>), RGB (red/green/blue 0–255), HSL (hue/saturation/lightness — intuitívnejšie pre dizajn) a moderný OKLCH (perceptuálne uniformný, dobrý na manipulácie). Tento nástroj prevedie jednu zápis na všetky ostatné s živým náhľadom.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Designer ti dal HEX, ale CSS súbor používa HSL premenné — prevedieš a vložíš.</li>
+  <li>Chceš upraviť svetlosť farby — HSL alebo OKLCH ti dajú samostatný „lightness" slider, hex nie.</li>
+  <li>Prepočet RGB hodnoty z dizajnérskeho nástroja (Figma) do CSS.</li>
+  <li>Experiment s OKLCH na vytvorenie perceptuálne plynulých farebných škál.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>HSL hue je v stupňoch (0–360), nie percentách.</strong> S a L sú percentá.</li>
+  <li><strong>OKLCH vs. HSL.</strong> HSL je rýchla approximácia; OKLCH zohľadňuje, ako oko skutočne vníma jas — žltá pri rovnakom „lightness" je vizuálne svetlejšia ako modrá.</li>
+  <li><strong>Alpha kanál.</strong> RGBA / HSLA pridávajú priehľadnosť 0–1. Hex s alphou je 8 znakov (<code>#58a6ff80</code>).</li>
+  <li><strong>Skrátené hex.</strong> <code>#abc</code> = <code>#aabbcc</code> — funguje len keď sú páry rovnaké.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Webové barvy žijou v několika modelech: hex (<code>#58a6ff</code>), RGB (red/green/blue 0–255), HSL (hue/saturation/lightness — intuitivnější pro design) a moderní OKLCH (perceptuálně uniformní, dobrý na manipulace). Tenhle nástroj převede jeden zápis na všechny ostatní s živým náhledem.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Designer ti dal HEX, ale CSS soubor používá HSL proměnné — převedeš a vložíš.</li>
+  <li>Chceš upravit světlost barvy — HSL nebo OKLCH ti dají samostatný „lightness" slider, hex ne.</li>
+  <li>Přepočet RGB hodnoty z designérského nástroje (Figma) do CSS.</li>
+  <li>Experiment s OKLCH pro tvorbu perceptuálně plynulých barevných škál.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>HSL hue je ve stupních (0–360), ne procentech.</strong> S a L jsou procenta.</li>
+  <li><strong>OKLCH vs. HSL.</strong> HSL je rychlá aproximace; OKLCH zohledňuje, jak oko skutečně vnímá jas — žlutá při stejném „lightness" je vizuálně světlejší než modrá.</li>
+  <li><strong>Alpha kanál.</strong> RGBA / HSLA přidávají průhlednost 0–1. Hex s alphou má 8 znaků (<code>#58a6ff80</code>).</li>
+  <li><strong>Zkrácený hex.</strong> <code>#abc</code> = <code>#aabbcc</code> — funguje jen když jsou páry stejné.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pelempar Dadu", "tagline": "Lempar dadu dengan notasi D&D standar — 2d6+3, 1d20, 4d6 ambil 3 tertinggi. RNG kripto-aman.", "description": "Pelempar dadu online gratis. Mendukung notasi D&D standar (2d6+3, 1d20, 4d6kh3, 3d6!), advantage/disadvantage, eksplosi, dan keep-highest/lowest. Menggunakan crypto.getRandomValues — RNG kripto-aman."},
         "vi": {"name": "Tung Xúc xắc", "tagline": "Tung xúc xắc với notation D&D chuẩn — 2d6+3, 1d20, 4d6 lấy 3 cao nhất. RNG an toàn về mật mã.", "description": "Trình tung xúc xắc trực tuyến miễn phí. Hỗ trợ notation D&D chuẩn (1d20, 2d6+3, 4d6kh3, v.v.) bằng cách dùng crypto.getRandomValues của trình duyệt để các lần tung là công bằng và không thể đoán trước."},
         "hi": {"name": "Dice Roller", "tagline": "Standard D&D notation के साथ dice rolls करें — 2d6+3, 1d20, 4d6 keep highest 3। Crypto-secure RNG।", "description": "Standard tabletop notation का उपयोग करते हुए मुफ़्त ऑनलाइन dice roller: 1d20, 2d6+3, 4d6kh3, 3d8-1। हर individual roll और total देखें। निष्पक्ष, अप्रत्याशित rolls के लिए crypto.getRandomValues का उपयोग करता है।"},
+        "sk": {"name": 'Dice Roller', "tagline": 'Hádžte kocky štandardnou D&D notáciou — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.', "description": 'Bezplatný online dice roller. Podporuje plnú D&D notáciu vrátane 2d6+3, 1d20, 4d6kh3 (keep highest). Používa crypto-secure RNG (Web Crypto API) pre férové hody.'},
+        "cs": {"name": 'Dice Roller', "tagline": 'Házej kostky standardní D&D notací — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.', "description": 'Zdarma online dice roller. Podporuje plnou D&D notaci včetně 2d6+3, 1d20, 4d6kh3 (keep highest). Používá crypto-secure RNG (Web Crypto API) pro férové hody.'},
     },
     "body": """
 <div class="tool-card">
@@ -546,6 +548,50 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>यह exploding dice नहीं है।</strong> कोई <code>!</code>-style explosions नहीं, कोई rerolls (<code>r1</code>) नहीं, कोई successes-counting (<code>3d10>=7</code>) नहीं। यहां notation सरल "sum and modify" subset है जो ~95% सामान्य rolls को cover करती है।</li>
   <li><strong>Crits केवल d20 के लिए flagged हैं।</strong> एक 20 हरा highlight करता है, एक 1 लाल highlight करता है। अन्य dice sizes को colouring नहीं मिलती।</li>
   <li><strong>प्रति roll 1000 dice की cap।</strong> Page को responsive रखने के लिए समझदार upper bound।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Dice notation je štandardný spôsob, ako popísať hod kockou v RPG: <code>1d20</code> (jedna 20-stenná), <code>2d6+3</code> (dve šesťstenné plus 3), <code>4d6kh3</code> (štyri šesťstenné, drop najnižšiu). Tento nástroj parsuje notáciu, hodí kocky pomocou crypto-secure RNG (Web Crypto API) a ukáže jednotlivé hody aj súčet.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Online D&D / Pathfinder session bez fyzických kociek.</li>
+  <li>Generovanie postavy: <code>4d6kh3</code> šesťkrát pre šesť ability scores.</li>
+  <li>Náhodné rozhodnutie medzi N možnosťami: <code>1dN</code>.</li>
+  <li>Simulácia pravdepodobnosti — opakovane spustiť a porátať distribúciu.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Math.random nie je crypto-safe.</strong> Bežné <code>Math.random()</code> v JS nie je vhodné pre férové hody — tento nástroj používa Web Crypto.</li>
+  <li><strong>Modifiers.</strong> <code>2d6+3</code> pripočíta 3 raz na konci, nie 3 ku každému hodu.</li>
+  <li><strong>Keep highest / lowest.</strong> <code>4d6kh3</code> hodí 4 a ponechá najvyššie 3. <code>kl1</code> nechá najnižšiu.</li>
+  <li><strong>Limit počtu kociek.</strong> Príliš veľa kociek (napr. <code>1000d6</code>) môže byť pomalé alebo zlyhať.</li>
+  <li><strong>Crit ranges / exploding dice</strong> tu nie sú podporované — len bežná notácia.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Dice notation je standardní způsob, jak popsat hod kostkou v RPG: <code>1d20</code> (jedna 20stěnná), <code>2d6+3</code> (dvě šestistěnné plus 3), <code>4d6kh3</code> (čtyři šestistěnné, drop nejnižší). Tenhle nástroj parsuje notaci, hodí kostky pomocí crypto-secure RNG (Web Crypto API) a ukáže jednotlivé hody i součet.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Online D&D / Pathfinder session bez fyzických kostek.</li>
+  <li>Generování postavy: <code>4d6kh3</code> šestkrát pro šest ability scores.</li>
+  <li>Náhodné rozhodnutí mezi N možnostmi: <code>1dN</code>.</li>
+  <li>Simulace pravděpodobnosti — opakovaně spustit a spočítat distribuci.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Math.random není crypto-safe.</strong> Běžné <code>Math.random()</code> v JS není vhodné pro férové hody — tenhle nástroj používá Web Crypto.</li>
+  <li><strong>Modifiers.</strong> <code>2d6+3</code> připočítá 3 jednou na konci, ne 3 ke každému hodu.</li>
+  <li><strong>Keep highest / lowest.</strong> <code>4d6kh3</code> hodí 4 a ponechá nejvyšší 3. <code>kl1</code> nechá nejnižší.</li>
+  <li><strong>Limit počtu kostek.</strong> Příliš mnoho kostek (např. <code>1000d6</code>) může být pomalé nebo selhat.</li>
+  <li><strong>Crit ranges / exploding dice</strong> tu nejsou podporovány — jen běžná notace.</li>
 </ul>
 """,
     },

@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "HTML Encoder / Decoder", "tagline": "Escape karakter khusus HTML atau decode entity kembali. Berguna untuk menyematkan input pengguna dengan aman atau debug markup yang ter-encode.", "description": "HTML encoder dan decoder gratis. Escape karakter khusus HTML (<, >, &, \", ') ke entity atau decode entity kembali ke karakter aslinya. Aman untuk menyematkan input pengguna dan mencegah XSS."},
         "vi": {"name": "HTML Encoder / Decoder", "tagline": "Escape các ký tự đặc biệt HTML hoặc decode entity về dạng ban đầu. Hữu ích để nhúng input người dùng một cách an toàn hoặc debug markup đã được encode.", "description": "Bộ HTML encoder và decoder miễn phí trực tuyến. Escape <, >, &, các ký tự đặc biệt trong attribute và Unicode ngoài-ASCII thành HTML entity, hoặc decode chúng trở lại. Hữu ích để chèn dữ liệu của bạn vào HTML một cách an toàn."},
         "hi": {"name": "HTML Encoder / Decoder", "tagline": "HTML विशेष characters को escape करें या entities को वापस decode करें। User input को सुरक्षित रूप से embed करने या encoded markup debug करने के लिए उपयोगी।", "description": "मुफ़्त ऑनलाइन HTML entity encoder और decoder। &amp; &lt; &gt; &quot; ' और named entities को escape करता है। Named, numeric, और hex entity references को decode करता है।"},
+        "sk": {"name": 'HTML Encoder / Decoder', "tagline": 'Escapuj HTML špeciálne znaky alebo dekóduj entity späť. Užitočné na bezpečné vkladanie user inputu alebo debugging encoded markupu.', "description": 'Bezplatný online HTML encoder / decoder. Premení &lt; &gt; &amp; " \' na entity (escape) alebo dekóduje entity späť na pôvodné znaky. Užitočné na XSS-safe vkladanie textu a debugging.'},
+        "cs": {"name": 'HTML Encoder / Decoder', "tagline": 'Escapuj HTML speciální znaky nebo dekóduj entity zpět. Užitečné pro bezpečné vkládání user inputu nebo debugging encoded markupu.', "description": 'Zdarma online HTML encoder / decoder. Promění &lt; &gt; &amp; " \' na entity (escape) nebo dekóduje entity zpět na původní znaky. Užitečné pro XSS-safe vkládání textu a debugging.'},
     },
     "body": """
 <div class="tool-card">
@@ -235,6 +237,48 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>Attributes बनाम body।</strong> दोनों contexts को same पांच characters escape चाहिए, लेकिन <code>onclick</code> जैसे JavaScript event handlers को अतिरिक्त escaping चाहिए (जो यह tool नहीं करता — untrusted data को attributes से बाहर रखें)।</li>
   <li><strong>Decoder permissive है।</strong> Named entities (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>) और hex (<code>&amp;#x22;</code>) सभी browser के parser के माध्यम से decode होते हैं, इसलिए यह वही स्वीकार करता है जो एक असली browser करेगा।</li>
   <li><strong>Double-encode न करें।</strong> पहले से encoded value को encode करने पर <code>&amp;amp;amp;</code> मिलता है। यदि आप अपने input में entities देखते हैं तो पहले decode करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Špeciálne HTML znaky (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>) majú v HTML syntaktický význam. Ak ich potrebuješ zobraziť doslovne (alebo vložiť user input bez rizika XSS), musíš ich „escapovať" na entity (<code>&amp;lt;</code>, <code>&amp;gt;</code>, …). Tento nástroj robí oba smery.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Vkladanie blokov kódu (HTML / XML) do dokumentácie ako text.</li>
+  <li>Sanitizácia user inputu pred zobrazením (proti XSS).</li>
+  <li>Debug encoded markupu, ktorý ti niekto poslal v správe.</li>
+  <li>Príprava HTML šablóny, kde znaky <code>&lt;</code> chceš zobraziť doslovne.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Toto sám o sebe XSS nezabráni.</strong> Escape je nutný, ale nie postačujúci. Potrebuješ aj CSP, sanitizáciu atribútov, kontextovo-správny escape (JS, URL, CSS).</li>
+  <li><strong>Atribúty potrebujú iný escape.</strong> V <code>title="..."</code> musíš escapovať aj úvodzovky.</li>
+  <li><strong>Numerické entities.</strong> <code>&amp;#60;</code> = <code>&lt;</code>. Decimal a hex (<code>&amp;#x3C;</code>) sú obe validné.</li>
+  <li><strong>Named entities.</strong> Niektoré (<code>&amp;copy;</code>) sú stabilné, ale nepoužívaj exotické (<code>&amp;copysr;</code>) ktoré nepodporujú všetky parsery.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Speciální HTML znaky (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, <code>"</code>, <code>'</code>) mají v HTML syntaktický význam. Pokud je potřebuješ zobrazit doslovně (nebo vložit user input bez rizika XSS), musíš je „escapovat" na entity (<code>&amp;lt;</code>, <code>&amp;gt;</code>, …). Tenhle nástroj dělá oba směry.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Vkládání bloků kódu (HTML / XML) do dokumentace jako text.</li>
+  <li>Sanitizace user inputu před zobrazením (proti XSS).</li>
+  <li>Debug encoded markupu, který ti někdo poslal ve zprávě.</li>
+  <li>Příprava HTML šablony, kde znaky <code>&lt;</code> chceš zobrazit doslovně.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Tohle samo o sobě XSS nezabrání.</strong> Escape je nutný, ale ne postačující. Potřebuješ i CSP, sanitizaci atributů, kontextově-správný escape (JS, URL, CSS).</li>
+  <li><strong>Atributy potřebují jiný escape.</strong> V <code>title="..."</code> musíš escapovat i uvozovky.</li>
+  <li><strong>Numerické entity.</strong> <code>&amp;#60;</code> = <code>&lt;</code>. Decimal a hex (<code>&amp;#x3C;</code>) jsou obě validní.</li>
+  <li><strong>Named entities.</strong> Některé (<code>&amp;copy;</code>) jsou stabilní, ale nepoužívej exotické (<code>&amp;copysr;</code>), které nepodporují všechny parsery.</li>
 </ul>
 """,
     },

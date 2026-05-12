@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Base64 Encoder / Decoder", "tagline": "Encode teks ke Base64 atau decode Base64 kembali ke teks. Aman untuk UTF-8 dengan dukungan varian base64url.", "description": "Encoder dan decoder Base64 online gratis. Aman untuk UTF-8 dengan varian base64url opsional untuk URL dan JWT. Berjalan di browser-mu."},
         "vi": {"name": "Base64 Encoder / Decoder", "tagline": "Encode văn bản thành Base64 hoặc decode Base64 về văn bản. An toàn UTF-8 và hỗ trợ biến thể base64url.", "description": "Base64 encoder và decoder trực tuyến miễn phí. An toàn UTF-8 với biến thể base64url tùy chọn cho URL và JWT. Chạy trong trình duyệt của bạn."},
         "hi": {"name": "Base64 Encoder / Decoder", "tagline": "Text को Base64 में encode करें या Base64 को वापस text में decode करें। UTF-8 safe और base64url variant supported।", "description": "मुफ़्त ऑनलाइन Base64 encoder और decoder। UTF-8 safe, URLs और JWTs के लिए optional base64url variant के साथ। आपके browser में चलता है।"},
+        "sk": {"name": 'Base64 Encoder / Decoder', "tagline": 'Zakóduj text do Base64 alebo dekóduj Base64 späť na text. UTF-8 safe a base64url variant.', "description": 'Bezplatný online Base64 encoder / decoder. Konverzia funguje obojsmerne, je UTF-8 safe a podporuje base64url variant pre URL a JWT. Všetko beží v prehliadači — bez registrácie, bez sledovania.'},
+        "cs": {"name": 'Base64 Encoder / Decoder', "tagline": 'Zakóduj text do Base64 nebo dekóduj Base64 zpět na text. UTF-8 safe a base64url varianta.', "description": 'Zdarma online Base64 encoder / decoder. Konverze funguje oběma směry, je UTF-8 safe a podporuje base64url variantu pro URL a JWT. Vše běží v prohlížeči — bez registrace, bez sledování.'},
     },
     "body": """
 <div class="tool-card">
@@ -307,6 +309,50 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>UTF-8 यहाँ सही round-trip करता है</strong> — non-ASCII (é, 你好, 🚀) <code>TextEncoder</code>/<code>TextDecoder</code> से होकर जाता है, सीधे <code>btoa</code>/<code>atob</code> से नहीं। JavaScript में naive <code>btoa(str)</code> non-Latin characters पर टूट जाता है।</li>
   <li><strong>Padding</strong> — standard Base64 हमेशा input length के अनुसार 0/1/2 <code>=</code> characters के साथ खत्म होता है। base64url अक्सर इन्हें छोड़ देता है। जो decoders padding की मांग करते हैं वे unpadded input को reject करेंगे; यह tool decode पर इसे फिर से जोड़ देता है अगर गायब हो।</li>
   <li><strong>Encoded strings के अंदर whitespace</strong> — यहाँ का decoder spaces और line breaks हटा देता है (copy-paste से आम), लेकिन कुछ libraries ऐसा नहीं करतीं, इसलिए अगर आप ऐसी किसी library को pipe कर रहे हैं तो फिर से encode करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Base64 zakóduje binárne dáta do 64-znakovej ASCII abecedy (A–Z, a–z, 0–9, +, /), aby prešli cez kanály, ktoré rozumejú len textu — e-mail, JSON, URL, data URIs. Tento nástroj funguje obojsmerne: zakóduj text alebo dekóduj späť. Je UTF-8 safe a podporuje aj base64url variant (s <code>-</code> a <code>_</code> namiesto <code>+</code> a <code>/</code>), ktorý sa používa v JWT a URL.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Inlinovanie obrázka do CSS/HTML cez data URI: <code>data:image/png;base64,...</code>.</li>
+  <li>Posielanie binárky cez JSON API, ktoré akceptuje len strings.</li>
+  <li>Dekódovanie JWT payloadu (kde sa používa base64url variant bez padding-u).</li>
+  <li>Rýchle „skrytie" konfiguračnej hodnoty pred náhodným pohľadom (NIE bezpečnostné šifrovanie!).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Base64 nie je šifrovanie.</strong> Je to enkódovanie. Ktokoľvek vie obsah dekódovať.</li>
+  <li><strong>Veľkosť rastie zhruba o 33 %.</strong> 3 bytes na vstupe = 4 znaky na výstupe, plus padding.</li>
+  <li><strong>Padding (<code>=</code>) má význam.</strong> Niektoré dekodéry odmietnu vstup s nesprávnym počtom <code>=</code> znakov.</li>
+  <li><strong>Štandardný vs. URL-safe.</strong> Štandardný base64 obsahuje <code>+</code> a <code>/</code>, ktoré v URL musíš escapovať. Base64url používa <code>-</code> a <code>_</code>.</li>
+  <li><strong>Newlines vo vnútri.</strong> MIME base64 vkladá CRLF každých 76 znakov; väčšina parserov ich ignoruje, ale nie všetky.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Base64 zakóduje binární data do 64znakové ASCII abecedy (A–Z, a–z, 0–9, +, /), aby prošla skrz kanály, které rozumějí jen textu — e-mail, JSON, URL, data URIs. Tenhle nástroj funguje oběma směry: zakóduj text nebo dekóduj zpět. Je UTF-8 safe a podporuje i base64url variantu (s <code>-</code> a <code>_</code> místo <code>+</code> a <code>/</code>), která se používá v JWT a URL.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Inlinování obrázku do CSS/HTML přes data URI: <code>data:image/png;base64,...</code>.</li>
+  <li>Posílání binárky přes JSON API, které akceptuje jen strings.</li>
+  <li>Dekódování JWT payloadu (kde se používá base64url varianta bez paddingu).</li>
+  <li>Rychlé „skrytí" konfigurační hodnoty před náhodným pohledem (NE bezpečnostní šifrování!).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Base64 není šifrování.</strong> Je to enkódování. Kdokoli umí obsah dekódovat.</li>
+  <li><strong>Velikost roste zhruba o 33 %.</strong> 3 bytes na vstupu = 4 znaky na výstupu, plus padding.</li>
+  <li><strong>Padding (<code>=</code>) má význam.</strong> Některé dekodéry odmítnou vstup s nesprávným počtem <code>=</code> znaků.</li>
+  <li><strong>Standardní vs. URL-safe.</strong> Standardní base64 obsahuje <code>+</code> a <code>/</code>, které v URL musíš escapovat. Base64url používá <code>-</code> a <code>_</code>.</li>
+  <li><strong>Newlines uvnitř.</strong> MIME base64 vkládá CRLF každých 76 znaků; většina parserů je ignoruje, ale ne všechny.</li>
 </ul>
 """,
     },

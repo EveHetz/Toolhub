@@ -49,6 +49,8 @@ TOOL = {
         "id": {"name": "Konverter YAML ↔ JSON", "tagline": "Konversi antara YAML dan JSON ke kedua arah. Berguna untuk manifest Kubernetes, config CI, dan spec OpenAPI.", "description": "Konverter YAML ke JSON gratis (dan sebaliknya). Konversi antara YAML dan JSON ke kedua arah dengan validasi. Berguna untuk manifest Kubernetes, GitHub Actions, spec OpenAPI, dan format config apa pun."},
         "vi": {"name": "Chuyển đổi YAML ↔ JSON", "tagline": "Chuyển giữa YAML và JSON cả hai chiều. Hữu ích cho manifest Kubernetes, config CI và spec OpenAPI.", "description": "Bộ chuyển YAML ↔ JSON miễn phí trực tuyến. Round-trip giữa hai định dạng với indent thích hợp. Hữu ích cho manifest Kubernetes, config CI/CD, spec OpenAPI và config Docker Compose."},
         "hi": {"name": "YAML ↔ JSON Converter", "tagline": "YAML और JSON के बीच किसी भी दिशा में बदलें। Kubernetes manifests, CI configs और OpenAPI specs के लिए उपयोगी।", "description": "मुफ़्त ऑनलाइन YAML to JSON और JSON to YAML converter। द्विदिशीय, पूरी तरह से आपके browser में चलता है। anchors, aliases और multi-document YAML संभालता है।"},
+        "sk": {"name": 'YAML ↔ JSON konvertor', "tagline": 'Preveď medzi YAML a JSON v oboch smeroch. Užitočné pre Kubernetes manifesty, CI configy a OpenAPI specy.', "description": 'Bezplatný online YAML ↔ JSON konvertor. Konverzia oboma smermi — YAML na JSON aj naopak. Užitočné na Kubernetes manifesty, GitHub Actions / GitLab CI configy a OpenAPI specifikácie.'},
+        "cs": {"name": 'YAML ↔ JSON konvertor', "tagline": 'Převeď mezi YAML a JSON v obou směrech. Užitečné pro Kubernetes manifesty, CI configy a OpenAPI specy.', "description": 'Zdarma online YAML ↔ JSON konvertor. Konverze oběma směry — YAML na JSON i naopak. Užitečné pro Kubernetes manifesty, GitHub Actions / GitLab CI configy a OpenAPI specifikace.'},
     },
     "body": """
 <div class="tool-card">
@@ -296,6 +298,50 @@ document.addEventListener('DOMContentLoaded', yjConv);
   <li><strong>Custom tags</strong> (<code>!!python/object</code>, <code>!Ref</code>, आदि) सख्त YAML 1.2 का उल्लंघन करते हैं। CloudFormation YAML और PyYAML pickle dumps विफल हो जाएंगे; पहले tags साफ़ करें।</li>
   <li><strong>YAML→JSON पर Anchors और aliases विस्तृत हो जाते हैं।</strong> JSON में कोई references नहीं हैं, इसलिए <code>*ref</code> nodes inline हो जाते हैं। Round-tripping एक मान-समतुल्य लेकिन पाठ्य-रूप से बड़ा YAML देता है।</li>
   <li><strong>Numbers बनाम strings।</strong> Unquoted YAML <code>3.14</code> एक float है; <code>"3.14"</code> एक string है।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>YAML a JSON sú dva data-serializačné formáty. JSON je striktnejší (lepší pre API), YAML je čitateľnejší pre človeka (lepší pre config files). Tento konvertor robí oba smery — YAML na JSON aj JSON na YAML.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Kubernetes manifest v YAML, ktorý chceš odoslať cez JSON API.</li>
+  <li>GitHub Actions workflow v YAML pre debug ako JSON.</li>
+  <li>OpenAPI špec — môže byť v YAML aj JSON.</li>
+  <li>Konvertovanie z config (YAML) do skriptu (JSON), kde JSON.parse beží rýchlejšie.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>YAML je strict-mode citlivý na indent.</strong> 2 alebo 4 medzery konzistentne; nie taby.</li>
+  <li><strong>Hodnoty ako string.</strong> <code>version: 1.0</code> v YAML je number 1.0 (ne string „1.0"). Pre string treba úvodzovky alebo explicit type.</li>
+  <li><strong>Boolean traps.</strong> <code>no</code> v YAML 1.1 je false. <code>off</code>, <code>yes</code>, <code>on</code> tiež. YAML 1.2 to opravil.</li>
+  <li><strong>Anchors a aliases.</strong> YAML má <code>&amp;ref</code> a <code>*ref</code>; JSON ich nemá — pri konverzii sa expandujú.</li>
+  <li><strong>Multi-line strings.</strong> YAML má <code>|</code> (literal block) a <code>&gt;</code> (folded block); JSON má len escape <code>\n</code>.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>YAML a JSON jsou dva data-serializační formáty. JSON je striktnější (lepší pro API), YAML je čitelnější pro člověka (lepší pro config files). Tenhle konvertor dělá oba směry — YAML na JSON i JSON na YAML.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Kubernetes manifest v YAML, který chceš odeslat přes JSON API.</li>
+  <li>GitHub Actions workflow v YAML pro debug jako JSON.</li>
+  <li>OpenAPI spec — může být v YAML i JSON.</li>
+  <li>Konvertování z config (YAML) do skriptu (JSON), kde JSON.parse běží rychleji.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>YAML je strict-mode citlivý na indent.</strong> 2 nebo 4 mezery konzistentně; ne taby.</li>
+  <li><strong>Hodnoty jako string.</strong> <code>version: 1.0</code> v YAML je number 1.0 (ne string „1.0"). Pro string potřeba uvozovky nebo explicit type.</li>
+  <li><strong>Boolean traps.</strong> <code>no</code> v YAML 1.1 je false. <code>off</code>, <code>yes</code>, <code>on</code> také. YAML 1.2 to opravil.</li>
+  <li><strong>Anchors a aliases.</strong> YAML má <code>&amp;ref</code> a <code>*ref</code>; JSON je nemá — při konverzi se expandují.</li>
+  <li><strong>Multi-line strings.</strong> YAML má <code>|</code> (literal block) a <code>&gt;</code> (folded block); JSON má jen escape <code>\n</code>.</li>
 </ul>
 """,
     },

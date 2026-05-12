@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "JSONPath Tester", "tagline": "Jalankan query JSONPath terhadap dokumen JSON apa pun. Lihat node yang cocok dan path-nya secara real-time.", "description": "JSONPath tester gratis. Tempel JSON apa pun, ketik query JSONPath, dan lihat node yang cocok beserta path-nya secara real-time. Mendukung notasi titik dan kurung, wildcard, slice, dan filter."},
         "vi": {"name": "JSONPath Tester", "tagline": "Chạy query JSONPath trên bất kỳ tài liệu JSON nào. Xem các node khớp và path của chúng theo thời gian thực.", "description": "JSONPath tester miễn phí trực tuyến. Dán JSON, gõ query JSONPath và xem các node khớp và path của chúng được cập nhật theo thời gian thực."},
         "hi": {"name": "JSONPath Tester", "tagline": "किसी भी JSON document पर JSONPath queries चलाएं। मिलान वाले nodes और उनके paths real time में देखें।", "description": "मुफ़्त ऑनलाइन JSONPath tester. Nested JSON को $.., wildcards, array slices, और filter expressions के साथ query करें। Live results, अपना JSON paste करें और querying शुरू करें।"},
+        "sk": {"name": 'JSONPath Tester', "tagline": 'Spustí JSONPath dotazy na akomkoľvek JSON dokumente. Pozri matched nody a ich cesty v reálnom čase.', "description": 'Bezplatný online JSONPath tester. Vlož JSON a JSONPath query a uvidíš všetky matched nodes a ich cesty živo, ako píšeš. Podporuje $..* wildcardy aj filtre.'},
+        "cs": {"name": 'JSONPath Tester', "tagline": 'Spustí JSONPath dotazy na jakémkoli JSON dokumentu. Podívej se na matched nody a jejich cesty v reálném čase.', "description": 'Zdarma online JSONPath tester. Vlož JSON a JSONPath query a uvidíš všechny matched nodes a jejich cesty živě, jak píšeš. Podporuje $..* wildcardy i filtry.'},
     },
     "body": """
 <div class="tool-card">
@@ -501,6 +503,50 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong><code>$..*</code></strong> tree में हर node लौटाता है (depth-first), जो बहुत हो सकता है। एक अपरिचित document का अन्वेषण करने के लिए उपयोगी।</li>
   <li><strong>Numeric strings।</strong> <code>{"1": "a"}</code> — <code>$['1']</code> के साथ access काम करता है; <code>$.1</code> नहीं करता (numbers dot-property names के रूप में valid नहीं हैं)।</li>
   <li><strong>Ordering।</strong> JSON द्वारा object property order की गारंटी नहीं है। यदि आपका filter order पर निर्भर है, तो पहले sort करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>JSONPath je dotazovací jazyk pre JSON, podobný XPath pre XML. Umožňuje extrahovať konkrétne hodnoty z hierarchického JSON-u pomocou cesty: <code>$.users[0].name</code>, <code>$..email</code> (všetky e-maily v dokumente), <code>$.users[?(@.active==true)]</code> (filter).</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Extrakcia konkrétneho poľa z veľkej API odpovede.</li>
+  <li>Filter — všetky položky, ktoré spĺňajú podmienku.</li>
+  <li>Generovanie scriptu na masívne update / migrácie.</li>
+  <li>Test, či dotaz, ktorý si napísal do JMESPath / jq / JSONPath knižnice, robí to, čo očakávaš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Implementácie sa líšia.</strong> JSONPath nie je oficiálne štandardizované; rôzne knižnice majú drobné rozdiely (zvlášť filtre).</li>
+  <li><strong>Wildcard <code>$..*</code></strong> vracia veľa — radšej cieli.</li>
+  <li><strong>Index z konca.</strong> Niektoré implementácie podporujú <code>[-1]</code>, niektoré nie.</li>
+  <li><strong>Filtre s reťazcami.</strong> <code>[?(@.name=='foo')]</code> — pozor na úvodzovky, single vs. double.</li>
+  <li><strong>Path vs. value.</strong> Výsledok môže byť path alebo hodnota, podľa implementácie.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>JSONPath je dotazovací jazyk pro JSON, podobný XPath pro XML. Umožňuje extrahovat konkrétní hodnoty z hierarchického JSONu pomocí cesty: <code>$.users[0].name</code>, <code>$..email</code> (všechny e-maily v dokumentu), <code>$.users[?(@.active==true)]</code> (filtr).</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Extrakce konkrétního pole z velké API odpovědi.</li>
+  <li>Filtr — všechny položky, které splňují podmínku.</li>
+  <li>Generování skriptu na masivní update / migrace.</li>
+  <li>Test, jestli dotaz, který jsi napsal do JMESPath / jq / JSONPath knihovny, dělá to, co očekáváš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Implementace se liší.</strong> JSONPath není oficiálně standardizován; různé knihovny mají drobné rozdíly (zvlášť filtry).</li>
+  <li><strong>Wildcard <code>$..*</code></strong> vrací mnoho — raději ciluj.</li>
+  <li><strong>Index z konce.</strong> Některé implementace podporují <code>[-1]</code>, některé ne.</li>
+  <li><strong>Filtry s řetězci.</strong> <code>[?(@.name=='foo')]</code> — pozor na uvozovky, single vs. double.</li>
+  <li><strong>Path vs. value.</strong> Výsledek může být path nebo hodnota, podle implementace.</li>
 </ul>
 """,
     },

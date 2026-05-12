@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Pembangun Ekspresi Cron", "tagline": "Bangun ekspresi cron secara visual — menit, jam, hari, bulan, hari dalam minggu — dan pratinjau 5 waktu run berikutnya.", "description": "Pembangun ekspresi cron gratis. Susun jadwal cron secara visual dengan dropdown untuk menit, jam, hari, bulan, hari dalam minggu — lalu pratinjau 5 waktu eksekusi berikutnya. Crontab 5-field standar."},
         "vi": {"name": "Xây dựng Cron Expression", "tagline": "Xây dựng biểu thức cron một cách trực quan — phút, giờ, ngày, tháng, thứ trong tuần — và xem trước 5 lần chạy kế tiếp.", "description": "Trình xây dựng biểu thức cron trực tuyến miễn phí. Chọn phút, giờ, ngày, tháng và thứ trong tuần một cách trực quan, sau đó xem trước 5 lần chạy tiếp theo của lịch của bạn."},
         "hi": {"name": "Cron Expression Builder", "tagline": "Cron expression को visually बनाएं — minute, hour, day, month, weekday — और अगले 5 fire times का preview देखें।", "description": "मुफ़्त ऑनलाइन cron expression builder। Dropdowns और presets के साथ fields चुनें, cron string पाएं, और अपनी local timezone में अगले 5 fire times देखें। Standard 5-field crontab।"},
+        "sk": {"name": 'Cron Expression Builder', "tagline": 'Postav cron výraz vizuálne — minúta, hodina, deň, mesiac, weekday — a pozri si náhľad ďalších 5 fire times.', "description": 'Bezplatný online cron expression builder. Postav crontab výraz vizuálne pomocou dropdownov pre minútu, hodinu, deň, mesiac a weekday. Náhľad ďalších 5 spustení v ľudsky čitateľnej forme.'},
+        "cs": {"name": 'Cron Expression Builder', "tagline": 'Postav cron výraz vizuálně — minuta, hodina, den, měsíc, weekday — a podívej se na náhled dalších 5 fire times.', "description": 'Zdarma online cron expression builder. Postav crontab výraz vizuálně pomocí dropdownů pro minutu, hodinu, den, měsíc a weekday. Náhled dalších 5 spuštění v lidsky čitelné formě.'},
     },
     "body": """
 <div class="tool-card">
@@ -556,6 +558,50 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Step + range combos।</strong> <code>0-30/5</code> केवल 0,5,10,15,20,25,30 cover करता है।</li>
   <li><strong>कुछ cron flavours fields जोड़ते हैं।</strong> Quartz cron में 6 या 7 fields हैं (seconds और year के साथ)। systemd timers पूरी तरह से अलग format इस्तेमाल करते हैं। यह builder standard 5-field crontab को target करता है।</li>
   <li><strong>Friday-the-13th cron में express करना मुश्किल है।</strong> Cron का day-of-month और day-of-week OR से interact करते हैं, इसलिए उन्हें strictly combine करने के लिए wrapper script चाहिए।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>Cron expression má päť polí: minúta, hodina, deň v mesiaci, mesiac, deň v týždni. Syntax je výkonná, ale ľahko sa pomýliš. Tento builder ti pre každé pole dá dropdown s rozumnými možnosťami (každú minútu, každú hodinu, špecifický čas, krok…), zostaví výraz a ukáže ti náhľad ďalších 5 fire times v ľudskej reči.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Príprava crontab záznamu na Linux serveri.</li>
+  <li>Konfigurácia GitHub Actions / GitLab CI scheduled job.</li>
+  <li>Príprava výrazu pre Kubernetes CronJob, AWS EventBridge alebo Cloud Scheduler.</li>
+  <li>Overenie, či výraz, čo už máš, robí to, čo si myslíš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Deň v týždni: 0 alebo 7 = nedeľa.</strong> Niektoré varianty (Java Quartz) používajú 1=nedeľa, 7=sobota — pozor na konvenciu.</li>
+  <li><strong>Časová zóna.</strong> Cron beží v lokálnom čase servera, ak nie je inak nakonfigurované. UTC vs. CET je 1 alebo 2 hodiny rozdielu (DST).</li>
+  <li><strong>„Každé 5 minút" od ktorej minúty?</strong> <code>*/5</code> beží na 0, 5, 10, …, 55. Nie na náhodných minútach.</li>
+  <li><strong>Deň v mesiaci aj deň v týždni naraz.</strong> V štandardnom POSIX cron-e to znamená OR (spustí, ak je splnené ktorékoľvek), nie AND.</li>
+  <li><strong>Tento builder je 5-field POSIX.</strong> Sekundy (6-field) ani roky (7-field) tu nie sú.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>Cron expression má pět polí: minuta, hodina, den v měsíci, měsíc, den v týdnu. Syntaxe je mocná, ale snadno se spleteš. Tenhle builder ti pro každé pole dá dropdown s rozumnými možnostmi (každou minutu, každou hodinu, specifický čas, krok…), poskládá výraz a ukáže ti náhled dalších 5 fire times v lidské řeči.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Příprava crontab záznamu na Linux serveru.</li>
+  <li>Konfigurace GitHub Actions / GitLab CI scheduled job.</li>
+  <li>Příprava výrazu pro Kubernetes CronJob, AWS EventBridge nebo Cloud Scheduler.</li>
+  <li>Ověření, že výraz, který už máš, dělá to, co si myslíš.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Den v týdnu: 0 nebo 7 = neděle.</strong> Některé varianty (Java Quartz) používají 1=neděle, 7=sobota — pozor na konvenci.</li>
+  <li><strong>Časové pásmo.</strong> Cron běží v lokálním čase serveru, pokud není jinak nakonfigurováno. UTC vs. CET je 1 nebo 2 hodiny rozdílu (DST).</li>
+  <li><strong>„Každých 5 minut" od které minuty?</strong> <code>*/5</code> běží na 0, 5, 10, …, 55. Ne na náhodných minutách.</li>
+  <li><strong>Den v měsíci a den v týdnu zároveň.</strong> Ve standardním POSIX cronu to znamená OR (spustí, pokud je splněno kterékoli), ne AND.</li>
+  <li><strong>Tenhle builder je 5-field POSIX.</strong> Sekundy (6-field) ani roky (7-field) tu nejsou.</li>
 </ul>
 """,
     },

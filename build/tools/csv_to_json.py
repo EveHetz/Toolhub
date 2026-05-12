@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "CSV ke JSON", "tagline": "Konversi data CSV ke array JSON. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip.", "description": "Konverter CSV ke JSON gratis. Tempel CSV apa pun dan dapatkan array JSON dari objek. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip. Berjalan di browser-mu."},
         "vi": {"name": "CSV sang JSON", "tagline": "Chuyển dữ liệu CSV thành mảng JSON. Xử lý phát hiện header, delimiter tùy chỉnh, trường được quote và newline lồng nhau.", "description": "Bộ chuyển CSV sang JSON miễn phí trực tuyến. Phát hiện header tự động, hỗ trợ delimiter tùy chỉnh, trường được quote và newline trong giá trị. Toàn bộ chuyển đổi chạy cục bộ."},
         "hi": {"name": "CSV से JSON", "tagline": "CSV डेटा को JSON arrays में बदलें। Header detection, custom delimiters, quoted fields और embedded newlines संभाले जाते हैं।", "description": "मुफ़्त ऑनलाइन CSV से JSON converter। Headers को auto-detect करता है, custom delimiters और quoted multi-line fields को support करता है। आपके browser में चलता है।"},
+        "sk": {"name": 'CSV na JSON', "tagline": 'Preveď CSV dáta na JSON arrays. Header detection, custom delimitery, quoted fields a embedded newlines.', "description": 'Bezplatný online CSV na JSON konvertor. Preveď CSV na JSON array of objects s autom. detekciou header riadku, custom delimitermi, quoted fields a podporou embedded newlines. Beží lokálne.'},
+        "cs": {"name": 'CSV na JSON', "tagline": 'Převeď CSV data na JSON arrays. Header detection, custom delimitery, quoted fields a embedded newlines.', "description": 'Zdarma online CSV na JSON konvertor. Převede CSV na JSON array of objects s automatickou detekcí header řádku, custom delimitery, quoted fields a podporou embedded newlines. Běží lokálně.'},
     },
     "body": """
 <div class="tool-card">
@@ -285,6 +287,48 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>Type coercion opinionated है।</strong> Numeric strings, <code>true</code>, <code>false</code>, और literal <code>null</code> JSON types में convert होते हैं। जो चीज़ें numeric दिखती हैं लेकिन हैं नहीं (zip codes, leading zeros वाले ISBNs, phone numbers) leading zeros खो देती हैं — coercion disable करें या post-process करें।</li>
   <li><strong>खाली cells empty strings बन जाती हैं, <code>null</code> नहीं।</strong> अधिकांश APIs दोनों को अलग तरह से treat करते हैं।</li>
   <li><strong>जंगली में BOMs।</strong> Excel अक्सर Windows पर UTF-8 को byte-order mark के साथ save करता है; parser इसे tolerate करता है लेकिन अन्य consumers शायद न करें।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>CSV je textový formát so stĺpcami oddelenými čiarkou (alebo bodkočiarkou, tabom…). JSON je hierarchický, ľahšie sa s ním pracuje programaticky. Tento nástroj zoberie CSV a vyplodí JSON array of objects — každý riadok sa stane objektom, hlavičkový riadok určuje názvy kľúčov.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Import dát z Excelu / Google Sheets do aplikácie, ktorá očakáva JSON.</li>
+  <li>Príprava fixtures pre testy z tabuľkového exportu.</li>
+  <li>Načítanie analytického exportu pre rýchle skriptové spracovanie.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Delimiter.</strong> „CSV" v Európe často znamená bodkočiarku, pretože desatinná čiarka koliduje s data oddeľovačom. Nastav správny delimiter.</li>
+  <li><strong>Quoted fields s čiarkou.</strong> <code>"Hello, world"</code> je jedna bunka. Bez úvodzoviek by to boli dve.</li>
+  <li><strong>Embedded newlines.</strong> Bunka s newline-om vnútri musí byť v úvodzovkách. Inak parser rozbije riadky.</li>
+  <li><strong>Header row.</strong> Bez hlavičky budú kľúče <code>col1, col2, ...</code> — väčšinou chceš header row.</li>
+  <li><strong>Trailing newline.</strong> Mnohé editory pridávajú prázdny riadok na koniec, čo môže vytvoriť prázdny objekt.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>CSV je textový formát se sloupci oddělenými čárkou (nebo středníkem, tabem…). JSON je hierarchický a snadněji se s ním pracuje programaticky. Tenhle nástroj vezme CSV a vyplodí JSON array of objects — každý řádek se stane objektem, hlavičkový řádek určuje názvy klíčů.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Import dat z Excelu / Google Sheets do aplikace, která očekává JSON.</li>
+  <li>Příprava fixtures pro testy z tabulkového exportu.</li>
+  <li>Načtení analytického exportu pro rychlé skriptové zpracování.</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Delimiter.</strong> „CSV" v Evropě často znamená středník, protože desetinná čárka koliduje s data oddělovačem. Nastav správný delimiter.</li>
+  <li><strong>Quoted fields s čárkou.</strong> <code>"Hello, world"</code> je jedna buňka. Bez uvozovek by to byly dvě.</li>
+  <li><strong>Embedded newlines.</strong> Buňka s newlinem uvnitř musí být v uvozovkách. Jinak parser rozbije řádky.</li>
+  <li><strong>Header row.</strong> Bez hlavičky budou klíče <code>col1, col2, ...</code> — většinou chceš header row.</li>
+  <li><strong>Trailing newline.</strong> Mnoho editorů přidává prázdný řádek na konec, což může vytvořit prázdný objekt.</li>
 </ul>
 """,
     },

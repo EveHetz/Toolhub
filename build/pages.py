@@ -271,6 +271,44 @@ PAGES = {
                     h_no_ai="Không xài rác AI",
                 ),
             },
+            "sk": {
+                "title": "O Toolhube",
+                "h1": "O Toolhube",
+                "description": "Toolhub je malá utility stránka bez sledovania, ktorú postavil jeden človek. Bezplatné developer nástroje, čo bežia úplne v tvojom prehliadači — bez registrácie, bez zbierania údajov.",
+                "body": _about_body(
+                    intro_what="Toolhub je zbierka bezplatných developer nástrojov a každodenných utilít, ktoré bežia úplne v tvojom prehliadači. Bez registrácie, bez účtu, bez sledovania, bez spracovania na serveri. Vložíš svoje dáta, dostaneš výsledok, zavrieš záložku — nič sa neukladá ani neprenáša.",
+                    intro_why="Väčšina online utility stránok je buď reklamami zaprataná parking page, alebo prepúšťa tvoje dáta cez štrnásť third-party trackerov skôr, než vôbec na niečo klikneš. Toolhub je alternatíva: jedna stránka, jeden nástroj, beží lokálne, necháva ťa na pokoji.",
+                    intro_who=f'JXXR1, nezávislý maintainer. Žiadna firma, žiadne investičné kolo, žiadni investori. Toolhub začal ako vedľajší projekt na osobnú potrebu — jedna stránka, ktorá robí jeden nástroj poriadne — a odtiaľ rástol. Kontakt cez <a href="{REPO_URL}">GitHub</a>.',
+                    intro_how="Stránka je statické HTML hostované na GitHub Pages. Každý nástroj beží ako JavaScript v tvojom prehliadači — žiadne API volania, žiadny server-side compute, žiadne dáta neopúšťajú tvoje zariadenie, pokiaľ to nie je explicitne uvedené (napríklad nástroj YouTube Thumbnail si načíta obrázok z YouTube CDN; všetko ostatné je čisto lokálne).",
+                    intro_oss=f'Celý zdrojový kód je na <a href="{REPO_URL}">{REPO_URL}</a>. Príspevky, bug reporty a nápady na nástroje sú vítané cez GitHub Issues.',
+                    intro_no_ai="Help bloky nástrojov a preklady sú v rámci možností kontrolované ľuďmi, nie nakopírované z LLM. Ak nájdeš preklad, ktorý znie roboticky alebo zle, otvor issue — je to ľahká oprava a typ príspevku, ktorý robí stránku lepšou pre všetkých.",
+                    h_what="Čo Toolhub je",
+                    h_why="Prečo",
+                    h_who="Kto",
+                    h_how="Ako to funguje",
+                    h_oss="Open source",
+                    h_no_ai="Žiadny AI odpad",
+                ),
+            },
+            "cs": {
+                "title": "O Toolhubu",
+                "h1": "O Toolhubu",
+                "description": "Toolhub je malá utility stránka bez sledování, kterou postavil jeden člověk. Bezplatné developer nástroje, co běží zcela v tvém prohlížeči — bez registrace, bez sběru dat.",
+                "body": _about_body(
+                    intro_what="Toolhub je sbírka bezplatných developer nástrojů a každodenních utilit, které běží zcela v tvém prohlížeči. Bez registrace, bez účtu, bez sledování, bez zpracování na serveru. Vložíš svoje data, dostaneš výsledek, zavřeš kartu — nic se neukládá ani nepřenáší.",
+                    intro_why="Většina online utility stránek je buď reklamou přecpaná parking page, nebo posílá tvoje data přes čtrnáct third-party trackerů dřív, než vůbec na cokoli klikneš. Toolhub je alternativa: jedna stránka, jeden nástroj, běží lokálně, nechává tě být.",
+                    intro_who=f'JXXR1, nezávislý maintainer. Žádná firma, žádné investiční kolo, žádní investoři. Toolhub začal jako vedlejší projekt pro osobní potřebu — jedna stránka, která by jeden nástroj dělala pořádně — a odtud rostl. Kontakt přes <a href="{REPO_URL}">GitHub</a>.',
+                    intro_how="Stránka je statické HTML hostované na GitHub Pages. Každý nástroj běží jako JavaScript v tvém prohlížeči — žádná API volání, žádný server-side compute, žádná data neopouštějí tvé zařízení, pokud to není výslovně uvedeno (například nástroj YouTube Thumbnail si stahuje obrázek z YouTube CDN; všechno ostatní je čistě lokální).",
+                    intro_oss=f'Celý zdrojový kód je na <a href="{REPO_URL}">{REPO_URL}</a>. Příspěvky, bug reporty a nápady na nástroje jsou vítány přes GitHub Issues.',
+                    intro_no_ai="Help bloky nástrojů a překlady jsou v rámci možností kontrolovány lidmi, ne nakopírovány z LLM. Pokud najdeš překlad, který zní roboticky nebo špatně, otevři issue — je to snadná oprava a typ příspěvku, který dělá stránku lepší pro všechny.",
+                    h_what="Co je Toolhub",
+                    h_why="Proč",
+                    h_who="Kdo",
+                    h_how="Jak to funguje",
+                    h_oss="Open source",
+                    h_no_ai="Žádný AI odpad",
+                ),
+            },
             "hi": {
                 "title": "Toolhub के बारे में",
                 "h1": "Toolhub के बारे में",
@@ -523,6 +561,44 @@ PAGES = {
 
 <h2>Thời gian phản hồi</h2>
 <p>Tôi cố gắng đọc mọi thứ trong vòng một tuần, nhưng Toolhub được xây dựng và bảo trì vào thời gian rảnh ngoài công việc chính. Nếu có gì khẩn cấp (ví dụ bảo mật), hãy ghi vào dòng chủ đề.</p>
+""".strip(),
+            },
+            "sk": {
+                "title": "Kontakt",
+                "h1": "Kontakt",
+                "description": "Maintainera Toolhub-u kontaktuj cez GitHub Issues pre bug reporty, feature requesty a nápady na nástroje — alebo e-mailom na všetko ostatné.",
+                "body": f"""
+<p>Toolhub je vedľajší projekt jednej osoby. Časy odpovedí v rámci možností, nie komerčný support. Kontaktný formulár tu nie je — táto stránka zámerne nemá backend.</p>
+
+<h2>GitHub Issues</h2>
+<p>Pre bug reporty, feature requesty, opravy prekladov a nápady na nové nástroje otvor prosím issue:</p>
+<p><a href="{REPO_ISSUES}">{REPO_ISSUES}</a></p>
+<p>GitHub Issues je preferovaný kanál, lebo diskusii dáva stálu URL, ktorú neskôr nájdu aj iní s rovnakou otázkou.</p>
+
+<h2>E-mail</h2>
+<p>Na veci, čo sa nehodia do GitHub Issues — press, partnerstvo, security disclosure, takedown žiadosti — pošli e-mail na <code>{CONTACT_EMAIL}</code>.</p>
+
+<h2>Časy odpovedí</h2>
+<p>Snažím sa všetko prečítať do týždňa, ale Toolhub je stavianý a udržiavaný vo voľnom čase popri hlavnej práci. Ak je niečo urgentné (napr. security), napíš to do predmetu.</p>
+""".strip(),
+            },
+            "cs": {
+                "title": "Kontakt",
+                "h1": "Kontakt",
+                "description": "Maintainera Toolhubu kontaktuj přes GitHub Issues pro bug reporty, feature requesty a nápady na nástroje — nebo e-mailem na všechno ostatní.",
+                "body": f"""
+<p>Toolhub je vedlejší projekt jednoho člověka. Časy odpovědí v rámci možností, ne komerční support. Kontaktní formulář tu není — tahle stránka záměrně nemá backend.</p>
+
+<h2>GitHub Issues</h2>
+<p>Pro bug reporty, feature requesty, opravy překladů a nápady na nové nástroje prosím otevři issue:</p>
+<p><a href="{REPO_ISSUES}">{REPO_ISSUES}</a></p>
+<p>GitHub Issues je preferovaný kanál, protože diskusi dává trvalou URL, kterou později najdou i ostatní se stejnou otázkou.</p>
+
+<h2>E-mail</h2>
+<p>Na věci, co se nehodí do GitHub Issues — press, partnerství, security disclosure, takedown žádosti — pošli e-mail na <code>{CONTACT_EMAIL}</code>.</p>
+
+<h2>Časy odpovědí</h2>
+<p>Snažím se všechno přečíst do týdne, ale Toolhub se staví a udržuje ve volném čase vedle hlavní práce. Pokud je něco urgentní (např. security), napiš to do předmětu.</p>
 """.strip(),
             },
             "hi": {
@@ -1145,6 +1221,116 @@ PAGES = {
 <p>Nếu bạn dùng Toolhub trong lớp và muốn cho biết, đề xuất công cụ cho môn học của bạn, hoặc đóng góp bản dịch cho ngôn ngữ mà chúng tôi vẫn chưa cover tốt — hãy liên hệ qua <a href="/vi/contact/">trang liên hệ</a>. Đóng góp dịch hàng loạt từ người bản xứ — đặc biệt cho các ngôn ngữ ít được phục vụ — được hoan nghênh.</p>
 """.strip(),
             },
+            "sk": {
+                "title": "Toolhub pre školy",
+                "h1": "Toolhub pre školy",
+                "description": "Privacy-first developer a utility nástroje do triedy. Bez registrácie, bez sledovania, viacjazyčné, self-hostable. Vhodné cez filtre a bezpečné zdieľať so žiakmi.",
+                "body": f"""
+<h2>Toolhub v triede</h2>
+<p>Toolhub je sada malých in-browser nástrojov, ktoré žiaci môžu používať bez vytvorenia účtu, bez toho, aby boli sledovaní, a bez presmerovaní na reklamy alebo affiliate lieviky. Každý nástroj beží úplne v prehliadači, čo znamená, že vstup žiaka nikdy neopustí školskú sieť — neexistuje backend, ktorý by sa volal.</p>
+<p>Ak učíš na základnej, strednej alebo vysokej škole a potrebuješ rýchly utility (regex tester, color converter, Base64 encoder, password generator na hodinu bezpečnosti), Toolhub je postavený tak, aby sa dal bezpečne hodiť na projektor a bezpečne poslať triede.</p>
+
+<h2>Prepojenie s učebným plánom</h2>
+<ul>
+<li><strong>Informatika:</strong> <a href="/sk/regex-tester/">regex tester</a> na pattern matching, <a href="/sk/base64-encoder/">Base64 encoder</a> na hodiny o dátach, <a href="/sk/hash-generator/">hash generator</a> na rozhovor o integrite, <a href="/sk/cidr-calculator/">CIDR kalkulačka</a> na sieťové jednotky.</li>
+<li><strong>Dizajn a digitálne médiá:</strong> <a href="/sk/color-converter/">color converter</a> a <a href="/sk/color-picker/">color picker</a> na rozhovor o farebných modeloch, <a href="/sk/wcag-contrast/">WCAG contrast checker</a> na prístupnosť.</li>
+<li><strong>Bezpečnostné povedomie:</strong> <a href="/sk/password-generator/">password generator</a> na výklad entropie a sily hesiel, <a href="/sk/jwt-decoder/">JWT decoder</a>, aby si žiakom ukázal, čo je naozaj v tokene.</li>
+<li><strong>Matematika a zdravie:</strong> <a href="/sk/percentage-calculator/">percentage calculator</a>, <a href="/sk/unit-converter/">unit converter</a> a <a href="/sk/bmi-calculator/">BMI calculator</a> (BMI page má vlastné upozornenie „nejde o medicínsku radu").</li>
+</ul>
+
+<h2>Podporované jazyky</h2>
+<p>Každý nástroj je preložený do pätnástich jazykov, aby žiaci mohli pracovať v materinskom jazyku:</p>
+<ul>
+<li>English (angličtina)</li>
+<li>Deutsch (nemčina)</li>
+<li>Español (španielčina)</li>
+<li>Français (francúzština)</li>
+<li>Italiano (taliančina)</li>
+<li>Português (portugalčina)</li>
+<li>Polski (poľština)</li>
+<li>日本語 (japončina)</li>
+<li>Nederlands (holandčina)</li>
+<li>Türkçe (turečtina)</li>
+<li>Bahasa Indonesia (indonézština)</li>
+<li>Tiếng Việt (vietnamčina)</li>
+<li>हिन्दी (hindčina)</li>
+<li>Slovenčina</li>
+<li>Čeština (čeština)</li>
+</ul>
+
+<h2>Self-hosted varianta</h2>
+<p>Ak školská sieť blokuje externé stránky alebo chceš mať plnú kontrolu, celá stránka má okolo 5 MB a funguje offline ako Progressive Web App. Môžeš ju zrkadliť na školskom intranete — je to statický priečinok HTML, CSS a JavaScriptu, žiadny build step na servovanie netreba, stačí súbory dať za ľubovoľný web server.</p>
+<p>Celý zdrojový kód je na <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+
+<h2>Priateľské k filtrom</h2>
+<p>Toolhub je navrhnutý tak, aby vychádzal so školskými web filtrami:</p>
+<ul>
+<li>Žiadne embeddované social media widgety.</li>
+<li>Žiadne chat widgety ani live-chat overlay.</li>
+<li>Žiadne auto-presmerovania na iné stránky.</li>
+<li>Žiadne video alebo audio, ktoré sa spustí samé.</li>
+<li>Obsah priateľský k SafeSearch — žiadne adult nástroje, žiadne hazardné hry, žiadne crypto-bro affiliate placementy.</li>
+</ul>
+
+<h2>Kontakt pre pedagógov</h2>
+<p>Ak používaš Toolhub v triede a chceš mi to dať vedieť, navrhnúť nástroj pre svoj predmet alebo prispieť prekladom do jazyka, ktorý ešte dobre nepokrývame — ozvi sa cez <a href="/sk/contact/">kontaktnú stránku</a>. Hromadné prekladateľské príspevky od native speakerov — najmä pre menej obslúžené jazyky — sú veľmi vítané.</p>
+""".strip(),
+            },
+            "cs": {
+                "title": "Toolhub pro školy",
+                "h1": "Toolhub pro školy",
+                "description": "Privacy-first developer a utility nástroje do třídy. Bez registrace, bez sledování, vícejazyčné, self-hostable. Vhodné přes filtry a bezpečné sdílet se žáky.",
+                "body": f"""
+<h2>Toolhub ve třídě</h2>
+<p>Toolhub je sada malých in-browser nástrojů, které žáci můžou používat bez vytvoření účtu, aniž by byli sledováni, a bez přesměrování na reklamy nebo affiliate trychtýře. Každý nástroj běží zcela v prohlížeči, což znamená, že vstup žáka nikdy neopustí školní síť — neexistuje backend, na který by se volalo.</p>
+<p>Pokud učíš na základní, střední nebo vysoké škole a potřebuješ rychlý utility (regex tester, color converter, Base64 encoder, password generator na hodinu bezpečnosti), Toolhub je postaven tak, aby šel bezpečně hodit na projektor a bezpečně poslat třídě.</p>
+
+<h2>Propojení s učebním plánem</h2>
+<ul>
+<li><strong>Informatika:</strong> <a href="/cs/regex-tester/">regex tester</a> na pattern matching, <a href="/cs/base64-encoder/">Base64 encoder</a> na hodiny o datech, <a href="/cs/hash-generator/">hash generator</a> na výklad integrity, <a href="/cs/cidr-calculator/">CIDR kalkulačka</a> na síťové jednotky.</li>
+<li><strong>Design a digitální média:</strong> <a href="/cs/color-converter/">color converter</a> a <a href="/cs/color-picker/">color picker</a> na výklad barevných modelů, <a href="/cs/wcag-contrast/">WCAG contrast checker</a> na přístupnost.</li>
+<li><strong>Bezpečnostní povědomí:</strong> <a href="/cs/password-generator/">password generator</a> na výklad entropie a síly hesel, <a href="/cs/jwt-decoder/">JWT decoder</a>, abys žákům ukázal, co je vlastně v tokenu.</li>
+<li><strong>Matematika a zdraví:</strong> <a href="/cs/percentage-calculator/">percentage calculator</a>, <a href="/cs/unit-converter/">unit converter</a> a <a href="/cs/bmi-calculator/">BMI calculator</a> (BMI page má vlastní upozornění „nejde o lékařskou radu").</li>
+</ul>
+
+<h2>Podporované jazyky</h2>
+<p>Každý nástroj je přeložen do patnácti jazyků, aby žáci mohli pracovat v rodném jazyce:</p>
+<ul>
+<li>English (angličtina)</li>
+<li>Deutsch (němčina)</li>
+<li>Español (španělština)</li>
+<li>Français (francouzština)</li>
+<li>Italiano (italština)</li>
+<li>Português (portugalština)</li>
+<li>Polski (polština)</li>
+<li>日本語 (japonština)</li>
+<li>Nederlands (nizozemština)</li>
+<li>Türkçe (turečtina)</li>
+<li>Bahasa Indonesia (indonéština)</li>
+<li>Tiếng Việt (vietnamština)</li>
+<li>हिन्दी (hindština)</li>
+<li>Slovenčina (slovenština)</li>
+<li>Čeština</li>
+</ul>
+
+<h2>Self-hosted varianta</h2>
+<p>Pokud školní síť blokuje externí stránky nebo chceš mít plnou kontrolu, celá stránka má kolem 5 MB a funguje offline jako Progressive Web App. Můžeš ji zrcadlit na školním intranetu — je to statický adresář HTML, CSS a JavaScriptu, žádný build step pro servování netřeba, stačí soubory dát za libovolný web server.</p>
+<p>Celý zdrojový kód je na <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+
+<h2>Přátelské k filtrům</h2>
+<p>Toolhub je navržen tak, aby vycházel se školními web filtry:</p>
+<ul>
+<li>Žádné embedované social media widgety.</li>
+<li>Žádné chat widgety ani live-chat overlay.</li>
+<li>Žádná auto-přesměrování na jiné stránky.</li>
+<li>Žádné video nebo audio, které se spustí samo.</li>
+<li>Obsah přátelský k SafeSearch — žádné adult nástroje, žádné hazardní hry, žádné crypto-bro affiliate placementy.</li>
+</ul>
+
+<h2>Kontakt pro pedagogy</h2>
+<p>Pokud používáš Toolhub ve třídě a chceš mi to dát vědět, navrhnout nástroj pro svůj předmět nebo přispět překladem do jazyka, který ještě dobře nepokrýváme — ozvi se přes <a href="/cs/contact/">kontaktní stránku</a>. Hromadné překladatelské příspěvky od native speakerů — zvlášť pro méně obsluhované jazyky — jsou velmi vítány.</p>
+""".strip(),
+            },
             "hi": {
                 "title": "स्कूलों के लिए Toolhub",
                 "h1": "स्कूलों के लिए Toolhub",
@@ -1683,6 +1869,86 @@ PAGES = {
 
 <h2>Liên hệ</h2>
 <p>Câu hỏi về chính sách này? Liên hệ qua <a href="/vi/contact/">trang liên hệ</a> hoặc mở issue ở <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+""".strip(),
+            },
+            "sk": {
+                "title": "Zásady ochrany súkromia",
+                "h1": "Zásady ochrany súkromia",
+                "description": "Zásady súkromia Toolhub: nástroje bežia úplne v tvojom prehliadači, bez registrácie, bez účtov, žiadne dáta z nástrojov neopúšťajú tvoje zariadenie. Plausible na agregované analytiky, AdSense iba s výslovným súhlasom.",
+                "body": f"""
+<p><strong>Naposledy aktualizované:</strong> {LAST_UPDATED}</p>
+
+<h2>Krátka verzia</h2>
+<p>Nástroje bežia úplne v tvojom prehliadači — nič, čo do nich napíšeš, sa nikam neodošle. Anonymné agregované návštevy meriame cez <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> (bez cookies). Ak sa rozhodneš opt-in, môžeme zobrazovať display reklamy cez Google AdSense, ktorý cookies používa. Reklamy môžeš odmietnuť pri consent banneri; zvyšok stránky funguje rovnako tak či tak.</p>
+
+<h2>Čo zbierame</h2>
+<ul>
+<li><strong>Vstupy do nástrojov:</strong> nič. Všetko, čo vložíš do nástroja, zostáva v tvojom prehliadači. Žiaden nástroj neposiela dáta na server.</li>
+<li><strong>Návštevné analytiky:</strong> Plausible počíta page views, referrer, krajinu a typ zariadenia — anonymne, v agregáte, bez cookies. <a href="https://plausible.io/data-policy" rel="noopener">Plausible data policy</a> pokrýva, čo zbierajú a čo nie.</li>
+<li><strong>Ak akceptuješ reklamy:</strong> Google AdSense nastavuje cookies a môže ich používať na personalizáciu reklám. Praktiky Google sa riadia <a href="https://policies.google.com/technologies/ads" rel="noopener">Google advertising privacy policy</a>.</li>
+<li><strong>Ak reklamy odmietneš:</strong> nenahrávajú sa žiadne reklamné skripty, nenastavujú sa reklamné cookies, ad sloty sa zo stránky odstránia.</li>
+</ul>
+
+<h2>Cookies</h2>
+<p>Samotná stránka používa jeden localStorage záznam (<code>toolhub:consent</code>) na zapamätanie tvojho rozhodnutia ohľadom reklám, plus záznam <code>theme</code> pre tvoju preferenciu dark/light. Ani jedno neopúšťa tvoj prehliadač.</p>
+<p>Plausible nepoužíva žiadne cookies. Google AdSense používa cookies <em>iba ak</em> ich akceptuješ — rozhodnutie môžeš kedykoľvek zmeniť cez consent odkaz v päte.</p>
+
+<h2>Third-party služby</h2>
+<ul>
+<li><strong>Plausible Analytics</strong> — privacy-friendly, GDPR-compliant, EU-hosted. Žiadne osobné dáta sa nezbierajú.</li>
+<li><strong>Google AdSense</strong> — používa sa iba s výslovným súhlasom. Načítava <code>pagead2.googlesyndication.com</code> a môže nastaviť reklamné cookies.</li>
+<li><strong>GitHub Pages</strong> — hosting stránky. Štandardné server logy (IP, timestamp, URL) si GitHub uchováva podľa svojho <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">privacy statementu</a>.</li>
+<li><strong>Nástroj YouTube Thumbnail</strong> — keď použiješ konkrétne tento nástroj, tvoj prehliadač si načíta obrázok priamo z <code>i.ytimg.com</code> (YouTube CDN). Bez autentifikácie, bez uploadu. Detail v <a href="/sk/how-we-handle-your-data/">spracovaní údajov</a>.</li>
+</ul>
+
+<h2>Affiliate odkazy</h2>
+<p>Niektoré odkazy v päte sú affiliate — ak cez ne klikneš a zaregistruješ sa do služby, ktorú odporúčame (napr. hostingu), Toolhub môže dostať referral. Cena, ktorú platíš, sa nemení. Affiliate odkazy sú označené <code>rel="sponsored"</code>. Plný zoznam v <a href="/sk/affiliate-disclosure/">affiliate disclosure</a>.</p>
+
+<h2>Tvoje práva</h2>
+<p>Podľa GDPR / UK GDPR / CCPA / slovenského zákona o ochrane osobných údajov môžeš žiadať prístup alebo vymazanie akýchkoľvek osobných údajov, ktoré o tebe máme. Nemáme žiadne — neexistuje backend, žiadne účty, žiadna user databáza. Plausible drží len agregované návštevné dáta. Reklamné dáta Google sa riadia ich vlastnými kanálmi pre žiadosti.</p>
+
+<h2>Kontakt</h2>
+<p>Otázky k týmto zásadám? Ozvi sa cez <a href="/sk/contact/">kontaktnú stránku</a> alebo otvor issue na <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+""".strip(),
+            },
+            "cs": {
+                "title": "Zásady ochrany soukromí",
+                "h1": "Zásady ochrany soukromí",
+                "description": "Zásady soukromí Toolhubu: nástroje běží zcela v tvém prohlížeči, bez registrace, bez účtů, žádná data z nástrojů neopouštějí tvé zařízení. Plausible na agregovanou analytiku, AdSense pouze s výslovným souhlasem.",
+                "body": f"""
+<p><strong>Naposledy aktualizováno:</strong> {LAST_UPDATED}</p>
+
+<h2>Krátká verze</h2>
+<p>Nástroje běží zcela v tvém prohlížeči — nic, co do nich napíšeš, se nikam neodesílá. Anonymní agregované návštěvy měříme přes <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> (bez cookies). Pokud si vybereš opt-in, můžeme zobrazovat display reklamy přes Google AdSense, který cookies používá. Reklamy můžeš odmítnout na consent banneru; zbytek stránky funguje stejně tak jako tak.</p>
+
+<h2>Co sbíráme</h2>
+<ul>
+<li><strong>Vstupy do nástrojů:</strong> nic. Vše, co vložíš do nástroje, zůstává v tvém prohlížeči. Žádný nástroj neposílá data na server.</li>
+<li><strong>Návštěvní analytika:</strong> Plausible počítá page views, referrer, zemi a typ zařízení — anonymně, v agregátu, bez cookies. <a href="https://plausible.io/data-policy" rel="noopener">Data policy Plausible</a> pokrývá, co sbírají a co ne.</li>
+<li><strong>Pokud reklamy přijmeš:</strong> Google AdSense nastavuje cookies a může je používat k personalizaci reklam. Praktiky Google se řídí <a href="https://policies.google.com/technologies/ads" rel="noopener">Google advertising privacy policy</a>.</li>
+<li><strong>Pokud reklamy odmítneš:</strong> nenahrávají se žádné reklamní skripty, nenastavují se reklamní cookies, ad sloty se ze stránky odstraní.</li>
+</ul>
+
+<h2>Cookies</h2>
+<p>Stránka sama používá jeden localStorage záznam (<code>toolhub:consent</code>) k zapamatování tvého rozhodnutí ohledně reklam, plus záznam <code>theme</code> pro tvou preferenci dark/light. Ani jedno neopouští tvůj prohlížeč.</p>
+<p>Plausible nepoužívá žádné cookies. Google AdSense používá cookies <em>jen pokud</em> je přijmeš — rozhodnutí můžeš kdykoli změnit přes consent odkaz v patičce.</p>
+
+<h2>Third-party služby</h2>
+<ul>
+<li><strong>Plausible Analytics</strong> — privacy-friendly, GDPR-compliant, EU-hosted. Žádná osobní data se nesbírají.</li>
+<li><strong>Google AdSense</strong> — používá se pouze s výslovným souhlasem. Načítá <code>pagead2.googlesyndication.com</code> a může nastavit reklamní cookies.</li>
+<li><strong>GitHub Pages</strong> — hosting stránky. Standardní server logy (IP, timestamp, URL) si GitHub uchovává podle svého <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">privacy statementu</a>.</li>
+<li><strong>Nástroj YouTube Thumbnail</strong> — když použiješ zrovna tento nástroj, tvůj prohlížeč si stáhne obrázek přímo z <code>i.ytimg.com</code> (YouTube CDN). Bez autentifikace, bez uploadu. Detail v <a href="/cs/how-we-handle-your-data/">zpracování dat</a>.</li>
+</ul>
+
+<h2>Affiliate odkazy</h2>
+<p>Některé odkazy v patičce jsou affiliate — pokud na ně klikneš a zaregistruješ se k službě, kterou doporučujeme (např. hostingu), Toolhub může dostat referral. Cena, kterou platíš, se nemění. Affiliate odkazy jsou označeny <code>rel="sponsored"</code>. Úplný seznam v <a href="/cs/affiliate-disclosure/">affiliate disclosure</a>.</p>
+
+<h2>Tvá práva</h2>
+<p>Podle GDPR / UK GDPR / CCPA / českého zákona o ochraně osobních údajů můžeš žádat přístup k jakýmkoli osobním údajům, které o tobě máme, nebo jejich vymazání. Nemáme žádné — neexistuje backend, žádné účty, žádná uživatelská databáze. Plausible drží jen agregovaná návštěvní data. Reklamní data Google se řídí jejich vlastními kanály pro žádosti.</p>
+
+<h2>Kontakt</h2>
+<p>Otázky k těmto zásadám? Ozvi se přes <a href="/cs/contact/">kontaktní stránku</a> nebo otevři issue na <a href="{REPO_URL}">{REPO_URL}</a>.</p>
 """.strip(),
             },
             "hi": {
@@ -2368,6 +2634,112 @@ PAGES = {
 <p>Nếu có gì không rõ ở đây, mở issue ở <a href="{REPO_URL}">{REPO_URL}</a> hoặc dùng <a href="/vi/contact/">trang liên hệ</a>. Câu hỏi làm rõ là cách tốt để làm cho trang này tốt hơn cho người đọc tiếp theo.</p>
 """.strip(),
             },
+            "sk": {
+                "title": "Ako narábame s tvojimi údajmi",
+                "h1": "Ako narábame s tvojimi údajmi",
+                "description": "Otvorené vysvetlenie v ľudskej reči, ako presne Toolhub narába s tvojimi údajmi. Nástroje bežia v prehliadači, nič sa neukladá, tri pomenované výnimky sú výslovne uvedené.",
+                "body": f"""
+<p><strong>Naposledy aktualizované:</strong> {LAST_UPDATED}</p>
+<p>Táto stránka je verzia v bežnej reči. Dopĺňa <a href="/sk/privacy/">zásady ochrany súkromia</a>; ak by sa zdalo, že si v niečom protirečia, táto stránka je tá konkrétnejšia a má sa brať ako smerodajná.</p>
+
+<h2>Kam idú dáta</h2>
+<p>Nástroje na Toolhube bežia v tvojom prehliadači. Čokoľvek vložíš, napíšeš alebo nahráš do nástroja, zostáva na tvojom zariadení — nemáme server-side runner nástrojov a za žiadnym z nich nie je upload endpoint.</p>
+<p>Existujú presne tri pomenované výnimky z „žiadne dáta neopúšťajú tvoje zariadenie":</p>
+<ol>
+<li><strong>Nástroj YouTube Thumbnail</strong> — keď pošleš YouTube URL, tvoj prehliadač si načíta thumbnail priamo z <code>i.ytimg.com</code> (verejné image CDN YouTube). Bez autentifikácie, bez uploadu, bez API kľúča. Video ID v URL je jediné, čo YouTube vidí, a aj to len preto, že to tvoj prehliadač natiahol.</li>
+<li><strong>AdSense (iba ak je zapnuté a so súhlasom)</strong> — display-ad systém Google. Keď udelíš súhlas s reklamami, Google môže vidieť tvoju IP adresu a môže nastaviť cookies podľa svojich pravidiel. Keď odmietneš (východiskový stav), AdSense sa vôbec nenačíta.</li>
+<li><strong>Plausible analytika</strong> — počíta návštevy stránok, referrer, krajinu a triedu zariadenia. Žiadne cookies, žiadny fingerprinting, len agregované štatistiky. Servery Plausible sú EU-hosted.</li>
+</ol>
+
+<h2>Čo ukladáme</h2>
+<p>O tebe nič. Žiadne účty, žiadne user ID, žiadne e-maily, žiadny profil. Obsah, ktorý dáš do nástrojov, neukladáme.</p>
+<p>Tvoj prehliadač u teba lokálne ukladá dva malé localStorage záznamy — oba čitateľné a zmazateľné z developer tools tvojho prehliadača:</p>
+<ul>
+<li><code>theme</code> — „light" alebo „dark", zhruba byte preferencie.</li>
+<li><code>toolhub:consent</code> — tvoje rozhodnutie o súhlase s reklamami (áno/nie/nenastavené). Aby sme sa nepýtali znova.</li>
+</ul>
+
+<h2>GDPR, UK GDPR, CCPA a slovenský ÚOOÚ</h2>
+<p>Toolhub spracúva minimum dát:</p>
+<ul>
+<li><strong>EU / UK (GDPR / UK GDPR):</strong> Plausible (EU-hosted) tvorí compliant analytics baseline. Keď je AdSense aktívny, Google si spravuje vlastnú consent vrstvu pod TCF v2.</li>
+<li><strong>Kalifornia (CCPA):</strong> osobné informácie nepredávame. Žiadne osobné informácie na predaj nemáme.</li>
+<li><strong>Slovensko (Úrad na ochranu osobných údajov SR):</strong> maintainer Toolhubu žije na Slovensku. Pravidlá slovenského ÚOOÚ platia na akékoľvek spracovanie, ktoré skutočne prebieha — a to je v praxi obmedzené na agregované metriky Plausible a (keď je zapnutý) consent-managed flow AdSense.</li>
+</ul>
+<p>Práva na prístup alebo vymazanie osobných údajov sa fakticky nedajú uplatniť, lebo žiadne osobné údaje na prístup ani vymazanie sa neukladajú. Ak máš konkrétne otázky, kontaktuj nás cez <a href="/sk/contact/">kontaktnú stránku</a>.</p>
+
+<h2>Cookies</h2>
+<ul>
+<li><strong>Plausible:</strong> žiadne cookies, nikdy.</li>
+<li><strong>Theme preferencia:</strong> jeden localStorage záznam, nie cookie. Zostáva na tvojom zariadení. Neposiela sa s HTTP requestami.</li>
+<li><strong>AdSense (keď aktívny):</strong> Google nastavuje vlastné third-party reklamné cookies. Consent banner sa zobrazí pred načítaním AdSense skriptu a ak odmietneš, AdSense sa vôbec nenačíta.</li>
+</ul>
+
+<h2>Deti</h2>
+<p>Toolhub je školsky priateľský (pozri <a href="/sk/for-schools/">Toolhub pre školy</a>). Žiadny behavioral tracking, žiadna cielená reklama. Použitie deťmi pod 13 rokov je v poriadku v rámci existujúcich AdSense podmienok podľa regiónu — ak si v regióne, kde AdSense obmedzuje reklamy voči deťom, tieto obmedzenia rešpektujú vlastné systémy Google.</p>
+
+<h2>PDF na stiahnutie</h2>
+<p>PDF verzia tejto stránky je k dispozícii na offline referenciu alebo na tlač ako súčasť školskej IT dokumentácie:</p>
+<p><a href="{PDF_URL}">how-we-handle-your-data.pdf</a></p>
+<p>PDF je momentálne len v angličtine; per-jazyk PDF nie sú v rozsahu tohto releasu.</p>
+
+<h2>Otázky</h2>
+<p>Ak ti tu niečo nie je jasné, otvor issue na <a href="{REPO_URL}">{REPO_URL}</a> alebo použi <a href="/sk/contact/">kontaktnú stránku</a>. Otázky na ujasnenie sú dobrý spôsob, ako urobiť túto stránku lepšou pre ďalšieho čitateľa.</p>
+""".strip(),
+            },
+            "cs": {
+                "title": "Jak nakládáme s tvými daty",
+                "h1": "Jak nakládáme s tvými daty",
+                "description": "Otevřené vysvětlení v běžné řeči, jak přesně Toolhub nakládá s tvými daty. Nástroje běží v prohlížeči, nic se neukládá, tři pojmenované výjimky jsou výslovně uvedeny.",
+                "body": f"""
+<p><strong>Naposledy aktualizováno:</strong> {LAST_UPDATED}</p>
+<p>Tato stránka je verze v běžné řeči. Doplňuje <a href="/cs/privacy/">zásady ochrany soukromí</a>; pokud by se zdálo, že si v něčem odporují, tato stránka je ta konkrétnější a má se brát jako směrodatná.</p>
+
+<h2>Kam jdou data</h2>
+<p>Nástroje na Toolhubu běží v tvém prohlížeči. Cokoli vložíš, napíšeš nebo nahraješ do nástroje, zůstává na tvém zařízení — nemáme server-side runner nástrojů a za žádným z nich není upload endpoint.</p>
+<p>Existují přesně tři pojmenované výjimky z „žádná data neopouštějí tvé zařízení":</p>
+<ol>
+<li><strong>Nástroj YouTube Thumbnail</strong> — když pošleš YouTube URL, tvůj prohlížeč si načte thumbnail přímo z <code>i.ytimg.com</code> (veřejné image CDN YouTube). Bez autentifikace, bez uploadu, bez API klíče. Video ID v URL je jediné, co YouTube vidí, a to jen proto, že to tvůj prohlížeč stáhl.</li>
+<li><strong>AdSense (jen pokud je zapnutý a se souhlasem)</strong> — display-ad systém Google. Když udělíš souhlas s reklamami, Google může vidět tvou IP adresu a může nastavit cookies podle svých pravidel. Když odmítneš (výchozí stav), AdSense se vůbec nenačte.</li>
+<li><strong>Plausible analytika</strong> — počítá návštěvy stránek, referrer, zemi a třídu zařízení. Žádné cookies, žádný fingerprinting, jen agregované statistiky. Servery Plausible jsou EU-hosted.</li>
+</ol>
+
+<h2>Co ukládáme</h2>
+<p>O tobě nic. Žádné účty, žádné user ID, žádné e-maily, žádný profil. Obsah, který dáš do nástrojů, neukládáme.</p>
+<p>Tvůj prohlížeč u tebe lokálně ukládá dva malé localStorage záznamy — oba čitelné a smazatelné z developer tools tvého prohlížeče:</p>
+<ul>
+<li><code>theme</code> — „light" nebo „dark", zhruba byte preference.</li>
+<li><code>toolhub:consent</code> — tvé rozhodnutí o souhlasu s reklamami (ano/ne/nenastaveno). Abychom se neptali znovu.</li>
+</ul>
+
+<h2>GDPR, UK GDPR, CCPA a český ÚOOÚ</h2>
+<p>Toolhub zpracovává minimum dat:</p>
+<ul>
+<li><strong>EU / UK (GDPR / UK GDPR):</strong> Plausible (EU-hosted) tvoří compliant analytics baseline. Když je AdSense aktivní, Google si spravuje vlastní consent vrstvu pod TCF v2.</li>
+<li><strong>Kalifornie (CCPA):</strong> osobní informace neprodáváme. Žádné osobní informace na prodej nemáme.</li>
+<li><strong>Česko (Úřad pro ochranu osobních údajů):</strong> maintainer Toolhubu žije ve střední Evropě. Pravidla českého ÚOOÚ a slovenského ÚOOÚ platí na jakékoli zpracování, které skutečně probíhá — a to je v praxi omezeno na agregované metriky Plausible a (když je zapnutý) consent-managed flow AdSense.</li>
+</ul>
+<p>Práva na přístup nebo vymazání osobních údajů se fakticky nedají uplatnit, protože žádné osobní údaje pro přístup ani vymazání se neukládají. Pokud máš konkrétní otázky, kontaktuj nás přes <a href="/cs/contact/">kontaktní stránku</a>.</p>
+
+<h2>Cookies</h2>
+<ul>
+<li><strong>Plausible:</strong> žádné cookies, nikdy.</li>
+<li><strong>Theme preference:</strong> jeden localStorage záznam, ne cookie. Zůstává na tvém zařízení. Neposílá se s HTTP requesty.</li>
+<li><strong>AdSense (když aktivní):</strong> Google nastavuje vlastní third-party reklamní cookies. Consent banner se objeví před načtením AdSense skriptu a pokud odmítneš, AdSense se vůbec nenačte.</li>
+</ul>
+
+<h2>Děti</h2>
+<p>Toolhub je školsky přátelský (viz <a href="/cs/for-schools/">Toolhub pro školy</a>). Žádný behavioral tracking, žádná cílená reklama. Použití dětmi pod 13 let je v pořádku v rámci existujících AdSense podmínek podle regionu — pokud jsi v regionu, kde AdSense omezuje reklamy vůči dětem, tato omezení respektují vlastní systémy Google.</p>
+
+<h2>PDF ke stažení</h2>
+<p>PDF verze této stránky je k dispozici pro offline referenci nebo k tisku jako součást školní IT dokumentace:</p>
+<p><a href="{PDF_URL}">how-we-handle-your-data.pdf</a></p>
+<p>PDF je momentálně jen v angličtině; per-jazyk PDF nejsou v rozsahu tohoto releasu.</p>
+
+<h2>Dotazy</h2>
+<p>Pokud ti tu něco není jasné, otevři issue na <a href="{REPO_URL}">{REPO_URL}</a> nebo použij <a href="/cs/contact/">kontaktní stránku</a>. Dotazy na ujasnění jsou dobrý způsob, jak udělat tuhle stránku lepší pro dalšího čtenáře.</p>
+""".strip(),
+            },
             "hi": {
                 "title": "हम आपके डेटा को कैसे संभालते हैं",
                 "h1": "हम आपके डेटा को कैसे संभालते हैं",
@@ -2942,6 +3314,92 @@ PAGES = {
 
 <h2>Liên hệ</h2>
 <p>Có câu hỏi về một affiliate cụ thể, hoặc muốn chỉ ra điều gì đó không nên ở đây? Mở issue ở <a href="{REPO_URL}">{REPO_URL}</a> hoặc dùng <a href="/vi/contact/">trang liên hệ</a>.</p>
+""".strip(),
+            },
+            "sk": {
+                "title": "Affiliate zverejnenie",
+                "h1": "Affiliate zverejnenie",
+                "description": "FTC- a EU-compliant zverejnenie affiliate vzťahov Toolhubu. Vendor platí, ty nezaplatíš nič navyše a editoriálne pokrytie sa neriadi affiliate-mi.",
+                "body": f"""
+<p><strong>Naposledy aktualizované:</strong> {LAST_UPDATED}</p>
+
+<h2>Čo sú affiliate odkazy</h2>
+<p>Affiliate odkaz je bežný odkaz s pripojeným tracking kódom. Ak naň klikneš a potom sa registruješ do odkazovanej služby, služba zaplatí Toolhub-u malú referral províziu. Cena, ktorú <em>ty</em> platíš, je rovnaká ako non-affiliate verzia — províziu neplatíš ty, platí ju vendor.</p>
+
+<h2>Kde sa na Toolhube objavujú</h2>
+<p>Aktuálne sa affiliate odkazy objavujú na dvoch miestach:</p>
+<ul>
+<li>V päte stránky, označené malým <code>(affiliate)</code> badge-om.</li>
+<li>Kdekoľvek help-block nástroja alebo related-tools sekcia spomína konkrétnu platenú službu, ktorú odporúčame — v tých prípadoch je affiliate uvedený inline.</li>
+</ul>
+<p>Affiliate odkazy nesú v HTML <code>rel="sponsored"</code>, čo je search-engine štandard na deklarovanie komerčného vzťahu.</p>
+
+<h2>Kto platí</h2>
+<p>Províziu platí vendor, nie ty. Ak affiliate odkaz ignoruješ a registruješ sa priamo cez homepage vendora, dostaneš tú istú službu za rovnakú cenu; my len referral nevidíme.</p>
+
+<h2>FTC a EU compliance</h2>
+<p>Táto stránka existuje preto, že endorsement guidelines US Federal Trade Commission a EU pravidlá ochrany spotrebiteľa vyžadujú, aby tvorcovia obsahu zverejnili finančný vzťah s odkazovaným produktom. Zverejnenie musí byť jasné a vopred — preto top-level stránka a preto odkaz v päte každej stránky.</p>
+
+<h2>Konkrétne affiliate</h2>
+<p>Toolhub aktuálne používa tieto affiliate a support účty (operátor: JXXR1):</p>
+<ul>
+<li><strong>DigitalOcean</strong> (cloud hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
+</ul>
+<p>Keď pribudnú ďalšie affiliate vzťahy, budú uvedené tu a stránka bude prešítaná.</p>
+
+<h2>Žiadne platené umiestnenia</h2>
+<p>Recenzie nástrojov, poradie, v akom sa nástroje na homepage zobrazujú, ani „related tools" odkazy pod každým nástrojom <strong>nie sú</strong> riadené affiliate-mi. Neprijímame peniaze za to, aby sme nástroj featurovali alebo jeden nástroj nadradili nad druhý. Ak by sa niekedy platené umiestnenie pridalo (nepridá sa, ale ak by), bolo by označené rovnako ako affiliate odkazy: jasne, vopred, odlíšiteľne od editoriálneho obsahu.</p>
+
+<h2>Editoriálna nezávislosť</h2>
+<p>Affiliate vzťahy neovplyvňujú, ktoré nástroje sa stavajú, ako sa píše help-block text, ani ktoré „related tools" sa pod daným nástrojom objavia. Nástroje na Toolhub-e sú nástroje, ktoré by sme stavali aj bez akéhokoľvek affiliate programu — program len zložkou prispieva na hosting a údržbu.</p>
+
+<h2>Kontakt</h2>
+<p>Otázky ku konkrétnemu affiliate alebo chceš upozorniť na niečo, čo by tu nemalo byť? Otvor issue na <a href="{REPO_URL}">{REPO_URL}</a> alebo použi <a href="/sk/contact/">kontaktnú stránku</a>.</p>
+""".strip(),
+            },
+            "cs": {
+                "title": "Affiliate zveřejnění",
+                "h1": "Affiliate zveřejnění",
+                "description": "FTC- a EU-compliant zveřejnění affiliate vztahů Toolhubu. Vendor platí, ty nezaplatíš nic navíc a editorialní pokrytí se neřídí affiliate.",
+                "body": f"""
+<p><strong>Naposledy aktualizováno:</strong> {LAST_UPDATED}</p>
+
+<h2>Co jsou affiliate odkazy</h2>
+<p>Affiliate odkaz je běžný odkaz s připojeným tracking kódem. Pokud na něj klikneš a poté se zaregistruješ k odkazované službě, služba zaplatí Toolhubu malou referral provizi. Cena, kterou <em>ty</em> platíš, je stejná jako u non-affiliate verze — provizi neplatíš ty, platí ji vendor.</p>
+
+<h2>Kde se na Toolhubu objevují</h2>
+<p>Aktuálně se affiliate odkazy objevují na dvou místech:</p>
+<ul>
+<li>V patičce stránky, označené malým <code>(affiliate)</code> badgem.</li>
+<li>Kdekoli help-block nástroje nebo related-tools sekce zmiňuje konkrétní placenou službu, kterou doporučujeme — v těchto případech je affiliate uveden inline.</li>
+</ul>
+<p>Affiliate odkazy nesou v HTML <code>rel="sponsored"</code>, což je search-engine standard pro deklarování komerčního vztahu.</p>
+
+<h2>Kdo platí</h2>
+<p>Provizi platí vendor, ne ty. Pokud affiliate odkaz ignoruješ a zaregistruješ se přímo přes homepage vendora, dostaneš tutéž službu za stejnou cenu; my jen referral nevidíme.</p>
+
+<h2>FTC a EU compliance</h2>
+<p>Tato stránka existuje proto, že endorsement guidelines US Federal Trade Commission a EU pravidla ochrany spotřebitele vyžadují, aby tvůrci obsahu zveřejnili finanční vztah k odkazovanému produktu. Zveřejnění musí být jasné a předem — proto top-level stránka a proto odkaz v patičce každé stránky.</p>
+
+<h2>Konkrétní affiliate</h2>
+<p>Toolhub aktuálně používá tyto affiliate a support účty (operátor: JXXR1):</p>
+<ul>
+<li><strong>DigitalOcean</strong> (cloud hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
+</ul>
+<p>Když přibudou další affiliate vztahy, budou uvedeny zde a stránka bude přerazítkována.</p>
+
+<h2>Žádné placené umístění</h2>
+<p>Recenze nástrojů, pořadí, v jakém se nástroje na homepage zobrazují, ani „related tools" odkazy pod každým nástrojem <strong>nejsou</strong> řízeny affiliate. Nepřijímáme peníze za to, abychom nástroj featurovali nebo jeden nástroj nadřadili druhému. Pokud by někdy placené umístění přibylo (nepřibude, ale kdyby), bylo by označeno stejně jako affiliate odkazy: jasně, předem, odlišitelně od editorialního obsahu.</p>
+
+<h2>Editorialní nezávislost</h2>
+<p>Affiliate vztahy neovlivňují, které nástroje se staví, jak se píše help-block text, ani které „related tools" se pod daným nástrojem objeví. Nástroje na Toolhubu jsou nástroje, které bychom stavěli i bez jakéhokoli affiliate programu — program jen drobně přispívá na hosting a údržbu.</p>
+
+<h2>Kontakt</h2>
+<p>Otázky ke konkrétnímu affiliate nebo chceš upozornit na něco, co by tu nemělo být? Otevři issue na <a href="{REPO_URL}">{REPO_URL}</a> nebo použij <a href="/cs/contact/">kontaktní stránku</a>.</p>
 """.strip(),
             },
             "hi": {

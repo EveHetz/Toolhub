@@ -21,6 +21,8 @@ TOOL = {
         "id": {"name": "Tabel ASCII", "tagline": "Referensi ASCII lengkap 0–127 dengan desimal, hex, biner, karakter, dan entity HTML. Bisa difilter.", "description": "Referensi tabel ASCII gratis. Semua 128 kode ASCII standar dengan desimal, hex, oktal, biner, karakter, entity HTML, dan deskripsi untuk karakter kontrol. Filter saat kamu mengetik."},
         "vi": {"name": "Bảng ASCII", "tagline": "Tham chiếu ASCII đầy đủ 0–127 với decimal, hex, binary, ký tự và HTML entity. Có thể lọc.", "description": "Tham chiếu bảng ASCII miễn phí. Tất cả 128 mã ASCII chuẩn với decimal, hex, octal, binary, ký tự, HTML entity và mô tả cho các ký tự điều khiển. Lọc theo lúc bạn gõ."},
         "hi": {"name": "ASCII टेबल", "tagline": "0–127 का पूरा ASCII reference: decimal, hex, binary, character और HTML entity के साथ। फ़िल्टर करने योग्य।", "description": "मुफ़्त ASCII टेबल reference। सभी 128 standard ASCII codes — decimal, hex, octal, binary, character, HTML entity और control characters के लिए विवरण के साथ। टाइप करते ही फ़िल्टर करें।"},
+        "sk": {"name": 'ASCII tabuľka', "tagline": 'Kompletná ASCII referencia 0–127 s decimálnym, hex, binárnym, znakom a HTML entitou. Filtrovateľná.', "description": 'Bezplatná ASCII tabuľka. Všetkých 128 ASCII kódov s decimálom, hex, octalom, binárkou, znakom, HTML entitou a popisom pre control characters. Filtruj pri písaní.'},
+        "cs": {"name": 'ASCII tabulka', "tagline": 'Kompletní ASCII reference 0–127 s decimálním, hex, binárním, znakem a HTML entitou. Filtrovatelná.', "description": 'Zdarma ASCII tabulka. Všech 128 ASCII kódů s decimálem, hex, octalem, binárkou, znakem, HTML entitou a popisem pro control characters. Filtruj při psaní.'},
     },
     "body": """
 <div class="tool-card">
@@ -382,6 +384,48 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Control characters अदृश्य saboteurs हो सकते हैं।</strong> Terminal या PDF से copy/paste करने पर <code>0x1F</code>, <code>0x07</code> (BEL — असली में terminal beep करता है), या zero-width Unicode characters आ सकते हैं जो ASCII <em>हैं ही नहीं</em>। अगर text "ठीक दिखता है" पर comparison में बराबर नहीं आता, तो bytes में dump करके देखें।</li>
   <li><strong>HTML entities हमेशा ज़रूरी नहीं होती।</strong> Modern UTF-8 documents में <code>&amp;#65;</code> और literal <code>A</code> बराबर हैं। केवल उन characters को escape करें जिनका HTML में syntactic meaning है: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, और attributes में <code>"</code>।</li>
   <li><strong>NUL (<code>0x00</code>) C में strings को terminate करता है।</strong> इसे बिना सोचे C-string buffers में embed न करें — कई APIs पहले NUL पर चुपचाप truncate कर देंगे।</li>
+</ul>
+""",
+        "sk": """
+
+<h2>Načo to slúži?</h2>
+<p>ASCII tabuľka mapuje čísla 0–127 na znaky a control codes, ktoré definujú väčšinu textových protokolov, ktoré dnes používame. Tento nástroj ti dá decimal, hex, octal, binary, samotný znak, HTML entitu a popis pre control characters — všetko prefiltrovateľné, ako píšeš.</p>
+
+<h3>Kedy to použiť</h3>
+<ul>
+  <li>Pri debugovaní binárneho protokolu, ktorý ti hovorí „byte 0x0D" alebo „byte 13" — chceš to rýchlo otočiť na CR.</li>
+  <li>Pri písaní parsera, ktorý musí preskočiť tab (0x09), newline (0x0A), CR (0x0D) alebo NUL (0x00).</li>
+  <li>Pri ladení escape sekvencií v shelle, terminále alebo regex.</li>
+  <li>Pri hľadaní správnej HTML entity (napr. <code>&amp;amp;</code> pre <code>&amp;</code>).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>ASCII končí na 127.</strong> Hodnoty 128–255 sú „extended ASCII" a sú závislé od code page (Latin-1, Windows-1252 atď.) — v praxi chceš UTF-8.</li>
+  <li><strong>Control characters (0–31, 127) nemajú vizuálnu reprezentáciu.</strong> Niektoré editory ich ukazujú ako <code>^X</code> alebo prázdny obdĺžnik.</li>
+  <li><strong>Newline je platforma-špecifický.</strong> Unix používa LF (0x0A), Windows CRLF (0x0D 0x0A), staré Macy len CR.</li>
+  <li><strong>0x20 je medzera, nie nula.</strong> NUL byte je 0x00 a často terminuje C stringy.</li>
+</ul>
+""",
+        "cs": """
+
+<h2>K čemu to slouží?</h2>
+<p>ASCII tabulka mapuje čísla 0–127 na znaky a control codes, které definují většinu textových protokolů, co dnes používáme. Tenhle nástroj ti dá decimal, hex, octal, binary, samotný znak, HTML entitu a popis pro control characters — vše filtrovatelné, jak píšeš.</p>
+
+<h3>Kdy to použít</h3>
+<ul>
+  <li>Při debugování binárního protokolu, který ti říká „byte 0x0D" nebo „byte 13" — chceš to rychle převést na CR.</li>
+  <li>Při psaní parseru, který musí přeskočit tab (0x09), newline (0x0A), CR (0x0D) nebo NUL (0x00).</li>
+  <li>Při ladění escape sekvencí v shellu, terminálu nebo regexu.</li>
+  <li>Při hledání správné HTML entity (např. <code>&amp;amp;</code> pro <code>&amp;</code>).</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>ASCII končí na 127.</strong> Hodnoty 128–255 jsou „extended ASCII" a závisí na code page (Latin-1, Windows-1252 atd.) — v praxi chceš UTF-8.</li>
+  <li><strong>Control characters (0–31, 127) nemají vizuální reprezentaci.</strong> Některé editory je ukazují jako <code>^X</code> nebo prázdný obdélník.</li>
+  <li><strong>Newline je platformově specifický.</strong> Unix používá LF (0x0A), Windows CRLF (0x0D 0x0A), staré Macy jen CR.</li>
+  <li><strong>0x20 je mezera, ne nula.</strong> NUL byte je 0x00 a často terminuje C stringy.</li>
 </ul>
 """,
     },
