@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "JWT Decoder", "tagline": "JWT'yi yapıştır, header ve payload'ı çöz. Tüm decode tarayıcında çalışır — token'lar sayfayı asla terk etmez.", "description": "Ücretsiz online JSON Web Token decoder. Header ve payload'ı çöz, expiry timestamp'leri doğrula, imzayı incele. Tarayıcında tamamen çevrimdışı çalışır."},
         "id": {"name": "JWT Decoder", "tagline": "Tempel JWT, decode header dan payload. Semua decoding terjadi di browser-mu — token tidak pernah meninggalkan halaman.", "description": "JWT decoder gratis. Tempel JSON Web Token apa pun dan lihat header dan payload yang di-decode dengan format yang dapat dibaca. Semua decoding lokal — token tidak pernah dikirim ke server kami atau server mana pun."},
         "vi": {"name": "JWT Decoder", "tagline": "Dán một JWT, decode header và payload. Toàn bộ decode xảy ra trong trình duyệt — token không bao giờ rời khỏi trang.", "description": "JWT decoder miễn phí trực tuyến. Dán token và xem header, payload và claim được giải mã. Toàn bộ decode chạy trong trình duyệt — token không bao giờ rời khỏi thiết bị của bạn."},
+        "hi": {"name": "JWT Decoder", "tagline": "एक JWT paste करें ताकि उसके header और payload को decode किया जा सके। सारा decoding आपके browser में चलता है — tokens कभी page नहीं छोड़ते।", "description": "मुफ़्त ऑनलाइन JSON Web Token decoder. Header और payload decode करें, expiry timestamps की पुष्टि करें, signature का निरीक्षण करें। आपके browser में पूरी तरह offline काम करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -361,6 +362,36 @@ document.addEventListener('DOMContentLoaded', jwtDecode);
   <li><strong>Signature verification cần key.</strong> Tool này decode nhưng không verify. Để verify, bạn cần public key của issuer hoặc shared secret.</li>
   <li><strong>JWT không phải session.</strong> Token có claim hết hạn nhưng không thể revoke trừ khi backend của bạn maintain danh sách revocation. Đối với session, dùng cookie.</li>
   <li><strong>Token chạy hoàn toàn local trong tool này.</strong> Không có gì được upload — nhưng đừng paste token sản xuất vào tool ngẫu nhiên dù sao đi nữa.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक JWT (JSON Web Token) तीन base64url-encoded हिस्से हैं जो dots से जुड़े हैं: <code>header.payload.signature</code>. Header और payload JSON objects हैं जिनकी जाँच की जा सकती है; signature यह सिद्ध करता है कि issuance के बाद token में छेड़छाड़ नहीं हुई। यह टूल पहले दो हिस्सों को decode करता है ताकि आप base64 के शोर के बिना अंदर क्या है यह देख सकें — auth flows, expired sessions, या "यह token वास्तव में किस user के लिए है?" debug करते समय उपयोगी।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक OAuth / OpenID Connect login को debug करना जो fail हो रहा है — access या ID token paste करें, देखें IdP ने वास्तव में क्या जारी किया।</li>
+  <li>Token expiry की पुष्टि करना: टूल <code>exp</code> को असली date के रूप में decode करता है और यदि वह अतीत में है तो flag लगाता है।</li>
+  <li>Backend द्वारा assert किए जा रहे custom claims की जाँच करना (roles, permissions, tenant IDs)।</li>
+  <li>एक token पढ़ना जिसे आपकी library ने "invalid" बताया है ताकि देखा जा सके कि समस्या structural है, expiry है, या signature की है।</li>
+</ul>
+
+<h3>आम claims</h3>
+<ul>
+  <li><code>iss</code> — issuer (किसने token बनाया)</li>
+  <li><code>sub</code> — subject (वह user/account जिसे यह represent करता है)</li>
+  <li><code>aud</code> — audience (किसे इसे accept करना चाहिए)</li>
+  <li><code>exp</code> — expiry (Unix timestamp)</li>
+  <li><code>iat</code> — issued-at (Unix timestamp)</li>
+  <li><code>nbf</code> — not-valid-before (Unix timestamp)</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>एक decoded JWT verified JWT नहीं है।</strong> Signature यहाँ check नहीं की जाती — इसके लिए issuer की public key (RSA/EC) या shared secret (HMAC) चाहिए। Decoded contents आपको बताते हैं कि token <em>क्या कहता है</em>, यह नहीं कि आपको उस पर भरोसा करना चाहिए या नहीं। Claims को सम्मान देने से पहले हमेशा server पर verify करें।</li>
+  <li><strong>Production tokens कहीं भी paste न करें।</strong> Live JWT वाला कोई भी व्यक्ति <code>exp</code> तक user की पहचान धारण कर सकता है। Browser इसे इस टूल से transmit नहीं करता, लेकिन extensions, screen-recordings, और dev tools कर सकते हैं। यदि आपको साझा करना है तो test environment से एक fresh token का उपयोग करें।</li>
+  <li><strong><code>alg: none</code> tokens एक ज्ञात attack class हैं।</strong> यदि किसी header में <code>alg: none</code> है और आपकी library इसे accept करती है, तो हमलावर tokens forge कर सकते हैं। इसे server पर reject करें।</li>
+  <li><strong>Time skew मायने रखता है।</strong> Token का <code>exp</code> verifier की घड़ी के विरुद्ध check किया जाता है। Drift वाले servers ऐसे tokens fail कर देते हैं जो यहाँ valid दिखते हैं।</li>
 </ul>
 """,
     },

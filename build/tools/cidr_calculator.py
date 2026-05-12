@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "CIDR Subnet Hesaplayıcı", "tagline": "CIDR notasyonundan IPv4 alt ağlarını hesapla. Network, broadcast, mask, host aralığı ve ikilik görünüm.", "description": "Ücretsiz IPv4 CIDR / subnet hesaplayıcı. Herhangi bir CIDR gir (örn. 10.0.0.0/16) ve network adresi, broadcast, subnet mask, host aralığı, toplam adres sayısı ve ikilik gösterimi gör."},
         "id": {"name": "Kalkulator CIDR Subnet", "tagline": "Hitung subnet IPv4 dari notasi CIDR. Network, broadcast, mask, rentang host, dan tampilan biner.", "description": "Kalkulator CIDR / subnet IPv4 gratis. Masukkan CIDR apa pun (misal 10.0.0.0/16) dan lihat alamat network, broadcast, subnet mask, rentang host, total alamat, dan representasi biner."},
         "vi": {"name": "Máy tính CIDR Subnet", "tagline": "Tính subnet IPv4 từ notation CIDR. Network, broadcast, mask, dải host và biểu diễn nhị phân.", "description": "Máy tính CIDR / subnet IPv4 miễn phí. Nhập bất kỳ CIDR nào (ví dụ 10.0.0.0/16) và xem network address, broadcast, subnet mask, dải host, tổng số địa chỉ và biểu diễn nhị phân."},
+        "hi": {"name": "CIDR Subnet कैलकुलेटर", "tagline": "CIDR notation से IPv4 subnets की गणना। Network, broadcast, mask, host range और binary view।", "description": "मुफ़्त IPv4 CIDR / subnet कैलकुलेटर। कोई भी CIDR दर्ज करें (जैसे 10.0.0.0/16) और network address, broadcast, subnet mask, host range, कुल addresses और binary representation देखें।"},
     },
     "body": """
 <div class="tool-card">
@@ -380,6 +381,40 @@ document.addEventListener('DOMContentLoaded', cidrRun);
   <li><strong>Đừng trộn class với CIDR.</strong> Class A/B/C là khái niệm legacy (trước 1993).</li>
   <li><strong>Dải private RFC 1918:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. Mọi thứ khác đều có thể route công khai (hoặc dành riêng).</li>
   <li><strong>Công cụ này chỉ dành cho IPv4.</strong> CIDR IPv6 cấu trúc tương tự nhưng prefix có thể đi đến /128 và không gian địa chỉ lớn hơn nhiều; không được xử lý ở đây.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>CIDR (Classless Inter-Domain Routing) notation एक IPv4 address और उसके subnet size को एक string में पैक कर देता है: <code>192.168.1.0/24</code> का अर्थ है "address 192.168.1.0 के साथ 24-bit network prefix" — पुराने <code>255.255.255.0</code> mask जैसा ही network, बस 30 के बजाय 12 characters में लिखा हुआ। यह tool किसी भी CIDR को human-meaningful values में decode करता है: कौन से addresses subnet <em>में</em> हैं, broadcast, dotted form में mask, और वह host range जिसे आप वास्तव में devices को assign कर सकते हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>VLAN या VPC design करना और यह पता लगाना कि /22 बनाम /23 कितने hosts रखेगा (1022 बनाम 510)।</li>
+  <li>Firewall rule जैसे <code>allow 10.42.0.0/16</code> पढ़ना और यह confirm करना कि यह exact कौन सा range cover करती है।</li>
+  <li>/24 को छोटे subnets में बाँटना और देखना कि boundaries overlap नहीं हो रहीं।</li>
+  <li>Deploy करने से पहले cloud security-group rule की sanity-check।</li>
+  <li>Router configs में CIDR और legacy <code>255.x.x.x</code> dotted mask के बीच translate करना।</li>
+</ul>
+
+<h3>Quick CIDR cheat sheet</h3>
+<ul>
+  <li><strong>/32</strong> — 1 address (single host route)।</li>
+  <li><strong>/30</strong> — 4 addresses, 2 usable (point-to-point links)।</li>
+  <li><strong>/29</strong> — 8 addresses, 6 usable (small office subnet)।</li>
+  <li><strong>/24</strong> — 256 addresses, 254 usable (classic Class C / typical LAN)।</li>
+  <li><strong>/16</strong> — 65,536 addresses (typical site network या VPC)।</li>
+  <li><strong>/8</strong> — 16.7M addresses (पूरा organisation)।</li>
+  <li><strong>/0</strong> — हर IPv4 address (default route)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>"Usable" में network और broadcast शामिल नहीं हैं।</strong> /24 में 256 addresses हैं पर hosts के लिए केवल 254 usable — पहला (.0) network है, आखिरी (.255) broadcast है।</li>
+  <li><strong>/31 और /32 special हैं।</strong> /31 RFC 3021 के अनुसार point-to-point links के लिए इस्तेमाल होता है — दोनों addresses usable होते हैं। /32 single host है (routing entries में इस्तेमाल होता है)।</li>
+  <li><strong>Address part का network address होना ज़रूरी नहीं।</strong> <code>10.5.7.42/24</code> अभी भी वही /24 है जो <code>10.5.7.0/24</code> है — जो मायने रखता है वह prefix length है। Tool अपने output में network address पर normalise कर देता है।</li>
+  <li><strong>Class को CIDR से confuse न करें।</strong> Classes A/B/C एक legacy concept हैं (pre-1993)। एक /24 "class A" range के अंदर पड़ सकता है और यह ठीक है।</li>
+  <li><strong>RFC 1918 private ranges:</strong> <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>। बाकी कुछ भी publicly-routable है (या reserved है)।</li>
+  <li><strong>यह tool केवल IPv4 के लिए है।</strong> IPv6 CIDR structurally समान है पर prefix /128 तक जा सकता है और address space बहुत बड़ा है; यहाँ handle नहीं किया गया।</li>
 </ul>
 """,
     },

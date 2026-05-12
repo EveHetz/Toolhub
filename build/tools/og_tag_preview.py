@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "OG Tag Önizleme", "tagline": "OG meta tag'lerini yapıştır veya title/description/image doldur — paylaşım kartlarını Twitter/X, Facebook, LinkedIn ve Discord'da nasıl görüneceği gibi önizle.", "description": "Ücretsiz Open Graph tag önizleme. <meta> tag'lerini yapıştır veya sadece title/description/image doldur ve linkinin Twitter/X, Facebook, LinkedIn ve Discord paylaşım önizlemelerinde nasıl görüneceğini gör. Tamamen tarayıcında çalışır."},
         "id": {"name": "Pratinjau OG Tag", "tagline": "Tempel meta tag OG atau isi title/description/image — pratinjau kartu sosial seperti yang muncul di Twitter/X, Facebook, LinkedIn, dan Discord.", "description": "Pratinjau tag Open Graph gratis. Tempel meta tag dari HTML atau isi field, dan lihat seperti apa pratinjau link-mu di Twitter/X, Facebook, LinkedIn, dan Discord. Bantu pastikan kartu sosial-mu terlihat benar sebelum dipublikasikan."},
         "vi": {"name": "Xem trước OG Tag", "tagline": "Dán OG meta tag hoặc điền title/description/image — xem trước social card như chúng xuất hiện trên Twitter/X, Facebook, LinkedIn và Discord.", "description": "Trình xem trước Open Graph miễn phí trực tuyến. Dán OG meta tag hoặc điền các trường thủ công và xem chính xác cách thẻ social-share xuất hiện trên Twitter/X, Facebook, LinkedIn và Discord."},
+        "hi": {"name": "OG Tag Preview", "tagline": "OG meta tags paste करें या title/description/image भरें — Twitter/X, Facebook, LinkedIn, और Discord पर share cards कैसे दिखते हैं इसका preview देखें।", "description": "मुफ़्त Open Graph tag preview. अपने <meta> tags paste करें या केवल title/description/image भरें और देखें कि आपका link Twitter/X, Facebook, LinkedIn, और Discord share previews में कैसे render होगा। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -542,6 +543,40 @@ document.addEventListener('DOMContentLoaded', ogRender);
   <li><strong>Twitter dùng <code>twitter:*</code> tag riêng.</strong> Nó fall back về OG, nhưng nếu bạn muốn kiểm soát chính xác kích thước card (summary_large_image vs summary), dùng twitter:card.</li>
   <li><strong>Kích thước image quan trọng.</strong> 1200×630 là sweet spot — quá nhỏ và scaler làm xấu nó; quá lớn và bị crop khó đoán.</li>
   <li><strong>Cache rất lâu.</strong> Khi bạn cập nhật OG tag, Facebook và Twitter có thể vẫn show phiên bản cũ. Dùng <a href="https://developers.facebook.com/tools/debug/">Facebook Sharing Debugger</a> để force refresh.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>जब आप Twitter/X, Facebook, LinkedIn, Discord, Slack या किसी भी आधुनिक chat या social app में link share करते हैं, तो link page head में <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> meta tags के आधार पर एक "card" — title, description, और image — में unfurl हो जाता है। विभिन्न platforms इन cards को अलग-अलग तरह से render करते हैं और text को अलग-अलग lengths पर clip करते हैं। यह टूल आपको side-by-side previews देता है कि वही content प्रत्येक में कैसा दिखाई देगा, बिना URL को हर platform पर वास्तव में share करना पड़े।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>आपने OG image या copy बदला है और deploy करने से पहले यह पुष्टि करना चाहते हैं कि यह सही दिखता है।</li>
+  <li>आप एक hero image चुन रहे हैं और देखना चाहते हैं कि focal point 1.91:1 crop को सहन करेगा या नहीं।</li>
+  <li>आप title/description copy लिख रहे हैं और जानना चाहते हैं कि हर platform कहाँ इसे clip करेगा।</li>
+  <li>आपको कोई page विरासत में मिला है जिसमें OG tags नहीं हैं और आप render किए गए card का preview देखकर उन्हें draft करना चाहते हैं।</li>
+</ul>
+
+<h3>न्यूनतम tags</h3>
+<ul>
+  <li><code>&lt;meta property="og:title" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:description" content="…"&gt;</code></li>
+  <li><code>&lt;meta property="og:image" content="https://…"&gt;</code> (absolute URL, 1200×630 ideal)</li>
+  <li><code>&lt;meta property="og:url" content="https://…"&gt;</code></li>
+  <li><code>&lt;meta property="og:type" content="website"&gt;</code></li>
+  <li><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;</code> (X/Twitter big-image style के लिए)</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह एक static preview है, live fetcher नहीं।</strong> असली platforms आपके page को अपने servers से scrape करते हैं; यदि आपकी असली site की image अलग है, तो यह टूल इसे नहीं पकड़ेगा। Authoritative check के लिए platforms के अपने debuggers (Twitter का <a href="https://cards-dev.twitter.com/validator" target="_blank" rel="noopener noreferrer">card validator</a>, Facebook का Sharing Debugger, LinkedIn का Post Inspector) का उपयोग करें।</li>
+  <li><strong>Image URLs absolute होने चाहिए।</strong> <code>/og.png</code> काम नहीं करेगा — scrapers आपके origin को नहीं जानते।</li>
+  <li><strong>Image सार्वजनिक रूप से पहुँच योग्य होनी चाहिए।</strong> Authentication walls, referer मांगने वाले CDNs, या hot-link protection आपको एक टूटे हुए card के साथ छोड़ देंगे।</li>
+  <li><strong>Aspect ratio मायने रखता है।</strong> 1.91:1 (1200×630 canonical है) हर platform पर अच्छी तरह render होता है। Square या portrait बुरी तरह crop होते हैं।</li>
+  <li><strong>File size मायने रखता है।</strong> कुछ scrapers 8 MB से बड़ी images reject करते हैं; first-load snappy रखने के लिए &lt;1 MB का लक्ष्य रखें।</li>
+  <li><strong>Cache invalidation वास्तविक है।</strong> एक बार जब platform ने आपका URL scrape कर लिया, तो वह card को cache कर लेता है। Re-scrape force करने के लिए platform debuggers का उपयोग करें।</li>
+  <li><strong>Title/description length limits भिन्न होती हैं।</strong> Twitter/X लगभग 70 chars पर title clip करता है; Facebook लगभग 88; LinkedIn लगभग 100। महत्वपूर्ण शब्दों को आगे रखें।</li>
+  <li><strong>Discord <code>theme-color</code> को पसंद करता है।</strong> <code>&lt;meta name="theme-color" content="#xxxxxx"&gt;</code> जोड़ने से Discord embeds पर left border का color सेट हो जाता है।</li>
 </ul>
 """,
     },

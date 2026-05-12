@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Bahşiş & Bölüştürme Hesaplayıcı", "tagline": "Hesap toplamı + bahşiş % + kişi sayısı = kişi başı tutar. Yukarı yuvarlama seçeneği, bahşiş ve genel toplam gösterilir.", "description": "Ücretsiz bahşiş ve hesap bölüştürme hesaplayıcı. Hesabı, bahşiş yüzdesini ve kişi sayısını gir. Bahşiş tutarını, genel toplamı ve kişi başı payı gör. Opsiyonel yukarı yuvarlama."},
         "id": {"name": "Kalkulator Tip & Bagi Tagihan", "tagline": "Total tagihan + % tip + jumlah orang = jumlah per orang. Opsi pembulatan ke atas, menampilkan tip dan grand total.", "description": "Kalkulator tip dan bagi tagihan gratis. Masukkan jumlah tagihan, persentase tip, dan jumlah orang — dapatkan jumlah per orang, total tip, dan grand total. Opsi pembulatan ke atas untuk angka yang rapi."},
         "vi": {"name": "Máy tính Tip & Chia Hóa đơn", "tagline": "Tổng hóa đơn + % tip + số người = số tiền mỗi người. Tùy chọn làm tròn lên, hiển thị tip và grand total.", "description": "Máy tính tip và chia hóa đơn miễn phí trực tuyến. Nhập tổng hóa đơn, % tip và số người để xem số tiền mỗi người trả, với tùy chọn làm tròn lên đến đồng tiền gần nhất."},
+        "hi": {"name": "Tip & Split Calculator", "tagline": "बिल कुल + tip % + लोग = प्रति व्यक्ति राशि। राउंड-अप विकल्प, tip और कुल योग दिखाया जाता है।", "description": "मुफ़्त ऑनलाइन tip और बिल split calculator। बिल, tip प्रतिशत और लोगों की संख्या डालें। tip राशि, कुल योग और प्रति व्यक्ति हिस्सा देखें। वैकल्पिक राउंड-अप।"},
     },
     "body": """
 <div class="tool-card">
@@ -352,6 +353,27 @@ document.addEventListener('DOMContentLoaded', tsRun);
   <li><strong>Tip pre-tax vs post-tax.</strong> Tip theo tradition tính trên subtotal trước thuế; nhiều người mặc định trên total có thuế (mà bao gồm tip nhiều hơn 8-10%).</li>
   <li><strong>Quy ước tip khác nhau theo quốc gia.</strong> 15-20% chuẩn Mỹ; nhiều nước châu Âu thêm service charge tự động và tip thêm là tùy chọn; Nhật không có tip.</li>
   <li><strong>Đều khác công bằng.</strong> Nếu một người ăn đắt hơn nhiều, "chia đều" có thể không công bằng. Tool này giả định chia đều — đối với split không đều, tính từng cái một.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>डिनर के अंत में रेस्तरां के बिल को बांटना "गणित आसान है, लेकिन वाइन बह चुकी है" का क्लासिक मामला है। तीन संख्याएं अंदर जाती हैं (बिल, tip प्रतिशत, लोगों की संख्या) और तीन बाहर आती हैं (tip राशि, कुल योग, प्रति व्यक्ति हिस्सा)। यह टूल यह काम server पर कुछ भेजे बिना करता है, साथ ही एक वैकल्पिक राउंड-अप ताकि प्रति व्यक्ति आंकड़ा एक पूरी इकाई पर आ जाए और आप छोटे सिक्कों से जूझने के बजाय थोड़ा अधिक tip दे सकें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>समूह भोजन के अंत में — बराबर बंटवारा।</li>
+  <li>सेवा बिल में ज्ञात tip प्रतिशत जोड़ना।</li>
+  <li>निर्णय लेने से पहले विभिन्न tip स्तरों (10/15/18/20/25) को जल्दी से जांचना।</li>
+  <li>कॉफ़ी राउंड, टैक्सी, या किसी भी प्रति व्यक्ति हिस्से का निपटारा।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Tip देने की परंपरा बहुत भिन्न होती है।</strong> United States: 18–22% सामान्य है; 15% से कम शिकायत मानी जाती है। यूरोप के अधिकांश हिस्सों में: राउंड-अप या 5–10%; सेवा अक्सर शामिल होती है। Japan: tip न दें — इसे असभ्य माना जा सकता है। प्रतिशत आँख मूँदकर लगाने के बजाय हमेशा स्थानीय रिवाज की जांच करें।</li>
+  <li><strong>Tip pre-tax पर या post-tax पर?</strong> US में pre-tax subtotal पर tip देना सामान्य शिष्टाचार है लेकिन अधिकांश card terminal post-tax प्रतिशत प्रदान करते हैं। टूल जो भी बिल कुल आप दर्ज करते हैं, उसका प्रतिशत निकालता है — आधार जानबूझकर चुनें।</li>
+  <li><strong>Service charge ≠ tip।</strong> यदि "service charge" पहले से बिल पर है (UK में 6+ लोगों के समूह और महाद्वीपीय यूरोप के अधिकांश हिस्सों में आम), तो अतिरिक्त tip देना वैकल्पिक है। कुछ स्थान service charge को रसोई के साथ बांटते हैं; यदि आप चाहते हैं कि यह सर्वर तक पहुंचे तो सीधे cash में tip दें।</li>
+  <li><strong>प्रति व्यक्ति राउंडिंग असमान खाने को छिपा सकती है।</strong> बराबर बंटवारा सबसे तेज़ है लेकिन अनुचित है यदि एक व्यक्ति ने वाइन ली और दूसरे ने पानी — उस स्थिति में आइटम-वार बंटवारे पर स्विच करें।</li>
+  <li><strong>Cash बनाम card।</strong> कुछ कर्मचारी cash tip पसंद करते हैं क्योंकि card tip एकत्रित किए जाते हैं, तुरंत कर लगाया जाता है, या स्थान द्वारा काट लिए जाते हैं। यदि इस calculator पर प्रति व्यक्ति आंकड़े में tip शामिल है, तो तय करें कि क्या आप ऊपर से cash में tip चुकाना चाहते हैं।</li>
 </ul>
 """,
     },

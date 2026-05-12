@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "YAML ↔ JSON Dönüştürücü", "tagline": "YAML ve JSON arasında her iki yöne dönüştür. Kubernetes manifest'leri, CI config'leri ve OpenAPI spec'leri için kullanışlı.", "description": "Ücretsiz online YAML'den JSON'a ve JSON'dan YAML'a dönüştürücü. Çift yönlü, tamamen tarayıcında çalışır. Anchor'ları, alias'ları ve çoklu belge YAML'ı işler."},
         "id": {"name": "Konverter YAML ↔ JSON", "tagline": "Konversi antara YAML dan JSON ke kedua arah. Berguna untuk manifest Kubernetes, config CI, dan spec OpenAPI.", "description": "Konverter YAML ke JSON gratis (dan sebaliknya). Konversi antara YAML dan JSON ke kedua arah dengan validasi. Berguna untuk manifest Kubernetes, GitHub Actions, spec OpenAPI, dan format config apa pun."},
         "vi": {"name": "Chuyển đổi YAML ↔ JSON", "tagline": "Chuyển giữa YAML và JSON cả hai chiều. Hữu ích cho manifest Kubernetes, config CI và spec OpenAPI.", "description": "Bộ chuyển YAML ↔ JSON miễn phí trực tuyến. Round-trip giữa hai định dạng với indent thích hợp. Hữu ích cho manifest Kubernetes, config CI/CD, spec OpenAPI và config Docker Compose."},
+        "hi": {"name": "YAML ↔ JSON Converter", "tagline": "YAML और JSON के बीच किसी भी दिशा में बदलें। Kubernetes manifests, CI configs और OpenAPI specs के लिए उपयोगी।", "description": "मुफ़्त ऑनलाइन YAML to JSON और JSON to YAML converter। द्विदिशीय, पूरी तरह से आपके browser में चलता है। anchors, aliases और multi-document YAML संभालता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -275,6 +276,26 @@ document.addEventListener('DOMContentLoaded', yjConv);
   <li><strong>YAML có quirks.</strong> Strings không quote có thể được parse là boolean (<code>yes</code>/<code>no</code>) hoặc null. Hãy quote string đáng ngờ.</li>
   <li><strong>Indent quan trọng trong YAML.</strong> Trộn tab và space sẽ phá vỡ parser. Stick với 2 hoặc 4 space.</li>
   <li><strong>JSON không cho phép comment; YAML cho phép.</strong> Convert YAML có comment sang JSON sẽ mất comment.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>YAML और JSON एक ही चीज़ों का वर्णन करते हैं — nested maps, lists, primitives — लेकिन पठनीयता बनाम सख्ती के बीच trade-off करते हैं। YAML मनुष्यों के लिए मित्रवत है (Kubernetes manifests, GitHub Actions, OpenAPI, अधिकांश CI configs); JSON वही है जो APIs और machine-readable formats भेजते हैं। यह converter उन संरचनाओं के लिए losslessly उन्हें flip करता है जिन्हें दोनों व्यक्त कर सकते हैं। YAML <a href="https://github.com/nodeca/js-yaml" rel="noopener">js-yaml</a> (YAML 1.2) का उपयोग करता है; JSON native API का उपयोग करता है। दोनों दिशाएं आपके browser में चलती हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक टूल में जिसे JSON की आवश्यकता है, एक OpenAPI / k8s / docker-compose YAML पेस्ट करना।</li>
+  <li>एक config फ़ाइल के लिए एक API response (JSON) को YAML में बदलना।</li>
+  <li>एक YAML फ़ाइल की वास्तविक संरचना की जांच करना जब अस्पष्ट indentation parentage को अस्पष्ट बनाता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>"Norway problem"।</strong> YAML 1.1 ने <code>NO</code>, <code>YES</code>, <code>ON</code>, <code>OFF</code> को booleans में coerce किया। YAML 1.2 नहीं करता, लेकिन downstream parsers कर सकते हैं। सुरक्षित रहने के लिए अस्पष्ट strings को quote करें।</li>
+  <li><strong>Multi-document YAML</strong> (<code>---</code> separators) — केवल पहला document बदला जाता है।</li>
+  <li><strong>Custom tags</strong> (<code>!!python/object</code>, <code>!Ref</code>, आदि) सख्त YAML 1.2 का उल्लंघन करते हैं। CloudFormation YAML और PyYAML pickle dumps विफल हो जाएंगे; पहले tags साफ़ करें।</li>
+  <li><strong>YAML→JSON पर Anchors और aliases विस्तृत हो जाते हैं।</strong> JSON में कोई references नहीं हैं, इसलिए <code>*ref</code> nodes inline हो जाते हैं। Round-tripping एक मान-समतुल्य लेकिन पाठ्य-रूप से बड़ा YAML देता है।</li>
+  <li><strong>Numbers बनाम strings।</strong> Unquoted YAML <code>3.14</code> एक float है; <code>"3.14"</code> एक string है।</li>
 </ul>
 """,
     },

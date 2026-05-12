@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "UUID Üretici", "tagline": "RFC 4122 UUID üret (v4 rastgele veya v7 zaman sıralı). 100'e kadar toplu. Kriptografik olarak güvenli.", "description": "Ücretsiz online UUID üretici. RFC 4122 v4 (rastgele) ve v7 (zaman sıralı, sıralanabilir). Bir veya birden fazlasını üret, hepsi tarayıcında."},
         "id": {"name": "UUID Generator", "tagline": "Hasilkan UUID RFC 4122 (v4 acak atau v7 time-sortable). Bulk hingga 100. Kripto-aman.", "description": "UUID generator gratis. Hasilkan UUID RFC 4122 dalam jumlah berapa pun (hingga 100 sekaligus). Pilih antara UUID v4 acak atau v7 time-sortable. Menggunakan crypto.getRandomValues — kripto-aman."},
         "vi": {"name": "Tạo UUID", "tagline": "Tạo UUID RFC 4122 (v4 ngẫu nhiên hoặc v7 sắp xếp được theo thời gian). Tạo hàng loạt lên đến 100. An toàn về mật mã.", "description": "Trình tạo UUID miễn phí trực tuyến. Tạo UUID v4 (ngẫu nhiên) hoặc v7 (sắp xếp được theo thời gian) tuân thủ RFC 4122 bằng cách dùng RNG an toàn về mật mã của trình duyệt. Tạo hàng loạt lên đến 100 cùng lúc."},
+        "hi": {"name": "UUID Generator", "tagline": "RFC 4122 UUIDs बनाएं (v4 random या v7 time-ordered)। एक साथ 100 तक। क्रिप्टोग्राफिकली सुरक्षित।", "description": "मुफ़्त ऑनलाइन UUID generator। RFC 4122 v4 (random) और v7 (time-ordered, sortable)। एक साथ एक या कई बनाएं, सब आपके browser में।"},
     },
     "body": """
 <div class="tool-card">
@@ -328,6 +329,35 @@ document.addEventListener('DOMContentLoaded', uuidGen);
   <li><strong>UUID v4 không index tốt.</strong> Vì các UUID v4 ngẫu nhiên về mặt vũ trụ, chúng phân tán insert qua B-tree index trong PostgreSQL/MySQL — gây page split. v7 (time-sortable) giải quyết điều này.</li>
   <li><strong>UUID là 36 ký tự kiểu UUID, hoặc 16 byte.</strong> Hiển thị thường có dash; binary form ngắn hơn nhiều.</li>
   <li><strong>UUID có thể dự đoán được nếu sloppy.</strong> RNG yếu hoặc sequencer broken có thể tạo ra UUID dự đoán được. Tool này dùng crypto.getRandomValues — an toàn.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक UUID (या GUID) एक 128-bit पहचानकर्ता है — 5 समूहों में 32 hex digits के रूप में लिखा जाता है, जैसे <code>550e8400-e29b-41d4-a716-446655440000</code>। ये बिना समन्वय के systems में टकराव-मुक्त हैं: कहीं भी कोई भी process एक generate कर सकती है और दो के कभी टकराने की संभावना व्यावहारिक रूप से शून्य है। उपयोगी जब आपको database से बात करने से पहले एक ID की आवश्यकता हो, जब आप row counts के leak होने से बचना चाहें, या जब एक ID client-side पर generate करनी हो और बाद में sync करनी हो। यह टूल RFC 4122 / RFC 9562 के अनुरूप UUIDs v4 (random) या v7 (time-ordered) रूप में, आपके browser में क्रिप्टोग्राफिकली-सुरक्षित यादृच्छिकता से उत्पन्न करता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>वितरित systems के लिए primary keys जहां आप एक ID के लिए database में round-trip नहीं करना चाहते।</li>
+  <li>API requests के लिए idempotency keys (stripe, payment providers, queue messages)।</li>
+  <li>File-upload identifiers, session tokens, logs में correlation IDs।</li>
+  <li>कहीं भी जहां आप अन्यथा एक auto-incrementing ID expose करते और leak करते कि आपके पास कितने records हैं।</li>
+  <li>Test डेटा — एक click में सौ records को यथार्थवादी identifiers के साथ seed करें।</li>
+</ul>
+
+<h3>v4 बनाम v7 — कौन सा उपयोग करूं?</h3>
+<ul>
+  <li><strong>v4 (random)</strong> — 122 bits यादृच्छिकता, कोई embedded creation समय नहीं। तब उपयोग करें जब आप IDs और creation order के बीच शून्य correlation चाहते हैं, या जब ID एक hash-map / non-clustered index में रहेगा जहां ordering मायने नहीं रखती।</li>
+  <li><strong>v7 (time-ordered)</strong> — 48-bit Unix-ms timestamp prefix + random tail। <strong>नए database primary keys के लिए इसे default करें।</strong> Timestamp prefix B-tree indexes को locality देता है (हाल के inserts एक ही pages पर जाते हैं, v4 की तुलना में बहुत बेहतर cache व्यवहार), और IDs मोटे तौर पर कालानुक्रमिक क्रम में sort होते हैं। RFC 9562 (May 2024) में परिभाषित — अधिकांश use cases के लिए ULID और v1/v6 का स्थान लेता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>UUIDs रहस्य नहीं हैं।</strong> v4 में 122 bits entropy है और यह अप्रत्याशित है, लेकिन format स्वयं कुछ भी authorize नहीं करता। एक UUID को session token या password-reset token के रूप में उपयोग न करें जब तक आप इसे एक रहस्य की तरह नहीं मानते (HTTPS-only, time-limited, single-use)।</li>
+  <li><strong>v7 creation समय leak करता है।</strong> पहले 48 bits उस millisecond को encode करते हैं जब इसे बनाया गया था। आंतरिक IDs के लिए ठीक है; खराब यदि आप नहीं चाहते कि उपयोगकर्ता जानें कि records कब बनाए गए थे। उस स्थिति में v4 का उपयोग करें।</li>
+  <li><strong>Index आकार मायने रखता है।</strong> एक UUID 16 bytes है बनाम bigint के लिए 8 — आपके B-tree indexes बड़े हो जाते हैं। वितरित/बिना-समन्वय के लिए सार्थक है, अक्सर एक sequential ID वाले single-server apps के लिए सार्थक नहीं है।</li>
+  <li><strong>v4 database indexes को fragment करता है।</strong> Random IDs writes को index में फैलाते हैं, page cache hit rate और write throughput को नुकसान पहुंचाते हैं। यह v7 के लिए मूल तर्क है।</li>
+  <li><strong>v1 का उपयोग न करें।</strong> पुराना time-and-MAC variant generating machine का MAC पता leak करता है। v7 आधुनिक प्रतिस्थापन है।</li>
+  <li><strong>क्रिप्टो-सुरक्षित यादृच्छिकता का उपयोग करें।</strong> यह टूल <code>crypto.getRandomValues</code> का उपयोग करता है; कभी भी <code>Math.random</code> के साथ अपना खुद का न बनाएं — यह पर्याप्त रूप से random नहीं है और IDs पूर्वानुमेय हो जाते हैं।</li>
 </ul>
 """,
     },

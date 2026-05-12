@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toolhub.software — Developers के लिए मुफ़्त ऑनलाइन टूल्स</title>
+  <meta name="description" content="Developers के लिए 60+ मुफ़्त ऑनलाइन टूल्स — JSON formatter, password generator, Base64 encoder और बहुत कुछ। साइनअप नहीं, ट्रैकिंग नहीं।">
+  <meta property="og:title" content="toolhub.software — Developers के लिए मुफ़्त ऑनलाइन टूल्स">
+  <meta property="og:description" content="Developers के लिए 60+ मुफ़्त ऑनलाइन टूल्स — JSON formatter, password generator, Base64 encoder और बहुत कुछ। साइनअप नहीं, ट्रैकिंग नहीं।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/hi/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/hi/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "toolhub.software",
+    "url": "https://toolhub.software/hi",
+    "description": "Developers के लिए 60+ मुफ़्त ऑनलाइन टूल्स — JSON formatter, password generator, Base64 encoder और बहुत कुछ। साइनअप नहीं, ट्रैकिंग नहीं।",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://toolhub.software/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --card-hover: #1c2129;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --card-hover: #f3f4f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    .header { padding: 2rem 1.5rem 1rem; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+    .lang-select { background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 0.4rem 0.6rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; }
+    .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero { text-align: center; padding: 2rem 1.5rem 1.5rem; max-width: 700px; margin: 0 auto; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; overflow-wrap: anywhere; }
+
+    .search-wrap { max-width: 600px; margin: 1.5rem auto; padding: 0 1.5rem; }
+    .search-wrap input { width: 100%; padding: 0.75rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 1rem; outline: none; }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap input::placeholder { color: var(--text-muted); }
+
+    .filters { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; padding: 0.5rem 1.5rem 1rem; max-width: 800px; margin: 0 auto; }
+    .filter-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.35rem 0.85rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; transition: all 0.15s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
+    .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
+    .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
+    .card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .card h3 { font-size: 1rem; margin-bottom: 0.3rem; color: var(--text); }
+    .card p { font-size: 0.85rem; color: var(--text-muted); }
+    .card-meta { margin-top: 0.6rem; display: flex; gap: 0.5rem; }
+    .tag { font-size: 0.7rem; background: var(--bg); padding: 0.15rem 0.5rem; border-radius: 10px; color: var(--text-muted); }
+
+    .footer { text-align: center; padding: 2rem 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+
+    .no-results { text-align: center; padding: 3rem; color: var(--text-muted); display: none; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 1.5rem 1rem 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .header { padding: 1.25rem 1rem 0.75rem; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .header { padding: 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.25rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      .hero { padding: 1.25rem 1rem 1rem; }
+      .hero h1 { font-size: clamp(1.15rem, 5vw, 1.65rem); }
+      .hero p { font-size: 1rem; }
+      .search-wrap { padding: 0 1rem; margin: 1rem auto; }
+      .search-wrap input { padding: 0.75rem 1rem; font-size: 1rem; min-height: 44px; }
+      .filters { padding: 0.5rem 1rem 1rem; }
+      .filter-btn { padding: 0.5rem 0.85rem; font-size: 0.85rem; min-height: 36px; }
+      .grid { grid-template-columns: 1fr; padding: 0 1rem 2rem; }
+      .card { padding: 1rem; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config — fill in once you have the IDs.
+       Empty values keep ads OFF and the consent banner SUPPRESSED. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo"><span>Tool</span>hub</div>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">भाषा</label>
+      <select id="lang-select" class="lang-select" onchange="switchLang(this.value)">
+        <option value="">🇬🇧 English</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="pt">🇧🇷 Português</option>
+        <option value="pl">🇵🇱 Polski</option>
+        <option value="ja">🇯🇵 日本語</option>
+        <option value="nl">🇳🇱 Nederlands</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="id">🇮🇩 Bahasa Indonesia</option>
+        <option value="vi">🇻🇳 Tiếng Việt</option>
+        <option value="hi" selected>🇮🇳 हिन्दी</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+    </div>
+  </header>
+
+  <main>
+  <section class="hero">
+    <h1>Developers के लिए मुफ़्त ऑनलाइन टूल्स</h1>
+    <p id="hero-sub"></p>
+  </section>
+
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="टूल्स खोजें…  (फ़ोकस के लिए / दबाएं)" oninput="filterTools()">
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="ad-slot" data-slot="indexTop"></div>
+
+  <h2 class="visually-hidden">सभी टूल्स</h2>
+  <div class="grid" id="grid"></div>
+  <div class="ad-slot" data-slot="indexBottom"></div>
+  <div class="no-results" id="no-results">कोई टूल नहीं मिला। कोई दूसरा शब्द आज़माएं।</div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 toolhub.software — Developers के लिए मुफ़्त टूल्स।</p>
+    <p><a href="/hi/privacy/">गोपनीयता</a> · <a href="/hi/how-we-handle-your-data/">डेटा हैंडलिंग</a> · <a href="/hi/affiliate-disclosure/">Affiliate डिस्क्लोज़र</a> · <a href="/hi/about/">हमारे बारे में</a> · <a href="/hi/contact/">संपर्क</a> · <a href="/hi/for-schools/">स्कूलों के लिए</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+
+  <script>
+        const TOOLS = [
+      {"slug": "ascii-table", "name": "ASCII टेबल", "desc": "0–127 का पूरा ASCII reference: decimal, hex, binary, character और HTML entity के साथ। फ़िल्टर करने योग्य।", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
+      {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Text को Base64 में encode करें या Base64 को वापस text में decode करें। UTF-8 safe और base64url variant supported।", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
+      {"slug": "bmi-calculator", "name": "BMI कैलकुलेटर", "desc": "Height और weight से Body Mass Index। Metric या imperial। WHO category दिखाता है — चिकित्सीय सलाह नहीं।", "icon": "⚖️", "cat": "math", "tags": ["bmi", "body mass index", "health", "weight", "height", "metric", "imperial"]},
+      {"slug": "case-converter", "name": "Case Converter", "desc": "Text को UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE और dot.case के बीच बदलें।", "icon": "Aa", "cat": "text", "tags": ["case", "convert", "camel", "snake", "kebab", "pascal", "title", "upper", "lower"]},
+      {"slug": "cidr-calculator", "name": "CIDR Subnet कैलकुलेटर", "desc": "CIDR notation से IPv4 subnets की गणना। Network, broadcast, mask, host range और binary view।", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
+      {"slug": "color-converter", "name": "Color Converter", "desc": "किसी भी color को hex, RGB, HSL और OKLCH के बीच बदलें। Live preview, एक click में copy करें।", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
+      {"slug": "color-picker", "name": "Color Picker", "desc": "एक color चुनें; उसे HEX, RGB, RGBA, HSL, HSLA, HSV और CMYK में तुरंत देखें। Opacity adjust करें और किसी भी value को copy करें।", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
+      {"slug": "credit-card-validator", "name": "Credit Card Validator", "desc": "Luhn check से card number जांचें और card brand का पता लगाएं। Locally चलता है — आपका number कभी transmit नहीं होता।", "icon": "💳", "cat": "validation", "tags": ["credit card", "validate", "luhn", "visa", "mastercard", "amex", "discover"]},
+      {"slug": "cron-builder", "name": "Cron Expression Builder", "desc": "Cron expression को visually बनाएं — minute, hour, day, month, weekday — और अगले 5 fire times का preview देखें।", "icon": "⏱", "cat": "developer", "tags": ["cron", "schedule", "builder", "crontab", "next run"]},
+      {"slug": "cron-parser", "name": "Cron Expression Parser", "desc": "Cron expressions parse करें और अगले 10 fire times देखें। Standard 5-field crontab।", "icon": "🕒", "cat": "developer", "tags": ["cron", "schedule", "crontab", "next run", "expression"]},
+      {"slug": "css-box-shadow", "name": "CSS Box Shadow Generator", "desc": "Single या multi-layer CSS box shadows visually बनाएं। Offset, blur, spread, color adjust करें और CSS copy करें।", "icon": "▣", "cat": "design", "tags": ["css", "shadow", "box-shadow", "design", "depth", "elevation"]},
+      {"slug": "css-gradient", "name": "CSS Gradient Generator", "desc": "Linear और radial CSS gradients को visually बनाएं। Color stops edit करें, ready-to-paste CSS copy करें।", "icon": "🌈", "cat": "design", "tags": ["css", "gradient", "linear", "radial", "design", "background"]},
+      {"slug": "css-minifier", "name": "CSS Minifier", "desc": "CSS से comments, whitespace और redundancy हटाएं। पहले/बाद का साइज़ और बचत प्रतिशत देखें।", "icon": "{}", "cat": "developer", "tags": ["css", "minify", "compress", "optimize", "stylesheet"]},
+      {"slug": "csv-to-json", "name": "CSV से JSON", "desc": "CSV डेटा को JSON arrays में बदलें। Header detection, custom delimiters, quoted fields और embedded newlines संभाले जाते हैं।", "icon": "📊", "cat": "data", "tags": ["csv", "json", "convert", "data", "import"]},
+      {"slug": "date-calculator", "name": "Date Calculator", "desc": "दो तिथियों के बीच दिन · किसी तिथि में दिन/सप्ताह/महीने/वर्ष जोड़ें या घटाएं · वर्ष, महीने और दिन में आयु।", "icon": "📅", "cat": "datetime", "tags": ["date", "calculator", "duration", "between", "add", "subtract", "age", "weekday"]},
+      {"slug": "dice-roller", "name": "Dice Roller", "desc": "Standard D&D notation के साथ dice rolls करें — 2d6+3, 1d20, 4d6 keep highest 3। Crypto-secure RNG।", "icon": "🎲", "cat": "utility", "tags": ["dice", "roll", "d20", "rpg", "dnd", "random", "tabletop", "notation"]},
+      {"slug": "email-validator", "name": "Email Validator", "desc": "जांचें कि एक email address syntactically valid है या नहीं (RFC 5322 friendly), local part, domain और सामान्य pitfalls के breakdown के साथ।", "icon": "✉", "cat": "validation", "tags": ["email", "validate", "rfc", "syntax", "mx", "domain"]},
+      {"slug": "emoji-picker", "name": "Emoji Picker", "desc": "नाम और keyword से खोजने योग्य emoji palette। सभी emoji को copy करने के लिए click करें। श्रेणियाँ: smileys, जानवर, खाना, यात्रा, वस्तुएं, symbols, झंडे।", "icon": "😀", "cat": "text", "tags": ["emoji", "picker", "search", "copy", "unicode", "smiley", "symbol"]},
+      {"slug": "file-size-converter", "name": "File Size Converter", "desc": "bytes, KB, MB, GB, TB और binary KiB, MiB, GiB, TiB के बीच बदलें। Decimal बनाम binary स्पष्ट रूप से अलग।", "icon": "📦", "cat": "math", "tags": ["file size", "convert", "byte", "kilobyte", "megabyte", "gigabyte", "kib", "mib", "binary", "decimal"]},
+      {"slug": "hash-generator", "name": "Hash Generator", "desc": "अपने browser के WebCrypto का उपयोग करके text को SHA-1, SHA-256, SHA-384 या SHA-512 से hash करें। Locally compute होता है — input page से बाहर नहीं जाता।", "icon": "🔑", "cat": "security", "tags": ["hash", "md5", "sha", "sha-256", "sha-512", "checksum"]},
+      {"slug": "html-encoder", "name": "HTML Encoder / Decoder", "desc": "HTML विशेष characters को escape करें या entities को वापस decode करें। User input को सुरक्षित रूप से embed करने या encoded markup debug करने के लिए उपयोगी।", "icon": "&lt;&gt;", "cat": "encoding", "tags": ["html", "encode", "entities", "escape", "xss"]},
+      {"slug": "html-formatter", "name": "HTML Formatter", "desc": "HTML को फ़ॉर्मैट और beautify करें या minify करें। Indent size, comment stripping, और self-closing tag awareness।", "icon": "</>", "cat": "developer", "tags": ["html", "format", "beautify", "minify", "indent", "tidy"]},
+      {"slug": "http-status-codes", "name": "HTTP Status Codes", "desc": "किसी भी HTTP status code (1xx–5xx) को देखें। अर्थ, सामान्य कारण, और RFC reference।", "icon": "🌐", "cat": "developer", "tags": ["http", "status", "code", "rest", "api", "response", "rfc"]},
+      {"slug": "image-to-base64", "name": "Image to Base64", "desc": "किसी भी image को HTML, CSS, या Markdown में inline उपयोग के लिए तैयार Base64 data URI में बदलें। Files आपके browser में रहती हैं।", "icon": "🖼️", "cat": "encoding", "tags": ["image", "base64", "data-uri", "convert", "embed"]},
+      {"slug": "js-minifier", "name": "JavaScript Minifier", "desc": "तेज़ structural JavaScript minify — comments हटाएं, whitespace संक्षिप्त करें, खाली लाइनें ड्रॉप करें। पहले/बाद का आकार और बचत प्रतिशत देखें।", "icon": "{}", "cat": "developer", "tags": ["javascript", "js", "minify", "compress", "optimize"]},
+      {"slug": "json-diff", "name": "JSON Diff", "desc": "दो JSON documents के लिए structural diff — जोड़े गए, हटाए गए, बदले गए keys और value परिवर्तन साथ-साथ दिखाए गए।", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
+      {"slug": "json-formatter", "name": "JSON Formatter", "desc": "JSON को तुरंत फ़ॉर्मैट करें, जांचें, और minify करें। Errors को line और column के साथ highlight किया जाता है।", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
+      {"slug": "json-path", "name": "JSONPath Tester", "desc": "किसी भी JSON document पर JSONPath queries चलाएं। मिलान वाले nodes और उनके paths real time में देखें।", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
+      {"slug": "json-to-csv", "name": "JSON से CSV", "desc": "Objects के JSON arrays को CSV में बदलें। Fields का auto-detection, custom delimiters का समर्थन, Excel और Google Sheets के लिए सही ढंग से escape करता है।", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
+      {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "एक JWT paste करें ताकि उसके header और payload को decode किया जा सके। सारा decoding आपके browser में चलता है — tokens कभी page नहीं छोड़ते।", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
+      {"slug": "lorem-ipsum", "name": "Lorem Ipsum Generator", "desc": "Placeholder Latin text के paragraphs, sentences, words, या list items बनाएं। Configurable length और starting phrase के साथ।", "icon": "¶", "cat": "text", "tags": ["lorem", "ipsum", "placeholder", "filler", "dummy", "text"]},
+      {"slug": "markdown-table-editor", "name": "Markdown Table Editor", "desc": "एक table को visual रूप से edit करें — rows, columns, हर column के लिए alignment — और GitHub-flavoured Markdown copy करें।", "icon": "▦", "cat": "text", "tags": ["markdown", "table", "editor", "github", "gfm", "alignment"]},
+      {"slug": "markdown-to-html", "name": "Markdown से HTML", "desc": "Markdown को साफ़ HTML में बदलें live preview के साथ। Headings, lists, code, tables, images, और links का समर्थन करता है।", "icon": "M↓", "cat": "text", "tags": ["markdown", "md", "html", "convert", "preview", "render"]},
+      {"slug": "mime-type-lookup", "name": "MIME Type Lookup", "desc": "MIME types को extension या type के अनुसार खोजें। ~120 आम types — image, video, audio, application, text, font।", "icon": "📎", "cat": "developer", "tags": ["mime", "type", "extension", "content-type", "file", "media"]},
+      {"slug": "number-base-converter", "name": "Number Base Converter", "desc": "Binary, octal, decimal, hexadecimal, और 2 से 36 तक किसी भी base के बीच बदलें।", "icon": "0b", "cat": "developer", "tags": ["binary", "hex", "octal", "decimal", "base", "convert", "number"]},
+      {"slug": "og-tag-preview", "name": "OG Tag Preview", "desc": "OG meta tags paste करें या title/description/image भरें — Twitter/X, Facebook, LinkedIn, और Discord पर share cards कैसे दिखते हैं इसका preview देखें।", "icon": "🪟", "cat": "design", "tags": ["og", "open graph", "twitter", "facebook", "linkedin", "discord", "preview", "social"]},
+      {"slug": "password-generator", "name": "Password Generator", "desc": "मजबूत random password या याद रखने योग्य passphrase। लोकल बनते हैं — कहीं भेजे नहीं जाते।", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
+      {"slug": "percentage-calculator", "name": "Percentage Calculator", "desc": "एक में पाँच percentage calculator: of, क्या %, बढ़ोतरी/कमी, बदलाव, और tip/tax।", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
+      {"slug": "placeholder-image", "name": "Placeholder Image Generator", "desc": "किसी भी size पर कस्टम text और रंगों के साथ inline-SVG placeholder image बनाएं। Data URI या download योग्य SVG के रूप में output।", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
+      {"slug": "qr-code-generator", "name": "QR Code Generator", "desc": "किसी भी text, URL, Wi-Fi, या vCard के लिए QR code बनाएं। कस्टम size, रंग, और error correction। PNG या SVG में export करें।", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
+      {"slug": "query-string-builder", "name": "Query String Builder", "desc": "key/value rows जोड़ें; एक सही URL-encoded query string प्राप्त करें। Array (a[]=1) और bracket-less repeated keys का समर्थन।", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
+      {"slug": "regex-cheatsheet", "name": "Regex Cheatsheet", "desc": "त्वरित संदर्भ: anchors, character classes, quantifiers, groups, lookarounds, flags। किसी भी pattern को copy करने के लिए click करें।", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
+      {"slug": "regex-tester", "name": "Regex Tester", "desc": "JavaScript regular expressions live test करें। Matches, capture groups देखें, और टाइप करते समय replacements लागू करें।", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
+      {"slug": "slug-generator", "name": "Slug Generator", "desc": "किसी भी title को साफ़ URL slug में बदलें — accents को transliterate करें, punctuation हटाएं, hyphens से जोड़ें।", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
+      {"slug": "sql-formatter", "name": "SQL Formatter", "desc": "SQL को उचित indentation के साथ फ़ॉर्मैट और सुंदर बनाएं, या एक line में minify करें। Dialect-aware (ANSI / MySQL / Postgres)।", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
+      {"slug": "text-diff", "name": "Text Diff", "desc": "दो text blocks की तुलना करें और line-by-line additions, removals, और अपरिवर्तित context देखें। Side-by-side या unified view।", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
+      {"slug": "timestamp-converter", "name": "Unix Timestamp Converter", "desc": "Unix timestamps और मानव-पठनीय dates के बीच बदलें। Seconds और milliseconds, UTC और local।", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
+      {"slug": "timezone-converter", "name": "Time Zone Converter", "desc": "IANA time zones के बीच एक date और time को बदलें। दोनों छोरों के लिए offsets, DST status, और weekday देखें।", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
+      {"slug": "tip-split-calculator", "name": "Tip & Split Calculator", "desc": "बिल कुल + tip % + लोग = प्रति व्यक्ति राशि। राउंड-अप विकल्प, tip और कुल योग दिखाया जाता है।", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
+      {"slug": "unicode-inspector", "name": "Unicode Inspector", "desc": "टेक्स्ट पेस्ट करें → हर codepoint की तालिका। Hex, decimal, UTF-8 bytes, श्रेणी। अदृश्य अक्षरों को पहचानें।", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
+      {"slug": "unit-converter", "name": "Unit Converter", "desc": "लंबाई, वजन, तापमान, आयतन और क्षेत्रफल की metric और imperial इकाइयों के बीच बदलें।", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
+      {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "URL के लिए strings को percent-encode करें या percent-encoded strings को वापस सादे टेक्स्ट में decode करें।", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
+      {"slug": "url-parser", "name": "URL Parser", "desc": "कोई भी URL पेस्ट करें — protocol, host, port, path, query parameters (decoded), hash और origin का विवरण देखें।", "icon": "🔍", "cat": "developer", "tags": ["url", "parse", "query", "host", "path", "fragment", "search params"]},
+      {"slug": "uuid-generator", "name": "UUID Generator", "desc": "RFC 4122 UUIDs बनाएं (v4 random या v7 time-ordered)। एक साथ 100 तक। क्रिप्टोग्राफिकली सुरक्षित।", "icon": "🆔", "cat": "developer", "tags": ["uuid", "guid", "v4", "v7", "random", "unique", "identifier"]},
+      {"slug": "wcag-contrast", "name": "WCAG contrast Checker", "desc": "दो रंगों के बीच contrast अनुपात जांचें। हर text आकार पर WCAG AA और AAA के लिए pass/fail निर्णय।", "icon": "◐", "cat": "design", "tags": ["wcag", "contrast", "accessibility", "a11y", "color", "ratio"]},
+      {"slug": "word-counter", "name": "Word Counter", "desc": "जैसे आप टाइप करते हैं, शब्द, अक्षर, वाक्य, अनुच्छेद गिनें और पढ़ने + बोलने का समय अनुमानित करें।", "icon": "#", "cat": "text", "tags": ["word", "count", "character", "sentence", "paragraph", "reading", "writing"]},
+      {"slug": "xml-formatter", "name": "XML Formatter", "desc": "XML को फ़ॉर्मैट और minify करें। त्रुटियों पर line और column के साथ well-formedness जांचें।", "icon": "&lt;/&gt;", "cat": "developer", "tags": ["xml", "format", "beautify", "minify", "validate", "well-formed"]},
+      {"slug": "xml-to-json", "name": "XML ↔ JSON Converter", "desc": "XML को JSON में या JSON को वापस XML में बदलें। attributes, text nodes और arrays को समझदारी से संभालता है।", "icon": "⇄", "cat": "data", "tags": ["xml", "json", "convert", "transform", "attributes", "data"]},
+      {"slug": "yaml-json", "name": "YAML ↔ JSON Converter", "desc": "YAML और JSON के बीच किसी भी दिशा में बदलें। Kubernetes manifests, CI configs और OpenAPI specs के लिए उपयोगी।", "icon": "🔁", "cat": "data", "tags": ["yaml", "json", "convert", "kubernetes", "config", "data"]},
+      {"slug": "youtube-thumbnail", "name": "YouTube Thumbnail Downloader", "desc": "कोई भी YouTube URL या video ID पेस्ट करें और हर उपलब्ध thumbnail आकार पाएं — direct download links, कोई upload नहीं, साइनअप नहीं।", "icon": "▶", "cat": "media", "tags": ["youtube", "thumbnail", "preview", "image", "download", "video"]}
+    ];
+
+    const LBL_ALL = "सभी";
+    const HERO_SUB_POST = "टूल्स — तेज़, निजी, बिना साइनअप। तुरंत इस्तेमाल के लिए तैयार।";
+    const CAT_LABELS = {"developer": "Developer", "text": "टेक्स्ट", "encoding": "Encoding", "data": "डेटा", "security": "सुरक्षा", "media": "मीडिया", "validation": "Validation", "design": "डिज़ाइन", "datetime": "तारीख और समय", "math": "गणित"};
+
+    function renderFilters() {
+      const counts = {};
+      for (const t of TOOLS) counts[t.cat] = (counts[t.cat] || 0) + 1;
+      const cats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      const wrap = document.getElementById('filters');
+      let html = `<button class="filter-btn active" data-cat="all">${LBL_ALL} <span class="cnt">${TOOLS.length}</span></button>`;
+      for (const c of cats) {
+        const label = CAT_LABELS[c] || c.charAt(0).toUpperCase() + c.slice(1);
+        html += `<button class="filter-btn" data-cat="${c}">${label} <span class="cnt">${counts[c]}</span></button>`;
+      }
+      wrap.innerHTML = html;
+    }
+
+    function renderHero() {
+      document.getElementById('hero-sub').textContent = `${TOOLS.length} ${HERO_SUB_POST}`;
+    }
+
+
+    function render(tools) {
+      const grid = document.getElementById('grid');
+      const noResults = document.getElementById('no-results');
+      if (tools.length === 0) { grid.innerHTML = ''; noResults.style.display = 'block'; return; }
+      noResults.style.display = 'none';
+      grid.innerHTML = tools.map(t => `
+        <a class="card" href="/hi/${t.slug}/" data-cat="${t.cat}">
+          <div class="card-icon">${t.icon}</div>
+          <h3>${t.name}</h3>
+          <p>${t.desc}</p>
+          <div class="card-meta"><span class="tag">${t.cat}</span></div>
+        </a>
+      `).join('');
+    }
+
+    function filterTools() {
+      const q = document.getElementById('search').value.toLowerCase();
+      const activeCat = document.querySelector('.filter-btn.active')?.dataset.cat || 'all';
+      const filtered = TOOLS.filter(t => {
+        const matchQ = !q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.tags.some(tag => tag.includes(q));
+        const matchCat = activeCat === 'all' || t.cat === activeCat;
+        return matchQ && matchCat;
+      });
+      render(filtered);
+    }
+
+    document.getElementById('filters').addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      filterTools();
+    });
+
+    function switchLang(lang) {
+      window.location.href = lang ? `/${lang}/` : '/';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent = next === 'light' ? '🌙' : '☀️';
+    }
+
+    // Init
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.theme-toggle').textContent = '🌙';
+    } else {
+      document.querySelector('.theme-toggle').textContent = '☀️';
+    }
+    renderFilters();
+    renderHero();
+    render(TOOLS);
+
+    // `/` keyboard shortcut to focus search
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        document.getElementById('search').focus();
+      }
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+</body>
+</html>

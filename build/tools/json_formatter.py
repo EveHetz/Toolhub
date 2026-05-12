@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "JSON Formatter", "tagline": "JSON'u anında biçimlendir, doğrula ve küçült. Hatalar satır ve sütunla vurgulanır.", "description": "Ücretsiz online JSON formatter ve doğrulayıcı. JSON sözdizimini güzel yazdır, küçült ve hassas hata mesajlarıyla denetle."},
         "id": {"name": "JSON Formatter", "tagline": "Format, validasi, dan minify JSON secara instan. Error disorot dengan baris dan kolom.", "description": "JSON formatter dan validator online gratis. Beautify JSON berantakan dengan indentasi, atau minify-nya untuk transport. Error sintaks disorot dengan nomor baris dan kolom. Berjalan di browser-mu."},
         "vi": {"name": "JSON Formatter", "tagline": "Format, xác thực và minify JSON tức thì. Lỗi được làm nổi bật với dòng và cột.", "description": "JSON formatter và validator miễn phí trực tuyến. Làm đẹp JSON lộn xộn với indent, hoặc minify để truyền tải. Lỗi cú pháp được làm nổi bật với số dòng và cột. Chạy trong trình duyệt của bạn."},
+        "hi": {"name": "JSON Formatter", "tagline": "JSON को तुरंत फ़ॉर्मैट करें, जांचें, और minify करें। Errors को line और column के साथ highlight किया जाता है।", "description": "मुफ़्त ऑनलाइन JSON formatter और validator. JSON syntax को pretty-print, minify, और सटीक error messages के साथ जांचें।"},
     },
     "body": """
 <div class="tool-card">
@@ -285,6 +286,26 @@ function jfValidate(){
   <li><strong>Smart quote từ copy-paste.</strong> Word processor và app chat thích "giúp" thay <code>"</code> bằng <code>"</code> / <code>"</code>. Đó không phải là delimiter JSON hợp lệ.</li>
   <li><strong>JSON không có comment.</strong> Nếu "JSON" của bạn chứa <code>//</code> hoặc <code>/* */</code>, đó thực sự là JSONC (dùng trong config VS Code) — strip chúng trước khi parse.</li>
   <li><strong>Số trên 2⁵³.</strong> JavaScript không thể biểu diễn integer trên <code>9007199254740992</code> chính xác. ID snowflake Twitter và tương tự phải được quote như string.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>JSON minified रूप में travel करता है — जब API response wire पर भेजा जा रहा हो तो हर byte मायने रखता है। लेकिन minified JSON पढ़ने योग्य नहीं होता। यह टूल browser के native <code>JSON.parse</code> / <code>JSON.stringify</code> के माध्यम से round-trip करता है ताकि indented, copy-योग्य output बनाया जा सके, संरचना को जांचा जा सके, या whitespace वापस हटाया जा सके। कुछ भी upload नहीं होता; सब कुछ page पर होता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Minified API response को paste करना और कुछ ऐसा वापस पाना जिसे एक इंसान scan कर सके।</li>
+  <li>Syntax errors पकड़ना — trailing commas, unquoted keys, smart quotes — सटीक line/column के साथ जहाँ parser फिसला।</li>
+  <li>JSON को ऐसे context में paste करने से पहले whitespace हटाना जहाँ size मायने रखता है (URL params, env vars, config files)।</li>
+  <li>दूसरे टूल में pipe करने से पहले यह पुष्टि करना कि आपका hand-written JSON valid है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>JSON ≠ JavaScript object literal।</strong> Keys double quotes में होनी चाहिए। Single quotes, unquoted keys, और trailing commas सभी fail होते हैं। यदि आपके पास JS object literals हैं, तो पहले उन्हें एक converter से चलाएं।</li>
+  <li><strong>Copy-paste से smart quotes।</strong> Word processors और chat apps "मदद" के नाम पर <code>"</code> को <code>"</code> / <code>"</code> से बदलना पसंद करते हैं। वे वैध JSON delimiters नहीं हैं।</li>
+  <li><strong>JSON में comments नहीं होते।</strong> यदि आपके "JSON" में <code>//</code> या <code>/* */</code> है, तो वह वास्तव में JSONC है (VS Code config में उपयोग होता है) — parse करने से पहले उन्हें हटाएं।</li>
+  <li><strong>2⁵³ से बड़ी संख्याएं।</strong> JavaScript <code>9007199254740992</code> से ऊपर के integers को सटीक रूप से represent नहीं कर सकता। Twitter snowflake IDs और इसी तरह की संख्याओं को strings के रूप में quote किया जाना चाहिए।</li>
 </ul>
 """,
     },

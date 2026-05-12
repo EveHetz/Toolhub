@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Birim Dönüştürücü", "tagline": "Uzunluk, ağırlık, sıcaklık, hacim ve alan için metrik ve imperial birimler arasında dönüştür.", "description": "Ücretsiz online birim dönüştürücü. Uzunluk (mm, cm, m, km, in, ft, yd, mi), ağırlık (g, kg, lb, oz), sıcaklık (C, F, K), hacim (mL, L, gal, fl oz) ve alan (m², ft², acre, ha) dönüşümleri."},
         "id": {"name": "Konverter Satuan", "tagline": "Konversi antara satuan metrik dan imperial untuk panjang, berat, suhu, volume, dan luas.", "description": "Konverter satuan gratis. Konversi antara satuan metrik dan imperial untuk panjang (mm, cm, m, km, in, ft, yd, mi), berat (g, kg, oz, lb), suhu (°C, °F, K), volume, dan luas."},
         "vi": {"name": "Chuyển đổi Đơn vị", "tagline": "Chuyển giữa đơn vị mét và imperial cho chiều dài, trọng lượng, nhiệt độ, thể tích và diện tích.", "description": "Bộ chuyển đổi đơn vị miễn phí trực tuyến giữa hệ mét và imperial cho chiều dài, trọng lượng, nhiệt độ, thể tích và diện tích. Xử lý các đơn vị thường dùng (mét/feet, kg/lb, °C/°F, lít/gallon, m²/ft²) với độ chính xác đầy đủ."},
+        "hi": {"name": "Unit Converter", "tagline": "लंबाई, वजन, तापमान, आयतन और क्षेत्रफल की metric और imperial इकाइयों के बीच बदलें।", "description": "मुफ़्त ऑनलाइन unit converter। लंबाई (mm, cm, m, km, in, ft, yd, mi), वजन (g, kg, lb, oz), तापमान (C, F, K), आयतन (mL, L, gal, fl oz) और क्षेत्रफल (m², ft², acre, ha) को बदलें।"},
     },
     "body": """
 <div class="tool-card">
@@ -428,6 +429,37 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Nhiệt độ không phải scale tuyến tính qua zero.</strong> 0°C ≠ 0°F. 0K (Kelvin) là không tuyệt đối, -273.15°C.</li>
   <li><strong>Imperial fluid ounce ≠ US fluid ounce.</strong> UK pint là 568 mL; US pint là 473 mL. Đáng nhớ khi pha cocktail từ công thức.</li>
   <li><strong>Mass vs weight.</strong> Kilogram là đơn vị khối lượng; pound đo lực ở Trái đất bình thường. Trên Mặt trăng, kilogram cùng, pound khác.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>दुनिया का अधिकांश हिस्सा metric है, US imperial है, UK आधा-आधा है, recipes cups में होती हैं जब वे ग्राम में होनी चाहिए, और बीच कहीं एक बच्चे का स्कूल प्रोजेक्ट "5 yards in centimetres" मांगता है। यह टूल लंबाई, वजन, तापमान, आयतन, क्षेत्रफल, समय और गति के लिए उच्च-परिशुद्धता परिभाषाओं का उपयोग करके रूपांतरण करता है — और एक साथ श्रेणी की हर इकाई पर परिणाम फैला देता है, ताकि आपको दो बार बदलना न पड़े।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>cups में recipe पढ़ना जब आप ग्राम में खाना बनाते हैं (या इसके विपरीत)।</li>
+  <li>nautical miles में उड़ान दूरी को किलोमीटर में बदलना।</li>
+  <li>यात्रा से पहले बाहरी तापमान का पूर्वानुमान °C से °F में बदलना।</li>
+  <li>एक फर्नीचर का आकार तय करना: 72 inches चौड़ा → क्या यह 1.9 m दरवाजे से निकलेगा?</li>
+  <li>imperial में सोचते हुए वैज्ञानिक पेपर के SI में दिए गए माप पढ़ना।</li>
+</ul>
+
+<h3>क्या सटीक है, और क्या नहीं</h3>
+<ul>
+  <li><strong>लंबाई, वजन, तापमान, क्षेत्रफल, गति</strong> SI परिभाषाओं और अंतर्राष्ट्रीय yard-and-pound समझौते (1959) का उपयोग करते हैं, इसलिए वे आपके input की परिशुद्धता के अनुसार सटीक हैं।</li>
+  <li><strong>आयतन</strong> जटिल हो सकता है: एक US "gallon" (3.785 L) और एक UK "imperial gallon" (4.546 L) अलग हैं। टूल लेबल करता है कि कौन सा कौन सा है।</li>
+  <li><strong>Cup / tablespoon / teaspoon</strong> यहां default रूप से US माप पर हैं। UK और Australian cups थोड़े अलग हैं (AU में 250 mL, US में 240 mL)।</li>
+  <li><strong>समय श्रेणी में "Month" और "year"</strong> औसत का उपयोग करते हैं (30.44 दिन / 365.25 दिन)। इसे कानूनी या लेखांकन गणनाओं के लिए न उपयोग करें जहां सटीक महीने मायने रखते हैं — इसके बजाय एक date calculator उपयोग करें।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>तापमान एक अनुपात नहीं है।</strong> 0°C "तापमान नहीं" नहीं है — यह एक संदर्भ बिंदु है। Celsius को दोगुना करने से गर्मी दोगुनी नहीं होती। रूपांतरण योगात्मक offsets का उपयोग करता है (Kelvin तक/से 273.15, C और F के बीच 32) — इसीलिए टूल तापमान के लिए multiplier के बजाय functions उपयोग करता है।</li>
+  <li><strong>US बनाम UK fluid ounces अलग हैं।</strong> 1 US fl oz = 29.57 mL, 1 UK fl oz = 28.41 mL। हमेशा जांचें कि recipe किस मानक का उपयोग करती है।</li>
+  <li><strong>"Tonne" बनाम "ton".</strong> Metric tonne = 1000 kg। US short ton = 907 kg। UK long ton = 1016 kg। टूल का "t" metric tonne है।</li>
+  <li><strong>द्रव्यमान बनाम भार।</strong> कड़ाई से, kg द्रव्यमान है और pound भी द्रव्यमान है (बोलचाल "मेरा वजन 70 kg है" के बावजूद)। टूल इसे mass-to-mass रूपांतरण के रूप में मानता है। बल (newtons, pound-force) के लिए आपको एक अलग श्रेणी की आवश्यकता है।</li>
+  <li><strong>अंत में round करें, बीच में नहीं।</strong> m → ft बदलें, round करें, फिर ft → in न करें — errors जमा हो जाएंगी। सीधे target unit पर जाएं।</li>
+  <li><strong>Stones &amp; pounds।</strong> एक ब्रिटिश वजन: 1 stone = 14 lb। टूल में stone (st) है लेकिन आपको "11 st 4 lb"-शैली प्रविष्टियों के लिए lb भाग अलग से करना होगा।</li>
 </ul>
 """,
     },

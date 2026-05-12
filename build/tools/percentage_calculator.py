@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Yüzde Hesaplayıcı", "tagline": "Tek araçta beş yüzde hesaplayıcı: of, what %, artış/azalış, değişim ve tip/vergi.", "description": "Ücretsiz online yüzde hesaplayıcı. Y'nin X%'si, X Y'nin yüzde kaçı, yüzde değişim, yüzde artış/azalış ve tip veya vergi tutarlarını hesapla."},
         "id": {"name": "Kalkulator Persentase", "tagline": "Lima kalkulator persentase dalam satu tool: of, what %, increase/decrease, change, dan tip/tax.", "description": "Kalkulator persentase gratis. Lima kalkulator dalam satu: X% dari Y, Y berapa persen dari Z, kenaikan/penurunan, persen perubahan antara dua nilai, dan kalkulator tip/pajak."},
         "vi": {"name": "Máy tính Phần trăm", "tagline": "Năm máy tính phần trăm trong một công cụ: của, bao nhiêu %, tăng/giảm, thay đổi và tip/thuế.", "description": "Máy tính phần trăm miễn phí trực tuyến. Năm chế độ trong một công cụ: X% của Y, X là bao nhiêu phần trăm của Y, tăng/giảm theo phần trăm, phần trăm thay đổi giữa hai giá trị, và tip/thuế."},
+        "hi": {"name": "Percentage Calculator", "tagline": "एक में पाँच percentage calculator: of, क्या %, बढ़ोतरी/कमी, बदलाव, और tip/tax।", "description": "मुफ़्त ऑनलाइन percentage calculator। Y का X%, X, Y का कितना % है, percentage बदलाव, percentage बढ़ोतरी/कमी, और tip या tax राशि की गणना करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -256,6 +257,27 @@ document.addEventListener('DOMContentLoaded', pcSwitch);
   <li><strong>Phần trăm không đảo ngược.</strong> Tăng 20% rồi giảm 20% không phải là cùng giá trị — bạn ở 96%.</li>
   <li><strong>"X% off" so với "X% off, then sales tax"</strong> rất khác. Thuế thường áp lên giá sau giảm.</li>
   <li><strong>Phần trăm số trên 100.</strong> Có thể có ý nghĩa (tăng 150%), nhưng kiểm tra bạn đang đo từ baseline đúng.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>छह अलग-अलग "percentage" गणनाएं रोज़ आती हैं और इन्हें मिलाना आसान है: Y का X% कितना है? X, Y में से कितना प्रतिशत है? दो मानों के बीच क्या बदलाव है? Markup या discount लगाएं? Tip या tax? हर एक थोड़ा अलग formula है, और इन्हें मिलाने से गलत invoices, गलत discounts, और शर्मनाक reviews होते हैं। यह tool सभी छह को साथ-साथ formula के साथ चलाता है, ताकि आप सही चुनें और गणित को double-check कर सकें।</p>
+
+<h3>हर mode क्या करता है</h3>
+<ul>
+  <li><strong>Y का X% क्या है</strong> — discounts, commissions, total का प्रतिशत के लिए। <em>150 का 20% → 30</em>।</li>
+  <li><strong>X, Y का कितना % है</strong> — "score / max" जैसे अनुपातों के लिए। <em>150 में से 30 → 20%</em>।</li>
+  <li><strong>% बदलाव</strong> — चिह्नित: सकारात्मक बढ़ोतरी है, नकारात्मक कमी। <em>100 → 125 = +25%</em>।</li>
+  <li><strong>बढ़ाएं / घटाएं</strong> — शुरुआती मान पर percentage समायोजन लागू करता है।</li>
+  <li><strong>Tip / Tax</strong> — bill के ऊपर percentage जोड़ने की सुविधा।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Percentage बदलाव symmetric नहीं है।</strong> 100 → 125 जाना +25% है; 125 → 100 जाना −20% है, −25% नहीं। हर है शुरुआती मान, जो हर दिशा में अलग है।</li>
+  <li><strong>Percentages को stack करना compound करता है।</strong> 20% बढ़ोतरी के बाद 20% कमी आपको शुरुआत में वापस नहीं ले जाती (1.20 × 0.80 = 0.96, शुद्ध 4% हानि)। क्रमिक markups/discounts के लिए, हर कदम की गणना करें।</li>
+  <li><strong>Tip pre-tax पर बनाम post-tax पर।</strong> परंपरा देश और स्थान के अनुसार बदलती है। Tool आपके द्वारा डाले गए मान का percentage गणना करता है — चुनें कि आप वास्तव में किस मान को base के रूप में चाहते हैं।</li>
+  <li><strong>Rounding।</strong> Output को 6 दशमलव तक round किया जाता है फिर trim किया जाता है; यदि आपको legal/accounting precision चाहिए (banker's rounding, currency-specific नियम), उस कदम को अपनी domain layer में करें, यहाँ नहीं।</li>
 </ul>
 """,
     },

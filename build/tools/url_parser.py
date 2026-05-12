@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "URL Parser", "tagline": "Herhangi bir URL'i yapıştır — protokolü, host'u, port'u, path'i, query parametrelerini (decoded), hash'i ve origin'i ayrıştırılmış olarak gör.", "description": "Ücretsiz online URL parser. Herhangi bir URL'i protokol, host, port, path, query string, hash ve origin'e çözer; her query parametresi decoded gösterilir. Tamamen tarayıcında çalışır."},
         "id": {"name": "URL Parser", "tagline": "Tempel URL apa pun — lihat protokol, host, port, path, parameter query (di-decode), hash, dan origin yang sudah diurai.", "description": "URL parser gratis. Tempel URL apa pun dan lihat protokol, host, port, path, parameter query yang di-decode, hash, dan origin-nya. Bantu debug masalah routing dan inspeksi link yang kompleks."},
         "vi": {"name": "Trình phân tích URL", "tagline": "Dán bất kỳ URL nào — xem protocol, host, port, path, tham số query (đã decode), hash và origin đã phân tích.", "description": "Trình phân tích URL miễn phí trực tuyến. Tách bất kỳ URL nào thành protocol, host, port, path, tham số query (đã decode), hash và origin để debug API và tích hợp."},
+        "hi": {"name": "URL Parser", "tagline": "कोई भी URL पेस्ट करें — protocol, host, port, path, query parameters (decoded), hash और origin का विवरण देखें।", "description": "मुफ़्त ऑनलाइन URL parser। किसी भी URL को protocol, host, port, path, query string, hash और origin में decode करता है, और प्रत्येक query parameter को decoded रूप में दिखाता है। पूरी तरह से आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -365,6 +366,29 @@ document.addEventListener('DOMContentLoaded', upRun);
   <li><strong>URL không phải URI.</strong> URI là superset; URL là tập con cụ thể có scheme và authority.</li>
   <li><strong>Hash không gửi đến server.</strong> Phần sau <code>#</code> chỉ tồn tại trong trình duyệt — server không thấy. Web app SPA dùng nó cho client-side routing.</li>
   <li><strong>Port mặc định không xuất hiện.</strong> <code>https://example.com</code> dùng port 443 nhưng bạn không thấy nó trong URL. Tool này hiển thị nó.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक URL सात अच्छी तरह से परिभाषित हिस्सों (scheme, authority, host, port, path, query, fragment) वाली एक संरचित string है जिसे आप एक blob के रूप में देखते हैं। जब कुछ गलत होता है — गलत parameter, अप्रत्याशित port, एक अतिरिक्त encoded अक्षर — इसे raw string में देखने की तुलना में parsed table में देखना बहुत आसान है। यह टूल browser के native <code>URL</code> object का उपयोग करता है ताकि parse ठीक उसी से मेल खाए जो JavaScript देखता है, फिर प्रत्येक query parameter को बाहर निकालता है ताकि decoded values raw रूप के साथ-साथ दिखाई दें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>OAuth callback URL को debug करना जहां <code>state</code> या <code>code</code> गलत दिखता है।</li>
+  <li>एक tracking URL (UTM tags, click-tokens) की जांच करना और encoded blob के बजाय वास्तविक मान देखना।</li>
+  <li>यह पुष्टि करना कि एक webhook URL उसी तरह parse होता है जैसा receiving service अपेक्षा करती है — विशेष रूप से path और कोई भी query।</li>
+  <li>यह जांचना कि एक deep link एक app में क्यों काम करता है और दूसरे में नहीं (port? scheme? authority?)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>दोहराई गई query keys वास्तविक हैं।</strong> <code>?a=1&amp;a=2</code> <code>a</code> के लिए दो मान हैं; जो टूल केवल पहला पढ़ते हैं वे डेटा खो देते हैं। Parser प्रति key सभी मान दिखाता है।</li>
+  <li><strong>Fragment कभी server तक नहीं पहुंचता।</strong> <code>#</code> के बाद कुछ भी browser में रहता है। यदि आपका backend URL में डाला गया डेटा नहीं देख रहा है, तो जांचें कि क्या यह वास्तव में fragment में है।</li>
+  <li><strong>Encoding मायने रखती है।</strong> एक query मान में <code>%20</code> space में decode होता है; एक query मान में <code>+</code> <em>भी</em> space में decode होता है (<code>application/x-www-form-urlencoded</code> के अनुसार)। Browser का <code>URL.searchParams</code> दोनों को संभालता है।</li>
+  <li><strong>Default ports <code>port</code> में नहीं दिखाई देते।</strong> <code>https://example.com/</code> जैसे URL में <code>port</code> खाली है (default 443 निहित है)।</li>
+  <li><strong>Punycode hostnames।</strong> <code>example.中国</code> आंतरिक रूप से <code>xn--fiqs8s</code> के रूप में संग्रहीत है; browser के आधार पर <code>hostname</code> ASCII रूप दिखा सकता है।</li>
+  <li><strong>Origin कभी-कभी "null" होता है।</strong> <code>file://</code>, <code>data:</code>, या sandboxed contexts के लिए, origin अपारदर्शी है।</li>
+  <li><strong>यह parsing है, validation नहीं।</strong> एक URL साफ-सुथरा parse हो सकता है और फिर भी आपके application के लिए गलत हो सकता है (जैसे गलत host, missing path)।</li>
 </ul>
 """,
     },

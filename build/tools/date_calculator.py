@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Tarih Hesaplayıcı", "tagline": "İki tarih arasındaki gün sayısı · bir tarihe gün/hafta/ay/yıl ekle veya çıkar · yıl, ay ve gün cinsinden yaş.", "description": "Ücretsiz online tarih hesaplayıcı. İki tarih arasındaki süreyi hesapla, bir tarihten ekle veya çıkar, yıl/ay/gün cinsinden tam yaş bul. Tüm hesaplamalar tarayıcında çalışır."},
         "id": {"name": "Kalkulator Tanggal", "tagline": "Hari antara dua tanggal · tambah/kurang hari/minggu/bulan/tahun ke tanggal · umur dalam tahun, bulan, dan hari.", "description": "Kalkulator tanggal gratis. Hitung hari antara dua tanggal, tambah atau kurangi hari/minggu/bulan/tahun ke tanggal apa pun, atau hitung umur dalam tahun, bulan, dan hari. Mendukung hari dalam minggu dan output presisi durasi."},
         "vi": {"name": "Máy tính Ngày", "tagline": "Số ngày giữa hai ngày · cộng/trừ ngày/tuần/tháng/năm vào một ngày · tuổi tính theo năm, tháng và ngày.", "description": "Máy tính ngày miễn phí trực tuyến. Tính khoảng cách giữa hai ngày, cộng hoặc trừ ngày/tuần/tháng/năm vào một ngày, hoặc tính tuổi chính xác theo năm-tháng-ngày."},
+        "hi": {"name": "Date Calculator", "tagline": "दो तिथियों के बीच दिन · किसी तिथि में दिन/सप्ताह/महीने/वर्ष जोड़ें या घटाएं · वर्ष, महीने और दिन में आयु।", "description": "मुफ़्त ऑनलाइन date calculator। दो तिथियों के बीच की अवधि की गणना करें, किसी तिथि से अवधि जोड़ें या घटाएं, और वर्ष/महीने/दिन में सटीक आयु निकालें। सभी गणनाएँ आपके browser में चलती हैं।"},
     },
     "body": """
 <div class="tool-card">
@@ -392,6 +393,27 @@ document.addEventListener('DOMContentLoaded', dcMode);
   <li><strong>Cộng tháng không phải là cộng 30 ngày.</strong> Cộng 1 tháng vào ngày 31 tháng 1 — có nghĩa là 28 hay 29 hay 1 tháng 3? Quy tắc khác nhau giữa các thư viện và ngôn ngữ. Tool này dùng quy tắc "kẹp" thông thường: kẹp xuống ngày cuối cùng của tháng đích.</li>
   <li><strong>Tuổi có nghĩa rời rạc.</strong> Tuổi tính theo năm là số nguyên (không phải năm thập phân) — bạn 30 cho đến khi sinh nhật của bạn, sau đó là 31. Hữu hạn vế tuổi (32 năm, 5 tháng, 12 ngày) chính xác hơn.</li>
   <li><strong>Múi giờ ẩn.</strong> Tool này coi đầu vào là ngày local không có múi giờ — không phải timestamps. Đối với thao tác giờ-trong-ngày, dùng tool múi giờ.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>तीन चीज़ें जो लोग वास्तव में date calculator से चाहते हैं: दो तिथियों के बीच का अंतर ("launch तक कितने दिन?"), एक तिथि को एक span से shift करना ("invoice date के 90 दिन बाद"), और सटीक आयु ("date of birth से वर्ष, महीने, और दिन")। यह tool तीनों करता है, आपके browser में, UTC noon पर anchored ताकि जब आप यात्रा करें तब DST और timezone shifts चुपके से उत्तर को गलत न करें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Contract durations, project timelines, और deadlines की गणना।</li>
+  <li>Invoicing या project estimation के लिए दो तिथियों के बीच कितने workdays (सोम–शुक्र) पड़ते हैं इसका सटीक अनुमान।</li>
+  <li>आयु cut-offs सत्यापित करना (visa eligibility, school years, milestone birthdays)।</li>
+  <li>एक baseline तिथि में "30 दिन net" या "90 दिन cooling-off" periods जोड़ना इस तरह से कि month-end सही ढंग से संभाला जाए।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Inclusive बनाम exclusive end dates।</strong> "सोम से शुक्र तक के दिन" 4 है यदि आप gaps गिनते हैं, 5 है यदि आप दिन गिनते हैं। Toggle यह नियंत्रित करता है कि कौन सी convention; दोनों प्रश्न के अनुसार सही हैं।</li>
+  <li><strong>Add/subtract का क्रम मायने रखता है।</strong> Years और months पहले apply होते हैं, फिर weeks और days। 30 जनवरी में "1 month + 1 day" जोड़ने पर 1 मार्च मिलता है (फरवरी 30 → फरवरी 28/29 → +1), 2 मार्च नहीं — यह calendar-safe convention है जो लगभग हर datetime library उपयोग करती है।</li>
+  <li><strong>Workdays में छुट्टियाँ शामिल नहीं होतीं।</strong> Calculation weekends जानता है लेकिन bank holidays नहीं — यदि महत्वपूर्ण है तो manually adjust करें।</li>
+  <li><strong>आयु view में "Total months" अनुमानित है</strong> (वर्ष × 12 + महीने) — यह trailing days को ignore करता है। Y/M/D figure सटीक है।</li>
+  <li><strong>UTC anchoring locale के साथ trade-off करता है।</strong> आपके local timezone में एक तिथि थोड़ा अलग UTC day पर map हो सकती है। अधिकांश उपयोगों (deadlines, ages) के लिए UTC noon सुरक्षित anchor है; to-the-minute timezone काम के लिए timezone converter उपयोग करें।</li>
 </ul>
 """,
     },

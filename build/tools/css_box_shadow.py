@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "CSS Box Shadow Oluşturucu", "tagline": "Tek veya çok katmanlı CSS box shadow'ları görsel olarak kur. Offset, blur, spread, renk ayarla ve CSS'i kopyala.", "description": "Ücretsiz CSS box-shadow oluşturucu. Gerçekçi yükseklik için birden fazla gölgeyi üst üste bin, inset'i aç/kapa, blur ve spread'i ince ayarla ve üretime hazır CSS'i tek tıkla kopyala."},
         "id": {"name": "Pembangun CSS Box Shadow", "tagline": "Susun box-shadow CSS tunggal atau berlapis secara visual. Atur offset, blur, spread, warna, dan salin CSS-nya.", "description": "Pembangun CSS box shadow gratis. Susun shadow tunggal atau berlapis secara visual dengan kontrol offset, blur, spread, warna, dan inset. Pratinjau langsung dan CSS siap-salin."},
         "vi": {"name": "CSS Box Shadow Builder", "tagline": "Soạn box-shadow CSS đơn hoặc xếp lớp một cách trực quan. Điều chỉnh offset, blur, spread, màu và sao chép CSS.", "description": "Trình xây dựng CSS box-shadow miễn phí trực tuyến. Soạn shadow đơn hoặc nhiều lớp; điều chỉnh offset, blur, spread, màu và inset, sau đó sao chép CSS sẵn-dùng."},
+        "hi": {"name": "CSS Box Shadow Generator", "tagline": "Single या multi-layer CSS box shadows visually बनाएं। Offset, blur, spread, color adjust करें और CSS copy करें।", "description": "मुफ़्त CSS box-shadow generator। Realistic elevation के लिए कई shadows stack करें, inset toggle करें, blur और spread को fine-tune करें, और एक click में production-ready CSS copy करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -354,6 +355,38 @@ document.addEventListener('DOMContentLoaded', () => { bsRender(); bsRun(); });
   <li><strong>Inset đảo ngược shadow.</strong> Inset shadow ở bên trong element thay vì bên ngoài. Hữu ích cho hiệu ứng punched-in, nhưng nó vẽ <em>bên trong</em> phần background, không phải overlay lên nội dung.</li>
   <li><strong>Hiệu suất bị ảnh hưởng bởi blur lớn và shadow xếp lớp.</strong> Trên các trang dày đặc, shadow lớn có thể ảnh hưởng đến framerate. Hãy giữ chúng vừa phải hoặc dùng filter SVG cho hiệu ứng phức tạp.</li>
   <li><strong>Border-radius cắt shadow.</strong> Box-shadow theo đường viền của element, bao gồm cả góc bo. Nếu bạn muốn shadow là chữ nhật trong khi element là tròn, cần một wrapper.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>CSS <code>box-shadow</code> property depth जोड़ने के लिए workhorse है — cards पर drop shadows, button highlights, focus rings, glows, neon effects, यहाँ तक कि नकली 3D भी। Syntax (<code>x y blur spread color</code>, optional <code>inset</code>, comma-separated multiple shadows) पढ़ने में आसान है पर बिना देखे tweak करना थकाने वाला है। यह tool हर value के लिए sliders और live preview देता है, साथ ही common design-system elevations से match करने वाले presets भी।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Card या modal elevation design करना जो "सस्ता और कठोर" न दिखे।</li>
+  <li>Accessibility के लिए focus-ring style बनाना (जैसे 2px outline glow)।</li>
+  <li>एक hero CTA के लिए neon या glow effect बनाना।</li>
+  <li>एक design system के लिए Material Design या Apple-style elevation tokens replicate करना।</li>
+  <li>Pressed-button effect या card recess के लिए नकली "inset" depth बनाना।</li>
+</ul>
+
+<h3>हर value क्या करती है</h3>
+<ul>
+  <li><strong>X / Y offset</strong> — shadow किस direction में गिरती है (positive Y = नीचे)। "ऊपर से light" वाले feel के लिए, Y > 0 और छोटा या zero X इस्तेमाल करें।</li>
+  <li><strong>Blur</strong> — edge कितनी soft है। 0 = sharp; ज़्यादा = softer fade।</li>
+  <li><strong>Spread</strong> — shadow box से कितनी बड़ी (या negative होने पर छोटी) है।</li>
+  <li><strong>Color &amp; alpha</strong> — आम तौर पर partial-alpha black या brand color। Pure <code>#000</code> बहुत heavy दिखता है; natural depth के लिए <code>#0003</code> से <code>#0002</code> try करें।</li>
+  <li><strong>Inset</strong> — shadow को अंदर की तरफ flip करता है, recess की तरह।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>एक बड़ी shadow artificial दिखती है।</strong> Real elevation दो या तीन layers stacked होती है: एक tight, dark, close-in shadow plus एक wide, soft, far-out। "Material elevation" preset यह pattern दिखाता है।</li>
+  <li><strong>Pure black बहुत heavy है।</strong> ~10–25% alpha black इस्तेमाल करें, या warmth के लिए shadow को surface के complement से tint करें।</li>
+  <li><strong>Shadows box के बाहर render होती हैं।</strong> अगर आपके container में <code>overflow: hidden</code> है, तो shadow clip हो जाएगी। एक wrapper इस्तेमाल करें या <code>overflow</code> को child पर move करें।</li>
+  <li><strong>Transparent background पर shadow।</strong> अगर box का कोई <code>background</code> नहीं है, तो shadow खुद box के through दिखती है — आम तौर पर surprising।</li>
+  <li><strong>Performance:</strong> कई elements पर बहुत बड़ा blur low-end mobile पर expensive हो सकता है। Fancy glows ship करने से पहले real device पर test करें।</li>
+  <li><strong>Dark mode।</strong> Subtle dark-on-dark shadows लगभग गायब हो जाती हैं; dark themes में bright inner border या light-tinted shadow consider करें।</li>
 </ul>
 """,
     },

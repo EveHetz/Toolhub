@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Markdown'dan HTML'e", "tagline": "Markdown'u canlı önizlemeyle temiz HTML'e dönüştür. Başlıkları, listeleri, kodu, tabloları, görselleri ve linkleri destekler.", "description": "Ücretsiz online Markdown'dan HTML'e dönüştürücü. CommonMark uyumlu: başlıklar, listeler, çitli kod, tablolar, görseller, blok alıntılar, satır içi biçimlendirme. Canlı önizleme + kopyala."},
         "id": {"name": "Markdown ke HTML", "tagline": "Konversi Markdown ke HTML bersih dengan pratinjau langsung. Mendukung heading, list, kode, tabel, gambar, dan link.", "description": "Konverter Markdown ke HTML gratis. Ketik Markdown dan lihat HTML yang dirender secara real-time. Mendukung heading, list, kode, tabel, gambar, link, blockquote, dan formatting GFM dasar."},
         "vi": {"name": "Markdown sang HTML", "tagline": "Chuyển Markdown thành HTML sạch với xem trước trực tiếp. Hỗ trợ heading, list, code, bảng, ảnh và link.", "description": "Bộ chuyển Markdown sang HTML miễn phí trực tuyến với xem trước trực tiếp. Hỗ trợ heading, list, code block, blockquote, bảng, ảnh và link. Chuyển đổi chạy hoàn toàn trong trình duyệt của bạn."},
+        "hi": {"name": "Markdown से HTML", "tagline": "Markdown को साफ़ HTML में बदलें live preview के साथ। Headings, lists, code, tables, images, और links का समर्थन करता है।", "description": "मुफ़्त ऑनलाइन Markdown to HTML converter. CommonMark-flavoured: headings, lists, fenced code, tables, images, blockquotes, inline formatting. Live preview + copy।"},
     },
     "body": """
 <div class="md-grid">
@@ -348,6 +349,28 @@ document.addEventListener('DOMContentLoaded', mdRun);
   <li><strong>Đa số dialect.</strong> GitHub Flavored Markdown (GFM), CommonMark, Markdown gốc — có sự khác biệt nhỏ. Tool này theo CommonMark chủ yếu với GFM extension.</li>
   <li><strong>HTML thô được cho phép.</strong> Markdown cho phép HTML inline. Có thể an toàn (linh hoạt) hoặc rủi ro (XSS nếu output không được sanitize).</li>
   <li><strong>Code block ngôn ngữ-cụ thể.</strong> ``` followed by language name hint cho syntax highlighter — nhưng cú pháp HTML tạo ra chỉ là <code>&lt;pre&gt;&lt;code class="language-x"&gt;</code>; CSS thực hiện việc tô màu.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Markdown ग्रह पर सबसे अधिक लिखा जाने वाला authoring format है — README files, blog posts, GitHub issues, chat messages, doc sites. HTML वह है जो browsers render करते हैं। यह टूल Markdown को साफ़ HTML में live preview के साथ बदलता है ताकि आप यह देख सकें कि render किया गया output कैसा दिखेगा इससे पहले कि आप इसे CMS में paste करें, static page generate करें, या email template के हिस्से के रूप में भेजें।</p>
+
+<h3>समर्थित syntax</h3>
+<ul>
+  <li>Headings <code>#</code> से <code>######</code> तक; bold, italic, strike</li>
+  <li>Inline <code>`code`</code> और fenced <code>```lang</code> blocks</li>
+  <li>Bullet / numbered / nested lists</li>
+  <li>Links <code>[text](url)</code> और images <code>![alt](url)</code></li>
+  <li>Blockquotes, alignment वाले pipe tables, horizontal rules</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह एक तेज़ in-browser parser है, spec suite नहीं।</strong> CommonMark और GFM में edge cases (nested emphasis, link reference definitions, autolink expansion) हैं जो implementations के बीच भिन्न होते हैं। सख्त conformance के लिए, build step में <code>marked</code>, <code>markdown-it</code>, या <code>remark</code> का उपयोग करें।</li>
+  <li><strong>Markdown के अंदर embedded HTML</strong> अधिकतर as-is pass हो जाता है, लेकिन कुछ implementations इसे sanitise करते हैं। सुरक्षा के लिए इस पर भरोसा न करें; untrusted markdown को untrusted HTML के रूप में treat करें।</li>
+  <li><strong>Tables बनाम alignment।</strong> Pipe tables को एक separator row (<code>|---|</code>) चाहिए और centre/left/right alignment के लिए <code>:---:</code> / <code>:---</code> / <code>---:</code> का उपयोग करते हैं। Separator भूलना सबसे आम कारण है कि एक "table" एक paragraph के रूप में render होती है।</li>
+  <li><strong>Smart punctuation।</strong> कुछ renderers <code>--</code> को en-dashes में और straight quotes को curly में बदल देते हैं। यह टूल नहीं करता — यदि आपको ज़रूरत है तो typography pass से गुज़रें।</li>
+  <li><strong>Round-tripping lossless नहीं है।</strong> Markdown → HTML → Markdown heading style, list spacing, और link form को normalise करेगा। Semantics बच जाती हैं; exact bytes नहीं।</li>
 </ul>
 """,
     },

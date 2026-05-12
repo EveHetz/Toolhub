@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WCAG contrast Checker — Toolhub</title>
+  <meta name="description" content="मुफ़्त WCAG contrast अनुपात जांचकर्ता। foreground और background रंग चुनें, अनुपात (1:1 से 21:1) और WCAG 2.1 AA और AAA के लिए pass/fail निर्णय प्राप्त करें — सामान्य text, बड़े text और UI components के लिए।">
+  <meta property="og:title" content="WCAG contrast Checker — Toolhub">
+  <meta property="og:description" content="मुफ़्त WCAG contrast अनुपात जांचकर्ता। foreground और background रंग चुनें, अनुपात (1:1 से 21:1) और WCAG 2.1 AA और AAA के लिए pass/fail निर्णय प्राप्त करें — सामान्य text, बड़े text और UI components के लिए।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/hi/wcag-contrast/">
+  <meta property="og:image" content="https://toolhub.software/og-images/wcag-contrast.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/wcag-contrast.png">
+  <link rel="canonical" href="https://toolhub.software/hi/wcag-contrast/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/wcag-contrast/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/wcag-contrast/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/wcag-contrast/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/wcag-contrast/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/wcag-contrast/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/wcag-contrast/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/wcag-contrast/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/wcag-contrast/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/wcag-contrast/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/wcag-contrast/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/wcag-contrast/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/wcag-contrast/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/wcag-contrast/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/wcag-contrast/">
+  <meta property="og:locale" content="hi_IN">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/hi/wcag-contrast/#tool",
+        "name": "WCAG contrast Checker",
+        "description": "मुफ़्त WCAG contrast अनुपात जांचकर्ता। foreground और background रंग चुनें, अनुपात (1:1 से 21:1) और WCAG 2.1 AA और AAA के लिए pass/fail निर्णय प्राप्त करें — सामान्य text, बड़े text और UI components के लिए।",
+        "url": "https://toolhub.software/hi/wcag-contrast/",
+        "applicationCategory": "DesignApplication",
+        "applicationSubCategory": "Design Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "hi",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["wcag", "contrast", "accessibility", "a11y", "color", "ratio"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "सभी टूल्स", "item": "https://toolhub.software/hi/"},
+          {"@type": "ListItem", "position": 2, "name": "WCAG contrast Checker", "item": "https://toolhub.software/hi/wcag-contrast/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "यह किसके लिए है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG (Web Content Accessibility Guidelines) text और उसके background के बीच न्यूनतम contrast अनुपात परिभाषित करता है ताकि कम दृष्टि वाले, color-blindness वाले या चमक की स्थितियों में लोग अभी भी इसे पढ़ सकें। यह टूल उस अनुपात की गणना करता है (1:1 = समान, 21:1 = शुद्ध सफ़ेद पर शुद्ध काला) और आपको बताता है कि क्या आपका रंग जोड़ा WCAG 2.1 स्तर AA या AAA पास करता है, सामान्य text, बड़े text और UI components के लिए अलग-अलग। गणित ठीक W3C luminance formula का पालन करता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "कब इस्तेमाल करें",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "यह जांचना कि क्या आपका brand रंग एक सफ़ेद card पर accessibility मानकों को पूरा करता है। एक button text रंग चुनना जो brand-रंग वाले background के विरुद्ध AA पास करता है। शिपिंग से पहले एक design system को token by token audit करना। एक ठोस pass/fail निर्णय के साथ एक stakeholder को रंग-परिवर्तन अनुरोध को सही ठहराना। यह जांचना कि आपके कम contrast वरीयता वाले उपयोगकर्ता वास्तव में क्या देखेंगे।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "थ्रेशोल्ड",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "सामान्य text (18pt / 14pt bold से कम): AA के लिए 4.5:1 , AAA के लिए 7:1 । बड़ा text (≥18pt या ≥14pt bold): AA के लिए 3:1 , AAA के लिए 4.5:1 । UI components & graphics (icons, focus rings, form borders, सूचना देने वाले chart elements): AA के लिए 3:1 (WCAG 2.1 §1.4.11)। कोई AAA स्तर नहीं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "आम गलतियाँ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"बड़ा text\" आपके सोचने से बड़ा है। 18pt मोटे तौर पर 24px है। 14pt bold मोटे तौर पर 19px bold है। 16px पर body copy बड़ा text नहीं है — इसे 4.5:1 thresholdकी आवश्यकता है। एक busy फोटो पर हल्का text fail हो जाएगा। Contrast अनुपात विशिष्ट pixels के बीच होता है — एक dark gradient overlay करें या text को एक नियंत्रित background देने के लिए एक solid panel का उपयोग करें। Anti-aliasing contrast को नरम करता है। 4.5:1 floor है, लक्ष्य नहीं। आरामदायक पठन आमतौर पर 7:1 या बेहतर चाहता है, विशेष रूप से body copy के लिए। Hover और focus states गिने जाते हैं। यदि आपका button rest पर AA पास करता है लेकिन hover पर fail हो जाता है, तो यह एक वास्तविक accessibility bug है। WCAG 2.1 बनाम APCA। WCAG 3 के लिए प्रस्तावित नया APCA (Accessible Perceptual Contrast Algorithm), अलग और यकीनन बेहतर संख्याएं देता है — लेकिन WCAG 2.1 कानूनी मानक है जिसका अधिकांश अधिकार क्षेत्र अभी भी संदर्भ देते हैं। EN 301 549, ADA, या AA-conformance दावों को पूरा करते समय इस टूल की संख्याओं का उपयोग करें। पारदर्शिता के साथ pad न करें। एक ज्ञात background पर 50% alpha foreground का एक अलग प्रभावी contrast होता है — मूल के विरुद्ध नहीं, बल्कि वास्तविक रेंडर किए गए रंग के विरुद्ध गणना करें।"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "WCAG contrast Checker",
+  "description": "दो रंगों के बीच contrast अनुपात जांचें। हर text आकार पर WCAG AA और AAA के लिए pass/fail निर्णय।",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "अपने मान दर्ज करें",
+      "text": "टूल को जो रंग जोड़ी इनपुट चाहिए वे टाइप करें।"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "गणना देखें",
+      "text": "रंग जोड़ी परिणाम तुरंत अपडेट होता है — कोई बटन नहीं चाहिए।"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "परिणाम इस्तेमाल करें या कॉपी करें",
+      "text": "अगर रंग जोड़ी मान कहीं और चाहिए तो कॉपी करें दबाएं।"
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/hi/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">भाषा</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/wcag-contrast/'; else location.href='/wcag-contrast/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" selected="selected">🇮🇳 HI</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / WCAG contrast Checker</div>
+    <h1>WCAG contrast Checker</h1>
+    <p class="tagline">दो रंगों के बीच contrast अनुपात जांचें। हर text आकार पर WCAG AA और AAA के लिए pass/fail निर्णय।</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label>Foreground</label>
+      <div class="wc-row">
+        <input type="color" id="wc-fg-pick" value="#222222" oninput="wcSync('fg', this.value); wcRun()">
+        <input type="text" id="wc-fg-hex" value="#222222" oninput="wcSync('fg-from-hex', this.value); wcRun()" style="font-family:ui-monospace,monospace">
+      </div>
+    </div>
+    <div>
+      <label>Background</label>
+      <div class="wc-row">
+        <input type="color" id="wc-bg-pick" value="#ffffff" oninput="wcSync('bg', this.value); wcRun()">
+        <input type="text" id="wc-bg-hex" value="#ffffff" oninput="wcSync('bg-from-hex', this.value); wcRun()" style="font-family:ui-monospace,monospace">
+      </div>
+    </div>
+  </div>
+  <div class="button-row" style="margin-top:0.6rem">
+    <button class="secondary" onclick="wcSwap()">अदला-बदली</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>परिणाम</label>
+  <div id="wc-preview" class="wc-preview">
+    <div class="wc-sample wc-large">Aa — Large text 24px / 18px bold</div>
+    <div class="wc-sample wc-normal">Aa — Normal text 16px</div>
+    <div class="wc-sample wc-small">Aa — Small text 12px</div>
+  </div>
+  <div id="wc-meta" class="wc-meta"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>यह किसके लिए है?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) text और उसके background के बीच न्यूनतम contrast अनुपात परिभाषित करता है ताकि कम दृष्टि वाले, color-blindness वाले या चमक की स्थितियों में लोग अभी भी इसे पढ़ सकें। यह टूल उस अनुपात की गणना करता है (1:1 = समान, 21:1 = शुद्ध सफ़ेद पर शुद्ध काला) और आपको बताता है कि क्या आपका रंग जोड़ा WCAG 2.1 स्तर AA या AAA पास करता है, सामान्य text, बड़े text और UI components के लिए अलग-अलग। गणित ठीक W3C luminance formula का पालन करता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>यह जांचना कि क्या आपका brand रंग एक सफ़ेद card पर accessibility मानकों को पूरा करता है।</li>
+  <li>एक button text रंग चुनना जो brand-रंग वाले background के विरुद्ध AA पास करता है।</li>
+  <li>शिपिंग से पहले एक design system को token by token audit करना।</li>
+  <li>एक ठोस pass/fail निर्णय के साथ एक stakeholder को रंग-परिवर्तन अनुरोध को सही ठहराना।</li>
+  <li>यह जांचना कि आपके कम contrast वरीयता वाले उपयोगकर्ता वास्तव में क्या देखेंगे।</li>
+</ul>
+
+<h3>थ्रेशोल्ड</h3>
+<ul>
+  <li><strong>सामान्य text</strong> (18pt / 14pt bold से कम): AA के लिए <strong>4.5:1</strong>, AAA के लिए <strong>7:1</strong>।</li>
+  <li><strong>बड़ा text</strong> (≥18pt या ≥14pt bold): AA के लिए <strong>3:1</strong>, AAA के लिए <strong>4.5:1</strong>।</li>
+  <li><strong>UI components &amp; graphics</strong> (icons, focus rings, form borders, सूचना देने वाले chart elements): AA के लिए <strong>3:1</strong> (WCAG 2.1 §1.4.11)। कोई AAA स्तर नहीं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>"बड़ा text" आपके सोचने से बड़ा है।</strong> 18pt मोटे तौर पर 24px है। 14pt bold मोटे तौर पर 19px bold है। 16px पर body copy <em>बड़ा text नहीं</em> है — इसे 4.5:1 thresholdकी आवश्यकता है।</li>
+  <li><strong>एक busy फोटो पर हल्का text fail हो जाएगा।</strong> Contrast अनुपात विशिष्ट pixels के बीच होता है — एक dark gradient overlay करें या text को एक नियंत्रित background देने के लिए एक solid panel का उपयोग करें।</li>
+  <li><strong>Anti-aliasing contrast को नरम करता है।</strong> 4.5:1 floor है, लक्ष्य नहीं। आरामदायक पठन आमतौर पर 7:1 या बेहतर चाहता है, विशेष रूप से body copy के लिए।</li>
+  <li><strong>Hover और focus states गिने जाते हैं।</strong> यदि आपका button rest पर AA पास करता है लेकिन hover पर fail हो जाता है, तो यह एक वास्तविक accessibility bug है।</li>
+  <li><strong>WCAG 2.1 बनाम APCA।</strong> WCAG 3 के लिए प्रस्तावित नया APCA (Accessible Perceptual Contrast Algorithm), अलग और यकीनन बेहतर संख्याएं देता है — लेकिन WCAG 2.1 कानूनी मानक है जिसका अधिकांश अधिकार क्षेत्र अभी भी संदर्भ देते हैं। EN 301 549, ADA, या AA-conformance दावों को पूरा करते समय इस टूल की संख्याओं का उपयोग करें।</li>
+  <li><strong>पारदर्शिता के साथ pad न करें।</strong> एक ज्ञात background पर 50% alpha foreground का एक अलग प्रभावी contrast होता है — मूल के विरुद्ध नहीं, बल्कि वास्तविक रेंडर किए गए रंग के विरुद्ध गणना करें।</li>
+</ul>
+<div class="related"><span class="meta">संबंधित टूल्स:</span> <a href="/hi/color-picker/">Color Picker</a> <a href="/hi/color-converter/">Color Converter</a> <a href="/hi/css-gradient/">CSS Gradient Generator</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/hi/privacy/">गोपनीयता</a> · <a href="/hi/how-we-handle-your-data/">डेटा हैंडलिंग</a> · <a href="/hi/affiliate-disclosure/">Affiliate डिस्क्लोज़र</a> · <a href="/hi/about/">हमारे बारे में</a> · <a href="/hi/contact/">संपर्क</a> · <a href="/hi/for-schools/">स्कूलों के लिए</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.wc-row{display:flex;gap:0.5rem;align-items:center}
+.wc-row input[type=color]{width:48px;height:42px;padding:2px;flex:0 0 auto}
+.wc-row input[type=text]{flex:1}
+.wc-preview{border:1px solid var(--border);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:0.6rem;background:#fff;color:#222}
+.wc-sample{padding:0.5rem 0.75rem;border-radius:4px}
+.wc-large{font-size:1.5rem;font-weight:600}
+.wc-normal{font-size:1rem}
+.wc-small{font-size:0.78rem}
+.wc-meta{margin-top:0.6rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.6rem;font-size:0.9rem}
+.wc-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem}
+.wc-ratio{font-family:ui-monospace,monospace;font-size:1.6rem;font-weight:600;color:var(--accent)}
+.wc-row-result{display:flex;justify-content:space-between;font-size:0.85rem;margin-top:0.25rem}
+.wc-pass{color:#10b981;font-weight:600}
+.wc-fail{color:#ef4444;font-weight:600}
+</style>
+<script>
+function wcHexToRgb(h){
+  h = (h||'').trim().replace(/^#/,'');
+  if(h.length===3) h = h.split('').map(c=>c+c).join('');
+  if(!/^[0-9a-fA-F]{6}$/.test(h)) return null;
+  return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+}
+function wcLum(r,g,b){
+  const lin = c => { c/=255; return c<=0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4) };
+  return 0.2126*lin(r) + 0.7152*lin(g) + 0.0722*lin(b);
+}
+function wcRatio(fg, bg){
+  const L1 = wcLum(...fg), L2 = wcLum(...bg);
+  const hi = Math.max(L1,L2), lo = Math.min(L1,L2);
+  return (hi + 0.05) / (lo + 0.05);
+}
+function wcSync(which, val){
+  if(which==='fg'){ document.getElementById('wc-fg-hex').value = val }
+  else if(which==='bg'){ document.getElementById('wc-bg-hex').value = val }
+  else if(which==='fg-from-hex'){
+    const rgb = wcHexToRgb(val);
+    if(rgb) document.getElementById('wc-fg-pick').value = '#' + rgb.map(x=>x.toString(16).padStart(2,'0')).join('');
+  } else if(which==='bg-from-hex'){
+    const rgb = wcHexToRgb(val);
+    if(rgb) document.getElementById('wc-bg-pick').value = '#' + rgb.map(x=>x.toString(16).padStart(2,'0')).join('');
+  }
+}
+function wcSwap(){
+  const a = document.getElementById('wc-fg-hex').value;
+  const b = document.getElementById('wc-bg-hex').value;
+  document.getElementById('wc-fg-hex').value = b; wcSync('fg-from-hex', b);
+  document.getElementById('wc-bg-hex').value = a; wcSync('bg-from-hex', a);
+  wcRun();
+}
+function wcVerdict(ratio, threshold){
+  return ratio >= threshold ? `<span class="wc-pass">✓ Pass</span>` : `<span class="wc-fail">✗ Fail</span>`;
+}
+function wcRun(){
+  const fg = wcHexToRgb(document.getElementById('wc-fg-hex').value);
+  const bg = wcHexToRgb(document.getElementById('wc-bg-hex').value);
+  const meta = document.getElementById('wc-meta');
+  const preview = document.getElementById('wc-preview');
+  if(!fg || !bg){ meta.innerHTML = '<div class="wc-card">Enter valid hex colors above.</div>'; return; }
+  const fgHex = '#' + fg.map(x=>x.toString(16).padStart(2,'0')).join('');
+  const bgHex = '#' + bg.map(x=>x.toString(16).padStart(2,'0')).join('');
+  preview.style.background = bgHex;
+  preview.style.color = fgHex;
+  const r = wcRatio(fg, bg);
+  meta.innerHTML = `
+    <div class="wc-card"><div class="wc-ratio">${r.toFixed(2)}:1</div><div class="meta">Contrast ratio (1:1 to 21:1)</div></div>
+    <div class="wc-card">
+      <div><strong>Normal text</strong> (≥4.5 AA · ≥7 AAA)</div>
+      <div class="wc-row-result"><span>AA</span>${wcVerdict(r, 4.5)}</div>
+      <div class="wc-row-result"><span>AAA</span>${wcVerdict(r, 7.0)}</div>
+    </div>
+    <div class="wc-card">
+      <div><strong>Large text</strong> (≥3 AA · ≥4.5 AAA)</div>
+      <div class="wc-row-result"><span>AA</span>${wcVerdict(r, 3.0)}</div>
+      <div class="wc-row-result"><span>AAA</span>${wcVerdict(r, 4.5)}</div>
+    </div>
+    <div class="wc-card">
+      <div><strong>UI components</strong> (≥3 AA — WCAG 1.4.11)</div>
+      <div class="wc-row-result"><span>AA</span>${wcVerdict(r, 3.0)}</div>
+    </div>
+  `;
+}
+document.addEventListener('DOMContentLoaded', wcRun);
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+</body>
+</html>

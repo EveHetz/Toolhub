@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Query String Builder", "tagline": "key/value satırları ekle; doğru URL-encoded query string çıkar. Dizi (a[]=1) ve braket'siz tekrarlayan anahtarları destekler.", "description": "Ücretsiz online query string builder. key/value çiftleri satırları ekle ve düzgün percent-encoded ?a=1&b=hello%20world string çıkar, opsiyonel dizi braket notasyonu ile. Tamamen tarayıcında çalışır."},
         "id": {"name": "Query String Builder", "tagline": "Tambahkan baris key/value; dapatkan output query string yang di-URL-encode dengan benar. Mendukung array (a[]=1) dan kunci berulang tanpa kurung.", "description": "Query string builder gratis. Tambahkan key/value secara visual dan dapatkan query string yang di-URL-encode dengan benar. Mendukung notasi array (a[]=1) atau kunci berulang sederhana. Sempurna untuk testing API."},
         "vi": {"name": "Trình xây dựng Query String", "tagline": "Thêm dòng key/value; nhận query string được URL-encode đúng cách. Hỗ trợ mảng (a[]=1) và key lặp lại không có dấu ngoặc.", "description": "Trình xây dựng query string miễn phí trực tuyến. Soạn URL parameter cặp key/value, với encoding chính xác cho ký tự đặc biệt và hỗ trợ ký hiệu mảng (a[]=1) cũng như key lặp lại không có dấu ngoặc."},
+        "hi": {"name": "Query String Builder", "tagline": "key/value rows जोड़ें; एक सही URL-encoded query string प्राप्त करें। Array (a[]=1) और bracket-less repeated keys का समर्थन।", "description": "मुफ़्त ऑनलाइन query string builder। key/value pairs की rows जोड़ें और एक उचित percent-encoded ?a=1&b=hello%20world string पाएं, वैकल्पिक array bracket notation के साथ। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -401,6 +402,29 @@ document.addEventListener('DOMContentLoaded', () => { qsRender(); qsBuild(); });
   <li><strong>Convention mảng khác nhau.</strong> <code>tags=a&amp;tags=b</code> vs <code>tags[]=a&amp;tags[]=b</code> vs <code>tags=a,b</code>. Express/Node, Rails và Python dùng convention khác — đảm bảo khớp với backend.</li>
   <li><strong>Encoding URL kỹ chứ đừng quá kỹ.</strong> Encode <code>=</code> và <code>&amp;</code> trong giá trị (chúng có ý nghĩa cú pháp), nhưng <code>+</code> và space tinh tế — <code>+</code> ánh xạ thành space khi decode. Dùng <code>%20</code> cho space để rõ ràng.</li>
   <li><strong>Đừng PII trong query string.</strong> Query string bị log bởi web server, cached bởi proxy, và xuất hiện trong analytics. Không phải nơi cho mật khẩu hay token.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक query string बस key/value pairs की एक list है जो <code>?</code>, <code>=</code>, और <code>&amp;</code> के साथ जुड़ी होती है, पर इसे हाथ से सही ढंग से लिखना झंझट है: spaces <code>%20</code> बन जाते हैं (या <code>+</code>, स्थिति के अनुसार), हर value percent-encoded होती है, और arrays में कम से कम तीन प्रतिस्पर्धी conventions हैं। यह tool आपको चाहते keys और values type करने देता है, जिन्हें आप दोहराना चाहते हैं उनके लिए "multi" tick करने देता है, और सही ढंग से encoded string बनाता है जो <code>?</code> के बाद paste करने को तैयार होता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक API URL बनाना जिसमें कई parameters हैं जिनमें spaces, accents, या विराम चिह्न शामिल हैं।</li>
+  <li>Encoded values में typos के बिना एक tracking link (UTM tags) बनाना।</li>
+  <li>एक deep link या share URL बनाना जिसे email, chat, या social के माध्यम से round-trip करना है।</li>
+  <li>एक API के लिए सही array notation की पुष्टि करना — <code>a[]=1</code>, <code>a=1&amp;a=2</code>, या <code>a=1,2</code> — हर एक को आज़माकर।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Array conventions standardized नहीं हैं।</strong> PHP और Rails <code>a[]=1&amp;a[]=2</code> का उपयोग करते हैं; Python के <code>requests</code> default में <code>a=1&amp;a=2</code> दोहराते हैं; ASP.NET अक्सर commas का उपयोग करता है। अपने API की अपेक्षा से मिलाएं।</li>
+  <li><strong><code>+</code> vs <code>%20</code>।</strong> <code>application/x-www-form-urlencoded</code> spaces के लिए <code>+</code> का उपयोग करता है; URI query strings कठोरता से <code>%20</code> का उपयोग करते हैं। अधिकांश servers दोनों स्वीकार करते हैं, पर कुछ नहीं — वह चुनें जो आपका API document करता है।</li>
+  <li><strong>Empty values missing keys से अलग हैं।</strong> <code>?a=</code> का अर्थ है "a empty string है"; <code>a</code> को छोड़ने का अर्थ है "कोई value प्रदान नहीं की गई"। कुछ APIs इन्हें अलग तरह से treat करते हैं।</li>
+  <li><strong>Reserved-character interplay।</strong> values के अंदर <code>=</code>, <code>&amp;</code>, <code>#</code>, <code>?</code> encoded होते हैं; keys/values में literal versions parameter या पूरी query को terminate कर देंगे।</li>
+  <li><strong>क्रम मायने रख सकता है।</strong> कुछ signed-URL schemes (S3, Stripe webhooks, OAuth 1.0) signing से पहले एक विशिष्ट क्रम में parameters की मांग करते हैं। Tool आपकी row order संरक्षित करता है।</li>
+  <li><strong>Length limits।</strong> Browsers और servers query-string length को 2–8 KB के आसपास cap करते हैं। एक query parameter में JSON भरना एक smell है।</li>
+  <li><strong>Query string में secrets न डालें।</strong> वे server logs, browser history, और Referer headers में दिखते हैं। इसके बजाय request body या Authorization header का उपयोग करें।</li>
 </ul>
 """,
     },

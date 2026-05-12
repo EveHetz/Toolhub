@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Unicode İnceleyici", "tagline": "Metni yapıştır → her code point için tablo. Hex, ondalık, UTF-8 byte, kategori. Görünmez karakterleri yakala.", "description": "Ücretsiz Unicode inceleyici. Herhangi bir metni yapıştır ve her Unicode code point'ini gör: hex, ondalık, UTF-8 byte dizisi, genel kategori ve bilinen yerlerde ad. Görünmez ve karıştırılabilir karakterleri vurgular."},
         "id": {"name": "Inspector Unicode", "tagline": "Tempel teks → tabel per code point. Hex, desimal, byte UTF-8, kategori. Tangkap karakter tak terlihat.", "description": "Inspector Unicode gratis. Tempel teks apa pun dan lihat tabel setiap code point dengan hex, desimal, byte UTF-8, dan kategori Unicode. Tangkap karakter tak terlihat seperti zero-width joiner dan non-breaking space."},
         "vi": {"name": "Trình kiểm tra Unicode", "tagline": "Dán văn bản → bảng theo code point. Hex, decimal, byte UTF-8, danh mục. Bắt các ký tự vô hình.", "description": "Trình kiểm tra Unicode miễn phí trực tuyến. Dán bất kỳ chuỗi nào và xem mỗi code point trong bảng với hex, decimal, byte UTF-8 và danh mục Unicode. Hữu ích để bắt các ký tự ẩn hoặc trông giống nhau."},
+        "hi": {"name": "Unicode Inspector", "tagline": "टेक्स्ट पेस्ट करें → हर codepoint की तालिका। Hex, decimal, UTF-8 bytes, श्रेणी। अदृश्य अक्षरों को पहचानें।", "description": "मुफ़्त ऑनलाइन Unicode inspector। कोई भी टेक्स्ट पेस्ट करें और हर Unicode codepoint देखें: hex, decimal, UTF-8 byte क्रम, सामान्य श्रेणी और ज्ञात होने पर नाम। अदृश्य और भ्रमित करने वाले अक्षरों को हाइलाइट करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -501,6 +502,38 @@ document.addEventListener('DOMContentLoaded', uiRun);
   <li><strong>Glyph vs code point.</strong> Một glyph hiển thị có thể là nhiều code point (chữ tiếng Việt với dấu, emoji family). Tool này hiển thị code point.</li>
   <li><strong>Encoding khác.</strong> UTF-8 thay đổi từ 1 đến 4 byte; UTF-16 thay đổi từ 2 đến 4 byte; UTF-32 luôn 4 byte. Tool này hiển thị byte UTF-8.</li>
   <li><strong>Normalization quan trọng.</strong> NFC vs NFD: cùng chữ có thể được lưu trữ dưới dạng một code point hoặc một chuỗi code point cơ sở + combining. Normalize cả hai trước khi so sánh.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>"यह string equal क्यों नहीं compare कर रही?" "यह username पहले से लिया हुआ क्यों दिखाया जा रहा है जबकि यह free लगता है?" "यह filename मेरे shell को क्यों तोड़ रही है?" उत्तर लगभग हमेशा यही होता है: bytes वो नहीं हैं जो आपकी आँखें देखती हैं। दो अक्षर <em>एक जैसे दिख सकते हैं</em> लेकिन अलग codepoint हो सकते हैं (Latin "a" बनाम Cyrillic "а"); whitespace में non-breaking space, zero-width joiner, या right-to-left override छिपे हो सकते हैं; एक emoji एक codepoint भी हो सकता है या चार। यह टूल किसी भी टेक्स्ट को उसके अलग-अलग Unicode codepoints में विघटित कर देता है, साथ में hex, decimal, UTF-8 byte क्रम, श्रेणी और ज्ञात होने पर नाम।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>"दिखता एक जैसा है लेकिन equal नहीं है" वाली string बग को पहचानना।</li>
+  <li>copy-paste किए गए टेक्स्ट में छिपे अदृश्य अक्षर (zero-width space, BOM, RTL override) ढूंढना।</li>
+  <li>एक fixed-width column में स्टोर करने से पहले bytes बनाम codepoints बनाम UTF-16 code unit गिनना।</li>
+  <li>यह देखने के लिए emoji की जांच करना कि वह कौन सा ZWJ क्रम उपयोग करता है।</li>
+  <li>domain names या usernames में homoglyph attacks पकड़ना।</li>
+  <li>एक hex dump के लिए सटीक UTF-8 byte क्रम बनाना।</li>
+</ul>
+
+<h3>आउटपुट पढ़ना</h3>
+<ul>
+  <li><strong>Code point</strong> — अमूर्त Unicode मान, <code>U+XXXX</code> के रूप में लिखा जाता है। इसमें 1.1 मिलियन हैं; उपयोग में सबसे ऊपर U+10FFFF है।</li>
+  <li><strong>UTF-8</strong> — आधुनिक फ़ाइलों में वह codepoint कैसे bytes के रूप में encode होता है (प्रत्येक 1–4 bytes)।</li>
+  <li><strong>UTF-16 code units</strong> — JavaScript strings (<code>s.length</code>) और Java strings क्या गिनती हैं। U+FFFF से ऊपर का एक codepoint (अधिकांश emoji) <em>दो</em> UTF-16 unit लेता है (surrogate pair)।</li>
+  <li><strong>श्रेणी</strong> — Unicode का सामान्य श्रेणी संक्षिप्त रूप: L=letter, N=number, P=punctuation, S=symbol, Z=separator, C=control/format/private।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>लंबाई अस्पष्ट है।</strong> "👨‍👩‍👧" में 1 grapheme cluster, 5 codepoints, 11 UTF-16 units और 18 UTF-8 bytes हैं — सभी "लंबाइयां" जो कुछ रिपोर्ट कर सकता है।</li>
+  <li><strong>Zero-width joiner क्रम बनाम sequence selectors।</strong> कई emoji ZWJ क्रम हैं: family, profession, skin-tone variants। एक ZWJ को पुनः व्यवस्थित करना या हटाना बदल देता है कि क्या render होगा।</li>
+  <li><strong>Normalisation मायने रखता है।</strong> "café" e+◌́ (NFD) हो सकता है या é (NFC)। ये एक जैसे दिखते हैं लेकिन bytes अलग हैं; databases और comparison code को एक ही form में normalise करना चाहिए।</li>
+  <li><strong>Right-to-left override खतरनाक हैं।</strong> U+202E वाला filename अपनी display order पलट सकता है — जिससे <code>resu&#x202E;txt.exe</code> एक file browser में <code>resuexe.txt</code> जैसा दिखता है। phishing में इस्तेमाल किया जाता है।</li>
+  <li><strong>नाम column आंशिक है।</strong> एक वास्तविक Unicode database में हर codepoint के नाम होते हैं; inspector केवल control characters और सामान्य format/whitespace characters के नाम भेजता है जहां नाम सबसे उपयोगी निदान होता है।</li>
+  <li><strong>Surrogate halves अकेले प्रकट नहीं होने चाहिए।</strong> यदि आप आउटपुट में U+D800–U+DFFF देखते हैं, तो input एक malformed UTF-16 string है (lone surrogate)। अधिकांश API उसे UTF-8 में encode करने से मना कर देंगे।</li>
 </ul>
 """,
     },

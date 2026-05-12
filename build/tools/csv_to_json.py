@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "CSV'den JSON'a", "tagline": "CSV verisini JSON dizilerine dönüştür. Başlık tespiti, özel sınırlayıcılar, tırnaklı alanlar ve gömülü satır sonları işlenir.", "description": "Ücretsiz online CSV'den JSON'a dönüştürücü. Başlıkları otomatik tespit eder, özel sınırlayıcıları ve tırnaklı çok satırlı alanları destekler. Tarayıcıda çalışır."},
         "id": {"name": "CSV ke JSON", "tagline": "Konversi data CSV ke array JSON. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip.", "description": "Konverter CSV ke JSON gratis. Tempel CSV apa pun dan dapatkan array JSON dari objek. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip. Berjalan di browser-mu."},
         "vi": {"name": "CSV sang JSON", "tagline": "Chuyển dữ liệu CSV thành mảng JSON. Xử lý phát hiện header, delimiter tùy chỉnh, trường được quote và newline lồng nhau.", "description": "Bộ chuyển CSV sang JSON miễn phí trực tuyến. Phát hiện header tự động, hỗ trợ delimiter tùy chỉnh, trường được quote và newline trong giá trị. Toàn bộ chuyển đổi chạy cục bộ."},
+        "hi": {"name": "CSV से JSON", "tagline": "CSV डेटा को JSON arrays में बदलें। Header detection, custom delimiters, quoted fields और embedded newlines संभाले जाते हैं।", "description": "मुफ़्त ऑनलाइन CSV से JSON converter। Headers को auto-detect करता है, custom delimiters और quoted multi-line fields को support करता है। आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -265,6 +266,25 @@ document.addEventListener('DOMContentLoaded', cjRun);
   <li><strong>Field được quote có thể chứa newline.</strong> Một CSV well-formed quote các field chứa dấu phẩy hoặc newline. Đảm bảo parser hiểu điều đó — đừng split chỉ trên newline.</li>
   <li><strong>Encoding nhập nhằng.</strong> File CSV có thể là UTF-8, Latin-1, Windows-1252, hoặc thậm chí UTF-16. Nếu ký tự đặc biệt trông xấu xí, encoding sai. Convert sang UTF-8 trước khi parse.</li>
   <li><strong>Number trông giống chuỗi.</strong> CSV không có kiểu — mọi thứ là văn bản. Tool có thể auto-detect số, nhưng kiểm tra xem ID dài (snowflake, mã sản phẩm có 0 ở đầu) có bị hỏng không.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>CSV spreadsheet exports की lingua franca है; JSON APIs और config की lingua franca है। यह converter properly-quoted CSV (RFC 4180-compatible) लेता है और JSON array निकालता है — या तो objects का array (जब header row हो) या arrays का array। उपयोगी जब आपने sheet export किया है और इसे किसी ऐसी चीज़ में feed करना है जो JSON बोलती है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Google Sheets / Excel के एक बार के export को API mock या test fixture के लिए seed data में बदलना।</li>
+  <li>Reference tables (देश, currency codes, lookup data) को JSON-consuming frontend में load करना।</li>
+  <li>एक CSV को inspect करना जिसमें embedded commas / newlines हों जो हर जगह गलत render होते हैं सिवाय असली RFC 4180 parser के।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Delimiter detection जादू नहीं है।</strong> यदि आपकी file semicolons (EU locales में आम) या tabs (TSV) उपयोग करती है, तो delimiter dropdown switch करें — auto-detection अनुमान लगाता है लेकिन गलत character वाले data से बेवकूफ बनाया जा सकता है।</li>
+  <li><strong>Type coercion opinionated है।</strong> Numeric strings, <code>true</code>, <code>false</code>, और literal <code>null</code> JSON types में convert होते हैं। जो चीज़ें numeric दिखती हैं लेकिन हैं नहीं (zip codes, leading zeros वाले ISBNs, phone numbers) leading zeros खो देती हैं — coercion disable करें या post-process करें।</li>
+  <li><strong>खाली cells empty strings बन जाती हैं, <code>null</code> नहीं।</strong> अधिकांश APIs दोनों को अलग तरह से treat करते हैं।</li>
+  <li><strong>जंगली में BOMs।</strong> Excel अक्सर Windows पर UTF-8 को byte-order mark के साथ save करता है; parser इसे tolerate करता है लेकिन अन्य consumers शायद न करें।</li>
 </ul>
 """,
     },

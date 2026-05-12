@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "E-posta Doğrulayıcı", "tagline": "Bir e-posta adresinin sözdizimsel olarak geçerli olup olmadığını kontrol et (RFC 5322 uyumlu); local part, domain ve yaygın hataları ayrıştırır.", "description": "Ücretsiz online e-posta doğrulayıcı. RFC 5322 uyumlu sözdizimi kontrolü, local-part ve domain analizi, geçici domain ipucu ve uzunluk doğrulaması."},
         "id": {"name": "Validator Email", "tagline": "Cek apakah alamat email valid secara sintaks (RFC 5322-compliant); mengurai local part, domain, dan kesalahan umum.", "description": "Validator email gratis. Cek apakah alamat email valid secara sintaks per RFC 5322 dan urai local part, domain, dan TLD. Menandai typo umum (gmial.com, gmal.com) dan domain yang kemungkinan typo."},
         "vi": {"name": "Xác thực Email", "tagline": "Kiểm tra xem một địa chỉ email có hợp lệ về cú pháp không (tuân thủ RFC 5322); phân tích phần local, domain và các lỗi thường gặp.", "description": "Trình xác thực email miễn phí trực tuyến. Kiểm tra xem một địa chỉ có cú pháp hợp lệ theo RFC 5322 không, tách phần local và domain, và đánh dấu các vấn đề thường gặp như khoảng trắng, ký tự không hợp lệ hoặc TLD bị thiếu."},
+        "hi": {"name": "Email Validator", "tagline": "जांचें कि एक email address syntactically valid है या नहीं (RFC 5322 friendly), local part, domain और सामान्य pitfalls के breakdown के साथ।", "description": "मुफ़्त ऑनलाइन email validator। RFC 5322-aware syntax check, local-part और domain analysis, disposable-domain hint, और length verification।"},
     },
     "body": """
 <div class="tool-card">
@@ -277,6 +278,27 @@ document.addEventListener('DOMContentLoaded', evRun);
   <li><strong>Quote và escape trong phần local thực sự hợp lệ.</strong> <code>"john.doe"@example.com</code> theo kỹ thuật là hợp lệ. Trong thực tế, hầu hết các dịch vụ không chấp nhận chúng.</li>
   <li><strong>Tên miền IDN.</strong> <code>user@münchen.de</code> hợp lệ — nhưng nhiều validator regex cổ điển từ chối nó. Tool này chấp nhận chúng.</li>
   <li><strong>Đừng over-validate.</strong> Form đăng ký nên chấp nhận rộng rãi (thậm chí có rủi ro chấp nhận một số địa chỉ không gửi được) — gửi email xác minh, sau đó dọn các địa chỉ không phản hồi.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>अधिकांश "email validators" एक one-line regex हैं जो <code>not@an.email</code> को approve करते हैं और <code>edge@case.io</code> को reject करते हैं। यह tool वे structural checks चलाता है जिनकी RFC 5321 / 5322 वास्तव में आवश्यकता है — local part charset, dot rules, label lengths, TLD shape, hard length limits — साथ ही एक disposable-domain hint। यह आपको बताता है कि एक address <em>well-formed</em> है या नहीं; यह आपको नहीं बताता कि mailbox मौजूद है या नहीं (इसके लिए server-side MX/SMTP probe चाहिए)।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक paid validation API या mass-mailer में feed करने से पहले email addresses की list को pre-flight करना (typos मुफ्त में पकड़ता है, credits बचाता है)।</li>
+  <li>एक signup form बनाना जो field level पर स्पष्ट कचरे को reject करता है।</li>
+  <li>Import करने से पहले typos खोजने के लिए contacts के CSV का audit करना।</li>
+  <li>जांचना कि क्या एक address जो "अजीब दिखता है" (international TLD, plus-addressing, sub-addressing) वास्तव में allowed है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Syntactically valid ≠ deliverable।</strong> <code>does-not-exist@gmail.com</code> हर structural check pass करता है। वास्तविक verification को MX server की response की आवश्यकता है। इसे first-line filter के रूप में उपयोग करें, confidence signal के रूप में नहीं।</li>
+  <li><strong>Plus addressing allowed है।</strong> <code>name+tag@gmail.com</code> valid है और <code>name@gmail.com</code> पर route करता है — इसे strip न करें; यह एक feature है।</li>
+  <li><strong>Internationalised email (IDN)।</strong> <code>用户@例.中国</code> technically RFC 6530 के अनुसार valid है लेकिन SMTP servers द्वारा अभी broadly supported नहीं है। यह tool conservative ASCII rules का पालन करता है; यदि आपको वास्तव में IDN चाहिए तो loosen करें।</li>
+  <li><strong>Disposable-domain detection केवल hint है।</strong> List आवश्यक रूप से अधूरी है और कोई भी flagged domain अभी भी एक वास्तविक user हो सकता है।</li>
+  <li><strong>Case differences को reject न करें।</strong> RFC 5321 के अनुसार local parts technically case-sensitive हैं; practice में हर modern provider उन्हें case-insensitive treat करता है। Storage में lowercase न करें।</li>
 </ul>
 """,
     },

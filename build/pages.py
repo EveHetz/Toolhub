@@ -271,6 +271,25 @@ PAGES = {
                     h_no_ai="Không xài rác AI",
                 ),
             },
+            "hi": {
+                "title": "Toolhub के बारे में",
+                "h1": "Toolhub के बारे में",
+                "description": "Toolhub एक छोटी, ट्रैकिंग-मुक्त utility साइट है जिसे एक ही व्यक्ति ने बनाया है। मुफ़्त developer tools जो पूरी तरह आपके browser में चलते हैं — साइनअप नहीं, ट्रैकिंग नहीं, डेटा संग्रह नहीं।",
+                "body": _about_body(
+                    intro_what="Toolhub मुफ़्त developer और रोज़मर्रा के utility tools का संग्रह है जो पूरी तरह आपके browser में चलते हैं। कोई साइनअप नहीं, कोई अकाउंट नहीं, कोई ट्रैकिंग नहीं, कोई server-side processing नहीं। अपना डेटा paste कीजिए, परिणाम पाइए, tab बंद कीजिए — कुछ भी संग्रहित या प्रसारित नहीं होता।",
+                    intro_why="ज़्यादातर online utility साइटें या तो विज्ञापनों से भरी parking pages होती हैं, या आपके क्लिक करने से पहले ही आपका डेटा चौदह third-party trackers से गुज़ार देती हैं। Toolhub इसका विकल्प है: एक page, एक tool, locally चलता है, आपको शांति से रहने देता है।",
+                    intro_who=f'JXXR1, स्वतंत्र maintainer। कोई कंपनी नहीं, कोई funding round नहीं, कोई investor नहीं। Toolhub एक side project के रूप में शुरू हुआ — एक निजी ज़रूरत पूरी करने के लिए, एक page जो एक tool को अच्छे से करे — और वहीं से बढ़ा। संपर्क <a href="{REPO_URL}">GitHub</a> के ज़रिए।',
+                    intro_how="यह साइट GitHub Pages पर hosted static HTML है। हर tool आपके browser में JavaScript के रूप में चलता है — कोई API call नहीं, कोई server-side compute नहीं, कोई डेटा आपके device से बाहर नहीं जाता जब तक स्पष्ट रूप से न बताया जाए (उदाहरण के लिए YouTube Thumbnail tool YouTube के CDN से एक image fetch करता है; बाकी सब पूरी तरह locally है)।",
+                    intro_oss=f'पूरा source code <a href="{REPO_URL}">{REPO_URL}</a> पर है। योगदान, bug reports और tool के सुझाव GitHub Issues के माध्यम से स्वागत हैं।',
+                    intro_no_ai="Tool help blocks और अनुवाद यथासंभव मनुष्यों द्वारा जाँचे गए हैं, LLM से paste किए हुए नहीं। अगर आपको कोई अनुवाद robotic या ग़लत लगे, तो एक issue खोलिए — यह आसान सुधार है और ऐसा योगदान है जो साइट को सबके लिए बेहतर बनाता है।",
+                    h_what="Toolhub क्या है",
+                    h_why="क्यों",
+                    h_who="कौन",
+                    h_how="यह कैसे काम करता है",
+                    h_oss="Open source",
+                    h_no_ai="कोई AI कूड़ा नहीं",
+                ),
+            },
         },
     },
 
@@ -504,6 +523,25 @@ PAGES = {
 
 <h2>Thời gian phản hồi</h2>
 <p>Tôi cố gắng đọc mọi thứ trong vòng một tuần, nhưng Toolhub được xây dựng và bảo trì vào thời gian rảnh ngoài công việc chính. Nếu có gì khẩn cấp (ví dụ bảo mật), hãy ghi vào dòng chủ đề.</p>
+""".strip(),
+            },
+            "hi": {
+                "title": "संपर्क",
+                "h1": "संपर्क",
+                "description": "Bug रिपोर्ट, feature अनुरोध और tool के सुझावों के लिए GitHub Issues के ज़रिए Toolhub maintainer से संपर्क करें, या बाक़ी सब के लिए email द्वारा।",
+                "body": f"""
+<p>Toolhub एक-व्यक्ति का side project है। Best-effort जवाब का समय, कोई व्यावसायिक support नहीं। यहाँ कोई संपर्क फ़ॉर्म नहीं है — इस साइट का जानबूझकर कोई backend नहीं है।</p>
+
+<h2>GitHub Issues</h2>
+<p>Bug रिपोर्ट, feature अनुरोध, अनुवाद सुधार और नए tool के सुझावों के लिए कृपया एक issue खोलें:</p>
+<p><a href="{REPO_ISSUES}">{REPO_ISSUES}</a></p>
+<p>GitHub Issues को प्राथमिकता दी जाती है क्योंकि इससे चर्चा को एक स्थायी URL मिलता है जिसे बाद में वही प्रश्न रखने वाले अन्य लोग खोज सकते हैं।</p>
+
+<h2>Email</h2>
+<p>जो विषय GitHub Issues में फ़िट नहीं होते — प्रेस, साझेदारी, security disclosure, takedown अनुरोध — उनके लिए <code>{CONTACT_EMAIL}</code> पर email भेजें।</p>
+
+<h2>जवाब का समय</h2>
+<p>मैं एक हफ़्ते के भीतर सब कुछ पढ़ने की कोशिश करता हूँ, पर Toolhub को मुख्य नौकरी के साथ-साथ खाली समय में बनाया और बनाए रखा जाता है। अगर कुछ ज़रूरी है (जैसे security), तो subject line में यह लिख दीजिए।</p>
 """.strip(),
             },
         },
@@ -1107,6 +1145,59 @@ PAGES = {
 <p>Nếu bạn dùng Toolhub trong lớp và muốn cho biết, đề xuất công cụ cho môn học của bạn, hoặc đóng góp bản dịch cho ngôn ngữ mà chúng tôi vẫn chưa cover tốt — hãy liên hệ qua <a href="/vi/contact/">trang liên hệ</a>. Đóng góp dịch hàng loạt từ người bản xứ — đặc biệt cho các ngôn ngữ ít được phục vụ — được hoan nghênh.</p>
 """.strip(),
             },
+            "hi": {
+                "title": "स्कूलों के लिए Toolhub",
+                "h1": "स्कूलों के लिए Toolhub",
+                "description": "कक्षा के लिए privacy-first developer और utility tools। साइनअप नहीं, ट्रैकिंग नहीं, बहुभाषी, self-hostable। Filter-friendly और छात्रों के साथ साझा करने के लिए सुरक्षित।",
+                "body": f"""
+<h2>कक्षा में Toolhub</h2>
+<p>Toolhub छोटे in-browser tools का एक सेट है जिसका छात्र बिना अकाउंट बनाए, बिना ट्रैक हुए, और बिना विज्ञापन या affiliate funnels पर redirect हुए उपयोग कर सकते हैं। हर tool पूरी तरह browser में चलता है, जिसका मतलब है छात्र का input कभी स्कूल network से बाहर नहीं जाता — कोई backend है ही नहीं जिसे call किया जा सके।</p>
+<p>अगर आप प्राथमिक, माध्यमिक या उच्च शिक्षा में पढ़ाते हैं और एक त्वरित utility चाहिए (regex tester, color converter, Base64 encoder, security पाठ के लिए password generator), तो Toolhub इस तरह बना है कि इसे projector पर दिखाना और कक्षा के साथ साझा करना सुरक्षित है।</p>
+
+<h2>पाठ्यक्रम से जुड़ाव</h2>
+<ul>
+<li><strong>Computer science:</strong> pattern matching के लिए <a href="/hi/regex-tester/">regex tester</a>, डेटा के पाठों के लिए <a href="/hi/base64-encoder/">Base64 encoder</a>, integrity की बात के लिए <a href="/hi/hash-generator/">hash generator</a>, networking इकाइयों के लिए <a href="/hi/cidr-calculator/">CIDR calculator</a>।</li>
+<li><strong>Design और digital media:</strong> color models पर चर्चा के लिए <a href="/hi/color-converter/">color converter</a> और <a href="/hi/color-picker/">color picker</a>, accessibility के लिए <a href="/hi/wcag-contrast/">WCAG contrast checker</a>।</li>
+<li><strong>Security awareness:</strong> entropy और password मज़बूती की चर्चा के लिए <a href="/hi/password-generator/">password generator</a>, token के अंदर वास्तव में क्या है यह दिखाने के लिए <a href="/hi/jwt-decoder/">JWT decoder</a>।</li>
+<li><strong>गणित और स्वास्थ्य:</strong> <a href="/hi/percentage-calculator/">percentage calculator</a>, <a href="/hi/unit-converter/">unit converter</a>, और <a href="/hi/bmi-calculator/">BMI calculator</a> (BMI page पर "यह चिकित्सीय सलाह नहीं है" का अपना notice है)।</li>
+</ul>
+
+<h2>समर्थित भाषाएँ</h2>
+<p>हर tool तेरह भाषाओं में अनुवादित है ताकि छात्र अपनी मातृभाषा में काम कर सकें:</p>
+<ul>
+<li>English (अंग्रेज़ी)</li>
+<li>Deutsch (जर्मन)</li>
+<li>Español (स्पैनिश)</li>
+<li>Français (फ़्रेंच)</li>
+<li>Italiano (इतालवी)</li>
+<li>Português (पुर्तगाली)</li>
+<li>Polski (पोलिश)</li>
+<li>日本語 (जापानी)</li>
+<li>Nederlands (डच)</li>
+<li>Türkçe (तुर्की)</li>
+<li>Bahasa Indonesia (इंडोनेशियाई)</li>
+<li>Tiếng Việt (वियतनामी)</li>
+<li>हिन्दी (Hindi)</li>
+</ul>
+
+<h2>Self-hosted विकल्प</h2>
+<p>अगर आपका स्कूल network बाहरी साइटों को block करता है या आप पूरा नियंत्रण चाहते हैं, तो पूरी साइट लगभग 5 MB की है और Progressive Web App के रूप में offline काम करती है। आप इसे स्कूल intranet पर mirror कर सकते हैं — यह HTML, CSS और JavaScript का एक static folder है, serve करने के लिए कोई build step ज़रूरी नहीं: बस फ़ाइलों को किसी भी web server के पीछे रख दीजिए।</p>
+<p>पूरा source code <a href="{REPO_URL}">{REPO_URL}</a> पर है।</p>
+
+<h2>Filter-friendly</h2>
+<p>Toolhub को इस तरह design किया गया है कि वह स्कूल के web filters के साथ अच्छी तरह काम करे:</p>
+<ul>
+<li>कोई embedded social media widget नहीं।</li>
+<li>कोई chat widget या live-chat overlay नहीं।</li>
+<li>अन्य साइटों पर कोई auto-redirect नहीं।</li>
+<li>कोई video या audio जो अपने आप चले।</li>
+<li>SafeSearch-friendly सामग्री — कोई adult tools नहीं, कोई जुआ नहीं, कोई crypto affiliate placement नहीं।</li>
+</ul>
+
+<h2>शिक्षकों के लिए संपर्क</h2>
+<p>अगर आप कक्षा में Toolhub का उपयोग कर रहे हैं और मुझे बताना चाहते हैं, अपने विषय के लिए कोई tool सुझाना चाहते हैं, या किसी ऐसी भाषा के लिए अनुवाद में योगदान देना चाहते हैं जिसे हम अभी तक अच्छी तरह cover नहीं कर पाए — कृपया <a href="/hi/contact/">संपर्क page</a> के माध्यम से संपर्क करें। मूल वक्ताओं से बड़े पैमाने पर अनुवाद योगदान — विशेष रूप से कम सेवा वाली भाषाओं के लिए — बहुत स्वागत है।</p>
+""".strip(),
+            },
         },
     },
 
@@ -1592,6 +1683,46 @@ PAGES = {
 
 <h2>Liên hệ</h2>
 <p>Câu hỏi về chính sách này? Liên hệ qua <a href="/vi/contact/">trang liên hệ</a> hoặc mở issue ở <a href="{REPO_URL}">{REPO_URL}</a>.</p>
+""".strip(),
+            },
+            "hi": {
+                "title": "गोपनीयता नीति",
+                "h1": "गोपनीयता नीति",
+                "description": "Toolhub गोपनीयता नीति: tools पूरी तरह आपके browser में चलते हैं, साइनअप नहीं, अकाउंट नहीं, कोई tool डेटा आपके device से बाहर नहीं जाता। समग्र analytics के लिए Plausible, स्पष्ट सहमति पर ही AdSense।",
+                "body": f"""
+<p><strong>अंतिम बार अद्यतन:</strong> {LAST_UPDATED}</p>
+
+<h2>संक्षिप्त संस्करण</h2>
+<p>Tools पूरी तरह आपके browser में चलते हैं — आप उनमें जो भी टाइप करते हैं वह कहीं नहीं भेजा जाता। हम <a href="https://plausible.io/data-policy" rel="noopener">Plausible Analytics</a> के साथ समग्र, अनाम विज़िट गिनते हैं (cookies नहीं)। अगर आप opt-in करना चुनते हैं, तो हम Google AdSense के माध्यम से display विज्ञापन भी दिखा सकते हैं, जो cookies का उपयोग करता है। आप consent banner पर विज्ञापन अस्वीकार कर सकते हैं; बाकी साइट दोनों ही स्थितियों में समान रूप से काम करती है।</p>
+
+<h2>हम क्या एकत्र करते हैं</h2>
+<ul>
+<li><strong>Tool inputs:</strong> कुछ नहीं। आप जो भी किसी tool में paste करते हैं वह आपके browser में ही रहता है। कोई भी tool server को डेटा नहीं भेजता।</li>
+<li><strong>विज़िट analytics:</strong> Plausible page views, referrer, देश, और device प्रकार गिनता है — अनाम रूप से, समग्र रूप में, cookies के बिना। <a href="https://plausible.io/data-policy" rel="noopener">Plausible की data policy</a> बताती है कि वे क्या एकत्र करते हैं और क्या नहीं।</li>
+<li><strong>अगर आप विज्ञापन स्वीकार करते हैं:</strong> Google AdSense cookies set करता है और उनका उपयोग विज्ञापनों को personalize करने के लिए कर सकता है। Google की प्रथाएँ <a href="https://policies.google.com/technologies/ads" rel="noopener">Google की विज्ञापन गोपनीयता नीति</a> के तहत आती हैं।</li>
+<li><strong>अगर आप विज्ञापन अस्वीकार करते हैं:</strong> कोई विज्ञापन script load नहीं होती, कोई विज्ञापन cookie set नहीं होती, page से विज्ञापन slots हटा दिए जाते हैं।</li>
+</ul>
+
+<h2>Cookies</h2>
+<p>साइट स्वयं एक localStorage entry (<code>toolhub:consent</code>) का उपयोग आपकी विज्ञापन-सहमति के निर्णय को याद रखने के लिए करती है, साथ ही आपकी dark/light वरीयता के लिए एक <code>theme</code> entry। दोनों आपके browser से बाहर नहीं जाते।</p>
+<p>Plausible कोई cookies उपयोग नहीं करता। Google AdSense cookies <em>केवल तभी</em> उपयोग करता है जब आप उन्हें स्वीकार करते हैं — आप footer में consent link के माध्यम से किसी भी समय अपना निर्णय बदल सकते हैं।</p>
+
+<h2>तृतीय-पक्ष सेवाएँ</h2>
+<ul>
+<li><strong>Plausible Analytics</strong> — privacy-friendly, GDPR-compliant, EU-hosted। कोई व्यक्तिगत डेटा एकत्र नहीं।</li>
+<li><strong>Google AdSense</strong> — केवल स्पष्ट सहमति के साथ। <code>pagead2.googlesyndication.com</code> load करता है और विज्ञापन cookies set कर सकता है।</li>
+<li><strong>GitHub Pages</strong> — साइट host। मानक server logs (IP, timestamp, URL) GitHub द्वारा अपनी <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">गोपनीयता वक्तव्य</a> के अनुसार रखे जाते हैं।</li>
+<li><strong>YouTube Thumbnail tool</strong> — जब आप विशेष रूप से इस एक tool का उपयोग करते हैं, तो आपका browser सीधे <code>i.ytimg.com</code> (YouTube के CDN) से एक image fetch करता है। कोई प्रमाणीकरण नहीं, कोई upload नहीं। विवरण के लिए <a href="/hi/how-we-handle-your-data/">data handling</a> देखें।</li>
+</ul>
+
+<h2>Affiliate links</h2>
+<p>Footer के कुछ links affiliate links हैं — अगर आप उनके माध्यम से click करते हैं और हमारे द्वारा सुझाई गई सेवा (जैसे hosting providers) के लिए sign up करते हैं, तो Toolhub को एक referral मिल सकता है। आप जो क़ीमत चुकाते हैं वह नहीं बदलती। Affiliate links <code>rel="sponsored"</code> से tag किए जाते हैं। पूरी सूची के लिए <a href="/hi/affiliate-disclosure/">affiliate disclosure</a> देखें।</p>
+
+<h2>आपके अधिकार</h2>
+<p>GDPR / UK GDPR / CCPA / Slovak DPA के तहत, आप अपने पास रखे गए किसी भी व्यक्तिगत डेटा तक पहुँच या उसे हटाने का अनुरोध कर सकते हैं। हमारे पास कोई नहीं है — कोई backend नहीं, कोई अकाउंट नहीं, कोई user database नहीं। Plausible केवल समग्र विज़िट डेटा रखता है। Google का विज्ञापन डेटा उनके अपने अनुरोध माध्यमों द्वारा नियंत्रित होता है।</p>
+
+<h2>संपर्क</h2>
+<p>इस नीति के बारे में प्रश्न? <a href="/hi/contact/">संपर्क page</a> के माध्यम से पहुँचें या <a href="{REPO_URL}">{REPO_URL}</a> पर एक issue खोलें।</p>
 """.strip(),
             },
         },
@@ -2237,6 +2368,59 @@ PAGES = {
 <p>Nếu có gì không rõ ở đây, mở issue ở <a href="{REPO_URL}">{REPO_URL}</a> hoặc dùng <a href="/vi/contact/">trang liên hệ</a>. Câu hỏi làm rõ là cách tốt để làm cho trang này tốt hơn cho người đọc tiếp theo.</p>
 """.strip(),
             },
+            "hi": {
+                "title": "हम आपके डेटा को कैसे संभालते हैं",
+                "h1": "हम आपके डेटा को कैसे संभालते हैं",
+                "description": "Toolhub आपके डेटा को कैसे संभालता है, इसकी सीधी भाषा में जानकारी। Tools आपके browser में चलते हैं, कुछ भी संग्रहित नहीं होता, तीन नामित अपवाद स्पष्ट रूप से सूचीबद्ध हैं।",
+                "body": f"""
+<p><strong>अंतिम बार अद्यतन:</strong> {LAST_UPDATED}</p>
+<p>यह page सीधी भाषा का संस्करण है। यह <a href="/hi/privacy/">गोपनीयता नीति</a> का पूरक है; अगर वे किसी बिंदु पर असहमत प्रतीत हों, तो यह page अधिक विशिष्ट है और इसे प्राथमिक माना जाना चाहिए।</p>
+
+<h2>डेटा कहाँ जाता है</h2>
+<p>Toolhub पर tools आपके browser में चलते हैं। आप जो भी किसी tool में paste, टाइप या upload करते हैं वह आपके device पर ही रहता है — हमारे पास कोई server-side tool runner नहीं है, और किसी भी tool के पीछे कोई upload endpoint नहीं है।</p>
+<p>"कोई डेटा आपके device से बाहर नहीं जाता" के लिए ठीक तीन नामित अपवाद हैं:</p>
+<ol>
+<li><strong>YouTube Thumbnail tool</strong> — जब आप एक YouTube URL submit करते हैं, तो आपका browser सीधे <code>i.ytimg.com</code> (YouTube का सार्वजनिक image CDN) से thumbnail fetch करता है। कोई प्रमाणीकरण नहीं, कोई upload नहीं, कोई API key नहीं। URL में video ID ही एकमात्र चीज़ है जो YouTube देखता है, और वह भी केवल इसलिए कि आपके browser ने इसे fetch किया।</li>
+<li><strong>AdSense (केवल जब enabled और सहमति प्राप्त)</strong> — Google का display-ad सिस्टम। जब आप विज्ञापन सहमति देते हैं, तो Google आपका IP address देख सकता है और cookies set कर सकता है, जो Google की नीति के तहत हैं। जब आप अस्वीकार करते हैं (default), तो AdSense बिल्कुल load नहीं होता।</li>
+<li><strong>Plausible analytics</strong> — page विज़िट, referrer, देश और device class गिनता है। कोई cookies नहीं, कोई fingerprinting नहीं, केवल समग्र आँकड़े। Plausible के servers EU-hosted हैं।</li>
+</ol>
+
+<h2>हम क्या संग्रहित करते हैं</h2>
+<p>आपके बारे में कुछ नहीं। कोई अकाउंट नहीं, कोई user IDs नहीं, कोई email नहीं, कोई profile नहीं। हम tools में डाली गई आपकी सामग्री संग्रहित नहीं करते।</p>
+<p>आपका browser आपके device पर ही दो छोटी localStorage entries संग्रहित करता है — दोनों आपके browser के developer tools से पढ़ी और साफ़ की जा सकती हैं:</p>
+<ul>
+<li><code>theme</code> — "light" या "dark", लगभग एक byte की वरीयता।</li>
+<li><code>toolhub:consent</code> — आपका विज्ञापन सहमति निर्णय (हाँ/नहीं/unset)। आपसे दोबारा न पूछने के लिए।</li>
+</ul>
+
+<h2>GDPR, UK GDPR, CCPA और Slovak DPA</h2>
+<p>Toolhub न्यूनतम डेटा process करता है:</p>
+<ul>
+<li><strong>EU / UK (GDPR / UK GDPR):</strong> Plausible (EU-hosted) एक compliant analytics baseline देता है। जब AdSense सक्रिय हो, तो Google TCF v2 के तहत अपनी consent layer चलाता है।</li>
+<li><strong>California (CCPA):</strong> हम व्यक्तिगत जानकारी नहीं बेचते। हमारे पास बेचने को व्यक्तिगत जानकारी है ही नहीं।</li>
+<li><strong>Slovakia (Slovak Data Protection Authority):</strong> Toolhub का maintainer Slovakia में स्थित है। Slovak DPA के नियम किसी भी ऐसी processing पर लागू होते हैं जो वास्तव में होती है — जो प्रभावी रूप से Plausible के समग्र metrics और (जब enabled हो) AdSense के अपने consent-managed flow तक सीमित है।</li>
+</ul>
+<p>व्यक्तिगत डेटा तक पहुँचने या उसे हटाने के अधिकार प्रभावी रूप से लागू नहीं होते क्योंकि access या delete करने के लिए कोई व्यक्तिगत डेटा संग्रहित नहीं है। विशिष्ट प्रश्नों के लिए <a href="/hi/contact/">संपर्क page</a> के माध्यम से हमसे संपर्क करें।</p>
+
+<h2>Cookies</h2>
+<ul>
+<li><strong>Plausible:</strong> कोई cookies नहीं, कभी नहीं।</li>
+<li><strong>Theme वरीयता:</strong> एक localStorage entry, cookie नहीं। आपके device पर रहती है। HTTP requests के साथ नहीं भेजी जाती।</li>
+<li><strong>AdSense (जब सक्रिय):</strong> Google अपनी स्वयं की तृतीय-पक्ष विज्ञापन cookies set करता है। AdSense script load होने से पहले consent banner दिखता है, और अगर आप अस्वीकार करते हैं तो AdSense बिल्कुल load नहीं होता।</li>
+</ul>
+
+<h2>बच्चे</h2>
+<p>Toolhub स्कूल-friendly है (देखें <a href="/hi/for-schools/">स्कूलों के लिए Toolhub</a>)। कोई behavioral tracking नहीं और कोई targeted विज्ञापन नहीं। 13 साल से कम आयु का उपयोग AdSense की क्षेत्रवार लागू मौजूदा शर्तों के अंतर्गत स्वीकार्य है — मतलब अगर आप ऐसे क्षेत्र में हैं जहाँ AdSense बच्चों के लिए विज्ञापनों पर प्रतिबंध लगाता है, तो उन प्रतिबंधों का पालन Google के अपने सिस्टम द्वारा किया जाता है।</p>
+
+<h2>Downloadable PDF</h2>
+<p>इस page का एक PDF संस्करण offline reference के लिए या स्कूल के IT documentation के हिस्से के रूप में print करने के लिए उपलब्ध है:</p>
+<p><a href="{PDF_URL}">how-we-handle-your-data.pdf</a></p>
+<p>PDF इस समय केवल अंग्रेज़ी में है; प्रति-भाषा PDFs वर्तमान release के दायरे में नहीं हैं।</p>
+
+<h2>प्रश्न</h2>
+<p>अगर यहाँ कुछ अस्पष्ट है, तो कृपया <a href="{REPO_URL}">{REPO_URL}</a> पर एक issue खोलें या <a href="/hi/contact/">संपर्क page</a> का उपयोग करें। स्पष्टीकरण के प्रश्न इस page को अगले पाठक के लिए बेहतर बनाने का एक उपयोगी तरीक़ा हैं।</p>
+""".strip(),
+            },
         },
     },
 
@@ -2758,6 +2942,49 @@ PAGES = {
 
 <h2>Liên hệ</h2>
 <p>Có câu hỏi về một affiliate cụ thể, hoặc muốn chỉ ra điều gì đó không nên ở đây? Mở issue ở <a href="{REPO_URL}">{REPO_URL}</a> hoặc dùng <a href="/vi/contact/">trang liên hệ</a>.</p>
+""".strip(),
+            },
+            "hi": {
+                "title": "Affiliate disclosure",
+                "h1": "Affiliate disclosure",
+                "description": "Toolhub के affiliate संबंधों का FTC- और EU-compliant disclosure। Vendor पैसा देता है, आप अतिरिक्त कुछ नहीं देते, और संपादकीय कवरेज affiliate से प्रभावित नहीं है।",
+                "body": f"""
+<p><strong>अंतिम बार अद्यतन:</strong> {LAST_UPDATED}</p>
+
+<h2>Affiliate links क्या हैं</h2>
+<p>Affiliate link एक सामान्य link है जिसमें एक tracking code जुड़ा होता है। अगर आप किसी पर click करते हैं और फिर linked सेवा के लिए sign up करते हैं, तो वह सेवा Toolhub को एक छोटा referral commission देती है। <em>आप</em> जो क़ीमत चुकाते हैं वह non-affiliate संस्करण के समान ही है — आप commission नहीं चुका रहे, vendor चुका रहा है।</p>
+
+<h2>वे Toolhub पर कहाँ दिखाई देते हैं</h2>
+<p>वर्तमान में, affiliate links दो जगहों पर दिखाई देते हैं:</p>
+<ul>
+<li>साइट के footer में, एक छोटे <code>(affiliate)</code> badge से चिह्नित।</li>
+<li>जहाँ कहीं किसी tool का help-block या related-tools section किसी विशिष्ट paid सेवा का उल्लेख करता है जिसकी हम सिफ़ारिश करते हैं — उन मामलों में affiliate को inline बताया जाता है।</li>
+</ul>
+<p>Affiliate links HTML में <code>rel="sponsored"</code> रखते हैं, जो किसी व्यावसायिक संबंध की घोषणा के लिए search-engine standard है।</p>
+
+<h2>कौन भुगतान करता है</h2>
+<p>Commission vendor चुकाता है, आप नहीं। अगर आप affiliate link को नज़रअंदाज़ करके सीधे vendor के homepage से sign up करते हैं, तो आपको वही सेवा उसी क़ीमत पर मिलती है; बस हमें referral नहीं दिखता।</p>
+
+<h2>FTC और EU अनुपालन</h2>
+<p>यह page इसलिए मौजूद है क्योंकि US Federal Trade Commission के endorsement guides और EU उपभोक्ता-संरक्षण नियम दोनों ही content creators से माँग करते हैं कि वे किसी linked product के साथ अपने वित्तीय संबंध का खुलासा करें। यह disclosure स्पष्ट और पहले से होना चाहिए — इसी कारण एक top-level page है, और इसी कारण हर page के footer से link है।</p>
+
+<h2>विशिष्ट affiliates</h2>
+<p>Toolhub वर्तमान में इन affiliate और support accounts का उपयोग करता है (operator: JXXR1):</p>
+<ul>
+<li><strong>DigitalOcean</strong> (cloud hosting) — <a href="https://m.do.co/c/05c01e8aec67" target="_blank" rel="noopener sponsored">m.do.co/c/05c01e8aec67</a></li>
+<li><strong>GitHub Sponsors</strong> — <a href="https://github.com/sponsors/JXXR1" target="_blank" rel="noopener noreferrer">github.com/sponsors/JXXR1</a></li>
+<li><strong>Buy Me a Coffee</strong> — <a href="https://www.buymeacoffee.com/Tool_hub" target="_blank" rel="noopener noreferrer">buymeacoffee.com/Tool_hub</a></li>
+</ul>
+<p>जब/जैसे ही अन्य affiliate संबंध जोड़े जाते हैं, उन्हें यहाँ सूचीबद्ध किया जाएगा और page की तारीख़ अद्यतन की जाएगी।</p>
+
+<h2>कोई paid placement नहीं</h2>
+<p>Tool reviews, homepage पर tools जिस क्रम में दिखाई देते हैं, और हर tool पर "related tools" links affiliate से <strong>नहीं</strong> चलते। हम किसी tool को feature करने के लिए या एक tool को दूसरे से ऊपर रखने के लिए पैसा स्वीकार नहीं करते। अगर कभी paid placement जोड़ा भी जाए (नहीं जोड़ा जाएगा, पर अगर हो भी), तो उसे ठीक उसी तरह label किया जाएगा जैसे affiliate links को: स्पष्ट रूप से, पहले से, संपादकीय सामग्री से अलग पहचाने जाने योग्य।</p>
+
+<h2>संपादकीय स्वतंत्रता</h2>
+<p>Affiliate संबंध इस बात को प्रभावित नहीं करते कि कौन से tools बनाए जाते हैं, help-block की सामग्री कैसे लिखी जाती है, या किसी विशेष tool के नीचे कौन से "related tools" दिखाई देते हैं। Toolhub पर tools वही tools हैं जो हम बिना किसी affiliate program के भी बनाते — program केवल hosting और maintenance में थोड़ा सा योगदान करता है।</p>
+
+<h2>संपर्क</h2>
+<p>किसी विशिष्ट affiliate के बारे में प्रश्न, या ऐसा कुछ बताना चाहते हैं जो यहाँ नहीं होना चाहिए? <a href="{REPO_URL}">{REPO_URL}</a> पर एक issue खोलें या <a href="/hi/contact/">संपर्क page</a> का उपयोग करें।</p>
 """.strip(),
             },
         },

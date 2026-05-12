@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "WCAG Kontrast Denetleyici", "tagline": "İki renk arasındaki kontrast oranını kontrol et. Her metin boyutu için WCAG AA ve AAA'da geçer/kalır yargısı.", "description": "Ücretsiz WCAG kontrast oranı denetleyici. Ön plan ve arka plan renklerini seç, oranı (1:1 ile 21:1) ve WCAG 2.1 AA ve AAA için geçer/kalır yargılarını al — normal metin, büyük metin ve UI bileşenleri için."},
         "id": {"name": "Pemeriksa Kontras WCAG", "tagline": "Cek rasio kontras antara dua warna. Penilaian lulus/gagal di WCAG AA dan AAA untuk setiap ukuran teks.", "description": "Pemeriksa kontras WCAG gratis. Cek rasio kontras antara warna teks dan background sesuai WCAG 2.1. Penilaian lulus/gagal untuk AA dan AAA, teks normal dan besar. Penting untuk a11y."},
         "vi": {"name": "Kiểm tra Tương phản WCAG", "tagline": "Kiểm tra tỷ lệ tương phản giữa hai màu. Đánh giá đạt/không đạt cho WCAG AA và AAA cho mỗi kích thước văn bản.", "description": "Trình kiểm tra tương phản WCAG miễn phí trực tuyến. Nhập hai màu và xem tỷ lệ tương phản tính được với đánh giá đạt/không đạt cho WCAG 2.1 cấp độ AA và AAA cho cả văn bản thường và lớn."},
+        "hi": {"name": "WCAG contrast Checker", "tagline": "दो रंगों के बीच contrast अनुपात जांचें। हर text आकार पर WCAG AA और AAA के लिए pass/fail निर्णय।", "description": "मुफ़्त WCAG contrast अनुपात जांचकर्ता। foreground और background रंग चुनें, अनुपात (1:1 से 21:1) और WCAG 2.1 AA और AAA के लिए pass/fail निर्णय प्राप्त करें — सामान्य text, बड़े text और UI components के लिए।"},
     },
     "body": """
 <div class="tool-card">
@@ -366,6 +367,36 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>"Văn bản lớn" có nghĩa cụ thể.</strong> 18pt thông thường hoặc 14pt bold. Việc gọi nó "lớn" trong CSS không tự động cho phép giảm tỷ lệ.</li>
   <li><strong>Tương phản trên image / gradient phức tạp.</strong> Đối với văn bản trên ảnh, tính trên phần xấu nhất của ảnh. Đối với gradient, tính nhiều điểm.</li>
   <li><strong>Pass AA không đảm bảo "đẹp".</strong> Văn bản pure black trên white pure pass AAA nhưng đôi khi quá cứng — nhiều design dùng dark gray (#1a1a1a) cho cảm giác mềm hơn mà vẫn pass.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>WCAG (Web Content Accessibility Guidelines) text और उसके background के बीच न्यूनतम contrast अनुपात परिभाषित करता है ताकि कम दृष्टि वाले, color-blindness वाले या चमक की स्थितियों में लोग अभी भी इसे पढ़ सकें। यह टूल उस अनुपात की गणना करता है (1:1 = समान, 21:1 = शुद्ध सफ़ेद पर शुद्ध काला) और आपको बताता है कि क्या आपका रंग जोड़ा WCAG 2.1 स्तर AA या AAA पास करता है, सामान्य text, बड़े text और UI components के लिए अलग-अलग। गणित ठीक W3C luminance formula का पालन करता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>यह जांचना कि क्या आपका brand रंग एक सफ़ेद card पर accessibility मानकों को पूरा करता है।</li>
+  <li>एक button text रंग चुनना जो brand-रंग वाले background के विरुद्ध AA पास करता है।</li>
+  <li>शिपिंग से पहले एक design system को token by token audit करना।</li>
+  <li>एक ठोस pass/fail निर्णय के साथ एक stakeholder को रंग-परिवर्तन अनुरोध को सही ठहराना।</li>
+  <li>यह जांचना कि आपके कम contrast वरीयता वाले उपयोगकर्ता वास्तव में क्या देखेंगे।</li>
+</ul>
+
+<h3>थ्रेशोल्ड</h3>
+<ul>
+  <li><strong>सामान्य text</strong> (18pt / 14pt bold से कम): AA के लिए <strong>4.5:1</strong>, AAA के लिए <strong>7:1</strong>।</li>
+  <li><strong>बड़ा text</strong> (≥18pt या ≥14pt bold): AA के लिए <strong>3:1</strong>, AAA के लिए <strong>4.5:1</strong>।</li>
+  <li><strong>UI components &amp; graphics</strong> (icons, focus rings, form borders, सूचना देने वाले chart elements): AA के लिए <strong>3:1</strong> (WCAG 2.1 §1.4.11)। कोई AAA स्तर नहीं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>"बड़ा text" आपके सोचने से बड़ा है।</strong> 18pt मोटे तौर पर 24px है। 14pt bold मोटे तौर पर 19px bold है। 16px पर body copy <em>बड़ा text नहीं</em> है — इसे 4.5:1 thresholdकी आवश्यकता है।</li>
+  <li><strong>एक busy फोटो पर हल्का text fail हो जाएगा।</strong> Contrast अनुपात विशिष्ट pixels के बीच होता है — एक dark gradient overlay करें या text को एक नियंत्रित background देने के लिए एक solid panel का उपयोग करें।</li>
+  <li><strong>Anti-aliasing contrast को नरम करता है।</strong> 4.5:1 floor है, लक्ष्य नहीं। आरामदायक पठन आमतौर पर 7:1 या बेहतर चाहता है, विशेष रूप से body copy के लिए।</li>
+  <li><strong>Hover और focus states गिने जाते हैं।</strong> यदि आपका button rest पर AA पास करता है लेकिन hover पर fail हो जाता है, तो यह एक वास्तविक accessibility bug है।</li>
+  <li><strong>WCAG 2.1 बनाम APCA।</strong> WCAG 3 के लिए प्रस्तावित नया APCA (Accessible Perceptual Contrast Algorithm), अलग और यकीनन बेहतर संख्याएं देता है — लेकिन WCAG 2.1 कानूनी मानक है जिसका अधिकांश अधिकार क्षेत्र अभी भी संदर्भ देते हैं। EN 301 549, ADA, या AA-conformance दावों को पूरा करते समय इस टूल की संख्याओं का उपयोग करें।</li>
+  <li><strong>पारदर्शिता के साथ pad न करें।</strong> एक ज्ञात background पर 50% alpha foreground का एक अलग प्रभावी contrast होता है — मूल के विरुद्ध नहीं, बल्कि वास्तविक रेंडर किए गए रंग के विरुद्ध गणना करें।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "HTML Encoder / Decoder", "tagline": "HTML özel karakterlerini escape et veya entity'leri geri çöz. Kullanıcı girdisini güvenle gömmek veya kodlanmış işaretlemeyi debug etmek için kullanışlı.", "description": "Ücretsiz online HTML entity encoder ve decoder. &amp; &lt; &gt; &quot; ' ve adlandırılmış entity'leri escape eder. Adlandırılmış, sayısal ve hex entity referanslarını çözer."},
         "id": {"name": "HTML Encoder / Decoder", "tagline": "Escape karakter khusus HTML atau decode entity kembali. Berguna untuk menyematkan input pengguna dengan aman atau debug markup yang ter-encode.", "description": "HTML encoder dan decoder gratis. Escape karakter khusus HTML (<, >, &, \", ') ke entity atau decode entity kembali ke karakter aslinya. Aman untuk menyematkan input pengguna dan mencegah XSS."},
         "vi": {"name": "HTML Encoder / Decoder", "tagline": "Escape các ký tự đặc biệt HTML hoặc decode entity về dạng ban đầu. Hữu ích để nhúng input người dùng một cách an toàn hoặc debug markup đã được encode.", "description": "Bộ HTML encoder và decoder miễn phí trực tuyến. Escape <, >, &, các ký tự đặc biệt trong attribute và Unicode ngoài-ASCII thành HTML entity, hoặc decode chúng trở lại. Hữu ích để chèn dữ liệu của bạn vào HTML một cách an toàn."},
+        "hi": {"name": "HTML Encoder / Decoder", "tagline": "HTML विशेष characters को escape करें या entities को वापस decode करें। User input को सुरक्षित रूप से embed करने या encoded markup debug करने के लिए उपयोगी।", "description": "मुफ़्त ऑनलाइन HTML entity encoder और decoder। &amp; &lt; &gt; &quot; ' और named entities को escape करता है। Named, numeric, और hex entity references को decode करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -214,6 +215,26 @@ document.addEventListener('DOMContentLoaded', heRun);
   <li><strong>Escape không thay thế dọn dẹp sanitization.</strong> Nếu bạn cho phép một số HTML (như <code>&lt;b&gt;</code>) và bỏ phần còn lại, dùng một sanitizer (DOMPurify) thay vì tự rolling.</li>
   <li><strong>Context attribute khác với context body.</strong> Bên trong <code>&lt;a href="…"&gt;</code>, escape cú pháp khác — đặc biệt với JavaScript URL.</li>
   <li><strong>Mã hóa kép trông xấu xí.</strong> Nếu bạn HTML-encode một chuỗi đã được encode, bạn sẽ thấy <code>&amp;amp;lt;</code> hiển thị trên trang. Theo dõi xem dữ liệu đã được encode chưa.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>HTML structural अर्थ के साथ पांच characters reserve करता है — <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&quot;</code>, <code>'</code>। इनमें से किसी को भी page में <em>content</em> के रूप में डालने के लिए उन्हें HTML entities के रूप में escape करना आवश्यक है ताकि browser उन्हें markup के रूप में interpret न करे। यह tool दोनों directions में flip करता है: raw text को safe entities में encode करें, या scraped HTML को वापस plain text में decode करें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>HTML में untrusted user content embed करना — XSS रोकने के लिए पहले encode करें।</li>
+  <li>Scraped या copy-pasted markup जो entities के साथ आया (<code>&amp;amp;</code>, <code>&amp;#x27;</code>, <code>&amp;ldquo;</code>) को decode करना।</li>
+  <li>गलती से double-escaped templates को un-mangle करना।</li>
+  <li>JSDoc, CDATA-free XML, या markdown code fences के लिए snippets तैयार करना जिनमें literal angle brackets की आवश्यकता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Encoding sanitisation नहीं है।</strong> Encoding text को display के लिए safe बनाता है; यदि आप tags को भी <em>strip</em> करना चाहते हैं, तो आपको HTML sanitiser की आवश्यकता है।</li>
+  <li><strong>Attributes बनाम body।</strong> दोनों contexts को same पांच characters escape चाहिए, लेकिन <code>onclick</code> जैसे JavaScript event handlers को अतिरिक्त escaping चाहिए (जो यह tool नहीं करता — untrusted data को attributes से बाहर रखें)।</li>
+  <li><strong>Decoder permissive है।</strong> Named entities (<code>&amp;ldquo;</code>), decimal (<code>&amp;#34;</code>) और hex (<code>&amp;#x22;</code>) सभी browser के parser के माध्यम से decode होते हैं, इसलिए यह वही स्वीकार करता है जो एक असली browser करेगा।</li>
+  <li><strong>Double-encode न करें।</strong> पहले से encoded value को encode करने पर <code>&amp;amp;amp;</code> मिलता है। यदि आप अपने input में entities देखते हैं तो पहले decode करें।</li>
 </ul>
 """,
     },

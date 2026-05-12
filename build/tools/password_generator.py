@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "Parola Üretici", "tagline": "Güçlü rastgele parolalar veya akılda kalıcı passphrase'ler. Yerel olarak üretilir — hiçbir yere gönderilmez.", "description": "Ücretsiz güvenli parola üretici. Özel karakter kuralları, passphrase modu ve toplu üretim. Tamamen tarayıcında çalışır."},
         "id": {"name": "Password Generator", "tagline": "Password acak yang kuat atau passphrase yang mudah diingat. Dihasilkan lokal — tidak pernah dikirim ke mana pun.", "description": "Password generator online gratis. Buat password acak kuat atau passphrase yang mudah diingat menggunakan CSPRNG browser. Panjang dan kelas karakter yang dapat dikonfigurasi. Berjalan lokal — password tidak pernah meninggalkan perangkatmu."},
         "vi": {"name": "Tạo Mật khẩu", "tagline": "Mật khẩu ngẫu nhiên mạnh hoặc passphrase dễ nhớ. Được tạo cục bộ — không bao giờ được gửi đi.", "description": "Trình tạo mật khẩu miễn phí trực tuyến. Tạo mật khẩu mạnh hoặc passphrase dễ nhớ với độ dài và loại ký tự có thể cấu hình. Dùng crypto.getRandomValues của trình duyệt — không có gì được gửi đi đâu cả."},
+        "hi": {"name": "Password Generator", "tagline": "मजबूत random password या याद रखने योग्य passphrase। लोकल बनते हैं — कहीं भेजे नहीं जाते।", "description": "मुफ़्त ऑनलाइन सुरक्षित password generator। कस्टम character नियम, passphrase mode, और batch generation। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -445,6 +446,40 @@ document.addEventListener('DOMContentLoaded', pwGenerate);
   <li><strong>Đừng tái sử dụng.</strong> Cùng một mật khẩu trên nhiều site có nghĩa là một site bị phá vỡ tất cả. Dùng password manager.</li>
   <li><strong>2FA đánh bại cracking mật khẩu.</strong> Ngay cả mật khẩu yếu được bảo vệ bởi 2FA. Bật nó ở bất cứ đâu có thể.</li>
   <li><strong>Một số site có quy tắc kỳ lạ.</strong> "Phải có ký tự đặc biệt nhưng không có $" hoặc "tối đa 12 ký tự". Khi đó dùng tool sinh password manager hoặc generator của tool này với cài đặt phù hợp.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक अच्छा password वह है जिसे attacker अनुमान नहीं लगा सकता और जिसे आपको याद रखने की ज़रूरत नहीं (क्योंकि वह आपके password manager में सुरक्षित है)। यह generator पूरी तरह आपके browser में मजबूत random password या याद रखने योग्य passphrase बनाता है, <code>crypto.getRandomValues</code> का इस्तेमाल करके — वही cryptographically सुरक्षित random source जिसे TLS इस्तेमाल करता है। कुछ भी transmit नहीं होता; password कभी आपके device से बाहर नहीं जाता।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>हर नए account के लिए एक unique password बनाना जो password manager में जाएगा।</li>
+  <li>एक master password या recovery passphrase बनाना जिसे आप याद रखेंगे — passphrase mode टाइप करना और याद रखना आसान है।</li>
+  <li>CI variable, API token, या Wi-Fi network के लिए एक non-human secret बनाना।</li>
+  <li>नए user batch के लिए bulk में password बनाना (count 50 तक सेट करें)।</li>
+</ul>
+
+<h3>Random characters vs passphrases</h3>
+<ul>
+  <li><strong>Random characters</strong> — प्रति लंबाई अधिकतम entropy। 20 mixed characters ≈ 130 bits। उन चीज़ों के लिए सही जिन्हें आप paste करते हैं, टाइप नहीं।</li>
+  <li><strong>Passphrases</strong> — टाइप करना और याद रखना आसान। चार शब्द ≈ 40 bits, छह शब्द ≈ 60 bits। Master password, device unlock, और जो भी आप अक्सर मैन्युअली डालते हैं उसके लिए सही।</li>
+  <li>"Exclude ambiguous" <code>0/O/1/l/I</code> को हटा देता है ताकि screen या हाथ से लिखे notes से पढ़ना सुरक्षित हो।</li>
+</ul>
+
+<h3>मुझे कितनी entropy चाहिए?</h3>
+<ul>
+  <li>≥ 60 bits — कम महत्व वाले accounts के लिए ठीक</li>
+  <li>≥ 80 bits — अधिकांश accounts के लिए अच्छा</li>
+  <li>≥ 100 bits — उच्च महत्व (financial, master password, root credential)</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Password दोबारा इस्तेमाल न करें।</strong> सबसे बड़ा सुरक्षा upgrade जो आप कर सकते हैं वह है प्रति site एक unique password, manager में संग्रहित। Generator की मजबूती बेकार है अगर वही password पाँच sites पर रहता है।</li>
+  <li><strong>बने हुए password बिना सुरक्षा के न लिखें।</strong> password manager (1Password, Bitwarden, KeePass) का उपयोग करें — Notes app नहीं, text file नहीं, email draft नहीं।</li>
+  <li><strong>लंबा &gt; जटिल।</strong> सिर्फ़ lowercase अक्षरों वाला 24-character password हर symbol class वाले 10-character password से अधिक entropy रखता है। लंबाई जीतती है।</li>
+  <li><strong>Site-specific नियम copy-paste तोड़ सकते हैं।</strong> कुछ sites विशिष्ट symbols मना करते हैं या लंबाई 16 तक सीमित करते हैं। परेशान करने वाला पर वास्तविक — बनाएं, फिर ज़रूरत हो तो trim/swap करें (और असली stored password अपने manager में रखें)।</li>
 </ul>
 """,
     },

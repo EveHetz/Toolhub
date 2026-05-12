@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "CSS Gradient Oluşturucu", "tagline": "Lineer ve radial CSS gradient'larını görsel olarak kur. Renk durak noktalarını düzenle, yapıştırılmaya hazır CSS'i kopyala.", "description": "Ücretsiz CSS gradient oluşturucu. İstediğin kadar renk durak noktasıyla lineer veya radial gradient kur, açıyı ve şekli ayarla, üretime hazır CSS'i tek tıkla kopyala."},
         "id": {"name": "Pembangun CSS Gradient", "tagline": "Susun gradient linear dan radial CSS secara visual. Edit color stop, salin CSS siap-tempel.", "description": "Pembangun CSS gradient gratis. Buat gradient linear dan radial dengan stop warna yang dapat di-drag, kontrol sudut, dan pratinjau langsung. Salin CSS siap-tempel."},
         "vi": {"name": "CSS Gradient Builder", "tagline": "Soạn gradient linear và radial CSS một cách trực quan. Chỉnh sửa color stop, sao chép CSS sẵn-dùng.", "description": "Trình xây dựng CSS gradient miễn phí trực tuyến. Soạn linear hoặc radial gradient với nhiều color stop, sau đó sao chép CSS sẵn-dùng."},
+        "hi": {"name": "CSS Gradient Generator", "tagline": "Linear और radial CSS gradients को visually बनाएं। Color stops edit करें, ready-to-paste CSS copy करें।", "description": "मुफ़्त CSS gradient generator। जितने चाहें उतने color stops के साथ linear या radial gradients बनाएं, angle और shape adjust करें, और एक click में production-ready CSS copy करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -350,6 +351,34 @@ document.addEventListener('DOMContentLoaded', () => { grRender(); grRun(); });
   <li><strong>Hướng "to right" vs "90deg".</strong> Chúng tương đương trong CSS hiện đại. Trình duyệt cũ chỉ chấp nhận "to right".</li>
   <li><strong>Banding với gradient.</strong> Gradient từ đen đến xám đậm rất hay hiển thị các dải khi không gian màu 8-bit không đủ chính xác. Thêm một chút noise hoặc dùng OKLCH để giảm thiểu.</li>
   <li><strong>Gradient con không phải là image.</strong> Chúng được tính toán mỗi lần render. Một background-image với một file PNG có thể nhanh hơn cho gradient cực kỳ phức tạp.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>CSS gradients CSS की एक single line हैं जो backgrounds, buttons, hero panels और overlays के लिए smooth color transitions draw करती है — बिना किसी image asset के। Syntax powerful है पर हाथ से लिखना झंझट है: angles, percentage stops, repeating variants, linear को radial के साथ mix करना। यह tool एक visual builder देता है जो CSS को real time में mirror करता है, इसलिए आप एक stop को जगह पर drag कर सकते हैं और exact <code>linear-gradient(...)</code> या <code>radial-gradient(...)</code> string copy कर सकते हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Hero या call-to-action section background बनाना बिना image में burn किए।</li>
+  <li>Button या card hover states बनाना जो image asset के बिना "modern" दिखें।</li>
+  <li>Brand-coloured overlay mock करना (gradient + low-opacity solid text की legibility के लिए)।</li>
+  <li>Decorative dividers, mesh-style backgrounds, या animated SVG fills generate करना।</li>
+</ul>
+
+<h3>Linear बनाम radial</h3>
+<ul>
+  <li><strong>Linear</strong> — colors चुने हुए angle पर एक straight line के along transition करते हैं (0° = bottom-to-top, 90° = left-to-right, 180° = top-to-bottom)।</li>
+  <li><strong>Radial</strong> — colors एक center point से circle या ellipse के रूप में बाहर फैलते हैं। Spotlight या vignette effects के लिए बढ़िया।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong><code>background</code> के रूप में इस्तेमाल करें, <code>background-color</code> के रूप में नहीं।</strong> Gradients images हैं, colors नहीं। <code>background-color</code> ignore हो जाता है।</li>
+  <li><strong>Stops order में होने चाहिए</strong> predictable rendering के लिए। यह tool उन्हें automatically sort कर देता है — अगर आप CSS copy करके हाथ से edit करते हैं, तो percentages को monotonic रखें।</li>
+  <li><strong>Hard stops</strong> (एक ही percentage पर दो stops) fade के बजाय एक sharp boundary बनाते हैं — striped या band effects के लिए उपयोगी।</li>
+  <li><strong>बड़े area पर banding।</strong> Long, low-contrast gradients 8-bit screens पर दिखाई देने वाली "bands" दिखा सकती हैं। एक छोटा SVG noise overlay जोड़ें (<code>filter: url(#noise)</code>) या stops को थोड़ा move करें।</li>
+  <li><strong>Performance।</strong> Browsers gradients को जल्दी paint करते हैं, पर <code>background-image</code> को animate करना हर frame पर paint trigger करता है — इसके बजाय ऊपर के एक layer पर <code>transform</code> animate करें।</li>
+  <li><strong>Accessibility।</strong> अगर text gradient पर है, तो contrast ratio को gradient के साथ <em>सबसे खराब</em> point पर check करें जहाँ text दिखता है, average पर नहीं।</li>
 </ul>
 """,
     },

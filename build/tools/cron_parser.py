@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "Cron İfadesi Parser", "tagline": "Cron ifadelerini parse et ve sonraki 10 çalışma zamanını gör. Standart 5 alanlı crontab.", "description": "Ücretsiz online cron ifadesi parser. 5 alanlı crontab sözdizimini doğrular ve yerel saat diliminde planlanan sonraki 10 çalışma zamanını listeler."},
         "id": {"name": "Cron Expression Parser", "tagline": "Parse ekspresi cron dan lihat 10 waktu run berikutnya. Crontab 5-field standar.", "description": "Parser ekspresi cron gratis. Tempel ekspresi cron apa pun dan lihat 10 waktu eksekusi berikutnya dengan zona waktu yang dapat dipilih. Mendukung crontab 5-field standar dengan steps, ranges, dan list."},
         "vi": {"name": "Cron Expression Parser", "tagline": "Phân tích biểu thức cron và xem 10 lần chạy kế tiếp. Crontab 5-trường chuẩn.", "description": "Cron parser miễn phí trực tuyến. Dán biểu thức crontab 5-trường chuẩn và xem 10 lần chạy kế tiếp được tính theo múi giờ của bạn."},
+        "hi": {"name": "Cron Expression Parser", "tagline": "Cron expressions parse करें और अगले 10 fire times देखें। Standard 5-field crontab।", "description": "मुफ़्त ऑनलाइन cron expression parser। 5-field crontab syntax को validate करता है और आपकी local timezone में अगले 10 scheduled fire times list करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -400,6 +401,37 @@ document.addEventListener('DOMContentLoaded', cronRun);
   <li><strong>Lần chạy tiếp theo phụ thuộc vào múi giờ.</strong> Cron không có múi giờ tích hợp; máy chủ điều hành nó quyết định. Tool này hiển thị lần chạy trong múi giờ trình duyệt cục bộ của bạn — kiểm tra cài đặt của runner.</li>
   <li><strong>Phương ngữ năm trường.</strong> Cron POSIX là 5 trường (phút giờ ngày tháng dow). Spring/Quartz/AWS thêm trường giây hoặc năm. Đảm bảo phương ngữ bạn dán khớp.</li>
   <li><strong>Trường tháng và ngày-trong-tuần OR.</strong> Khi cả hai được hạn chế, cron POSIX khớp <em>hoặc</em> — không phải cả hai. Vì vậy <code>0 0 1 * 0</code> chạy vào ngày 1 của mỗi tháng <em>và</em> mỗi Chủ Nhật.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Cron expressions powerful हैं और गलत लिखना आसान है। <code>0 0 * * 1-5</code> weekday-at-midnight schedule जैसा दिखता है और वही है। <code>*/15 0-9 * * *</code> business hours में हर पंद्रह मिनट जैसा दिखता है और वही है। <code>0 0 1 */3 *</code> quarterly जैसा दिखता है... अगर आपको याद हो कि <code>*/3</code> का मतलब "हर तीसरा महीना" है। यह tool आपको एक expression paste करने देता है, plain English में देखने देता है कि उसका वास्तव में क्या मतलब है, और अगले 10 fire times को preview करने देता है ताकि आप deploy से पहले confirm कर सकें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Save करने से पहले <code>crontab -e</code> में cron line की sanity-check।</li>
+  <li>Kubernetes <code>CronJob</code> schedule string को "यह वास्तव में किस समय चलेगा?" में translate करना।</li>
+  <li>एक नया schedule design करना — English से शुरू करें ("हर weekday morning") और जब तक preview match न हो जाए expression को iterate करें।</li>
+  <li>एक job को debug करना जो "जब मुझे expected था तब नहीं चला" — schedule paste करें, अगले 10 times देखें, देखें कि surprise reality में है या expression में।</li>
+</ul>
+
+<h3>Cron field reference</h3>
+<table>
+  <tr><th>Field</th><th>Range</th><th>Wildcards</th></tr>
+  <tr><td>Minute</td><td>0-59</td><td><code>*</code> · <code>*/5</code> · <code>0,30</code> · <code>0-29</code></td></tr>
+  <tr><td>Hour</td><td>0-23</td><td>वही</td></tr>
+  <tr><td>Day of month</td><td>1-31</td><td>वही</td></tr>
+  <tr><td>Month</td><td>1-12</td><td>वही</td></tr>
+  <tr><td>Day of week</td><td>0-6 (0 = Sunday, 7 भी = Sunday)</td><td>वही</td></tr>
+</table>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week interact करते हैं।</strong> अगर दोनों restricted हों (जैसे <code>15 * * * 1</code> का मतलब "15वाँ या Monday"), तो अधिकांश cron implementations उन्हें OR करते हैं। यह tool इस convention का पालन करता है।</li>
+  <li><strong><code>*/N</code> बिल्कुल "हर N" नहीं है।</strong> यह "lower bound से शुरू होते हुए हर N" है, इसलिए minute में <code>*/15</code> = 0,15,30,45 (12,27,42,57 नहीं)। बाद में शुरू करने के लिए list इस्तेमाल करें: <code>5,20,35,50</code>।</li>
+  <li><strong>Step + range combos।</strong> <code>0-30/5</code> = 0,5,10,15,20,25,30। Step केवल range के अंदर apply होता है।</li>
+  <li><strong>यहाँ timezone browser-local है।</strong> Real cron daemons server time (अक्सर UTC) में चलते हैं। आपके browser में जो schedule सही लगे वह server पर अलग wall-clock time पर fire कर सकता है। Paste करने से पहले timezone confirm करें।</li>
+  <li><strong>कुछ cron flavours fields जोड़ते हैं।</strong> Quartz cron में 6 या 7 fields हैं (seconds और year के साथ)। systemd timers पूरी तरह से अलग format इस्तेमाल करते हैं। यह tool standard 5-field crontab parse करता है।</li>
 </ul>
 """,
     },

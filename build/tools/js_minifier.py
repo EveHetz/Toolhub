@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "JavaScript Minifier", "tagline": "Hızlı yapısal JavaScript minify — yorumları sil, boşlukları daralt, boş satırları at. Öncesi/sonrası boyutunu ve tasarruf yüzdesini gör.", "description": "Ücretsiz online JavaScript minifier. Tek ve çok satırlı yorumları, gereksiz boşlukları ve boş satırları kaldırırken string'leri, regex literal'larını ve template literal'larını korur."},
         "id": {"name": "JavaScript Minifier", "tagline": "Minify JavaScript struktural cepat — strip komentar, kompres whitespace, buang baris kosong. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "JavaScript minifier gratis. Strip komentar dan whitespace dari JS tanpa mengubah perilaku. Bukan minifier full-parse — hanya minifikasi struktural yang aman. Lihat persen byte yang dihemat dan diff sebelum/sesudah."},
         "vi": {"name": "JavaScript Minifier", "tagline": "Minify JavaScript theo cấu trúc nhanh — bỏ comment, nén whitespace, drop dòng trống. Xem kích thước trước/sau và phần trăm tiết kiệm.", "description": "JavaScript minifier miễn phí trực tuyến. Bỏ comment, nén whitespace và drop dòng trống. Một bộ minify theo cấu trúc nhanh — không phải bộ tối ưu mức compiler — chạy hoàn toàn trong trình duyệt."},
+        "hi": {"name": "JavaScript Minifier", "tagline": "तेज़ structural JavaScript minify — comments हटाएं, whitespace संक्षिप्त करें, खाली लाइनें ड्रॉप करें। पहले/बाद का आकार और बचत प्रतिशत देखें।", "description": "मुफ़्त ऑनलाइन JavaScript minifier. एकल और बहु-लाइन comments, अनावश्यक whitespace, और खाली लाइनों को हटाता है, साथ ही strings, regex literals, और template literals को सुरक्षित रखता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -332,6 +333,26 @@ document.addEventListener('DOMContentLoaded', jmRun);
   <li><strong>Đây không phải Terser hay esbuild.</strong> Bộ minify thực thụ thực hiện rename biến, mangle function name, dead code elimination, và tối ưu hóa nâng cao. Tool này chỉ thực hiện việc dễ.</li>
   <li><strong>Một số whitespace là cú pháp ASI quan trọng.</strong> Automatic Semicolon Insertion của JavaScript dựa vào newline. Tool này nhận biết và không drop chúng khi có thể phá vỡ code.</li>
   <li><strong>Đừng minify code đã được minify.</strong> Lợi ích cận biên là không hữu ích và tăng nguy cơ phá vỡ.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक structural JavaScript minifier कोड के व्यवहार को बदले बिना comments और अनावश्यक whitespace को हटा देता है। आउटपुट input के कार्यात्मक रूप से समान होता है — वही identifiers, वही logic — बस छोटा। यह टूल वह pass आपके browser में चलाता है, मुश्किल हिस्सों सहित: यह strings के content और regex literals को अछूता रखता है, और उन जगहों पर newlines बनाए रखता है जहाँ ASI (Automatic Semicolon Insertion) अन्यथा व्यवहार बदल देता।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>HTML bookmarklet या single-file demo में शामिल करने के लिए snippet को जल्दी trim करना, जहाँ आपके पास build chain नहीं है।</li>
+  <li>यह तय करने से पहले कि क्या असली optimiser सेटअप करना सार्थक है, hand-written script में कितनी "चर्बी" है इसकी जाँच करना।</li>
+  <li>Bundler को साथ खींचे बिना static site में छोटी library को inline करना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह structural minify है, compressor नहीं।</strong> यह variables का नाम नहीं बदलेगा, dead-code eliminate नहीं करेगा, properties को mangle नहीं करेगा, या tree-shake नहीं करेगा। Production builds के लिए, अपने pipeline में <code>terser</code>, <code>esbuild</code>, या <code>swc</code> का उपयोग करें — वे structural minify के ऊपर 30–60% और काटते हैं।</li>
+  <li><strong>ASI trap.</strong> JavaScript आश्चर्यजनक जगहों पर semicolons डालता है। Minifier ऐसी जगहों पर newline बनाए रखता है जहाँ उसे हटाने से अर्थ बदल जाता (जैसे <code>return\\n{}</code> ≠ <code>return {}</code>)। यदि संभव हो तो source में explicit semicolons पर टिके रहें — यह सबके लिए minification को सुरक्षित बनाता है।</li>
+  <li><strong>Source maps generate नहीं होते।</strong> यदि आप production में minified JS भेजते हैं, तो असली toolchain के साथ source maps generate करें ताकि debugging समझदार रहे।</li>
+  <li><strong>आधुनिक compression हावी है।</strong> Wire पर Brotli/gzip वही करता है जो ज़्यादातर minify करता है। सबसे बड़े लाभ unused code हटाने से आते हैं — इसके लिए static analysis चाहिए जो एक structural minifier नहीं कर सकता।</li>
+  <li><strong>जो आप commit करते हैं उसे minify न करें।</strong> Source सुंदर रूप में जाता है; build/deploy पर minify करें।</li>
 </ul>
 """,
     },

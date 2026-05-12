@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Lorem Ipsum Üretici", "tagline": "Placeholder Latince metnin paragraflarını, cümlelerini, kelimelerini veya liste öğelerini üret. Ayarlanabilir uzunluk ve başlangıç ibaresi.", "description": "Ücretsiz Lorem Ipsum üretici. Mockup ve tasarım kompozisyonları için paragraflar, cümleler, kelimeler veya HTML listeleri kur. Opsiyonel klasik 'Lorem ipsum dolor sit amet…' başlangıcı."},
         "id": {"name": "Lorem Ipsum Generator", "tagline": "Hasilkan paragraf, kalimat, kata, atau item list dengan teks placeholder Latin. Panjang dan frasa awal dapat dikustomisasi.", "description": "Generator Lorem Ipsum gratis. Hasilkan placeholder Latin klasik dengan panjang yang dapat dikonfigurasi — paragraf, kalimat, kata, atau item list. Mulai dengan frasa klasik 'Lorem ipsum dolor sit amet' atau acak."},
         "vi": {"name": "Lorem Ipsum Generator", "tagline": "Tạo đoạn văn, câu, từ hoặc mục danh sách của văn bản placeholder Latin. Tùy chỉnh độ dài và cụm từ mở đầu.", "description": "Trình tạo Lorem Ipsum miễn phí trực tuyến. Tạo đoạn, câu, từ hoặc mục danh sách của văn bản placeholder Latin cổ điển cho mockup, design và bản demo."},
+        "hi": {"name": "Lorem Ipsum Generator", "tagline": "Placeholder Latin text के paragraphs, sentences, words, या list items बनाएं। Configurable length और starting phrase के साथ।", "description": "मुफ़्त Lorem Ipsum generator. Mockups और design comps के लिए paragraphs, sentences, words, या HTML lists बनाएं। वैकल्पिक classic 'Lorem ipsum dolor sit amet…' opener।"},
     },
     "body": """
 <div class="tool-card">
@@ -276,6 +277,26 @@ document.addEventListener('DOMContentLoaded', liRun);
   <li><strong>Lorem không có nghĩa.</strong> Đó là tính năng — designer và client nhìn vào layout, không phải content. Đừng dịch nó hoặc cố gắng hiểu nó.</li>
   <li><strong>Đừng ship Lorem ipsum.</strong> Đã có nhiều site sản xuất nổi tiếng release với placeholder content. Có lint rule cho điều đó nếu bạn lo lắng.</li>
   <li><strong>Lorem rất "đặc". </strong> Văn bản thực sự thường có khoảng trắng và hệ thống dấu câu khác — Lorem có thể che giấu vấn đề về typography.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Lorem ipsum Cicero की <em>De Finibus Bonorum et Malorum</em> (45 BC) से derived scrambled Latin है, 1500 के दशक से filler के रूप में उपयोग में है क्योंकि इसकी character frequencies और word lengths वास्तविक prose से मोटे तौर पर मेल खाती हैं बिना इतनी पढ़ने योग्य हुए कि ध्यान भटका सकें। Designers इसका उपयोग इसलिए करते हैं ताकि दिमाग text के blocks को <em>अर्थ</em> के बजाय <em>आकार</em> के रूप में process करे — typography, layout, या page rhythm का मूल्यांकन करते समय आप यही चाहते हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li><strong>Mockups</strong> — "शब्द मायने नहीं रखते, layout मायने रखता है" के लिए placeholder।</li>
+  <li><strong>Design comps</strong> — कई sizes पर wrapping, line lengths, font fallbacks का testing।</li>
+  <li><strong>CMS / template testing</strong> — असली copy आने से पहले fields भरना।</li>
+  <li><strong>Capacity planning</strong> — यह जाँच करना कि एक card / preview / search result लंबे bodies को कैसे handle करता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>इसे production में ship न करें।</strong> Lorem ipsum एक से अधिक बार live publish हो चुका है क्योंकि किसी ने इसे असली copy से बदला नहीं था।</li>
+  <li><strong>असली copy placeholder से छोटी या लंबी होती है।</strong> असली headlines अधिक चुस्त होती हैं। असली body copy बेतहाशा बदलती है। एक layout जो lorem ipsum के साथ balanced दिखता है, वह वास्तविक content के साथ बिखर सकता है; sign-off से पहले असली text के साथ verify करें।</li>
+  <li><strong>Internationalisation वह उजागर करता है जो lorem छिपाता है।</strong> केवल Latin filler के साथ test किए गए designs अक्सर German compounds या Arabic right-to-left layouts के साथ टूट जाते हैं। i18n-aware designs के लिए multilingual placeholders के साथ test करें।</li>
+  <li><strong>Convention मायने रखता है।</strong> पहला paragraph traditionally "Lorem ipsum dolor sit amet…" से शुरू होता है — designers इसे placeholder के रूप में पहचानते हैं। इसे बंद करने का मतलब हो सकता है कि कोई swap से चूक जाए।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Markdown Tablo Editörü", "tagline": "Bir tabloyu görsel olarak düzenle — satırlar, sütunlar, sütun başına hizalama — ve GitHub uyumlu Markdown'u kopyala.", "description": "Ücretsiz online Markdown tablo editörü. Düzenlemek için hücrelere tıkla, satır/sütun ekle/kaldır, sütun başına hizalama ayarla ve GitHub uyumlu Markdown çıktısını kopyala. Tamamen tarayıcında çalışır."},
         "id": {"name": "Editor Tabel Markdown", "tagline": "Edit tabel secara visual — baris, kolom, alignment per kolom — dan salin Markdown yang kompatibel dengan GitHub.", "description": "Editor tabel Markdown gratis. Edit tabel di antarmuka spreadsheet, atur alignment kolom, tambah/hapus baris dan kolom, dan dapatkan Markdown GFM siap-tempel. Tempel CSV/TSV untuk import cepat."},
         "vi": {"name": "Trình chỉnh sửa Bảng Markdown", "tagline": "Chỉnh sửa bảng trực quan — hàng, cột, căn lề theo cột — và sao chép Markdown tương thích GitHub.", "description": "Trình chỉnh sửa bảng Markdown miễn phí trực tuyến. Thêm/bớt hàng và cột, đặt căn lề theo cột, chỉnh sửa nội dung cell, và sao chép Markdown sẵn-dùng tương thích GitHub."},
+        "hi": {"name": "Markdown Table Editor", "tagline": "एक table को visual रूप से edit करें — rows, columns, हर column के लिए alignment — और GitHub-flavoured Markdown copy करें।", "description": "मुफ़्त ऑनलाइन Markdown table editor. Edit करने के लिए cells पर click करें, rows और columns जोड़ें/हटाएं, हर column के लिए alignment सेट करें, और GitHub-flavoured Markdown output copy करें। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -479,6 +480,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>GFM khác Markdown cổ điển.</strong> Bảng không phải là một phần của Markdown gốc của John Gruber — chúng là extension của GFM. Một số renderer (kindle, một số e-reader) không xử lý chúng.</li>
   <li><strong>Pipe trong cell cần escape.</strong> <code>\|</code> sẽ render là pipe literal. Tool này xử lý điều đó tự động.</li>
   <li><strong>Bảng không hỗ trợ rowspan/colspan.</strong> Đối với layout phức tạp, dùng HTML trực tiếp.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Markdown tables रेंडर किए गए output में बढ़िया दिखते हैं और हाथ से लिखने में दुखद हैं। Pipe characters, alignment colons, हर column के लिए सही संख्या में dashes — जब तक आप सब कुछ अपनी जगह पर पहुँचा देते हैं, तब तक आप इसे HTML के रूप में लिख सकते थे। यह editor आपको एक परिचित grid देता है: edit करने के लिए किसी भी cell पर click करें, rows और columns जोड़ने या हटाने के लिए buttons का उपयोग करें, dropdown से हर column के लिए alignment सेट करें, और जब आप पूरा कर लें तो GitHub-flavoured Markdown copy करें। आप नीचे एक मौजूदा Markdown table भी paste कर सकते हैं और यह grid में load हो जाएगी आगे edit करने के लिए।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक README, GitHub issue, या PR description के लिए तुलना table लिखना।</li>
+  <li>एक doc से table को फिर से edit करना — मौजूदा Markdown paste करें, grid में tweak करें, वापस copy करें।</li>
+  <li>एक उचित रूप से aligned ASCII-padded table बनाना (output right-padded है इसलिए यह plain text के रूप में भी पढ़ने योग्य है)।</li>
+  <li>Pipe-and-dash syntax से लड़े बिना release-notes table का draft बनाना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Inline pipes GFM tables को तोड़ते हैं।</strong> एक cell में literal <code>|</code> cell को समाप्त कर देता है। जब आपको चाहिए तो इसे <code>\\|</code> के रूप में escape करें।</li>
+  <li><strong>Cell content single-line है।</strong> Markdown tables HTML (<code>&lt;br&gt;</code>) के बिना cells के अंदर line breaks का समर्थन नहीं करतीं। Multi-line content के लिए, table HTML में लिखें।</li>
+  <li><strong>Alignment render होता है, enforce नहीं।</strong> Output source में align करने के लिए भी pad करता है, लेकिन वास्तविक render किया गया alignment separator row में colons से आता है, spacing से नहीं।</li>
+  <li><strong>पहली row को हमेशा header के रूप में treat किया जाता है।</strong> GFM tables में अनिवार्य header होता है। यदि आपके data में natural header नहीं है, तो row 1 में blank cells का उपयोग करें।</li>
+  <li><strong>कुछ Markdown flavours GFM से अधिक सख्त हैं।</strong> CommonMark स्वयं tables को परिभाषित नहीं करता; GFM, MultiMarkdown, और विभिन्न अन्य सभी थोड़े-थोड़े अलग variants का समर्थन करते हैं। यहाँ output GFM (GitHub, GitLab, अधिकांश आधुनिक renderers) को target करता है।</li>
+  <li><strong>एक unformatted CSV paste करना काम नहीं करेगा।</strong> "Import" textarea एक Markdown table (<code>|---|</code> separator के साथ) की अपेक्षा करता है। CSV → Markdown के लिए, पहले CSV-to-JSON टूल का उपयोग करें या rows को हाथ से paste करें।</li>
 </ul>
 """,
     },

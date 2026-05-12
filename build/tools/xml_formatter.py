@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "XML Formatter", "tagline": "XML'i biçimlendir ve küçült. Hatalarda satır ve sütun ile well-formedness doğrula.", "description": "Ücretsiz online XML formatter ve minifier. XML'i ayarlanabilir indent ile güzel yazdır veya boşlukları temizleyerek küçült. Tarayıcının XML parser'ı ile well-formedness'i doğrular — hata satırı ve sütunu gösterilir."},
         "id": {"name": "XML Formatter", "tagline": "Format dan minify XML. Validasi well-formedness dengan baris dan kolom pada error.", "description": "XML formatter dan validator gratis. Beautify XML berantakan dengan indentasi atau minify untuk transport. Validasi well-formedness dan tampilkan error sintaks dengan baris dan kolom. Berjalan di browser-mu."},
         "vi": {"name": "XML Formatter", "tagline": "Format và minify XML. Xác thực well-formedness với dòng và cột khi có lỗi.", "description": "XML formatter và validator miễn phí trực tuyến. Làm đẹp XML lộn xộn với indent thích hợp hoặc minify để truyền tải. Lỗi well-formedness được làm nổi bật với số dòng và cột."},
+        "hi": {"name": "XML Formatter", "tagline": "XML को फ़ॉर्मैट और minify करें। त्रुटियों पर line और column के साथ well-formedness जांचें।", "description": "मुफ़्त ऑनलाइन XML formatter और minifier। कॉन्फ़िगर करने योग्य indent के साथ XML का सुंदर मुद्रण, या whitespace हटाकर minify। browser के XML parser का उपयोग करके well-formedness को सत्यापित करता है — त्रुटि line और column दिखाई जाती है।"},
     },
     "body": """
 <div class="tool-card">
@@ -491,6 +492,30 @@ document.addEventListener('DOMContentLoaded', xfRun);
   <li><strong>Well-formed không phải valid.</strong> Well-formed có nghĩa cú pháp XML là OK; valid có nghĩa nó khớp với schema (DTD, XSD). Tool này check well-formed, không validate.</li>
   <li><strong>Whitespace có thể có ý nghĩa.</strong> Trong text content và một số attribute, whitespace không thể remove an toàn. Tool này thận trọng.</li>
   <li><strong>Namespace.</strong> Prefix tag (<code>ns:tag</code>) cần khai báo namespace match. Tool này không validate namespace — chỉ format.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>XML अभी भी हर जगह है — SOAP responses, configuration files, RSS/Atom feeds, SVG markup, OOXML internals। जब आपको XML का एक टुकड़ा पढ़ना, diff करना या साझा करना होता है, तो एक-पंक्ति minified blob और एक उचित indented tree के बीच का अंतर अनुमान लगाने और पढ़ने के बीच का अंतर है। यह टूल कॉन्फ़िगर करने योग्य indentation के साथ किसी भी well-formed XML का सुंदर मुद्रण करता है, या उसे transport के लिए minify करता है, और जहां संभव हो वहां एक line और column के साथ malformedness को flag करने के लिए browser के native XML parser का उपयोग करता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक SOAP envelope या vendor के XML config का निरीक्षण करना जो एक minified line के रूप में आया था।</li>
+  <li>एक SVG को साफ़ करना ताकि path data प्रति line एक element हो।</li>
+  <li>wire पर XML भेजने से पहले pretty-print whitespace को हटाना।</li>
+  <li>यह जांचना कि आपके द्वारा उत्पन्न XML file एक strict parser को सौंपने से पहले well-formed है।</li>
+  <li>दो XML documents को diff करना — पहले pretty-print, फिर trees को साथ-साथ diff करें।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Well-formed ≠ valid।</strong> "Well-formed" का अर्थ है कि syntax parse होता है (tags संतुलित हैं, attributes quoted हैं, एक root)। "Valid" का अर्थ है कि यह एक DTD या schema के अनुरूप है। यह टूल केवल well-formedness जांचता है — schema validation के लिए schema file की आवश्यकता होती है।</li>
+  <li><strong>Whitespace महत्वपूर्ण हो सकता है।</strong> <code>&lt;name&gt; Alice &lt;/name&gt;</code> में आगे/पीछे के spaces मान का हिस्सा हैं (XML default रूप से <code>xml:space="preserve"</code> है)। फिर से indent करना उन्हें बदल देता है। यदि आपका XML whitespace-sensitive है (XHTML <code>&lt;pre&gt;</code>, embedded code blocks), तो pretty-print गलत टूल है।</li>
+  <li><strong>Self-closing बनाम explicit empty।</strong> <code>&lt;br/&gt;</code> और <code>&lt;br&gt;&lt;/br&gt;</code> XML में समतुल्य हैं लेकिन HTML में भिन्न हैं। Formatter खाली elements को self-closing रूप में सामान्यीकृत करता है।</li>
+  <li><strong>CDATA, comments और processing instructions संरक्षित हैं।</strong> उनकी आंतरिक सामग्री पुन: format नहीं की जाती है।</li>
+  <li><strong>Namespaces जीवित रहते हैं।</strong> <code>xmlns:foo</code> declarations और <code>foo:bar</code> qualified names बिना संशोधन के round-trip करते हैं।</li>
+  <li><strong>Attribute क्रम बदल सकता है।</strong> XML parser tools के बीच attribute क्रम को कड़ाई से संरक्षित नहीं करता है; यदि आप XML का checksum कर रहे हैं, तो इसे पहले canonicalise करें (XML C14N)।</li>
+  <li><strong>Browser parser quirks।</strong> विभिन्न browsers parse errors को अलग-अलग प्रारूपों में रिपोर्ट करते हैं। line/column निष्कर्षण best-effort है और कुछ browsers पर केवल message दिखा सकता है।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Base64 Encoder / Decoder", "tagline": "Metni Base64'e kodla veya Base64'ü metne çöz. UTF-8 güvenli, base64url varyantı destekli.", "description": "Ücretsiz online Base64 encoder ve decoder. UTF-8 güvenli, URL ve JWT'ler için opsiyonel base64url varyantı. Tarayıcıda çalışır."},
         "id": {"name": "Base64 Encoder / Decoder", "tagline": "Encode teks ke Base64 atau decode Base64 kembali ke teks. Aman untuk UTF-8 dengan dukungan varian base64url.", "description": "Encoder dan decoder Base64 online gratis. Aman untuk UTF-8 dengan varian base64url opsional untuk URL dan JWT. Berjalan di browser-mu."},
         "vi": {"name": "Base64 Encoder / Decoder", "tagline": "Encode văn bản thành Base64 hoặc decode Base64 về văn bản. An toàn UTF-8 và hỗ trợ biến thể base64url.", "description": "Base64 encoder và decoder trực tuyến miễn phí. An toàn UTF-8 với biến thể base64url tùy chọn cho URL và JWT. Chạy trong trình duyệt của bạn."},
+        "hi": {"name": "Base64 Encoder / Decoder", "tagline": "Text को Base64 में encode करें या Base64 को वापस text में decode करें। UTF-8 safe और base64url variant supported।", "description": "मुफ़्त ऑनलाइन Base64 encoder और decoder। UTF-8 safe, URLs और JWTs के लिए optional base64url variant के साथ। आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -281,6 +282,31 @@ document.addEventListener('DOMContentLoaded', b64Run);
   <li><strong>base64url khác với base64 chuẩn.</strong> JWT, OAuth và một số API dùng base64url, thay <code>+</code> bằng <code>-</code>, <code>/</code> bằng <code>_</code> và (thường) bỏ <code>=</code> padding. Decode lẫn nhau sẽ thất bại.</li>
   <li><strong>Padding quan trọng.</strong> Base64 chuẩn cần độ dài đầu vào là bội số của 4, được pad bằng <code>=</code>. Bỏ qua hoặc thêm padding có thể phá vỡ decoder ngặt nghèo.</li>
   <li><strong>UTF-8 trước, rồi mới base64.</strong> Khi encode chuỗi không-ASCII, chuyển sang byte UTF-8 trước. Mã hóa kép hoặc dùng encoding khác sẽ làm hỏng văn bản.</li>
+</ul>
+""",
+        "hi": """
+<h2>Base64 असल में क्या करता है</h2>
+<p>Base64 arbitrary bytes को 64 ASCII characters (A–Z, a–z, 0–9 और दो अतिरिक्त) में बदल देता है। तीन input bytes चार output characters बनते हैं, इसलिए result input से लगभग 33% बड़ा होता है। यह एक <em>encoding</em> है, encryption नहीं — कोई भी इसे decode कर सकता है।</p>
+
+<h3>Base64 कब इस्तेमाल करें</h3>
+<ul>
+  <li>केवल-text format के अंदर छोटे binary data को embed करना: data URIs, JSON values, environment variables, YAML strings।</li>
+  <li>Binary tokens (signatures, keys, hashes) को URLs, headers या cookies में शामिल करने के लिए encode करना।</li>
+  <li>Email attachments और SMIME — पुराना है लेकिन अभी भी इस्तेमाल होता है।</li>
+</ul>
+
+<h3>Standard vs base64url</h3>
+<ul>
+  <li><strong>Standard</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-4" target="_blank" rel="noopener noreferrer">RFC 4648 §4</a>) <code>+</code>, <code>/</code>, <code>=</code> इस्तेमाल करता है। Email, JSON values, अधिकांश XML में ठीक है।</li>
+  <li><strong>base64url</strong> (<a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5" target="_blank" rel="noopener noreferrer">RFC 4648 §5</a>) <code>-</code>, <code>_</code> इस्तेमाल करता है, और आम तौर पर trailing <code>=</code> padding छोड़ देता है। JWTs, OAuth tokens, और हर उस जगह जहाँ value URL में रहती है और <code>+</code>/<code>/</code>/<code>=</code> को अतिरिक्त escaping की ज़रूरत होती।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>इसे encryption से confuse न करें।</strong> Base64 कोई भी reverse कर सकता है। अगर data sensitive है, तो पहले encrypt करें।</li>
+  <li><strong>UTF-8 यहाँ सही round-trip करता है</strong> — non-ASCII (é, 你好, 🚀) <code>TextEncoder</code>/<code>TextDecoder</code> से होकर जाता है, सीधे <code>btoa</code>/<code>atob</code> से नहीं। JavaScript में naive <code>btoa(str)</code> non-Latin characters पर टूट जाता है।</li>
+  <li><strong>Padding</strong> — standard Base64 हमेशा input length के अनुसार 0/1/2 <code>=</code> characters के साथ खत्म होता है। base64url अक्सर इन्हें छोड़ देता है। जो decoders padding की मांग करते हैं वे unpadded input को reject करेंगे; यह tool decode पर इसे फिर से जोड़ देता है अगर गायब हो।</li>
+  <li><strong>Encoded strings के अंदर whitespace</strong> — यहाँ का decoder spaces और line breaks हटा देता है (copy-paste से आम), लेकिन कुछ libraries ऐसा नहीं करतीं, इसलिए अगर आप ऐसी किसी library को pipe कर रहे हैं तो फिर से encode करें।</li>
 </ul>
 """,
     },

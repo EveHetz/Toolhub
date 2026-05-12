@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Placeholder Görsel Üretici", "tagline": "Özel metin ve renklerle her boyutta inline-SVG placeholder görseller üret. Data URI veya indirilebilir SVG olarak çıkar.", "description": "Ücretsiz placeholder görsel üretici. Genişlik × yükseklik, etiket metni ve renkleri belirle; her yere yapıştırabileceğin inline SVG al — data URI, ham işaretleme veya indirme. Tamamen tarayıcında çalışır."},
         "id": {"name": "Generator Placeholder Image", "tagline": "Hasilkan placeholder image SVG inline ukuran apa pun dengan teks dan warna custom. Output sebagai data URI atau SVG yang dapat diunduh.", "description": "Generator placeholder image gratis. Buat placeholder image SVG inline ukuran apa pun dengan teks, warna background, dan warna foreground custom. Output sebagai data URI atau SVG yang dapat diunduh — sempurna untuk mockup dan wireframe."},
         "vi": {"name": "Tạo Placeholder Image", "tagline": "Tạo placeholder image SVG inline với bất kỳ kích thước nào với văn bản và màu tùy chỉnh. Xuất ra dưới dạng data URI hoặc SVG có thể tải về.", "description": "Trình tạo placeholder image miễn phí trực tuyến. Tạo SVG inline ở bất kỳ kích thước nào với văn bản và màu tùy chỉnh — sao chép dưới dạng data URI để dùng inline hoặc tải file SVG về. Hữu ích cho mockup và wireframe."},
+        "hi": {"name": "Placeholder Image Generator", "tagline": "किसी भी size पर कस्टम text और रंगों के साथ inline-SVG placeholder image बनाएं। Data URI या download योग्य SVG के रूप में output।", "description": "मुफ़्त placeholder image generator। width × height, label text, और रंग specify करें; एक inline SVG पाएं जिसे आप कहीं भी paste कर सकते हैं — data URI, raw markup, या download। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -371,6 +372,28 @@ document.addEventListener('DOMContentLoaded', phRun);
   <li><strong>SVG có thể inline.</strong> Vì SVG là XML text, bạn có thể nhúng nó trực tiếp vào HTML — không cần tag <code>&lt;img&gt;</code>. Tốt cho icon hoặc decoration.</li>
   <li><strong>Đừng ship placeholder.</strong> Khi build production, replace placeholder image bằng asset thực hoặc lazy-load.</li>
   <li><strong>SVG hỗ trợ alpha và gradient.</strong> Đối với placeholder phức tạp hơn (gradient, pattern), SVG vẫn nhỏ hơn PNG.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>पेज design करते समय, आपको अक्सर real image तैयार होने से पहले एक विशिष्ट size की image चाहिए होती है — एक hero banner, एक card thumbnail, एक avatar, एक OG card। <code>via.placeholder.com</code> या <code>placehold.co</code> load करना काम करता है पर एक external request और third-party dependency जोड़ता है। यह tool एक self-contained inline SVG बनाता है जिसमें आप जो size और label चाहते हैं वह हो, आपके HTML, CSS <code>background-image</code>, या React component में data URI के रूप में drop करने के लिए तैयार। कुछ भी आपके browser से बाहर नहीं जाता।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक layout का wireframe बनाते समय जहाँ आपको असली assets तैयार होने से पहले shaped placeholders चाहिए।</li>
+  <li>एक Storybook या Figma export बनाते समय जहाँ per-component placeholder graphics चाहिए।</li>
+  <li>image-loading कोड, lazy-loading thresholds, या aspect-ratio CSS को test करना।</li>
+  <li>एक third-party placeholder service को ऐसे project में बदलना जिसे offline या कठोर CSP के तहत काम करना है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>SVG ≠ raster।</strong> data URI एक SVG string है; यह bina blur के अनंत scale करता है पर PNG की उम्मीद रखने वाला designer नहीं। raster image के लिए, preview का screenshot लें या SVG को SVG-to-PNG converter के माध्यम से चलाएं।</li>
+  <li><strong>लंबे data URIs <code>img src</code> में अजीब होते हैं।</strong> Browsers इन्हें संभालते हैं, पर tools (linters, search-and-replace, diff tools) अक्सर multi-KB attribute values पर अटक जाते हैं। बड़े mockups के लिए, SVG file download को प्राथमिकता दें।</li>
+  <li><strong>Label text localize नहीं है।</strong> auto-label "WxH" है गुणन chinha के साथ; यदि आपको अनुवाद चाहिए, एक custom label टाइप करें।</li>
+  <li><strong>रंग केवल HTML hex हैं।</strong> color pickers <code>#rrggbb</code> बनाते हैं। यदि आपको <code>rgba()</code> चाहिए, copy करने के बाद सीधे SVG markup को edit करें।</li>
+  <li><strong>Width/height intrinsic हैं, display नहीं।</strong> CSS को अलग size पर set करने से SVG scale होगा — दृष्टिगत रूप से ठीक, पर embedded text aspect ratio बदलने पर खिंचा हुआ दिख सकता है; हम predictable scaling के लिए <code>preserveAspectRatio="none"</code> का इस्तेमाल करते हैं।</li>
+  <li><strong>placeholder को ship न करें।</strong> भूलना आसान है — live जाने से पहले real asset से बदलें।</li>
 </ul>
 """,
     },

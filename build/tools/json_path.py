@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "JSONPath Tester", "tagline": "Herhangi bir JSON belgesine JSONPath sorgusu çalıştır. Eşleşen düğümleri ve yollarını gerçek zamanlı gör.", "description": "Ücretsiz online JSONPath tester. İç içe JSON'u $.., joker karakterler, dizi dilimleri ve filtre ifadeleriyle sorgula. Canlı sonuçlar, JSON'unu yapıştır ve sorgulamaya başla."},
         "id": {"name": "JSONPath Tester", "tagline": "Jalankan query JSONPath terhadap dokumen JSON apa pun. Lihat node yang cocok dan path-nya secara real-time.", "description": "JSONPath tester gratis. Tempel JSON apa pun, ketik query JSONPath, dan lihat node yang cocok beserta path-nya secara real-time. Mendukung notasi titik dan kurung, wildcard, slice, dan filter."},
         "vi": {"name": "JSONPath Tester", "tagline": "Chạy query JSONPath trên bất kỳ tài liệu JSON nào. Xem các node khớp và path của chúng theo thời gian thực.", "description": "JSONPath tester miễn phí trực tuyến. Dán JSON, gõ query JSONPath và xem các node khớp và path của chúng được cập nhật theo thời gian thực."},
+        "hi": {"name": "JSONPath Tester", "tagline": "किसी भी JSON document पर JSONPath queries चलाएं। मिलान वाले nodes और उनके paths real time में देखें।", "description": "मुफ़्त ऑनलाइन JSONPath tester. Nested JSON को $.., wildcards, array slices, और filter expressions के साथ query करें। Live results, अपना JSON paste करें और querying शुरू करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -466,6 +467,40 @@ document.addEventListener('DOMContentLoaded', jpRun);
   <li><strong>Có nhiều dialect.</strong> JSONPath gốc của Goessner, được implement bởi nhiều thư viện, có sự khác biệt. Spec RFC 9535 đang chuẩn hóa nó — đảm bảo dialect tool của bạn khớp với target.</li>
   <li><strong>Filter có thể chậm.</strong> Trên tài liệu lớn, filter phức tạp (<code>?(@.price > 10)</code>) có thể scan toàn bộ — không phải vấn đề với tool này nhưng đáng nhớ trong production.</li>
   <li><strong>Wildcard và recursive descent.</strong> <code>$..</code> là descent đệ quy mà có thể match nhiều hơn bạn nghĩ. Hãy dùng cẩn thận.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>JSONPath का JSON के लिए वही महत्व है जो XPath का XML के लिए — custom code लिखे बिना nested document से specific values निकालने के लिए एक query language। <code>$.store.books[*].title</code> कहता है "मुझे store के नीचे हर book title दो"; <code>$..price</code> कहता है "document में कहीं भी हर <em>price</em>"। यह टूल आपके paste किए गए किसी भी JSON पर live query चलाता है, मिलान वाले values और उनके paths दोनों दिखाता है, ताकि आप query पर तब तक iterate कर सकें जब तक यह बिल्कुल वही नहीं देती जो आप चाहते हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>JSONPath का उपयोग करने वाले टूल के लिए query draft करना: jq जैसी CLI utilities, Postman tests, Stedi, n8n, या AWS CloudWatch / Step Functions।</li>
+  <li>Script लिखे बिना बड़ी API response से specific fields निकालना।</li>
+  <li>Array को field value के आधार पर filter करना (जैसे "सभी orders जहाँ total &gt; 100")।</li>
+  <li>Code में plumb करने से पहले यह जांचना कि deeply nested path वास्तव में किसी value पर resolve होता है।</li>
+</ul>
+
+<h3>Quick syntax reference</h3>
+<ul>
+  <li><strong><code>$</code></strong> — document का root।</li>
+  <li><strong><code>.name</code></strong> या <strong><code>['name']</code></strong> — नाम से child।</li>
+  <li><strong><code>..</code></strong> — recursive descent (किसी भी गहराई)।</li>
+  <li><strong><code>*</code></strong> — wildcard (कोई भी property या array element)।</li>
+  <li><strong><code>[n]</code></strong> — array index (negative अंत से गिनता है)।</li>
+  <li><strong><code>[start:end:step]</code></strong> — array slice (Python-style)।</li>
+  <li><strong><code>[a, b, c]</code></strong> — indices या names का union।</li>
+  <li><strong><code>[?(@.field &gt; 5)]</code></strong> — filter expression. <code>@</code> = current item; <code>== != &lt; &gt; &lt;= &gt;= &amp;&amp; ||</code> और <code>=~ /regex/</code> को support करता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>JSONPath की कोई एक official spec नहीं है।</strong> मूल Stefan Gössner draft वर्षों से de-facto reference रहा है; RFC 9535 (Feb 2024) ने अंततः इसे standardise किया। Implementations में थोड़ा अंतर है — जो Postman में काम करता है वह Jaeger में काम नहीं कर सकता।</li>
+  <li><strong>Dot बनाम bracket।</strong> <code>$.foo-bar</code> parser को "foo minus bar" जैसा दिखता है; hyphens, dots, या spaces वाले property names के लिए <code>$['foo-bar']</code> का उपयोग करें।</li>
+  <li><strong>यहाँ filter expressions JavaScript-flavoured हैं</strong> — यह एक जानबूझकर सुविधा है लेकिन RFC 9535 से सख्ती से मेल नहीं खाती। इस टूल के filters के दूसरे implementation में byte-identical काम करने पर भरोसा न करें।</li>
+  <li><strong><code>$..*</code></strong> tree में हर node लौटाता है (depth-first), जो बहुत हो सकता है। एक अपरिचित document का अन्वेषण करने के लिए उपयोगी।</li>
+  <li><strong>Numeric strings।</strong> <code>{"1": "a"}</code> — <code>$['1']</code> के साथ access काम करता है; <code>$.1</code> नहीं करता (numbers dot-property names के रूप में valid नहीं हैं)।</li>
+  <li><strong>Ordering।</strong> JSON द्वारा object property order की गारंटी नहीं है। यदि आपका filter order पर निर्भर है, तो पहले sort करें।</li>
 </ul>
 """,
     },

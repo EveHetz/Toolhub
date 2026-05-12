@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Zar Atıcı", "tagline": "Standart D&D notasyonuyla zar at — 2d6+3, 1d20, 4d6 en yüksek 3'ü tut. Kripto-güvenli RNG.", "description": "Standart masaüstü notasyonuyla ücretsiz online zar atıcı: 1d20, 2d6+3, 4d6kh3, 3d8-1. Her tek atışı ve toplamı gör. Adil, öngörülemez atışlar için crypto.getRandomValues kullanır."},
         "id": {"name": "Pelempar Dadu", "tagline": "Lempar dadu dengan notasi D&D standar — 2d6+3, 1d20, 4d6 ambil 3 tertinggi. RNG kripto-aman.", "description": "Pelempar dadu online gratis. Mendukung notasi D&D standar (2d6+3, 1d20, 4d6kh3, 3d6!), advantage/disadvantage, eksplosi, dan keep-highest/lowest. Menggunakan crypto.getRandomValues — RNG kripto-aman."},
         "vi": {"name": "Tung Xúc xắc", "tagline": "Tung xúc xắc với notation D&D chuẩn — 2d6+3, 1d20, 4d6 lấy 3 cao nhất. RNG an toàn về mật mã.", "description": "Trình tung xúc xắc trực tuyến miễn phí. Hỗ trợ notation D&D chuẩn (1d20, 2d6+3, 4d6kh3, v.v.) bằng cách dùng crypto.getRandomValues của trình duyệt để các lần tung là công bằng và không thể đoán trước."},
+        "hi": {"name": "Dice Roller", "tagline": "Standard D&D notation के साथ dice rolls करें — 2d6+3, 1d20, 4d6 keep highest 3। Crypto-secure RNG।", "description": "Standard tabletop notation का उपयोग करते हुए मुफ़्त ऑनलाइन dice roller: 1d20, 2d6+3, 4d6kh3, 3d8-1। हर individual roll और total देखें। निष्पक्ष, अप्रत्याशित rolls के लिए crypto.getRandomValues का उपयोग करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -511,6 +512,40 @@ document.addEventListener('DOMContentLoaded', drValidate);
   <li><strong>RNG mã hóa không phải là "chống gian lận".</strong> Trừ khi bạn ngồi bên cạnh người tung, không có RNG nào có thể chứng minh được không bị giả mạo. Đối với chơi nghiêm túc, dùng tool tung được ký bằng mã hóa hoặc tung trực tiếp.</li>
   <li><strong>"Drop the lowest" và "keep the highest" không giống nhau với tổng số xúc xắc khác nhau.</strong> 4d6 keep highest 3 ≠ 4d6 drop lowest 1 chỉ khi notation rõ ràng về việc khớp.</li>
   <li><strong>Notation D&D không phổ thông.</strong> Một số hệ thống chơi (Storyteller, World of Darkness, dicepool games) dùng cú pháp khác. Tool này tập trung vào notation D&D / Pathfinder.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Tabletop role-playing games (Dungeons & Dragons, Pathfinder, OSR, और अनगिनत अन्य) dice rolls के लिए एक compact notation का उपयोग करते हैं: <code>NdS</code> का अर्थ है "N dice को S sides के साथ रोल करें"। <code>2d6+3</code> का अर्थ है "दो six-sided dice रोल करें और 3 जोड़ें"। यह tool उस notation को parse करता है और browser के cryptographic RNG का उपयोग करके dice को roll करता है, जो अप्रत्याशित और निष्पक्ष है — high-stakes rolls के लिए <code>Math.random()</code> से बहुत बेहतर।</p>
+
+<h3>समर्थित Notation</h3>
+<ul>
+  <li><code>1d20</code> — एक twenty-sided die।</li>
+  <li><code>2d6+3</code> — दो d6, sum, plus 3 modifier।</li>
+  <li><code>3d8-1</code> — तीन d8, sum, minus 1।</li>
+  <li><code>4d6kh3</code> — चार d6, <strong>k</strong>eep <strong>h</strong>ighest 3 (classic D&D 5e ability score)।</li>
+  <li><code>2d20kl1</code> — दो d20, keep lowest 1 (disadvantage)।</li>
+  <li><code>2d20kh1</code> — advantage।</li>
+  <li><code>1d100</code> या <code>1d%</code> — percentile die।</li>
+  <li><code>d20</code> — N default में 1 होता है।</li>
+</ul>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>आप online खेल रहे हैं, आपके physical dice पहुंच से बाहर हैं, या आप remotely DM कर रहे हैं।</li>
+  <li>आपको dice-app subscription के बिना एक reproducible-feel roll चाहिए।</li>
+  <li>आप एक सिक्का खोजे बिना "इसके लिए flip करते हैं" तय करना चाहते हैं (1d2)।</li>
+  <li>आप game design के लिए एक probability prototype कर रहे हैं (एक million rolls आज़माएं — यदि stats चाहिए तो code में formula बदलें)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Browser tab trust boundary है।</strong> Roll आपके tab में, JavaScript में होता है — devtools खुले रखने वाला कोई भी इसे fudge कर सकता है। अजनबियों के साथ competitive play के लिए, server-arbitrated roller का उपयोग करें।</li>
+  <li><strong>Crypto RNG अप्रत्याशित है, "अधिक random" नहीं।</strong> एक अच्छा PRNG और crypto RNG dice के लिए indistinguishable distributions उत्पन्न करते हैं। Crypto का लाभ यह है कि कोई पिछले number से अगला predict नहीं कर सकता।</li>
+  <li><strong>Modifiers एक बार apply होते हैं, keeping के बाद।</strong> <code>4d6kh3+2</code> 4d6 रोल करता है, top 3 रखता है, फिर 2 जोड़ता है — "हर die में 2 जोड़ता है" नहीं।</li>
+  <li><strong>यह exploding dice नहीं है।</strong> कोई <code>!</code>-style explosions नहीं, कोई rerolls (<code>r1</code>) नहीं, कोई successes-counting (<code>3d10>=7</code>) नहीं। यहां notation सरल "sum and modify" subset है जो ~95% सामान्य rolls को cover करती है।</li>
+  <li><strong>Crits केवल d20 के लिए flagged हैं।</strong> एक 20 हरा highlight करता है, एक 1 लाल highlight करता है। अन्य dice sizes को colouring नहीं मिलती।</li>
+  <li><strong>प्रति roll 1000 dice की cap।</strong> Page को responsive रखने के लिए समझदार upper bound।</li>
 </ul>
 """,
     },

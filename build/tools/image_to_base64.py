@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Görsel'den Base64'e", "tagline": "Herhangi bir görseli HTML, CSS veya Markdown'da inline kullanım için Base64 data URI'a dönüştür. Dosyalar tarayıcında kalır.", "description": "Ücretsiz online görselden Base64 data URI encoder. Bir görseli bırak veya seç, inline HTML, CSS background-image veya e-posta için yapıştırılmaya hazır data: URL al."},
         "id": {"name": "Gambar ke Base64", "tagline": "Konversi gambar apa pun ke Base64 data URI untuk penggunaan inline di HTML, CSS, atau Markdown. File tetap di browser-mu.", "description": "Konverter gambar ke Base64 gratis. Drop gambar apa pun dan dapatkan Base64 data URI siap pakai untuk disematkan di HTML, CSS, atau Markdown. File tetap di browser-mu — tanpa upload, tanpa pelacakan."},
         "vi": {"name": "Ảnh sang Base64", "tagline": "Chuyển bất kỳ ảnh nào thành Base64 data URI để dùng inline trong HTML, CSS hoặc Markdown. File ở lại trong trình duyệt của bạn.", "description": "Bộ chuyển ảnh sang Base64 miễn phí trực tuyến. Thả bất kỳ file ảnh nào và nhận data URI sẵn-dùng cho CSS, HTML hoặc Markdown. File không bao giờ rời khỏi trình duyệt của bạn."},
+        "hi": {"name": "Image to Base64", "tagline": "किसी भी image को HTML, CSS, या Markdown में inline उपयोग के लिए तैयार Base64 data URI में बदलें। Files आपके browser में रहती हैं।", "description": "मुफ़्त ऑनलाइन image से Base64 data URI encoder। एक image drop या pick करें और inline HTML, CSS background-image, या email के लिए ready-to-paste data: URL प्राप्त करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -226,6 +227,26 @@ function i2bRun(){
   <li><strong>Base64 thêm khoảng 33% kích thước.</strong> Một ảnh 10 KB trở thành ~13.4 KB chuỗi. Đối với ảnh nhỏ (&lt; 1 KB), tiết kiệm fetch worth it; đối với ảnh lớn hơn, dùng URL riêng và để trình duyệt cache.</li>
   <li><strong>Hỗ trợ email client thay đổi.</strong> Một số client (Outlook 2007–2013) không hỗ trợ data URI inline.</li>
   <li><strong>Đừng quá lớn.</strong> Một số trình duyệt và database có giới hạn về kích thước chuỗi data URI.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक <em>data URI</em> Base64 का उपयोग करके एक file के bytes को सीधे URL में embed करता है — कोई अलग request नहीं, कोई external file नहीं। यह converter आपके drop किए किसी भी image को पढ़ता है और एक <code>data:image/...;base64,...</code> string produce करता है जो HTML, CSS, Markdown, या JSON में paste करने के लिए तैयार है। File कभी भी आपके browser से बाहर नहीं जाती; conversion <code>FileReader.readAsDataURL</code> के माध्यम से होता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>CSS में inline tiny icons (&lt; 4 KB) — एक HTTP request बचाता है और first paint पर flash से बचाता है।</li>
+  <li>Self-contained HTML emails, single-file demos, या offline-capable PWAs।</li>
+  <li>Markdown notes, Notion pages, या chat threads में quick pastes जिन्हें image के साथ travel करना है।</li>
+  <li>Test fixtures और snapshot files जहां आप asset को test के साथ committed रखना चाहते हैं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Size penalty।</strong> Base64 payload को ~33% फुलाता है। ~4–8 KB से ऊपर embedding cost बचाए गए request से अधिक हो जाती है, खासकर इसलिए कि data URIs को browser द्वारा अलग से cache नहीं किया जा सकता।</li>
+  <li><strong>Pages के बीच कोई de-duplication नहीं।</strong> हर page जो URI embed करता है bytes को फिर से ship करता है। पुनः उपयोग की जाने वाली किसी भी चीज़ के लिए, इसे एक real URL के रूप में रखें ताकि browser इसे एक बार cache करे।</li>
+  <li><strong>Email clients भिन्न होते हैं।</strong> अधिकांश modern clients data URIs render करते हैं, लेकिन Windows पर Outlook historically उन्हें <code>&lt;img src&gt;</code> में block करता है। Mass email के लिए CID attachments अभी भी सुरक्षित हैं।</li>
+  <li><strong>SVG ≠ raster।</strong> SVG के लिए, markup को सीधे embed करना (या SVG को url-encoding करना) आमतौर पर Base64 से छोटा होता है।</li>
 </ul>
 """,
     },

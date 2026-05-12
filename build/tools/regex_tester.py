@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "Regex Tester", "tagline": "JavaScript düzenli ifadelerini canlı test et. Eşleşmeleri, capture gruplarını gör ve yazdıkça değiştirme uygula.", "description": "Canlı vurgulama, capture grupları ve değiştirme moduyla ücretsiz online JavaScript regex tester. PCRE uyumlu bayraklar (g/i/m/s/u/y)."},
         "id": {"name": "Regex Tester", "tagline": "Tes regex JavaScript secara langsung. Lihat match, capture group, dan terapkan replace sambil mengetik.", "description": "Regex tester online gratis. Tes regular expression JavaScript secara real-time terhadap teks sampel. Sorot semua match, lihat capture group dengan nomor dan nama, dan terapkan operasi replace sambil mengetik."},
         "vi": {"name": "Regex Tester", "tagline": "Test regex JavaScript trực tiếp. Xem match, capture group và áp dụng replace khi bạn gõ.", "description": "Regex tester miễn phí trực tuyến cho regex JavaScript. Xem match, capture group và áp dụng replace theo thời gian thực khi bạn gõ pattern và mẫu thử."},
+        "hi": {"name": "Regex Tester", "tagline": "JavaScript regular expressions live test करें। Matches, capture groups देखें, और टाइप करते समय replacements लागू करें।", "description": "मुफ़्त ऑनलाइन JavaScript regex tester जिसमें live highlighting, capture groups, और replace mode है। PCRE-compatible flags (g/i/m/s/u/y)।"},
     },
     "body": """
 <div class="tool-card">
@@ -384,6 +385,37 @@ document.addEventListener('DOMContentLoaded', reRun);
   <li><strong>Catastrophic backtracking.</strong> Một số pattern (như <code>(a+)+</code> trên string không match) có thể hang trình duyệt với input lớn. Cảnh giác với nested quantifier.</li>
   <li><strong>Flag matter.</strong> Không có flag <code>g</code>, replace chỉ thay match đầu tiên. Không có <code>i</code>, regex case-sensitive.</li>
   <li><strong>Regex JS khác Java/Python.</strong> Lookbehind chỉ là ES2018+. Một số escape khác (như <code>\d</code>, <code>\w</code>) khớp khác nhau với Unicode tùy flag.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Regular expressions घना और बिना क्षमा वाला होता है। एक काम करने वाला लिखने का तरीका iterative है — pattern, sample text, देखें क्या match होता है, adjust करें। यह tool आपको वह loop आपके browser में देता है JavaScript engine के native <code>RegExp</code> का इस्तेमाल करके, साथ ही capture-group inspection और एक replacement preview। Patterns और inputs कभी page से बाहर नहीं जाते।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>User input को validate करना (email-shaped, phone-shaped, postcode-shaped) और देखना कि कौन से inputs pass और fail होते हैं।</li>
+  <li>Log lines parse करना, fields निकालना, log filters बनाना।</li>
+  <li>एक वास्तविक codebase पर चलाने से पहले find-and-replace patterns design करना।</li>
+  <li>Stack Overflow से copy किया गया regex debug करना जो काम नहीं कर रहा — यहाँ paste करें, देखें यह वास्तव में क्या match करता है।</li>
+</ul>
+
+<h3>आम patterns</h3>
+<ul>
+  <li><code>\\b\\w+@\\w+\\.\\w+\\b</code> — email जैसा</li>
+  <li><code>^\\s*$</code> — खाली/केवल-whitespace line (<code>m</code> flag के साथ)</li>
+  <li><code>(?&lt;year&gt;\\d{4})-(?&lt;month&gt;\\d{2})</code> — named capture groups</li>
+  <li><code>(?:.*)</code> — non-capturing group</li>
+  <li><code>(?=foo)</code> / <code>(?!foo)</code> — lookahead / negative lookahead</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>JavaScript ≠ PCRE।</strong> कोई <code>\\K</code> नहीं, कोई recursive patterns नहीं, lookbehind केवल ES2018 से। Perl, PHP, या Python से patterns को अक्सर adjustment की ज़रूरत होती है।</li>
+  <li><strong><code>g</code> flag के बिना आपको केवल पहला match मिलता है।</strong> "सब खोजें" के लिए <code>g</code> जोड़ें; यदि anchors को per-line match करना चाहिए तो <code>m</code> के साथ combine करें।</li>
+  <li><strong>Greedy vs lazy।</strong> <code>.*</code> जितना संभव हो उतना पकड़ता है; <code>.*?</code> जितना कम संभव हो। <code>&lt;b&gt;hi&lt;/b&gt; and &lt;i&gt;there&lt;/i&gt;</code> को एक block बनाम दो के रूप में match करने का अंतर।</li>
+  <li><strong>Line vs string boundaries पर anchors।</strong> <code>^</code> और <code>$</code> default में string ends को match करते हैं; <code>m</code> flag के साथ वे हर line को match करते हैं।</li>
+  <li><strong>Replacement specials।</strong> <code>$&amp;</code> पूरा match है; <code>$1</code>, <code>$2</code>, … capture groups हैं; <code>$$</code> एक literal <code>$</code> है। यह भूलना "मेरा regex मेरे dollars क्यों खा रहा है" का एक आम स्रोत है।</li>
+  <li><strong>HTML को regex से parse न करें</strong> किसी भी गंभीर चीज़ के लिए। क्लासिक चेतावनी सच है: nested tags, comments, और CDATA को एक real parser की ज़रूरत है। Regex one-off log scraping या controlled inputs के लिए ठीक है।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Renk Seçici", "tagline": "Bir renk seç; HEX, RGB, RGBA, HSL, HSLA, HSV ve CMYK olarak anında gör. Opaklığı ayarla ve istediğin değeri kopyala.", "description": "Ücretsiz online renk seçici. HEX, RGB(A), HSL(A), HSV ve CMYK arasında canlı önizleme, opaklık kaydırıcısı ve kopyala düğmeleriyle dönüştür."},
         "id": {"name": "Pemilih Warna", "tagline": "Pilih warna; lihat HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK secara instan. Atur opasitas dan salin nilai yang kamu butuhkan.", "description": "Pemilih warna online gratis. Pilih warna apa pun dan lihat instan dalam HEX, RGB, RGBA, HSL, HSLA, HSV, dan CMYK. Atur opasitas, salin nilai mana pun dengan satu klik."},
         "vi": {"name": "Chọn Màu", "tagline": "Chọn một màu; xem HEX, RGB, RGBA, HSL, HSLA, HSV và CMYK ngay lập tức. Điều chỉnh opacity và sao chép giá trị bạn cần.", "description": "Công cụ chọn màu trực tuyến miễn phí. Chọn bất kỳ màu nào và sao chép giá trị của nó trong HEX, RGB, RGBA, HSL, HSLA, HSV hoặc CMYK với hỗ trợ alpha. Chạy hoàn toàn trong trình duyệt."},
+        "hi": {"name": "Color Picker", "tagline": "एक color चुनें; उसे HEX, RGB, RGBA, HSL, HSLA, HSV और CMYK में तुरंत देखें। Opacity adjust करें और किसी भी value को copy करें।", "description": "मुफ़्त ऑनलाइन color picker। HEX, RGB(A), HSL(A), HSV और CMYK के बीच live preview, opacity slider और copy buttons के साथ convert करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -268,6 +269,26 @@ document.addEventListener('DOMContentLoaded', cpRun);
   <li><strong>CMYK là gam in ấn, không phải gam màn hình.</strong> Chuyển đổi từ RGB sang CMYK chỉ là gần đúng — máy in thực dùng ICC profile cho việc chuyển đổi chính xác.</li>
   <li><strong>HSV vs HSL.</strong> HSV (còn gọi là HSB) phổ biến trong Photoshop và Figma; HSL là cú pháp CSS gốc. Saturation và brightness/lightness là <em>các trục khác nhau</em>, mặc dù gọi là cùng tên.</li>
   <li><strong>Alpha hex giả định pre-multiplied.</strong> CSS <code>#rrggbbaa</code> dùng straight alpha — đặt nó vào canvas API kỳ vọng pre-multiplied có thể tạo ra rìa nhợt nhạt.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक color चुनें — या कोई भी HEX / <code>rgb()</code> / <code>hsl()</code> value paste करें — और उसे तुरंत हर common notation में देखें: HEX (alpha के साथ 3- और 8-digit), RGB(A), HSL(A), HSV और CMYK। तब उपयोगी जब आपके पास एक space में value हो और दूसरे में चाहिए, जब आप CSS / design tools / print में brand color match कर रहे हों, या जब आप result को फिर से आँखों से देखे बिना opacity adjust कर रहे हों।</p>
+
+<h3>हर space कब इस्तेमाल करें</h3>
+<ul>
+  <li><strong>HEX / RGB</strong> — CSS, design tools, email templates। सब जगह supported।</li>
+  <li><strong>HSL</strong> — readable palettes। दूसरे axes पर color drift हुए बिना hue, saturation, या lightness को अलग-अलग tweak करें।</li>
+  <li><strong>HSV</strong> — shading के लिए design software (Photoshop, Figma); उस तरीके से मेल खाता है जिस तरह से अधिकांश color pickers "यह color, और हल्का" के बारे में सोचते हैं।</li>
+  <li><strong>CMYK</strong> — print-ready output। केवल approximate: screens RGB हैं और सभी printers एक ही color profile share नहीं करते।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Alpha encoding space के अनुसार अलग होती है।</strong> CSS <code>rgba()</code>, <code>hsla()</code> और 8-digit HEX (<code>#RRGGBBAA</code>) support करता है। पुराने email templates और कुछ design tools <code>#RRGGBBAA</code> को नहीं समझते — <code>rgba()</code> पर fall back करें।</li>
+  <li><strong>HSL hue degrees में है।</strong> 0 = red, 120 = green, 240 = blue। CSS <code>turn</code>, <code>rad</code>, <code>grad</code> भी accept करता है पर यहाँ output degrees में है।</li>
+  <li><strong>CMYK conversion naive है।</strong> Real print को ICC profile चाहिए (rendering intent के साथ sRGB → CMYK)। इस tool का output brand-deck mockups के लिए ठीक है, press-ready files के लिए नहीं।</li>
+  <li><strong>OKLCH और OKLAB</strong> (modern perceptually-uniform spaces) यहाँ नहीं दिखाए गए — वे नए हैं और अभी broadly supported नहीं। Design system tooling के लिए फिलहाल HSL/HSV पर ही रहें।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Regex Çetel", "tagline": "Hızlı referans: çapalar, karakter sınıfları, niceleyiciler, gruplar, lookaround'lar, bayraklar. Kopyalamak için herhangi bir desene tıkla.", "description": "Ücretsiz regex (düzenli ifade) çeteli. Çapalar, karakter sınıfları, niceleyiciler, gruplar, lookaround'lar ve bayraklar — tıkla-kopyala desenler ve canlı filtre ile. PCRE / JavaScript lehçesi."},
         "id": {"name": "Cheatsheet Regex", "tagline": "Referensi cepat: anchor, character class, quantifier, group, lookaround, flag. Klik pattern mana pun untuk menyalin.", "description": "Cheatsheet regex gratis. Referensi pattern regex umum: anchor, character class, quantifier, group, lookaround, dan flag. Klik pattern mana pun untuk menyalin. Cocok untuk yang baru belajar regex atau yang perlu refresh."},
         "vi": {"name": "Cheatsheet Regex", "tagline": "Tham chiếu nhanh: anchor, character class, quantifier, group, lookaround, flag. Click bất kỳ pattern nào để sao chép.", "description": "Tham chiếu nhanh regex miễn phí trực tuyến. Cú pháp anchor, character class, quantifier, group và lookaround với ví dụ. Click bất kỳ pattern nào để sao chép."},
+        "hi": {"name": "Regex Cheatsheet", "tagline": "त्वरित संदर्भ: anchors, character classes, quantifiers, groups, lookarounds, flags। किसी भी pattern को copy करने के लिए click करें।", "description": "मुफ़्त regex (regular expression) cheatsheet। Anchors, character classes, quantifiers, groups, lookarounds और flags — click-to-copy patterns और live filter के साथ। PCRE / JavaScript flavour।"},
     },
     "body": """
 <div class="tool-card">
@@ -440,6 +441,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Dialect khác biệt.</strong> JavaScript regex thiếu một số tính năng có trong PCRE (Perl) — đặc biệt là <code>(?P&lt;name&gt;...)</code> dùng <code>?&lt;name&gt;</code> trong JS hiện đại.</li>
   <li><strong>Greedy vs lazy.</strong> <code>.*</code> match nhiều nhất có thể; <code>.*?</code> match ít nhất. Một detail nhỏ với hệ quả lớn.</li>
   <li><strong>Anchor đa dòng.</strong> <code>^</code> và <code>$</code> mặc định khớp đầu/cuối chuỗi — flag <code>m</code> làm cho chúng khớp đầu/cuối dòng.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>regex syntax के उन हिस्सों का एक printable, searchable सारांश जिन्हें आप आधा-आधा याद रखते हैं। यहाँ की tables प्रमुख श्रेणियों को cover करती हैं — anchors, character classes, quantifiers, groups, lookarounds, flags — साथ ही common patterns का एक starter set। किसी भी pattern को copy करने के लिए click करें; filter में टाइप करके narrow down करें। इसे <a href="/regex-tester/">Regex Tester</a> के साथ pair करें ताकि patterns को text के विरुद्ध वास्तव में आज़मा सकें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>आपको <code>(?&lt;=foo)</code> चाहिए और याद नहीं कि <code>?</code> <code>&lt;</code> से पहले है या बाद में।</li>
+  <li>आप किसी को regex समझा रहे हैं और Stack Overflow tabs खंगालने के बजाय एक stable reference page चाहते हैं।</li>
+  <li>आप एक starter pattern (UUID, email, ISO date) चाहते हैं जिसे copy करके tweak कर सकें बजाय शुरू से लिखने के।</li>
+  <li>आपको जानना है कि कौन सा flag क्या करता है — विशेष रूप से <code>s</code> (dotall) vs <code>m</code> (multi-line), जिन्हें लोग नियमित रूप से मिला देते हैं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Flavour मायने रखता है।</strong> इसमें से अधिकांश JavaScript / आधुनिक PCRE है, पर features में अंतर है। Lookbehind JavaScript में ES2018 के साथ आया; <code>x</code> (extended) PCRE/Python है और JS में नहीं; possessive quantifiers <code>++</code> केवल PCRE हैं।</li>
+  <li><strong><code>m</code> ≠ "multi-line matching"।</strong> <code>m</code> <code>^</code> और <code>$</code> के अर्थ को बदलता है (per-string के बजाय per-line)। <code>.</code> के साथ line breaks पार match करने के लिए, आपको <code>s</code> (dotall) चाहिए।</li>
+  <li><strong>Greedy matches बहुत अधिक खाते हैं।</strong> <code>&lt;a&gt;b&lt;/a&gt;</code> के विरुद्ध <code>&lt;.*&gt;</code> पूरी चीज़ match करता है, सिर्फ़ <code>&lt;a&gt;</code> नहीं। lazy version के लिए <code>&lt;.*?&gt;</code> का इस्तेमाल करें, या बेहतर एक अधिक specific class जैसे <code>&lt;[^&gt;]+&gt;</code>।</li>
+  <li><strong>Regex HTML या JSON parser नहीं है।</strong> यहाँ के "common patterns" एक-बार scraping या validation hints के लिए अच्छे हैं, structured input को string के रूप में treat करने के लिए नहीं।</li>
+  <li><strong>Email regexes हमेशा गलत होते हैं।</strong> यहाँ का example एक rough shape-check है; production validation के लिए, इसके बजाय एक confirmation email भेजें।</li>
+  <li><strong>Copy-paste किए "perfect" regexes पर भरोसा न करें।</strong> deploy करने से पहले Regex Tester से अपने वास्तविक data के विरुद्ध इन्हें test करें।</li>
 </ul>
 """,
     },

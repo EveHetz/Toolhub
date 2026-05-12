@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "JSON Diff", "tagline": "İki JSON belgesi için yapısal diff — eklenen, silinen, değişen anahtarlar ve değer değişiklikleri yan yana gösterilir.", "description": "Ücretsiz online JSON diff. İki JSON belgesi arasında yapısal delta hesaplar — eklenen/silinen anahtarlar, değişen değerler ve temiz yan yana görünüm. Tamamen tarayıcında çalışır."},
         "id": {"name": "JSON Diff", "tagline": "Diff struktural dua dokumen JSON — kunci yang ditambah, dihapus, diubah, dan perubahan nilai ditampilkan berdampingan.", "description": "Tool JSON diff gratis. Bandingkan dua dokumen JSON secara struktural dan lihat kunci yang ditambah, dihapus, diubah, dan perubahan nilai berdampingan. Tidak peduli urutan kunci, fokus pada struktur."},
         "vi": {"name": "JSON Diff", "tagline": "Diff theo cấu trúc của hai tài liệu JSON — key được thêm, bị xóa, được thay đổi và thay đổi giá trị hiển thị cạnh nhau.", "description": "JSON diff miễn phí trực tuyến. So sánh hai tài liệu JSON theo cấu trúc, hiển thị key được thêm, bị xóa, được thay đổi và thay đổi giá trị một cách trực quan. Chạy hoàn toàn trong trình duyệt."},
+        "hi": {"name": "JSON Diff", "tagline": "दो JSON documents के लिए structural diff — जोड़े गए, हटाए गए, बदले गए keys और value परिवर्तन साथ-साथ दिखाए गए।", "description": "मुफ़्त ऑनलाइन JSON diff. दो JSON documents के बीच structural delta निकालता है — जोड़े गए/हटाए गए keys, बदले गए values, और साफ़ side-by-side view. पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -340,6 +341,26 @@ document.addEventListener('DOMContentLoaded', jdRun);
   <li><strong>Thứ tự mảng quan trọng.</strong> JSON treat mảng là sắp xếp; <code>[1, 2]</code> ≠ <code>[2, 1]</code>. Tool này đánh dấu reorder dưới dạng thay đổi.</li>
   <li><strong>Thứ tự key không quan trọng (đối với JSON đúng).</strong> Tool diff bỏ qua thứ tự key trên object — chỉ key tồn tại và giá trị mới quan trọng.</li>
   <li><strong>Kiểu quan trọng.</strong> <code>"123"</code> (string) khác <code>123</code> (number) và sẽ hiển thị dưới dạng thay đổi.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>JSON पर plain-text diff आपको बताता है कि कौन सी पंक्तियाँ बदलीं; structural diff आपको बताता है कि कौन से <em>data points</em> बदले। ये अक्सर बहुत अलग होते हैं — बिना semantic बदलाव के पुनः format किया गया document text diff के लिए "हर पंक्ति अलग है" होता है लेकिन यहाँ "कोई बदलाव नहीं"। यह टूल दोनों JSON trees पर चलता है और हर path को रिपोर्ट करता है जहाँ वे भिन्न होते हैं, <a href="https://datatracker.ietf.org/doc/html/rfc6901" target="_blank" rel="noopener noreferrer">RFC 6901 JSON Pointer</a> syntax (<code>/users/0/name</code>) का उपयोग करते हुए ताकि formatting की परवाह किए बिना output स्पष्ट हो।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>दो API responses की तुलना करना ताकि देखा जा सके कि release में वास्तव में क्या बदला, whitespace/key-order noise को नज़रअंदाज़ करते हुए।</li>
+  <li>Migration से पहले/बाद config files को diff करना यह पुष्टि करने के लिए कि केवल इच्छित fields बदले हैं।</li>
+  <li>RFC 6902 JSON Patch document generate करना जो इसका समर्थन करने वाले system को भेजा जा सके (PATCH endpoints, JSON-Merge-Patch fallbacks)।</li>
+  <li>दो test fixtures को देखकर पता लगाना कि एक fail क्यों होता है जबकि दूसरा pass होता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Array compare mode मायने रखता है।</strong> "By index" एक insert किए गए element को इसके बाद की हर चीज़ के लिए remove+add के रूप में रिपोर्ट करता है। "By value" arrays को sets की तरह treat करता है, असली reorderings को miss कर देता है। वह चुनें जो आपके data के क्रमबद्ध होने के तरीके से मेल खाता हो।</li>
+  <li><strong>Number-vs-string structural नहीं है।</strong> <code>{"id": 1}</code> और <code>{"id": "1"}</code> change के रूप में दिखते हैं क्योंकि types अलग हैं। यदि यह मायने रखता है तो diff से पहले types को normalise करें।</li>
+  <li><strong>RFC 6902 एक one-way patch है, merge नहीं।</strong> इसे असली RFC 6902 implementation के साथ apply करें, string-replacement से नहीं।</li>
+  <li><strong>बड़े trees noisy हो जाते हैं।</strong> यदि diff सैकड़ों operations लंबा है, तो आप शायद दो असंबंधित documents की तुलना कर रहे हैं — inputs को फिर से जाँचें।</li>
 </ul>
 """,
     },

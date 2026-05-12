@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Cron İfadesi Oluşturucu", "tagline": "Görsel olarak cron ifadesi kur — dakika, saat, gün, ay, hafta günü — ve sonraki 5 çalışma zamanını önizle.", "description": "Ücretsiz online cron ifadesi oluşturucu. Alanları açılır menü ve hazır ayarlardan seç, cron string'ini al ve yerel saat diliminde sonraki 5 çalışma zamanını gör. Standart 5 alanlı crontab."},
         "id": {"name": "Pembangun Ekspresi Cron", "tagline": "Bangun ekspresi cron secara visual — menit, jam, hari, bulan, hari dalam minggu — dan pratinjau 5 waktu run berikutnya.", "description": "Pembangun ekspresi cron gratis. Susun jadwal cron secara visual dengan dropdown untuk menit, jam, hari, bulan, hari dalam minggu — lalu pratinjau 5 waktu eksekusi berikutnya. Crontab 5-field standar."},
         "vi": {"name": "Xây dựng Cron Expression", "tagline": "Xây dựng biểu thức cron một cách trực quan — phút, giờ, ngày, tháng, thứ trong tuần — và xem trước 5 lần chạy kế tiếp.", "description": "Trình xây dựng biểu thức cron trực tuyến miễn phí. Chọn phút, giờ, ngày, tháng và thứ trong tuần một cách trực quan, sau đó xem trước 5 lần chạy tiếp theo của lịch của bạn."},
+        "hi": {"name": "Cron Expression Builder", "tagline": "Cron expression को visually बनाएं — minute, hour, day, month, weekday — और अगले 5 fire times का preview देखें।", "description": "मुफ़्त ऑनलाइन cron expression builder। Dropdowns और presets के साथ fields चुनें, cron string पाएं, और अपनी local timezone में अगले 5 fire times देखें। Standard 5-field crontab।"},
     },
     "body": """
 <div class="tool-card">
@@ -524,6 +525,37 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Phương ngữ năm trường vs sáu trường.</strong> Cron Unix là 5 trường (không có giây). Spring cron là 6 trường (giây trước). Quartz là 6 hoặc 7 (giây + năm tùy chọn). Đừng trộn lẫn.</li>
   <li><strong>Ngày trong tuần OR ngày trong tháng.</strong> Khi cả hai trường này có sự ràng buộc, cron POSIX khớp nếu hoặc một trong hai đúng, không phải cả hai. Đây là một bất ngờ phổ biến.</li>
   <li><strong>0 vs 7 cho Chủ Nhật.</strong> Hầu hết các implementation chấp nhận cả 0 và 7 cho Chủ Nhật. Một số chỉ chấp nhận một. Kiểm tra docs của runner.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Cron syntax प्रसिद्ध रूप से dense है — पाँच fields, हर एक wildcards, ranges, lists और steps accept करता है। हर बार scratch से लिखना typos को आमंत्रण है। यह builder आपको preset (every-5-minutes, weekdays-at-09:00, आदि) से शुरू करने देता है या individual fields में type करने देता है, resulting cron string देखने देता है, एक plain-English summary पाने देता है, और आपकी local timezone में अगले पाँच real fire times के विरुद्ध confirm करने देता है। इसका complement है <a href="/cron-parser/">Cron Expression Parser</a>, जो किसी मौजूदा expression को उसी preview में decode करता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>नई <code>crontab</code> entry, Kubernetes <code>CronJob</code>, GitHub Actions schedule, या AWS EventBridge rule set up करना।</li>
+  <li>"हर weekday morning चलाओ" requirement को syntactically correct cron line में translate करना।</li>
+  <li>Deploy करने से पहले sanity-check करना कि आपने जो expression draft किया है वह वास्तव में तभी चलेगा जब आपको लगता है।</li>
+  <li>Cron में नए किसी को onboarding — dropdowns और preview को syntax सिखाने दीजिए।</li>
+</ul>
+
+<h3>Field syntax cheat sheet</h3>
+<ul>
+  <li><code>*</code> — field की range में हर value।</li>
+  <li><code>*/N</code> — हर Nवाँ (lower bound से शुरू होते हुए)।</li>
+  <li><code>A-B</code> — range, inclusive।</li>
+  <li><code>A,B,C</code> — specific values की list।</li>
+  <li><code>A-B/N</code> — range A–B के अंदर हर Nवाँ।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Day-of-month + day-of-week interact करते हैं।</strong> अधिकांश cron implementations जब दोनों restricted हों तो उन्हें OR करते हैं: <code>* * 15 * 1</code> 15वें को या Monday को fire होता है, "15वें को अगर यह Monday हो" नहीं।</li>
+  <li><strong>यहाँ timezone आपके browser की local zone है।</strong> Real cron daemons server की timezone (अक्सर UTC) में चलते हैं। Server में paste करने से पहले confirm करें।</li>
+  <li><strong><code>*/N</code> बिल्कुल "हर N" नहीं है।</strong> Minutes में <code>*/15</code> = 0,15,30,45 — 12,27,42,57 नहीं। अगर आपको specific phase चाहिए तो list इस्तेमाल करें।</li>
+  <li><strong>Step + range combos।</strong> <code>0-30/5</code> केवल 0,5,10,15,20,25,30 cover करता है।</li>
+  <li><strong>कुछ cron flavours fields जोड़ते हैं।</strong> Quartz cron में 6 या 7 fields हैं (seconds और year के साथ)। systemd timers पूरी तरह से अलग format इस्तेमाल करते हैं। यह builder standard 5-field crontab को target करता है।</li>
+  <li><strong>Friday-the-13th cron में express करना मुश्किल है।</strong> Cron का day-of-month और day-of-week OR से interact करते हैं, इसलिए उन्हें strictly combine करने के लिए wrapper script चाहिए।</li>
 </ul>
 """,
     },

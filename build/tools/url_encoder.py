@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "URL Encoder / Decoder", "tagline": "String'leri URL'ler için percent-encode et veya percent-encoded string'leri düz metne çöz.", "description": "Ücretsiz online URL encoder ve decoder. URL'ler, query string'ler ve form verisi için özel karakterleri percent-escape olarak kodlar. Component-safe."},
         "id": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode string untuk URL atau decode string percent-encoded kembali ke teks biasa.", "description": "URL encoder dan decoder gratis. Percent-encode string apa pun untuk penggunaan aman di URL (path, query string, fragment) atau decode string percent-encoded kembali ke karakter aslinya. UTF-8 aman."},
         "vi": {"name": "URL Encoder / Decoder", "tagline": "Percent-encode chuỗi cho URL hoặc decode chuỗi percent-encoded trở lại văn bản thường.", "description": "URL encoder và decoder miễn phí trực tuyến. Percent-encode chuỗi để dùng an toàn trong query string và path, hoặc decode chuỗi percent-encoded trở lại văn bản thường. UTF-8 an toàn."},
+        "hi": {"name": "URL Encoder / Decoder", "tagline": "URL के लिए strings को percent-encode करें या percent-encoded strings को वापस सादे टेक्स्ट में decode करें।", "description": "मुफ़्त ऑनलाइन URL encoder और decoder। URLs, query strings और form data के लिए विशेष अक्षरों को percent-escape के रूप में encode करें। Component-safe।"},
     },
     "body": """
 <div class="tool-card">
@@ -212,6 +213,24 @@ document.addEventListener('DOMContentLoaded', urlRun);
   <li><strong>encodeURIComponent vs encodeURI.</strong> Trong JavaScript, dùng <code>encodeURIComponent</code> cho component (giá trị param); <code>encodeURI</code> giữ delimiter URL không-encoded.</li>
   <li><strong>+ vs %20 cho space.</strong> Trong query string, cả hai thường được chấp nhận; <code>%20</code> ổn định hơn vì <code>+</code> chỉ là space trong query string, không phải trong path.</li>
   <li><strong>Encode kép gây ra "%2520" — kép-encode <code>%</code>.</strong> Nếu bạn thấy điều đó, decode hai lần để hiểu cái gì có ở đó.</li>
+</ul>
+""",
+        "hi": """
+<h2>URL encoding क्या करता है</h2>
+<p>URL और HTTP headers एक छोटे ASCII subset तक सीमित हैं। उस set के बाहर कुछ भी — spaces, उच्चारण-चिह्न वाले अक्षर, emoji और कई reserved विराम-चिह्न सहित — को <em>percent-encoded</em> होना चाहिए: प्रति byte <code>%</code> के बाद दो hex digits द्वारा प्रतिस्थापित। <code>café</code> <code>caf%C3%A9</code> (UTF-8) बन जाता है। Decoding इसे उलट देता है।</p>
+
+<h3>किस scope का कब उपयोग करें</h3>
+<ul>
+  <li><strong>Component</strong> — व्यक्तिगत <em>values</em> के लिए इसे चुनें जिन्हें आप URL में जोड़ेंगे: query-string values, path segments, fragment text, header values। संरचनात्मक अक्षरों <code>/ ? # &amp; = +</code> को encode करता है ताकि वे गलती से URL syntax के रूप में parse न हो जाएं।</li>
+  <li><strong>Full URI</strong> — किसी पूरे URL के लिए इसे चुनें जिसे आप साफ़ करना चाहते हैं। <code>/ ? # &amp; = +</code> को URL संरचना के रूप में सुरक्षित रखता है, केवल <em>अवैध</em> अक्षरों (spaces, non-ASCII, आदि) को encode करता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>दो बार encode न करें।</strong> पहले से encoded string को encode करना <code>%20</code> को <code>%2520</code> में बदल देता है। यदि आपका input <code>%XX</code> क्रम दिखाता है, तो पहले decode करें।</li>
+  <li><strong>Spaces हमेशा <code>%20</code> नहीं होते।</strong> <em>application/x-www-form-urlencoded</em> bodies में, spaces <code>+</code> होते हैं। यह टूल JavaScript <code>encodeURIComponent</code> सम्मेलन का पालन करता है (हमेशा <code>%20</code>); decode दोनों को संभालता है।</li>
+  <li><strong>UTF-8 बनाम Latin-1.</strong> आधुनिक browsers और <code>encodeURIComponent</code> हमेशा UTF-8 का उपयोग करते हैं। कुछ पुराने systems अभी भी Latin-1 percent-escapes उत्पन्न करते हैं — वे यहां स्वच्छ रूप से round-trip नहीं करेंगे।</li>
+  <li><strong>Reserved अक्षर percent-escape में case-insensitive हैं लेकिन decoded परिणाम में case-sensitive हैं</strong> — <code>%2F</code> और <code>%2f</code> दोनों <code>/</code> में decode होते हैं, लेकिन मूल अक्षर का case सुरक्षित रहता है।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "ASCII Tablosu", "tagline": "0–127 tam ASCII referansı: ondalık, hex, ikilik, karakter ve HTML entity. Filtrelenebilir.", "description": "Ücretsiz ASCII tablo referansı. 128 standart ASCII kodunun tamamı; ondalık, hex, octal, ikilik, karakter, HTML entity ve kontrol karakterleri için açıklama. Yazdıkça filtrele."},
         "id": {"name": "Tabel ASCII", "tagline": "Referensi ASCII lengkap 0–127 dengan desimal, hex, biner, karakter, dan entity HTML. Bisa difilter.", "description": "Referensi tabel ASCII gratis. Semua 128 kode ASCII standar dengan desimal, hex, oktal, biner, karakter, entity HTML, dan deskripsi untuk karakter kontrol. Filter saat kamu mengetik."},
         "vi": {"name": "Bảng ASCII", "tagline": "Tham chiếu ASCII đầy đủ 0–127 với decimal, hex, binary, ký tự và HTML entity. Có thể lọc.", "description": "Tham chiếu bảng ASCII miễn phí. Tất cả 128 mã ASCII chuẩn với decimal, hex, octal, binary, ký tự, HTML entity và mô tả cho các ký tự điều khiển. Lọc theo lúc bạn gõ."},
+        "hi": {"name": "ASCII टेबल", "tagline": "0–127 का पूरा ASCII reference: decimal, hex, binary, character और HTML entity के साथ। फ़िल्टर करने योग्य।", "description": "मुफ़्त ASCII टेबल reference। सभी 128 standard ASCII codes — decimal, hex, octal, binary, character, HTML entity और control characters के लिए विवरण के साथ। टाइप करते ही फ़िल्टर करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -359,6 +360,28 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Ký tự điều khiển có thể là kẻ phá hoại vô hình.</strong> Copy/paste từ terminal hoặc PDF có thể mang theo <code>0x1F</code>, <code>0x07</code> (BEL — thực sự kêu bíp terminal), hoặc ký tự Unicode zero-width <em>không hề</em> là ASCII. Nếu văn bản "trông giống nhau" nhưng so sánh không bằng, hãy dump ra byte.</li>
   <li><strong>HTML entity không phải lúc nào cũng cần.</strong> Trong tài liệu UTF-8 hiện đại, <code>&amp;#65;</code> và chữ <code>A</code> literal là tương đương. Chỉ escape ký tự có ý nghĩa cú pháp trong HTML: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> và <code>"</code> trong attribute.</li>
   <li><strong>NUL (<code>0x00</code>) kết thúc string trong C.</strong> Đừng nhúng nó vào buffer C-string mà không suy nghĩ — nhiều API sẽ âm thầm cắt ở NUL đầu tiên.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>ASCII (American Standard Code for Information Interchange) 128-character वाली coding system है, जो digits, letters, punctuation और कुछ control codes को 0–127 integers पर map करती है। यह वह नींव है जिसे हर modern text encoding (UTF-8, Latin-1, Windows-1252) extend करता है, इसलिए values को जानना कभी-कभी बहुत ज़रूरी हो जाता है — binary file में किसी अजीब byte का diagnose करना, "किसी भी printable" के लिए regex बनाना, hex dump पढ़ना, या यह याद रखना कि 0x0A newline है या 0x0D।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक hex dump पढ़ना और यह समझने की कोशिश करना कि वे bytes क्या <em>कह रहे</em> हैं।</li>
+  <li>parser लिखते समय boundary values की ज़रूरत: <code>0x20</code> (space), <code>0x7E</code> (tilde) — printable range।</li>
+  <li>एक CSV को debug करना जो इसलिए टूट गई क्योंकि उसमें कहीं <code>0x09</code> (Tab) या <code>0x1F</code> (Unit Separator) था।</li>
+  <li>किसी मुश्किल character के लिए HTML entity बनाना — <code>&amp;#65;</code> = <code>A</code>।</li>
+  <li>इस बहस को निपटाना कि <code>\\r</code> 0x0D है (हाँ — Carriage Return) और <code>\\n</code> 0x0A है (हाँ — Line Feed)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>ASCII 7-bit है, 8-bit नहीं।</strong> Codes 128–255 ASCII <em>नहीं</em> हैं — वे document द्वारा declare की गई किसी भी 8-bit encoding (Latin-1, CP-1252, …) से सम्बन्ध रखते हैं, या UTF-8 sequence के lead bytes होते हैं।</li>
+  <li><strong>Newlines platform के अनुसार अलग होते हैं।</strong> Unix/macOS केवल <code>LF</code> (0x0A) इस्तेमाल करते हैं; पुराना Mac Classic <code>CR</code> (0x0D) इस्तेमाल करता था; Windows <code>CRLF</code> इस्तेमाल करता है। दोनों को mix करने वाली files में naive line counting टूट जाती है।</li>
+  <li><strong>Control characters अदृश्य saboteurs हो सकते हैं।</strong> Terminal या PDF से copy/paste करने पर <code>0x1F</code>, <code>0x07</code> (BEL — असली में terminal beep करता है), या zero-width Unicode characters आ सकते हैं जो ASCII <em>हैं ही नहीं</em>। अगर text "ठीक दिखता है" पर comparison में बराबर नहीं आता, तो bytes में dump करके देखें।</li>
+  <li><strong>HTML entities हमेशा ज़रूरी नहीं होती।</strong> Modern UTF-8 documents में <code>&amp;#65;</code> और literal <code>A</code> बराबर हैं। केवल उन characters को escape करें जिनका HTML में syntactic meaning है: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, और attributes में <code>"</code>।</li>
+  <li><strong>NUL (<code>0x00</code>) C में strings को terminate करता है।</strong> इसे बिना सोचे C-string buffers में embed न करें — कई APIs पहले NUL पर चुपचाप truncate कर देंगे।</li>
 </ul>
 """,
     },

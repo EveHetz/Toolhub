@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Emoji Seçici", "tagline": "Ad ve anahtar kelimeye göre aranabilir emoji paleti. Kopyalamak için herhangi bir emojiye tıkla. Kategoriler: gülümseyenler, hayvanlar, yiyecekler, seyahat, nesneler, semboller, bayraklar.", "description": "Anahtar kelime aramalı ücretsiz emoji seçici. Herhangi bir emojiyi kopyalamak için tıkla. Gülümseyenler, insanlar, hayvanlar, yiyecekler, seyahat, nesneler, semboller ve bayrakları kapsayan derli toplu set. Saf Unicode — her yerde çalışır."},
         "id": {"name": "Pemilih Emoji", "tagline": "Palet emoji yang bisa dicari berdasarkan nama dan kata kunci. Klik emoji mana pun untuk menyalin. Kategori: smiley, hewan, makanan, perjalanan, objek, simbol, bendera.", "description": "Pemilih emoji online gratis. Cari emoji berdasarkan nama atau kata kunci dan salin dengan satu klik. Mencakup smiley, hewan, makanan, perjalanan, objek, simbol, dan bendera. Tanpa pelacakan, tanpa pendaftaran."},
         "vi": {"name": "Chọn Emoji", "tagline": "Bảng emoji có thể tìm kiếm theo tên và từ khóa. Click vào bất kỳ emoji nào để sao chép. Danh mục: mặt cười, động vật, thức ăn, du lịch, đồ vật, ký hiệu, cờ.", "description": "Bộ chọn emoji miễn phí trực tuyến. Tìm bằng tên hoặc từ khóa trên tất cả các emoji Unicode đã danh mục hóa và click bất kỳ emoji nào để sao chép. Hữu ích cho chat, commit message, README, và bất kỳ nơi nào bạn cần một emoji nhanh chóng."},
+        "hi": {"name": "Emoji Picker", "tagline": "नाम और keyword से खोजने योग्य emoji palette। सभी emoji को copy करने के लिए click करें। श्रेणियाँ: smileys, जानवर, खाना, यात्रा, वस्तुएं, symbols, झंडे।", "description": "Keyword search के साथ मुफ़्त emoji picker। किसी भी emoji को copy करने के लिए click करें। smileys, लोग, जानवर, खाना, यात्रा, वस्तुएं, symbols, और झंडे को cover करने वाला curated set। शुद्ध Unicode — कहीं भी काम करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -545,6 +546,30 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Hiển thị khác nhau giữa nền tảng.</strong> Cùng một code point Unicode hiển thị khác trên Apple, Google, Microsoft và Twemoji — đôi khi có cảm xúc trái ngược.</li>
   <li><strong>Một số emoji được biểu diễn bằng nhiều code point.</strong> Cờ là cặp khu vực; biến thể gia đình hoặc da là chuỗi với ZWJ. Khi copy, bạn nhận được chuỗi đầy đủ.</li>
   <li><strong>Hỗ trợ trình duyệt cho emoji mới chậm hơn Unicode.</strong> Một emoji được tiêu chuẩn hóa năm 2023 có thể hiển thị dưới dạng hình hộp trên thiết bị cũ.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>सभी operating systems emoji pickers भेजते हैं (Windows पर Win+., macOS पर Cmd+Ctrl+Space, phones पर keyboard), लेकिन वे inconsistent, कभी-कभी छुपे, और अक्सर धीमे हैं। यह tool आपको श्रेणी के अनुसार व्यवस्थित और keyword द्वारा खोजने योग्य सबसे अधिक उपयोग किए जाने वाले emoji का curated grid देता है। emoji को clipboard पर copy करने के लिए किसी tile पर click करें। हाल ही में copy किए गए emoji browser local storage में visits के बीच याद रखे जाते हैं — कुछ भी server पर नहीं भेजा जाता।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>आप एक quick OS-level emoji shortcut के बिना desktop पर हैं।</li>
+  <li>आप अपने OS picker से अधिक व्यापक keyword search चाहते हैं।</li>
+  <li>आप remote desktop या पुराने system का उपयोग कर रहे हैं जिसमें native picker नहीं है।</li>
+  <li>आपको एक text field में paste करने के लिए emoji चाहिए जो आपके IME को स्वीकार नहीं करता।</li>
+</ul>
+
+<h3>Rendering कैसे काम करता है</h3>
+<p>एक emoji बस एक या अधिक Unicode code points है। <em>यह कैसा दिखता है</em> यह आपके browser/OS द्वारा चुने गए font पर निर्भर करता है: Apple के emoji Google के Noto, Microsoft के Segoe UI Emoji, और Twitter के Twemoji से भिन्न हैं। Bytes समान हैं — चित्र local है। यदि कोई emoji एक square या fallback "unsupported" के रूप में दिखाई देता है, तो आपके system font में इसके लिए glyph नहीं है; OS update करना या Noto Color Emoji जैसा font install करना इसे fix करता है।</p>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Skin tones और family/profession variants sequences हैं।</strong> 👨‍🍳 "man" + ZWJ + "cooking" है — पांच code points। कुछ systems components को अलग-अलग दिखाते हैं यदि वे sequence support नहीं करते।</li>
+  <li><strong>झंडे regional indicators हैं।</strong> 🇮🇳 "🇮" + "🇳" है — दो regional-indicator letters। Territories (Scotland, Texas) के लिए sequences में अतिरिक्त tag characters की आवश्यकता होती है और हर system पर render नहीं हो सकती।</li>
+  <li><strong>यह tool curated है, exhaustive नहीं।</strong> Unicode 15 में 3,664 emoji हैं जिनमें सैकड़ों skin tone और gender variants शामिल हैं। Picker उन ~600 पर focus करता है जो आप शायद चाहते हैं; पूरी list के लिए, Unicode के emoji data या अपने OS picker को देखें।</li>
+  <li><strong>कुछ characters emoji की तरह दिखते हैं लेकिन text के रूप में render होते हैं।</strong> "Variation selector" (U+FE0F) renderer को कहता है "इसे emoji के रूप में draw करो"। इसके बिना, ☂ plain text के रूप में render हो सकता है, 🌂 नहीं। Tool जहां आवश्यक हो selectors include करता है।</li>
+  <li><strong>Clipboard support भिन्न होता है।</strong> कुछ browsers की clipboard API को user gesture चाहिए (click यह करता है), लेकिन permission denial चुपके से fail हो जाती है। यदि copy काम नहीं करता, तो address bar से copy करने के लिए keyboard shortcut का उपयोग करें।</li>
 </ul>
 """,
     },

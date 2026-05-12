@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "YouTube Thumbnail İndirici", "tagline": "Herhangi bir YouTube URL'i veya video ID'sini yapıştır ve mevcut her thumbnail boyutunu yakala — doğrudan indirme linkleri, upload yok, kayıt yok.", "description": "Ücretsiz YouTube thumbnail indirici. Herhangi bir YouTube URL'inden (watch, youtu.be, shorts, embed, /v/) video ID'sini çıkarır ve doğrudan indirme linkleriyle mevcut tüm thumbnail çözünürlüklerini gösterir."},
         "id": {"name": "Pengunduh Thumbnail YouTube", "tagline": "Tempel URL YouTube atau ID video, dan ambil setiap ukuran thumbnail yang tersedia — link unduh langsung, tanpa upload, tanpa pendaftaran.", "description": "Pengunduh thumbnail YouTube gratis. Tempel URL YouTube atau ID video dan dapatkan link unduh langsung untuk setiap ukuran thumbnail yang tersedia (default, medium, high, standard, maxres). Tanpa upload, tanpa pelacakan."},
         "vi": {"name": "Tải Thumbnail YouTube", "tagline": "Dán URL YouTube hoặc ID video, và lấy mọi kích thước thumbnail có sẵn — link tải trực tiếp, không upload, không đăng ký.", "description": "Trình tải thumbnail YouTube miễn phí trực tuyến. Dán bất kỳ URL YouTube nào hoặc ID video và lấy tất cả các kích thước thumbnail có sẵn (mặc định, hq, mq, sd, maxres). Trình duyệt của bạn fetch trực tiếp từ CDN của YouTube — không có upload."},
+        "hi": {"name": "YouTube Thumbnail Downloader", "tagline": "कोई भी YouTube URL या video ID पेस्ट करें और हर उपलब्ध thumbnail आकार पाएं — direct download links, कोई upload नहीं, साइनअप नहीं।", "description": "मुफ़्त YouTube thumbnail downloader। किसी भी YouTube URL (watch, youtu.be, shorts, embed, /v/) से video ID निकालता है और सभी उपलब्ध thumbnail resolutions को direct download links के साथ दिखाता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -339,6 +340,37 @@ document.addEventListener('DOMContentLoaded', ytRun);
   <li><strong>maxres không phải lúc nào cũng có.</strong> YouTube tạo maxresdefault.jpg chỉ cho video độ phân giải đủ cao. Đối với video cũ hoặc thấp, fetch return 404.</li>
   <li><strong>Thumbnail thay đổi.</strong> Creator có thể update thumbnail bất cứ lúc nào. URL ổn định nhưng image bytes thay đổi — nếu bạn cần lock version cụ thể, download và lưu trữ.</li>
   <li><strong>Đừng share trái phép.</strong> Thumbnail có copyright. OK để embed video YouTube; xem điều khoản trước khi dùng thumbnail trong context khác.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>हर YouTube video के पास पूर्व-उत्पन्न thumbnail images का एक छोटा सेट होता है जो पूर्वानुमेय URLs पर होता है — YouTube उन्हें खुद search results, embeds और previews में उपयोग करता है। यह टूल किसी भी YouTube URL रूप (watch, youtu.be, Shorts, embed, /v/) से 11-character video ID निकालता है और direct download links और copy-URL buttons के साथ हर उपलब्ध आकार को रखता है। उपयोगी जब आपको एक offline preview, एक blog post के लिए hero image, एक Discord/Slack rich link, या एक custom video player के लिए एक fallback poster की आवश्यकता हो।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक blog post में एक YouTube video embed करना और वही thumbnail चाहना जो YouTube दिखाता है, स्थानीय रूप से होस्ट किया गया।</li>
+  <li>एक Notion / Slack / email में एक clickable "watch this video" tile बनाना जहां आपको एक still image की आवश्यकता है।</li>
+  <li>एक custom video player बनाना और iframe लोड होने से पहले एक poster image की आवश्यकता।</li>
+  <li>संदर्भ, content या moodboard सामग्री के रूप में offline उपयोग के लिए एक thumbnail सहेजना।</li>
+  <li>YouTube Data API से जूझे बिना उच्चतम-resolution thumbnail प्राप्त करना।</li>
+</ul>
+
+<h3>variants की व्याख्या</h3>
+<ul>
+  <li><strong>maxresdefault</strong> (1280×720) — मूल full-HD thumbnail। केवल HD में अपलोड किए गए videos के लिए मौजूद; अन्यथा URL 404 लौटाता है और preview खाली हो जाता है।</li>
+  <li><strong>sddefault</strong> (640×480) — आधुनिक युग के अधिकांश videos के लिए उत्पन्न।</li>
+  <li><strong>hqdefault</strong> (480×360) — <strong>हमेशा मौजूद</strong>, सबसे शुरुआती YouTube videos तक जाता है। इसे अपना fallback बनाएं।</li>
+  <li><strong>mqdefault</strong> (320×180) और <strong>default</strong> (120×90) — छोटे previews; in-list rendering के लिए उपयोगी।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>maxresdefault अक्सर 404 होता है।</strong> पुराने या निम्न-resolution uploads में यह नहीं होता। अपनी fallback chain बनाएं: <code>maxresdefault → sddefault → hqdefault</code>।</li>
+  <li><strong>hqdefault पर काली पट्टियां।</strong> 480×360 thumbnail गैर-4:3 sources के लिए letterboxed है — ऊपर और नीचे पट्टियां हैं। <code>mqdefault</code> (320×180) में आधुनिक uploads के लिए सही 16:9 aspect है।</li>
+  <li><strong>Frames 1/2/3।</strong> YouTube एक ही path पर <code>1.jpg</code>, <code>2.jpg</code>, <code>3.jpg</code> भी expose करता है — video से auto-extracted तीन frames। कभी-कभी एक custom poster के लिए वास्तव में जो आप चाहते हैं वह है, और वे default variant list में नहीं हैं।</li>
+  <li><strong>यह अभी भी YouTube की image है।</strong> Hot-linking ठीक है; अपने स्वयं के CDN पर rehosting तकनीकी रूप से ठीक है लेकिन यदि आप इसे commercially उपयोग कर रहे हैं तो licensing की जांच करें। Video creator के पास frame की दृश्य सामग्री पर copyright हो सकता है।</li>
+  <li><strong>यहां WebP समर्थित नहीं है।</strong> YouTube <code>.webp</code> versions (छोटी files) भी serve करता है, लेकिन वे एक अलग CDN path से serve होते हैं और इस टूल द्वारा expose नहीं किए जाते।</li>
+  <li><strong>Live streams और Shorts</strong> ठीक काम करते हैं — URL parser सभी आधुनिक रूपों को संभालता है — लेकिन live-stream thumbnails stream live रहते समय बदलते रहते हैं।</li>
 </ul>
 """,
     },

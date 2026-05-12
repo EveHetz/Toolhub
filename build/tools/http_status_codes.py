@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "HTTP Durum Kodları", "tagline": "Herhangi bir HTTP durum kodunu ara (1xx–5xx). Anlamı, yaygın sebepleri ve RFC referansı.", "description": "Ücretsiz HTTP durum kodu referansı. Her standart HTTP durum kodunu (100–599) ara, anlamını, yaygın sebeplerini ve tanımlandığı RFC'yi gör. Yazdıkça filtrele."},
         "id": {"name": "Kode Status HTTP", "tagline": "Cari kode status HTTP apa pun (1xx–5xx). Maknanya, alasan umum, dan referensi RFC.", "description": "Referensi kode status HTTP gratis. Cari kode status apa pun (1xx informational, 2xx success, 3xx redirect, 4xx client error, 5xx server error) dengan maknanya, alasan umum, dan referensi RFC."},
         "vi": {"name": "Mã trạng thái HTTP", "tagline": "Tra cứu bất kỳ mã trạng thái HTTP nào (1xx–5xx). Ý nghĩa, lý do thường gặp và tham chiếu RFC.", "description": "Tham chiếu mã trạng thái HTTP miễn phí trực tuyến. Tra cứu bất kỳ mã 1xx–5xx nào với ý nghĩa, ngữ cảnh sử dụng phổ biến và RFC định nghĩa nó. Có thể tìm kiếm."},
+        "hi": {"name": "HTTP Status Codes", "tagline": "किसी भी HTTP status code (1xx–5xx) को देखें। अर्थ, सामान्य कारण, और RFC reference।", "description": "मुफ़्त HTTP status code reference। हर standard HTTP status code (100–599) को search करें, उसका अर्थ, सामान्य कारण, और जिस RFC में यह defined है वह देखें। टाइप करते समय filter करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -406,6 +407,29 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>4xx vs 5xx.</strong> 4xx là client error (request không hợp lệ — sửa request của bạn); 5xx là server error (request có thể đã ok — vấn đề ở phía server).</li>
   <li><strong>200 cho 301.</strong> Một số reverse proxy biến redirect thành 200. Hãy luôn cấu hình nó để truyền lại status code thực.</li>
   <li><strong>418 I'm a Teapot</strong> là một joke RFC, nhưng vẫn được dùng đôi khi như một status placeholder.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>HTTP status codes तीन-digit संख्याएं हैं जो server client को बताने के लिए वापस भेजता है कि request कैसा गया। वे पांच families में group होते हैं: 1xx (informational), 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error)। अधिकांश developers headline codes जानते हैं — 200, 301, 404, 500 — लेकिन long tail (409 Conflict, 422 Unprocessable, 504 Gateway Timeout) वही जगह है जहां असली bugs रहते हैं। यह tool आपको अर्थों और RFC के साथ पूरी list देता है जहां प्रत्येक defined है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक API doc पढ़ रहे हैं जो आपको ज्ञात नहीं ऐसा code return करता है (425? 451?)।</li>
+  <li>अपने API से return करने के लिए सही code चुनना — 404 vs 410, 401 vs 403, 422 vs 400।</li>
+  <li>एक 502/504 का diagnose करना — क्या upstream down है या बस धीमा?</li>
+  <li>तय करना कि 200-with-an-error-body या एक असली 4xx सही move है।</li>
+  <li>एक code review या design doc के लिए RFC reference देखना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>401 का अर्थ unauthenticated है, 403 का अर्थ unauthorized है।</strong> नाम भ्रामक हैं — 401 कहता है "मुझे नहीं पता आप कौन हैं", 403 कहता है "मुझे पता है आप कौन हैं और आपके पास यह नहीं हो सकता"। 403 का उपयोग केवल तब करें जब re-authentication मदद नहीं करेगा।</li>
+  <li><strong>302 method-ambiguous है।</strong> Browsers historically 302 redirect पर POST→GET बदल देते थे। Explicit होने के लिए 307 (method preserve करता है) या 303 (हमेशा GET) का उपयोग करें।</li>
+  <li><strong>404, 410 नहीं है।</strong> 404 = "मुझे नहीं पता"; 410 = "मुझे पता है और यह हमेशा के लिए चला गया"। 410 तब उपयोग करें जब search engines को URL drop करना चाहिए।</li>
+  <li><strong>200 error body के साथ "RESTful" नहीं है।</strong> यदि request resource level पर fail हुआ, तो body में error के साथ 4xx return करें।</li>
+  <li><strong>418 एक joke है।</strong> production में I'm-a-teapot का उपयोग न करें — clients और proxies इसे inconsistently treat करते हैं।</li>
+  <li><strong>RFC 9110, RFC 7231/7232/7233/7234/7235 का स्थान लेता है।</strong> यदि आप spec cite कर रहे हैं, तो 9110 (June 2022) का उपयोग करें जब तक आपको विशेष रूप से पुराने version की आवश्यकता न हो।</li>
 </ul>
 """,
     },

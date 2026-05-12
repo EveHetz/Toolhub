@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "SQL Formatter", "tagline": "SQL'i düzgün indent ile biçimlendir ve güzelleştir veya tek satıra küçült. Lehçe farkında (ANSI / MySQL / Postgres).", "description": "Ücretsiz online SQL formatter. Herhangi bir SELECT/INSERT/UPDATE/DDL'yi tutarlı indent, anahtar kelime büyük/küçük harf ve clause hizalaması ile güzel yazdırır. Aynı zamanda tek satıra küçültür. Tamamen tarayıcında çalışır."},
         "id": {"name": "SQL Formatter", "tagline": "Format dan beautify SQL dengan indentasi yang tepat, atau minify ke satu baris. Sadar dialek (ANSI / MySQL / Postgres).", "description": "SQL formatter gratis. Beautify SQL berantakan dengan indentasi dan baris baru yang tepat, atau minify ke satu baris. Sadar dialek untuk ANSI SQL, MySQL, PostgreSQL, dan SQLite. Berjalan di browser-mu."},
         "vi": {"name": "SQL Formatter", "tagline": "Format và làm đẹp SQL với indent thích hợp, hoặc minify thành một dòng. Có nhận biết phương ngữ (ANSI / MySQL / Postgres).", "description": "SQL formatter miễn phí trực tuyến. Làm đẹp truy vấn SQL với indent thích hợp hoặc minify thành một dòng. Hỗ trợ phương ngữ ANSI, MySQL và Postgres với từ khóa và quy tắc của chúng."},
+        "hi": {"name": "SQL Formatter", "tagline": "SQL को उचित indentation के साथ फ़ॉर्मैट और सुंदर बनाएं, या एक line में minify करें। Dialect-aware (ANSI / MySQL / Postgres)।", "description": "मुफ़्त ऑनलाइन SQL formatter। किसी भी SELECT/INSERT/UPDATE/DDL को सुसंगत indentation, keyword casing, और clause alignment के साथ pretty-print करता है। एक line में minify भी करता है। पूरी तरह आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -566,6 +567,28 @@ document.addEventListener('DOMContentLoaded', sfRun);
   <li><strong>Dialect khác biệt.</strong> Backtick MySQL khác double quote Postgres. <code>LIMIT</code> không phải SQL chuẩn (đó là MySQL/Postgres ext). Đảm bảo phương ngữ tool khớp với của bạn.</li>
   <li><strong>String literal có thể chứa cú pháp SQL.</strong> <code>WHERE name = 'O\'Brien'</code> chứa apostrophe escaped — đừng nhầm với end của string.</li>
   <li><strong>Formatter không phải validator.</strong> Một truy vấn được format đẹp vẫn có thể có lỗi cú pháp hoặc tham chiếu sai column.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>SQL एक one-liner से लेकर 200-line analytics query तक होता है जिसे कोई भी सही ढंग से indent होने तक नहीं पढ़ सकता। यह formatter किसी भी SELECT, INSERT, UPDATE, या DDL को लेता है और सुसंगत indentation, हर clause से पहले line breaks, और एक समान keyword casing के साथ फिर से लिखता है। Minify mode इसके विपरीत करता है — code या scripts में embed करने के लिए सब कुछ एक line में दबा देता है। पूरी चीज़ आपके browser में चलती है; queries कभी page से बाहर नहीं जातीं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक log file, ORM, या chat message से copy की गई query को कुछ diff-able और review-able में reformat करना।</li>
+  <li>एक migration script commit करने से पहले team conventions (UPPERCASE keywords, 2-space indent) को normalise करना।</li>
+  <li>एक लंबी pretty-printed query को एक line में squash करना ताकि यह एक YAML config या one-line CLI argument में fit हो।</li>
+  <li>संरचनात्मक समस्याओं को देखना — unbalanced parens, SELECT list में एक missing comma, या बिना ON वाला JOIN — जो query indent होने पर स्पष्ट होती हैं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Formatter structural है, semantic नहीं।</strong> यह आपको नहीं बताएगा कि query सही SQL है या नहीं, केवल कैसे देखे गए tokens को indent करना है। input में एक syntax error output में एक syntax error बन जाता है।</li>
+  <li><strong>Dialect-specific keywords अलग होते हैं।</strong> <code>ILIKE</code>, <code>RETURNING</code>, <code>LATERAL</code> Postgres हैं; <code>STRAIGHT_JOIN</code>, <code>SQL_CALC_FOUND_ROWS</code> MySQL हैं। सही dialect चुनें या वे शब्द keywords के रूप में पहचाने नहीं जाएंगे।</li>
+  <li><strong>String literals हूबहू संरक्षित किए जाते हैं।</strong> single quotes में एक multi-line string अपने line breaks को बनाए रखती है; formatter <code>'...'</code> के अंदर text को reflow नहीं करता।</li>
+  <li><strong>Comments बचे रहते हैं पर अपनी lines पर अलग हो जाते हैं।</strong> यदि आपके पास एक <code>-- inline comment</code> mid-line था, तो वह pretty-print के दौरान अपनी line पर चला जाएगा।</li>
+  <li><strong>Minify comments को हटा देता है।</strong> यदि आपको इनकी ज़रूरत है, minify न करें।</li>
+  <li><strong>यह एक linter नहीं है।</strong> CI में validation, style enforcement, और dialect checking के लिए एक वास्तविक SQL parser (जैसे <code>sqlfluff</code>) का इस्तेमाल करें।</li>
 </ul>
 """,
     },

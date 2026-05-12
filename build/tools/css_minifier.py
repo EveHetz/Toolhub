@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "CSS Minifier", "tagline": "CSS'ten yorumları, boşlukları ve gereksizliği temizle. Öncesi/sonrası boyutunu ve tasarruf yüzdesini gör.", "description": "Ücretsiz online CSS minifier. Yorumları kaldırır, boşlukları daraltır, sondaki noktalı virgülleri ve sıfır birimlerini keser. Sıkıştırma oranını gösterir."},
         "id": {"name": "CSS Minifier", "tagline": "Strip komentar, whitespace, dan redundansi dari CSS. Lihat ukuran sebelum/sesudah dan persen penghematan.", "description": "CSS minifier gratis. Strip komentar, whitespace, dan stylesheet kosong dari CSS-mu. Lihat ukuran sebelum/sesudah dan persen byte yang dihemat — semuanya di browser-mu."},
         "vi": {"name": "CSS Minifier", "tagline": "Bỏ comment, whitespace và phần dư thừa khỏi CSS. Xem kích thước trước/sau và phần trăm tiết kiệm.", "description": "CSS minifier miễn phí trực tuyến. Bỏ comment và whitespace, hợp nhất các quy tắc và hiển thị tiết kiệm byte. Chạy hoàn toàn trong trình duyệt."},
+        "hi": {"name": "CSS Minifier", "tagline": "CSS से comments, whitespace और redundancy हटाएं। पहले/बाद का साइज़ और बचत प्रतिशत देखें।", "description": "मुफ़्त ऑनलाइन CSS minifier। comments हटाता है, whitespace को संक्षिप्त करता है, trailing semicolons और zero units को trim करता है। compression ratio दिखाता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -311,6 +312,34 @@ document.addEventListener('DOMContentLoaded', cmRun);
   <li><strong>Minify ≠ tối ưu hóa.</strong> Bộ tối ưu thực thụ (cssnano, csso) sẽ gộp các quy tắc, drop selector chết và xếp lại giá trị shorthand. Tool này chỉ làm việc dễ nhất: whitespace và comment.</li>
   <li><strong>Comment có thể là cấp phép quan trọng.</strong> Đừng tự động bỏ tất cả comment khỏi CSS chứa header license — kiểm tra trước.</li>
   <li><strong>Một số whitespace là quan trọng.</strong> Trong selector phức tạp (như <code>div > p</code>), tool này giữ lại khoảng trắng có ý nghĩa và chỉ bỏ phần trang trí.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>CSS जो source में पढ़ने योग्य होता है — comments, indentation और meaningful whitespace के साथ — आपके users द्वारा डाउनलोड की जाने वाली file को फुला देता है। एक structural minifier सभी cosmetic bytes (comments, whitespace के runs, redundant zeros, equivalent छोटे hex codes) को rules का अर्थ बदले बिना हटा देता है। यह tool वह pass आपके browser में चलाता है और साइज़ पहले/बाद में दिखाता है ताकि आप बचत देख सकें।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>HTML email या blog post template में एक CSS snippet को एक बार inline ship करते समय, जहां आप bytes कम करना चाहते हैं लेकिन build chain नहीं है।</li>
+  <li>यह तय करने से पहले कि क्या वास्तविक optimiser को जोड़ने लायक है, एक stylesheet में कितना "fat" है इसकी जल्दी जांच करना।</li>
+  <li>third-party widget में शामिल करने के लिए vendor की pretty-printed CSS को slim करने हेतु paste करना।</li>
+</ul>
+
+<h3>यह क्या करता है</h3>
+<ul>
+  <li>Block comments (<code>/* … */</code>) हटाता है — single-line <code>//</code> वैसे भी valid plain CSS नहीं है।</li>
+  <li><code>{ } : ; ,</code> और combinators (<code>&gt; ~ +</code>) के आसपास whitespace को संक्षिप्त करता है।</li>
+  <li><code>}</code> से पहले trailing semicolons को drop करता है।</li>
+  <li>Leading zeros को trim करता है (<code>0.5</code> → <code>.5</code>) और zero से units हटा देता है (<code>0px</code> → <code>0</code>)।</li>
+  <li>जहां सटीक हो वहां hex colours को छोटा करता है (<code>#aabbcc</code> → <code>#abc</code>)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह एक structural minify है, full optimiser नहीं।</strong> यह duplicate selectors को merge नहीं करेगा, rules को reorder नहीं करेगा, या shorthand को rewrite नहीं करेगा। उसके लिए अपनी build pipeline में <code>cssnano</code> या <code>esbuild</code> चलाएं।</li>
+  <li><strong>Source maps generate नहीं होते।</strong> यदि आप production में minified CSS को debug करते हैं, तो उन्हें अलग से ship करें।</li>
+  <li><strong>commit की गई CSS को minify न करें।</strong> Pretty source commit करें; build/deploy पर minify करें। दोनों को mix करने से diff review कष्टदायक हो जाता है।</li>
+  <li><strong>Modern compression प्रमुख है।</strong> wire पर Brotli/gzip वही करता है जो minification करता है का बहुत कुछ। सबसे बड़ी बचत unused rules को हटाने से आती है — यह tree-shaking का काम है, minification का नहीं।</li>
 </ul>
 """,
     },

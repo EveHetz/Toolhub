@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Unix Timestamp Dönüştürücü", "tagline": "Unix timestamp'leri ile insan tarafından okunabilir tarihler arasında dönüştür. Saniyeler ve milisaniyeler, UTC ve yerel.", "description": "Ücretsiz online Unix timestamp dönüştürücü. Epoch saniyeleri, milisaniyeler, ISO 8601 ve UTC veya yerel saatte insan tarafından okunabilir tarihler arasında dönüştür."},
         "id": {"name": "Konverter Unix Timestamp", "tagline": "Konversi antara Unix timestamp dan tanggal yang dapat dibaca manusia. Detik dan milidetik, UTC dan lokal.", "description": "Konverter Unix timestamp gratis. Konversi antara timestamp Unix (detik atau milidetik sejak epoch) dan tanggal/waktu yang dapat dibaca manusia. Tampilkan dalam UTC dan zona waktu lokal-mu, dengan format ISO 8601."},
         "vi": {"name": "Chuyển đổi Unix Timestamp", "tagline": "Chuyển giữa Unix timestamp và ngày-giờ con người đọc được. Giây và mili giây, UTC và local.", "description": "Bộ chuyển Unix timestamp miễn phí trực tuyến. Chuyển epoch seconds hoặc milliseconds sang ngày-giờ con người đọc được trong cả UTC và múi giờ địa phương — và ngược lại."},
+        "hi": {"name": "Unix Timestamp Converter", "tagline": "Unix timestamps और मानव-पठनीय dates के बीच बदलें। Seconds और milliseconds, UTC और local।", "description": "मुफ़्त ऑनलाइन Unix timestamp converter। UTC या local time में epoch seconds, milliseconds, ISO 8601, और मानव-पठनीय dates के बीच बदलें।"},
     },
     "body": """
 <div class="tool-card">
@@ -327,6 +328,35 @@ document.addEventListener('DOMContentLoaded', tsNow);
   <li><strong>Giây vs mili giây.</strong> JavaScript dùng mili giây từ epoch; Unix tools (date, log file) dùng giây. Một timestamp 10 chữ số là giây, 13 chữ số là mili giây.</li>
   <li><strong>Múi giờ.</strong> Bản thân timestamp là UTC — múi giờ chỉ là cách hiển thị. Khi convert sang local, bao gồm DST.</li>
   <li><strong>Vấn đề Y2K38.</strong> Signed 32-bit Unix timestamps tràn vào năm 2038. Đa số system hiện đại đã dùng 64-bit, nhưng kiểm tra database và embedded device cũ.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक Unix timestamp एक single integer है — 1970-01-01 00:00:00 UTC से सेकंड्स (या milliseconds) की संख्या। वे हर जगह हैं: log files, API responses, JWT <code>iat</code>/<code>exp</code> claims, database <code>created_at</code> columns, cache headers। वे असंदिग्ध और timezone-मुक्त हैं, पर मानव-पठनीय नहीं, इसलिए जब कुछ <code>1735689600</code> पर टूटता है, आपको जानना है कि वह 2pm है या 4am, आज या पिछले साल। यह tool integer form और readable form के बीच दोनों दिशाओं में पलटता है, seconds/ms auto-detection और एक relative-time hint के साथ।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक log entry या API response से <code>"timestamp": 1735689600</code> field को decode करना।</li>
+  <li>यह check करना कि एक JWT कब issue हुआ या कब expire होता है (<code>iat</code> / <code>exp</code> claims seconds-since-epoch हैं)।</li>
+  <li>एक <code>retry-after</code> header, scheduled job, या cache TTL के लिए future timestamp गणना करना।</li>
+  <li>यह sanity-check करना कि database में संग्रहित date seconds, milliseconds, या microseconds में है।</li>
+  <li>"अभी" को उस format में convert करना जो आपके वर्तमान tool को चाहिए।</li>
+</ul>
+
+<h3>Seconds, milliseconds, microseconds</h3>
+<ul>
+  <li><strong>Seconds</strong> — मूल Unix convention; आज ~10 digits (जैसे <code>1735689600</code>)। C, Linux, JWT, अधिकांश APIs, अधिकांश database <code>integer</code> columns में इस्तेमाल।</li>
+  <li><strong>Milliseconds</strong> — JavaScript का <code>Date.now()</code>, Java <code>System.currentTimeMillis()</code>, Kafka, कई JSON APIs। ~13 digits।</li>
+  <li><strong>Microseconds (16 digits) / nanoseconds (19 digits)</strong> — Python <code>time.time_ns()</code>, Go <code>time.Now().UnixNano()</code>, कुछ metrics systems। यह tool इन्हें auto-handle नहीं करता — पहले 1,000 या 1,000,000 से भाग दें।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Year 2038 problem।</strong> Signed 32-bit timestamps <code>2147483647</code> = <strong>03:14:07 UTC, 19 January 2038</strong> पर overflow करते हैं। पुराना C कोड, MySQL <code>TIMESTAMP</code> columns, और embedded systems 1901 तक wrap हो सकते हैं। आधुनिक systems 64-bit का इस्तेमाल करते हैं और लगभग year 292,277,026,596 तक ठीक हैं।</li>
+  <li><strong>Unix time leap seconds skip करता है।</strong> एक Unix day बिल्कुल 86,400 seconds का होता है, तब भी जब UTC में 86,401 हों। यह by design है (यह arithmetic को simple रखता है) पर इसका मतलब है कि आप Unix timestamps को sub-second-accurate astronomy या GPS के लिए नहीं इस्तेमाल कर सकते।</li>
+  <li><strong>Negative timestamps</strong> मान्य हैं और 1970 से पहले की dates को represent करते हैं। कुछ libraries इन्हें अस्वीकार करती हैं — इस पर भरोसा करने से पहले test करें।</li>
+  <li><strong>Auto-detection foolproof नहीं है।</strong> एक 10-digit value <em>हो सकता है</em> 1970 से एक millisecond timestamp हो — व्यवहार में लगभग असंभव, पर यदि आप जानते हैं कि आपके पास कौन सी unit है, heuristic पर भरोसा न करें।</li>
+  <li><strong>हमेशा UTC store करें।</strong> Timestamps timezone-मुक्त हैं; "local time" केवल display के लिए है। Output में "Local" line आपके browser के zone का इस्तेमाल करती है, पर underlying integer हमेशा UTC है।</li>
 </ul>
 """,
     },

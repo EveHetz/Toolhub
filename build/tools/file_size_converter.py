@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Dosya Boyutu Dönüştürücü", "tagline": "byte, KB, MB, GB, TB ve ikilik KiB, MiB, GiB, TiB arasında dönüştür. Ondalık - ikilik ayrımı net.", "description": "Ücretsiz dosya boyutu birim dönüştürücü. Herhangi bir byte sayısını ondalık birimler (B, KB, MB, GB, TB, PB) ile IEC ikilik birimleri (KiB, MiB, GiB, TiB, PiB) arasında çevir. İkisini birden, kesin ayrımıyla gör."},
         "id": {"name": "Konverter Ukuran File", "tagline": "Konversi antara byte, KB, MB, GB, TB dan biner KiB, MiB, GiB, TiB. Pemisahan desimal vs biner yang jelas.", "description": "Konverter ukuran file gratis. Konversi antara satuan desimal (KB, MB, GB, TB) dan biner (KiB, MiB, GiB, TiB) dengan pemisahan yang jelas. Menjelaskan perbedaan 1000 vs 1024 yang membingungkan banyak orang."},
         "vi": {"name": "Chuyển đổi Kích thước File", "tagline": "Chuyển giữa byte, KB, MB, GB, TB và KiB nhị phân, MiB, GiB, TiB. Phân tách thập phân vs nhị phân rõ ràng.", "description": "Bộ chuyển kích thước file miễn phí trực tuyến giữa byte, KB, MB, GB, TB và KiB nhị phân, MiB, GiB, TiB. Phân biệt đơn vị thập phân (1000) và nhị phân (1024) một cách rõ ràng."},
+        "hi": {"name": "File Size Converter", "tagline": "bytes, KB, MB, GB, TB और binary KiB, MiB, GiB, TiB के बीच बदलें। Decimal बनाम binary स्पष्ट रूप से अलग।", "description": "मुफ़्त file size unit converter। किसी भी byte count को decimal units (B, KB, MB, GB, TB, PB) और IEC binary units (KiB, MiB, GiB, TiB, PiB) के बीच बदलें। दोनों एक साथ देखें, सटीक अंतर के साथ।"},
     },
     "body": """
 <div class="tool-card">
@@ -396,6 +397,33 @@ document.addEventListener('DOMContentLoaded', fsRun);
   <li><strong>KB vs KiB.</strong> Đơn vị SI chính thức là kilobyte (KB) = 1000 byte. Đơn vị nhị phân là kibibyte (KiB) = 1024 byte. Hầu hết mọi người vẫn nói "KB" khi họ có ý nói KiB.</li>
   <li><strong>Tính theo decimal sai cho việc đếm byte.</strong> RAM, kích thước file và độ phân giải mạng đo theo lũy thừa của 2 — phải dùng đơn vị nhị phân.</li>
   <li><strong>Mạng dùng decimal.</strong> 100 Mbps internet có nghĩa là 100 mega<strong>bit</strong> mỗi giây = 12,5 MB/s decimal, không 12,5 MiB/s.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>"4 GB कितना बड़ा है?" यह इस पर निर्भर करता है कि कौन पूछ रहा है। Hard-drive manufacturers, network engineers, और SI-following standards का अर्थ 4,000,000,000 bytes (1000 की powers) है। Operating systems, RAM modules, और अधिकांश file managers historically 4,294,967,296 bytes (1024 की powers) मतलब रखते थे। दोनों संख्याएं gigabyte scale पर 7% और terabyte scale पर 10% अलग हैं — आपको ठगा हुआ महसूस कराने के लिए पर्याप्त जब एक "1 TB" drive आपके computer पर "931 GiB" के रूप में दिखाई देती है। यह tool दोनों systems के बीच convert करता है ताकि आप हमेशा जान सकें कि आप किसे देख रहे हैं।</p>
+
+<h3>दो systems</h3>
+<ul>
+  <li><strong>SI / decimal</strong> — KB, MB, GB, TB। <code>1 KB = 1,000 bytes</code>। Storage manufacturers, network speeds (Mbps, Gbps), और 1960 से SI standard द्वारा उपयोग किया जाता है।</li>
+  <li><strong>IEC / binary</strong> — KiB, MiB, GiB, TiB। <code>1 KiB = 1,024 bytes</code>। IEC ने इन्हें 1998 में disambiguate करने के लिए introduce किया। Linux <code>du</code> <code>-h</code> के साथ इनका उपयोग करता है, जैसा कि memory के लिए macOS Finder करता है।</li>
+</ul>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक backup, upload, या Docker image का size निकालना और tool द्वारा reported से match करना।</li>
+  <li>"150 Mbps" download speed को MB/s में बदलना (8 से divide करें — bits to bytes)।</li>
+  <li>जब एक provider GB quote करता है और दूसरा GiB तब cloud-storage cost का अनुमान।</li>
+  <li>पता लगाना कि "1 GB" email वास्तव में disk पर कितना है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Hard drives decimal उपयोग करते हैं।</strong> एक "1 TB" drive 1,000,000,000,000 bytes ≈ 931 GiB रखती है। OS झूठ नहीं बोल रहा — marketing छोटे unit का उपयोग कर रही है।</li>
+  <li><strong>RAM binary उपयोग करता है।</strong> "8 GB RAM" लगभग हमेशा 8 GiB (8,589,934,592 bytes) होती है। RAM दो की powers में built होती है।</li>
+  <li><strong>Network speed bits में है, bytes में नहीं।</strong> 100 Mbps = 100 megabits per second = 12.5 MB/s peak। आपकी "100 Mbit fiber" एक 100 MB file को एक second में download नहीं करती।</li>
+  <li><strong>कुछ tools inconsistent हैं।</strong> macOS Finder 10.6 में binary (KB labels के साथ) से decimal में switch हुआ, फिर वहीं रहा। Windows Explorer अभी भी KB labels के साथ binary का उपयोग करता है — confusing लेकिन अपरिवर्तित।</li>
+  <li><strong>Browsers का <code>Content-Length</code> bytes है।</strong> हमेशा सटीक, कोई SI/IEC ambiguity नहीं।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Renk Dönüştürücü", "tagline": "Herhangi bir rengi hex, RGB, HSL ve OKLCH arasında dönüştür. Canlı önizleme, tek tıkla kopyala.", "description": "Ücretsiz online renk dönüştürücü. hex (#3498db), rgb(), hsl() ve modern oklch() biçimi arasında çevir. Canlı renk önizlemesi, herhangi bir değeri tek tıkla kopyala."},
         "id": {"name": "Konverter Warna", "tagline": "Konversi warna apa pun antara hex, RGB, HSL, dan OKLCH. Pratinjau langsung, salin sekali klik.", "description": "Konverter warna online gratis. Konversi antara hex, RGB, HSL, dan OKLCH dengan pratinjau langsung. Cocok untuk desain web, CSS, dan sistem desain."},
         "vi": {"name": "Chuyển đổi Màu", "tagline": "Chuyển bất kỳ màu nào giữa hex, RGB, HSL và OKLCH. Xem trước trực tiếp, sao chép một-cú-click.", "description": "Bộ chuyển đổi màu trực tuyến miễn phí giữa hex, RGB, HSL và OKLCH với xem trước trực tiếp. Hữu ích cho CSS, design và quy trình thiết kế."},
+        "hi": {"name": "Color Converter", "tagline": "किसी भी color को hex, RGB, HSL और OKLCH के बीच बदलें। Live preview, एक click में copy करें।", "description": "मुफ़्त ऑनलाइन color converter। hex (#3498db), rgb(), hsl() और modern oklch() format के बीच translate करें। Live swatch preview, किसी भी value को एक click में copy करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -396,6 +397,35 @@ document.addEventListener('DOMContentLoaded', () => ccUpdate([52,152,219]));
   <li><strong>Hex 8 chữ số là RGBA.</strong> <code>#3498dbcc</code> là <code>#3498db</code> với alpha 80%. Hai chữ số cuối là alpha tính theo hex (00–FF).</li>
   <li><strong>OKLCH có gamut rộng hơn sRGB.</strong> Một số giá trị OKLCH không có hex tương đương — chúng nằm ngoài gamut. Tool sẽ kẹp hoặc cảnh báo.</li>
   <li><strong>Round-trip mất chính xác.</strong> Chuyển hex → HSL → hex có thể đẩy giá trị đi một bit do làm tròn. Để giữ chính xác, giữ ở một định dạng làm canonical.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Designers और front-end developers लगातार formats के बीच colors को shuffle करते रहते हैं — Figma आपको hex देता है, design tokens spec को OKLCH चाहिए, आपका CSS HSL इस्तेमाल करता है, और आपने जो image पकड़ी वह RGB में है। यह tool हर notation को sync में रखता है: एक को edit करें, बाकी live update हो जाते हैं। CSS Color Module 4 में जोड़ा गया (और 2023 से सभी major browsers में supported) modern <code>oklch()</code> format शामिल है, जो perceptually uniform colors produce करता है जिन्हें HSL की तुलना में reason करना बहुत आसान है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक brand hex code को CSS overlay के लिए alpha के साथ <code>rgb()</code> में translate करना।</li>
+  <li>Design system को perceptual color में migrate करते हुए HSL और OKLCH के बीच बदलना।</li>
+  <li>Screenshot tool से paste किया हुआ <code>rgb(52, 152, 219)</code> पढ़कर अपनी stylesheet के लिए hex code में बदलना।</li>
+  <li>OKLCH chroma value की sanity-check (~0.4 से ऊपर कुछ भी संभवतः sRGB gamut के बाहर है)।</li>
+</ul>
+
+<h3>Format quick reference</h3>
+<ul>
+  <li><strong>Hex</strong> — <code>#RRGGBB</code> (या 3-digit shorthand <code>#RGB</code>)। Universal, alpha तब तक नहीं जब तक 8-digit (<code>#RRGGBBAA</code>) नहीं हो।</li>
+  <li><strong>RGB</strong> — <code>rgb(0–255, 0–255, 0–255)</code>। वास्तविक sRGB channel values जो आपकी screen पाती है।</li>
+  <li><strong>HSL</strong> — hue (0–360°), saturation (0–100%), lightness (0–100%)। Color families के बारे में सोचना आसान है, पर lightness non-perceptual है: HSL 50% green, HSL 50% blue से ज़्यादा bright दिखती है।</li>
+  <li><strong>OKLCH</strong> — perceptual lightness (0–1), chroma (sRGB में 0–~0.4), hue (0–360°)। एक ही L वाले दो colors equally bright दिखते हैं; design systems और accessibility के लिए ideal है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>OKLCH lightness 0–1 इस्तेमाल करती है, 0–100 नहीं।</strong> CSS दोनों accept करता है (<code>0.65</code> या <code>65%</code>); यह tool भी दोनों form accept करता है।</li>
+  <li><strong>कुछ OKLCH values sRGB के बाहर गिरती हैं</strong> (जैसे blue के लिए high chroma)। Tool conversion पर displayable sRGB तक clamp कर देता है — result approximate है, exact नहीं।</li>
+  <li><strong>HSL HSV जैसा नहीं है।</strong> HSV का "value" सबसे bright channel है; HSL का "lightness" सबसे bright और सबसे dark का midpoint है। वे एक ही color के लिए अलग numbers देते हैं।</li>
+  <li><strong>Round-tripping हमेशा lossless नहीं होती।</strong> hex → hsl → hex rounding की वजह से एक single integer shift कर सकता है। Exact reproduction के लिए, hex store करें।</li>
+  <li><strong>Hex और RGB default रूप से sRGB हैं,</strong> Display P3 या Rec. 2020 नहीं। अगर आपका design tool wide-gamut profile में है, तो वही hex अलग दिखेगा।</li>
 </ul>
 """,
     },

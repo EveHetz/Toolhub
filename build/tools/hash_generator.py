@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Hash Üretici", "tagline": "Metni tarayıcının WebCrypto'su ile SHA-1, SHA-256, SHA-384 veya SHA-512 hash'le. Yerel hesaplanır — giriş sayfayı asla terk etmez.", "description": "Ücretsiz online hash üretici. WebCrypto üzerinden SHA-1, SHA-256, SHA-384, SHA-512. Hex çıktı, kopyalanabilir. Tamamen tarayıcında çalışır."},
         "id": {"name": "Hash Generator", "tagline": "Hash teks dengan SHA-1, SHA-256, SHA-384, atau SHA-512 menggunakan WebCrypto browser. Dihitung lokal — input tidak pernah meninggalkan halaman.", "description": "Hash generator gratis. Hitung digest SHA-1, SHA-256, SHA-384, dan SHA-512 untuk teks atau file apa pun menggunakan WebCrypto browser. Semuanya berjalan lokal — input tidak pernah meninggalkan perangkatmu."},
         "vi": {"name": "Tạo Hash", "tagline": "Hash văn bản với SHA-1, SHA-256, SHA-384 hoặc SHA-512 bằng WebCrypto của trình duyệt. Tính cục bộ — đầu vào không bao giờ rời khỏi trang.", "description": "Trình tạo hash miễn phí trực tuyến hỗ trợ SHA-1, SHA-256, SHA-384 và SHA-512. Sử dụng API WebCrypto của trình duyệt — đầu vào của bạn không bao giờ rời khỏi thiết bị."},
+        "hi": {"name": "Hash Generator", "tagline": "अपने browser के WebCrypto का उपयोग करके text को SHA-1, SHA-256, SHA-384 या SHA-512 से hash करें। Locally compute होता है — input page से बाहर नहीं जाता।", "description": "मुफ़्त ऑनलाइन hash generator। WebCrypto के माध्यम से SHA-1, SHA-256, SHA-384, SHA-512। Hex output, copy-friendly। पूरी तरह से आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -224,6 +225,26 @@ document.addEventListener('DOMContentLoaded', hRun);
   <li><strong>MD5 cũng bị phá vỡ.</strong> Vẫn ổn để dùng làm checksum không mật khẩu (kiểm tra một bản download bị hỏng) nhưng không dùng cho bảo mật.</li>
   <li><strong>Hash mật khẩu không phải hash chung.</strong> Cho mật khẩu, dùng bcrypt, scrypt, hoặc Argon2 — chúng cố ý chậm để chống brute force. SHA-256 quá nhanh.</li>
   <li><strong>Encoding quan trọng.</strong> Hash của <code>"hello"</code> có thể khác nhau tùy thuộc vào việc bạn coi nó là 5 byte ASCII hay 5 byte UTF-8 (chúng cùng trong trường hợp này, nhưng không khi có Unicode).</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक cryptographic hash किसी भी input को लेता है और एक fixed-length fingerprint produce करता है। दो identical inputs हमेशा same digest पर hash करते हैं; एक single bit बदलने से digest पूरी तरह बदल जाता है। Hashes file-integrity checks, content-addressable storage, digital signatures, और password-hashing pipelines (जहां वे Argon2 या bcrypt जैसे slow function के साथ combined हैं) को underpin करते हैं।</p>
+<p>यहां सभी hashing browser के <code>crypto.subtle.digest</code> का उपयोग करती है — वही primitives जो TLS को power देते हैं। आपका input page से बाहर नहीं जाता।</p>
+
+<h3>कब किसका उपयोग करें</h3>
+<ul>
+  <li><strong>SHA-256</strong> — integrity checks, content addressing (Git, IPFS-style), HMAC keys, और signatures के लिए समझदार default।</li>
+  <li><strong>SHA-384 / SHA-512</strong> — उपयोगी जब आपको wider digest की आवश्यकता हो (PBKDF2/HKDF tuning, larger HMAC keys, post-quantum-margin habits)।</li>
+  <li><strong>SHA-1</strong> — केवल compatibility के लिए (Git object IDs, legacy CI checksums)। Security boundaries के लिए उपयोग न करें — practical collision attacks 2017 से मौजूद हैं।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Hashing encryption नहीं है।</strong> Hashes one-way हैं; आप original वापस नहीं पा सकते। यदि आपको confidentiality चाहिए, तो encrypt करें।</li>
+  <li><strong>Passwords को raw SHA-256 से hash न करें।</strong> Plain SHA fast है — यह attackers को brute-force करने में मदद करता है। Password storage के लिए slow KDF (Argon2id, bcrypt, scrypt) का उपयोग करें।</li>
+  <li><strong>MD5 जानबूझकर अनुपस्थित है।</strong> 2000 के दशक की शुरुआत से broken है। जहां भी आप MD5 की "जरूरत" समझते हैं, वहां security review भी flag करें।</li>
+  <li><strong>Whitespace मायने रखता है।</strong> एक trailing newline बिना उसके वही text की तुलना में अलग hash produce करता है। Hex output को सटीक रूप से compare करें।</li>
 </ul>
 """,
     },

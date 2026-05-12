@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Kelime Sayacı", "tagline": "Kelimeleri, karakterleri, cümleleri, paragrafları say ve yazdıkça okuma + konuşma süresini tahmin et.", "description": "Ücretsiz online kelime sayacı. Kelimeler, karakterler (boşluklu ve boşluksuz), cümleler, paragraflar, heceler için canlı sayım, ayrıca okuma ve konuşma süresi tahminleri."},
         "id": {"name": "Penghitung Kata", "tagline": "Hitung kata, karakter, kalimat, paragraf, dan estimasi waktu baca + bicara saat mengetik.", "description": "Penghitung kata online gratis. Hitung kata, karakter (dengan dan tanpa spasi), kalimat, dan paragraf secara real-time saat mengetik. Estimasi waktu baca dan waktu bicara untuk teks panjang."},
         "vi": {"name": "Đếm Từ", "tagline": "Đếm từ, ký tự, câu, đoạn và thời gian đọc + nói ước tính khi bạn gõ.", "description": "Bộ đếm từ miễn phí trực tuyến. Cập nhật trực tiếp số lượng từ, ký tự (có và không có khoảng trắng), câu, đoạn và thời gian đọc/nói ước tính khi bạn gõ hoặc dán văn bản."},
+        "hi": {"name": "Word Counter", "tagline": "जैसे आप टाइप करते हैं, शब्द, अक्षर, वाक्य, अनुच्छेद गिनें और पढ़ने + बोलने का समय अनुमानित करें।", "description": "मुफ़्त ऑनलाइन word counter। शब्द, अक्षर (spaces के साथ और बिना), वाक्य, अनुच्छेद, syllables की live गिनती, साथ ही पढ़ने और बोलने के समय का अनुमान।"},
     },
     "body": """
 <div class="tool-card">
@@ -344,6 +345,39 @@ document.addEventListener('DOMContentLoaded', wcRun);
   <li><strong>"Từ" không có định nghĩa toàn cầu.</strong> Tiếng Trung và tiếng Nhật không tách từ bằng khoảng trắng — đếm từ giả định tách bằng khoảng trắng. Đối với CJK, đếm ký tự có ý nghĩa hơn.</li>
   <li><strong>Thời gian đọc là gần đúng.</strong> Đọc trung bình ~250 từ/phút. Đọc kỹ chậm hơn (~150 wpm); đọc lướt nhanh hơn (~700 wpm).</li>
   <li><strong>Đếm ký tự bao gồm Unicode "ký tự" — đôi khi là 1, đôi khi là 2.</strong> Đếm code point trong tool này. Một emoji family có thể là 7 code point nhưng 1 glyph hiển thị.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>हाथ से शब्द और अक्षर गिनना थकाऊ और गलती-प्रवण है, लेकिन संख्याएं हर समय मायने रखती हैं: tweet सीमाएं, SMS segments, निबंध शब्द गणना, SEO meta description, journal submission लंबाई। यह टूल आपके टाइप करते समय live गिनती देता है — शब्द, अक्षर (spaces के साथ और बिना), वाक्य, अनुच्छेद, lines — साथ ही पढ़ने और बोलने के समय का अनुमान और शीर्ष पांच दोहराए जाने वाले शब्दों के लिए एक त्वरित शब्द-आवृत्ति पास।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>280-character X/Twitter सीमा, 160-char SMS, 155-char SEO meta description, या 100-word LinkedIn intro को हिट करना।</li>
+  <li>एक कठिन सीमा के विरुद्ध एक निबंध, ब्लॉग पोस्ट, abstract, या अनुदान आवेदन को शब्द-budget करना।</li>
+  <li>यह अनुमान लगाना कि एक script को जोर से पढ़ने में कितना समय लगेगा (podcasts, presentations, voice-overs)।</li>
+  <li>submit करने से पहले "most frequent" सूची देखकर अधिक उपयोग किए गए शब्दों को पहचानना।</li>
+  <li>यह जांचना कि क्या एक अनुवाद source के लगभग समान लंबाई में आया।</li>
+</ul>
+
+<h3>हर संख्या का क्या मतलब है</h3>
+<ul>
+  <li><strong>शब्द</strong> — whitespace से अलग गैर-whitespace अक्षरों की runs। "Twenty-one" एक शब्द के रूप में गिना जाता है; "twenty one" दो के रूप में गिना जाता है।</li>
+  <li><strong>अक्षर</strong> बनाम <strong>अक्षर (कोई spaces नहीं)</strong> — दोनों Unicode codepoints गिनते हैं, bytes नहीं। एक emoji यहां 1-2 "अक्षर" हो सकता है लेकिन संग्रहीत होने पर अधिक bytes।</li>
+  <li><strong>वाक्य</strong> — <code>.</code>, <code>!</code> या <code>?</code> (या text-के-अंत) में समाप्त होने वाले segments। Heuristic, गलतियाँ देखें।</li>
+  <li><strong>अनुच्छेद</strong> — खाली lines से अलग।</li>
+  <li><strong>पढ़ने का समय</strong> 250 wpm (मूक वयस्क पठन) मानता है।</li>
+  <li><strong>बोलने का समय</strong> 130 wpm (विशिष्ट वार्तालाप गति; समाचार पाठक तेज़ चलते हैं, audiobooks धीमे) मानता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>वाक्य पहचान सरल है।</strong> "Mr.", "U.S.", "e.g.", "3.14", और ellipses वाक्य गणना को बढ़ा सकते हैं। आंकड़ा एक उपयोगी अनुमान है, गारंटी नहीं।</li>
+  <li><strong>Twitter/X codepoints गिनता है, अक्षर नहीं।</strong> एक झंडा emoji (🇮🇳) 2 codepoints है लेकिन एक symbol के रूप में render होता है — Twitter इसे 2 अक्षरों के रूप में मानता है। यह टूल उससे मेल खाता है।</li>
+  <li><strong>SMS अक्षर सीमाएं encoding पर निर्भर करती हैं।</strong> सादा ASCII प्रति segment 160 अक्षर फिट करता है; एक बार जब आप एक गैर-GSM अक्षर (em dash, smart quote, उच्चारण वाला अक्षर) शामिल करते हैं, तो पूरा संदेश UCS-2 पर स्विच हो जाता है और सीमा 70 तक गिर जाती है। टूल GSM सीमा रिपोर्ट करता है; वास्तविक लागत के लिए अपने provider के व्यवहार की जांच करें।</li>
+  <li><strong>शब्द गणनाएं टूल के अनुसार बदलती हैं।</strong> Word, Google Docs, और journal-submission systems कुछ प्रतिशत असहमत हो सकते हैं — वे hyphens, em dashes, और संख्याओं को अलग-अलग संभालते हैं। यदि एक कठिन सीमा मायने रखती है, तो उसी टूल में गिनें जिसका gatekeeper उपयोग करता है।</li>
+  <li><strong>"Most frequent" stop शब्दों को filter नहीं करता।</strong> "the" और "a" लगभग हमेशा सूची में सबसे ऊपर होते हैं। वास्तविक संकेत के लिए लंबे entries देखें।</li>
+  <li><strong>पढ़ने के समय के अनुमान व्यक्तिगत हैं।</strong> 250 wpm median है; तकनीकी content धीमा चलता है, fiction तेज़। संख्या को एक योजना गाइड के रूप में मानें, पूर्वानुमान के रूप में नहीं।</li>
 </ul>
 """,
     },

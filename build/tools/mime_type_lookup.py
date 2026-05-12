@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "MIME Type Arama", "tagline": "MIME type'ları uzantıya veya türe göre ara. ~120 yaygın tür — image, video, audio, application, text, font.", "description": "Ücretsiz MIME type arama aracı. Dosya uzantısı (.pdf, .png, .json) veya MIME type (image/jpeg, application/pdf) ile yaklaşık 120 yaygın internet medya türünü ara."},
         "id": {"name": "Pencarian MIME Type", "tagline": "Cari MIME type berdasarkan ekstensi atau type. ~120 type umum — image, video, audio, application, text, font.", "description": "Pencarian MIME type gratis. Cari MIME type per ekstensi file atau cari ekstensi per MIME type. Mencakup ~120 type umum di seluruh image, video, audio, application, text, dan font."},
         "vi": {"name": "Tra cứu MIME Type", "tagline": "Tra cứu MIME type theo phần mở rộng hoặc type. ~120 loại phổ biến — image, video, audio, application, text, font.", "description": "Tra cứu MIME type miễn phí trực tuyến. Tìm theo phần mở rộng file hoặc theo chuỗi MIME type trên ~120 loại phổ biến (image, video, audio, application, text, font). Hữu ích để cấu hình server và header Content-Type."},
+        "hi": {"name": "MIME Type Lookup", "tagline": "MIME types को extension या type के अनुसार खोजें। ~120 आम types — image, video, audio, application, text, font।", "description": "मुफ़्त MIME type lookup tool. File extension (.pdf, .png, .json) या MIME type (image/jpeg, application/pdf) के द्वारा लगभग 120 आम Internet media types में खोजें।"},
     },
     "body": """
 <div class="tool-card">
@@ -440,6 +441,29 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>Đừng tin MIME type của client.</strong> Trình duyệt và app gửi <code>Content-Type</code> từ user input — kiểm tra file content (magic byte) để bảo mật.</li>
   <li><strong>Cùng file có thể có nhiều type.</strong> <code>.docx</code> có thể là Office Open XML (chính thức) hoặc tổng hợp ZIP cũ (đáng tin trên Mac). Tool này hiển thị tất cả các loại đã biết.</li>
   <li><strong>Type tùy chỉnh.</strong> Bạn có thể đăng ký MIME type cho format proprietary (<code>application/vnd.acme-format+json</code>) — IANA quản lý registry.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक MIME type (अब Internet media type कहा जाता है) <code>image/png</code> या <code>application/json</code> जैसा दो-भाग वाला label है जो server, browser, या library को बताता है कि bytes के एक टुकड़े की व्याख्या कैसे करनी है। यह HTTP <code>Content-Type</code> headers में जाता है, Multipart message parts क्या declare करते हैं, और <code>file --mime</code> क्या रिपोर्ट करता है। IANA registry में हज़ारों entries हैं; यह टूल लगभग 120 को cover करता है जिनसे आप वास्तव में web work में मिलेंगे।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>API response पर <code>Content-Type</code> सेट करना और <code>.docx</code>, <code>.heic</code>, या <code>.webmanifest</code> के लिए सही चाहना।</li>
+  <li>एक upload field का <code>accept</code> attribute या S3-bucket allow-list configure करना।</li>
+  <li>एक hex dump या tcpdump पढ़ना और देखना कि <code>application/grpc-web</code> वास्तव में क्या है।</li>
+  <li>Static-file server या CDN config बनाना और extension-to-mime mapping चाहना।</li>
+  <li>यह तय करना कि <code>text/xml</code> या <code>application/xml</code> का उपयोग करें (RFC 7303 के अनुसार नए code के लिए दूसरा का उपयोग करें)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Extension MIME type के बराबर नहीं है।</strong> <code>.json</code> आमतौर पर <code>application/json</code> से map होता है, लेकिन एक server इसे <code>text/plain</code> के रूप में serve कर सकता है और browsers header मानेंगे। हमेशा header को explicitly सेट करें।</li>
+  <li><strong>JavaScript गन्दा है।</strong> RFC 9239 कहता है कि <code>text/javascript</code> preferred type है। <code>application/javascript</code>, <code>application/ecmascript</code>, और अन्य obsolete हैं लेकिन फिर भी दिखाई देते हैं।</li>
+  <li><strong>OOXML types बहुत लंबे हैं।</strong> <code>.docx</code> के लिए <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>। उन्हें याद रखने की कोशिश न करें — copy करें।</li>
+  <li><strong><code>application/octet-stream</code> का मतलब है "मुझे नहीं पता"।</strong> यदि आप type को control करते हैं, तो असली का उपयोग करें — browsers octet-stream content को force-download कर सकते हैं भले ही वह renderable हो।</li>
+  <li><strong>Text types के लिए charset मायने रखता है।</strong> <code>Content-Type: text/html; charset=utf-8</code> — इसके बिना, browsers अनुमान लगाते हैं और कभी-कभी गलत अनुमान लगाते हैं (mojibake)।</li>
+  <li><strong>Magic-byte sniffing declared type से अलग है।</strong> Browsers file contents के आधार पर <code>Content-Type</code> पर दूसरा अनुमान लगा सकते हैं (<code>X-Content-Type-Options: nosniff</code> इसे disable करता है — सुरक्षा के लिए सेट करें)।</li>
 </ul>
 """,
     },

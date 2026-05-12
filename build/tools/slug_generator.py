@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Slug Üretici", "tagline": "Herhangi bir başlığı temiz URL slug'a dönüştür — aksanları transliter eder, noktalama temizler, tirelerle birleştirir.", "description": "Ücretsiz online URL slug üretici. Küçük harfe çevirir, aksanlı karakterleri transliter eder (à → a, ñ → n), noktalama işaretlerini temizler ve kelimeleri seçilen ayraçla birleştirir. Stop-word kaldırma opsiyoneldir."},
         "id": {"name": "Slug Generator", "tagline": "Ubah judul apa pun menjadi URL slug bersih — transliterate aksen, strip tanda baca, satukan dengan tanda hubung.", "description": "Slug generator gratis. Ubah judul apa pun menjadi slug URL ramah-SEO: lowercase, transliterate aksen (café → cafe), strip tanda baca, dan gabungkan kata dengan tanda hubung. Sempurna untuk permalink dan path konten."},
         "vi": {"name": "Tạo Slug", "tagline": "Biến bất kỳ tiêu đề nào thành URL slug sạch — chuyển tự chữ có dấu, bỏ dấu câu, nối bằng dấu gạch ngang.", "description": "Trình tạo slug miễn phí trực tuyến. Biến tiêu đề thành URL slug thân thiện với SEO — chuyển tự chữ có dấu sang ASCII, bỏ dấu câu, viết thường tất cả và nối các từ bằng dấu gạch ngang."},
+        "hi": {"name": "Slug Generator", "tagline": "किसी भी title को साफ़ URL slug में बदलें — accents को transliterate करें, punctuation हटाएं, hyphens से जोड़ें।", "description": "मुफ़्त ऑनलाइन URL slug generator। Lowercases, accented characters को transliterate करता है (à → a, ñ → n), punctuation हटाता है, और चुने हुए separator से शब्दों को जोड़ता है। Stop-word removal वैकल्पिक।"},
     },
     "body": """
 <div class="tool-card">
@@ -332,6 +333,36 @@ document.addEventListener('DOMContentLoaded', sgRun);
   <li><strong>Slug nên là duy nhất.</strong> Hai bài "My Day" sẽ tạo cùng slug — backend nên thêm hậu tố hoặc append ID.</li>
   <li><strong>Đừng đổi slug đã ship.</strong> Slug là phần permalink — đổi nó vỡ link. Nếu bạn phải, set up redirect.</li>
   <li><strong>Chữ tiếng Việt và châu Á.</strong> Chuyển tự (transliteration) loại bỏ dấu thì OK cho Việt nhưng tiếng Trung và tiếng Nhật cần pinyin/romaji — không có quy tắc chung. Tool này keep ASCII chữ cái thông qua các quy tắc tiêu chuẩn.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>एक URL slug एक URL का मानव-पठनीय अंतिम segment है — <code>/blog/post-4827</code> के बजाय <code>/blog/the-quick-brown-fox</code>। अच्छे slugs lowercase, hyphenated, ASCII-only, और एक नज़र में पढ़ने योग्य पर्याप्त छोटे होते हैं, पर accents, punctuation, और emoji से भरे real titles से इन्हें generate करना सही ढंग से करना झंझट है। यह tool accents को transliterate करता है, कचरा हटाता है, आपके चुने हुए separator से जोड़ता है, और एक साफ़ boundary पर truncate करता है ताकि output सीधे एक route या filename में drop करने के लिए सुरक्षित हो।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Article titles से <code>/blog/&lt;slug&gt;</code> URLs बनाना — विशेष रूप से जब titles में accented characters (à, ñ, ø) या punctuation (colons, parentheses, em dashes) हो।</li>
+  <li>User द्वारा प्रदान किए गए नामों से सुरक्षित filenames बनाना — uploads, exports, generated reports।</li>
+  <li>मानव labels से tags, categories, या anchors (<code>#getting-started</code>) के लिए stable identifiers बनाना।</li>
+  <li>एक static-site build step के लिए headings की list को kebab-case में bulk-convert करना।</li>
+</ul>
+
+<h3>Conversion कैसे काम करता है</h3>
+<ol>
+  <li>Unicode को NFD-normalize करता है और combining diacritics को हटाता है (<code>café → cafe</code>)।</li>
+  <li>Common European ligatures और special letters को map करता है: <code>ß → ss</code>, <code>æ → ae</code>, <code>ø → o</code>, <code>Ł → L</code>, साथ ही कुछ currency/math symbols (<code>€ → eur</code>, <code>& → and</code>)।</li>
+  <li>हर non-alphanumeric run को एक single space से बदलता है।</li>
+  <li>वैकल्पिक रूप से सामान्य English stop words (<em>a, an, and, the, of, to, …</em>) को हटाता है।</li>
+  <li>Lowercase में बदलता है (या case संरक्षित करता है), आपके separator से जोड़ता है, और limit पर truncate करता है बिना dangling separator छोड़े।</li>
+</ol>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Non-Latin scripts hat जाते हैं।</strong> Diacritic stripping à/ñ/ø को संभालता है, पर यह Chinese, Japanese, Cyrillic, Arabic, या Hebrew को character-by-character romanize नहीं कर सकता — उन्हें language-specific tables (Hanyu Pinyin, ICU transliteration) चाहिए जो जानबूझकर यहाँ scope से बाहर हैं। ऐसे characters strip step के बाद गायब हो जाते हैं।</li>
+  <li><strong>Stop-word removal केवल English है।</strong> "El gato negro" <em>el</em> नहीं खोता; "Le chat noir" <em>le</em> नहीं खोता। non-English titles के लिए toggle off रखें।</li>
+  <li><strong>Truncation अर्थ बदल सकता है।</strong> "introduction-to-rust-programming" को 20 chars तक काटा गया तो "introduction-to-rust" बनता है — ठीक; 16 तक काटा गया तो "introduction-to" — स्पष्ट रूप से बदतर। ऐसी content के लिए limit को हाथ से set करें जहाँ tail मायने रखती है।</li>
+  <li><strong>Slugs unique नहीं हैं।</strong> दो अलग titles एक ही slug में collapse हो सकते हैं ("Café" और "Cafe" दोनों → <code>cafe</code>)। यदि आप slugs को URL keys के रूप में इस्तेमाल कर रहे हैं, collision पर एक short ID या suffix append करें।</li>
+  <li><strong>Shipped slugs न बदलें।</strong> एक बार URL live और indexed हो जाने पर, इसके slug को फिर से generate करने से links और SEO टूटते हैं। यदि title बदलता है, पुराने slug को रखें या एक 301 redirect set up करें।</li>
 </ul>
 """,
     },

@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Metin Diff", "tagline": "İki metin bloğunu karşılaştır ve satır satır eklemeleri, silmeleri ve değişmeyen bağlamı gör. Yan yana veya birleşik görünüm.", "description": "Ücretsiz online metin diff aracı. Yan yana ve birleşik görünümlü, ignore-whitespace ve ignore-case anahtarlı satır seviyesi Myers diff. Tarayıcında çalışır."},
         "id": {"name": "Text Diff", "tagline": "Bandingkan dua blok teks dan lihat penambahan, penghapusan, dan konteks tak berubah baris demi baris. Tampilan side-by-side atau unified.", "description": "Tool diff teks gratis. Bandingkan dua blok teks dan lihat perbedaannya baris demi baris dengan penambahan, penghapusan, dan konteks tak berubah disorot. Beralih antara tampilan side-by-side dan unified."},
         "vi": {"name": "Diff Văn bản", "tagline": "So sánh hai khối văn bản và xem các thêm, xóa và ngữ cảnh không thay đổi từng dòng. Chế độ xem cạnh nhau hoặc thống nhất.", "description": "Trình so sánh văn bản miễn phí trực tuyến. Hiển thị các thêm, xóa và ngữ cảnh không thay đổi giữa hai khối văn bản từng dòng trong chế độ xem cạnh nhau hoặc thống nhất."},
+        "hi": {"name": "Text Diff", "tagline": "दो text blocks की तुलना करें और line-by-line additions, removals, और अपरिवर्तित context देखें। Side-by-side या unified view।", "description": "मुफ़्त ऑनलाइन text diff tool। Side-by-side और unified views के साथ line-level Myers diff, ignore-whitespace और ignore-case toggles। आपके browser में चलता है।"},
     },
     "body": """
 <div class="td-grid">
@@ -370,6 +371,35 @@ document.addEventListener('DOMContentLoaded', tdRun);
   <li><strong>Diff theo dòng vs character.</strong> Tool này diff theo dòng (kiểu git diff cổ điển). Đối với thay đổi character-level trong một dòng dài, dùng tool diff khác.</li>
   <li><strong>Whitespace có thể đánh dấu thay đổi giả.</strong> Tab vs space, CR/LF vs LF, trailing whitespace — chúng đăng ký dưới dạng thay đổi. Tool này có thể có tùy chọn để bỏ qua chúng.</li>
   <li><strong>Diff không phải là sự khác biệt ngữ nghĩa.</strong> Reorder hai dòng hiển thị dưới dạng "xóa 2 + thêm 2" mặc dù không có gì thay đổi về nội dung.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Text के एक टुकड़े के दो versions की तुलना करना — एक paragraph, एक config file, एक SQL query, एक list — और देखना कि कौन सी lines जोड़ी गईं, हटाई गईं, या नहीं छुई गईं। तब भी जब आपके पास <code>git diff</code> हाथ में न हो या text version control में न हो। Output वही line-level diff है जो आप code review में देखेंगे: additions के लिए हरा, removals के लिए लाल, unchanged context के लिए सादा।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>"एक जैसे दिखने वाले" दो emails, contracts, या pasted blobs के बीच क्या अलग है यह पहचानना।</li>
+  <li>दो environments (staging vs prod) में config files या environment variables की तुलना करना।</li>
+  <li>Word/Docs में किसी और द्वारा edit किए गए copy के परिवर्तनों की समीक्षा करना।</li>
+  <li>दो query results, log snippets, या JSON blobs को diff करना (canonicalize करने के लिए पहले JSON Formatter का इस्तेमाल करें)।</li>
+  <li>Commit करने से पहले एक search-and-replace पर त्वरित sanity check।</li>
+</ul>
+
+<h3>Side-by-side vs unified</h3>
+<ul>
+  <li><strong>Side-by-side</strong> — छोटे बदलावों को line-by-line scan करना आसान; original बाईं ओर, नया version दाईं ओर।</li>
+  <li><strong>Unified</strong> — <code>git diff</code> output के करीब; share करने या print करने के लिए बेहतर, और जब बदलाव विरल हों तो follow करना आसान।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह एक line diff है, word diff नहीं।</strong> एक लंबी line के बीच में एक character बदला तो पूरी line को बदला हुआ चिन्हित करता है। Paragraphs की prose-level diffing के लिए, आप एक ऐसा tool चाह सकते हैं जो words में tokenize करता है।</li>
+  <li><strong>"Ignore whitespace" केवल तुलना को प्रभावित करता है, display को नहीं।</strong> ऐसी lines जो केवल trailing spaces या indentation में अलग हैं unchanged column में चली जाती हैं, पर मूल whitespace अभी भी दिखाया जाता है।</li>
+  <li><strong>"Ignore case" इसी तरह।</strong> "TODO" और "todo" बराबर तुलना करते हैं, पर मूल casing render होती है।</li>
+  <li><strong>क्रम मायने रखता है।</strong> यदि आप दो lines की अदला-बदली करते हैं, diff दोनों को removed-and-re-added के रूप में दिखाता है, "moved" pair के रूप में नहीं। कोई move detection नहीं है।</li>
+  <li><strong>बड़े inputs (10k+ lines) धीमे हो सकते हैं।</strong> LCS algorithm O(m·n) है — सामान्य files के लिए ठीक, बहुत बड़े के लिए धीमा। एक बार में छोटे chunks diff करें।</li>
+  <li><strong>Trailing newlines</strong> एक line के रूप में गिने जाते हैं। दो inputs जो केवल इस बात में अलग हैं कि क्या वे newline से समाप्त होते हैं, एक trailing addition या removal दिखाएंगे।</li>
 </ul>
 """,
     },

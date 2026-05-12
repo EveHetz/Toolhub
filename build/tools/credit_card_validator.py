@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Kredi Kartı Doğrulayıcı", "tagline": "Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel çalışır — numaran asla iletilmez.", "description": "Ücretsiz online kredi kartı doğrulayıcı. Luhn (mod-10) checksum, marka tespiti (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) ve uzunluk doğrulaması. %100 istemci tarafında çalışır."},
         "id": {"name": "Validator Kartu Kredit", "tagline": "Validasi nomor kartu dengan cek Luhn dan deteksi brand kartu. Berjalan lokal — nomormu tidak pernah dikirim.", "description": "Validator kartu kredit gratis. Cek nomor kartu dengan algoritma Luhn dan deteksi brand (Visa, Mastercard, Amex, Discover, JCB, Diners). Berjalan sepenuhnya di browser-mu — tanpa pelacakan, tanpa upload."},
         "vi": {"name": "Xác thực Thẻ Tín dụng", "tagline": "Xác thực số thẻ bằng kiểm tra Luhn và phát hiện brand. Chạy cục bộ — số thẻ của bạn không bao giờ được gửi đi.", "description": "Xác thực số thẻ tín dụng miễn phí trực tuyến. Kiểm tra Luhn checksum và phát hiện brand thẻ (Visa, Mastercard, Amex, Discover, JCB và các loại khác). Toàn bộ kiểm tra chạy trong trình duyệt của bạn — số thẻ không bao giờ được gửi đi."},
+        "hi": {"name": "Credit Card Validator", "tagline": "Luhn check से card number जांचें और card brand का पता लगाएं। Locally चलता है — आपका number कभी transmit नहीं होता।", "description": "मुफ़्त ऑनलाइन credit card validator। Luhn (mod-10) checksum, brand detection (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay), और length verification। 100% client-side।"},
     },
     "body": """
 <div class="tool-card">
@@ -262,6 +263,28 @@ document.addEventListener('DOMContentLoaded', cvRun);
   <li><strong>Phát hiện brand không thay thế kiểm tra của cổng.</strong> Tiền tố BIN có thể thay đổi và một số dải overlap; coi việc đoán brand là gợi ý UX, không phải sự thật.</li>
   <li><strong>Công cụ này chạy hoàn toàn cục bộ.</strong> Số bạn nhập không bao giờ rời khỏi trình duyệt — nhưng đừng dán PAN sản xuất vào bất kỳ tool ngẫu nhiên nào dù sao đi nữa. Dùng <a href="https://www.payments-cards.com/test-cards.html">số test</a> để demo.</li>
 </ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Card numbers में एक built-in checksum (Luhn / mod-10 algorithm) होता है और वे ऐसे prefixes से शुरू होते हैं जो issuing brand की पहचान करते हैं। दोनों मिलकर आपको typos पकड़ने और payment processor को number भेजने से पहले brand identify करने देते हैं। यह tool दोनों checks को 100% आपके browser में चलाता है — आपने जो number paste किया वह page से कभी बाहर नहीं जाता। यह developer-grade structural validation है, fraud-check या live-card lookup नहीं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>यह validate करना कि आपने जो test card number copy किया है वह well-formed है (<a href="https://docs.stripe.com/testing" rel="noopener">Stripe के docs</a> या इसी तरह के test cards सभी Luhn से pass होते हैं)।</li>
+  <li>Form में input fields की sanity-check — क्या number basic structure satisfy करता है, इससे पहले कि उसे किसी payments API पर round-trip किया जाए जो lookup के लिए charge करती।</li>
+  <li>"गलत लगने वाले" card number का audit करना यह देखने के लिए कि यह typo है (Luhn fail) या brand mismatch (prefix के लिए गलत length)।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>"Structurally valid" का मतलब "issued" या "active" नहीं है।</strong> Real validation के लिए payment processor चाहिए — जिसकी कीमत है या hold लगती है। यह tool typos पकड़ता है, बंद accounts नहीं।</li>
+  <li><strong>असली card numbers कहीं भी paste न करें</strong> — इस tool में भी नहीं। Browser उन्हें transmit नहीं करता, पर screen-recorder, browser extension, या खुला dev-tools panel कर सकता है। बजाय इसके किसी known test number का इस्तेमाल करें।</li>
+  <li><strong>सभी 16-digit numbers cards नहीं हैं।</strong> Loyalty cards, gift cards और कुछ prepaid SKUs format को reuse करते हैं; Luhn pass + brand match payment instrument होने की guarantee नहीं देता।</li>
+  <li><strong>Co-branded cards।</strong> एक brand के तहत issue किए गए cards दूसरे का logo दिखा सकते हैं। यहाँ brand detection canonical issuer prefix का इस्तेमाल करती है, printed logo का नहीं।</li>
+</ul>
+
+<h3>Test numbers (paste करने के लिए safe)</h3>
+<p>Visa <code>4242 4242 4242 4242</code> · Mastercard <code>5555 5555 5555 4444</code> · Amex <code>3782 822463 10005</code> · Discover <code>6011 1111 1111 1117</code></p>
 """,
     },
     "related": ["email-validator", "hash-generator", "regex-tester"],

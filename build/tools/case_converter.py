@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "Case Converter", "tagline": "Metni UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE ve dot.case arasında dönüştür.", "description": "Ücretsiz online büyük/küçük harf dönüştürücü. Metni tek tıkla upper, lower, title, sentence, camel, pascal, snake, kebab, constant ve dot case arasında değiştir."},
         "id": {"name": "Pengubah Case", "tagline": "Ubah teks antara UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case.", "description": "Pengubah case teks gratis. Konversi antara UPPER, lower, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE, dan dot.case. Sadar-Unicode dan cepat."},
         "vi": {"name": "Chuyển đổi Case", "tagline": "Chuyển văn bản giữa UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE và dot.case.", "description": "Công cụ chuyển đổi case văn bản miễn phí trực tuyến. Chuyển bất kỳ chuỗi nào sang UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE hoặc dot.case ngay lập tức."},
+        "hi": {"name": "Case Converter", "tagline": "Text को UPPER, lower, Title, Sentence, camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE और dot.case के बीच बदलें।", "description": "मुफ़्त ऑनलाइन case converter। Text को एक click में upper, lower, title, sentence, camel, pascal, snake, kebab, constant और dot case के बीच switch करें।"},
     },
     "body": """
 <div class="tool-card">
@@ -251,6 +252,26 @@ document.addEventListener('DOMContentLoaded', ccRun);
   <li><strong>Title Case không phải là viết hoa từng từ.</strong> Title Case tiếng Anh chân chính giữ chữ thường cho mạo từ, giới từ ngắn và liên từ — nhưng các framework thường dùng "Capitalize Each Word" rồi gọi nó là title case.</li>
   <li><strong>Dấu câu trong slug.</strong> Một bộ tạo kebab-case tốt sẽ bỏ dấu câu, chuyển khoảng trắng thành dấu gạch ngang và viết thường mọi thứ — đừng để dấu nháy hay dấu chấm than rơi vào.</li>
   <li><strong>Không phải tất cả ngôn ngữ đều có case.</strong> Tiếng Trung, tiếng Nhật và tiếng Hàn không có khái niệm chữ hoa/chữ thường — chuyển đổi case của chúng là no-op.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>हर language और platform की चीज़ों को नाम देने की अपनी conventions होती हैं — JavaScript को <code>camelCase</code> चाहिए, Python को <code>snake_case</code>, CSS को <code>kebab-case</code>, environment variables को <code>CONSTANT_CASE</code>। हाथ से इनके बीच translate करना झंझट है, खासकर edge cases (acronyms, numbers, मौजूदा separators) के साथ। यह tool किसी भी input को case transitions, separators (<code>_ - . /</code>) और whitespace detect करके words में split करता है, फिर उन्हें 14 अलग styles में फिर से जोड़ देता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>API JSON (camelCase) से किसी field का नाम Python ORM column (snake_case) के लिए बदलना।</li>
+  <li>PascalCase में आने वाले design-system token names से CSS class names बनाना।</li>
+  <li>Headings की list को kebab-case slugs में, या environment variable names को CONSTANT_CASE में बदलना।</li>
+  <li>"The Quick Brown Fox" को जल्दी से किसी headline / button label के लिए Title Case, Sentence case, या Train-Case में बदलना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Acronyms tricky हैं।</strong> क्या "XMLHttpRequest" "XML_Http_Request" बने या "Xml_Http_Request"? यह tool लगातार capitals को एक word boundary मानता है (<code>xml http request</code>), फिर re-case करता है — जो Java/JS conventions से मेल खाता है पर सभी style guides से नहीं।</li>
+  <li><strong>Numbers पिछले word से जुड़ जाते हैं।</strong> "Item2" एक ही word "item2" बनता है, दो नहीं। अगर आप उन्हें split करना चाहते हैं तो separator जोड़ें।</li>
+  <li><strong>"camelCase का पहला letter"</strong> हमेशा lowercase होता है, भले ही input capital से शुरू हुआ हो। PascalCase capital बनाए रखता है।</li>
+  <li><strong>Round-tripping हमेशा lossless नहीं होती।</strong> camelCase → kebab-case → camelCase करने पर word boundaries पर original capitalisation hint खो जाती है; case-detection heuristic अपनी पूरी कोशिश करती है पर जो preserve नहीं हुआ उसे recover नहीं कर सकती।</li>
 </ul>
 """,
     },

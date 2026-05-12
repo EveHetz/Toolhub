@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "XML ↔ JSON Dönüştürücü", "tagline": "XML'i JSON'a veya JSON'u XML'e geri dönüştür. Attribute'ları, text node'ları ve dizileri akıllıca işler.", "description": "Ücretsiz online XML'den JSON'a dönüştürücü (ve JSON'dan XML'e geri). Tarayıcının yerel XML parser'ını kullanır; attribute'lar ayarlanabilir bir önek alır; tekrarlayan elementler dizilere indirgenir. Tamamen tarayıcında çalışır."},
         "id": {"name": "Konverter XML ↔ JSON", "tagline": "Konversi XML ke JSON atau JSON kembali ke XML. Menangani attribute, text node, dan array secara cerdas.", "description": "Konverter XML ke JSON gratis (dan sebaliknya). Konversi XML ke representasi JSON yang dapat dibaca, menangani attribute, text node, dan element berulang sebagai array. Konversi balik JSON ke XML juga didukung."},
         "vi": {"name": "Chuyển đổi XML ↔ JSON", "tagline": "Chuyển XML thành JSON hoặc JSON thành XML. Xử lý attribute, text node và mảng một cách thông minh.", "description": "Bộ chuyển XML ↔ JSON miễn phí trực tuyến. Chuyển một chiều hoặc chiều khác với xử lý thông minh cho attribute, text node và phần tử lặp lại biến thành mảng. Chạy hoàn toàn trong trình duyệt."},
+        "hi": {"name": "XML ↔ JSON Converter", "tagline": "XML को JSON में या JSON को वापस XML में बदलें। attributes, text nodes और arrays को समझदारी से संभालता है।", "description": "मुफ़्त ऑनलाइन XML से JSON converter (और JSON वापस XML में)। browser के native XML parser का उपयोग करता है; attributes को कॉन्फ़िगर करने योग्य prefix मिलता है; दोहराए गए elements arrays में बदल जाते हैं। पूरी तरह से आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -451,6 +452,29 @@ document.addEventListener('DOMContentLoaded', xjRun);
   <li><strong>Round-trip không lossless.</strong> XML → JSON → XML có thể không tạo lại XML byte-identical do attribute order, whitespace, comment.</li>
   <li><strong>Namespace phẳng hóa.</strong> XML có namespace; JSON không. Tool này hoặc bỏ qua namespace hoặc thêm chúng dưới dạng prefix trong key.</li>
   <li><strong>Mixed content khó.</strong> Một element XML có cả text và child element ánh xạ awkwardly vào JSON. Trường hợp đó nên được biểu diễn dưới dạng array với object xen kẽ.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>XML और JSON दो प्रमुख data interchange formats हैं और आपको नियमित रूप से उनके बीच अनुवाद करने की आवश्यकता होती है — एक SOAP API से REST में migrate करने के लिए, legacy feeds को आधुनिक stack में plumb करने के लिए, या केवल एक टूल में XML पढ़ने के लिए जो केवल JSON बोलता है। मैपिंग default रूप से reversible नहीं बल्कि opinionated है, क्योंकि XML में ऐसी features (attributes, mixed content, ordered children) हैं जो JSON में नहीं हैं। यह टूल पारंपरिक <a href="https://www.npmjs.com/package/fast-xml-parser" target="_blank" rel="noopener noreferrer">fast-xml-parser</a>-शैली मैपिंग का उपयोग करता है: attributes को एक prefix मिलता है (default <code>@</code>), text nodes एक key में जाते हैं (default <code>#text</code>), और दोहराए गए child elements arrays में बदल जाते हैं। दोनों दिशाएं आपके browser में चलती हैं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक JS app में उपभोग करने के लिए RSS / Atom / SOAP response को JSON में बदलना।</li>
+  <li>एक JSON template से XML config उत्पन्न करना (build configs, Spring beans, OOXML scaffolds)।</li>
+  <li>nested values को जल्दी से निकालना — XML को JSON में बदलें, फिर कोई भी JSON टूल उपयोग करें जिसे आप पहले से जानते हैं।</li>
+  <li>डेटा को round-trip करना और यह पुष्टि करना कि shape conversion में जीवित रहता है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>एकल child बनाम array।</strong> एक <code>&lt;item&gt;</code> वाला दस्तावेज़ <code>{"item": {...}}</code> बन जाता है; दो वाला वही दस्तावेज़ <code>{"item": [..., ...]}</code> बन जाता है। उपभोक्ताओं को दोनों रूपों को संभालना होगा (या आउटपुट पर normalise करें)।</li>
+  <li><strong>Element क्रम की गारंटी नहीं है।</strong> JSON objects सभी parsers/transmissions में key order संरक्षित नहीं करते। यदि आपके XML में क्रम-महत्वपूर्ण siblings हैं, तो JSON गलत गंतव्य है।</li>
+  <li><strong>Mixed content collapse हो जाता है।</strong> <code>&lt;p&gt;hello &lt;b&gt;world&lt;/b&gt;!&lt;/p&gt;</code> जैसा एक element round-trip नहीं करता — text और inline elements ऐसे interleave होते हैं कि उनका कोई स्वच्छ object representation नहीं है।</li>
+  <li><strong>Attribute prefix टकराव।</strong> यदि एक XML element का एक child है जिसका नाम <code>@</code> से शुरू होता है, तो पहले prefix को कुछ और में बदलें।</li>
+  <li><strong>Namespaces शब्दशः रखे जाते हैं।</strong> <code>ns:tag</code> JSON key के रूप में <code>"ns:tag"</code> रहता है। <code>xmlns:</code> attributes भी इसी तरह।</li>
+  <li><strong>Numbers और booleans auto-coerce नहीं होते हैं।</strong> XML text हमेशा strings होता है; <code>"1"</code> JSON में <code>"1"</code> रहता है। यदि आपको आवश्यकता हो तो अपने application code में types को coerce करें।</li>
+  <li><strong>JSON → XML के लिए एक single root key की आवश्यकता है।</strong> XML के लिए ठीक एक root element की मांग है; input JSON एक top-level key वाला एक object होना चाहिए।</li>
 </ul>
 """,
     },

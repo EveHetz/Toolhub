@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "Sayı Tabanı Dönüştürücü", "tagline": "İkilik, sekizlik, ondalık, onaltılık ve 2'den 36'ya kadar her taban arasında dönüştür.", "description": "Ücretsiz online sayı tabanı dönüştürücü. İkilik, sekizlik, ondalık, hex ve 2-36 arası rastgele tabanlar arasında dönüştür. BigInt üzerinden negatif sayıları ve büyük tamsayıları işler."},
         "id": {"name": "Konverter Basis Angka", "tagline": "Konversi antara biner, oktal, desimal, heksadesimal, dan basis 2 sampai 36.", "description": "Konverter basis angka gratis. Konversi antara biner (basis-2), oktal (basis-8), desimal (basis-10), heksadesimal (basis-16), dan basis arbitrer 2 sampai 36. Pengubah basis-N umum untuk programmer."},
         "vi": {"name": "Chuyển đổi Hệ cơ số", "tagline": "Chuyển giữa nhị phân, bát phân, thập phân, thập lục phân và các hệ cơ số 2 đến 36.", "description": "Bộ chuyển đổi hệ cơ số miễn phí trực tuyến. Chuyển bất kỳ số nào giữa nhị phân, bát phân, thập phân, thập lục phân và các hệ cơ số 2 đến 36. Bao gồm hỗ trợ số âm."},
+        "hi": {"name": "Number Base Converter", "tagline": "Binary, octal, decimal, hexadecimal, और 2 से 36 तक किसी भी base के बीच बदलें।", "description": "मुफ़्त ऑनलाइन number base converter. Binary, octal, decimal, hex, और 2-36 तक के arbitrary bases के बीच बदलें। BigInt के माध्यम से negative numbers और बड़े integers को handle करता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -362,6 +363,34 @@ document.addEventListener('DOMContentLoaded', nbRun);
   <li><strong>Số âm cần convention.</strong> Two's complement là tiêu chuẩn cho integer máy tính, nhưng tool có thể hiển thị dấu trừ literal cho input người đọc.</li>
   <li><strong>Floating point khác.</strong> Tool này xử lý integer; chuyển đổi float thập lục phân (như IEEE 754) cần một tool riêng.</li>
   <li><strong>Hệ trên 36 cần ký hiệu đặc biệt.</strong> Base64 dùng nguyên tắc khác (giá trị 0–63 với A–Z, a–z, 0–9, +, /). Tool này dừng ở 36 (chữ số 0–9 + chữ cái A–Z).</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>संख्याएँ base की परवाह किए बिना एक ही संख्या हैं — <code>255</code>, <code>0xff</code>, <code>0b11111111</code>, और <code>0o377</code> समान हैं। लेकिन आप किस base में पढ़ते या लिखते हैं यह मायने रखता है जब आप memory layouts के बीच translate कर रहे हों, colour codes parse कर रहे हों, bit fields decode कर रहे हों, या बस debugger से hex पढ़ रहे हों। यह टूल binary, octal, decimal, hexadecimal, और 2 से 36 तक किसी भी base के बीच बदलता है, hood के नीचे BigInt का उपयोग करता है ताकि आप बड़ी संख्याओं पर precision न खोएं।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Stack trace से hex value पढ़ना और यह पता लगाना कि यह decimal में क्या है।</li>
+  <li>CSS color <code>0xff8800</code> को RGB triple में बदलना, या इसके विपरीत।</li>
+  <li>यह देखने के लिए कि कौन से bits सेट हैं, bitmask या flags integer का binary में निरीक्षण करना।</li>
+  <li>Base-36 short IDs और decimal counters के बीच translate करना।</li>
+</ul>
+
+<h3>पहचाने गए prefixes</h3>
+<ul>
+  <li>Hex: <code>0x</code>, <code>0X</code>, <code>#</code></li>
+  <li>Binary: <code>0b</code>, <code>0B</code></li>
+  <li>Octal: <code>0o</code>, <code>0O</code></li>
+  <li>Underscore digit grouping: <code>1_000_000</code></li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Negative numbers sign-prefixed हैं, two's complement नहीं।</strong> <code>-128</code> binary में <code>-10000000</code> के रूप में दिखाया जाता है, न कि <code>10000000</code>। अधिकांश languages arbitrary-precision integers के लिए इसी तरह display करती हैं।</li>
+  <li><strong>यहाँ बड़ी संख्याएँ precision नहीं खोतीं।</strong> JavaScript <code>Number</code> 2<sup>53</sup> पर रुकता है; यह टूल <code>BigInt</code> का उपयोग करता है, इसलिए 64-bit integers, बड़े hashes, और crypto values सभी exact रूप से round-trip होते हैं।</li>
+  <li><strong>Base को case के साथ confuse न करें।</strong> Base-16 letters upper या lower हो सकते हैं; टूल दोनों को accept करता है और uppercase emit करता है। Base-32 / base-36 outputs convention के अनुसार lowercase हैं।</li>
+  <li><strong>Leading zeros गिरा दिए जाते हैं।</strong> <code>0x000F</code> बन जाता है <code>F</code>। यदि आपको fixed-width hex चाहिए (जैसे byte representations के लिए), तो बाद में अपने code में pad करें।</li>
 </ul>
 """,
     },

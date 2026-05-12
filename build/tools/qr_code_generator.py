@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "QR Kod Üretici", "tagline": "Herhangi bir metin, URL, Wi-Fi veya vCard için QR kod üret. Özel boyut, renkler ve hata düzeltme. PNG veya SVG olarak dışa aktar.", "description": "Ücretsiz online QR kod üretici. Özel boyut, ön plan/arka plan renkleri, hata düzeltme seviyeleri. PNG veya SVG olarak indir. Filigran yok."},
         "id": {"name": "Generator Kode QR", "tagline": "Hasilkan kode QR untuk teks, URL, Wi-Fi, atau vCard apa pun. Ukuran custom, warna, dan koreksi error. Export sebagai PNG atau SVG.", "description": "Generator kode QR online gratis. Hasilkan kode QR untuk URL, teks, Wi-Fi, vCard, email, telepon, dan SMS. Ukuran, warna, level error correction yang dapat dikonfigurasi. Export PNG atau SVG. Berjalan offline di browser-mu."},
         "vi": {"name": "Tạo Mã QR", "tagline": "Tạo mã QR cho bất kỳ văn bản, URL, Wi-Fi hoặc vCard nào. Kích thước tùy chỉnh, màu và mức sửa lỗi. Xuất dưới dạng PNG hoặc SVG.", "description": "Trình tạo mã QR miễn phí trực tuyến. Encode văn bản, URL, thông tin đăng nhập Wi-Fi hoặc vCard thành mã QR có thể xuất dưới dạng PNG hoặc SVG với màu và mức sửa lỗi tùy chỉnh."},
+        "hi": {"name": "QR Code Generator", "tagline": "किसी भी text, URL, Wi-Fi, या vCard के लिए QR code बनाएं। कस्टम size, रंग, और error correction। PNG या SVG में export करें।", "description": "मुफ़्त ऑनलाइन QR code generator। कस्टम size, foreground/background रंग, error correction levels। PNG या SVG के रूप में download करें। कोई watermark नहीं।"},
     },
     "body": """
 <div class="tool-card">
@@ -310,6 +311,27 @@ document.addEventListener('DOMContentLoaded', () => { setTimeout(qrRender, 100);
   <li><strong>Mức sửa lỗi tăng kích thước.</strong> Cao hơn = QR phục hồi từ damage tốt hơn nhưng dày hơn. L (7%) cho điều kiện in tốt, H (30%) khi nó có thể được phủ logo.</li>
   <li><strong>Tương phản quan trọng.</strong> Đen trên trắng là an toàn nhất. Color reverse (trắng trên đen) thường ổn nhưng kiểm tra với phone.</li>
   <li><strong>Test trên phone trước khi in.</strong> Một số scanner cũ kén chọn — kiểm tra QR với app camera tiêu chuẩn iOS và Android trước khi đặt hàng 10.000 bản in.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>QR code छोटे URLs होते हैं जिन्हें एक phone camera सेकंड के अंश में पढ़ सकता है। एक URL, एक Wi-Fi network, एक email draft, एक phone number, या कोई भी छोटा text encode करें — इसे एक poster, business card, या menu पर print करें, और किसी भी phone वाला बिना टाइप किए इस पर action ले सकता है। यह generator पूरी तरह आपके browser में open-source <a href="https://github.com/soldair/node-qrcode" rel="noopener">qrcode</a> library का इस्तेमाल करके चलता है। आपका input text कभी page से बाहर नहीं जाता।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक slide, poster, business card, या packaging insert पर URL share करना।</li>
+  <li>मेहमानों को password टाइप किए बिना अपने Wi-Fi से जोड़ना (Wi-Fi preset का इस्तेमाल करें)।</li>
+  <li>भौतिक स्थानों में signage पर "scan to pay / book / order" लगाना।</li>
+  <li>प्राप्तकर्ता के phone पर तत्काल contact-card import के लिए एक vCard encode करना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>Error correction density से trade-off करता है।</strong> उच्च स्तर (Q, H) खरोंच और overlaid logos से बचते हैं; निम्न स्तर (L, M) code को छोटा और scan करने में तेज़ रखते हैं। यदि आप logo overlay करने की योजना बना रहे हैं तो <strong>H</strong> का इस्तेमाल करें, अन्यथा <strong>M</strong> समझदार default है।</li>
+  <li><strong>Contrast मायने रखता है।</strong> कम foreground/background contrast वाले stylised QR codes अक्सर सुंदर दिखते हैं पर खराब रोशनी में खराब scan होते हैं। ship करने से पहले printed/screen output से scan करके test करें।</li>
+  <li><strong>लंबी content denser code को मजबूर करती है।</strong> यदि आपको 200-character URL encode करना है, तो परिणामी code dense है और दूर से scan करना मुश्किल। यदि size मायने रखता है तो पहले redirect के माध्यम से छोटा करें।</li>
+  <li><strong>SVG vs PNG।</strong> SVG बिना quality loss के scale होता है — print या बड़े displays के लिए सबसे अच्छा। PNG सार्वभौमिक रूप से स्वीकृत है पर scale up करने पर pixelate होता है; उस size पर export करें जिस पर आप इस्तेमाल करेंगे।</li>
+  <li><strong>Wi-Fi preset format।</strong> <code>WIFI:T:WPA;S:&lt;SSID&gt;;P:&lt;password&gt;;;</code> — आधुनिक iOS/Android scan करते हैं और automatically join करते हैं; बहुत पुराने phones शायद support न करें।</li>
 </ul>
 """,
     },

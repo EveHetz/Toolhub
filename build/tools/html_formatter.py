@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "HTML Formatter", "tagline": "HTML'i biçimlendir ve güzelleştir ya da küçült. Indent boyutu, yorum temizleme ve self-closing tag farkındalığı.", "description": "Ücretsiz online HTML formatter ve minifier. Ayarlanabilir indent ile güzel yazdır, opsiyonel olarak yorumları sil, void/self-closing tag'lere uy. Tamamen tarayıcında çalışır."},
         "id": {"name": "HTML Formatter", "tagline": "Format dan beautify HTML atau minify-nya. Ukuran indent, pengupasan komentar, dan kesadaran self-closing tag.", "description": "HTML formatter gratis. Beautify HTML berantakan dengan indentasi yang tepat atau minify HTML rapi dengan menghapus whitespace dan komentar. Sadar self-closing tag dan mempertahankan konten pre/code."},
         "vi": {"name": "HTML Formatter", "tagline": "Format và làm đẹp HTML hoặc minify nó. Kích thước indent, loại bỏ comment và nhận biết self-closing tag.", "description": "HTML formatter miễn phí trực tuyến. Làm đẹp markup lộn xộn với indent có thể cấu hình, hoặc minify để loại bỏ whitespace. Self-closing tag và CSS/JS inline được xử lý đúng."},
+        "hi": {"name": "HTML Formatter", "tagline": "HTML को फ़ॉर्मैट और beautify करें या minify करें। Indent size, comment stripping, और self-closing tag awareness।", "description": "मुफ़्त ऑनलाइन HTML formatter और minifier। Configurable indentation के साथ pretty-print, वैकल्पिक रूप से comments strip करें, और void/self-closing tags का सम्मान करें। पूरी तरह से आपके browser में चलता है।"},
     },
     "body": """
 <div class="tool-card">
@@ -510,6 +511,28 @@ document.addEventListener('DOMContentLoaded', hfRun);
   <li><strong>Whitespace có thể có ý nghĩa.</strong> Trong <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, và một số <code>&lt;span&gt;</code> inline, whitespace là một phần của content. Tool này cố gắng giữ chúng, nhưng kiểm tra output.</li>
   <li><strong>Minify HTML đơn giản hơn minify CSS/JS.</strong> Đa số tiết kiệm đến từ collapse whitespace; phần khó (chấp nhận attribute không có quote, drop tag tự-đóng tùy chọn) thường không an toàn nếu chưa được phân tích cẩn thận.</li>
   <li><strong>Đừng format template.</strong> File chứa <code>{{handlebars}}</code>, <code>&lt;?php&gt;</code> hoặc <code>&lt;%erb%&gt;</code> có thể bị phá vỡ bởi formatter HTML — chúng không phải là HTML hợp lệ cho đến khi được render.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>HTML markup आपके editor में सभी प्रकार की states में आता है — production के लिए minified, templating engines द्वारा whitespace की परवाह किए बिना generated, हाथ से typed और असंगत रूप से indented। यह tool किसी भी HTML fragment को प्रत्येक nested element के लिए consistent indentation के साथ reformat करता है, void elements (<code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;meta&gt;</code>) और inline elements (<code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) को पहचानता है ताकि output वास्तविक HTML की तरह दिखे, layout-by-rule की तरह नहीं। Minify mode inter-tag whitespace और वैकल्पिक रूप से comments को strip करता है। सब कुछ आपके browser में रहता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>एक minified HTML email या किसी page की "view source" copy को pretty-print करना ताकि आप उसकी संरचना पढ़ सकें।</li>
+  <li>Code review में paste करने से पहले CMS / WYSIWYG से snippet साफ़ करना।</li>
+  <li>Deploy करने से पहले एक static HTML asset को minify करना — wire पर कम bytes, कोई comments leak नहीं।</li>
+  <li>Publish करने से पहले template से author comments strip करना।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>यह एक pragmatic tokenizer है, पूर्ण HTML5 parser नहीं।</strong> यह real-world fragments पर अच्छी तरह काम करता है लेकिन गंभीर रूप से malformed input से recover नहीं होगा जिस तरह browsers करते हैं (browsers पूरा HTML parsing algorithm चलाते हैं और errors को चुपके से fix करते हैं — यह tool नहीं करता)।</li>
+  <li><strong><code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code> के अंदर whitespace संरक्षित है।</strong> इन elements को raw के रूप में treat किया जाता है और re-indented नहीं होते।</li>
+  <li><strong>Inline elements अपने parent text के साथ same line पर रहते हैं</strong> — <code>&lt;p&gt;some &lt;b&gt;bold&lt;/b&gt; text&lt;/p&gt;</code> को lines में split नहीं किया जाएगा।</li>
+  <li><strong>"Collapse whitespace" कुछ content के लिए rendered output बदलता है।</strong> दो spaces एक हो जाते हैं। यदि आपका design multiple spaces या non-breaking sequences पर निर्भर है, तो इसे off रखें।</li>
+  <li><strong>HTML में self-closing notation cosmetic है।</strong> <code>&lt;br/&gt;</code> और <code>&lt;br&gt;</code> HTML5 में equivalent हैं; यह tool जो आपने लिखा वह preserve करता है।</li>
+  <li><strong>Minify security boundary नहीं है।</strong> Secrets छिपाने के लिए comments strip करने पर भरोसा न करें — वे पहले से client को ship किए जा चुके हैं।</li>
 </ul>
 """,
     },

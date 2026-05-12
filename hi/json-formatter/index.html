@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter — Toolhub</title>
+  <meta name="description" content="मुफ़्त ऑनलाइन JSON formatter और validator. JSON syntax को pretty-print, minify, और सटीक error messages के साथ जांचें।">
+  <meta property="og:title" content="JSON Formatter — Toolhub">
+  <meta property="og:description" content="मुफ़्त ऑनलाइन JSON formatter और validator. JSON syntax को pretty-print, minify, और सटीक error messages के साथ जांचें।">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/hi/json-formatter/">
+  <meta property="og:image" content="https://toolhub.software/og-images/json-formatter.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/json-formatter.png">
+  <link rel="canonical" href="https://toolhub.software/hi/json-formatter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/json-formatter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/json-formatter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/json-formatter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/json-formatter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/json-formatter/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/json-formatter/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/json-formatter/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/json-formatter/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/json-formatter/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/json-formatter/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/json-formatter/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/json-formatter/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/json-formatter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/json-formatter/">
+  <meta property="og:locale" content="hi_IN">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/hi/json-formatter/#tool",
+        "name": "JSON Formatter",
+        "description": "मुफ़्त ऑनलाइन JSON formatter और validator. JSON syntax को pretty-print, minify, और सटीक error messages के साथ जांचें।",
+        "url": "https://toolhub.software/hi/json-formatter/",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "Developer Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "hi",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["json", "format", "beautify", "validate", "minify"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "सभी टूल्स", "item": "https://toolhub.software/hi/"},
+          {"@type": "ListItem", "position": 2, "name": "JSON Formatter", "item": "https://toolhub.software/hi/json-formatter/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "यह किसके लिए है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON minified रूप में travel करता है — जब API response wire पर भेजा जा रहा हो तो हर byte मायने रखता है। लेकिन minified JSON पढ़ने योग्य नहीं होता। यह टूल browser के native JSON.parse / JSON.stringify के माध्यम से round-trip करता है ताकि indented, copy-योग्य output बनाया जा सके, संरचना को जांचा जा सके, या whitespace वापस हटाया जा सके। कुछ भी upload नहीं होता; सब कुछ page पर होता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "कब इस्तेमाल करें",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minified API response को paste करना और कुछ ऐसा वापस पाना जिसे एक इंसान scan कर सके। Syntax errors पकड़ना — trailing commas, unquoted keys, smart quotes — सटीक line/column के साथ जहाँ parser फिसला। JSON को ऐसे context में paste करने से पहले whitespace हटाना जहाँ size मायने रखता है (URL params, env vars, config files)। दूसरे टूल में pipe करने से पहले यह पुष्टि करना कि आपका hand-written JSON valid है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "आम गलतियाँ",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JSON ≠ JavaScript object literal। Keys double quotes में होनी चाहिए। Single quotes, unquoted keys, और trailing commas सभी fail होते हैं। यदि आपके पास JS object literals हैं, तो पहले उन्हें एक converter से चलाएं। Copy-paste से smart quotes। Word processors और chat apps \"मदद\" के नाम पर \" को \" / \" से बदलना पसंद करते हैं। वे वैध JSON delimiters नहीं हैं। JSON में comments नहीं होते। यदि आपके \"JSON\" में // या /* */ है, तो वह वास्तव में JSONC है (VS Code config में उपयोग होता है) — parse करने से पहले उन्हें हटाएं। 2⁵³ से बड़ी संख्याएं। JavaScript 9007199254740992 से ऊपर के integers को सटीक रूप से represent नहीं कर सकता। Twitter snowflake IDs और इसी तरह की संख्याओं को strings के रूप में quote किया जाना चाहिए।"
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "JSON Formatter",
+  "description": "JSON को तुरंत फ़ॉर्मैट करें, जांचें, और minify करें। Errors को line और column के साथ highlight किया जाता है।",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "अपना JSON पेस्ट करें",
+      "text": "अपना JSON इनपुट फ़ील्ड में डालें।"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "फ़ॉर्मैट पर क्लिक करें",
+      "text": "टूल चलाने के लिए फ़ॉर्मैट बटन दबाएं।"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "परिणाम कॉपी करें",
+      "text": "आउटपुट को कॉपी करने के लिए कॉपी करें दबाएं।"
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/hi/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">भाषा</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/json-formatter/'; else location.href='/json-formatter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" selected="selected">🇮🇳 HI</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / JSON Formatter</div>
+    <h1>JSON Formatter</h1>
+    <p class="tagline">JSON को तुरंत फ़ॉर्मैट करें, जांचें, और minify करें। Errors को line और column के साथ highlight किया जाता है।</p>
+    
+<div class="tool-card">
+  <label for="json-input">इनपुट</label>
+  <textarea id="json-input" placeholder='{{"hello": "world", "n": 42}}' spellcheck="false"></textarea>
+  <div class="button-row">
+    <button onclick="jfFormat(2)">फ़ॉर्मैट</button>
+    <button class="secondary" onclick="jfFormat(4)">फ़ॉर्मैट (4)</button>
+    <button class="secondary" onclick="jfMinify()">minify करें</button>
+    <button class="secondary" onclick="jfValidate()">जांचें</button>
+    <button class="secondary" onclick="document.getElementById('json-input').value=''">साफ़ करें</button>
+  </div>
+</div>
+<div class="tool-card">
+  <label>आउटपुट</label>
+  <div class="output-row">
+    <pre class="output" id="json-output">परिणाम देखने के लिए ऊपर इनपुट डालें।</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">कॉपी करें</button>
+  </div>
+  <div class="meta" id="json-meta"></div>
+</div>
+
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>यह किसके लिए है?</h2>
+<p>JSON minified रूप में travel करता है — जब API response wire पर भेजा जा रहा हो तो हर byte मायने रखता है। लेकिन minified JSON पढ़ने योग्य नहीं होता। यह टूल browser के native <code>JSON.parse</code> / <code>JSON.stringify</code> के माध्यम से round-trip करता है ताकि indented, copy-योग्य output बनाया जा सके, संरचना को जांचा जा सके, या whitespace वापस हटाया जा सके। कुछ भी upload नहीं होता; सब कुछ page पर होता है।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Minified API response को paste करना और कुछ ऐसा वापस पाना जिसे एक इंसान scan कर सके।</li>
+  <li>Syntax errors पकड़ना — trailing commas, unquoted keys, smart quotes — सटीक line/column के साथ जहाँ parser फिसला।</li>
+  <li>JSON को ऐसे context में paste करने से पहले whitespace हटाना जहाँ size मायने रखता है (URL params, env vars, config files)।</li>
+  <li>दूसरे टूल में pipe करने से पहले यह पुष्टि करना कि आपका hand-written JSON valid है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>JSON ≠ JavaScript object literal।</strong> Keys double quotes में होनी चाहिए। Single quotes, unquoted keys, और trailing commas सभी fail होते हैं। यदि आपके पास JS object literals हैं, तो पहले उन्हें एक converter से चलाएं।</li>
+  <li><strong>Copy-paste से smart quotes।</strong> Word processors और chat apps "मदद" के नाम पर <code>"</code> को <code>"</code> / <code>"</code> से बदलना पसंद करते हैं। वे वैध JSON delimiters नहीं हैं।</li>
+  <li><strong>JSON में comments नहीं होते।</strong> यदि आपके "JSON" में <code>//</code> या <code>/* */</code> है, तो वह वास्तव में JSONC है (VS Code config में उपयोग होता है) — parse करने से पहले उन्हें हटाएं।</li>
+  <li><strong>2⁵³ से बड़ी संख्याएं।</strong> JavaScript <code>9007199254740992</code> से ऊपर के integers को सटीक रूप से represent नहीं कर सकता। Twitter snowflake IDs और इसी तरह की संख्याओं को strings के रूप में quote किया जाना चाहिए।</li>
+</ul>
+<div class="related"><span class="meta">संबंधित टूल्स:</span> <a href="/hi/regex-tester/">Regex Tester</a> <a href="/hi/yaml-json/">YAML ↔ JSON Converter</a> <a href="/hi/json-diff/">JSON Diff</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/hi/privacy/">गोपनीयता</a> · <a href="/hi/how-we-handle-your-data/">डेटा हैंडलिंग</a> · <a href="/hi/affiliate-disclosure/">Affiliate डिस्क्लोज़र</a> · <a href="/hi/about/">हमारे बारे में</a> · <a href="/hi/contact/">संपर्क</a> · <a href="/hi/for-schools/">स्कूलों के लिए</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<script>
+function jfShowError(e, raw){
+  const out = document.getElementById('json-output');
+  out.classList.add('error');
+  out.classList.remove('success');
+  let msg = e.message || String(e);
+  // Try to extract position
+  const m = msg.match(/position (\d+)/i);
+  if (m){
+    const pos = parseInt(m[1], 10);
+    const before = raw.slice(0, pos);
+    const line = (before.match(/\n/g) || []).length + 1;
+    const col = pos - (before.lastIndexOf('\n') + 1) + 1;
+    msg = msg.replace(/position \d+/i, 'line ' + line + ', col ' + col);
+  }
+  out.textContent = '✗ ' + msg;
+  document.getElementById('json-meta').textContent = '';
+}
+function jfShowOk(text, label){
+  const out = document.getElementById('json-output');
+  out.classList.remove('error');
+  out.classList.add('success');
+  out.textContent = text;
+  document.getElementById('json-meta').textContent = label || '';
+}
+function jfFormat(indent){
+  const raw = document.getElementById('json-input').value.trim();
+  if (!raw){ document.getElementById('json-output').textContent = 'परिणाम देखने के लिए ऊपर इनपुट डालें।'; return; }
+  try {
+    const obj = JSON.parse(raw);
+    const out = JSON.stringify(obj, null, indent);
+    jfShowOk(out, out.length + ' chars · ' + (out.match(/\n/g)||[]).length + ' lines');
+  } catch(e){ jfShowError(e, raw); }
+}
+function jfMinify(){
+  const raw = document.getElementById('json-input').value.trim();
+  if (!raw){ document.getElementById('json-output').textContent = 'परिणाम देखने के लिए ऊपर इनपुट डालें।'; return; }
+  try {
+    const obj = JSON.parse(raw);
+    const out = JSON.stringify(obj);
+    jfShowOk(out, out.length + ' chars (minified)');
+  } catch(e){ jfShowError(e, raw); }
+}
+function jfValidate(){
+  const raw = document.getElementById('json-input').value.trim();
+  if (!raw){ document.getElementById('json-output').textContent = 'परिणाम देखने के लिए ऊपर इनपुट डालें।'; return; }
+  try {
+    const obj = JSON.parse(raw);
+    const t = Array.isArray(obj) ? 'array' : typeof obj;
+    const sz = JSON.stringify(obj).length;
+    jfShowOk('✓ Valid JSON', 'top-level: ' + t + ' · ' + sz + ' chars minified');
+  } catch(e){ jfShowError(e, raw); }
+}
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+</body>
+</html>

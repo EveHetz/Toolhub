@@ -20,6 +20,7 @@ TOOL = {
         "tr": {"name": "BMI Hesaplayıcı", "tagline": "Boy ve kilodan vücut kitle indeksi. Metrik veya imperial. DSÖ kategorisini gösterir — tıbbi tavsiye değildir.", "description": "Ücretsiz vücut kitle indeksi hesaplayıcı. Boy ve kiloyu metrik (cm + kg) veya imperial (feet/inç + pound) gir; BMI değeri ve DSÖ sınıflandırmasını (zayıf, normal, fazla kilolu, obez) gör. Sadece bilgilendirme amaçlıdır — tıbbi tavsiye değildir."},
         "id": {"name": "Kalkulator BMI", "tagline": "Body Mass Index dari tinggi dan berat. Metrik atau imperial. Menampilkan kategori WHO — bukan saran medis.", "description": "Kalkulator BMI gratis. Hitung Body Mass Index dari tinggi dan berat dalam satuan metrik atau imperial. Menampilkan kategori klasifikasi WHO. Berjalan di browser-mu — tanpa pelacakan, bukan saran medis."},
         "vi": {"name": "Máy tính BMI", "tagline": "Chỉ số khối cơ thể từ chiều cao và cân nặng. Hệ mét hoặc imperial. Hiển thị phân loại WHO — không phải lời khuyên y tế.", "description": "Máy tính BMI miễn phí trực tuyến. Tính chỉ số khối cơ thể từ chiều cao và cân nặng theo hệ mét hoặc imperial; hiển thị phân loại WHO. Không phải lời khuyên y tế."},
+        "hi": {"name": "BMI कैलकुलेटर", "tagline": "Height और weight से Body Mass Index। Metric या imperial। WHO category दिखाता है — चिकित्सीय सलाह नहीं।", "description": "मुफ़्त Body Mass Index कैलकुलेटर। Metric (cm + kg) या imperial (feet/inches + pounds) में height और weight डालें और BMI value और WHO classification (underweight, normal, overweight, obese) देखें। केवल शैक्षणिक — चिकित्सीय सलाह नहीं।"},
     },
     "body": """
 <div class="tool-card">
@@ -450,6 +451,34 @@ document.addEventListener('DOMContentLoaded', bmiRun);
   <li><strong>Chỉ cho người lớn.</strong> Trẻ em, thanh thiếu niên và phụ nữ mang thai cần biểu đồ và phương pháp riêng — đừng áp dụng các nhóm WHO cho người trưởng thành ở đây.</li>
   <li><strong>Khác biệt sắc tộc và khu vực.</strong> Các tổ chức y tế Nam Á và Đông Á dùng các ngưỡng thấp hơn cho "thừa cân" so với WHO toàn cầu.</li>
   <li><strong>Đây không phải lời khuyên y tế.</strong> Dùng để hiểu rõ hơn; gặp bác sĩ thực thụ để đưa ra quyết định.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Body Mass Index (BMI) एक single number है — kilograms में वज़न को meters में height के square से भाग देकर — जिसे World Health Organization और कई health systems body-weight categories के लिए quick screen के रूप में उपयोग करते हैं। यह diagnostic नहीं है; यह एक flag है। Classic adult thresholds हैं: 18.5 से कम underweight, 18.5–24.9 normal, 25–29.9 overweight, 30 और उससे ऊपर obese (35 और 40 पर Class I/II/III में बंटा हुआ)। यह tool metric या imperial में height और weight से value और category की गणना करता है।</p>
+
+<h3>यह कैसे काम करता है</h3>
+<ul>
+  <li><strong>Metric:</strong> BMI = kg ÷ (m × m)। 1.75 m पर 70 kg → 70 / 3.0625 = 22.9।</li>
+  <li><strong>Imperial:</strong> BMI = (lb × 703) ÷ (in × in)। Tool accuracy के लिए internally metric में convert करता है।</li>
+  <li>WHO categories unit system के बावजूद एक जैसी हैं — BMI खुद unitless है।</li>
+</ul>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>Quick self-check या जब कोई form (insurance, fitness apps, gym intake) इसे माँगे।</li>
+  <li>Populations या studies में किसी value की तुलना करना।</li>
+  <li>समय के साथ बदलाव की दिशा को track करना (बढ़ रहा है, स्थिर है, गिर रहा है) — trend किसी single reading से ज़्यादा उपयोगी है।</li>
+</ul>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>BMI body composition को नहीं मापता।</strong> Muscle, fat से ज़्यादा वज़नदार है, इसलिए एक fit, muscular व्यक्ति "overweight" score कर सकता है जबकि उसका body-fat कम है। इसके विपरीत, कम मांसपेशियों वाला व्यक्ति "normal" score कर सकता है जबकि वह unhealthy है ("skinny fat")।</li>
+  <li><strong>यह एक adult metric है।</strong> बच्चों और किशोरों (18 से कम) के लिए age- और sex-specific BMI percentile charts का इस्तेमाल करें।</li>
+  <li><strong>Pregnancy supported नहीं है।</strong> Pregnancy के दौरान BMI लागू नहीं होता; अपने healthcare provider से बात करें।</li>
+  <li><strong>Ethnicity मायने रखती है।</strong> कई health bodies (NHS, WHO Asia-Pacific guidance) South Asian, Chinese और अन्य groups के लिए कम thresholds (overweight ≥23, obese ≥27.5) का इस्तेमाल करते हैं, क्योंकि कम BMIs पर cardiovascular risk बढ़ जाता है।</li>
+  <li><strong>लम्बे बनाम छोटे लोग।</strong> Squared-height formula व्यवस्थित रूप से लम्बे लोगों को "underweight" और छोटे लोगों को "overweight" के रूप में अधिक-वर्गीकृत करता है — alternative formulas (Trefethen's BMI height^2.5 इस्तेमाल करता है) इसे ठीक करने की कोशिश करते हैं।</li>
+  <li><strong>चिकित्सीय सलाह नहीं।</strong> अगर आप अपने वज़न को लेकर चिंतित हैं, तो clinician से बात करें। उनके पास बाकी की तस्वीर (waist circumference, blood pressure, blood-work, lifestyle) है जो एक single number नहीं देता।</li>
 </ul>
 """,
     },

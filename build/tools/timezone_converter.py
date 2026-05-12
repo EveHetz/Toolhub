@@ -48,6 +48,7 @@ TOOL = {
         "tr": {"name": "Saat Dilimi Dönüştürücü", "tagline": "Bir tarih ve saati IANA saat dilimleri arasında dönüştür. Her iki uç için offset, DST durumu ve haftanın gününü gör.", "description": "Ücretsiz online saat dilimi dönüştürücü. DST farkındalığıyla herhangi bir IANA saat dilimleri arasında dönüştür. Yaygın dilimlerden veya tarayıcının desteklediği ~400+ taneden birini seç."},
         "id": {"name": "Konverter Zona Waktu", "tagline": "Konversi tanggal dan waktu antara zona waktu IANA. Lihat offset, status DST, dan hari dalam minggu untuk kedua ujung.", "description": "Konverter zona waktu gratis. Konversi waktu apa pun antara zona waktu IANA (Asia/Jakarta, America/New_York, Europe/London, dll). Menampilkan offset UTC, status DST, dan hari dalam minggu untuk zona sumber dan zona target."},
         "vi": {"name": "Chuyển đổi Múi giờ", "tagline": "Chuyển ngày-giờ giữa các múi giờ IANA. Xem offset, trạng thái DST và thứ trong tuần cho cả hai đầu.", "description": "Bộ chuyển múi giờ miễn phí trực tuyến. Chuyển bất kỳ ngày-giờ nào giữa các múi giờ IANA, hiển thị UTC offset, trạng thái DST và thứ trong tuần cho cả múi giờ nguồn và đích."},
+        "hi": {"name": "Time Zone Converter", "tagline": "IANA time zones के बीच एक date और time को बदलें। दोनों छोरों के लिए offsets, DST status, और weekday देखें।", "description": "मुफ़्त ऑनलाइन time zone converter। DST awareness के साथ किसी भी IANA time zones के बीच बदलें। आम zones से या आपके browser द्वारा supported ~400+ में से किसी भी zone चुनें।"},
     },
     "body": """
 <div class="tool-card">
@@ -358,6 +359,31 @@ document.addEventListener('DOMContentLoaded', () => (window.requestIdleCallback 
   <li><strong>DST làm gấp đôi và bỏ qua giờ.</strong> Vào "spring forward", một giờ không tồn tại; "fall back", một giờ xảy ra hai lần. Lưu trữ ở UTC và convert chỉ ở display để tránh xung đột.</li>
   <li><strong>Tên múi giờ thay đổi.</strong> "GMT" không cập nhật DST; "BST" làm. "EST" không cập nhật DST; "EDT" làm. Để tránh lẫn lộn, dùng tên IANA (<code>Europe/London</code>, <code>America/New_York</code>) khi có thể.</li>
   <li><strong>Chính phủ thay đổi quy tắc.</strong> Múi giờ là chính trị. Brazil, Mexico và một số bang Mỹ đã thay đổi quy tắc DST gần đây — đảm bảo OS của bạn cập nhật.</li>
+</ul>
+""",
+        "hi": """
+<h2>यह किसके लिए है?</h2>
+<p>Time zones धोखे से परेशान करने वाले हैं। "9am" का एक meeting London, Bratislava, और New York में अलग-अलग absolute moments को मतलब रखता है — और इनके बीच का offset साल में दो बार daylight saving के कारण अलग-अलग dates पर बदलता है। यह tool एक IANA zone में एक wall-clock time लेता है और आपको दूसरे में सटीक समतुल्य बताता है, current offsets, UTC instant, और दोनों छोरों के लिए day-of-week के साथ।</p>
+
+<h3>कब इस्तेमाल करें</h3>
+<ul>
+  <li>महाद्वीपों भर में एक call schedule करना — यह confirm करना कि आपके सहकर्मी के zone में "3pm CET" क्या है।</li>
+  <li>एक log timestamp जो UTC में दर्ज है उसे पढ़ना और एक user-facing report के लिए local time में translate करना।</li>
+  <li>यह जांचना कि क्या एक deploy window या maintenance slot एक DST boundary को पार करता है।</li>
+  <li>Sanity-check करना कि <code>America/New_York</code> में एक cron expression उस moment पर fire होती है जो आप अपने zone से उम्मीद करते हैं।</li>
+  <li>International date line पार करते समय day-of-week बदलाव का काम करना।</li>
+</ul>
+
+<h3>क्यों IANA zones (न कि "GMT+2")</h3>
+<p>एक IANA zone जैसे <code>Europe/Bratislava</code> या <code>America/New_York</code> उस स्थान के लिए ऐतिहासिक और चल रहे नियमों को encode करता है — DST start और end dates, time-zone बदलाव (रूस ने 2014 में DST समाप्त किया; तुर्की ने 2016 में DST हटाया), यहाँ तक कि 2011 में Samoa के पूरे दिन को छोड़ देना। एक नंगे offset जैसे "GMT+2" आपको यह नहीं बताता कि DST लागू है या नहीं, पिछले साल नियम क्या था, या अगले साल क्या होगा। Browsers IANA database ship करते हैं (ICU/CLDR के माध्यम से) और इसे automatically update करते हैं, इसलिए conversion समय के साथ सही रहता है।</p>
+
+<h3>आम गलतियाँ</h3>
+<ul>
+  <li><strong>DST transitions अस्पष्ट और missing times बनाते हैं।</strong> जब एक clock fall back होती है, 02:30 दो बार होती है; जब spring forward होती है, 02:30 बिल्कुल भी नहीं होती। Tool default में standard-time interpretation चुनता है; यदि आपको दूसरे side की ज़रूरत है, एक घंटा किसी भी तरफ shift करें।</li>
+  <li><strong>Offsets constants नहीं हैं।</strong> "CET" सर्दियों में UTC+1 है और गर्मियों में UTC+2 (CEST)। Output हमेशा आपके द्वारा डाली गई date के लिए वास्तविक offset दिखाता है, इसलिए abbreviation पर displayed offset पर भरोसा करें।</li>
+  <li><strong>देश abbreviations zones नहीं हैं।</strong> "EST" अस्पष्ट है (US vs Australian); "IST" का मतलब Indian, Irish, या Israeli हो सकता है। हमेशा IANA zone चुनें, abbreviation नहीं।</li>
+  <li><strong>ऐतिहासिक सटीकता</strong> आधुनिक युग के लिए अच्छी है पर बहुत पुरानी dates के लिए टूट जाती है। 1970 पूर्व के timestamps कुछ browsers में अनुमानित offsets का इस्तेमाल कर सकते हैं।</li>
+  <li><strong>Dates को संग्रहित करना: हमेशा UTC का इस्तेमाल करें।</strong> Display time पर convert करें। Output में UTC line आपको अपने database में लिखने के लिए canonical value देती है।</li>
 </ul>
 """,
     },
