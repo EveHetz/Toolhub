@@ -72,6 +72,8 @@
       tip:     "Buy me a coffee",
       affiliate: "affiliate",
       supportIntro: "Built by an indie maintainer. If Toolhub saved you time:",
+      supportCallout: "If Toolhub saved you time, you can support development →",
+      dismiss: "Dismiss",
       adLabel: "Advertisement",
     },
     de: {
@@ -84,6 +86,8 @@
       tip:     "Spendier mir einen Kaffee",
       affiliate: "Affiliate",
       supportIntro: "Von einem unabhängigen Maintainer gebaut. Wenn Toolhub dir Zeit gespart hat:",
+      supportCallout: "Wenn Toolhub dir Zeit gespart hat, kannst du die Entwicklung unterstützen →",
+      dismiss: "Schließen",
       adLabel: "Werbung",
     },
     es: {
@@ -96,6 +100,8 @@
       tip:     "Invítame un café",
       affiliate: "afiliado",
       supportIntro: "Construido por un mantenedor independiente. Si Toolhub te ahorró tiempo:",
+      supportCallout: "Si Toolhub te ahorró tiempo, puedes apoyar el desarrollo →",
+      dismiss: "Cerrar",
       adLabel: "Publicidad",
     },
     fr: {
@@ -108,6 +114,8 @@
       tip:     "Offre-moi un café",
       affiliate: "affiliation",
       supportIntro: "Construit par un mainteneur indépendant. Si Toolhub t'a fait gagner du temps :",
+      supportCallout: "Si Toolhub t'a fait gagner du temps, tu peux soutenir le développement →",
+      dismiss: "Fermer",
       adLabel: "Publicité",
     },
     it: {
@@ -120,6 +128,8 @@
       tip:     "Offrimi un caffè",
       affiliate: "affiliato",
       supportIntro: "Costruito da un manutentore indipendente. Se Toolhub ti ha fatto risparmiare tempo:",
+      supportCallout: "Se Toolhub ti ha fatto risparmiare tempo, puoi supportare lo sviluppo →",
+      dismiss: "Chiudi",
       adLabel: "Pubblicità",
     },
     pt: {
@@ -132,6 +142,8 @@
       tip:     "Me paga um café",
       affiliate: "afiliado",
       supportIntro: "Construído por um mantenedor independente. Se o Toolhub te economizou tempo:",
+      supportCallout: "Se o Toolhub te economizou tempo, você pode apoiar o desenvolvimento →",
+      dismiss: "Fechar",
       adLabel: "Publicidade",
     },
     pl: {
@@ -144,6 +156,8 @@
       tip:     "Postaw mi kawę",
       affiliate: "partner",
       supportIntro: "Stworzone przez niezależnego maintainera. Jeśli Toolhub oszczędził Ci czas:",
+      supportCallout: "Jeśli Toolhub oszczędził Ci czas, możesz wesprzeć rozwój →",
+      dismiss: "Zamknij",
       adLabel: "Reklama",
     },
     ja: {
@@ -156,6 +170,8 @@
       tip:     "コーヒーをおごる",
       affiliate: "アフィリエイト",
       supportIntro: "個人メンテナによる開発です。Toolhub が時短に役立ったら：",
+      supportCallout: "Toolhub が時短に役立ったら、開発を応援できます →",
+      dismiss: "閉じる",
       adLabel: "広告",
     },
     nl: {
@@ -168,7 +184,93 @@
       tip:     "Trakteer me op een koffie",
       affiliate: "affiliate",
       supportIntro: "Gemaakt door een onafhankelijke maintainer. Als Toolhub je tijd heeft bespaard:",
+      supportCallout: "Als Toolhub je tijd heeft bespaard, kun je de ontwikkeling steunen →",
+      dismiss: "Sluiten",
       adLabel: "Advertentie",
+    },
+    tr: {
+      banner: "İlgili reklamları sunmak için cookie kullanıyoruz. Anonim Plausible istatistikleri her durumda cookie kullanmadan çalışır.",
+      accept: "Kabul et",
+      reject: "Reddet",
+      learn:  "Gizlilik",
+      sponsor: "GitHub'ta sponsor ol",
+      hosting: "DigitalOcean hosting",
+      tip:     "Bana bir kahve ısmarla",
+      affiliate: "affiliate",
+      supportIntro: "Bağımsız bir maintainer tarafından yapıldı. Toolhub sana zaman kazandırdıysa:",
+      supportCallout: "Toolhub sana zaman kazandırdıysa, geliştirmeyi destekleyebilirsin →",
+      dismiss: "Kapat",
+      adLabel: "Reklam",
+    },
+    id: {
+      banner: "Kami menggunakan cookie untuk menampilkan iklan yang relevan. Statistik Plausible anonim tetap berjalan tanpa cookie.",
+      accept: "Terima",
+      reject: "Tolak",
+      learn:  "Privasi",
+      sponsor: "Jadi sponsor di GitHub",
+      hosting: "Hosting DigitalOcean",
+      tip:     "Belikan saya kopi",
+      affiliate: "afiliasi",
+      supportIntro: "Dibangun oleh maintainer independen. Jika Toolhub menghemat waktumu:",
+      supportCallout: "Jika Toolhub menghemat waktumu, kamu bisa mendukung pengembangan →",
+      dismiss: "Tutup",
+      adLabel: "Iklan",
+    },
+    vi: {
+      banner: "Chúng tôi sử dụng cookie để hiển thị quảng cáo phù hợp. Thống kê Plausible ẩn danh chạy mà không cần cookie.",
+      accept: "Đồng ý",
+      reject: "Từ chối",
+      learn:  "Quyền riêng tư",
+      sponsor: "Tài trợ trên GitHub",
+      hosting: "Hosting DigitalOcean",
+      tip:     "Mời tôi một ly cà phê",
+      affiliate: "affiliate",
+      supportIntro: "Được tạo bởi một maintainer độc lập. Nếu Toolhub đã giúp bạn tiết kiệm thời gian:",
+      supportCallout: "Nếu Toolhub đã giúp bạn tiết kiệm thời gian, bạn có thể ủng hộ việc phát triển →",
+      dismiss: "Đóng",
+      adLabel: "Quảng cáo",
+    },
+    hi: {
+      banner: "हम प्रासंगिक विज्ञापन दिखाने के लिए cookies का उपयोग करते हैं। अनाम Plausible analytics बिना cookies के चलता है।",
+      accept: "स्वीकार करें",
+      reject: "अस्वीकार",
+      learn:  "गोपनीयता",
+      sponsor: "GitHub पर sponsor करें",
+      hosting: "DigitalOcean hosting",
+      tip:     "मुझे coffee दिलाएं",
+      affiliate: "affiliate",
+      supportIntro: "एक indie maintainer द्वारा बनाया गया। अगर Toolhub से आपका समय बचा:",
+      supportCallout: "अगर Toolhub से आपका समय बचा, तो आप development को support कर सकते हैं →",
+      dismiss: "बंद करें",
+      adLabel: "विज्ञापन",
+    },
+    sk: {
+      banner: "Používame cookies na zobrazenie relevantných reklám. Anonymná Plausible štatistika beží aj bez cookies.",
+      accept: "Prijať",
+      reject: "Odmietnuť",
+      learn:  "Súkromie",
+      sponsor: "Sponzorovať na GitHub",
+      hosting: "DigitalOcean hosting",
+      tip:     "Kúp mi kávu",
+      affiliate: "affiliate",
+      supportIntro: "Postavené nezávislým maintainerom. Ak ti Toolhub ušetril čas:",
+      supportCallout: "Ak ti Toolhub ušetril čas, môžeš podporiť vývoj →",
+      dismiss: "Zavrieť",
+      adLabel: "Reklama",
+    },
+    cs: {
+      banner: "Používáme cookies k zobrazení relevantních reklam. Anonymní Plausible statistika běží i bez cookies.",
+      accept: "Přijmout",
+      reject: "Odmítnout",
+      learn:  "Soukromí",
+      sponsor: "Sponzorovat na GitHub",
+      hosting: "DigitalOcean hosting",
+      tip:     "Kup mi kávu",
+      affiliate: "affiliate",
+      supportIntro: "Postaveno nezávislým maintainerem. Pokud ti Toolhub ušetřil čas:",
+      supportCallout: "Pokud ti Toolhub ušetřil čas, můžeš podpořit vývoj →",
+      dismiss: "Zavřít",
+      adLabel: "Reklama",
     },
   };
   const t = I18N[LANG] || I18N.en;
@@ -208,6 +310,67 @@
     slot.innerHTML =
       `<span class="toolhub-support-intro">${t.supportIntro}</span> ` +
       parts.join(" · ");
+  }
+
+  // ----- After-result support callout ----------------------------------
+  // Shown once per session, the first time the user clicks a copy button —
+  // a clear "got a result and is taking it away" signal. Subtle, dismissable,
+  // honours sessionStorage so it does not re-show after dismissal.
+  const CALLOUT_SHOWN_KEY = "toolhub:callout-shown";
+  function calloutAlreadyShown() {
+    try { return sessionStorage.getItem(CALLOUT_SHOWN_KEY) === "1"; } catch (_) { return false; }
+  }
+  function markCalloutShown() {
+    try { sessionStorage.setItem(CALLOUT_SHOWN_KEY, "1"); } catch (_) {}
+  }
+  function renderSupportCallout() {
+    const el = document.querySelector(".support-callout");
+    if (!el || el.dataset.rendered) return;
+    const parts = [];
+    if (cfg.buyMeACoffeeUrl) {
+      parts.push(`<a href="${cfg.buyMeACoffeeUrl}" target="_blank" rel="noopener noreferrer">☕ ${t.tip}</a>`);
+    }
+    if (cfg.githubSponsorsUrl) {
+      parts.push(`<a href="${cfg.githubSponsorsUrl}" target="_blank" rel="noopener noreferrer">♥ ${t.sponsor}</a>`);
+    }
+    if (cfg.digitalOceanRef) {
+      parts.push(`<a href="${cfg.digitalOceanRef}" target="_blank" rel="noopener sponsored" data-affiliate="digitalocean">🌊 ${t.hosting}</a>`);
+    }
+    if (!parts.length) return;
+    el.innerHTML =
+      `<span>${t.supportCallout}</span> ` +
+      parts.join(" · ") +
+      ` <button type="button" class="support-callout-dismiss" aria-label="${t.dismiss}">×</button>`;
+    el.hidden = false;
+    el.dataset.rendered = "1";
+    const btn = el.querySelector(".support-callout-dismiss");
+    if (btn) btn.addEventListener("click", function () { el.hidden = true; });
+  }
+  function installCalloutTriggers() {
+    if (!document.querySelector(".support-callout")) return;
+    function trip() {
+      if (calloutAlreadyShown()) return;
+      markCalloutShown();
+      renderSupportCallout();
+    }
+    document.addEventListener("click", function (e) {
+      const btn = e.target && e.target.closest && e.target.closest(".copy-btn");
+      if (btn) trip();
+    }, { passive: true });
+    // Also trip on the first time an .output element gets non-empty content,
+    // which catches Format / Generate / etc. actions even on tools without a
+    // copy button.
+    if ("MutationObserver" in window) {
+      document.querySelectorAll(".output").forEach(function (out) {
+        const mo = new MutationObserver(function () {
+          if ((out.textContent || "").trim().length > 0) {
+            mo.disconnect();
+            trip();
+          }
+        });
+        mo.observe(out, { childList: true, characterData: true, subtree: true });
+      });
+    }
   }
 
   // ----- Consent banner -------------------------------------------------
@@ -304,6 +467,7 @@
   // ----- Boot ----------------------------------------------------------
   function boot() {
     renderFooterExtras();
+    installCalloutTriggers();
 
     // Sandbox: render placeholders + badge, no consent banner, no AdSense.
     if (IS_SANDBOX) {

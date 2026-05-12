@@ -15,6 +15,212 @@ PDF_URL = "/how-we-handle-your-data.pdf"
 LAST_UPDATED = "11 May 2026"
 
 
+# Trust signals block for /for-schools/ — Google Safe Browsing + VirusTotal scan
+# refs plus open-source pointer. Public, third-party verification signals that
+# an IT admin can check before whitelisting a new domain on a school filter.
+# Same factual content across langs; only the framing is translated.
+SAFE_BROWSING_URL = "https://safebrowsing.google.com/safebrowsing/diagnostic?site=toolhub.software"
+VIRUSTOTAL_URL = "https://www.virustotal.com/gui/url/915d00d574ca73037fd2d5b639a257886c75e26c17583c11d03e2db1e3d7e80d/detection"
+
+_TRUST_SIGNALS_I18N = {
+    "en": {
+        "h2": "Trust signals for IT admins",
+        "intro": "If your school's network filter requires verification before allowing access to a new domain, these are the public, third-party signals you can check:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Verify Toolhub's status",
+        "gsb_after": "Google's automated phishing/malware classifier. Toolhub is on the clean list.",
+        "vt_label": "VirusTotal scan:",
+        "vt_link": "View latest scan result",
+        "vt_after": "Independent third-party multi-engine scan (70+ antivirus engines).",
+        "oss_text": "Toolhub is also {link} — IT admins can inspect every line of code before approving the domain.",
+        "oss_link": "open source on GitHub",
+    },
+    "de": {
+        "h2": "Vertrauenssignale für IT-Admins",
+        "intro": "Wenn der Netzwerkfilter Ihrer Schule eine Prüfung verlangt, bevor eine neue Domain freigegeben wird — das sind die öffentlichen, unabhängigen Signale, die Sie prüfen können:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Toolhub-Status prüfen",
+        "gsb_after": "Googles automatischer Phishing-/Malware-Klassifikator. Toolhub steht auf der sauberen Liste.",
+        "vt_label": "VirusTotal-Scan:",
+        "vt_link": "Aktuelles Scan-Ergebnis ansehen",
+        "vt_after": "Unabhängiger Multi-Engine-Scan eines Drittanbieters (70+ Antivirus-Engines).",
+        "oss_text": "Toolhub ist außerdem {link} — IT-Admins können jede Zeile Code prüfen, bevor sie die Domain freigeben.",
+        "oss_link": "auf GitHub Open Source",
+    },
+    "es": {
+        "h2": "Señales de confianza para administradores de TI",
+        "intro": "Si el filtro de red de su centro requiere verificación antes de permitir el acceso a un nuevo dominio, estas son las señales públicas y de terceros que puede comprobar:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Comprobar el estado de Toolhub",
+        "gsb_after": "El clasificador automático de phishing/malware de Google. Toolhub está en la lista limpia.",
+        "vt_label": "Análisis VirusTotal:",
+        "vt_link": "Ver el último resultado del escaneo",
+        "vt_after": "Análisis multi-motor independiente de terceros (más de 70 motores antivirus).",
+        "oss_text": "Toolhub también es {link} — los administradores de TI pueden revisar cada línea de código antes de aprobar el dominio.",
+        "oss_link": "open source en GitHub",
+    },
+    "fr": {
+        "h2": "Signaux de confiance pour les admins IT",
+        "intro": "Si le filtre réseau de votre établissement exige une vérification avant d'autoriser l'accès à un nouveau domaine, voici les signaux publics et tiers que vous pouvez vérifier :",
+        "gsb_label": "Google Safe Browsing :",
+        "gsb_link": "Vérifier le statut de Toolhub",
+        "gsb_after": "Le classificateur automatique phishing/malware de Google. Toolhub est sur la liste propre.",
+        "vt_label": "Analyse VirusTotal :",
+        "vt_link": "Voir le dernier résultat d'analyse",
+        "vt_after": "Analyse multi-moteurs indépendante d'un tiers (plus de 70 moteurs antivirus).",
+        "oss_text": "Toolhub est aussi {link} — les admins IT peuvent inspecter chaque ligne de code avant d'autoriser le domaine.",
+        "oss_link": "open source sur GitHub",
+    },
+    "it": {
+        "h2": "Segnali di fiducia per gli admin IT",
+        "intro": "Se il filtro di rete della sua scuola richiede una verifica prima di consentire l'accesso a un nuovo dominio, questi sono i segnali pubblici e di terze parti che può controllare:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Verifica lo stato di Toolhub",
+        "gsb_after": "Il classificatore automatico phishing/malware di Google. Toolhub è nella lista pulita.",
+        "vt_label": "Scansione VirusTotal:",
+        "vt_link": "Vedi l'ultimo risultato della scansione",
+        "vt_after": "Scansione multi-engine indipendente di terze parti (oltre 70 motori antivirus).",
+        "oss_text": "Toolhub è anche {link} — gli admin IT possono ispezionare ogni riga di codice prima di approvare il dominio.",
+        "oss_link": "open source su GitHub",
+    },
+    "pt": {
+        "h2": "Sinais de confiança pra admins de TI",
+        "intro": "Se o filtro de rede da sua escola precisa de verificação antes de permitir acesso a um novo domínio, esses são os sinais públicos e de terceiros que você pode checar:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Verificar o status do Toolhub",
+        "gsb_after": "Classificador automático de phishing/malware do Google. O Toolhub está na lista limpa.",
+        "vt_label": "Análise VirusTotal:",
+        "vt_link": "Ver o último resultado do scan",
+        "vt_after": "Análise multi-engine independente de terceiros (mais de 70 engines antivírus).",
+        "oss_text": "O Toolhub também é {link} — admins de TI podem inspecionar cada linha de código antes de aprovar o domínio.",
+        "oss_link": "open source no GitHub",
+    },
+    "pl": {
+        "h2": "Sygnały zaufania dla adminów IT",
+        "intro": "Jeśli filtr sieci szkolnej wymaga weryfikacji przed dopuszczeniem nowej domeny, oto publiczne sygnały od stron trzecich, które możesz sprawdzić:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Sprawdź status Toolhub",
+        "gsb_after": "Automatyczny klasyfikator phishingu/malware Google. Toolhub jest na czystej liście.",
+        "vt_label": "Skan VirusTotal:",
+        "vt_link": "Zobacz najnowszy wynik skanu",
+        "vt_after": "Niezależny multi-engine skan strony trzeciej (ponad 70 silników antywirusowych).",
+        "oss_text": "Toolhub jest też {link} — adminowie IT mogą obejrzeć każdą linijkę kodu, zanim zatwierdzą domenę.",
+        "oss_link": "open source na GitHub",
+    },
+    "ja": {
+        "h2": "IT 管理者向けの信頼シグナル",
+        "intro": "学校のネットワークフィルタが新しいドメインへのアクセスを許可する前に確認を要求する場合、確認できる公開・第三者シグナルは次のとおりです：",
+        "gsb_label": "Google Safe Browsing：",
+        "gsb_link": "Toolhub のステータスを確認",
+        "gsb_after": "Google の自動フィッシング／マルウェア分類。Toolhub はクリーンリストに掲載されています。",
+        "vt_label": "VirusTotal スキャン：",
+        "vt_link": "最新のスキャン結果を表示",
+        "vt_after": "独立した第三者によるマルチエンジン スキャン（70 以上のアンチウイルスエンジン）。",
+        "oss_text": "Toolhub は {link} でもあります — IT 管理者はドメインを承認する前にすべてのコードを検査できます。",
+        "oss_link": "GitHub 上でオープンソース",
+    },
+    "nl": {
+        "h2": "Vertrouwenssignalen voor IT-admins",
+        "intro": "Als het netwerkfilter van je school verificatie vereist voordat een nieuw domein wordt toegestaan, dit zijn de publieke, externe signalen die je kunt controleren:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Verifieer de status van Toolhub",
+        "gsb_after": "Google's geautomatiseerde phishing/malware-classifier. Toolhub staat op de schone lijst.",
+        "vt_label": "VirusTotal-scan:",
+        "vt_link": "Bekijk het laatste scanresultaat",
+        "vt_after": "Onafhankelijke multi-engine scan van een derde partij (meer dan 70 antivirus-engines).",
+        "oss_text": "Toolhub is ook {link} — IT-admins kunnen elke regel code inspecteren voordat ze het domein goedkeuren.",
+        "oss_link": "open source op GitHub",
+    },
+    "tr": {
+        "h2": "BT yöneticileri için güven sinyalleri",
+        "intro": "Okulunuzun ağ filtresi yeni bir domain'e erişime izin vermeden önce doğrulama gerektiriyorsa, kontrol edebileceğiniz herkese açık, üçüncü taraf sinyalleri şunlardır:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Toolhub'ın durumunu doğrula",
+        "gsb_after": "Google'ın otomatik phishing/malware sınıflandırıcısı. Toolhub temiz listede.",
+        "vt_label": "VirusTotal taraması:",
+        "vt_link": "Son tarama sonucunu gör",
+        "vt_after": "Bağımsız üçüncü taraf çoklu motor taraması (70'ten fazla antivirüs motoru).",
+        "oss_text": "Toolhub aynı zamanda {link} — BT yöneticileri domain'i onaylamadan önce her kod satırını inceleyebilir.",
+        "oss_link": "GitHub'da open source",
+    },
+    "id": {
+        "h2": "Sinyal kepercayaan untuk admin TI",
+        "intro": "Jika filter jaringan sekolahmu membutuhkan verifikasi sebelum mengizinkan akses ke domain baru, berikut adalah sinyal publik dari pihak ketiga yang bisa kamu cek:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Verifikasi status Toolhub",
+        "gsb_after": "Klasifikator phishing/malware otomatis dari Google. Toolhub ada di daftar bersih.",
+        "vt_label": "Pemindaian VirusTotal:",
+        "vt_link": "Lihat hasil pemindaian terbaru",
+        "vt_after": "Pemindaian multi-engine pihak ketiga independen (70+ engine antivirus).",
+        "oss_text": "Toolhub juga {link} — admin TI bisa memeriksa setiap baris kode sebelum menyetujui domain.",
+        "oss_link": "open source di GitHub",
+    },
+    "vi": {
+        "h2": "Tín hiệu tin cậy cho admin IT",
+        "intro": "Nếu bộ lọc mạng trường học yêu cầu xác minh trước khi cho phép truy cập một domain mới, đây là các tín hiệu công khai từ bên thứ ba mà bạn có thể kiểm tra:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Xác minh trạng thái Toolhub",
+        "gsb_after": "Trình phân loại phishing/malware tự động của Google. Toolhub nằm trong danh sách sạch.",
+        "vt_label": "Quét VirusTotal:",
+        "vt_link": "Xem kết quả quét mới nhất",
+        "vt_after": "Quét đa engine từ bên thứ ba độc lập (hơn 70 engine antivirus).",
+        "oss_text": "Toolhub cũng là {link} — admin IT có thể kiểm tra từng dòng code trước khi phê duyệt domain.",
+        "oss_link": "mã nguồn mở trên GitHub",
+    },
+    "hi": {
+        "h2": "IT admins के लिए trust signals",
+        "intro": "अगर आपके स्कूल का network filter किसी नए domain को अनुमति देने से पहले verification मांगता है, तो ये सार्वजनिक, third-party signals हैं जिन्हें आप check कर सकते हैं:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Toolhub का status verify करें",
+        "gsb_after": "Google का स्वचालित phishing/malware classifier। Toolhub clean list में है।",
+        "vt_label": "VirusTotal scan:",
+        "vt_link": "नवीनतम scan परिणाम देखें",
+        "vt_after": "स्वतंत्र third-party multi-engine scan (70+ antivirus engines)।",
+        "oss_text": "Toolhub {link} भी है — IT admins domain को approve करने से पहले कोड की हर पंक्ति की जांच कर सकते हैं।",
+        "oss_link": "GitHub पर open source",
+    },
+    "sk": {
+        "h2": "Signály dôvery pre IT adminov",
+        "intro": "Ak školský sieťový filter vyžaduje overenie pred povolením prístupu k novej doméne, tu sú verejné signály od tretích strán, ktoré si môžete overiť:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Overiť stav Toolhubu",
+        "gsb_after": "Automatický klasifikátor phishingu/malvéru od Google. Toolhub je na čistom zozname.",
+        "vt_label": "VirusTotal sken:",
+        "vt_link": "Zobraziť najnovší výsledok skenu",
+        "vt_after": "Nezávislý multi-engine sken tretej strany (vyše 70 antivírusových engineov).",
+        "oss_text": "Toolhub je tiež {link} — IT adminovia môžu skontrolovať každý riadok kódu pred schválením domény.",
+        "oss_link": "open source na GitHub",
+    },
+    "cs": {
+        "h2": "Signály důvěry pro IT adminy",
+        "intro": "Pokud školní síťový filtr vyžaduje ověření před povolením přístupu k nové doméně, toto jsou veřejné signály od třetích stran, které si můžete ověřit:",
+        "gsb_label": "Google Safe Browsing:",
+        "gsb_link": "Ověřit stav Toolhubu",
+        "gsb_after": "Automatický klasifikátor phishingu/malwaru od Google. Toolhub je na čistém seznamu.",
+        "vt_label": "VirusTotal sken:",
+        "vt_link": "Zobrazit nejnovější výsledek skenu",
+        "vt_after": "Nezávislý multi-engine sken třetí strany (přes 70 antivirových enginů).",
+        "oss_text": "Toolhub je také {link} — IT adminové můžou prohlédnout každý řádek kódu před schválením domény.",
+        "oss_link": "open source na GitHub",
+    },
+}
+
+
+def _trust_signals(lang: str) -> str:
+    s = _TRUST_SIGNALS_I18N.get(lang, _TRUST_SIGNALS_I18N["en"])
+    oss_link_html = f'<a href="{REPO_URL}">{s["oss_link"]}</a>'
+    oss_para = s["oss_text"].replace("{link}", oss_link_html)
+    return f"""
+<h2>{s["h2"]}</h2>
+<p>{s["intro"]}</p>
+<ul>
+<li><strong>{s["gsb_label"]}</strong> <a href="{SAFE_BROWSING_URL}" rel="noopener">{s["gsb_link"]}</a> — {s["gsb_after"]}</li>
+<li><strong>{s["vt_label"]}</strong> <a href="{VIRUSTOTAL_URL}" rel="noopener">{s["vt_link"]}</a> — {s["vt_after"]}</li>
+</ul>
+<p>{oss_para}</p>
+""".strip()
+
+
 def _about_body(intro_what, intro_why, intro_who, intro_how, intro_oss, intro_no_ai,
                 h_what, h_why, h_who, h_how, h_oss, h_no_ai):
     return f"""
@@ -672,6 +878,8 @@ PAGES = {
 <li>SafeSearch-friendly content — no adult tools, no gambling, no crypto-bro affiliate placements.</li>
 </ul>
 
+{_trust_signals("en")}
+
 <h2>Contact for educators</h2>
 <p>If you're using Toolhub in a classroom and want to tell me about it, suggest a tool for your subject, or contribute a translation for a language we don't yet cover well, please get in touch via <a href="/contact/">the contact page</a>. Bulk-translation contributions from native speakers — especially for less-served languages — are very welcome.</p>
 """.strip(),
@@ -720,6 +928,8 @@ PAGES = {
 <li>Kein Video oder Audio, das von selbst startet.</li>
 <li>SafeSearch-freundliche Inhalte — keine Adult-Tools, kein Glücksspiel, keine Krypto-Affiliate-Platzierungen.</li>
 </ul>
+
+{_trust_signals("de")}
 
 <h2>Kontakt für Lehrkräfte</h2>
 <p>Wenn Sie Toolhub im Unterricht einsetzen und davon erzählen, ein Tool für Ihr Fach vorschlagen oder eine Übersetzung für eine bisher schlecht abgedeckte Sprache beisteuern möchten, melden Sie sich über die <a href="/contact/">Kontaktseite</a>. Größere Übersetzungs-Beiträge von Muttersprachlern — besonders für weniger versorgte Sprachen — sind ausdrücklich willkommen.</p>
@@ -770,6 +980,8 @@ PAGES = {
 <li>Contenido compatible con SafeSearch — sin herramientas para adultos, sin apuestas, sin colocaciones de afiliados cripto.</li>
 </ul>
 
+{_trust_signals("es")}
+
 <h2>Contacto para educadores</h2>
 <p>Si usa Toolhub en el aula y quiere contármelo, sugerir una herramienta para su asignatura o aportar una traducción para un idioma que aún cubrimos mal, contacte a través de la <a href="/contact/">página de contacto</a>. Las contribuciones de traducción de hablantes nativos — sobre todo para idiomas menos cubiertos — son muy bienvenidas.</p>
 """.strip(),
@@ -818,6 +1030,8 @@ PAGES = {
 <li>Pas de vidéo ou d'audio qui se lance tout seul.</li>
 <li>Contenu compatible SafeSearch — pas d'outils pour adultes, pas de paris, pas de placements d'affiliation crypto.</li>
 </ul>
+
+{_trust_signals("fr")}
 
 <h2>Contact enseignants</h2>
 <p>Si vous utilisez Toolhub en classe et voulez m'en parler, suggérer un outil pour votre matière, ou contribuer à une traduction dans une langue encore mal couverte, passez par la <a href="/contact/">page de contact</a>. Les contributions de traduction de locuteurs natifs — surtout pour les langues les moins couvertes — sont très bienvenues.</p>
@@ -868,6 +1082,8 @@ PAGES = {
 <li>Contenuti compatibili con SafeSearch — niente strumenti per adulti, niente gambling, niente piazzamenti di affiliate crypto.</li>
 </ul>
 
+{_trust_signals("it")}
+
 <h2>Contatti per chi insegna</h2>
 <p>Se usa Toolhub in classe e vuole raccontarmelo, suggerirmi uno strumento per la sua materia o contribuire a una traduzione per una lingua che copriamo ancora male, mi contatti tramite la <a href="/contact/">pagina di contatto</a>. I contributi di traduzione da madrelingua — soprattutto per le lingue meno servite — sono molto graditi.</p>
 """.strip(),
@@ -916,6 +1132,8 @@ PAGES = {
 <li>Sem vídeo ou áudio que toca sozinho.</li>
 <li>Conteúdo compatível com SafeSearch — sem ferramentas adultas, sem apostas, sem colocações de afiliado de cripto.</li>
 </ul>
+
+{_trust_signals("pt")}
 
 <h2>Contato pra educadores</h2>
 <p>Se você usa o Toolhub em sala de aula e quer me contar, sugerir uma ferramenta pra sua matéria ou contribuir com uma tradução pra algum idioma que ainda cobrimos mal, fala comigo pela <a href="/contact/">página de contato</a>. Contribuições de tradução de falantes nativos — principalmente pra idiomas menos cobertos — são muito bem-vindas.</p>
@@ -966,6 +1184,8 @@ PAGES = {
 <li>Treść zgodna z SafeSearch — żadnych narzędzi dla dorosłych, żadnego hazardu, żadnych krypto-afiliacji.</li>
 </ul>
 
+{_trust_signals("pl")}
+
 <h2>Kontakt dla nauczycieli</h2>
 <p>Jeśli używasz Toolhub w klasie i chcesz mi o tym powiedzieć, zaproponować narzędzie do swojego przedmiotu albo dorzucić tłumaczenie do języka, który słabo pokrywamy — skontaktuj się przez <a href="/contact/">stronę kontaktową</a>. Większe wkłady tłumaczeniowe od native speakerów — zwłaszcza do mniej pokrytych języków — są bardzo mile widziane.</p>
 """.strip(),
@@ -1014,6 +1234,8 @@ PAGES = {
 <li>動画・音声の自動再生なし。</li>
 <li>SafeSearch と相性のよい内容 — 成人向けツール、ギャンブル、暗号資産アフィリエイトの掲載はありません。</li>
 </ul>
+
+{_trust_signals("ja")}
 
 <h2>教育関係の方へのお問い合わせ窓口</h2>
 <p>Toolhub を教室で使ってくださっている、教科に合うツールを提案したい、まだ十分にカバーできていない言語の翻訳に協力したい、という方は<a href="/contact/">お問い合わせページ</a>からご連絡ください。ネイティブスピーカーによるまとまった翻訳の協力 — 特にカバーが薄い言語向け — は大歓迎です。</p>
@@ -1064,6 +1286,8 @@ PAGES = {
 <li>SafeSearch-vriendelijke inhoud — geen tools voor volwassenen, geen gokken, geen crypto-affiliate placements.</li>
 </ul>
 
+{_trust_signals("nl")}
+
 <h2>Contact voor docenten</h2>
 <p>Gebruik je Toolhub in een klas en wil je het me laten weten, een tool voorstellen voor je vak, of bijdragen aan een vertaling voor een taal die we nog slecht dekken — neem dan contact op via de <a href="/contact/">contactpagina</a>. Bulk-vertaalbijdragen van native speakers — vooral voor minder bediende talen — zijn van harte welkom.</p>
 """.strip(),
@@ -1113,6 +1337,8 @@ PAGES = {
 <li>Otomatik oynatılan video veya ses yok.</li>
 <li>SafeSearch-dostu içerik — yetişkin araçları yok, kumar yok, kripto affiliate yerleştirmeleri yok.</li>
 </ul>
+
+{_trust_signals("tr")}
 
 <h2>Öğretmenler için iletişim</h2>
 <p>Toolhub'ı bir sınıfta kullanıyorsan ve haberdar etmek istersen, dersine bir araç önermek istersen veya hâlâ zayıf kapsadığımız bir dil için çeviriye katkıda bulunmak istersen — <a href="/tr/contact/">iletişim sayfası</a> üzerinden ulaş. Native konuşurlardan toplu çeviri katkıları — özellikle daha az hizmet verilen diller için — sevinçle karşılanır.</p>
@@ -1165,6 +1391,8 @@ PAGES = {
 <li>Konten ramah SafeSearch — tanpa alat dewasa, tanpa judi, tanpa penempatan afiliasi crypto.</li>
 </ul>
 
+{_trust_signals("id")}
+
 <h2>Kontak untuk guru</h2>
 <p>Jika kamu menggunakan Toolhub di kelas dan ingin memberi tahu, menyarankan alat untuk pelajaranmu, atau berkontribusi terjemahan untuk bahasa yang masih kami cakup buruk — hubungi melalui <a href="/id/contact/">halaman kontak</a>. Kontribusi terjemahan massal dari penutur asli — terutama untuk bahasa yang kurang terlayani — sangat diterima.</p>
 """.strip(),
@@ -1216,6 +1444,8 @@ PAGES = {
 <li>Không có video hoặc âm thanh tự phát.</li>
 <li>Nội dung thân thiện với SafeSearch — không có công cụ người lớn, không có cờ bạc, không có quảng cáo affiliate crypto.</li>
 </ul>
+
+{_trust_signals("vi")}
 
 <h2>Liên hệ cho giáo viên</h2>
 <p>Nếu bạn dùng Toolhub trong lớp và muốn cho biết, đề xuất công cụ cho môn học của bạn, hoặc đóng góp bản dịch cho ngôn ngữ mà chúng tôi vẫn chưa cover tốt — hãy liên hệ qua <a href="/vi/contact/">trang liên hệ</a>. Đóng góp dịch hàng loạt từ người bản xứ — đặc biệt cho các ngôn ngữ ít được phục vụ — được hoan nghênh.</p>
@@ -1272,6 +1502,8 @@ PAGES = {
 <li>Obsah priateľský k SafeSearch — žiadne adult nástroje, žiadne hazardné hry, žiadne crypto-bro affiliate placementy.</li>
 </ul>
 
+{_trust_signals("sk")}
+
 <h2>Kontakt pre pedagógov</h2>
 <p>Ak používaš Toolhub v triede a chceš mi to dať vedieť, navrhnúť nástroj pre svoj predmet alebo prispieť prekladom do jazyka, ktorý ešte dobre nepokrývame — ozvi sa cez <a href="/sk/contact/">kontaktnú stránku</a>. Hromadné prekladateľské príspevky od native speakerov — najmä pre menej obslúžené jazyky — sú veľmi vítané.</p>
 """.strip(),
@@ -1327,6 +1559,8 @@ PAGES = {
 <li>Obsah přátelský k SafeSearch — žádné adult nástroje, žádné hazardní hry, žádné crypto-bro affiliate placementy.</li>
 </ul>
 
+{_trust_signals("cs")}
+
 <h2>Kontakt pro pedagogy</h2>
 <p>Pokud používáš Toolhub ve třídě a chceš mi to dát vědět, navrhnout nástroj pro svůj předmět nebo přispět překladem do jazyka, který ještě dobře nepokrýváme — ozvi se přes <a href="/cs/contact/">kontaktní stránku</a>. Hromadné překladatelské příspěvky od native speakerů — zvlášť pro méně obsluhované jazyky — jsou velmi vítány.</p>
 """.strip(),
@@ -1379,6 +1613,8 @@ PAGES = {
 <li>कोई video या audio जो अपने आप चले।</li>
 <li>SafeSearch-friendly सामग्री — कोई adult tools नहीं, कोई जुआ नहीं, कोई crypto affiliate placement नहीं।</li>
 </ul>
+
+{_trust_signals("hi")}
 
 <h2>शिक्षकों के लिए संपर्क</h2>
 <p>अगर आप कक्षा में Toolhub का उपयोग कर रहे हैं और मुझे बताना चाहते हैं, अपने विषय के लिए कोई tool सुझाना चाहते हैं, या किसी ऐसी भाषा के लिए अनुवाद में योगदान देना चाहते हैं जिसे हम अभी तक अच्छी तरह cover नहीं कर पाए — कृपया <a href="/hi/contact/">संपर्क page</a> के माध्यम से संपर्क करें। मूल वक्ताओं से बड़े पैमाने पर अनुवाद योगदान — विशेष रूप से कम सेवा वाली भाषाओं के लिए — बहुत स्वागत है।</p>
