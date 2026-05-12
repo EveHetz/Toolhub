@@ -208,7 +208,7 @@
   </footer>
 
   <script>
-                                                                                                            const TOOLS = [
+                                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 から画像へ", "desc": "Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -216,6 +216,7 @@
       {"slug": "case-converter", "name": "ケース変換ツール", "desc": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "icon": "Aa", "cat": "text", "tags": ["case", "convert", "camel", "snake", "kebab", "pascal", "title", "upper", "lower"]},
       {"slug": "cidr-calculator", "name": "CIDR / サブネット計算機", "desc": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
       {"slug": "color-converter", "name": "カラー変換ツール", "desc": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
+      {"slug": "color-palette-extractor", "name": "カラーパレット抽出ツール", "desc": "任意の画像から主要色をブラウザ内で抽出。5〜8 個のスウォッチと HEX コード、コピー＆ペーストできる CSS 変数。ファイルは端末から出ません。", "icon": "🎨", "cat": "media", "tags": ["color", "palette", "extractor", "image", "design", "swatch", "dominant", "k-means"]},
       {"slug": "color-picker", "name": "カラーピッカー", "desc": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
       {"slug": "credit-card-validator", "name": "クレジットカード検証ツール", "desc": "Luhn チェックでカード番号を検証し、ブランドを検出。ローカル動作で、番号は送信されません。", "icon": "💳", "cat": "validation", "tags": ["credit card", "validate", "luhn", "visa", "mastercard", "amex", "discover"]},
       {"slug": "cron-builder", "name": "cron 式ビルダー", "desc": "cron 式をビジュアルに構築 — 分・時・日・月・曜日 — して、次の 5 回の発火時刻をプレビュー。", "icon": "⏱", "cat": "developer", "tags": ["cron", "schedule", "builder", "crontab", "next run"]},
@@ -234,7 +235,9 @@
       {"slug": "html-encoder", "name": "HTML エンコーダー / デコーダー", "desc": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "icon": "&lt;&gt;", "cat": "encoding", "tags": ["html", "encode", "entities", "escape", "xss"]},
       {"slug": "html-formatter", "name": "HTML フォーマッター", "desc": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "icon": "</>", "cat": "developer", "tags": ["html", "format", "beautify", "minify", "indent", "tidy"]},
       {"slug": "http-status-codes", "name": "HTTP ステータスコード", "desc": "任意の HTTP ステータスコード（1xx–5xx）を検索。意味、よくある原因、RFC 参照を表示。", "icon": "🌐", "cat": "developer", "tags": ["http", "status", "code", "rest", "api", "response", "rfc"]},
+      {"slug": "image-color-picker", "name": "画像カラーピッカー", "desc": "画像をアップロードして任意の場所をクリックすると、そのピクセルの HEX・RGB・HSL を取得。複数クリックでカスタムパレットを作成。完全ブラウザ動作、アップロードなし。", "icon": "💧", "cat": "media", "tags": ["color", "picker", "image", "eyedropper", "hex", "rgb", "hsl", "palette"]},
       {"slug": "image-compress", "name": "画像圧縮ツール", "desc": "PNG・JPG・WebP の画像をブラウザだけで圧縮。品質を調整し、前後のサイズを比較してダウンロード。ファイルは端末から出ません。", "icon": "🗜️", "cat": "media", "tags": ["image", "compress", "png", "jpg", "jpeg", "webp", "optimize", "reduce", "size"]},
+      {"slug": "image-contrast-checker", "name": "画像コントラストチェッカー", "desc": "画像内の任意の 2 点をクリックして WCAG コントラストを判定 — AA／AAA、大きい文字の閾値。HEX 単独ではなく、実際のスクリーンショットを検証したいデザイナー向け。", "icon": "👁️", "cat": "design", "tags": ["wcag", "contrast", "accessibility", "color", "image", "a11y"]},
       {"slug": "image-convert", "name": "画像フォーマット変換", "desc": "PNG・JPG・WebP の相互変換をブラウザ内で実行。画像を選び、出力形式を指定してダウンロード。アップロードもサーバーも不要です。", "icon": "🔄", "cat": "media", "tags": ["image", "convert", "png", "jpg", "jpeg", "webp", "format", "transform"]},
       {"slug": "image-resize", "name": "画像リサイズ", "desc": "ブラウザだけで画像を任意の幅・高さにリサイズ。アスペクト比を固定でき、SNS 用サイズへの縮小も即ダウンロード。アップロード不要。", "icon": "📐", "cat": "media", "tags": ["image", "resize", "scale", "dimensions", "width", "height", "crop"]},
       {"slug": "image-to-base64", "name": "画像から Base64 へ", "desc": "任意の画像を Base64 データ URI に変換し、HTML・CSS・Markdown へインライン挿入。ファイルはブラウザ内のみ。", "icon": "🖼️", "cat": "encoding", "tags": ["image", "base64", "data-uri", "convert", "embed"]},

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beeld-contrast-checker — Toolhub</title>
+  <meta name="description" content="Gratis WCAG-contrast-checker die werkt op geüploade afbeeldingen. Klik twee punten aan (bv. een logo op een achtergrond) en zie de contrastratio met pass/fail voor AA, AA-groot, AAA, AAA-groot. Bevat kleur-sampler met instelbare radius (1 pixel of 5×5 gemiddelde). Handig om screenshots te verifiëren tegen accessibility-standaarden.">
+  <meta property="og:title" content="Beeld-contrast-checker — Toolhub">
+  <meta property="og:description" content="Gratis WCAG-contrast-checker die werkt op geüploade afbeeldingen. Klik twee punten aan (bv. een logo op een achtergrond) en zie de contrastratio met pass/fail voor AA, AA-groot, AAA, AAA-groot. Bevat kleur-sampler met instelbare radius (1 pixel of 5×5 gemiddelde). Handig om screenshots te verifiëren tegen accessibility-standaarden.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/image-contrast-checker/">
+  <meta property="og:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <link rel="canonical" href="https://toolhub.software/nl/image-contrast-checker/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/image-contrast-checker/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/image-contrast-checker/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/image-contrast-checker/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/image-contrast-checker/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/image-contrast-checker/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/image-contrast-checker/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/image-contrast-checker/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/image-contrast-checker/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/image-contrast-checker/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/image-contrast-checker/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/image-contrast-checker/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/image-contrast-checker/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/image-contrast-checker/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/image-contrast-checker/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/image-contrast-checker/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/image-contrast-checker/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/image-contrast-checker/#tool",
+        "name": "Beeld-contrast-checker",
+        "description": "Gratis WCAG-contrast-checker die werkt op geüploade afbeeldingen. Klik twee punten aan (bv. een logo op een achtergrond) en zie de contrastratio met pass/fail voor AA, AA-groot, AAA, AAA-groot. Bevat kleur-sampler met instelbare radius (1 pixel of 5×5 gemiddelde). Handig om screenshots te verifiëren tegen accessibility-standaarden.",
+        "url": "https://toolhub.software/nl/image-contrast-checker/",
+        "applicationCategory": "DesignApplication",
+        "applicationSubCategory": "Design Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["wcag", "contrast", "accessibility", "color", "image", "a11y"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "Beeld-contrast-checker", "item": "https://toolhub.software/nl/image-contrast-checker/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WCAG-contrast-checkers vragen normaal twee hex-codes — maar een designer die een accessibility-pass doet op een echte screenshot heeft geen hex, die heeft pixels . Met deze tool upload je een afbeelding (screenshot, hero design, logo op een drukke achtergrond) en klik je twee punten aan. Hij sampelt de kleur onder de cursor (1 pixel of 3×3/5×5 gemiddelde) en berekent de WCAG 2.1 contrastratio. Verdict voor AA, AA-groot, AAA, AAA-groot en de UI-componenten-drempel (1.4.11). Alles in de browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer gebruiken",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een screenshot verifiëren waarvan je de bron niet hebt — een marketingpagina, UI van een concurrent, PDF. Een logo auditen op een drukke fotografische achtergrond waar de \"achtergrondkleur\" geen enkele waarde is. Worst-case contrast checken langs een gradient of achter translucent tekst. Snel twee UI-states vergelijken (bv. button rest vs hover) zonder het design opnieuw te bouwen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe sampling werkt",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een 1-pixel sample is precies maar ruizig — anti-aliased randen, JPEG-artefacten en subpixel rendering veroorzaken verschil tussen buren. De 5×5 gemiddelde is meestal wat je wilt voor UI: hij geeft de kleur terug die een mens zou beschrijven, niet de exacte pixel onder de klik. Gebruik 1px bij een logo-rand of een scherpe kleurgrens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anti-aliasing. Tekstranden middelen uit naar kleuren buiten de design intent. Klik in het midden van een lettervorm, niet op de rand. JPEG-compressie. Sterk gecomprimeerde afbeeldingen drijven in kleur in vlakke gebieden. De 5×5 gemiddelde glad dat uit. Translucent layers. Voor contrast telt de gerenderde pixel, niet de bronkleur. Deze tool leest de gerenderde pixel — precies wat je wil. Je checkt kleuren, geen design intent. Als je button AA haalt op rust maar faalt op hover in een andere screenshot, zijn beide states a11y-bugs. Image scaling. De tool schaalt grote afbeeldingen omlaag voor performance. De gesampelde pixel reflecteert de getoonde pixel; heb je pixel-perfect sampling van een heel klein element nodig, crop voor uploaden."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Beeld-contrast-checker",
+  "description": "Klik twee willekeurige punten in een afbeelding aan om WCAG-contrast te checken — AA, AAA, grote-tekst-drempels. Gebouwd voor designers die echte screenshots verifiëren, niet alleen hex-codes.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de contrast-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het contrast-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de contrast-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Taal</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/image-contrast-checker/'; else location.href='/image-contrast-checker/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Beeld-contrast-checker</div>
+    <h1>Beeld-contrast-checker</h1>
+    <p class="tagline">Klik twee willekeurige punten in een afbeelding aan om WCAG-contrast te checken — AA, AAA, grote-tekst-drempels. Gebouwd voor designers die echte screenshots verifiëren, niet alleen hex-codes.</p>
+    
+<div class="tool-card">
+  <label>Pick or drop an image (PNG, JPG, WebP, screenshot)</label>
+  <input type="file" id="icc-file" accept="image/*" onchange="iccLoad()" style="padding:0.5rem;background:var(--code-bg);border:1px dashed var(--border);border-radius:6px">
+  <div style="display:flex;flex-wrap:wrap;gap:0.9rem;align-items:center;margin-top:0.8rem">
+    <label style="font-weight:normal">Sample
+      <select id="icc-radius" style="margin-left:0.4rem">
+        <option value="0">1 px</option>
+        <option value="1">3×3 average</option>
+        <option value="2" selected>5×5 average</option>
+      </select>
+    </label>
+    <button class="secondary" onclick="iccReset()">Reset</button>
+    <span class="meta">Clicking the image alternates between Foreground and Background samples.</span>
+  </div>
+  <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.4rem">🔒 Files never leave your browser — no upload, no server, no tracking.</div>
+</div>
+<div class="tool-card">
+  <label>Image (click to sample)</label>
+  <div id="icc-canvas-wrap" style="background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:0.5rem;text-align:center">
+    <canvas id="icc-canvas" style="max-width:100%;cursor:crosshair;display:none"></canvas>
+    <div id="icc-placeholder" style="color:var(--text-muted);padding:1.5rem">No image yet.</div>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Samples</label>
+  <div class="icc-samples">
+    <div class="icc-sample" id="icc-fg-row">
+      <div class="icc-sw" id="icc-fg-sw"></div>
+      <div>
+        <div class="meta">Foreground (next click)</div>
+        <div class="icc-hex" id="icc-fg-hex">—</div>
+      </div>
+    </div>
+    <div class="icc-sample" id="icc-bg-row">
+      <div class="icc-sw" id="icc-bg-sw"></div>
+      <div>
+        <div class="meta">Background</div>
+        <div class="icc-hex" id="icc-bg-hex">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tool-card">
+  <label>Resultaat</label>
+  <div id="icc-result" class="icc-result"><span class="meta">Sample two colours to see the contrast ratio.</span></div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>WCAG-contrast-checkers vragen normaal twee hex-codes — maar een designer die een accessibility-pass doet op een echte screenshot heeft geen hex, die heeft <em>pixels</em>. Met deze tool upload je een afbeelding (screenshot, hero design, logo op een drukke achtergrond) en klik je twee punten aan. Hij sampelt de kleur onder de cursor (1 pixel of 3×3/5×5 gemiddelde) en berekent de WCAG 2.1 contrastratio. Verdict voor AA, AA-groot, AAA, AAA-groot en de UI-componenten-drempel (1.4.11). Alles in de browser.</p>
+
+<h3>Wanneer gebruiken</h3>
+<ul>
+  <li>Een screenshot verifiëren waarvan je de bron niet hebt — een marketingpagina, UI van een concurrent, PDF.</li>
+  <li>Een logo auditen op een drukke fotografische achtergrond waar de "achtergrondkleur" geen enkele waarde is.</li>
+  <li>Worst-case contrast checken langs een gradient of achter translucent tekst.</li>
+  <li>Snel twee UI-states vergelijken (bv. button rest vs hover) zonder het design opnieuw te bouwen.</li>
+</ul>
+
+<h3>Hoe sampling werkt</h3>
+<p>Een 1-pixel sample is precies maar ruizig — anti-aliased randen, JPEG-artefacten en subpixel rendering veroorzaken verschil tussen buren. De 5×5 gemiddelde is meestal wat je wilt voor UI: hij geeft de kleur terug die een mens zou beschrijven, niet de exacte pixel onder de klik. Gebruik 1px bij een logo-rand of een scherpe kleurgrens.</p>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Anti-aliasing.</strong> Tekstranden middelen uit naar kleuren buiten de design intent. Klik in het midden van een lettervorm, niet op de rand.</li>
+  <li><strong>JPEG-compressie.</strong> Sterk gecomprimeerde afbeeldingen drijven in kleur in vlakke gebieden. De 5×5 gemiddelde glad dat uit.</li>
+  <li><strong>Translucent layers.</strong> Voor contrast telt de gerenderde pixel, niet de bronkleur. Deze tool leest de gerenderde pixel — precies wat je wil.</li>
+  <li><strong>Je checkt kleuren, geen design intent.</strong> Als je button AA haalt op rust maar faalt op hover in een andere screenshot, zijn beide states a11y-bugs.</li>
+  <li><strong>Image scaling.</strong> De tool schaalt grote afbeeldingen omlaag voor performance. De gesampelde pixel reflecteert de getoonde pixel; heb je pixel-perfect sampling van een heel klein element nodig, crop voor uploaden.</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/wcag-contrast/">WCAG Contrast Checker</a> <a href="/nl/color-picker/">Kleur-picker</a> <a href="/nl/color-palette-extractor/">Kleurenpalet-extractor</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/nl/privacy/">Privacy</a> · <a href="/nl/how-we-handle-your-data/">Dataverwerking</a> · <a href="/nl/affiliate-disclosure/">Affiliate-disclosure</a> · <a href="/nl/companion-tools/">Aanvullende tools</a> · <a href="/nl/about/">Over</a> · <a href="/nl/contact/">Contact</a> · <a href="/nl/for-schools/">Voor scholen</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.icc-samples{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.icc-sample{display:flex;gap:0.6rem;align-items:center;padding:0.6rem;border:1px solid var(--border);border-radius:8px}
+.icc-sample.icc-next{outline:2px solid var(--accent);outline-offset:-2px}
+.icc-sw{width:48px;height:48px;border-radius:8px;border:1px solid var(--border);background:repeating-conic-gradient(#ccc 0 25%, #fff 0 50%) 50% / 12px 12px}
+.icc-hex{font-family:ui-monospace,monospace;font-weight:600}
+.icc-result{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.6rem}
+.icc-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;padding:0.7rem 0.85rem}
+.icc-ratio{font-family:ui-monospace,monospace;font-size:1.6rem;font-weight:600;color:var(--accent)}
+.icc-row-result{display:flex;justify-content:space-between;font-size:0.85rem;margin-top:0.25rem}
+.icc-pass{color:#10b981;font-weight:600}
+.icc-fail{color:#ef4444;font-weight:600}
+</style>
+<script>
+let iccImage = null;
+let iccFg = null;
+let iccBg = null;
+let iccNext = 'fg';
+function iccLoad(){
+  const file = document.getElementById('icc-file').files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.getElementById('icc-canvas');
+      const maxW = 700;
+      const scale = Math.min(1, maxW / img.width);
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.style.display = 'block';
+      document.getElementById('icc-placeholder').style.display = 'none';
+      iccImage = canvas;
+      iccReset();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function iccReset(){
+  iccFg = null; iccBg = null; iccNext = 'fg';
+  document.getElementById('icc-fg-sw').style.background = '';
+  document.getElementById('icc-bg-sw').style.background = '';
+  document.getElementById('icc-fg-hex').textContent = '—';
+  document.getElementById('icc-bg-hex').textContent = '—';
+  document.getElementById('icc-result').innerHTML = '<span class="meta">Sample two colours to see the contrast ratio.</span>';
+  iccUpdateNextHighlight();
+}
+function iccUpdateNextHighlight(){
+  document.getElementById('icc-fg-row').classList.toggle('icc-next', iccNext === 'fg');
+  document.getElementById('icc-bg-row').classList.toggle('icc-next', iccNext === 'bg');
+  document.getElementById('icc-fg-row').querySelector('.meta').textContent = iccNext === 'fg' ? 'Foreground (next click)' : 'Foreground';
+  document.getElementById('icc-bg-row').querySelector('.meta').textContent = iccNext === 'bg' ? 'Background (next click)' : 'Background';
+}
+function iccToHex(rgb){
+  return '#' + rgb.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2,'0')).join('');
+}
+function iccLum(r,g,b){
+  const lin = c => { c/=255; return c<=0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4) };
+  return 0.2126*lin(r) + 0.7152*lin(g) + 0.0722*lin(b);
+}
+function iccVerdict(ratio, threshold){
+  return ratio >= threshold ? '<span class="icc-pass">✓ Pass</span>' : '<span class="icc-fail">✗ Fail</span>';
+}
+function iccSample(x, y){
+  const radius = parseInt(document.getElementById('icc-radius').value, 10);
+  const ctx = iccImage.getContext('2d');
+  let r = 0, g = 0, b = 0, n = 0;
+  for(let dy = -radius; dy <= radius; dy++){
+    for(let dx = -radius; dx <= radius; dx++){
+      const px = x + dx, py = y + dy;
+      if(px < 0 || py < 0 || px >= iccImage.width || py >= iccImage.height) continue;
+      const d = ctx.getImageData(px, py, 1, 1).data;
+      r += d[0]; g += d[1]; b += d[2]; n++;
+    }
+  }
+  return [r/n, g/n, b/n];
+}
+function iccRender(){
+  if(!iccFg || !iccBg){
+    document.getElementById('icc-result').innerHTML = '<span class="meta">Sample two colours to see the contrast ratio.</span>';
+    return;
+  }
+  const L1 = iccLum(...iccFg), L2 = iccLum(...iccBg);
+  const ratio = (Math.max(L1,L2) + 0.05) / (Math.min(L1,L2) + 0.05);
+  document.getElementById('icc-result').innerHTML = `
+    <div class="icc-card"><div class="icc-ratio">${ratio.toFixed(2)}:1</div><div class="meta">Contrast ratio (1:1 to 21:1)</div></div>
+    <div class="icc-card">
+      <div><strong>Normal text</strong> (≥4.5 AA · ≥7 AAA)</div>
+      <div class="icc-row-result"><span>AA</span>${iccVerdict(ratio, 4.5)}</div>
+      <div class="icc-row-result"><span>AAA</span>${iccVerdict(ratio, 7.0)}</div>
+    </div>
+    <div class="icc-card">
+      <div><strong>Large text</strong> (≥3 AA · ≥4.5 AAA)</div>
+      <div class="icc-row-result"><span>AA</span>${iccVerdict(ratio, 3.0)}</div>
+      <div class="icc-row-result"><span>AAA</span>${iccVerdict(ratio, 4.5)}</div>
+    </div>
+    <div class="icc-card">
+      <div><strong>UI components</strong> (≥3 AA — WCAG 1.4.11)</div>
+      <div class="icc-row-result"><span>AA</span>${iccVerdict(ratio, 3.0)}</div>
+    </div>
+  `;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const canvas = document.getElementById('icc-canvas');
+  canvas.addEventListener('click', (e) => {
+    if(!iccImage) return;
+    const rect = canvas.getBoundingClientRect();
+    const sx = canvas.width / rect.width;
+    const sy = canvas.height / rect.height;
+    const x = Math.round((e.clientX - rect.left) * sx);
+    const y = Math.round((e.clientY - rect.top) * sy);
+    const rgb = iccSample(x, y);
+    const hex = iccToHex(rgb);
+    if(iccNext === 'fg'){
+      iccFg = rgb;
+      document.getElementById('icc-fg-sw').style.background = hex;
+      document.getElementById('icc-fg-hex').textContent = hex;
+      iccNext = 'bg';
+    } else {
+      iccBg = rgb;
+      document.getElementById('icc-bg-sw').style.background = hex;
+      document.getElementById('icc-bg-hex').textContent = hex;
+      iccNext = 'fg';
+    }
+    iccUpdateNextHighlight();
+    iccRender();
+  });
+  iccUpdateNextHighlight();
+});
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+</body>
+</html>
