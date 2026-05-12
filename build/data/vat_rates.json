@@ -1,0 +1,307 @@
+{
+  "_meta": {
+    "last_updated": "2025-01-01",
+    "source": "Official tax authority publications per country",
+    "disclaimer": "Always verify with your local tax authority before invoicing."
+  },
+  "countries": {
+    "SK": {
+      "name": "Slovakia",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 23, "notes": "Raised from 20% on 2025-01-01"},
+        {"label": "Reduced (19%)", "rate": 19, "notes": "Restaurant services, gym/sport, non-alcoholic drinks"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Basic food, books, medicine, housing, accommodation"},
+        {"label": "Zero", "rate": 0, "notes": "Exports, intra-EU supplies"}
+      ]
+    },
+    "CZ": {
+      "name": "Czech Republic",
+      "currency": "CZK",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced", "rate": 12, "notes": "Food, books, medicine, housing — consolidated from previous 15% + 10% tiers on 2024-01-01"},
+        {"label": "Zero", "rate": 0, "notes": "Exports"}
+      ]
+    },
+    "DE": {
+      "name": "Germany",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 19, "notes": ""},
+        {"label": "Reduced", "rate": 7, "notes": "Food, books, public transport, hotels"}
+      ]
+    },
+    "AT": {
+      "name": "Austria",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 20, "notes": ""},
+        {"label": "Reduced (10%)", "rate": 10, "notes": "Food, books, medicine, accommodation"},
+        {"label": "Reduced (13%)", "rate": 13, "notes": "Cultural events, domestic flights, plants"}
+      ]
+    },
+    "FR": {
+      "name": "France",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 20, "notes": ""},
+        {"label": "Reduced (10%)", "rate": 10, "notes": "Restaurants, transport, accommodation"},
+        {"label": "Reduced (5.5%)", "rate": 5.5, "notes": "Food, books, energy"},
+        {"label": "Super-reduced", "rate": 2.1, "notes": "Press, medicine, theatre"}
+      ]
+    },
+    "IT": {
+      "name": "Italy",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 22, "notes": ""},
+        {"label": "Reduced (10%)", "rate": 10, "notes": "Tourism, electricity, water"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Specific food + social services"},
+        {"label": "Super-reduced", "rate": 4, "notes": "Basic food, books, medicine"}
+      ]
+    },
+    "ES": {
+      "name": "Spain",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced", "rate": 10, "notes": "Restaurants, transport"},
+        {"label": "Super-reduced", "rate": 4, "notes": "Basic food, books, medicine"}
+      ]
+    },
+    "PT": {
+      "name": "Portugal",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 23, "notes": ""},
+        {"label": "Reduced (13%)", "rate": 13, "notes": "Restaurants, certain food"},
+        {"label": "Reduced (6%)", "rate": 6, "notes": "Basic food, medicine, books"}
+      ]
+    },
+    "NL": {
+      "name": "Netherlands",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced", "rate": 9, "notes": "Food, books, medicine, art"}
+      ]
+    },
+    "BE": {
+      "name": "Belgium",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced (12%)", "rate": 12, "notes": "Social housing, restaurants"},
+        {"label": "Reduced (6%)", "rate": 6, "notes": "Food, books, water"}
+      ]
+    },
+    "PL": {
+      "name": "Poland",
+      "currency": "PLN",
+      "rates": [
+        {"label": "Standard", "rate": 23, "notes": ""},
+        {"label": "Reduced (8%)", "rate": 8, "notes": "Construction, restaurants, medicine"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Basic food, books"}
+      ]
+    },
+    "HU": {
+      "name": "Hungary",
+      "currency": "HUF",
+      "rates": [
+        {"label": "Standard", "rate": 27, "notes": "Highest standard rate in EU"},
+        {"label": "Reduced (18%)", "rate": 18, "notes": "Dairy, bread, hotels"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Medicine, books, internet, new housing"}
+      ]
+    },
+    "RO": {
+      "name": "Romania",
+      "currency": "RON",
+      "rates": [
+        {"label": "Standard", "rate": 19, "notes": ""},
+        {"label": "Reduced (9%)", "rate": 9, "notes": "Food, medicine, water"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Books, cultural events"}
+      ]
+    },
+    "BG": {
+      "name": "Bulgaria",
+      "currency": "BGN",
+      "rates": [
+        {"label": "Standard", "rate": 20, "notes": ""},
+        {"label": "Reduced", "rate": 9, "notes": "Hotels, books, restaurants"}
+      ]
+    },
+    "HR": {
+      "name": "Croatia",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 25, "notes": ""},
+        {"label": "Reduced (13%)", "rate": 13, "notes": "Food, restaurants, accommodation"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Bread, milk, books, medicine"}
+      ]
+    },
+    "SI": {
+      "name": "Slovenia",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 22, "notes": ""},
+        {"label": "Reduced", "rate": 9.5, "notes": "Food, books, restaurants"},
+        {"label": "Super-reduced", "rate": 5, "notes": "Books, newspapers"}
+      ]
+    },
+    "GR": {
+      "name": "Greece",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 24, "notes": ""},
+        {"label": "Reduced", "rate": 13, "notes": "Food, restaurants, energy"},
+        {"label": "Super-reduced", "rate": 6, "notes": "Medicine, books, newspapers"}
+      ]
+    },
+    "IE": {
+      "name": "Ireland",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 23, "notes": ""},
+        {"label": "Reduced (13.5%)", "rate": 13.5, "notes": "Hospitality, building services"},
+        {"label": "Reduced (9%)", "rate": 9, "notes": "Gas, electricity, newspapers"},
+        {"label": "Super-reduced", "rate": 4.8, "notes": "Livestock"},
+        {"label": "Zero", "rate": 0, "notes": "Most food, children's clothing, books"}
+      ]
+    },
+    "DK": {
+      "name": "Denmark",
+      "currency": "DKK",
+      "rates": [
+        {"label": "Standard", "rate": 25, "notes": "Single rate — no reduced categories"}
+      ]
+    },
+    "SE": {
+      "name": "Sweden",
+      "currency": "SEK",
+      "rates": [
+        {"label": "Standard", "rate": 25, "notes": ""},
+        {"label": "Reduced (12%)", "rate": 12, "notes": "Food, restaurants, hotels"},
+        {"label": "Reduced (6%)", "rate": 6, "notes": "Books, newspapers, cultural events"}
+      ]
+    },
+    "FI": {
+      "name": "Finland",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 25.5, "notes": "Raised from 24% on 2024-09-01"},
+        {"label": "Reduced (14%)", "rate": 14, "notes": "Food, restaurants"},
+        {"label": "Reduced (10%)", "rate": 10, "notes": "Books, medicine, hotels"}
+      ]
+    },
+    "EE": {
+      "name": "Estonia",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 24, "notes": "Raised from 22% on 2025-07-01"},
+        {"label": "Reduced", "rate": 9, "notes": "Books, hotels, medicine"}
+      ]
+    },
+    "LV": {
+      "name": "Latvia",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced (12%)", "rate": 12, "notes": "Medicine, books, infant food"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Local fruits, vegetables"}
+      ]
+    },
+    "LT": {
+      "name": "Lithuania",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 21, "notes": ""},
+        {"label": "Reduced (9%)", "rate": 9, "notes": "Books, accommodation, transport"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Medicine, disabled-aid products"}
+      ]
+    },
+    "LU": {
+      "name": "Luxembourg",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 17, "notes": ""},
+        {"label": "Intermediate", "rate": 14, "notes": "Wine, certain energy"},
+        {"label": "Reduced", "rate": 8, "notes": "Restaurants, hairdressing"},
+        {"label": "Super-reduced", "rate": 3, "notes": "Food, books, medicine"}
+      ]
+    },
+    "MT": {
+      "name": "Malta",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 18, "notes": ""},
+        {"label": "Reduced (7%)", "rate": 7, "notes": "Hotels, holiday accommodation"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Medicine, books, electricity"}
+      ]
+    },
+    "CY": {
+      "name": "Cyprus",
+      "currency": "EUR",
+      "rates": [
+        {"label": "Standard", "rate": 19, "notes": ""},
+        {"label": "Reduced (9%)", "rate": 9, "notes": "Hotels, restaurants"},
+        {"label": "Reduced (5%)", "rate": 5, "notes": "Food, books, medicine"}
+      ]
+    },
+    "GB": {
+      "name": "United Kingdom",
+      "currency": "GBP",
+      "rates": [
+        {"label": "Standard", "rate": 20, "notes": ""},
+        {"label": "Reduced", "rate": 5, "notes": "Domestic fuel, energy-saving materials"},
+        {"label": "Zero", "rate": 0, "notes": "Most food, children's clothing, books"}
+      ]
+    },
+    "CH": {
+      "name": "Switzerland",
+      "currency": "CHF",
+      "rates": [
+        {"label": "Standard", "rate": 8.1, "notes": "Raised from 7.7% on 2024-01-01"},
+        {"label": "Special (accommodation)", "rate": 3.8, "notes": "Hotels, B&Bs"},
+        {"label": "Reduced", "rate": 2.6, "notes": "Food, medicine, books, newspapers"}
+      ]
+    },
+    "NO": {
+      "name": "Norway",
+      "currency": "NOK",
+      "rates": [
+        {"label": "Standard", "rate": 25, "notes": ""},
+        {"label": "Reduced (15%)", "rate": 15, "notes": "Food + drink"},
+        {"label": "Reduced (12%)", "rate": 12, "notes": "Passenger transport, hotels, cinema"}
+      ]
+    },
+    "AU": {
+      "name": "Australia (GST)",
+      "currency": "AUD",
+      "rates": [
+        {"label": "GST Standard", "rate": 10, "notes": "Goods & Services Tax — single rate"}
+      ]
+    },
+    "NZ": {
+      "name": "New Zealand (GST)",
+      "currency": "NZD",
+      "rates": [
+        {"label": "GST Standard", "rate": 15, "notes": "Single rate"}
+      ]
+    },
+    "AE": {
+      "name": "UAE",
+      "currency": "AED",
+      "rates": [
+        {"label": "Standard", "rate": 5, "notes": "Introduced 2018-01-01"}
+      ]
+    },
+    "SG": {
+      "name": "Singapore (GST)",
+      "currency": "SGD",
+      "rates": [
+        {"label": "GST Standard", "rate": 9, "notes": "Raised from 8% on 2024-01-01"}
+      ]
+    }
+  }
+}

@@ -49,6 +49,8 @@ UI = {
         "affiliate_disclosure": "Affiliate Disclosure",
         "companion_tools": "Companion Tools",
         "language": "Language",
+        "net": "Net (before VAT)",
+        "gross": "Gross (incl. VAT)",
     },
     "de": {
         "all_tools": "Alle Tools",
@@ -97,6 +99,8 @@ UI = {
         "affiliate_disclosure": "Affiliate-Offenlegung",
         "companion_tools": "Begleit-Tools",
         "language": "Sprache",
+        "net": "Netto (vor MwSt.)",
+        "gross": "Brutto (inkl. MwSt.)",
     },
     "es": {
         "all_tools": "Todas las herramientas",
@@ -145,6 +149,8 @@ UI = {
         "affiliate_disclosure": "Divulgación de afiliados",
         "companion_tools": "Herramientas complementarias",
         "language": "Idioma",
+        "net": "Neto (sin IVA)",
+        "gross": "Bruto (con IVA)",
     },
     "fr": {
         "all_tools": "Tous les outils",
@@ -193,6 +199,8 @@ UI = {
         "affiliate_disclosure": "Divulgation des affiliations",
         "companion_tools": "Outils complémentaires",
         "language": "Langue",
+        "net": "HT (hors TVA)",
+        "gross": "TTC (avec TVA)",
     },
     "it": {
         "all_tools": "Tutti gli strumenti",
@@ -241,6 +249,8 @@ UI = {
         "affiliate_disclosure": "Divulgazione affiliati",
         "companion_tools": "Strumenti complementari",
         "language": "Lingua",
+        "net": "Imponibile (no IVA)",
+        "gross": "Lordo (con IVA)",
     },
     "pt": {
         "all_tools": "Todas as ferramentas",
@@ -289,6 +299,8 @@ UI = {
         "affiliate_disclosure": "Divulgação de afiliados",
         "companion_tools": "Ferramentas complementares",
         "language": "Idioma",
+        "net": "Líquido (sem IVA)",
+        "gross": "Bruto (com IVA)",
     },
     "pl": {
         "all_tools": "Wszystkie narzędzia",
@@ -337,6 +349,8 @@ UI = {
         "affiliate_disclosure": "Ujawnienie partnerów",
         "companion_tools": "Narzędzia uzupełniające",
         "language": "Język",
+        "net": "Netto (bez VAT)",
+        "gross": "Brutto (z VAT)",
     },
     "ja": {
         "all_tools": "すべてのツール",
@@ -385,6 +399,8 @@ UI = {
         "affiliate_disclosure": "アフィリエイト開示",
         "companion_tools": "コンパニオンツール",
         "language": "言語",
+        "net": "税抜",
+        "gross": "税込",
     },
     "nl": {
         "all_tools": "Alle tools",
@@ -433,6 +449,8 @@ UI = {
         "affiliate_disclosure": "Affiliate-disclosure",
         "companion_tools": "Aanvullende tools",
         "language": "Taal",
+        "net": "Netto (excl. BTW)",
+        "gross": "Bruto (incl. BTW)",
     },
     "tr": {
         "all_tools": "Tüm araçlar",
@@ -481,6 +499,8 @@ UI = {
         "affiliate_disclosure": "Affiliate bildirimi",
         "companion_tools": "Tamamlayıcı araçlar",
         "language": "Dil",
+        "net": "Net (KDV hariç)",
+        "gross": "Brüt (KDV dahil)",
     },
     "id": {
         "all_tools": "Semua alat",
@@ -529,6 +549,8 @@ UI = {
         "affiliate_disclosure": "Pengungkapan afiliasi",
         "companion_tools": "Alat pendamping",
         "language": "Bahasa",
+        "net": "Netto (sebelum PPN)",
+        "gross": "Bruto (termasuk PPN)",
     },
     "vi": {
         "all_tools": "Tất cả công cụ",
@@ -577,6 +599,8 @@ UI = {
         "affiliate_disclosure": "Tiết lộ affiliate",
         "companion_tools": "Công cụ bổ sung",
         "language": "Ngôn ngữ",
+        "net": "Net (chưa VAT)",
+        "gross": "Gross (gồm VAT)",
     },
     "sk": {
         "all_tools": "Všetky nástroje",
@@ -625,6 +649,8 @@ UI = {
         "affiliate_disclosure": "Affiliate zverejnenie",
         "companion_tools": "Doplnkové nástroje",
         "language": "Jazyk",
+        "net": "Netto (bez DPH)",
+        "gross": "Brutto (s DPH)",
     },
     "cs": {
         "all_tools": "Všechny nástroje",
@@ -673,6 +699,8 @@ UI = {
         "affiliate_disclosure": "Affiliate zveřejnění",
         "companion_tools": "Doplňkové nástroje",
         "language": "Jazyk",
+        "net": "Netto (bez DPH)",
+        "gross": "Brutto (s DPH)",
     },
     "hi": {
         "all_tools": "सभी टूल्स",
@@ -721,6 +749,8 @@ UI = {
         "affiliate_disclosure": "Affiliate डिस्क्लोज़र",
         "companion_tools": "साथी टूल्स",
         "language": "भाषा",
+        "net": "Net (VAT से पहले)",
+        "gross": "Gross (VAT समेत)",
     },
 }
 

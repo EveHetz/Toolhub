@@ -566,6 +566,8 @@ def render_tool(tool: dict, lang: str) -> str:
         "LBL_INVALID": ui["invalid_input"],
         "LBL_INSTALL_APP": ui["install_app"],
         "LBL_INSTALL_APP_HINT": ui["install_app_hint"],
+        "LBL_NET": ui["net"],
+        "LBL_GROSS": ui["gross"],
     }
     body = fill_braces(tool["body"], label_map)
     script = fill_braces(tool.get("script", ""), label_map)
