@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Trang nổi bật">
+    <a href="/vi/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Cho trường học & giáo viên</h3>
+        <p>Miễn phí, không quảng cáo, riêng tư. Self-host. 15 ngôn ngữ.</p>
+      </div>
+    </a>
+    <a href="/vi/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Công cụ bổ sung</h3>
+        <p>Tiện ích bảo mật phía host — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Tìm công cụ…  (nhấn / để tập trung)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                const TOOLS = [
+                                                                                    const TOOLS = [
       {"slug": "ascii-table", "name": "Bảng ASCII", "desc": "Tham chiếu ASCII đầy đủ 0–127 với decimal, hex, binary, ký tự và HTML entity. Có thể lọc.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Encode văn bản thành Base64 hoặc decode Base64 về văn bản. An toàn UTF-8 và hỗ trợ biến thể base64url.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 sang ảnh", "desc": "Giải mã ảnh Base64 hoặc data URI thành file. Dán chuỗi, xem trước, tải về. Ngược lại với công cụ ảnh-sang-Base64 của chúng tôi.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON Diff", "desc": "Diff theo cấu trúc của hai tài liệu JSON — key được thêm, bị xóa, được thay đổi và thay đổi giá trị hiển thị cạnh nhau.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON Formatter", "desc": "Format, xác thực và minify JSON tức thì. Lỗi được làm nổi bật với dòng và cột.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath Tester", "desc": "Chạy query JSONPath trên bất kỳ tài liệu JSON nào. Xem các node khớp và path của chúng theo thời gian thực.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Chuyển đổi JSON Schema sang code model Pydantic v2, trong trình duyệt của bạn. Dán schema, nhận về một class Python sẵn sàng để dán. Hữu ích cho workflow LLM với structured output.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Chuyển đổi JSON Schema sang code model Pydantic v2, trong trình duyệt của bạn. Dán schema, nhận về một class Python sẵn sàng để dán. Hữu ích cho workflow LLM với structured output.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON sang CSV", "desc": "Chuyển mảng JSON các object thành CSV. Phát hiện trường tự động, hỗ trợ delimiter tùy chỉnh, escape chính xác cho Excel và Google Sheets.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Xem file JSONL (JSON phân tách bằng dòng mới) trong bảng phân trang. Dán đến hàng nghìn dòng, tìm kiếm, lọc, mở rộng từng bản ghi. File không bao giờ rời trình duyệt.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Xem file JSONL (JSON phân tách bằng dòng mới) trong bảng phân trang. Dán đến hàng nghìn dòng, tìm kiếm, lọc, mở rộng từng bản ghi. File không bao giờ rời trình duyệt.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "Dán một JWT, decode header và payload. Toàn bộ decode xảy ra trong trình duyệt — token không bao giờ rời khỏi trang.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Mẫu Giáo án", "desc": "Tạo giáo án có cấu trúc từ một biểu mẫu điền sẵn. Mục chuẩn (mục tiêu, đồ dùng, tiến trình, đánh giá, rút kinh nghiệm). Xuất markdown + HTML in được.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Máy tính Khoản vay", "desc": "Tính khoản trả hàng tháng, tổng lãi và lịch khấu trừ đầy đủ cho bất kỳ khoản vay nào. Lãi suất cố định, gốc+lãi. Chỉ trình duyệt.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "Tạo Mật khẩu", "desc": "Mật khẩu ngẫu nhiên mạnh hoặc passphrase dễ nhớ. Được tạo cục bộ — không bao giờ được gửi đi.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Máy tính Phần trăm", "desc": "Năm máy tính phần trăm trong một công cụ: của, bao nhiêu %, tăng/giảm, thay đổi và tip/thuế.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Tạo Placeholder Image", "desc": "Tạo placeholder image SVG inline với bất kỳ kích thước nào với văn bản và màu tùy chỉnh. Xuất ra dưới dạng data URI hoặc SVG có thể tải về.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Diff Prompt", "desc": "So sánh hai prompt (hoặc hai phiên bản của một prompt) cạnh nhau. Diff theo từng dòng với các thay đổi được làm nổi bật. Thiết kế cho việc lặp lại các prompt LLM.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Diff Prompt", "desc": "So sánh hai prompt (hoặc hai phiên bản của một prompt) cạnh nhau. Diff theo từng dòng với các thay đổi được làm nổi bật. Thiết kế cho việc lặp lại các prompt LLM.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "Tạo Mã QR", "desc": "Tạo mã QR cho bất kỳ văn bản, URL, Wi-Fi hoặc vCard nào. Kích thước tùy chỉnh, màu và mức sửa lỗi. Xuất dưới dạng PNG hoặc SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Trình xây dựng Query String", "desc": "Thêm dòng key/value; nhận query string được URL-encode đúng cách. Hỗ trợ mảng (a[]=1) và key lặp lại không có dấu ngoặc.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Trình kiểm tra Độ dễ đọc", "desc": "Tính Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG và Coleman-Liau cho văn bản. Phát hiện đoạn rậm, nhắm đúng cấp lớp.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Cheatsheet Regex", "desc": "Tham chiếu nhanh: anchor, character class, quantifier, group, lookaround, flag. Click bất kỳ pattern nào để sao chép.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Regex LLM Output Extractor", "desc": "Trích xuất dữ liệu có cấu trúc (JSON, code block, cặp key-value) từ response LLM lộn xộn. Chọn từ template phổ biến hoặc viết regex của riêng bạn. Preview trực tiếp.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Regex LLM Output Extractor", "desc": "Trích xuất dữ liệu có cấu trúc (JSON, code block, cặp key-value) từ response LLM lộn xộn. Chọn từ template phổ biến hoặc viết regex của riêng bạn. Preview trực tiếp.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex Tester", "desc": "Test regex JavaScript trực tiếp. Xem match, capture group và áp dụng replace khi bạn gõ.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Trình tạo Rubric đánh giá", "desc": "Tạo rubric đánh giá in được (markdown + xem trước HTML + chế độ in) từ tiêu chí và mức độ đạt được. Dành cho giáo viên lên kế hoạch kiểm tra.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Tạo Slug", "desc": "Biến bất kỳ tiêu đề nào thành URL slug sạch — chuyển tự chữ có dấu, bỏ dấu câu, nối bằng dấu gạch ngang.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL Formatter", "desc": "Format và làm đẹp SQL với indent thích hợp, hoặc minify thành một dòng. Có nhận biết phương ngữ (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "Tối ưu hóa SVG", "desc": "Nén file SVG ngay trong trình duyệt. Loại bỏ chú thích, khoảng trắng vô dụng, thuộc tính mặc định và làm tròn số thập phân dài. File không bao giờ rời thiết bị của bạn.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Phân tích system prompt tìm vấn đề phổ biến: hướng dẫn mơ hồ, quy tắc xung đột, thiếu ví dụ, ngữ cảnh quá lớn. Heuristic, có chính kiến, nhanh.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Phân tích system prompt tìm vấn đề phổ biến: hướng dẫn mơ hồ, quy tắc xung đột, thiếu ví dụ, ngữ cảnh quá lớn. Heuristic, có chính kiến, nhanh.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Diff Văn bản", "desc": "So sánh hai khối văn bản và xem các thêm, xóa và ngữ cảnh không thay đổi từng dòng. Chế độ xem cạnh nhau hoặc thống nhất.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Chuyển đổi Unix Timestamp", "desc": "Chuyển giữa Unix timestamp và ngày-giờ con người đọc được. Giây và mili giây, UTC và local.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Chuyển đổi Múi giờ", "desc": "Chuyển ngày-giờ giữa các múi giờ IANA. Xem offset, trạng thái DST và thứ trong tuần cho cả hai đầu.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Máy tính Tip & Chia Hóa đơn", "desc": "Tổng hóa đơn + % tip + số người = số tiền mỗi người. Tùy chọn làm tròn lên, hiển thị tip và grand total.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Đếm Token", "desc": "Ước tính số token cho GPT-4, Claude, Llama, Gemini và các LLM khác. Dán văn bản, xem số đếm theo từng model cạnh nhau. File không bao giờ rời khỏi trình duyệt của bạn.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Đếm Token", "desc": "Ước tính số token cho GPT-4, Claude, Llama, Gemini và các LLM khác. Dán văn bản, xem số đếm theo từng model cạnh nhau. File không bao giờ rời khỏi trình duyệt của bạn.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Trình kiểm tra Unicode", "desc": "Dán văn bản → bảng theo code point. Hex, decimal, byte UTF-8, danh mục. Bắt các ký tự vô hình.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Chuyển đổi Đơn vị", "desc": "Chuyển giữa đơn vị mét và imperial cho chiều dài, trọng lượng, nhiệt độ, thể tích và diện tích.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Percent-encode chuỗi cho URL hoặc decode chuỗi percent-encoded trở lại văn bản thường.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "Tất cả";
     const HERO_SUB_POST = "công cụ — nhanh, riêng tư, không cần đăng ký. Dùng được ngay.";
-    const CAT_LABELS = {"developer": "Developer", "text": "Văn bản", "encoding": "Mã hóa", "data": "Dữ liệu", "security": "Bảo mật", "media": "Đa phương tiện", "validation": "Xác thực", "design": "Thiết kế", "datetime": "Ngày & giờ", "math": "Toán"};
+    const CAT_LABELS = {"ai": "AI", "developer": "Developer", "text": "Văn bản", "encoding": "Mã hóa", "data": "Dữ liệu", "security": "Bảo mật", "media": "Đa phương tiện", "validation": "Xác thực", "design": "Thiết kế", "datetime": "Ngày & giờ", "math": "Toán"};
 
     function renderFilters() {
       const counts = {};

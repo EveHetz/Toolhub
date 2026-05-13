@@ -851,7 +851,7 @@ PAGES = {
 </ul>
 
 <h2>Languages supported</h2>
-<p>Every tool is translated into nine languages so students can work in their first language:</p>
+<p>Every tool is translated into 15 languages so students can work in their first language:</p>
 <ul>
 <li>English</li>
 <li>Deutsch (German)</li>
@@ -862,6 +862,12 @@ PAGES = {
 <li>Polski (Polish)</li>
 <li>日本語 (Japanese)</li>
 <li>Nederlands (Dutch)</li>
+<li>Türkçe (Turkish)</li>
+<li>Bahasa Indonesia (Indonesian)</li>
+<li>Tiếng Việt (Vietnamese)</li>
+<li>हिन्दी (Hindi)</li>
+<li>Slovenčina (Slovak)</li>
+<li>Čeština (Czech)</li>
 </ul>
 
 <h2>Self-hosted option</h2>
@@ -902,7 +908,7 @@ PAGES = {
 </ul>
 
 <h2>Unterstützte Sprachen</h2>
-<p>Jedes Tool ist in neun Sprachen übersetzt, damit Schülerinnen und Schüler in ihrer Erstsprache arbeiten können:</p>
+<p>Jedes Tool ist in 15 Sprachen übersetzt, damit Schülerinnen und Schüler in ihrer Erstsprache arbeiten können:</p>
 <ul>
 <li>English</li>
 <li>Deutsch</li>
@@ -913,6 +919,12 @@ PAGES = {
 <li>Polski (Polnisch)</li>
 <li>日本語 (Japanisch)</li>
 <li>Nederlands (Niederländisch)</li>
+<li>Türkçe (Türkisch)</li>
+<li>Bahasa Indonesia (Indonesisch)</li>
+<li>Tiếng Việt (Vietnamesisch)</li>
+<li>हिन्दी (Hindi)</li>
+<li>Slovenčina (Slowakisch)</li>
+<li>Čeština (Tschechisch)</li>
 </ul>
 
 <h2>Self-Hosting-Option</h2>
@@ -953,7 +965,7 @@ PAGES = {
 </ul>
 
 <h2>Idiomas disponibles</h2>
-<p>Cada herramienta está traducida a nueve idiomas para que los estudiantes puedan trabajar en su lengua materna:</p>
+<p>Cada herramienta está traducida a 15 idiomas para que los estudiantes puedan trabajar en su lengua materna:</p>
 <ul>
 <li>English (inglés)</li>
 <li>Deutsch (alemán)</li>
@@ -964,6 +976,12 @@ PAGES = {
 <li>Polski (polaco)</li>
 <li>日本語 (japonés)</li>
 <li>Nederlands (neerlandés)</li>
+<li>Türkçe (turco)</li>
+<li>Bahasa Indonesia (indonesio)</li>
+<li>Tiếng Việt (vietnamita)</li>
+<li>हिन्दी (hindi)</li>
+<li>Slovenčina (eslovaco)</li>
+<li>Čeština (checo)</li>
 </ul>
 
 <h2>Opción de alojamiento propio</h2>
@@ -1004,7 +1022,7 @@ PAGES = {
 </ul>
 
 <h2>Langues supportées</h2>
-<p>Chaque outil est traduit dans neuf langues, pour que les élèves puissent travailler dans leur première langue :</p>
+<p>Chaque outil est traduit dans 15 langues, pour que les élèves puissent travailler dans leur première langue :</p>
 <ul>
 <li>English (anglais)</li>
 <li>Deutsch (allemand)</li>
@@ -1015,6 +1033,12 @@ PAGES = {
 <li>Polski (polonais)</li>
 <li>日本語 (japonais)</li>
 <li>Nederlands (néerlandais)</li>
+<li>Türkçe (turc)</li>
+<li>Bahasa Indonesia (indonésien)</li>
+<li>Tiếng Việt (vietnamien)</li>
+<li>हिन्दी (hindi)</li>
+<li>Slovenčina (slovaque)</li>
+<li>Čeština (tchèque)</li>
 </ul>
 
 <h2>Auto-hébergement</h2>
@@ -1055,7 +1079,7 @@ PAGES = {
 </ul>
 
 <h2>Lingue supportate</h2>
-<p>Ogni strumento è tradotto in nove lingue, così gli studenti possono lavorare nella loro prima lingua:</p>
+<p>Ogni strumento è tradotto in 15 lingue, così gli studenti possono lavorare nella loro prima lingua:</p>
 <ul>
 <li>English (inglese)</li>
 <li>Deutsch (tedesco)</li>
@@ -1066,6 +1090,12 @@ PAGES = {
 <li>Polski (polacco)</li>
 <li>日本語 (giapponese)</li>
 <li>Nederlands (olandese)</li>
+<li>Türkçe (turco)</li>
+<li>Bahasa Indonesia (indonesiano)</li>
+<li>Tiếng Việt (vietnamita)</li>
+<li>हिन्दी (hindi)</li>
+<li>Slovenčina (slovacco)</li>
+<li>Čeština (ceco)</li>
 </ul>
 
 <h2>Opzione self-hosted</h2>
@@ -1106,7 +1136,7 @@ PAGES = {
 </ul>
 
 <h2>Idiomas suportados</h2>
-<p>Cada ferramenta está traduzida pra nove idiomas, pra que os alunos possam trabalhar na própria língua:</p>
+<p>Cada ferramenta está traduzida pra 15 idiomas, pra que os alunos possam trabalhar na própria língua:</p>
 <ul>
 <li>English (inglês)</li>
 <li>Deutsch (alemão)</li>
@@ -1117,6 +1147,12 @@ PAGES = {
 <li>Polski (polonês)</li>
 <li>日本語 (japonês)</li>
 <li>Nederlands (holandês)</li>
+<li>Türkçe (turco)</li>
+<li>Bahasa Indonesia (indonésio)</li>
+<li>Tiếng Việt (vietnamita)</li>
+<li>हिन्दी (hindi)</li>
+<li>Slovenčina (eslovaco)</li>
+<li>Čeština (tcheco)</li>
 </ul>
 
 <h2>Opção self-hosted</h2>
@@ -1157,7 +1193,7 @@ PAGES = {
 </ul>
 
 <h2>Wspierane języki</h2>
-<p>Każde narzędzie jest przetłumaczone na dziewięć języków, żeby uczniowie mogli pracować w swoim pierwszym języku:</p>
+<p>Każde narzędzie jest przetłumaczone na 15 języków, żeby uczniowie mogli pracować w swoim pierwszym języku:</p>
 <ul>
 <li>English (angielski)</li>
 <li>Deutsch (niemiecki)</li>
@@ -1168,6 +1204,12 @@ PAGES = {
 <li>Polski</li>
 <li>日本語 (japoński)</li>
 <li>Nederlands (niderlandzki)</li>
+<li>Türkçe (turecki)</li>
+<li>Bahasa Indonesia (indonezyjski)</li>
+<li>Tiếng Việt (wietnamski)</li>
+<li>हिन्दी (hindi)</li>
+<li>Slovenčina (słowacki)</li>
+<li>Čeština (czeski)</li>
 </ul>
 
 <h2>Opcja self-hostingu</h2>
@@ -1208,7 +1250,7 @@ PAGES = {
 </ul>
 
 <h2>対応言語</h2>
-<p>各ツールは 9 つの言語に翻訳されているので、生徒が自分の第一言語で作業できます：</p>
+<p>各ツールは 15 言語に翻訳されているので、生徒が自分の第一言語で作業できます：</p>
 <ul>
 <li>English（英語）</li>
 <li>Deutsch（ドイツ語）</li>
@@ -1219,6 +1261,12 @@ PAGES = {
 <li>Polski（ポーランド語）</li>
 <li>日本語</li>
 <li>Nederlands（オランダ語）</li>
+<li>Türkçe（トルコ語）</li>
+<li>Bahasa Indonesia（インドネシア語）</li>
+<li>Tiếng Việt（ベトナム語）</li>
+<li>हिन्दी（ヒンディー語）</li>
+<li>Slovenčina（スロバキア語）</li>
+<li>Čeština（チェコ語）</li>
 </ul>
 
 <h2>セルフホストという選択肢</h2>
@@ -1259,7 +1307,7 @@ PAGES = {
 </ul>
 
 <h2>Ondersteunde talen</h2>
-<p>Elke tool is vertaald naar negen talen, zodat leerlingen in hun eerste taal kunnen werken:</p>
+<p>Elke tool is vertaald naar 15 talen, zodat leerlingen in hun eerste taal kunnen werken:</p>
 <ul>
 <li>English (Engels)</li>
 <li>Deutsch (Duits)</li>
@@ -1270,6 +1318,12 @@ PAGES = {
 <li>Polski (Pools)</li>
 <li>日本語 (Japans)</li>
 <li>Nederlands</li>
+<li>Türkçe (Turks)</li>
+<li>Bahasa Indonesia (Indonesisch)</li>
+<li>Tiếng Việt (Vietnamees)</li>
+<li>हिन्दी (Hindi)</li>
+<li>Slovenčina (Slowaaks)</li>
+<li>Čeština (Tsjechisch)</li>
 </ul>
 
 <h2>Self-hosted optie</h2>
@@ -1310,7 +1364,7 @@ PAGES = {
 </ul>
 
 <h2>Desteklenen diller</h2>
-<p>Öğrencilerin ana dillerinde çalışabilmesi için her araç on dile çevrildi:</p>
+<p>Öğrencilerin ana dillerinde çalışabilmesi için her araç 15 dile çevrildi:</p>
 <ul>
 <li>English (İngilizce)</li>
 <li>Deutsch (Almanca)</li>
@@ -1322,6 +1376,11 @@ PAGES = {
 <li>日本語 (Japonca)</li>
 <li>Nederlands (Felemenkçe)</li>
 <li>Türkçe</li>
+<li>Bahasa Indonesia (Endonezce)</li>
+<li>Tiếng Việt (Vietnamca)</li>
+<li>हिन्दी (Hintçe)</li>
+<li>Slovenčina (Slovakça)</li>
+<li>Čeština (Çekçe)</li>
 </ul>
 
 <h2>Self-hosted seçeneği</h2>
@@ -1362,7 +1421,7 @@ PAGES = {
 </ul>
 
 <h2>Bahasa yang didukung</h2>
-<p>Setiap alat diterjemahkan ke sebelas bahasa supaya siswa bisa bekerja dalam bahasa ibu mereka:</p>
+<p>Setiap alat diterjemahkan ke 15 bahasa supaya siswa bisa bekerja dalam bahasa ibu mereka:</p>
 <ul>
 <li>English (Inggris)</li>
 <li>Deutsch (Jerman)</li>
@@ -1375,6 +1434,10 @@ PAGES = {
 <li>Nederlands (Belanda)</li>
 <li>Türkçe (Turki)</li>
 <li>Bahasa Indonesia</li>
+<li>Tiếng Việt (Vietnam)</li>
+<li>हिन्दी (Hindi)</li>
+<li>Slovenčina (Slowakia)</li>
+<li>Čeština (Ceko)</li>
 </ul>
 
 <h2>Opsi self-hosted</h2>
@@ -1415,7 +1478,7 @@ PAGES = {
 </ul>
 
 <h2>Ngôn ngữ được hỗ trợ</h2>
-<p>Mỗi công cụ được dịch sang mười hai ngôn ngữ để học sinh có thể làm việc bằng tiếng mẹ đẻ:</p>
+<p>Mỗi công cụ được dịch sang 15 ngôn ngữ để học sinh có thể làm việc bằng tiếng mẹ đẻ:</p>
 <ul>
 <li>English (Anh)</li>
 <li>Deutsch (Đức)</li>
@@ -1429,6 +1492,9 @@ PAGES = {
 <li>Türkçe (Thổ Nhĩ Kỳ)</li>
 <li>Bahasa Indonesia</li>
 <li>Tiếng Việt</li>
+<li>हिन्दी (Hindi)</li>
+<li>Slovenčina (Slovak)</li>
+<li>Čeština (Séc)</li>
 </ul>
 
 <h2>Tùy chọn self-host</h2>
@@ -1583,7 +1649,7 @@ PAGES = {
 </ul>
 
 <h2>समर्थित भाषाएँ</h2>
-<p>हर tool तेरह भाषाओं में अनुवादित है ताकि छात्र अपनी मातृभाषा में काम कर सकें:</p>
+<p>हर tool 15 भाषाओं में अनुवादित है ताकि छात्र अपनी मातृभाषा में काम कर सकें:</p>
 <ul>
 <li>English (अंग्रेज़ी)</li>
 <li>Deutsch (जर्मन)</li>
@@ -1598,6 +1664,8 @@ PAGES = {
 <li>Bahasa Indonesia (इंडोनेशियाई)</li>
 <li>Tiếng Việt (वियतनामी)</li>
 <li>हिन्दी (Hindi)</li>
+<li>Slovenčina (स्लोवाक)</li>
+<li>Čeština (चेक)</li>
 </ul>
 
 <h2>Self-hosted विकल्प</h2>

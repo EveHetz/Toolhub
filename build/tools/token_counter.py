@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "token-counter",
-    "category": "developer",
+    "category": "ai",
     "icon": "🔢",
     "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"],
     "i18n": {

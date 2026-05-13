@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "jsonl-viewer",
-    "category": "data",
+    "category": "ai",
     "icon": "📃",
     "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"],
     "i18n": {

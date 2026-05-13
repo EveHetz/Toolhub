@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "json-schema-to-pydantic",
-    "category": "developer",
+    "category": "ai",
     "icon": "🔄",
     "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"],
     "i18n": {

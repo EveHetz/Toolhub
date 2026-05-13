@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Uitgelichte bestemmingen">
+    <a href="/nl/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Voor scholen & docenten</h3>
+        <p>Gratis, advertentievrij, privacy-first. Self-host. 15 talen.</p>
+      </div>
+    </a>
+    <a href="/nl/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Aanvullende tools</h3>
+        <p>Host-side security utilities — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Zoek tools…  (/ om te focussen)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                                                                            const TOOLS = [
+                                                                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII-tabel", "desc": "Volledige ASCII-referentie 0–127 met decimaal, hex, binair, teken en HTML-entiteit. Filterbaar.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Codeer tekst naar Base64 of decodeer Base64 terug naar tekst. UTF-8 safe met base64url-variant.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 naar afbeelding", "desc": "Decodeer een Base64-afbeelding of data URI terug naar een bestand. Plak de string, bekijk preview, download. De inverse van onze afbeelding-naar-Base64 tool.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON Diff", "desc": "Structurele diff voor twee JSON-documenten — keys toegevoegd, verwijderd, gewijzigd en waarde-wijzigingen naast elkaar getoond.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON Formatter", "desc": "Formatteer, valideer en minify JSON direct. Errors gehighlight met regel en kolom.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath Tester", "desc": "Voer JSONPath-queries uit op elk JSON-document. Zie matched nodes en hun paden real-time.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Converteer JSON Schema naar Pydantic v2 modelcode, in je browser. Plak schema, krijg een ready-to-paste Python class. Handig voor LLM structured-output workflows.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Converteer JSON Schema naar Pydantic v2 modelcode, in je browser. Plak schema, krijg een ready-to-paste Python class. Handig voor LLM structured-output workflows.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON naar CSV", "desc": "Converteer JSON-arrays van objects naar CSV. Detecteert velden automatisch, ondersteunt custom delimiters, escapet correct voor Excel en Google Sheets.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Bekijk JSONL (newline-delimited JSON)-bestanden in een gepagineerde tabel. Plak duizenden regels, zoek, filter, expand individuele records. Bestanden verlaten je browser nooit.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Bekijk JSONL (newline-delimited JSON)-bestanden in een gepagineerde tabel. Plak duizenden regels, zoek, filter, expand individuele records. Bestanden verlaten je browser nooit.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "Plak een JWT om header en payload te decoderen. Alle decodering draait in je browser — tokens verlaten de pagina nooit.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Lesvoorbereiding-template", "desc": "Genereer een gestructureerde lesvoorbereiding vanuit een invulformulier. Standaard secties (doelen, materialen, fasen, toetsing, reflectie). Markdown + printbare HTML.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Lening-calculator", "desc": "Bereken maandlast, totale rente en volledig aflossingsschema voor elke lening. Vaste rente, annuïteit. Alleen browser.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "Wachtwoord-generator", "desc": "Sterke random wachtwoorden of memorabele passphrases. Lokaal gegenereerd — nergens heen gestuurd.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Percentage-calculator", "desc": "Vijf percentage-calculators in één: of, hoeveel %, increase/decrease, change en tip/tax.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Placeholder Image Generator", "desc": "Genereer inline-SVG placeholder images op elke size met custom tekst en kleuren. Output als data URI of downloadbaar SVG.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Vergelijk twee prompts (of twee versies van een prompt) naast elkaar. Line-level diff met gemarkeerde wijzigingen. Ontworpen voor het itereren op LLM-prompts.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Vergelijk twee prompts (of twee versies van een prompt) naast elkaar. Line-level diff met gemarkeerde wijzigingen. Ontworpen voor het itereren op LLM-prompts.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "QR Code Generator", "desc": "Genereer QR codes voor elke tekst, URL, Wi-Fi of vCard. Custom size, kleuren en error correction. Export PNG of SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Query String Builder", "desc": "Voeg key/value-rijen toe; krijg een correct URL-encoded query-string. Ondersteunt array (a[]=1) en bracket-loze herhaalde keys.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Leesbaarheids-checker", "desc": "Bereken Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG en Coleman-Liau op je tekst. Spot dichte paragrafen, mik op het juiste leesniveau.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Regex Spiekbrief", "desc": "Snelle referentie: anchors, character classes, quantifiers, groups, lookarounds, flags. Klik elk patroon om te kopiëren.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Regex LLM Output Extractor", "desc": "Extraheer gestructureerde data (JSON, codeblokken, key-value-paren) uit rommelige LLM-responses. Kies uit gangbare templates of schrijf je eigen regex. Live preview.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Regex LLM Output Extractor", "desc": "Extraheer gestructureerde data (JSON, codeblokken, key-value-paren) uit rommelige LLM-responses. Kies uit gangbare templates of schrijf je eigen regex. Live preview.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex Tester", "desc": "Test JavaScript regular expressions live. Zie matches, capture groups, en pas replacements toe terwijl je typt.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Beoordelingsmatrix-generator", "desc": "Genereer printklare beoordelingsmatrices (markdown + HTML-preview + printweergave) op basis van criteria en prestatieniveaus. Voor docenten die toetsen plannen.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Slug Generator", "desc": "Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL Formatter", "desc": "Formatteer en beautify SQL met goede indentatie, of minify naar een enkele regel. Dialect-aware (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "SVG-optimizer", "desc": "Minify SVG-bestanden direct in je browser. Verwijdert commentaar, nutteloze whitespace, default attributen en rondt lange decimalen af. Bestand verlaat je apparaat nooit.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Analyseert een system prompt op veelvoorkomende problemen: vage instructies, conflicterende regels, ontbrekende voorbeelden, opgeblazen context. Heuristisch, uitgesproken, snel.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Analyseert een system prompt op veelvoorkomende problemen: vage instructies, conflicterende regels, ontbrekende voorbeelden, opgeblazen context. Heuristisch, uitgesproken, snel.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Text Diff", "desc": "Vergelijk twee blokken tekst en zie regel-voor-regel additions, removals en unchanged context. Side-by-side of unified view.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Unix Timestamp Converter", "desc": "Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Tijdzone-converter", "desc": "Converteer een datum en tijd tussen IANA-tijdzones. Zie offsets, DST-status en weekdag voor beide kanten.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Tip & Split Calculator", "desc": "Rekeningtotaal + tip % + personen = per-persoon bedrag. Round-up optie, tip en grand total getoond.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Token Counter", "desc": "Schat tokens voor GPT-4, Claude, Llama, Gemini en andere LLM's. Plak tekst, zie tellingen per model naast elkaar. Files verlaten je browser nooit.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Token Counter", "desc": "Schat tokens voor GPT-4, Claude, Llama, Gemini en andere LLM's. Plak tekst, zie tellingen per model naast elkaar. Files verlaten je browser nooit.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Unicode Inspector", "desc": "Plak tekst → tabel van elke code point. Hex, decimaal, UTF-8 bytes, categorie. Spot onzichtbare tekens.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Unit Converter", "desc": "Converteer tussen metrische en imperiale eenheden van lengte, gewicht, temperatuur, volume en oppervlakte.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Percent-encode strings voor URLs of decodeer percent-encoded strings terug naar plain text.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "Alle";
     const HERO_SUB_POST = "tools — snel, privé, geen registratie. Direct te gebruiken.";
-    const CAT_LABELS = {"developer": "Developer", "text": "Tekst", "encoding": "Encoding", "data": "Data", "security": "Beveiliging", "media": "Media", "validation": "Validatie", "design": "Design", "datetime": "Datum & tijd", "math": "Wiskunde"};
+    const CAT_LABELS = {"ai": "AI", "developer": "Developer", "text": "Tekst", "encoding": "Encoding", "data": "Data", "security": "Beveiliging", "media": "Media", "validation": "Validatie", "design": "Design", "datetime": "Datum & tijd", "math": "Wiskunde"};
 
     function renderFilters() {
       const counts = {};

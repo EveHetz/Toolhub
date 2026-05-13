@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "system-prompt-linter",
-    "category": "text",
+    "category": "ai",
     "icon": "🩺",
     "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"],
     "i18n": {

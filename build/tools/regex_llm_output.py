@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "regex-llm-output",
-    "category": "developer",
+    "category": "ai",
     "icon": "🪝",
     "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"],
     "i18n": {
@@ -88,7 +88,7 @@ TOOL = {
 ```json
 {
   "title": "Toolhub",
-  "category": "developer-tools",
+  "category": "ai",
   "languages": 15,
   "tools": 76
 }

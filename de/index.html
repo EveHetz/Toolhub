@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Empfohlene Bereiche">
+    <a href="/de/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Für Schulen & Lehrkräfte</h3>
+        <p>Kostenlos, werbefrei, datenschutzfreundlich. Self-host. 15 Sprachen.</p>
+      </div>
+    </a>
+    <a href="/de/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Begleit-Tools</h3>
+        <p>Host-Sicherheits-Tools — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Tools suchen…  (Taste / drücken)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                                                                                                                const TOOLS = [
+                                                                                                                                                                                    const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII-Tabelle", "desc": "Vollständige ASCII-Referenz 0–127 mit Dezimal, Hex, Binär, Zeichen und HTML-Entität. Filterbar.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Text in Base64 codieren oder Base64 in Text decodieren. UTF-8-sicher und base64url-Variante.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 zu Bild", "desc": "Ein Base64-Bild oder Data URI zurück in eine Datei dekodieren. String einfügen, Vorschau, herunterladen. Die Umkehr unseres Bild-zu-Base64-Tools.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON-Diff", "desc": "Strukturelles Diff zweier JSON-Dokumente — hinzugefügte, entfernte und geänderte Schlüssel und Werte nebeneinander.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON-Formatter", "desc": "JSON sofort formatieren, validieren und minimieren. Fehler werden mit Zeile und Spalte hervorgehoben.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath-Tester", "desc": "Führe JSONPath-Abfragen gegen JSON-Dokumente aus. Sieh Treffer und Pfade in Echtzeit.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON-Schema → Pydantic", "desc": "Wandle JSON Schema in Pydantic-v2-Modellcode um, direkt im Browser. Schema einfügen, fertige Python-Klasse erhalten. Nützlich für LLM-Structured-Output.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON-Schema → Pydantic", "desc": "Wandle JSON Schema in Pydantic-v2-Modellcode um, direkt im Browser. Schema einfügen, fertige Python-Klasse erhalten. Nützlich für LLM-Structured-Output.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON zu CSV", "desc": "Konvertiere JSON-Arrays von Objekten zu CSV. Auto-Felderkennung, eigene Trennzeichen, Excel- und Google-Sheets-kompatibel.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL-Viewer", "desc": "JSONL-Dateien (zeilengetrenntes JSON) in einer paginierten Tabelle anzeigen. Bis zu tausende Zeilen einfügen, durchsuchen, filtern, einzelne Records aufklappen. Dateien verlassen den Browser nie.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL-Viewer", "desc": "JSONL-Dateien (zeilengetrenntes JSON) in einer paginierten Tabelle anzeigen. Bis zu tausende Zeilen einfügen, durchsuchen, filtern, einzelne Records aufklappen. Dateien verlassen den Browser nie.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT-Decoder", "desc": "JWT einfügen, um Header und Payload zu dekodieren. Alles läuft im Browser — Tokens verlassen die Seite nicht.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Unterrichtsentwurf-Vorlage", "desc": "Strukturierten Unterrichtsentwurf aus einem Formular erzeugen. Standardabschnitte (Ziele, Material, Phasen, Bewertung, Reflexion). Markdown + druckbare HTML-Ansicht.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Kreditrechner", "desc": "Monatsrate, Gesamtzinsen und kompletten Tilgungsplan für jeden Kredit berechnen. Festzinssatz, Annuitätenkredit. Nur Browser.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "Passwort-Generator", "desc": "Sichere Zufallspasswörter oder einprägsame Passphrasen. Lokal erzeugt – wird nie übertragen.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Prozentrechner", "desc": "Fünf Prozent-Rechner in einem: von, wie viel %, Zunahme/Abnahme, Änderung und Trinkgeld/Steuer.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Platzhalter-Bild-Generator", "desc": "Inline-SVG-Platzhalterbilder in beliebiger Größe mit eigenem Text und Farben. Als Data-URI oder SVG-Download.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Prompt-Diff", "desc": "Vergleiche zwei Prompts (oder zwei Versionen eines Prompts) Seite an Seite. Zeilen-Diff mit hervorgehobenen Änderungen. Für Iteration an LLM-Prompts.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Prompt-Diff", "desc": "Vergleiche zwei Prompts (oder zwei Versionen eines Prompts) Seite an Seite. Zeilen-Diff mit hervorgehobenen Änderungen. Für Iteration an LLM-Prompts.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "QR-Code-Generator", "desc": "Erzeuge QR-Codes für Text, URLs, WLAN oder vCards. Größe, Farben und Fehlerkorrektur einstellbar. Export als PNG oder SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Query-String-Builder", "desc": "Schlüssel/Wert-Zeilen hinzufügen; korrekt URL-codierten Query-String erhalten. Unterstützt Arrays (a[]=1) und wiederholte Schlüssel.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Lesbarkeits-Prüfer", "desc": "Berechne Flesch Reading Ease, Flesch-Kincaid-Klasse, Gunning Fog, SMOG und Coleman-Liau für deinen Text. Erkenne dichte Absätze, ziele auf die richtige Klassenstufe.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Regex-Spickzettel", "desc": "Schnellreferenz: Anker, Zeichenklassen, Quantoren, Gruppen, Lookarounds, Flags. Muster zum Kopieren anklicken.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Regex LLM-Output-Extraktor", "desc": "Extrahiere strukturierte Daten (JSON, Code-Blöcke, Key-Value-Paare) aus unsauberen LLM-Antworten. Wähle aus gängigen Vorlagen oder schreib eigene Regex. Live-Vorschau.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Regex LLM-Output-Extraktor", "desc": "Extrahiere strukturierte Daten (JSON, Code-Blöcke, Key-Value-Paare) aus unsauberen LLM-Antworten. Wähle aus gängigen Vorlagen oder schreib eigene Regex. Live-Vorschau.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex-Tester", "desc": "JavaScript-Regex live testen. Treffer, Gruppen und Ersetzungen werden beim Tippen angezeigt.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Bewertungsraster-Generator", "desc": "Druckfertige Bewertungsraster (Markdown + HTML-Vorschau + Druckansicht) aus Kriterien und Leistungsstufen erstellen. Für Lehrkräfte gemacht.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Slug-Generator", "desc": "Wandle jeden Titel in einen sauberen URL-Slug um — transliteriert Akzente, entfernt Satzzeichen, verbindet mit Bindestrichen.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL-Formatierer", "desc": "SQL formatieren und einrücken oder zu einer Zeile minimieren. Dialekt-bewusst (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "SVG-Optimierer", "desc": "SVG-Dateien im Browser minifizieren. Entfernt Kommentare, überflüssige Leerzeichen, Standard-Attribute und rundet lange Dezimalzahlen. Datei verlässt dein Gerät nie.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "System-Prompt-Linter", "desc": "Analysiert einen System-Prompt auf häufige Probleme: vage Anweisungen, widersprüchliche Regeln, fehlende Beispiele, übergroßer Kontext. Heuristisch, meinungsstark, schnell.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "System-Prompt-Linter", "desc": "Analysiert einen System-Prompt auf häufige Probleme: vage Anweisungen, widersprüchliche Regeln, fehlende Beispiele, übergroßer Kontext. Heuristisch, meinungsstark, schnell.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Text-Diff", "desc": "Vergleiche zwei Textblöcke und sieh zeilenweise Ergänzungen, Löschungen und Kontext. Side-by-side oder unified.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Unix-Zeitstempel-Konverter", "desc": "Konvertiere zwischen Unix-Zeitstempeln und lesbarem Datum. Sekunden und Millisekunden, UTC und lokal.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Zeitzonen-Konverter", "desc": "Konvertiere Datum und Uhrzeit zwischen IANA-Zeitzonen. Mit Offsets, Sommerzeit und Wochentag.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Trinkgeld- & Aufteilen-Rechner", "desc": "Rechnung + Trinkgeld-% + Personen = Betrag pro Person. Aufrunden möglich, Trinkgeld und Gesamtsumme angezeigt.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Token-Zähler", "desc": "Schätze Token-Anzahl für GPT-4, Claude, Llama, Gemini und andere LLMs. Text einfügen, Zählung pro Modell nebeneinander sehen. Dateien verlassen den Browser nicht.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Token-Zähler", "desc": "Schätze Token-Anzahl für GPT-4, Claude, Llama, Gemini und andere LLMs. Text einfügen, Zählung pro Modell nebeneinander sehen. Dateien verlassen den Browser nicht.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Unicode-Inspektor", "desc": "Text einfügen → Tabelle jedes Code-Points. Hex, Dezimal, UTF-8-Bytes, Kategorie. Unsichtbare Zeichen sichtbar machen.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Einheitenrechner", "desc": "Konvertiere zwischen metrischen und imperialen Einheiten für Länge, Gewicht, Temperatur, Volumen und Fläche.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Strings für URLs prozent-codieren oder zurück in Klartext decodieren.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "Alle";
     const HERO_SUB_POST = "Tools — schnell, privat, ohne Anmeldung.";
-    const CAT_LABELS = {"developer": "Entwickler", "text": "Text", "encoding": "Kodierung", "data": "Daten", "security": "Sicherheit", "media": "Medien", "validation": "Validierung", "design": "Design", "datetime": "Datum &amp; Zeit", "math": "Mathe"};
+    const CAT_LABELS = {"ai": "KI", "developer": "Entwickler", "text": "Text", "encoding": "Kodierung", "data": "Daten", "security": "Sicherheit", "media": "Medien", "validation": "Validierung", "design": "Design", "datetime": "Datum &amp; Zeit", "math": "Mathe"};
 
     function renderFilters() {
       const counts = {};

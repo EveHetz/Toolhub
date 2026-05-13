@@ -1,6 +1,6 @@
 # Toolhub
 
-> 60 free developer tools. 9 languages. No signup. No tracking. Open source.
+> 88 free developer tools. 15 languages. No signup. No tracking. Open source.
 
 **Live at:** [toolhub.software](https://toolhub.software)
 
@@ -8,14 +8,14 @@
 
 ## What is this
 
-A static site of 60 self-contained developer utilities — JSON formatter, regex tester, JWT decoder, CIDR calculator, password generator, base64 encoder, hash generator, cron builder, and ~52 more. Everything runs entirely in your browser. Nothing is uploaded.
+A static site of 88 self-contained developer utilities — JSON formatter, regex tester, JWT decoder, CIDR calculator, password generator, base64 encoder, hash generator, cron builder, and ~80 more. Everything runs entirely in your browser. Nothing is uploaded.
 
 Built as the alternative to the typical "free X tool" sites that are ad-laden, popup-ridden, and quietly route your inputs through third-party trackers.
 
 ## What's in it
 
-- **60 tools** across developer / design / text / math / data / encoding / datetime / security / media / validation / utility categories
-- **9 languages** (en, de, es, fr, it, pt-BR, pl, ja, nl) — proper translations, not auto-MT, with localized help blocks (3 sub-sections per tool)
+- **88 tools** across developer / AI / design / text / math / data / encoding / datetime / security / media / validation / utility categories
+- **15 languages** (en, de, es, fr, it, pt, pl, ja, nl, tr, id, vi, hi, sk, cs) — proper translations, not auto-MT, with localized help blocks (3 sub-sections per tool)
 - **Privacy-first** — no signup, no accounts, no third-party trackers, no remote tool execution
 - **PWA** — works offline once cached, installable as an app
 - **Schema-rich** — every tool ships with SoftwareApplication, WebApplication, BreadcrumbList, FAQPage, and (for procedural tools) HowTo structured data for SERP rich snippets
@@ -27,7 +27,7 @@ Built as the alternative to the typical "free X tool" sites that are ad-laden, p
 ```
 build/
 ├── template.html         # single tool-page template with {{PLACEHOLDER}} tokens
-├── i18n.py               # UI string translations (9 langs)
+├── i18n.py               # UI string translations (15 langs)
 ├── pages.py              # non-tool static pages (about, contact, privacy, etc.)
 ├── tools/                # one Python manifest per tool — TOOL dict export
 │   ├── json_formatter.py
@@ -56,7 +56,7 @@ bin/addtool my-new-tool --cat developer --icon "🔧"
 
 Generate per-tool og-images after content changes:
 ```bash
-bin/gen-og-images           # regenerate all 60 + the base image
+bin/gen-og-images           # regenerate all 88 + the base image
 bin/gen-og-images --only <slug>
 ```
 
@@ -65,13 +65,15 @@ bin/gen-og-images --only <slug>
 ```python
 TOOL = {
     "slug": "kebab-case",
-    "category": "developer|design|encoding|datetime|math|text|media|validation|utility|data",
+    "category": "developer|ai|design|encoding|datetime|math|text|media|validation|utility|data",
     "icon": "emoji or short symbol",
     "tags": [...],
     "i18n": {
         "en": {"name": ..., "tagline": ..., "description": ...},
         "de": {...}, "es": {...}, "fr": {...}, "it": {...},
         "pt": {...}, "pl": {...}, "ja": {...}, "nl": {...},
+        "tr": {...}, "id": {...}, "vi": {...}, "hi": {...},
+        "sk": {...}, "cs": {...},
     },
     "body": "<HTML for the tool UI — use {LBL_*} placeholders>",
     "script": "<script>...</script>",
@@ -84,7 +86,7 @@ TOOL = {
 }
 ```
 
-A build-time assertion fails if any tool or UI key is missing a language. That's how the catalogue stays consistent across 9 langs.
+A build-time assertion fails if any tool or UI key is missing a language. That's how the catalogue stays consistent across 15 langs.
 
 ## Deploy
 
@@ -124,9 +126,9 @@ MIT. See [LICENSE](LICENSE).
 
 ## Stats
 
-- 60 tools
-- 9 languages (en, de, es, fr, it, pt-BR, pl, ja, nl)
-- 540 tool pages + 54 static pages = ~604 sitemap URLs
+- 88 tools
+- 15 languages (en, de, es, fr, it, pt, pl, ja, nl, tr, id, vi, hi, sk, cs)
+- 1320 tool pages + 90 static pages = ~1420 sitemap URLs
 - Total site size: ~5 MB
 - Per-page weight: 17-29 KB
 

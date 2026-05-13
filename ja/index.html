@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="おすすめ">
+    <a href="/ja/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>学校・先生向け</h3>
+        <p>無料・広告なし・プライバシー重視。セルフホスト可。15言語。</p>
+      </div>
+    </a>
+    <a href="/ja/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>コンパニオンツール</h3>
+        <p>ホスト側セキュリティ — skill-scanner と sentinel。</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="ツールを検索…  (/ キーでフォーカス)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                                                                            const TOOLS = [
+                                                                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 から画像へ", "desc": "Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON 差分", "desc": "2 つの JSON ドキュメントの構造的差分 — 追加・削除・変更されたキーと値の変化を並べて表示。", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON フォーマッター", "desc": "JSON を即座に整形・検証・圧縮。エラー位置を行と列でハイライト。", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath テスター", "desc": "任意の JSON ドキュメントに JSONPath クエリを実行。マッチしたノードとパスをリアルタイムで表示。", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "ブラウザ内で JSON Schema を Pydantic v2 のモデルコードに変換。スキーマを貼ると、貼り付けられる Python クラスがそのまま得られます。LLM の構造化出力ワークフローに便利。", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "ブラウザ内で JSON Schema を Pydantic v2 のモデルコードに変換。スキーマを貼ると、貼り付けられる Python クラスがそのまま得られます。LLM の構造化出力ワークフローに便利。", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON から CSV", "desc": "JSON のオブジェクト配列を CSV に変換。フィールド自動検出、カスタム区切り、Excel・Google Sheets 向けに正しくエスケープ。", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL ビューア", "desc": "JSONL（改行区切り JSON）ファイルをページ送りテーブルで表示。最大数千行を貼り付け、検索・フィルタ・個別レコードの展開が可能。ファイルがブラウザを出ることはありません。", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL ビューア", "desc": "JSONL（改行区切り JSON）ファイルをページ送りテーブルで表示。最大数千行を貼り付け、検索・フィルタ・個別レコードの展開が可能。ファイルがブラウザを出ることはありません。", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT デコーダー", "desc": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "学習指導案テンプレート", "desc": "フォームから構造化された学習指導案を生成。標準セクション（目標／教材／指導過程／評価／振り返り）を網羅。Markdown と印刷可能な HTML 出力。", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "ローン計算機", "desc": "任意のローンの月々返済額、総利息、完全な償却スケジュールを計算。固定金利、元利均等。ブラウザのみ。", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "パスワード生成ツール", "desc": "強力なランダムパスワード、または覚えやすいパスフレーズを生成。ローカル動作で送信されません。", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "パーセンテージ計算機", "desc": "5 つの百分率計算をひとつに：%、何%、増加／減少、変化、チップ／税。", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "プレースホルダー画像ジェネレーター", "desc": "任意のサイズで、テキストや色をカスタムしたインライン SVG プレースホルダー画像を生成。data URI または SVG ダウンロードで出力。", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "プロンプト Diff", "desc": "2 つのプロンプト（または同じプロンプトの 2 バージョン）を並べて比較。行単位の差分を赤／緑でハイライト。LLM プロンプト改良用。", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "プロンプト Diff", "desc": "2 つのプロンプト（または同じプロンプトの 2 バージョン）を並べて比較。行単位の差分を赤／緑でハイライト。LLM プロンプト改良用。", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "QR コードジェネレーター", "desc": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "クエリ文字列ビルダー", "desc": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "可読性チェッカー", "desc": "Flesch Reading Ease、Flesch-Kincaid Grade、Gunning Fog、SMOG、Coleman-Liau を計算。密度の高い段落を発見し、対象学年に合わせて調整。", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "正規表現チートシート", "desc": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "正規表現 LLM 出力抽出ツール", "desc": "雑な LLM 応答から構造化データ（JSON・コードブロック・key-value）を抽出。よくあるテンプレートから選ぶか、独自の正規表現を書く。ライブプレビュー付き。", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "正規表現 LLM 出力抽出ツール", "desc": "雑な LLM 応答から構造化データ（JSON・コードブロック・key-value）を抽出。よくあるテンプレートから選ぶか、独自の正規表現を書く。ライブプレビュー付き。", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "正規表現テスター", "desc": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "評価ルーブリック生成ツール", "desc": "評価基準とパフォーマンスレベルから印刷可能なルーブリック（Markdown ＋ HTML プレビュー ＋ 印刷ビュー）を作成。授業の評価設計を行う先生向け。", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "スラグ生成ツール", "desc": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL フォーマッター", "desc": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "SVG オプティマイザー", "desc": "SVG ファイルをブラウザだけで圧縮。コメント・無駄な空白・デフォルト属性を削除し、長い小数を丸めます。ファイルは端末から出ません。", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "システムプロンプト Linter", "desc": "システムプロンプトをよくある問題で点検：曖昧な指示、矛盾するルール、例示の欠如、肥大化したコンテキスト。ヒューリスティック、辛口、高速。", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "システムプロンプト Linter", "desc": "システムプロンプトをよくある問題で点検：曖昧な指示、矛盾するルール、例示の欠如、肥大化したコンテキスト。ヒューリスティック、辛口、高速。", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "テキスト差分", "desc": "2 つのテキストブロックを比較し、行単位で追加・削除・変更されない部分を表示。並列または統合表示。", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Unix タイムスタンプ変換", "desc": "Unix タイムスタンプと人間可読な日時を相互変換。秒・ミリ秒、UTC・ローカルに対応。", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "タイムゾーン変換", "desc": "IANA タイムゾーン間で日時を変換。両端のオフセット、DST の有無、曜日も表示。", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "チップ＆割り勘計算機", "desc": "請求額 + チップ % + 人数 = 1 人あたり。切り上げオプションあり、チップ額と合計を表示。", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "トークンカウンター", "desc": "GPT-4・Claude・Llama・Gemini など各種 LLM のトークン数を推定。テキストを貼ると、モデルごとの数値を並べて表示。ファイルはブラウザから出ません。", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "トークンカウンター", "desc": "GPT-4・Claude・Llama・Gemini など各種 LLM のトークン数を推定。テキストを貼ると、モデルごとの数値を並べて表示。ファイルはブラウザから出ません。", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Unicode インスペクター", "desc": "テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "単位変換ツール", "desc": "メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL エンコーダー / デコーダー", "desc": "URL 用に文字列を percent-encode、または percent-encoded をテキストにデコード。", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "すべて";
     const HERO_SUB_POST = "個のツール — 高速・プライベート・登録不要。すぐに使えます。";
-    const CAT_LABELS = {"developer": "開発", "text": "テキスト", "encoding": "エンコード", "data": "データ", "security": "セキュリティ", "media": "メディア", "validation": "検証", "design": "デザイン", "datetime": "日時", "math": "計算"};
+    const CAT_LABELS = {"ai": "AI", "developer": "開発", "text": "テキスト", "encoding": "エンコード", "data": "データ", "security": "セキュリティ", "media": "メディア", "validation": "検証", "design": "デザイン", "datetime": "日時", "math": "計算"};
 
     function renderFilters() {
       const counts = {};

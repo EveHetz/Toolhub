@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Halaman unggulan">
+    <a href="/id/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Untuk sekolah & guru</h3>
+        <p>Gratis, tanpa iklan, privasi dulu. Self-host. 15 bahasa.</p>
+      </div>
+    </a>
+    <a href="/id/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Alat pendamping</h3>
+        <p>Utilitas keamanan sisi host — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Cari alat…  (fokus dengan /)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                            const TOOLS = [
+                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "Tabel ASCII", "desc": "Referensi ASCII lengkap 0–127 dengan desimal, hex, biner, karakter, dan entity HTML. Bisa difilter.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Encode teks ke Base64 atau decode Base64 kembali ke teks. Aman untuk UTF-8 dengan dukungan varian base64url.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 ke gambar", "desc": "Dekode gambar Base64 atau data URI kembali menjadi file. Tempel string-nya, lihat preview, unduh. Kebalikan dari tool gambar-ke-Base64 kami.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON Diff", "desc": "Diff struktural dua dokumen JSON — kunci yang ditambah, dihapus, diubah, dan perubahan nilai ditampilkan berdampingan.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON Formatter", "desc": "Format, validasi, dan minify JSON secara instan. Error disorot dengan baris dan kolom.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath Tester", "desc": "Jalankan query JSONPath terhadap dokumen JSON apa pun. Lihat node yang cocok dan path-nya secara real-time.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Konversi JSON Schema ke kode model Pydantic v2 di browser-mu. Tempel schema, dapatkan class Python siap tempel. Berguna untuk workflow LLM structured output.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Konversi JSON Schema ke kode model Pydantic v2 di browser-mu. Tempel schema, dapatkan class Python siap tempel. Berguna untuk workflow LLM structured output.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON ke CSV", "desc": "Konversi array JSON berisi objek ke CSV. Mendeteksi field otomatis, mendukung delimiter custom, escape yang benar untuk Excel dan Google Sheets.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Lihat file JSONL (JSON yang dipisah newline) dalam tabel berhalaman. Tempel hingga ribuan baris, cari, filter, expand record individu. File tidak pernah meninggalkan browser-mu.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL Viewer", "desc": "Lihat file JSONL (JSON yang dipisah newline) dalam tabel berhalaman. Tempel hingga ribuan baris, cari, filter, expand record individu. File tidak pernah meninggalkan browser-mu.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "Tempel JWT, decode header dan payload. Semua decoding terjadi di browser-mu — token tidak pernah meninggalkan halaman.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Template RPP", "desc": "Buat rencana pembelajaran terstruktur dari form yang dapat diisi. Bagian standar (tujuan, materi, langkah, asesmen, refleksi). Output markdown + HTML siap cetak.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Kalkulator Pinjaman", "desc": "Hitung cicilan bulanan, total bunga, dan tabel amortisasi lengkap untuk pinjaman apa pun. Bunga tetap, anuitas. Hanya browser.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "Password Generator", "desc": "Password acak yang kuat atau passphrase yang mudah diingat. Dihasilkan lokal — tidak pernah dikirim ke mana pun.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Kalkulator Persentase", "desc": "Lima kalkulator persentase dalam satu tool: of, what %, increase/decrease, change, dan tip/tax.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Generator Placeholder Image", "desc": "Hasilkan placeholder image SVG inline ukuran apa pun dengan teks dan warna custom. Output sebagai data URI atau SVG yang dapat diunduh.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Bandingkan dua prompt (atau dua versi prompt) berdampingan. Diff level baris dengan perubahan disorot. Dirancang untuk iterasi prompt LLM.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Bandingkan dua prompt (atau dua versi prompt) berdampingan. Diff level baris dengan perubahan disorot. Dirancang untuk iterasi prompt LLM.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "Generator Kode QR", "desc": "Hasilkan kode QR untuk teks, URL, Wi-Fi, atau vCard apa pun. Ukuran custom, warna, dan koreksi error. Export sebagai PNG atau SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Query String Builder", "desc": "Tambahkan baris key/value; dapatkan output query string yang di-URL-encode dengan benar. Mendukung array (a[]=1) dan kunci berulang tanpa kurung.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Pemeriksa Keterbacaan", "desc": "Hitung Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG, dan Coleman-Liau di teksmu. Deteksi paragraf padat, tepatkan ke jenjang yang sesuai.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Cheatsheet Regex", "desc": "Referensi cepat: anchor, character class, quantifier, group, lookaround, flag. Klik pattern mana pun untuk menyalin.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Ekstraktor Regex Output LLM", "desc": "Ekstrak data terstruktur (JSON, code block, pasangan key-value) dari response LLM yang berantakan. Pilih dari template umum atau tulis regex sendiri. Preview live.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Ekstraktor Regex Output LLM", "desc": "Ekstrak data terstruktur (JSON, code block, pasangan key-value) dari response LLM yang berantakan. Pilih dari template umum atau tulis regex sendiri. Preview live.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex Tester", "desc": "Tes regex JavaScript secara langsung. Lihat match, capture group, dan terapkan replace sambil mengetik.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Generator Rubrik Penilaian", "desc": "Buat rubrik penilaian siap cetak (markdown + pratinjau HTML + tampilan cetak) dari daftar kriteria dan level pencapaian. Untuk guru yang merencanakan asesmen.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Slug Generator", "desc": "Ubah judul apa pun menjadi URL slug bersih — transliterate aksen, strip tanda baca, satukan dengan tanda hubung.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL Formatter", "desc": "Format dan beautify SQL dengan indentasi yang tepat, atau minify ke satu baris. Sadar dialek (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "Pengoptimal SVG", "desc": "Minifikasi file SVG langsung di browser-mu. Membuang komentar, whitespace tak guna, atribut default, dan membulatkan desimal panjang. File tidak pernah meninggalkan perangkatmu.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Menganalisis system prompt untuk masalah umum: instruksi kabur, aturan bentrok, tanpa contoh, konteks kebesaran. Heuristik, berpendapat, cepat.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Menganalisis system prompt untuk masalah umum: instruksi kabur, aturan bentrok, tanpa contoh, konteks kebesaran. Heuristik, berpendapat, cepat.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Text Diff", "desc": "Bandingkan dua blok teks dan lihat penambahan, penghapusan, dan konteks tak berubah baris demi baris. Tampilan side-by-side atau unified.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Konverter Unix Timestamp", "desc": "Konversi antara Unix timestamp dan tanggal yang dapat dibaca manusia. Detik dan milidetik, UTC dan lokal.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Konverter Zona Waktu", "desc": "Konversi tanggal dan waktu antara zona waktu IANA. Lihat offset, status DST, dan hari dalam minggu untuk kedua ujung.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Kalkulator Tip & Bagi Tagihan", "desc": "Total tagihan + % tip + jumlah orang = jumlah per orang. Opsi pembulatan ke atas, menampilkan tip dan grand total.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Penghitung Token", "desc": "Estimasi jumlah token untuk GPT-4, Claude, Llama, Gemini dan LLM lainnya. Tempel teks, lihat jumlah per model berdampingan. File tidak pernah meninggalkan browser-mu.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Penghitung Token", "desc": "Estimasi jumlah token untuk GPT-4, Claude, Llama, Gemini dan LLM lainnya. Tempel teks, lihat jumlah per model berdampingan. File tidak pernah meninggalkan browser-mu.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Inspector Unicode", "desc": "Tempel teks → tabel per code point. Hex, desimal, byte UTF-8, kategori. Tangkap karakter tak terlihat.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Konverter Satuan", "desc": "Konversi antara satuan metrik dan imperial untuk panjang, berat, suhu, volume, dan luas.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Percent-encode string untuk URL atau decode string percent-encoded kembali ke teks biasa.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "Semua";
     const HERO_SUB_POST = "alat — cepat, privat, tanpa pendaftaran. Langsung pakai.";
-    const CAT_LABELS = {"developer": "Developer", "text": "Teks", "encoding": "Encoding", "data": "Data", "security": "Keamanan", "media": "Media", "validation": "Validasi", "design": "Desain", "datetime": "Tanggal & waktu", "math": "Matematika"};
+    const CAT_LABELS = {"ai": "AI", "developer": "Developer", "text": "Teks", "encoding": "Encoding", "data": "Data", "security": "Keamanan", "media": "Media", "validation": "Validasi", "design": "Desain", "datetime": "Tanggal & waktu", "math": "Matematika"};
 
     function renderFilters() {
       const counts = {};

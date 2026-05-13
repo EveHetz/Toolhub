@@ -1,6 +1,6 @@
 TOOL = {
     "slug": "prompt-diff",
-    "category": "text",
+    "category": "ai",
     "icon": "🔀",
     "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"],
     "i18n": {

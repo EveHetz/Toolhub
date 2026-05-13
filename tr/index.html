@@ -79,6 +79,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -188,6 +196,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Öne çıkan sayfalar">
+    <a href="/tr/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Okullar ve öğretmenler için</h3>
+        <p>Ücretsiz, reklamsız, gizlilik odaklı. Self-host. 15 dil.</p>
+      </div>
+    </a>
+    <a href="/tr/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Tamamlayıcı araçlar</h3>
+        <p>Host tarafı güvenlik araçları — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Araç ara…  (odak için /)" oninput="filterTools()">
   </div>
@@ -209,7 +234,7 @@
   </footer>
 
   <script>
-                                                                                                const TOOLS = [
+                                                                                                    const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII Tablosu", "desc": "0–127 tam ASCII referansı: ondalık, hex, ikilik, karakter ve HTML entity. Filtrelenebilir.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Metni Base64'e kodla veya Base64'ü metne çöz. UTF-8 güvenli, base64url varyantı destekli.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64'ten görsele", "desc": "Bir Base64 görseli veya data URI'ı tekrar dosyaya çevir. Stringi yapıştır, önizle, indir. Görsel'den Base64'e aracımızın tersi.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -251,9 +276,9 @@
       {"slug": "json-diff", "name": "JSON Diff", "desc": "İki JSON belgesi için yapısal diff — eklenen, silinen, değişen anahtarlar ve değer değişiklikleri yan yana gösterilir.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON Formatter", "desc": "JSON'u anında biçimlendir, doğrula ve küçült. Hatalar satır ve sütunla vurgulanır.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath Tester", "desc": "Herhangi bir JSON belgesine JSONPath sorgusu çalıştır. Eşleşen düğümleri ve yollarını gerçek zamanlı gör.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "JSON Schema'yı tarayıcında Pydantic v2 model koduna dönüştür. Şemayı yapıştır, yapıştırılmaya hazır Python sınıfı al. LLM yapılandırılmış çıktı iş akışları için yararlıdır.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "JSON Schema'yı tarayıcında Pydantic v2 model koduna dönüştür. Şemayı yapıştır, yapıştırılmaya hazır Python sınıfı al. LLM yapılandırılmış çıktı iş akışları için yararlıdır.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON'dan CSV'ye", "desc": "Nesne JSON dizilerini CSV'ye dönüştür. Alanları otomatik tespit eder, özel sınırlayıcıları destekler, Excel ve Google Sheets için doğru escape yapar.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL Görüntüleyici", "desc": "JSONL (satır ayrılmış JSON) dosyalarını sayfalı tabloda görüntüle. Binlerce satıra kadar yapıştır, ara, filtrele, kayıtları ayrı ayrı genişlet. Dosyalar tarayıcından asla çıkmaz.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL Görüntüleyici", "desc": "JSONL (satır ayrılmış JSON) dosyalarını sayfalı tabloda görüntüle. Binlerce satıra kadar yapıştır, ara, filtrele, kayıtları ayrı ayrı genişlet. Dosyalar tarayıcından asla çıkmaz.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "JWT'yi yapıştır, header ve payload'ı çöz. Tüm decode tarayıcında çalışır — token'lar sayfayı asla terk etmez.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Ders Planı Şablonu", "desc": "Doldurulabilir bir formdan yapılandırılmış ders planı oluştur. Standart bölümler (hedefler, materyaller, aşamalar, ölçme, yansıma). Markdown + yazdırılabilir HTML çıktısı.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Kredi Hesaplayıcı", "desc": "Herhangi bir kredi için aylık ödeme, toplam faiz ve tam amortisman tablosu hesapla. Sabit oran, eşit taksit. Sadece tarayıcı.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -269,23 +294,23 @@
       {"slug": "password-generator", "name": "Parola Üretici", "desc": "Güçlü rastgele parolalar veya akılda kalıcı passphrase'ler. Yerel olarak üretilir — hiçbir yere gönderilmez.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Yüzde Hesaplayıcı", "desc": "Tek araçta beş yüzde hesaplayıcı: of, what %, artış/azalış, değişim ve tip/vergi.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Placeholder Görsel Üretici", "desc": "Özel metin ve renklerle her boyutta inline-SVG placeholder görseller üret. Data URI veya indirilebilir SVG olarak çıkar.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "İki prompt'u (veya bir prompt'un iki sürümünü) yan yana karşılaştır. Vurgulanmış değişikliklerle satır seviyesi diff. LLM prompt'ları üzerinde iterasyon için tasarlandı.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "İki prompt'u (veya bir prompt'un iki sürümünü) yan yana karşılaştır. Vurgulanmış değişikliklerle satır seviyesi diff. LLM prompt'ları üzerinde iterasyon için tasarlandı.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "QR Kod Üretici", "desc": "Herhangi bir metin, URL, Wi-Fi veya vCard için QR kod üret. Özel boyut, renkler ve hata düzeltme. PNG veya SVG olarak dışa aktar.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Query String Builder", "desc": "key/value satırları ekle; doğru URL-encoded query string çıkar. Dizi (a[]=1) ve braket'siz tekrarlayan anahtarları destekler.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Okunabilirlik Denetleyici", "desc": "Metnine Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG ve Coleman-Liau puanlarını hesapla. Yoğun paragrafları tespit et, doğru sınıf düzeyini hedefle.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Regex Çetel", "desc": "Hızlı referans: çapalar, karakter sınıfları, niceleyiciler, gruplar, lookaround'lar, bayraklar. Kopyalamak için herhangi bir desene tıkla.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Regex LLM Çıktı Çıkarıcı", "desc": "Dağınık LLM yanıtlarından yapılandırılmış veriyi (JSON, kod blokları, anahtar-değer çiftleri) çıkar. Yaygın şablonlardan seç veya kendi regex'ini yaz. Canlı önizleme.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Regex LLM Çıktı Çıkarıcı", "desc": "Dağınık LLM yanıtlarından yapılandırılmış veriyi (JSON, kod blokları, anahtar-değer çiftleri) çıkar. Yaygın şablonlardan seç veya kendi regex'ini yaz. Canlı önizleme.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex Tester", "desc": "JavaScript düzenli ifadelerini canlı test et. Eşleşmeleri, capture gruplarını gör ve yazdıkça değiştirme uygula.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Değerlendirme Rubriği Üretici", "desc": "Kriterler ve performans seviyelerinden yazdırılabilir değerlendirme rubrikleri (markdown + HTML önizleme + yazdırma görünümü) oluştur. Değerlendirme planlayan öğretmenler için.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Slug Üretici", "desc": "Herhangi bir başlığı temiz URL slug'a dönüştür — aksanları transliter eder, noktalama temizler, tirelerle birleştirir.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL Formatter", "desc": "SQL'i düzgün indent ile biçimlendir ve güzelleştir veya tek satıra küçült. Lehçe farkında (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "SVG optimize edici", "desc": "SVG dosyalarını doğrudan tarayıcında küçült. Yorumları, gereksiz boşlukları, varsayılan öznitelikleri siler ve uzun ondalıkları yuvarlar. Dosya cihazından ayrılmaz.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Bir system prompt'unu yaygın sorunlar için analiz eder: belirsiz talimatlar, çelişen kurallar, eksik örnekler, şişirilmiş bağlam. Sezgisel, görüş bildiren, hızlı.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "System Prompt Linter", "desc": "Bir system prompt'unu yaygın sorunlar için analiz eder: belirsiz talimatlar, çelişen kurallar, eksik örnekler, şişirilmiş bağlam. Sezgisel, görüş bildiren, hızlı.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Metin Diff", "desc": "İki metin bloğunu karşılaştır ve satır satır eklemeleri, silmeleri ve değişmeyen bağlamı gör. Yan yana veya birleşik görünüm.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Unix Timestamp Dönüştürücü", "desc": "Unix timestamp'leri ile insan tarafından okunabilir tarihler arasında dönüştür. Saniyeler ve milisaniyeler, UTC ve yerel.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Saat Dilimi Dönüştürücü", "desc": "Bir tarih ve saati IANA saat dilimleri arasında dönüştür. Her iki uç için offset, DST durumu ve haftanın gününü gör.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Bahşiş & Bölüştürme Hesaplayıcı", "desc": "Hesap toplamı + bahşiş % + kişi sayısı = kişi başı tutar. Yukarı yuvarlama seçeneği, bahşiş ve genel toplam gösterilir.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Token Sayacı", "desc": "GPT-4, Claude, Llama, Gemini ve diğer LLM'ler için token sayısını tahmin et. Metni yapıştır, model başına sayıları yan yana gör. Dosyalar tarayıcını asla terk etmez.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Token Sayacı", "desc": "GPT-4, Claude, Llama, Gemini ve diğer LLM'ler için token sayısını tahmin et. Metni yapıştır, model başına sayıları yan yana gör. Dosyalar tarayıcını asla terk etmez.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Unicode İnceleyici", "desc": "Metni yapıştır → her code point için tablo. Hex, ondalık, UTF-8 byte, kategori. Görünmez karakterleri yakala.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Birim Dönüştürücü", "desc": "Uzunluk, ağırlık, sıcaklık, hacim ve alan için metrik ve imperial birimler arasında dönüştür.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "String'leri URL'ler için percent-encode et veya percent-encoded string'leri düz metne çöz.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -302,7 +327,7 @@
 
     const LBL_ALL = "Tümü";
     const HERO_SUB_POST = "araç — hızlı, gizli, kayıt yok. Hemen kullanılabilir.";
-    const CAT_LABELS = {"developer": "Geliştirici", "text": "Metin", "encoding": "Kodlama", "data": "Veri", "security": "Güvenlik", "media": "Medya", "validation": "Doğrulama", "design": "Tasarım", "datetime": "Tarih & saat", "math": "Matematik"};
+    const CAT_LABELS = {"ai": "AI", "developer": "Geliştirici", "text": "Metin", "encoding": "Kodlama", "data": "Veri", "security": "Güvenlik", "media": "Medya", "validation": "Doğrulama", "design": "Tasarım", "datetime": "Tarih & saat", "math": "Matematik"};
 
     function renderFilters() {
       const counts = {};

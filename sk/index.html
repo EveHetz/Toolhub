@@ -80,6 +80,14 @@
     .filter-btn .cnt { display: inline-block; margin-left: 0.3rem; padding: 0 0.35rem; border-radius: 8px; background: rgba(255,255,255,0.12); font-size: 0.72rem; font-weight: 600; }
     .filter-btn:not(.active) .cnt { background: var(--bg); color: var(--text-muted); }
 
+    .highlight-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 900px; margin: 0.5rem auto 1.5rem; padding: 0 1.5rem; }
+    @media (max-width: 640px) { .highlight-strip { grid-template-columns: 1fr; } }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; display: flex; gap: 0.9rem; align-items: center; transition: all 0.15s; color: var(--text); }
+    .highlight-card:hover { border-color: var(--accent); transform: translateY(-1px); color: var(--text); }
+    .highlight-card .highlight-icon { font-size: 1.8rem; flex-shrink: 0; line-height: 1; }
+    .highlight-card h3 { font-size: 0.95rem; margin: 0 0 0.2rem; color: var(--text); font-weight: 600; }
+    .highlight-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; margin: 0; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: all 0.15s; cursor: pointer; display: block; }
     .card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
@@ -189,6 +197,23 @@
     <p id="hero-sub"></p>
   </section>
 
+  <section class="highlight-strip" aria-label="Vybrané sekcie">
+    <a href="/sk/for-schools/" class="highlight-card highlight-schools">
+      <div class="highlight-icon">🏫</div>
+      <div class="highlight-content">
+        <h3>Pre školy a učiteľov</h3>
+        <p>Zadarmo, bez reklám, súkromné. Self-host. 15 jazykov.</p>
+      </div>
+    </a>
+    <a href="/sk/companion-tools/" class="highlight-card highlight-companion">
+      <div class="highlight-icon">🤝</div>
+      <div class="highlight-content">
+        <h3>Doplnkové nástroje</h3>
+        <p>Bezpečnostné utility na strane hosta — skill-scanner & sentinel.</p>
+      </div>
+    </a>
+  </section>
+
   <div class="search-wrap">
     <input type="text" id="search" placeholder="Hľadať nástroje…  (stlač / pre focus)" oninput="filterTools()">
   </div>
@@ -210,7 +235,7 @@
   </footer>
 
   <script>
-                                                                                                                                                                                const TOOLS = [
+                                                                                                                                                                                    const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII tabuľka", "desc": "Kompletná ASCII referencia 0–127 s decimálnym, hex, binárnym, znakom a HTML entitou. Filtrovateľná.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Zakóduj text do Base64 alebo dekóduj Base64 späť na text. UTF-8 safe a base64url variant.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 na obrázok", "desc": "Dekóduj Base64 obrázok alebo data URI späť do súboru. Vlož reťazec, pozri náhľad, stiahni. Opak nášho nástroja obrázok-na-Base64.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -252,9 +277,9 @@
       {"slug": "json-diff", "name": "JSON Diff", "desc": "Štrukturálny diff dvoch JSON dokumentov — pridané, odstránené, zmenené kľúče a zmeny hodnôt vedľa seba.", "icon": "{}±", "cat": "developer", "tags": ["json", "diff", "compare", "structural", "delta", "merge"]},
       {"slug": "json-formatter", "name": "JSON formátovač", "desc": "Naformátuj, over a minifikuj JSON okamžite. Chyby zvýraznené s riadkom a stĺpcom.", "icon": "{ }", "cat": "developer", "tags": ["json", "format", "beautify", "validate", "minify"]},
       {"slug": "json-path", "name": "JSONPath Tester", "desc": "Spustí JSONPath dotazy na akomkoľvek JSON dokumente. Pozri matched nody a ich cesty v reálnom čase.", "icon": "/{}", "cat": "developer", "tags": ["json", "jsonpath", "query", "filter", "extract", "data"]},
-      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Konvertuj JSON Schema na kód modelu Pydantic v2 priamo v prehliadači. Vlož schému, dostaneš pripravenú Python triedu. Užitočné pre LLM workflow so štruktúrovaným výstupom.", "icon": "🔄", "cat": "developer", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
+      {"slug": "json-schema-to-pydantic", "name": "JSON Schema → Pydantic", "desc": "Konvertuj JSON Schema na kód modelu Pydantic v2 priamo v prehliadači. Vlož schému, dostaneš pripravenú Python triedu. Užitočné pre LLM workflow so štruktúrovaným výstupom.", "icon": "🔄", "cat": "ai", "tags": ["json-schema", "pydantic", "python", "convert", "generator", "model", "validation", "llm", "structured-output"]},
       {"slug": "json-to-csv", "name": "JSON na CSV", "desc": "Preveď JSON arrays objektov na CSV. Autodetekcia polí, custom delimitery, správny escape pre Excel a Google Sheets.", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
-      {"slug": "jsonl-viewer", "name": "JSONL prehliadač", "desc": "Zobraz JSONL (JSON oddelený novými riadkami) súbory v stránkovanej tabuľke. Vlož tisíce riadkov, hľadaj, filtruj, rozbaľ jednotlivé záznamy. Súbory nikdy neopustia tvoj prehliadač.", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
+      {"slug": "jsonl-viewer", "name": "JSONL prehliadač", "desc": "Zobraz JSONL (JSON oddelený novými riadkami) súbory v stránkovanej tabuľke. Vlož tisíce riadkov, hľadaj, filtruj, rozbaľ jednotlivé záznamy. Súbory nikdy neopustia tvoj prehliadač.", "icon": "📃", "cat": "ai", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT Decoder", "desc": "Vlož JWT a dekóduj jeho header a payload. Celé dekódovanie beží v prehliadači — tokeny nikdy neopustia stránku.", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
       {"slug": "lesson-plan-template", "name": "Šablóna prípravy na hodinu", "desc": "Vytvor štruktúrovanú prípravu na hodinu z vyplniteľného formulára. Štandardné sekcie (ciele, pomôcky, priebeh, hodnotenie, reflexia). Markdown + tlačiteľný HTML výstup.", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "loan-calculator", "name": "Kalkulačka pôžičky", "desc": "Vypočíta mesačnú splátku, celkové úroky a kompletný splátkový kalendár pre akúkoľvek pôžičku. Fixná sadzba, anuitné splácanie. Iba v prehliadači.", "icon": "🏦", "cat": "math", "tags": ["loan", "mortgage", "calculator", "interest", "amortization", "monthly", "payment"]},
@@ -270,23 +295,23 @@
       {"slug": "password-generator", "name": "Generátor hesla", "desc": "Silné náhodné heslá alebo zapamätateľné passphrase. Generujú sa lokálne — nikam sa neposielajú.", "icon": "🔐", "cat": "security", "tags": ["password", "secure", "random", "generate", "passphrase"]},
       {"slug": "percentage-calculator", "name": "Kalkulačka percent", "desc": "Päť kalkulačiek percent v jednej: of, koľko %, nárast/pokles, zmena a tip/DPH.", "icon": "%", "cat": "math", "tags": ["percentage", "percent", "calculate", "discount", "increase", "decrease", "tip", "tax"]},
       {"slug": "placeholder-image", "name": "Generátor placeholder obrázkov", "desc": "Vygeneruj inline-SVG placeholder obrázky akejkoľvek veľkosti s vlastným textom a farbami. Výstup ako data URI alebo stiahnuteľné SVG.", "icon": "🖼", "cat": "design", "tags": ["placeholder", "image", "svg", "mockup", "wireframe", "data uri"]},
-      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Porovnaj dva prompty (alebo dve verzie toho istého promptu) vedľa seba. Riadkový diff so zvýraznenými zmenami. Navrhnuté pre iteráciu LLM promptov.", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
+      {"slug": "prompt-diff", "name": "Prompt Diff", "desc": "Porovnaj dva prompty (alebo dve verzie toho istého promptu) vedľa seba. Riadkový diff so zvýraznenými zmenami. Navrhnuté pre iteráciu LLM promptov.", "icon": "🔀", "cat": "ai", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "Generátor QR kódu", "desc": "Vygeneruj QR kódy pre akýkoľvek text, URL, Wi-Fi alebo vCard. Veľkosť, farby a error correction. Export PNG alebo SVG.", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "Query String Builder", "desc": "Pridaj key/value riadky; dostaneš správne URL-encoded query string. Podpora array (a[]=1) a bracket-less opakovaných kľúčov.", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
       {"slug": "readability-checker", "name": "Kontrola čitateľnosti", "desc": "Vyrátaj Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog, SMOG a Coleman-Liau pre svoj text. Identifikuj husté odseky, miň správnu úroveň ročníka.", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "Regex Cheatsheet", "desc": "Rýchla referencia: anchors, character classes, quantifiery, groups, lookarounds, flags. Klikni na pattern a skopíruje sa.", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
-      {"slug": "regex-llm-output", "name": "Regex extraktor LLM výstupu", "desc": "Vytiahni štruktúrované dáta (JSON, kódové bloky, páry kľúč-hodnota) z neprehľadných LLM odpovedí. Vyber zo šablón alebo napíš vlastný regex. Živý náhľad.", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
+      {"slug": "regex-llm-output", "name": "Regex extraktor LLM výstupu", "desc": "Vytiahni štruktúrované dáta (JSON, kódové bloky, páry kľúč-hodnota) z neprehľadných LLM odpovedí. Vyber zo šablón alebo napíš vlastný regex. Živý náhľad.", "icon": "🪝", "cat": "ai", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "Regex Tester", "desc": "Testuj JavaScript regular expressions naživo. Pozri matches, capture groups a aplikuj replacements pri písaní.", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
       {"slug": "rubric-generator", "name": "Generátor hodnotiacej tabuľky", "desc": "Vytvor hodnotiace tabuľky pripravené na tlač (markdown + HTML náhľad + tlačový pohľad) z kritérií a úrovní výkonu. Pre učiteľov, ktorí plánujú hodnotenia.", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "Slug generátor", "desc": "Preveď akýkoľvek titulok na čistý URL slug — transliteruj diakritiku, odstráň interpunkciu, spoj pomlčkami.", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL Formátovač", "desc": "Naformátuj a skráš SQL so správnym odsadením, alebo zminifikuj na jeden riadok. Dialect-aware (ANSI / MySQL / Postgres).", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "Optimalizátor SVG", "desc": "Minifikuj SVG súbory priamo v prehliadači. Odstraňuje komentáre, zbytočné medzery, predvolené atribúty a zaokrúhľuje dlhé desatinné čísla. Súbory nikdy neopustia tvoje zariadenie.", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},
-      {"slug": "system-prompt-linter", "name": "Linter systémového promptu", "desc": "Analyzuje systémový prompt na bežné problémy: vágne pokyny, protichodné pravidlá, chýbajúce príklady, nafúknutý kontext. Heuristický, vyhranený, rýchly.", "icon": "🩺", "cat": "text", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
+      {"slug": "system-prompt-linter", "name": "Linter systémového promptu", "desc": "Analyzuje systémový prompt na bežné problémy: vágne pokyny, protichodné pravidlá, chýbajúce príklady, nafúknutý kontext. Heuristický, vyhranený, rýchly.", "icon": "🩺", "cat": "ai", "tags": ["prompt", "lint", "ai", "llm", "system-prompt", "best-practices", "analyzer"]},
       {"slug": "text-diff", "name": "Text Diff", "desc": "Porovnaj dva bloky textu a uvidíš line-by-line additions, removals a nezmenený context. Side-by-side alebo unified view.", "icon": "±", "cat": "text", "tags": ["diff", "compare", "text", "lines", "patch", "changes"]},
       {"slug": "timestamp-converter", "name": "Konvertor Unix timestamp", "desc": "Preveď medzi Unix timestampom a ľudsky čitateľnými dátumami. Sekundy aj milisekundy, UTC aj local.", "icon": "🕐", "cat": "developer", "tags": ["timestamp", "unix", "epoch", "date", "convert", "iso8601"]},
       {"slug": "timezone-converter", "name": "Konvertor časových zón", "desc": "Preveď dátum a čas medzi IANA časovými zónami. Pozri offsety, DST status a weekday pre oba konce.", "icon": "🌍", "cat": "data", "tags": ["timezone", "tz", "convert", "utc", "date", "time", "iana"]},
       {"slug": "tip-split-calculator", "name": "Kalkulačka tipu a delenia účtu", "desc": "Účet + tip % + ľudia = suma na človeka. Možnosť zaokrúhliť nahor, zobrazený tip aj celkom.", "icon": "💵", "cat": "math", "tags": ["tip", "split", "bill", "restaurant", "calculator", "people", "share"]},
-      {"slug": "token-counter", "name": "Počítadlo tokenov", "desc": "Odhadni počet tokenov pre GPT-4, Claude, Llama, Gemini a ďalšie LLM. Vlož text, uvidíš počty per model vedľa seba. Súbory nikdy neopustia tvoj prehliadač.", "icon": "🔢", "cat": "developer", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
+      {"slug": "token-counter", "name": "Počítadlo tokenov", "desc": "Odhadni počet tokenov pre GPT-4, Claude, Llama, Gemini a ďalšie LLM. Vlož text, uvidíš počty per model vedľa seba. Súbory nikdy neopustia tvoj prehliadač.", "icon": "🔢", "cat": "ai", "tags": ["token", "tokenizer", "count", "llm", "gpt", "claude", "openai", "anthropic", "context", "ai", "prompt"]},
       {"slug": "unicode-inspector", "name": "Unicode Inspector", "desc": "Vlož text → tabuľka každého code pointu. Hex, decimal, UTF-8 bytes, category. Odhaľ neviditeľné znaky.", "icon": "🔎", "cat": "text", "tags": ["unicode", "code point", "utf-8", "character", "inspect", "invisible", "encoding"]},
       {"slug": "unit-converter", "name": "Konvertor jednotiek", "desc": "Preveď medzi metric a imperial jednotkami dĺžky, hmotnosti, teploty, objemu a plochy.", "icon": "📐", "cat": "math", "tags": ["unit", "convert", "length", "weight", "temperature", "volume", "area", "metric", "imperial"]},
       {"slug": "url-encoder", "name": "URL Encoder / Decoder", "desc": "Percent-encode reťazce pre URL alebo dekóduj percent-encoded späť na obyčajný text.", "icon": "🔗", "cat": "encoding", "tags": ["url", "encode", "decode", "percent", "querystring"]},
@@ -303,7 +328,7 @@
 
     const LBL_ALL = "Všetko";
     const HERO_SUB_POST = "nástrojov — rýchle, súkromné, bez registrácie. Hotové na použitie.";
-    const CAT_LABELS = {"developer": "Developer", "text": "Text", "encoding": "Encoding", "data": "Dáta", "security": "Bezpečnosť", "media": "Médiá", "validation": "Validation", "design": "Dizajn", "datetime": "Dátum a čas", "math": "Matematika"};
+    const CAT_LABELS = {"ai": "AI", "developer": "Developer", "text": "Text", "encoding": "Encoding", "data": "Dáta", "security": "Bezpečnosť", "media": "Médiá", "validation": "Validation", "design": "Dizajn", "datetime": "Dátum a čas", "math": "Matematika"};
 
     function renderFilters() {
       const counts = {};
