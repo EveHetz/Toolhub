@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formátovač citácií — Toolhub</title>
+  <meta name="description" content="Bezplatný formátovač citácií pre akademické písanie. Vyber typ zdroja (kniha / článok v časopise / web / kapitola / konferenčný príspevok / diplomová alebo dizertačná práca / spravodajský článok / správa), vypĺňaj polia (autori, názov, rok, vydavateľ…), vyber štýl (APA 7, MLA 9, Chicago autor-rok, Harvard) a skopíruj naformátovaný záznam. Režim bibliografie poskladá utriedený zoznam. Žiadne externé vyhľadávanie, žiadne DOI API, žiadne sledovanie — po prvom načítaní funguje offline.">
+  <meta property="og:title" content="Formátovač citácií — Toolhub">
+  <meta property="og:description" content="Bezplatný formátovač citácií pre akademické písanie. Vyber typ zdroja (kniha / článok v časopise / web / kapitola / konferenčný príspevok / diplomová alebo dizertačná práca / spravodajský článok / správa), vypĺňaj polia (autori, názov, rok, vydavateľ…), vyber štýl (APA 7, MLA 9, Chicago autor-rok, Harvard) a skopíruj naformátovaný záznam. Režim bibliografie poskladá utriedený zoznam. Žiadne externé vyhľadávanie, žiadne DOI API, žiadne sledovanie — po prvom načítaní funguje offline.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/sk/citation-formatter/">
+  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <link rel="canonical" href="https://toolhub.software/sk/citation-formatter/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/">
+  <meta property="og:locale" content="sk_SK">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/sk/citation-formatter/#tool",
+        "name": "Formátovač citácií",
+        "description": "Bezplatný formátovač citácií pre akademické písanie. Vyber typ zdroja (kniha / článok v časopise / web / kapitola / konferenčný príspevok / diplomová alebo dizertačná práca / spravodajský článok / správa), vypĺňaj polia (autori, názov, rok, vydavateľ…), vyber štýl (APA 7, MLA 9, Chicago autor-rok, Harvard) a skopíruj naformátovaný záznam. Režim bibliografie poskladá utriedený zoznam. Žiadne externé vyhľadávanie, žiadne DOI API, žiadne sledovanie — po prvom načítaní funguje offline.",
+        "url": "https://toolhub.software/sk/citation-formatter/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Text Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "sk",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["citation", "apa", "mla", "chicago", "harvard", "bibliography", "reference", "academic"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Všetky nástroje", "item": "https://toolhub.software/sk/"},
+          {"@type": "ListItem", "position": 2, "name": "Formátovač citácií", "item": "https://toolhub.software/sk/citation-formatter/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Načo to slúži?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zoznam použitej literatúry je tá časť akademickej práce, ktorú nikto nemá rád a každý na nej stráca body. Tento nástroj vezme polia, ktoré už máš (autor, rok, názov, časopis, vydavateľ, strany…), a vytvorí čistú citáciu v APA 7, MLA 9, Chicago autor-rok alebo Harvard — pripravenú vložiť do bibliografie. Žiadne vyhľadávanie DOI, žiadne nahrávanie, žiadna registrácia — všetko zostáva v prehliadači."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ako to použiť",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vyber štýl hore — predvolený je APA 7. Môžeš kedykoľvek prepnúť; tie isté polia sa hneď zobrazia vo všetkých štyroch štýloch. Vyber typ zdroja (kniha, časopisecký článok, web, kapitola, konferenčný príspevok, diplomová alebo dizertačná práca, spravodajský článok, správa). Polia sa prispôsobia. Autori: jeden na riadok, Priezvisko, Meno Stredné . Riadok bez čiarky je inštitúcia (napr. Svetová zdravotnícka organizácia ). Viac zdrojov cez „+ Add source\". „Sort A→Z\" abecedne zoradí podľa priezviska prvého autora. Kopíruj v plain texte. Kurzíva v plain-text schránke neprežije; vlož do Wordu/Docs a v cieli s podporou rich textu kurzívu nastav ručne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Poznámky k štýlom",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "APA 7 — názvy článkov vetný typ, časopisy kurzívou, „&\" pred posledným autorom. Do 20 autorov všetkých uvedie, potom „…\". MLA 9 — title case; prvý autor Priezvisko, Meno , ďalší Meno Priezvisko ; „et al.\" od 3 autorov. Chicago — variant autor-rok (bibliografický štýl). Notes-bibliography je iná konvencia, tu sa negeneruje. Harvard — britský autor-rok. Jednoduché úvodzovky pri názvoch článkov; „et al.\" od 4 autorov. (Harvard nie je jednotný štýl — pozri si príručku svojej univerzity.)"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Časté chyby",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Poradie autorov je dôležité. Neabecedne — zachovaj poradie zo zdroja. Veľké/malé písmená podľa štýlu. APA: vetný typ; MLA: title case. Konverzia je automatická. DOI je lepší než URL, ak máš oboje — DOI sú stabilné, URL hnijú. Kurzíva sa stratí v plain texte. Náhľad ju zobrazuje; tlačidlo kopírovať dáva plain. Z náhľadu kopíruj, ak cieľ podporuje rich text. Toto je formátovač, nie overovač faktov. Garbage in, garbage out — ročníky, strany a pravopis si over voči originálu. Súkromie. Dáta neopúšťajú prehliadač. Zatvor záložku, všetko zmizne."
+      }
+    }
+  ]
+}
+</script>
+  
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/sk/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Jazyk</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/citation-formatter/'; else location.href='/citation-formatter/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" selected="selected">🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Formátovač citácií</div>
+    <h1>Formátovač citácií</h1>
+    <p class="tagline">Formátuj citácie v štýloch APA 7, MLA 9, Chicago a Harvard. Polia zadávaj ručne — žiadne DOI vyhľadávanie, žiadne sledovanie. Iba v prehliadači.</p>
+    
+<div class="tool-card">
+  <label>Style</label>
+  <div class="button-row" id="cf-styles" role="tablist">
+    <button type="button" class="cf-style-btn" data-style="apa">APA 7</button>
+    <button type="button" class="cf-style-btn" data-style="mla">MLA 9</button>
+    <button type="button" class="cf-style-btn" data-style="chicago">Chicago</button>
+    <button type="button" class="cf-style-btn" data-style="harvard">Harvard</button>
+  </div>
+  <div class="meta" style="margin-top:0.5rem">Authors: enter one per line as <code>Last, First Middle</code>. Multiple authors → multiple lines.</div>
+</div>
+
+<div class="tool-card">
+  <div id="cf-sources"></div>
+  <div class="button-row" style="margin-top:0.6rem">
+    <button class="secondary" type="button" onclick="cfAddSource()">+ Add source</button>
+    <button class="secondary" type="button" onclick="cfSort()">Sort A→Z</button>
+  </div>
+</div>
+
+<div class="tool-card">
+  <label>Bibliography preview</label>
+  <div id="cf-preview" class="cf-preview"></div>
+</div>
+
+<div class="tool-card">
+  <label>Plain text bibliography</label>
+  <div class="output-row">
+    <pre class="output" id="cf-out" style="margin:0;flex:1">Zadaj vstup vyššie, aby si videl výsledok.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('cf-out', this)">Kopírovať</button>
+  </div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Načo to slúži?</h2>
+<p>Zoznam použitej literatúry je tá časť akademickej práce, ktorú nikto nemá rád a každý na nej stráca body. Tento nástroj vezme polia, ktoré už máš (autor, rok, názov, časopis, vydavateľ, strany…), a vytvorí čistú citáciu v APA 7, MLA 9, Chicago autor-rok alebo Harvard — pripravenú vložiť do bibliografie. Žiadne vyhľadávanie DOI, žiadne nahrávanie, žiadna registrácia — všetko zostáva v prehliadači.</p>
+
+<h3>Ako to použiť</h3>
+<ul>
+  <li><strong>Vyber štýl</strong> hore — predvolený je APA 7. Môžeš kedykoľvek prepnúť; tie isté polia sa hneď zobrazia vo všetkých štyroch štýloch.</li>
+  <li><strong>Vyber typ zdroja</strong> (kniha, časopisecký článok, web, kapitola, konferenčný príspevok, diplomová alebo dizertačná práca, spravodajský článok, správa). Polia sa prispôsobia.</li>
+  <li><strong>Autori:</strong> jeden na riadok, <code>Priezvisko, Meno Stredné</code>. Riadok bez čiarky je inštitúcia (napr. <em>Svetová zdravotnícka organizácia</em>).</li>
+  <li><strong>Viac zdrojov</strong> cez „+ Add source". „Sort A→Z" abecedne zoradí podľa priezviska prvého autora.</li>
+  <li><strong>Kopíruj v plain texte.</strong> Kurzíva v plain-text schránke neprežije; vlož do Wordu/Docs a v cieli s podporou rich textu kurzívu nastav ručne.</li>
+</ul>
+
+<h3>Poznámky k štýlom</h3>
+<ul>
+  <li><strong>APA 7</strong> — názvy článkov vetný typ, časopisy kurzívou, „&" pred posledným autorom. Do 20 autorov všetkých uvedie, potom „…".</li>
+  <li><strong>MLA 9</strong> — title case; prvý autor <code>Priezvisko, Meno</code>, ďalší <code>Meno Priezvisko</code>; „et al." od 3 autorov.</li>
+  <li><strong>Chicago</strong> — variant autor-rok (bibliografický štýl). Notes-bibliography je iná konvencia, tu sa negeneruje.</li>
+  <li><strong>Harvard</strong> — britský autor-rok. Jednoduché úvodzovky pri názvoch článkov; „et al." od 4 autorov. (Harvard nie je jednotný štýl — pozri si príručku svojej univerzity.)</li>
+</ul>
+
+<h3>Časté chyby</h3>
+<ul>
+  <li><strong>Poradie autorov je dôležité.</strong> Neabecedne — zachovaj poradie zo zdroja.</li>
+  <li><strong>Veľké/malé písmená podľa štýlu.</strong> APA: vetný typ; MLA: title case. Konverzia je automatická.</li>
+  <li><strong>DOI je lepší než URL,</strong> ak máš oboje — DOI sú stabilné, URL hnijú.</li>
+  <li><strong>Kurzíva sa stratí v plain texte.</strong> Náhľad ju zobrazuje; tlačidlo kopírovať dáva plain. Z náhľadu kopíruj, ak cieľ podporuje rich text.</li>
+  <li><strong>Toto je formátovač, nie overovač faktov.</strong> Garbage in, garbage out — ročníky, strany a pravopis si over voči originálu.</li>
+  <li><strong>Súkromie.</strong> Dáta neopúšťajú prehliadač. Zatvor záložku, všetko zmizne.</li>
+</ul>
+<div class="related"><span class="meta">Súvisiace nástroje:</span> <a href="/sk/rubric-generator/">Generátor hodnotiacej tabuľky</a> <a href="/sk/grade-calculator/">Kalkulačka známok</a> <a href="/sk/markdown-to-html/">Markdown na HTML</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/sk/privacy/">Súkromie</a> · <a href="/sk/how-we-handle-your-data/">Spracovanie údajov</a> · <a href="/sk/affiliate-disclosure/">Affiliate zverejnenie</a> · <a href="/sk/companion-tools/">Doplnkové nástroje</a> · <a href="/sk/about/">O nás</a> · <a href="/sk/contact/">Kontakt</a> · <a href="/sk/for-schools/">Pre školy</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.cf-style-btn{background:var(--bg-elev);border:1px solid var(--border);color:var(--text);padding:0.4rem 0.9rem;border-radius:6px;cursor:pointer;font-size:0.9rem}
+.cf-style-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cf-style-btn:hover:not(.active){border-color:var(--accent)}
+#cf-sources{display:flex;flex-direction:column;gap:0.6rem}
+.cf-card{border:1px solid var(--border);border-radius:8px;padding:0.8rem;background:var(--bg-elev)}
+.cf-card-head{display:flex;gap:0.5rem;align-items:center;margin-bottom:0.6rem}
+.cf-card-head select{flex:1}
+.cf-card-head .cf-del{background:transparent;border:1px solid var(--border);border-radius:4px;padding:0.3rem 0.6rem;color:var(--text-muted);cursor:pointer;font-size:0.85rem}
+.cf-card-head .cf-del:hover{color:#dc2626;border-color:#dc2626}
+.cf-fields{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:0.5rem 0.7rem}
+.cf-fields .cf-wide{grid-column:1/-1}
+.cf-fields label{font-size:0.78rem;color:var(--text-muted);margin-bottom:0.15rem;display:block}
+.cf-fields input,.cf-fields textarea{font-size:0.88rem}
+.cf-fields textarea{min-height:56px;font-family:inherit}
+.cf-rendered{padding:0.5rem 0.7rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-top:0.6rem;font-size:0.92rem;line-height:1.5}
+.cf-rendered i{font-style:italic}
+.cf-preview{padding:0.8rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;line-height:1.55;font-size:0.92rem}
+.cf-preview .cf-entry{padding-left:1.5em;text-indent:-1.5em;margin:0.4em 0}
+.cf-preview .cf-empty{color:var(--text-muted)}
+</style>
+<script>
+const CF_STYLE_LABELS = { apa: 'APA 7', mla: 'MLA 9', chicago: 'Chicago', harvard: 'Harvard' };
+let CF_STYLE = 'apa';
+const CF_TYPE_LABELS = {
+  book: 'Book',
+  'journal-article': 'Journal article',
+  website: 'Website',
+  chapter: 'Book chapter',
+  conference: 'Conference paper',
+  thesis: 'Thesis / dissertation',
+  news: 'News article',
+  report: 'Report'
+};
+// Fields per source type. Each entry: [key, label, wide?, placeholder?]
+const CF_FIELDS = {
+  book: [
+    ['authors','Authors (one per line: Last, First)',true,'Smith, John\nDoe, Jane M.'],
+    ['year','Year',false,'2023'],
+    ['title','Title',true,'The Origins of Civilization'],
+    ['edition','Edition (optional)',false,'2nd ed.'],
+    ['place','Publisher location (optional)',false,'New York'],
+    ['publisher','Publisher',false,'Routledge'],
+    ['doi','DOI or URL (optional)',true,'https://doi.org/10.xxxx/xxxx']
+  ],
+  'journal-article': [
+    ['authors','Authors',true,''],
+    ['year','Year',false,'2022'],
+    ['title','Article title',true,'Mapping the impact of remote learning'],
+    ['journal','Journal name',true,'Journal of Educational Research'],
+    ['volume','Volume',false,'45'],
+    ['issue','Issue (optional)',false,'3'],
+    ['pages','Pages',false,'215-238'],
+    ['doi','DOI or URL (optional)',true,'']
+  ],
+  website: [
+    ['authors','Author or organization',true,''],
+    ['year','Year',false,'2024'],
+    ['title','Page title',true,''],
+    ['site','Site name',false,''],
+    ['url','URL',true,'https://example.org/page'],
+    ['accessed','Accessed date (optional)',false,'12 March 2025']
+  ],
+  chapter: [
+    ['authors','Chapter authors',true,''],
+    ['year','Year',false,''],
+    ['title','Chapter title',true,''],
+    ['editors','Book editors (one per line)',true,''],
+    ['booktitle','Book title',true,''],
+    ['edition','Edition (optional)',false,''],
+    ['pages','Pages',false,''],
+    ['place','Publisher location (optional)',false,''],
+    ['publisher','Publisher',false,''],
+    ['doi','DOI or URL (optional)',true,'']
+  ],
+  conference: [
+    ['authors','Authors',true,''],
+    ['year','Year',false,''],
+    ['title','Paper title',true,''],
+    ['conference','Conference / proceedings name',true,''],
+    ['pages','Pages (optional)',false,''],
+    ['place','Location (optional)',false,''],
+    ['publisher','Publisher (optional)',false,''],
+    ['doi','DOI or URL (optional)',true,'']
+  ],
+  thesis: [
+    ['authors','Author',true,''],
+    ['year','Year',false,''],
+    ['title','Title',true,''],
+    ['kind','Type',false,'PhD dissertation'],
+    ['institution','Institution',true,''],
+    ['url','URL (optional)',true,'']
+  ],
+  news: [
+    ['authors','Author(s)',true,''],
+    ['date','Date (e.g. 12 March 2024)',false,''],
+    ['year','Year',false,''],
+    ['title','Headline',true,''],
+    ['publication','Publication',false,''],
+    ['url','URL (optional)',true,'']
+  ],
+  report: [
+    ['authors','Authors / organization',true,''],
+    ['year','Year',false,''],
+    ['title','Report title',true,''],
+    ['number','Report number (optional)',false,''],
+    ['institution','Issuing institution',true,''],
+    ['url','URL (optional)',true,'']
+  ]
+};
+
+let CF_SRC = [];   // array of {type, fields:{key:value}}
+let CF_NEXT_ID = 1;
+
+function cfEsc(s){return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function cfStripTags(s){return String(s ?? '').replace(/<[^>]*>/g,'');}
+
+function cfParseAuthors(raw){
+  if(!raw) return [];
+  return raw.split(/\n|;/).map(l => l.trim()).filter(Boolean).map(line => {
+    // "Last, First Middle" or "First Middle Last"
+    if(line.includes(',')){
+      const [last, rest] = line.split(/,(.+)/);
+      const names = (rest||'').trim().split(/\s+/).filter(Boolean);
+      return { last: last.trim(), first: names[0]||'', middle: names.slice(1).join(' ') };
+    }
+    const parts = line.trim().split(/\s+/);
+    if(parts.length === 1) return { last: parts[0], first: '', middle: '', org: true };
+    const last = parts.pop();
+    return { last, first: parts[0], middle: parts.slice(1).join(' ') };
+  });
+}
+
+function cfInitials(first, middle, dot=true){
+  const seg = (first||'') + ' ' + (middle||'');
+  return seg.trim().split(/[\s-]+/).filter(Boolean).map(w => w[0].toUpperCase() + (dot?'.':'')).join(' ');
+}
+
+function cfAuthorsAPA(authors){
+  if(!authors.length) return '';
+  const fmt = a => a.first ? `${a.last}, ${cfInitials(a.first, a.middle)}` : a.last;
+  if(authors.length === 1) return fmt(authors[0]);
+  if(authors.length === 2) return `${fmt(authors[0])}, & ${fmt(authors[1])}`;
+  if(authors.length <= 20){
+    return authors.slice(0,-1).map(fmt).join(', ') + ', & ' + fmt(authors[authors.length-1]);
+  }
+  return authors.slice(0,19).map(fmt).join(', ') + ', ... ' + fmt(authors[authors.length-1]);
+}
+
+function cfAuthorsMLA(authors){
+  if(!authors.length) return '';
+  const full = a => a.first ? `${a.last}, ${a.first}${a.middle? ' '+a.middle : ''}` : a.last;
+  const inv  = a => a.first ? `${a.first}${a.middle? ' '+a.middle : ''} ${a.last}` : a.last;
+  if(authors.length === 1) return full(authors[0]);
+  if(authors.length === 2) return `${full(authors[0])}, and ${inv(authors[1])}`;
+  return `${full(authors[0])}, et al.`;
+}
+
+function cfAuthorsChicago(authors){
+  if(!authors.length) return '';
+  const full = a => a.first ? `${a.last}, ${a.first}${a.middle? ' '+a.middle : ''}` : a.last;
+  const inv  = a => a.first ? `${a.first}${a.middle? ' '+a.middle : ''} ${a.last}` : a.last;
+  if(authors.length === 1) return full(authors[0]);
+  if(authors.length <= 3){
+    const tail = authors.slice(1).map(inv);
+    if(tail.length === 1) return `${full(authors[0])}, and ${tail[0]}`;
+    return `${full(authors[0])}, ${tail.slice(0,-1).join(', ')}, and ${tail[tail.length-1]}`;
+  }
+  // 4+ authors → first author + et al. (author-date style)
+  return `${full(authors[0])} et al.`;
+}
+
+function cfAuthorsHarvard(authors){
+  if(!authors.length) return '';
+  const fmt = a => a.first ? `${a.last}, ${cfInitials(a.first, a.middle)}` : a.last;
+  if(authors.length === 1) return fmt(authors[0]);
+  if(authors.length <= 3){
+    return authors.slice(0,-1).map(fmt).join(', ') + ' and ' + fmt(authors[authors.length-1]);
+  }
+  return `${fmt(authors[0])} et al.`;
+}
+
+function cfTitleCase(s){
+  if(!s) return '';
+  const small = new Set(['a','an','and','as','at','but','by','for','if','in','nor','of','on','or','so','the','to','up','yet','vs','via']);
+  const words = s.split(/(\s+)/);
+  return words.map((w, i) => {
+    if(/^\s+$/.test(w)) return w;
+    const lw = w.toLowerCase();
+    const isFirst = words.slice(0,i).every(x => /^\s+$/.test(x));
+    const isLast  = words.slice(i+1).every(x => /^\s+$/.test(x));
+    if(!isFirst && !isLast && small.has(lw)) return lw;
+    return lw.charAt(0).toUpperCase() + lw.slice(1);
+  }).join('');
+}
+
+function cfSentenceCase(s){
+  if(!s) return '';
+  const trimmed = s.trim();
+  // Lowercase everything except first letter and after colons/question marks
+  let out = trimmed.toLowerCase();
+  out = out.charAt(0).toUpperCase() + out.slice(1);
+  out = out.replace(/([.:?!]\s+)([a-z])/g, (_, sep, ch) => sep + ch.toUpperCase());
+  return out;
+}
+
+// Italic helper: returns wrapped <i>...</i> for HTML render, the same for plain (we'll strip later)
+function it(s){ return s ? `<i>${cfEsc(s)}</i>` : ''; }
+function tx(s){ return cfEsc(s); }
+
+// ---------- APA 7 ----------
+function cfFormatAPA(src){
+  const f = src.fields;
+  const authors = cfParseAuthors(f.authors||'');
+  const A = cfAuthorsAPA(authors);
+  const yr = f.year ? ` (${tx(f.year)}).` : ' (n.d.).';
+  let out = '';
+  switch(src.type){
+    case 'book': {
+      const ed = f.edition ? ` (${tx(f.edition)})` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ') || tx(f.publisher);
+      out = `${tx(A)}${yr} ${it(cfSentenceCase(f.title||''))}${ed}. ${pub}.`;
+      if(f.doi) out += ` ${tx(f.doi)}`;
+      break;
+    }
+    case 'journal-article': {
+      const issue = f.issue ? `(${tx(f.issue)})` : '';
+      out = `${tx(A)}${yr} ${tx(cfSentenceCase(f.title||''))}. ${it(f.journal||'')}, ${it(f.volume||'')}${issue}${f.pages? ', '+tx(f.pages) : ''}.`;
+      if(f.doi) out += ` ${tx(f.doi)}`;
+      break;
+    }
+    case 'website': {
+      const site = f.site ? `. ${tx(f.site)}` : '';
+      const acc = f.accessed ? ` Retrieved ${tx(f.accessed)}, from` : '';
+      out = `${tx(A)}${yr} ${it(cfSentenceCase(f.title||''))}${site}.${acc} ${tx(f.url||'')}`.trim();
+      if(!f.url) out = out.replace(/\s+$/,'');
+      break;
+    }
+    case 'chapter': {
+      const editors = cfParseAuthors(f.editors||'');
+      const edStr = editors.length ? cfAuthorsAPA(editors).replace(/, &/g, ', &') : '';
+      const edition = f.edition ? `, ${tx(f.edition)}` : '';
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ') || tx(f.publisher);
+      out = `${tx(A)}${yr} ${tx(cfSentenceCase(f.title||''))}. In ${tx(edStr)}${edStr?' (Eds.), ':''}${it(f.booktitle||'')}${edition? ' ('+tx(edition.trim().replace(/^,\s*/,''))+pp+')' : pp? ' ('+tx(pp.trim().replace(/^,\s*/,''))+')' : ''}. ${pub}.`;
+      if(f.doi) out += ` ${tx(f.doi)}`;
+      break;
+    }
+    case 'conference': {
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ');
+      out = `${tx(A)}${yr} ${tx(cfSentenceCase(f.title||''))}. In ${it(f.conference||'')}${pp}.${pub? ' '+pub+'.' : ''}`;
+      if(f.doi) out += ` ${tx(f.doi)}`;
+      break;
+    }
+    case 'thesis': {
+      const kind = f.kind || 'Doctoral dissertation';
+      out = `${tx(A)}${yr} ${it(cfSentenceCase(f.title||''))} [${tx(kind)}, ${tx(f.institution||'')}].`;
+      if(f.url) out += ` ${tx(f.url)}`;
+      break;
+    }
+    case 'news': {
+      const date = f.date ? ` (${tx(f.date)}).` : yr;
+      out = `${tx(A)}${date} ${tx(cfSentenceCase(f.title||''))}. ${it(f.publication||'')}.`;
+      if(f.url) out += ` ${tx(f.url)}`;
+      break;
+    }
+    case 'report': {
+      const num = f.number ? ` (${tx(f.number)})` : '';
+      out = `${tx(A)}${yr} ${it(cfSentenceCase(f.title||''))}${num}. ${tx(f.institution||'')}.`;
+      if(f.url) out += ` ${tx(f.url)}`;
+      break;
+    }
+  }
+  return out;
+}
+
+// ---------- MLA 9 ----------
+function cfFormatMLA(src){
+  const f = src.fields;
+  const authors = cfParseAuthors(f.authors||'');
+  const A = cfAuthorsMLA(authors);
+  switch(src.type){
+    case 'book': {
+      const ed = f.edition ? `${tx(f.edition)}, ` : '';
+      const pub = tx(f.publisher||'');
+      return `${tx(A)}${A?'. ':''}${it(cfTitleCase(f.title||''))}. ${ed}${pub}${f.year? ', '+tx(f.year) : ''}.`;
+    }
+    case 'journal-article': {
+      const vol = f.volume ? `vol. ${tx(f.volume)}` : '';
+      const iss = f.issue ? `no. ${tx(f.issue)}` : '';
+      const yr = f.year ? tx(f.year) : '';
+      const pp = f.pages ? `pp. ${tx(f.pages)}` : '';
+      const bits = [vol, iss, yr, pp].filter(Boolean).join(', ');
+      let out = `${tx(A)}${A?'. ':''}"${tx(cfTitleCase(f.title||''))}." ${it(f.journal||'')}, ${bits}.`;
+      if(f.doi) out += ` ${tx(f.doi)}`;
+      return out;
+    }
+    case 'website': {
+      const site = f.site ? `${it(f.site)}, ` : '';
+      const yr = f.year ? `${tx(f.year)}, ` : '';
+      const acc = f.accessed ? ` Accessed ${tx(f.accessed)}.` : '';
+      return `${tx(A)}${A?'. ':''}"${tx(cfTitleCase(f.title||''))}." ${site}${yr}${tx(f.url||'')}.${acc}`;
+    }
+    case 'chapter': {
+      const editors = cfParseAuthors(f.editors||'').map(a => a.first ? `${a.first}${a.middle? ' '+a.middle : ''} ${a.last}` : a.last).join(', ');
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      return `${tx(A)}${A?'. ':''}"${tx(cfTitleCase(f.title||''))}." ${it(cfTitleCase(f.booktitle||''))}, edited by ${tx(editors)}, ${tx(f.publisher||'')}${f.year? ', '+tx(f.year) : ''}${pp}.`;
+    }
+    case 'conference': {
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      return `${tx(A)}${A?'. ':''}"${tx(cfTitleCase(f.title||''))}." ${it(f.conference||'')}${f.year? ', '+tx(f.year) : ''}${pp}.`;
+    }
+    case 'thesis': {
+      return `${tx(A)}${A?'. ':''}${it(cfTitleCase(f.title||''))}. ${tx(f.year||'')}. ${tx(f.institution||'')}, ${tx(f.kind||'PhD dissertation')}.`;
+    }
+    case 'news': {
+      const dt = f.date ? tx(f.date) : tx(f.year||'');
+      let out = `${tx(A)}${A?'. ':''}"${tx(cfTitleCase(f.title||''))}." ${it(f.publication||'')}, ${dt}.`;
+      if(f.url) out += ` ${tx(f.url)}.`;
+      return out;
+    }
+    case 'report': {
+      return `${tx(A)}${A?'. ':''}${it(cfTitleCase(f.title||''))}. ${tx(f.institution||'')}${f.number? ', '+tx(f.number) : ''}${f.year? ', '+tx(f.year) : ''}.${f.url? ' '+tx(f.url) : ''}`;
+    }
+  }
+  return '';
+}
+
+// ---------- Chicago (author-date) ----------
+function cfFormatChicago(src){
+  const f = src.fields;
+  const authors = cfParseAuthors(f.authors||'');
+  const A = cfAuthorsChicago(authors);
+  const yr = f.year ? `${tx(f.year)}.` : 'n.d.';
+  switch(src.type){
+    case 'book': {
+      const ed = f.edition ? `${tx(f.edition)}. ` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ');
+      return `${tx(A)}. ${yr} ${it(cfTitleCase(f.title||''))}. ${ed}${pub}.`;
+    }
+    case 'journal-article': {
+      const issue = f.issue ? `, no. ${tx(f.issue)}` : '';
+      let out = `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}." ${it(f.journal||'')} ${tx(f.volume||'')}${issue}${f.pages? ': '+tx(f.pages) : ''}.`;
+      if(f.doi) out += ` ${tx(f.doi)}.`;
+      return out;
+    }
+    case 'website': {
+      const site = f.site ? ` ${it(f.site)}.` : '';
+      const acc = f.accessed ? ` Accessed ${tx(f.accessed)}.` : '';
+      return `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}."${site}${acc} ${tx(f.url||'')}.`;
+    }
+    case 'chapter': {
+      const editors = cfParseAuthors(f.editors||'').map(a => a.first ? `${a.first}${a.middle? ' '+a.middle : ''} ${a.last}` : a.last).join(' and ');
+      const pp = f.pages ? `, ${tx(f.pages)}` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ');
+      return `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}." In ${it(cfTitleCase(f.booktitle||''))}, edited by ${tx(editors)}${pp}. ${pub}.`;
+    }
+    case 'conference': {
+      const pp = f.pages ? `, ${tx(f.pages)}` : '';
+      return `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}." Paper presented at ${tx(f.conference||'')}${f.place? ', '+tx(f.place) : ''}${pp}.`;
+    }
+    case 'thesis': {
+      return `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}." ${tx(f.kind||'PhD diss.')}, ${tx(f.institution||'')}.${f.url? ' '+tx(f.url)+'.' : ''}`;
+    }
+    case 'news': {
+      const dt = f.date ? `${tx(f.date)}` : tx(f.year||'');
+      return `${tx(A)}. ${yr} "${tx(cfTitleCase(f.title||''))}." ${it(f.publication||'')}, ${dt}.${f.url? ' '+tx(f.url)+'.' : ''}`;
+    }
+    case 'report': {
+      const num = f.number ? ` ${tx(f.number)}` : '';
+      return `${tx(A)}. ${yr} ${it(cfTitleCase(f.title||''))}.${num} ${tx(f.institution||'')}.${f.url? ' '+tx(f.url)+'.' : ''}`;
+    }
+  }
+  return '';
+}
+
+// ---------- Harvard ----------
+function cfFormatHarvard(src){
+  const f = src.fields;
+  const authors = cfParseAuthors(f.authors||'');
+  const A = cfAuthorsHarvard(authors);
+  const yr = f.year ? `(${tx(f.year)})` : '(n.d.)';
+  switch(src.type){
+    case 'book': {
+      const ed = f.edition ? `${tx(f.edition)}. ` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ');
+      return `${tx(A)} ${yr} ${it(cfTitleCase(f.title||''))}. ${ed}${pub}.`;
+    }
+    case 'journal-article': {
+      const issue = f.issue ? `(${tx(f.issue)})` : '';
+      return `${tx(A)} ${yr} '${tx(cfTitleCase(f.title||''))}', ${it(f.journal||'')}, ${tx(f.volume||'')}${issue}${f.pages? ', pp. '+tx(f.pages) : ''}.${f.doi? ' '+tx(f.doi) : ''}`;
+    }
+    case 'website': {
+      const acc = f.accessed ? ` (Accessed: ${tx(f.accessed)})` : '';
+      return `${tx(A)} ${yr} ${it(cfTitleCase(f.title||''))}. ${tx(f.site||'')}. Available at: ${tx(f.url||'')}${acc}.`;
+    }
+    case 'chapter': {
+      const editors = cfParseAuthors(f.editors||'').map(a => a.first ? `${cfInitials(a.first, a.middle)} ${a.last}` : a.last).join(' and ');
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      const pub = [f.place, f.publisher].filter(Boolean).map(tx).join(': ');
+      return `${tx(A)} ${yr} '${tx(cfTitleCase(f.title||''))}', in ${tx(editors)} (eds.) ${it(cfTitleCase(f.booktitle||''))}. ${pub}${pp}.`;
+    }
+    case 'conference': {
+      const pp = f.pages ? `, pp. ${tx(f.pages)}` : '';
+      return `${tx(A)} ${yr} '${tx(cfTitleCase(f.title||''))}', ${it(f.conference||'')}${f.place? ', '+tx(f.place) : ''}${pp}.`;
+    }
+    case 'thesis': {
+      return `${tx(A)} ${yr} ${it(cfTitleCase(f.title||''))}. ${tx(f.kind||'PhD thesis')}. ${tx(f.institution||'')}.${f.url? ' Available at: '+tx(f.url)+'.' : ''}`;
+    }
+    case 'news': {
+      const dt = f.date ? `, ${tx(f.date)}` : '';
+      return `${tx(A)} ${yr} '${tx(cfTitleCase(f.title||''))}', ${it(f.publication||'')}${dt}.${f.url? ' Available at: '+tx(f.url)+'.' : ''}`;
+    }
+    case 'report': {
+      const num = f.number ? ` (${tx(f.number)})` : '';
+      return `${tx(A)} ${yr} ${it(cfTitleCase(f.title||''))}${num}. ${tx(f.institution||'')}.${f.url? ' Available at: '+tx(f.url)+'.' : ''}`;
+    }
+  }
+  return '';
+}
+
+function cfFormat(src){
+  switch(CF_STYLE){
+    case 'apa':     return cfFormatAPA(src);
+    case 'mla':     return cfFormatMLA(src);
+    case 'chicago': return cfFormatChicago(src);
+    case 'harvard': return cfFormatHarvard(src);
+  }
+  return '';
+}
+
+function cfAddSource(type){
+  CF_SRC.push({ id: CF_NEXT_ID++, type: type || 'journal-article', fields: {} });
+  cfRebuild();
+}
+function cfDelSource(id){
+  CF_SRC = CF_SRC.filter(s => s.id !== id);
+  cfRebuild();
+}
+function cfChangeType(id, t){
+  const s = CF_SRC.find(x => x.id === id);
+  if(s){ s.type = t; }
+  cfRebuild();
+}
+function cfSetField(id, key, value){
+  const s = CF_SRC.find(x => x.id === id);
+  if(s){ s.fields[key] = value; }
+  cfRender();
+}
+function cfSort(){
+  CF_SRC.sort((a, b) => {
+    const aa = (cfParseAuthors(a.fields.authors||'')[0]||{}).last || a.fields.title || '';
+    const bb = (cfParseAuthors(b.fields.authors||'')[0]||{}).last || b.fields.title || '';
+    return aa.toLowerCase().localeCompare(bb.toLowerCase());
+  });
+  cfRebuild();
+}
+
+function cfRebuildStyles(){
+  document.querySelectorAll('.cf-style-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.style === CF_STYLE);
+  });
+}
+
+function cfRebuild(){
+  const wrap = document.getElementById('cf-sources');
+  wrap.innerHTML = '';
+  CF_SRC.forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'cf-card';
+    const head = document.createElement('div');
+    head.className = 'cf-card-head';
+    const sel = document.createElement('select');
+    Object.keys(CF_TYPE_LABELS).forEach(k => {
+      const o = document.createElement('option');
+      o.value = k; o.textContent = CF_TYPE_LABELS[k];
+      if(s.type === k) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.onchange = () => cfChangeType(s.id, sel.value);
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 'cf-del'; del.textContent = '✕';
+    del.title = 'Remove source';
+    del.onclick = () => cfDelSource(s.id);
+    head.appendChild(sel);
+    head.appendChild(del);
+    card.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'cf-fields';
+    (CF_FIELDS[s.type] || []).forEach(([key, label, wide, placeholder]) => {
+      const box = document.createElement('div');
+      if(wide) box.className = 'cf-wide';
+      const lbl = document.createElement('label'); lbl.textContent = label;
+      const inp = (wide && key === 'authors') || (wide && key === 'editors')
+        ? document.createElement('textarea')
+        : document.createElement('input');
+      if(inp.tagName === 'INPUT') inp.type = 'text';
+      inp.value = s.fields[key] || '';
+      inp.placeholder = placeholder || '';
+      inp.oninput = () => cfSetField(s.id, key, inp.value);
+      box.appendChild(lbl);
+      box.appendChild(inp);
+      grid.appendChild(box);
+    });
+    card.appendChild(grid);
+
+    const rendered = document.createElement('div');
+    rendered.className = 'cf-rendered';
+    rendered.dataset.role = 'rendered';
+    rendered.dataset.id = s.id;
+    card.appendChild(rendered);
+
+    wrap.appendChild(card);
+  });
+  cfRender();
+}
+
+function cfRender(){
+  // Per-card rendered preview
+  document.querySelectorAll('.cf-rendered').forEach(el => {
+    const id = parseInt(el.dataset.id, 10);
+    const s = CF_SRC.find(x => x.id === id);
+    if(!s) return;
+    const html = cfFormat(s);
+    el.innerHTML = html || '<span class="cf-empty">Fill in the fields above…</span>';
+  });
+  // Combined bibliography preview
+  const preview = document.getElementById('cf-preview');
+  const out = document.getElementById('cf-out');
+  if(!CF_SRC.length){
+    preview.innerHTML = '<div class="cf-empty">Add a source above to see the bibliography…</div>';
+    out.textContent = 'Zadaj vstup vyššie, aby si videl výsledok.';
+    return;
+  }
+  const entries = CF_SRC.map(cfFormat).filter(Boolean);
+  preview.innerHTML = entries.map(e => `<div class="cf-entry">${e}</div>`).join('') ||
+    '<div class="cf-empty">Fill in source fields to see the bibliography…</div>';
+  const plain = entries.map(e => e.replace(/<\/?i>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')).join('\n\n');
+  out.textContent = plain || 'Zadaj vstup vyššie, aby si videl výsledok.';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.cf-style-btn').forEach(b => {
+    b.onclick = () => { CF_STYLE = b.dataset.style; cfRebuildStyles(); cfRender(); };
+  });
+  // Seed with a journal-article example
+  CF_SRC.push({
+    id: CF_NEXT_ID++, type: 'journal-article',
+    fields: {
+      authors: 'Smith, Jane M.\nDoe, Carlos',
+      year: '2023',
+      title: 'Self-paced learning in mixed-ability classrooms',
+      journal: 'Journal of Educational Research',
+      volume: '116',
+      issue: '4',
+      pages: '215-238',
+      doi: 'https://doi.org/10.1234/example'
+    }
+  });
+  cfRebuildStyles();
+  cfRebuild();
+});
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

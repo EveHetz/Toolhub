@@ -27720,4 +27720,995 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/system-prompt-linter/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/system-prompt-linter/"/>
   </url>
+  <url>
+    <loc>https://toolhub.software/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/rubric-generator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/rubric-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/rubric-generator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/citation-formatter/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/citation-formatter/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/citation-formatter/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/de/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/es/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/fr/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/it/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pt/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/pl/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/ja/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/nl/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/tr/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/id/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/vi/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/hi/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/sk/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+  <url>
+    <loc>https://toolhub.software/cs/grade-calculator/</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/"/>
+  </url>
+
 </urlset>

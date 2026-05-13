@@ -209,13 +209,14 @@
   </footer>
 
   <script>
-                                                                                                                            const TOOLS = [
+                                                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 から画像へ", "desc": "Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
       {"slug": "bmi-calculator", "name": "BMI 計算機", "desc": "身長と体重から BMI を計算。メートル法・ヤード・ポンド法対応。WHO 区分を表示 — 医療助言ではありません。", "icon": "⚖️", "cat": "math", "tags": ["bmi", "body mass index", "health", "weight", "height", "metric", "imperial"]},
       {"slug": "case-converter", "name": "ケース変換ツール", "desc": "テキストを大文字、小文字、タイトル、文、camelCase、PascalCase、snake_case、kebab-case、CONSTANT_CASE、dot.case の間で変換。", "icon": "Aa", "cat": "text", "tags": ["case", "convert", "camel", "snake", "kebab", "pascal", "title", "upper", "lower"]},
       {"slug": "cidr-calculator", "name": "CIDR / サブネット計算機", "desc": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
+      {"slug": "citation-formatter", "name": "引用フォーマッター", "desc": "APA 7、MLA 9、Chicago、Harvard 形式で引用を整形。フィールドは手入力 — DOI 検索なし、トラッキングなし。ブラウザのみで動作。", "icon": "📚", "cat": "text", "tags": ["citation", "apa", "mla", "chicago", "harvard", "bibliography", "reference", "academic"]},
       {"slug": "color-converter", "name": "カラー変換ツール", "desc": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
       {"slug": "color-palette-extractor", "name": "カラーパレット抽出ツール", "desc": "任意の画像から主要色をブラウザ内で抽出。5〜8 個のスウォッチと HEX コード、コピー＆ペーストできる CSS 変数。ファイルは端末から出ません。", "icon": "🎨", "cat": "media", "tags": ["color", "palette", "extractor", "image", "design", "swatch", "dominant", "k-means"]},
       {"slug": "color-picker", "name": "カラーピッカー", "desc": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
@@ -232,6 +233,7 @@
       {"slug": "emoji-picker", "name": "絵文字ピッカー", "desc": "名前とキーワードで検索できる絵文字パレット。クリックでコピー。カテゴリ：スマイリー、動物、食べ物、旅行、オブジェクト、記号、国旗。", "icon": "😀", "cat": "text", "tags": ["emoji", "picker", "search", "copy", "unicode", "smiley", "symbol"]},
       {"slug": "exif-stripper", "name": "EXIF メタデータ削除", "desc": "あなたの写真が何を語っているかを可視化 — GPS 座標、カメラ機種、正確な撮影時刻 — そしてすべて削除。100 % ブラウザ内処理。ファイルは端末から出ません。", "icon": "🛡️", "cat": "media", "tags": ["exif", "metadata", "privacy", "strip", "remove", "gps", "location", "photo"]},
       {"slug": "file-size-converter", "name": "ファイルサイズコンバーター", "desc": "バイト、KB、MB、GB、TB と、バイナリ系の KiB、MiB、GiB、TiB を相互変換。10 進と 2 進を明確に区別。", "icon": "📦", "cat": "math", "tags": ["file size", "convert", "byte", "kilobyte", "megabyte", "gigabyte", "kib", "mib", "binary", "decimal"]},
+      {"slug": "grade-calculator", "name": "成績計算機", "desc": "教科の重み付き成績を計算。カテゴリ（課題／テスト／プロジェクト／期末）と重みを設定し、得点を入力すると現在の評定が表示されます。What-if モード：「期末で何点取れば A になる？」", "icon": "💯", "cat": "math", "tags": ["grade", "calculator", "school", "weighted", "average", "gpa", "final", "exam"]},
       {"slug": "hash-generator", "name": "ハッシュ生成ツール", "desc": "ブラウザの WebCrypto で SHA-1、SHA-256、SHA-384、SHA-512 のハッシュを生成。ローカル計算で、入力はページから外に出ません。", "icon": "🔑", "cat": "security", "tags": ["hash", "md5", "sha", "sha-256", "sha-512", "checksum"]},
       {"slug": "html-encoder", "name": "HTML エンコーダー / デコーダー", "desc": "HTML 特殊文字をエスケープ、またはエンティティをデコード。ユーザー入力の安全な埋め込みや、エスケープ済みマークアップのデバッグに便利。", "icon": "&lt;&gt;", "cat": "encoding", "tags": ["html", "encode", "entities", "escape", "xss"]},
       {"slug": "html-formatter", "name": "HTML フォーマッター", "desc": "HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。", "icon": "</>", "cat": "developer", "tags": ["html", "format", "beautify", "minify", "indent", "tidy"]},
@@ -265,6 +267,7 @@
       {"slug": "regex-cheatsheet", "name": "正規表現チートシート", "desc": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
       {"slug": "regex-llm-output", "name": "正規表現 LLM 出力抽出ツール", "desc": "雑な LLM 応答から構造化データ（JSON・コードブロック・key-value）を抽出。よくあるテンプレートから選ぶか、独自の正規表現を書く。ライブプレビュー付き。", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "正規表現テスター", "desc": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
+      {"slug": "rubric-generator", "name": "評価ルーブリック生成ツール", "desc": "評価基準とパフォーマンスレベルから印刷可能なルーブリック（Markdown ＋ HTML プレビュー ＋ 印刷ビュー）を作成。授業の評価設計を行う先生向け。", "icon": "📋", "cat": "text", "tags": ["rubric", "education", "teacher", "school", "grading", "assessment", "markdown"]},
       {"slug": "slug-generator", "name": "スラグ生成ツール", "desc": "任意のタイトルからクリーンな URL スラグを生成。アクセントを翻字し、句読点を取り除き、ハイフンで連結。", "icon": "/-", "cat": "text", "tags": ["slug", "url", "seo", "kebab", "permalink", "transliterate"]},
       {"slug": "sql-formatter", "name": "SQL フォーマッター", "desc": "SQL をきちんとインデントして整形、または 1 行に圧縮。ANSI / MySQL / Postgres の方言に対応。", "icon": "🗄", "cat": "developer", "tags": ["sql", "format", "beautify", "minify", "indent", "mysql", "postgres", "ansi"]},
       {"slug": "svg-optimizer", "name": "SVG オプティマイザー", "desc": "SVG ファイルをブラウザだけで圧縮。コメント・無駄な空白・デフォルト属性を削除し、長い小数を丸めます。ファイルは端末から出ません。", "icon": "🪶", "cat": "media", "tags": ["svg", "optimizer", "minify", "compress", "icon", "vector"]},

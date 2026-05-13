@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cijfer-calculator — Toolhub</title>
+  <meta name="description" content="Gratis gewogen cijfer-calculator. Definieer beoordelingscategorieën met weging in procenten (totaal 100), voer je scores per categorie in, en zie het lopende cijfer met de letter erbij. In de what-if-modus reken je terug welke score je nodig hebt op een openstaande toets (bijv. 'Ik moet een 8 op het eindexamen om mijn 7,5 te houden'). Sla je data op als URL-fragment om te bookmarken — niets wordt geüpload.">
+  <meta property="og:title" content="Cijfer-calculator — Toolhub">
+  <meta property="og:description" content="Gratis gewogen cijfer-calculator. Definieer beoordelingscategorieën met weging in procenten (totaal 100), voer je scores per categorie in, en zie het lopende cijfer met de letter erbij. In de what-if-modus reken je terug welke score je nodig hebt op een openstaande toets (bijv. 'Ik moet een 8 op het eindexamen om mijn 7,5 te houden'). Sla je data op als URL-fragment om te bookmarken — niets wordt geüpload.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/nl/grade-calculator/">
+  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <link rel="canonical" href="https://toolhub.software/nl/grade-calculator/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/grade-calculator/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/grade-calculator/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/grade-calculator/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/grade-calculator/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/grade-calculator/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/grade-calculator/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/grade-calculator/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/grade-calculator/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/grade-calculator/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/grade-calculator/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/grade-calculator/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/grade-calculator/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/grade-calculator/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/grade-calculator/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/grade-calculator/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/grade-calculator/">
+  <meta property="og:locale" content="nl_NL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/nl/grade-calculator/#tool",
+        "name": "Cijfer-calculator",
+        "description": "Gratis gewogen cijfer-calculator. Definieer beoordelingscategorieën met weging in procenten (totaal 100), voer je scores per categorie in, en zie het lopende cijfer met de letter erbij. In de what-if-modus reken je terug welke score je nodig hebt op een openstaande toets (bijv. 'Ik moet een 8 op het eindexamen om mijn 7,5 te houden'). Sla je data op als URL-fragment om te bookmarken — niets wordt geüpload.",
+        "url": "https://toolhub.software/nl/grade-calculator/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Math Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "nl",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["grade", "calculator", "school", "weighted", "average", "gpa", "final", "exam"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle tools", "item": "https://toolhub.software/nl/"},
+          {"@type": "ListItem", "position": 2, "name": "Cijfer-calculator", "item": "https://toolhub.software/nl/grade-calculator/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waarvoor is dit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Halverwege het semester maakt elke leerling dezelfde paniekberekening: \"Ik haalde een 6,5 op het tussentijdse en 8'en op huiswerk — wat moet ik op het eindexamen halen om mijn 7,5 te houden?\" Deze calculator lost dat op. Stel de categorieën in zoals je studiehandleiding (huiswerk, toetsen, projecten, eindexamen), voer de weging in, vul je scores in — en je ziet je lopende cijfer met de letter erbij. De what-if-modus rekent het andersom: gegeven een doelcijfer, wat heb je op het resterende werk nodig?"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe gebruik je het",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stel de categorieën in zoals je studiehandleiding. De wegingen moeten 100 zijn — bovenaan staat een waarschuwing als dat niet zo is. Voer scores in als \"behaald / maximaal\" (bijv. 18 / 20). Binnen een categorie worden punten opgeteld, geen percentages gemiddeld — dus een toets van 50 weegt zwaarder dan een quiz van 10, zoals docenten meestal rekenen. What-if-modus. Kies de openstaande categorie, geef je doelcijfer in %, zie de benodigde score. Boven 100 %: niet mogelijk met die weging. Onder 0 %: al binnen. Lettersbalk. Default is de US-schaal met plus/minus. Schakel naar simpel A/B/C/D/F, UK-classificatie, of bewerk de grenswaarden zelf. Sla op in URL schrijft je data naar het hash-fragment. Bookmarken of de link naar jezelf sturen — de data verlaat de browser niet (hashes worden niet naar de server gestuurd)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Veelvoorkomende valkuilen",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gewogen ≠ gemiddeld. Huiswerk 20 % + Eindexamen 30 %: 100 op huiswerk en 80 op eindexamen = (100×20 + 80×30) / 50 = 88, niet 90. Op punten vs. gelijkgewicht. Deze tool sommeert punten per categorie. Wil je dat elke toets even zwaar weegt onafhankelijk van puntenwaarde, voer dan elke score in als \"X / 100\". Lege categorieën. Het lopende cijfer telt alleen ingevulde categorieën. De regel \"gebruikt gewicht\" laat zien hoeveel van de 100 % meedoet. Laagste cijfer strepen. Als je klas de laagste streept, vul die simpelweg niet in. Bonuspunten. Voer boven het maximum in (bijv. 12 / 10). De rekensom werkt. Privacy. Er wordt niets verzonden. URL-save schrijft alleen naar het hash, dat de browser niet naar de server stuurt."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cijfer-calculator",
+  "description": "Bereken gewogen cijfers voor een vak. Stel categorieën (huiswerk / toetsen / projecten / eindexamen) met wegingen in, voer scores in, zie het lopende cijfer. What-if-modus: 'Wat moet ik halen op het eindexamen voor een 8?'",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Voer je waarden in",
+      "text": "Typ de cijfer-invoer in die de tool nodig heeft."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Lees de berekening",
+      "text": "Het cijfer-resultaat werkt direct bij — geen knop nodig."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gebruik of kopieer het resultaat",
+      "text": "Druk op Kopieer als je de cijfer-waarde ergens anders nodig hebt."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/nl/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Taal</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/grade-calculator/'; else location.href='/grade-calculator/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" selected="selected">🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Cijfer-calculator</div>
+    <h1>Cijfer-calculator</h1>
+    <p class="tagline">Bereken gewogen cijfers voor een vak. Stel categorieën (huiswerk / toetsen / projecten / eindexamen) met wegingen in, voer scores in, zie het lopende cijfer. What-if-modus: 'Wat moet ik halen op het eindexamen voor een 8?'</p>
+    
+<div class="tool-card">
+  <label>Categories</label>
+  <div id="gc-cats"></div>
+  <div class="button-row" style="margin-top:0.6rem">
+    <button class="secondary" type="button" onclick="gcAddCategory()">+ Add category</button>
+    <button class="secondary" type="button" onclick="gcReset()">Reset</button>
+  </div>
+  <div class="meta" id="gc-weight-meta" style="margin-top:0.5rem"></div>
+</div>
+
+<div class="tool-card">
+  <label>Result</label>
+  <div id="gc-result" class="gc-result">
+    <div class="gc-pct">—</div>
+    <div class="gc-letter">—</div>
+  </div>
+  <div class="meta" id="gc-detail"></div>
+</div>
+
+<div class="tool-card">
+  <label>
+    <input type="checkbox" id="gc-whatif" onchange="gcCalc()"> What-if: find the score I need
+  </label>
+  <div id="gc-whatif-panel" style="display:none;margin-top:0.6rem">
+    <div class="row-2col">
+      <div>
+        <label for="gc-target">Target overall grade (%)</label>
+        <input type="number" id="gc-target" min="0" max="200" step="0.1" value="90" oninput="gcCalc()">
+      </div>
+      <div>
+        <label for="gc-target-cat">Pending category</label>
+        <select id="gc-target-cat" onchange="gcCalc()"></select>
+      </div>
+    </div>
+    <div id="gc-whatif-out" class="output" style="margin-top:0.6rem;font-size:1rem">—</div>
+  </div>
+</div>
+
+<div class="tool-card">
+  <label>Letter scale</label>
+  <div class="row-2col">
+    <div>
+      <label for="gc-scale">Preset</label>
+      <select id="gc-scale" onchange="gcChangeScale()">
+        <option value="us-plus">US — A+/A/A−/B+/… (default)</option>
+        <option value="us">US — A/B/C/D/F</option>
+        <option value="uk">UK — First/2:1/2:2/Third/Fail</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" id="gc-url-save" onchange="gcCalc()"> Save state in URL fragment
+      </label>
+    </div>
+  </div>
+  <div id="gc-scale-editor" style="margin-top:0.6rem"></div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Waarvoor is dit?</h2>
+<p>Halverwege het semester maakt elke leerling dezelfde paniekberekening: "Ik haalde een 6,5 op het tussentijdse en 8'en op huiswerk — wat moet ik op het eindexamen halen om mijn 7,5 te houden?" Deze calculator lost dat op. Stel de categorieën in zoals je studiehandleiding (huiswerk, toetsen, projecten, eindexamen), voer de weging in, vul je scores in — en je ziet je lopende cijfer met de letter erbij. De what-if-modus rekent het andersom: gegeven een doelcijfer, wat heb je op het resterende werk nodig?</p>
+
+<h3>Hoe gebruik je het</h3>
+<ul>
+  <li><strong>Stel de categorieën in</strong> zoals je studiehandleiding. De wegingen moeten 100 zijn — bovenaan staat een waarschuwing als dat niet zo is.</li>
+  <li><strong>Voer scores in</strong> als "behaald / maximaal" (bijv. 18 / 20). Binnen een categorie worden punten opgeteld, geen percentages gemiddeld — dus een toets van 50 weegt zwaarder dan een quiz van 10, zoals docenten meestal rekenen.</li>
+  <li><strong>What-if-modus.</strong> Kies de openstaande categorie, geef je doelcijfer in %, zie de benodigde score. Boven 100 %: niet mogelijk met die weging. Onder 0 %: al binnen.</li>
+  <li><strong>Lettersbalk.</strong> Default is de US-schaal met plus/minus. Schakel naar simpel A/B/C/D/F, UK-classificatie, of bewerk de grenswaarden zelf.</li>
+  <li><strong>Sla op in URL</strong> schrijft je data naar het hash-fragment. Bookmarken of de link naar jezelf sturen — de data verlaat de browser niet (hashes worden niet naar de server gestuurd).</li>
+</ul>
+
+<h3>Veelvoorkomende valkuilen</h3>
+<ul>
+  <li><strong>Gewogen ≠ gemiddeld.</strong> Huiswerk 20 % + Eindexamen 30 %: 100 op huiswerk en 80 op eindexamen = (100×20 + 80×30) / 50 = 88, niet 90.</li>
+  <li><strong>Op punten vs. gelijkgewicht.</strong> Deze tool sommeert punten per categorie. Wil je dat elke toets even zwaar weegt onafhankelijk van puntenwaarde, voer dan elke score in als "X / 100".</li>
+  <li><strong>Lege categorieën.</strong> Het lopende cijfer telt alleen ingevulde categorieën. De regel "gebruikt gewicht" laat zien hoeveel van de 100 % meedoet.</li>
+  <li><strong>Laagste cijfer strepen.</strong> Als je klas de laagste streept, vul die simpelweg niet in.</li>
+  <li><strong>Bonuspunten.</strong> Voer boven het maximum in (bijv. 12 / 10). De rekensom werkt.</li>
+  <li><strong>Privacy.</strong> Er wordt niets verzonden. URL-save schrijft alleen naar het hash, dat de browser niet naar de server stuurt.</li>
+</ul>
+<div class="related"><span class="meta">Gerelateerde tools:</span> <a href="/nl/percentage-calculator/">Percentage-calculator</a> <a href="/nl/rubric-generator/">Beoordelingsmatrix-generator</a> <a href="/nl/tip-split-calculator/">Tip & Split Calculator</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/nl/privacy/">Privacy</a> · <a href="/nl/how-we-handle-your-data/">Dataverwerking</a> · <a href="/nl/affiliate-disclosure/">Affiliate-disclosure</a> · <a href="/nl/companion-tools/">Aanvullende tools</a> · <a href="/nl/about/">Over</a> · <a href="/nl/contact/">Contact</a> · <a href="/nl/for-schools/">Voor scholen</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.gc-cat{border:1px solid var(--border);border-radius:8px;padding:0.7rem;background:var(--bg-elev);margin-bottom:0.6rem}
+.gc-cat-head{display:grid;grid-template-columns:2fr 1fr auto;gap:0.5rem;align-items:end;margin-bottom:0.5rem}
+.gc-cat-head .gc-del{background:transparent;border:1px solid var(--border);border-radius:4px;padding:0.3rem 0.55rem;color:var(--text-muted);cursor:pointer;align-self:center}
+.gc-cat-head .gc-del:hover{color:#dc2626;border-color:#dc2626}
+.gc-scores{display:flex;flex-direction:column;gap:0.35rem}
+.gc-score{display:grid;grid-template-columns:1fr 80px 80px auto;gap:0.4rem;align-items:center}
+.gc-score input{font-size:0.88rem}
+.gc-score .gc-pct-mini{color:var(--text-muted);font-size:0.78rem;text-align:right;padding-right:0.3rem;min-width:60px}
+.gc-cat-actions{margin-top:0.4rem}
+.gc-cat-actions button{background:transparent;border:1px dashed var(--border);border-radius:4px;padding:0.25rem 0.5rem;cursor:pointer;color:var(--text-muted);font-size:0.85rem}
+.gc-cat-actions button:hover{border-color:var(--accent);color:var(--accent)}
+.gc-result{display:flex;align-items:baseline;gap:1rem;padding:0.8rem 1rem;background:var(--surface);border-radius:8px;border:1px solid var(--border)}
+.gc-result .gc-pct{font-size:2rem;font-weight:600;font-variant-numeric:tabular-nums}
+.gc-result .gc-letter{font-size:1.5rem;color:var(--accent);font-weight:600}
+.gc-meta-warn{color:#dc2626}
+#gc-scale-editor table{width:100%;font-size:0.85rem;border-collapse:collapse}
+#gc-scale-editor td, #gc-scale-editor th{padding:0.2rem 0.4rem;border:1px solid var(--border);text-align:left}
+#gc-scale-editor input{font-size:0.85rem;padding:0.2rem 0.35rem;min-height:auto;width:100%;box-sizing:border-box}
+#gc-whatif-out{font-variant-numeric:tabular-nums}
+.gc-score input::-webkit-outer-spin-button,.gc-score input::-webkit-inner-spin-button{margin-left:2px}
+@media(max-width:600px){
+  .gc-cat-head{grid-template-columns:1fr 1fr auto}
+  .gc-score{grid-template-columns:1fr 60px 60px auto}
+}
+</style>
+<script>
+const GC_SCALES = {
+  'us-plus': [
+    [97,'A+'],[93,'A'],[90,'A−'],
+    [87,'B+'],[83,'B'],[80,'B−'],
+    [77,'C+'],[73,'C'],[70,'C−'],
+    [67,'D+'],[63,'D'],[60,'D−'],
+    [0,'F']
+  ],
+  'us': [
+    [90,'A'],[80,'B'],[70,'C'],[60,'D'],[0,'F']
+  ],
+  'uk': [
+    [70,'First'],[60,'Upper Second (2:1)'],[50,'Lower Second (2:2)'],[40,'Third'],[0,'Fail']
+  ]
+};
+
+let GC = {
+  cats: [
+    { id: 1, name: 'Homework',  weight: 20, scores: [{ earned: 18, possible: 20 }, { earned: 17, possible: 20 }] },
+    { id: 2, name: 'Quizzes',   weight: 20, scores: [{ earned: 8,  possible: 10 }, { earned: 9,  possible: 10 }] },
+    { id: 3, name: 'Midterm',   weight: 25, scores: [{ earned: 82, possible: 100 }] },
+    { id: 4, name: 'Final exam', weight: 35, scores: [] }
+  ],
+  next: 5,
+  scaleKey: 'us-plus',
+  scale: GC_SCALES['us-plus'].map(x => x.slice())
+};
+
+function gcLoadFromHash(){
+  try {
+    if(!location.hash || location.hash.length < 4) return false;
+    const enc = location.hash.replace(/^#g=/, '');
+    if(enc === location.hash) return false;
+    const json = decodeURIComponent(escape(atob(enc.replace(/-/g,'+').replace(/_/g,'/'))));
+    const state = JSON.parse(json);
+    if(state && state.cats){
+      GC = Object.assign(GC, state);
+      if(state.scaleKey && GC_SCALES[state.scaleKey]){
+        GC.scale = state.scale && state.scale.length ? state.scale : GC_SCALES[state.scaleKey].map(x => x.slice());
+      }
+      document.getElementById('gc-url-save').checked = true;
+      return true;
+    }
+  } catch(e){ console.warn('gc: bad hash', e); }
+  return false;
+}
+
+function gcSaveToHash(){
+  try {
+    const state = { cats: GC.cats, next: GC.next, scaleKey: GC.scaleKey, scale: GC.scale };
+    const json = JSON.stringify(state);
+    const enc = btoa(unescape(encodeURIComponent(json))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    history.replaceState(null, '', '#g=' + enc);
+  } catch(e) {}
+}
+
+function gcAddCategory(){
+  GC.cats.push({ id: GC.next++, name: 'New category', weight: 0, scores: [] });
+  gcRebuild();
+}
+function gcDelCategory(id){
+  GC.cats = GC.cats.filter(c => c.id !== id);
+  gcRebuild();
+}
+function gcAddScore(catId){
+  const c = GC.cats.find(x => x.id === catId);
+  if(c){ c.scores.push({ earned: '', possible: 100 }); }
+  gcRebuild();
+}
+function gcDelScore(catId, i){
+  const c = GC.cats.find(x => x.id === catId);
+  if(c){ c.scores.splice(i, 1); }
+  gcRebuild();
+}
+function gcReset(){
+  GC.cats = [{ id: 1, name: 'Assignments', weight: 100, scores: [{ earned: '', possible: 100 }] }];
+  GC.next = 2;
+  gcRebuild();
+}
+
+function gcChangeScale(){
+  const k = document.getElementById('gc-scale').value;
+  GC.scaleKey = k;
+  if(k !== 'custom'){
+    GC.scale = GC_SCALES[k].map(x => x.slice());
+  }
+  gcRenderScale();
+  gcCalc();
+}
+
+function gcRenderScale(){
+  const wrap = document.getElementById('gc-scale-editor');
+  wrap.innerHTML = '';
+  const tbl = document.createElement('table');
+  const th = document.createElement('tr'); th.innerHTML = '<th>Min %</th><th>Letter</th><th></th>';
+  tbl.appendChild(th);
+  GC.scale.forEach((row, i) => {
+    const tr = document.createElement('tr');
+    const tdMin = document.createElement('td');
+    const inpMin = document.createElement('input'); inpMin.type = 'number'; inpMin.step = '0.1'; inpMin.value = row[0];
+    inpMin.oninput = () => { GC.scale[i][0] = parseFloat(inpMin.value) || 0; GC.scaleKey = 'custom'; document.getElementById('gc-scale').value = 'custom'; gcCalc(); };
+    tdMin.appendChild(inpMin);
+    const tdLetter = document.createElement('td');
+    const inpL = document.createElement('input'); inpL.type = 'text'; inpL.value = row[1];
+    inpL.oninput = () => { GC.scale[i][1] = inpL.value; GC.scaleKey = 'custom'; document.getElementById('gc-scale').value = 'custom'; gcCalc(); };
+    tdLetter.appendChild(inpL);
+    const tdDel = document.createElement('td');
+    const btn = document.createElement('button'); btn.type='button'; btn.textContent = '✕';
+    btn.style.cssText = 'background:transparent;border:1px solid var(--border);border-radius:4px;padding:0.2rem 0.4rem;cursor:pointer;color:var(--text-muted)';
+    btn.onclick = () => { GC.scale.splice(i, 1); GC.scaleKey = 'custom'; document.getElementById('gc-scale').value = 'custom'; gcRenderScale(); gcCalc(); };
+    tdDel.appendChild(btn);
+    tr.append(tdMin, tdLetter, tdDel);
+    tbl.appendChild(tr);
+  });
+  wrap.appendChild(tbl);
+}
+
+function gcLetterFor(pct){
+  if(!isFinite(pct)) return '—';
+  const sorted = GC.scale.slice().sort((a, b) => b[0] - a[0]);
+  for(const [min, letter] of sorted){
+    if(pct >= min) return letter;
+  }
+  return sorted[sorted.length-1] ? sorted[sorted.length-1][1] : '—';
+}
+
+function gcCatPct(c){
+  // Returns category percentage if it has scores, else null
+  let totalEarned = 0, totalPossible = 0;
+  for(const s of c.scores){
+    const e = parseFloat(s.earned), p = parseFloat(s.possible);
+    if(isFinite(e) && isFinite(p) && p > 0){
+      totalEarned += e;
+      totalPossible += p;
+    }
+  }
+  if(totalPossible <= 0) return null;
+  return (totalEarned / totalPossible) * 100;
+}
+
+function gcRebuild(){
+  const wrap = document.getElementById('gc-cats');
+  wrap.innerHTML = '';
+  GC.cats.forEach(c => {
+    const card = document.createElement('div');
+    card.className = 'gc-cat';
+
+    const head = document.createElement('div');
+    head.className = 'gc-cat-head';
+    const nLabel = document.createElement('div');
+    nLabel.innerHTML = '<label style="font-size:0.78rem;color:var(--text-muted)">Category name</label>';
+    const nInp = document.createElement('input'); nInp.type='text'; nInp.value = c.name;
+    nInp.oninput = () => { c.name = nInp.value; gcCalc(); gcRebuildTargetSelect(); };
+    nLabel.appendChild(nInp);
+    const wLabel = document.createElement('div');
+    wLabel.innerHTML = '<label style="font-size:0.78rem;color:var(--text-muted)">Weight %</label>';
+    const wInp = document.createElement('input'); wInp.type='number'; wInp.min='0'; wInp.step='0.1'; wInp.value = c.weight;
+    wInp.oninput = () => { c.weight = parseFloat(wInp.value) || 0; gcCalc(); };
+    wLabel.appendChild(wInp);
+    const delBtn = document.createElement('button'); delBtn.type='button'; delBtn.className='gc-del'; delBtn.textContent='✕';
+    delBtn.title='Remove category';
+    delBtn.onclick = () => gcDelCategory(c.id);
+    head.append(nLabel, wLabel, delBtn);
+    card.appendChild(head);
+
+    const sc = document.createElement('div'); sc.className = 'gc-scores';
+    c.scores.forEach((s, i) => {
+      const row = document.createElement('div'); row.className = 'gc-score';
+      const lbl = document.createElement('span'); lbl.textContent = (c.name || 'Score') + ' ' + (i + 1);
+      lbl.style.cssText = 'font-size:0.85rem;color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+      const e = document.createElement('input'); e.type='number'; e.step='any'; e.value = s.earned; e.placeholder = 'earned';
+      e.oninput = () => { s.earned = e.value === '' ? '' : parseFloat(e.value); gcCalc(); };
+      const p = document.createElement('input'); p.type='number'; p.step='any'; p.min='0'; p.value = s.possible; p.placeholder = 'out of';
+      p.oninput = () => { s.possible = p.value === '' ? '' : parseFloat(p.value); gcCalc(); };
+      const del = document.createElement('button'); del.type='button'; del.textContent='✕';
+      del.style.cssText='background:transparent;border:1px solid var(--border);border-radius:4px;padding:0.2rem 0.4rem;cursor:pointer;color:var(--text-muted)';
+      del.onclick = () => gcDelScore(c.id, i);
+      row.append(lbl, e, p, del);
+      sc.appendChild(row);
+    });
+    card.appendChild(sc);
+
+    const act = document.createElement('div'); act.className = 'gc-cat-actions';
+    const add = document.createElement('button'); add.type='button'; add.textContent='+ Add score';
+    add.onclick = () => gcAddScore(c.id);
+    act.appendChild(add);
+    card.appendChild(act);
+
+    wrap.appendChild(card);
+  });
+  gcRebuildTargetSelect();
+  gcCalc();
+}
+
+function gcRebuildTargetSelect(){
+  const sel = document.getElementById('gc-target-cat');
+  const prev = sel.value;
+  sel.innerHTML = '';
+  GC.cats.forEach(c => {
+    const o = document.createElement('option');
+    o.value = c.id; o.textContent = (c.name || 'Category') + ' (' + c.weight + '%)';
+    if(String(c.id) === prev) o.selected = true;
+    sel.appendChild(o);
+  });
+  // Default: pick the heaviest category with no scores
+  if(!prev){
+    let best = null;
+    for(const c of GC.cats){
+      if(!c.scores.length || gcCatPct(c) === null){
+        if(!best || c.weight > best.weight) best = c;
+      }
+    }
+    if(best) sel.value = best.id;
+  }
+}
+
+function gcCalc(){
+  const totalWeight = GC.cats.reduce((s, c) => s + (parseFloat(c.weight) || 0), 0);
+  const meta = document.getElementById('gc-weight-meta');
+  if(Math.abs(totalWeight - 100) > 0.01){
+    meta.innerHTML = `Total weight: <strong>${gcFmt(totalWeight)}%</strong> — should sum to 100. <span class="gc-meta-warn">Current grade is calculated using the categories with scores only.</span>`;
+  } else {
+    meta.innerHTML = `Total weight: <strong>${gcFmt(totalWeight)}%</strong>.`;
+  }
+
+  let weightedSum = 0, weightUsed = 0;
+  const detailLines = [];
+  GC.cats.forEach(c => {
+    const w = parseFloat(c.weight) || 0;
+    const p = gcCatPct(c);
+    if(p !== null){
+      weightedSum += p * w;
+      weightUsed += w;
+      detailLines.push(`<div>${gcEsc(c.name)}: <strong>${gcFmt(p)}%</strong> &times; weight ${gcFmt(w)}% = ${gcFmt(p*w/100)} pts</div>`);
+    }
+  });
+
+  const result = document.getElementById('gc-result');
+  const detail = document.getElementById('gc-detail');
+  if(weightUsed > 0){
+    const overall = weightedSum / weightUsed;
+    result.innerHTML = `<div class="gc-pct">${gcFmt(overall)}%</div><div class="gc-letter">${gcEsc(gcLetterFor(overall))}</div>`;
+    detail.innerHTML = detailLines.join('') + `<div style="margin-top:0.4rem;color:var(--text-muted)">Weighted average across <strong>${gcFmt(weightUsed)}%</strong> of weight used (rest pending).</div>`;
+  } else {
+    result.innerHTML = `<div class="gc-pct">—</div><div class="gc-letter">—</div>`;
+    detail.innerHTML = '<span class="text-muted">Enter scores to see your running grade.</span>';
+  }
+
+  // What-if mode
+  const wiOn = document.getElementById('gc-whatif').checked;
+  document.getElementById('gc-whatif-panel').style.display = wiOn ? '' : 'none';
+  if(wiOn){
+    gcCalcWhatIf();
+  }
+
+  // URL save
+  if(document.getElementById('gc-url-save').checked){
+    gcSaveToHash();
+  } else if(location.hash){
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+}
+
+function gcCalcWhatIf(){
+  const target = parseFloat(document.getElementById('gc-target').value);
+  const id = parseInt(document.getElementById('gc-target-cat').value, 10);
+  const out = document.getElementById('gc-whatif-out');
+  if(!isFinite(target)){ out.textContent = 'Enter a target overall %.'; return; }
+  const pendingCat = GC.cats.find(c => c.id === id);
+  if(!pendingCat){ out.textContent = 'Pick a pending category.'; return; }
+  const w = parseFloat(pendingCat.weight) || 0;
+  if(w <= 0){ out.textContent = `“${pendingCat.name}” has 0% weight — can't change your grade.`; return; }
+
+  // Sum contribution of all other categories (whether scored or 0)
+  let knownContrib = 0;
+  for(const c of GC.cats){
+    if(c.id === id) continue;
+    const cw = parseFloat(c.weight) || 0;
+    const cp = gcCatPct(c);
+    if(cp !== null){
+      knownContrib += cp * cw / 100;
+    }
+    // unscored other categories contribute 0 — flagged below
+  }
+  const otherWeight = GC.cats.filter(c => c.id !== id).reduce((s, c) => s + (parseFloat(c.weight) || 0), 0);
+  const unscoredOther = GC.cats.filter(c => c.id !== id && gcCatPct(c) === null).reduce((s, c) => s + (parseFloat(c.weight) || 0), 0);
+
+  // Need: target = knownContrib + X * w / 100  →  X = (target - knownContrib) * 100 / w
+  const needed = (target - knownContrib) * 100 / w;
+
+  let msg = '';
+  if(needed > 100){
+    msg = `To reach <strong>${gcFmt(target)}%</strong> overall, you'd need <strong>${gcFmt(needed)}%</strong> on “${gcEsc(pendingCat.name)}” — not possible with this weight.`;
+  } else if(needed < 0){
+    msg = `You can score <strong>0%</strong> on “${gcEsc(pendingCat.name)}” and still reach ${gcFmt(target)}% overall.`;
+  } else {
+    msg = `You need <strong>${gcFmt(needed)}%</strong> on “${gcEsc(pendingCat.name)}” to reach <strong>${gcFmt(target)}%</strong> overall (${gcEsc(gcLetterFor(target))}).`;
+  }
+  if(unscoredOther > 0){
+    msg += ` <span class="gc-meta-warn">Note: ${gcFmt(unscoredOther)}% of other weight is still unscored — this assumes those count as 0.</span>`;
+  }
+  out.innerHTML = msg;
+}
+
+function gcFmt(n){
+  if(!isFinite(n)) return '∞';
+  const r = Math.round(n * 100) / 100;
+  return Number.isInteger(r) ? r.toString() : r.toFixed(2).replace(/\.?0+$/, '');
+}
+function gcEsc(s){ return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+document.addEventListener('DOMContentLoaded', () => {
+  gcLoadFromHash();
+  document.getElementById('gc-scale').value = GC.scaleKey;
+  gcRenderScale();
+  gcRebuild();
+});
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
