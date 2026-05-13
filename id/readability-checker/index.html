@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemeriksa Keterbacaan — Toolhub</title>
+  <meta name="description" content="Analyzer keterbacaan gratis di browser. Tempel teks apa pun, lihat semua formula utama: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Berguna untuk guru yang mengkalibrasi materi ke jenjang siswa, penulis yang memeriksa aksesibilitas, auditor aksesibilitas. Breakdown per paragraf menyoroti bagian terpadat. JS murni — tanpa upload, tanpa daftar, tanpa tracking.">
+  <meta property="og:title" content="Pemeriksa Keterbacaan — Toolhub">
+  <meta property="og:description" content="Analyzer keterbacaan gratis di browser. Tempel teks apa pun, lihat semua formula utama: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Berguna untuk guru yang mengkalibrasi materi ke jenjang siswa, penulis yang memeriksa aksesibilitas, auditor aksesibilitas. Breakdown per paragraf menyoroti bagian terpadat. JS murni — tanpa upload, tanpa daftar, tanpa tracking.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/id/readability-checker/">
+  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <link rel="canonical" href="https://toolhub.software/id/readability-checker/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/readability-checker/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/readability-checker/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/readability-checker/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/readability-checker/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/readability-checker/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/readability-checker/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/readability-checker/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/readability-checker/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/readability-checker/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/readability-checker/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/readability-checker/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/readability-checker/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/readability-checker/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/readability-checker/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/readability-checker/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/readability-checker/">
+  <meta property="og:locale" content="id_ID">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/id/readability-checker/#tool",
+        "name": "Pemeriksa Keterbacaan",
+        "description": "Analyzer keterbacaan gratis di browser. Tempel teks apa pun, lihat semua formula utama: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Berguna untuk guru yang mengkalibrasi materi ke jenjang siswa, penulis yang memeriksa aksesibilitas, auditor aksesibilitas. Breakdown per paragraf menyoroti bagian terpadat. JS murni — tanpa upload, tanpa daftar, tanpa tracking.",
+        "url": "https://toolhub.software/id/readability-checker/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Text Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "id",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Semua alat", "item": "https://toolhub.software/id/"},
+          {"@type": "ListItem", "position": 2, "name": "Pemeriksa Keterbacaan", "item": "https://toolhub.software/id/readability-checker/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Untuk apa ini?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skor keterbacaan adalah satu angka yang memperkirakan seberapa banyak sekolah yang dibutuhkan untuk membaca sebuah teks. Lima formula sudah jadi standar — berbeda di pinggiran tapi sepakat di garis besar. Guru pakai untuk menyesuaikan materi ke jenjang kelas; penulis dan editor untuk menemukan paragraf padat; auditor aksesibilitas untuk menandai konten yang mungkin mengeksklusi pembaca dengan disabilitas kognitif."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Arti tiap skor",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flesch Reading Ease (0–100, makin tinggi makin mudah). 60–70 = Bahasa sederhana. Flesch-Kincaid Grade Level — jenjang AS. Gunning Fog — tahun pendidikan formal. SMOG — untuk komunikasi medis. Paling akurat ≥30 kalimat. Coleman-Liau — pakai karakter, bukan suku kata. Tahan terhadap akronim. ARI — mirip Coleman-Liau."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kesalahan umum",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hitungan suku kata adalah perkiraan. ±15 %. Deteksi kalimat naif. Singkatan menggembungkan. Kode dan tabel merusak angka. Tempel hanya prosa. Non-Inggris tidak andal. Formula dikalibrasi pada bahasa Inggris. Untuk Bahasa Indonesia, gunakan sebagai ukuran relatif. Teks pendek tidak signifikan. Di bawah ~100 kata = noise. Keterbacaan ≠ kualitas. Pakai sebagai check, bukan target."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Pemeriksa Keterbacaan",
+  "description": "Hitung Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG, dan Coleman-Liau di teksmu. Deteksi paragraf padat, tepatkan ke jenjang yang sesuai.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Masukkan nilai-nilaimu",
+      "text": "Ketik input teks yang dibutuhkan alat."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Baca hasilnya",
+      "text": "Hasil teks diperbarui seketika — tanpa tombol."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Gunakan atau salin hasil",
+      "text": "Tekan Salin jika kamu butuh nilai teks di tempat lain."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/id/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Bahasa</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/readability-checker/'; else location.href='/readability-checker/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" selected="selected">🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Pemeriksa Keterbacaan</div>
+    <h1>Pemeriksa Keterbacaan</h1>
+    <p class="tagline">Hitung Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG, dan Coleman-Liau di teksmu. Deteksi paragraf padat, tepatkan ke jenjang yang sesuai.</p>
+    
+<div class="tool-card">
+  <label>Text</label>
+  <textarea id="rc-in" oninput="rcRun()" placeholder="Paste or type the text you want to analyze. Works best with English prose of at least a few sentences." spellcheck="false" style="min-height:260px"></textarea>
+</div>
+
+<div class="tool-card">
+  <label>Basic stats</label>
+  <div class="rc-stats">
+    <div class="rc-stat"><div class="rc-num" id="rc-chars">0</div><div class="rc-lbl">Characters</div></div>
+    <div class="rc-stat"><div class="rc-num" id="rc-words">0</div><div class="rc-lbl">Words</div></div>
+    <div class="rc-stat"><div class="rc-num" id="rc-sentences">0</div><div class="rc-lbl">Sentences</div></div>
+    <div class="rc-stat"><div class="rc-num" id="rc-syllables">0</div><div class="rc-lbl">Syllables (est.)</div></div>
+    <div class="rc-stat"><div class="rc-num" id="rc-complex">0</div><div class="rc-lbl">Complex words (3+ syl)</div></div>
+    <div class="rc-stat"><div class="rc-num" id="rc-paragraphs">0</div><div class="rc-lbl">Paragraphs</div></div>
+  </div>
+</div>
+
+<div class="tool-card">
+  <label>Readability scores</label>
+  <table class="rc-scores" id="rc-scores">
+    <thead><tr><th>Formula</th><th>Score</th><th>Interpretation</th></tr></thead>
+    <tbody>
+      <tr><td>Flesch Reading Ease</td><td id="rc-flesch">—</td><td id="rc-flesch-int" class="rc-int">Higher = easier (0–100). 60–70 = plain English.</td></tr>
+      <tr><td>Flesch-Kincaid Grade Level</td><td id="rc-fkgl">—</td><td id="rc-fkgl-int" class="rc-int">US grade level needed to read the text.</td></tr>
+      <tr><td>Gunning Fog Index</td><td id="rc-fog">—</td><td id="rc-fog-int" class="rc-int">Years of formal education needed.</td></tr>
+      <tr><td>SMOG Index</td><td id="rc-smog">—</td><td id="rc-smog-int" class="rc-int">Years of education — designed for healthcare prose.</td></tr>
+      <tr><td>Coleman-Liau Index</td><td id="rc-cl">—</td><td id="rc-cl-int" class="rc-int">US grade level (character-based, no syllables).</td></tr>
+      <tr><td>Automated Readability Index</td><td id="rc-ari">—</td><td id="rc-ari-int" class="rc-int">US grade level (character + sentence based).</td></tr>
+      <tr class="rc-summary"><td><strong>Average grade level</strong></td><td id="rc-avg-grade"><strong>—</strong></td><td id="rc-avg-aud" class="rc-int"><strong>—</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="tool-card">
+  <label>Per-paragraph breakdown <span class="meta">(Flesch Reading Ease per paragraph — densest are red)</span></label>
+  <div id="rc-para" class="rc-para"></div>
+</div>
+
+<div class="tool-card">
+  <label>Honesty note</label>
+  <div class="meta" style="line-height:1.5">
+    <strong>Readability scores are heuristics</strong> — they were designed for English prose. Code, technical jargon, lists of short items, and non-English text will produce unreliable numbers.
+    Syllable counting uses a regex-based estimator and is approximately ±15% accurate.
+    Use these scores to spot relative differences and find dense paragraphs, not as exact reading-grade decrees.
+  </div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Untuk apa ini?</h2>
+<p>Skor keterbacaan adalah satu angka yang memperkirakan seberapa banyak sekolah yang dibutuhkan untuk membaca sebuah teks. Lima formula sudah jadi standar — berbeda di pinggiran tapi sepakat di garis besar. Guru pakai untuk menyesuaikan materi ke jenjang kelas; penulis dan editor untuk menemukan paragraf padat; auditor aksesibilitas untuk menandai konten yang mungkin mengeksklusi pembaca dengan disabilitas kognitif.</p>
+
+<h3>Arti tiap skor</h3>
+<ul>
+  <li><strong>Flesch Reading Ease</strong> (0–100, makin tinggi makin mudah). 60–70 = Bahasa sederhana.</li>
+  <li><strong>Flesch-Kincaid Grade Level</strong> — jenjang AS.</li>
+  <li><strong>Gunning Fog</strong> — tahun pendidikan formal.</li>
+  <li><strong>SMOG</strong> — untuk komunikasi medis. Paling akurat ≥30 kalimat.</li>
+  <li><strong>Coleman-Liau</strong> — pakai karakter, bukan suku kata. Tahan terhadap akronim.</li>
+  <li><strong>ARI</strong> — mirip Coleman-Liau.</li>
+</ul>
+
+<h3>Kesalahan umum</h3>
+<ul>
+  <li><strong>Hitungan suku kata adalah perkiraan.</strong> ±15 %.</li>
+  <li><strong>Deteksi kalimat naif.</strong> Singkatan menggembungkan.</li>
+  <li><strong>Kode dan tabel merusak angka.</strong> Tempel hanya prosa.</li>
+  <li><strong>Non-Inggris tidak andal.</strong> Formula dikalibrasi pada bahasa Inggris. Untuk Bahasa Indonesia, gunakan sebagai ukuran relatif.</li>
+  <li><strong>Teks pendek tidak signifikan.</strong> Di bawah ~100 kata = noise.</li>
+  <li><strong>Keterbacaan ≠ kualitas.</strong> Pakai sebagai check, bukan target.</li>
+</ul>
+<div class="related"><span class="meta">Alat terkait:</span> <a href="/id/word-counter/">Penghitung Kata</a> <a href="/id/lesson-plan-template/">Template RPP</a> <a href="/id/rubric-generator/">Generator Rubrik Penilaian</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/id/privacy/">Privasi</a> · <a href="/id/how-we-handle-your-data/">Penanganan data</a> · <a href="/id/affiliate-disclosure/">Pengungkapan afiliasi</a> · <a href="/id/companion-tools/">Alat pendamping</a> · <a href="/id/about/">Tentang</a> · <a href="/id/contact/">Kontak</a> · <a href="/id/for-schools/">Untuk sekolah</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.rc-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.55rem}
+.rc-stat{background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;padding:0.65rem 0.8rem;text-align:left}
+.rc-num{font-family:ui-monospace,monospace;font-size:1.35rem;font-weight:600;color:var(--accent)}
+.rc-lbl{font-size:0.78rem;color:var(--text-muted);margin-top:0.15rem}
+.rc-scores{border-collapse:collapse;width:100%;font-size:0.9rem}
+.rc-scores th,.rc-scores td{border:1px solid var(--border);padding:0.5rem 0.65rem;text-align:left;vertical-align:top}
+.rc-scores th{background:var(--bg);font-weight:600}
+.rc-scores td:nth-child(2){font-family:ui-monospace,monospace;font-weight:600;text-align:right;white-space:nowrap}
+.rc-int{color:var(--text-muted);font-size:0.85rem}
+.rc-summary td{background:var(--bg-elev)}
+.rc-para{display:grid;gap:0.4rem}
+.rc-pcard{border:1px solid var(--border);border-left-width:4px;border-radius:6px;padding:0.5rem 0.7rem;background:var(--bg-elev);font-size:0.88rem;line-height:1.5}
+.rc-pcard-meta{font-size:0.74rem;color:var(--text-muted);margin-bottom:0.25rem;display:flex;justify-content:space-between;gap:0.6rem;flex-wrap:wrap}
+.rc-band-easy   { border-left-color:#16a34a }
+.rc-band-plain  { border-left-color:#84cc16 }
+.rc-band-fair   { border-left-color:#eab308 }
+.rc-band-tough  { border-left-color:#f97316 }
+.rc-band-dense  { border-left-color:#dc2626 }
+</style>
+<script>
+// --- Syllable estimator: heuristic, English-tuned ---
+function rcSyllablesOne(word){
+  if(!word) return 0;
+  word = word.toLowerCase().replace(/[^a-z]/g, '');
+  if(word.length === 0) return 0;
+  if(word.length <= 3) return 1;
+  // strip silent endings
+  word = word.replace(/(?:[^laeiouy]|ed|[^laeiouy]e)$/, '');
+  word = word.replace(/^y/, '');
+  const groups = word.match(/[aeiouy]{1,2}/g);
+  return groups ? Math.max(1, groups.length) : 1;
+}
+function rcSyllables(words){
+  let total = 0, complex = 0;
+  for(const w of words){
+    const s = rcSyllablesOne(w);
+    total += s;
+    if(s >= 3) complex += 1;
+  }
+  return {total, complex};
+}
+
+function rcSplitWords(text){
+  return (text.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) || []);
+}
+
+function rcCountSentences(text){
+  // Split on sentence-ending punctuation followed by whitespace or end.
+  // Heuristic — ignores "Mr." etc.
+  const matches = text.match(/[^.!?\n]+[.!?]+(?=\s|$)|[^.!?\n]+$/g) || [];
+  return matches.filter(s => s.trim().length > 0).length;
+}
+
+function rcFleschBand(score){
+  if(score >= 90) return {cls:'rc-band-easy',  audience:'5th grade — very easy'};
+  if(score >= 80) return {cls:'rc-band-easy',  audience:'6th grade — easy'};
+  if(score >= 70) return {cls:'rc-band-plain', audience:'7th grade — fairly easy'};
+  if(score >= 60) return {cls:'rc-band-plain', audience:'8th–9th grade — plain English'};
+  if(score >= 50) return {cls:'rc-band-fair',  audience:'10th–12th grade — fairly difficult'};
+  if(score >= 30) return {cls:'rc-band-tough', audience:'College — difficult'};
+  return                {cls:'rc-band-dense', audience:'College graduate — very difficult'};
+}
+
+function rcGradeAudience(g){
+  if(g < 1)  return 'Pre-school / kindergarten';
+  if(g < 6)  return 'Elementary school (Grades 1–5)';
+  if(g < 9)  return 'Middle school (Grades 6–8)';
+  if(g < 13) return 'High school (Grades 9–12)';
+  if(g < 16) return 'Undergraduate';
+  if(g < 18) return 'Graduate';
+  return 'Post-graduate / specialist';
+}
+
+function rcScoresFor(text){
+  const words = rcSplitWords(text);
+  const W = words.length;
+  const S = Math.max(1, rcCountSentences(text));
+  const {total: SY, complex: C} = rcSyllables(words);
+  // Coleman-Liau & ARI use letter count
+  const letters = (text.match(/[A-Za-z]/g) || []).length;
+  // Avoid divide-by-zero on empty text
+  if(W === 0){
+    return {W:0,S:0,SY:0,C:0,letters:0,flesch:null,fkgl:null,fog:null,smog:null,cl:null,ari:null};
+  }
+  const flesch = 206.835 - 1.015 * (W / S) - 84.6 * (SY / W);
+  const fkgl   = 0.39   * (W / S) + 11.8   * (SY / W) - 15.59;
+  // Gunning Fog: 0.4 * ( (W/S) + 100 * (C/W) )
+  const fog    = 0.4    * ( (W / S) + 100 * (C / W) );
+  // SMOG: 1.0430 * sqrt(C * (30/S)) + 3.1291  (designed for >=30 sentences but we report anyway)
+  const smog   = 1.0430 * Math.sqrt(C * (30 / S)) + 3.1291;
+  // Coleman-Liau: 0.0588 * L - 0.296 * S2 - 15.8, where L = avg letters per 100 words, S2 = avg sentences per 100 words
+  const L  = (letters / W) * 100;
+  const S2 = (S / W) * 100;
+  const cl   = 0.0588 * L - 0.296 * S2 - 15.8;
+  // ARI: 4.71 * (letters/W) + 0.5 * (W/S) - 21.43
+  const ari  = 4.71 * (letters / W) + 0.5 * (W / S) - 21.43;
+  return {W,S,SY,C,letters,flesch,fkgl,fog,smog,cl,ari};
+}
+
+function rcFmt(n, digits){
+  if(n === null || isNaN(n)) return '—';
+  return Number(n).toFixed(digits ?? 1);
+}
+
+function rcRun(){
+  const text = document.getElementById('rc-in').value;
+  const r = rcScoresFor(text);
+  document.getElementById('rc-chars').textContent      = text.length.toLocaleString();
+  document.getElementById('rc-words').textContent      = r.W.toLocaleString();
+  document.getElementById('rc-sentences').textContent  = r.S.toLocaleString();
+  document.getElementById('rc-syllables').textContent  = r.SY.toLocaleString();
+  document.getElementById('rc-complex').textContent    = r.C.toLocaleString();
+  const paragraphs = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+  document.getElementById('rc-paragraphs').textContent = paragraphs.length.toLocaleString();
+
+  if(r.W === 0){
+    ['rc-flesch','rc-fkgl','rc-fog','rc-smog','rc-cl','rc-ari','rc-avg-grade'].forEach(id => {
+      document.getElementById(id).textContent = '—';
+    });
+    document.getElementById('rc-avg-aud').innerHTML = '<strong>Enter some text above</strong>';
+    document.getElementById('rc-para').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('rc-flesch').textContent = rcFmt(r.flesch, 1);
+  document.getElementById('rc-fkgl').textContent   = rcFmt(r.fkgl, 1);
+  document.getElementById('rc-fog').textContent    = rcFmt(r.fog, 1);
+  document.getElementById('rc-smog').textContent   = rcFmt(r.smog, 1);
+  document.getElementById('rc-cl').textContent     = rcFmt(r.cl, 1);
+  document.getElementById('rc-ari').textContent    = rcFmt(r.ari, 1);
+
+  // Update Flesch interpretation based on band
+  if(r.flesch !== null){
+    const b = rcFleschBand(r.flesch);
+    document.getElementById('rc-flesch-int').textContent =
+      'Higher = easier (0–100). ' + b.audience + '.';
+  }
+
+  // Average grade level (mean of grade-style scores)
+  const grades = [r.fkgl, r.fog, r.smog, r.cl, r.ari].filter(v => v !== null && !isNaN(v));
+  const avgGrade = grades.reduce((a,b)=>a+b,0) / Math.max(1, grades.length);
+  document.getElementById('rc-avg-grade').innerHTML = '<strong>Grade ' + rcFmt(avgGrade, 1) + '</strong>';
+  document.getElementById('rc-avg-aud').innerHTML = '<strong>' + rcGradeAudience(avgGrade) + '</strong>';
+
+  // Per-paragraph
+  const box = document.getElementById('rc-para');
+  if(paragraphs.length <= 1){
+    box.innerHTML = '<div class="meta">Add blank lines between paragraphs to see a per-paragraph breakdown.</div>';
+    return;
+  }
+  box.innerHTML = '';
+  for(const p of paragraphs){
+    const pr = rcScoresFor(p);
+    if(pr.W === 0) continue;
+    const band = pr.flesch !== null ? rcFleschBand(pr.flesch) : {cls:'rc-band-fair', audience:'—'};
+    const card = document.createElement('div');
+    card.className = 'rc-pcard ' + band.cls;
+    const preview = p.length > 220 ? p.slice(0, 220) + '…' : p;
+    card.innerHTML =
+      `<div class="rc-pcard-meta"><span>Flesch: <strong>${rcFmt(pr.flesch,1)}</strong> · Grade ~<strong>${rcFmt((pr.fkgl + pr.cl + pr.ari)/3,1)}</strong> · ${pr.W} words / ${pr.S} sentences</span><span>${band.audience}</span></div>` +
+      `<div>${preview.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</div>`;
+    box.appendChild(card);
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  // Seed sample text
+  const seed = `Photosynthesis is the process by which green plants and certain other organisms convert light energy into chemical energy. Light, water, and carbon dioxide are the inputs. Glucose and oxygen are the outputs.\n\nIn higher-order considerations, the photosystem-II complex catalyzes the photolytic oxidation of water, generating molecular oxygen, protons, and high-energy electrons that subsequently propagate through the electron-transport chain. The thermodynamic favorability of this cascade is contingent upon the maintenance of a transmembrane proton gradient across the thylakoid lumen.\n\nThis is plain English again. Short sentences. Common words. Easy to read.`;
+  document.getElementById('rc-in').value = seed;
+  rcRun();
+});
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unterrichtsentwurf-Vorlage — Toolhub</title>
+  <meta name="description" content="Kostenloser Unterrichtsentwurfs-Generator. Felder ausfüllen — Fach, Klassenstufe, Dauer, Lernziele (Bloom-Stufe als Auswahl), Material, Phasenablauf, Leistungsfeststellung, Differenzierung, Reflexion — und sauberes Markdown plus druckbare HTML-Ansicht erhalten. Vorlagen für Grund-, Sekundar- und Oberstufe und mehrere didaktische Modelle (5E, Gradual Release, forschend-entdeckend). Stand im URL-Fragment speicherbar — teilbar als Link.">
+  <meta property="og:title" content="Unterrichtsentwurf-Vorlage — Toolhub">
+  <meta property="og:description" content="Kostenloser Unterrichtsentwurfs-Generator. Felder ausfüllen — Fach, Klassenstufe, Dauer, Lernziele (Bloom-Stufe als Auswahl), Material, Phasenablauf, Leistungsfeststellung, Differenzierung, Reflexion — und sauberes Markdown plus druckbare HTML-Ansicht erhalten. Vorlagen für Grund-, Sekundar- und Oberstufe und mehrere didaktische Modelle (5E, Gradual Release, forschend-entdeckend). Stand im URL-Fragment speicherbar — teilbar als Link.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/de/lesson-plan-template/">
+  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <link rel="canonical" href="https://toolhub.software/de/lesson-plan-template/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/lesson-plan-template/">
+  <link rel="alternate" hreflang="de" href="https://toolhub.software/de/lesson-plan-template/">
+  <link rel="alternate" hreflang="es" href="https://toolhub.software/es/lesson-plan-template/">
+  <link rel="alternate" hreflang="fr" href="https://toolhub.software/fr/lesson-plan-template/">
+  <link rel="alternate" hreflang="it" href="https://toolhub.software/it/lesson-plan-template/">
+  <link rel="alternate" hreflang="pt" href="https://toolhub.software/pt/lesson-plan-template/">
+  <link rel="alternate" hreflang="pl" href="https://toolhub.software/pl/lesson-plan-template/">
+  <link rel="alternate" hreflang="ja" href="https://toolhub.software/ja/lesson-plan-template/">
+  <link rel="alternate" hreflang="nl" href="https://toolhub.software/nl/lesson-plan-template/">
+  <link rel="alternate" hreflang="tr" href="https://toolhub.software/tr/lesson-plan-template/">
+  <link rel="alternate" hreflang="id" href="https://toolhub.software/id/lesson-plan-template/">
+  <link rel="alternate" hreflang="vi" href="https://toolhub.software/vi/lesson-plan-template/">
+  <link rel="alternate" hreflang="hi" href="https://toolhub.software/hi/lesson-plan-template/">
+  <link rel="alternate" hreflang="sk" href="https://toolhub.software/sk/lesson-plan-template/">
+  <link rel="alternate" hreflang="cs" href="https://toolhub.software/cs/lesson-plan-template/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/lesson-plan-template/">
+  <meta property="og:locale" content="de_DE">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["SoftwareApplication", "WebApplication"],
+        "@id": "https://toolhub.software/de/lesson-plan-template/#tool",
+        "name": "Unterrichtsentwurf-Vorlage",
+        "description": "Kostenloser Unterrichtsentwurfs-Generator. Felder ausfüllen — Fach, Klassenstufe, Dauer, Lernziele (Bloom-Stufe als Auswahl), Material, Phasenablauf, Leistungsfeststellung, Differenzierung, Reflexion — und sauberes Markdown plus druckbare HTML-Ansicht erhalten. Vorlagen für Grund-, Sekundar- und Oberstufe und mehrere didaktische Modelle (5E, Gradual Release, forschend-entdeckend). Stand im URL-Fragment speicherbar — teilbar als Link.",
+        "url": "https://toolhub.software/de/lesson-plan-template/",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "Text Tools",
+        "operatingSystem": "Any (web browser)",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "inLanguage": "de",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+        "featureList": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"],
+        "creator": {"@id": "https://toolhub.software#publisher"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Alle Tools", "item": "https://toolhub.software/de/"},
+          {"@type": "ListItem", "position": 2, "name": "Unterrichtsentwurf-Vorlage", "item": "https://toolhub.software/de/lesson-plan-template/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wozu ist das gut?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unterrichtsentwürfe sind die Arbeit hinter der Arbeit. Eine gute Vorbereitung lässt eine Vertretung ohne Panik in deine Klasse gehen, lässt die Fachleitung sehen, was im Fachbereich passiert, und lässt dich nach dem Klingeln ehrlich reflektieren. Aber jedes Mal aus dem Nichts schreiben ist Reibung — der Großteil der Struktur ist bei jedem Entwurf gleich, nur die Inhalte ändern sich. Dieses Tool gibt dir die Struktur als Formular: Fach, Klasse, Dauer, Lernziele (mit Bloom-Tag), Material, didaktischer Ablauf, Leistungsfeststellung, Differenzierung, Reflexion. Du erhältst sauberes Markdown (fürs LMS, für die TA, fürs Unit-Verzeichnis) und eine druckbare HTML-Ansicht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "So geht's",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vorlage wählen. Standard passt für die meisten Stunden. 5E ist das kanonische naturwissenschaftliche Inquiry-Modell. Gradual Release (\"I do / We do / You do\") ist der Direkt-Instruktion-Rahmen. Header ausfüllen. Fach, Klasse, Dauer sind Pflicht. Lernziele schreiben. Jedes mit dem höchsten Bloom-Level taggen, das die Schüler:innen erreichen. Mischung ist normal. Schritte sequenzieren. Zeit, Phase, Lehrer- und Schülerhandlungen. Bewertung vorher planen. Formativ während der Stunde (Exit-Ticket, Cold-Call), summativ danach (Test). Explizit differenzieren. Was bekommt die Unterstützungs-Schülerin? Was machen die Schnellen? Reflexion zunächst leer lassen , nach der Stunde frisch ausfüllen. Als URL speichern. URL-Fragment-Toggle aktivieren — alles steckt im Link."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Typische Fehler",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ziele sind keine Tätigkeiten. \"Die Schüler arbeiten in Gruppen\" ist eine Tätigkeit. \"Die Schüler identifizieren die unabhängige Variable\" ist ein Ziel. Bloom ist Leitfaden, keine Pflicht-Hierarchie. Ein scharfes Erinnern-Ziel schlägt ein vages Bewerten-Ziel. Zeitsummen prüfen. 70 Minuten Phasen in einer 50-Minuten-Stunde funktioniert nicht. Lehrer- ≠ Schülerhandlungen. Wenn deine Schüler:innen 40 Minuten lang \"zuhören\", ist der Plan kaputt. Formatives Assessment muss leicht sein. Exit-Ticket, Handzeichen. Wird daraus eine 15-Minuten-Aktivität, ist es summativ. Vorlagen sind Startpunkte. Aggressiv editieren — die Defaults sind absichtlich generisch."
+      }
+    }
+  ]
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Unterrichtsentwurf-Vorlage",
+  "description": "Strukturierten Unterrichtsentwurf aus einem Formular erzeugen. Standardabschnitte (Ziele, Material, Phasen, Bewertung, Reflexion). Markdown + druckbare HTML-Ansicht.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Optionen wählen",
+      "text": "Wähle die gewünschten Text-Optionen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Generieren klicken",
+      "text": "Drücke Generieren, um ein neues Text zu erzeugen."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Ergebnis kopieren",
+      "text": "Drücke Kopieren, um das erzeugte Text zu kopieren."
+    }
+  ]
+}
+</script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle, .install-btn { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .install-btn { min-width: 100px; min-height: 36px; visibility: hidden; font-weight: 500; }
+    .install-btn.visible { visibility: visible; }
+    .install-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text); overflow-wrap: anywhere; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; overflow-wrap: anywhere; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; }
+    label { display: block; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.4rem; font-weight: 500; }
+    textarea, input[type=text], input[type=number], input[type=password], input[type=url], select { width: 100%; padding: 0.65rem 0.8rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.95rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; outline: none; }
+    textarea { min-height: 140px; resize: vertical; }
+    textarea:focus, input:focus, select:focus { border-color: var(--accent); }
+    button { background: var(--accent); color: #fff; border: none; padding: 0.6rem 1.1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: background 0.15s; }
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    button.secondary:hover { background: var(--card-hover); }
+    .button-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+    .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .output { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.8rem 1rem; font-family: ui-monospace, monospace; font-size: 0.92rem; min-height: 1.6em; word-break: break-all; white-space: pre-wrap; color: var(--text); }
+    .output.error { color: var(--red); border-color: var(--red); }
+    .output.success { color: var(--green); border-color: var(--green); }
+    .output-row { display: flex; align-items: center; gap: 0.5rem; }
+    .output-row .output { flex: 1; }
+    .copy-btn { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
+    .meta { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
+    .help { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-top: 1.5rem; }
+    .help h2 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+    .help h3 { font-size: 0.95rem; margin: 0.75rem 0 0.25rem; color: var(--text); }
+    .help p, .help li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; overflow-wrap: anywhere; }
+    .help ul, .help ol { padding-left: 1.25rem; }
+    .related { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .related a { padding: 0.3rem 0.7rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; font-size: 0.8rem; color: var(--text-muted); text-decoration: underline; }
+    .related a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.5rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; }
+    code, pre { font-family: ui-monospace, monospace; }
+    code { background: var(--code-bg); padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88em; }
+    .badge { display: inline-block; padding: 0.15rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: var(--text-muted); font-size: 0.75rem; }
+    @keyframes flash { 0% { background: var(--green); color: #fff; } 100% { background: var(--accent); color: #fff; } }
+    .copy-btn.copied { animation: flash 0.6s; }
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .header { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+      .tagline { font-size: 0.95rem; }
+      .row-2col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      html, body { overflow-x: hidden; max-width: 100vw; }
+      *, *::before, *::after { max-width: 100%; }
+      .container { padding: 0.75rem; }
+      .header { padding: 0.75rem 1rem; gap: 0.5rem; }
+      .logo { font-size: 1.2rem; }
+      .lang-select, .theme-toggle, .install-btn { padding: 0.55rem 0.7rem; font-size: 0.9rem; min-height: 44px; }
+      button { padding: 0.7rem 1rem; min-height: 44px; font-size: 1rem; }
+      textarea, input[type=text], input[type=number], input[type=password], input[type=url], input[type=email], select { padding: 0.7rem 0.8rem; font-size: 1rem; min-height: 44px; }
+      .tool-card { padding: 1rem; }
+      h1 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+      pre, pre.output, .output { font-size: 0.82rem; overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+      table { display: block; overflow-x: auto; max-width: 100%; }
+      .button-row { gap: 0.4rem; }
+      .button-row button { flex: 0 0 auto; }
+    }
+    @media (max-width: 380px) {
+      .header { flex-wrap: wrap; }
+      .header-actions { width: 100%; justify-content: flex-end; gap: 0.4rem; }
+      .lang-select { font-size: 0.82rem; padding: 0.45rem 0.55rem; }
+      .install-btn { font-size: 0.82rem; padding: 0.45rem 0.6rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    @keyframes toolhub-fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: none; } }
+    .support-callout { margin: 0.75rem 0 0; padding: 0.6rem 0.8rem; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; animation: toolhub-fade-in 0.3s ease-out; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .support-callout a { color: var(--text-muted); text-decoration: underline; }
+    .support-callout a:hover { color: var(--accent); text-decoration: none; }
+    .support-callout-dismiss { background: transparent; color: var(--text-muted); border: 0; padding: 0 0.3rem; font-size: 1rem; cursor: pointer; margin-left: auto; line-height: 1; min-height: 0; }
+    .support-callout-dismiss:hover { background: transparent; color: var(--text); }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <script>
+    /* Toolhub monetization config.
+       deploy_env gates AdSense behaviour so test/sandbox traffic can never
+       accidentally hit a live AdSense account:
+         "sandbox"    — local dev, pre-DNS, pre-AdSense-approval, staging.
+                        adsbygoogle.js is NEVER loaded. Ad slots render as
+                        placeholder boxes and a small SANDBOX badge is shown.
+                        Empty / unset AdSense IDs are harmless here.
+         "production" — real AdSense IDs filled in, ready for live traffic.
+                        adsenseClientId must match ca-pub-NNNNNNNNNNNNNNNN
+                        (16 digits) AND at least one slot ID must be set,
+                        otherwise the build script refuses to ship and the
+                        runtime falls back to placeholders.
+       To go live: fill the IDs below and flip deploy_env to "production".
+       Default is "sandbox" so an unconfigured deploy can never accidentally
+       run as production. */
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/de/" class="logo"><span>Tool</span>hub</a>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Sprache</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/lesson-plan-template/'; else location.href='/lesson-plan-template/'">
+        <option value="" >🇬🇧 EN</option>
+        <option value="de" selected="selected">🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Unterrichtsentwurf-Vorlage</div>
+    <h1>Unterrichtsentwurf-Vorlage</h1>
+    <p class="tagline">Strukturierten Unterrichtsentwurf aus einem Formular erzeugen. Standardabschnitte (Ziele, Material, Phasen, Bewertung, Reflexion). Markdown + druckbare HTML-Ansicht.</p>
+    
+<div class="tool-card">
+  <div class="row-2col">
+    <div>
+      <label for="lp-template">Start from a template</label>
+      <select id="lp-template" onchange="lpLoadTemplate()">
+        <option value="standard" selected>Standard</option>
+        <option value="5e">5E Model (Science / Inquiry)</option>
+        <option value="gradual">Gradual Release (I do / We do / You do)</option>
+        <option value="inquiry">Inquiry-Based</option>
+        <option value="pbl">Project-Based Learning (PBL)</option>
+        <option value="blank">Blank</option>
+      </select>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" id="lp-url-save" onchange="lpRender()"> Save state in URL fragment
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="tool-card">
+  <details open><summary><strong>Header</strong></summary>
+    <div class="lp-grid4" style="margin-top:0.6rem">
+      <div><label>Lesson title</label><input id="lp-title" type="text" oninput="lpRender()" placeholder="e.g. Photosynthesis: light, water, life"></div>
+      <div><label>Subject</label><input id="lp-subject" type="text" oninput="lpRender()" placeholder="e.g. Biology"></div>
+      <div><label>Grade / year</label><input id="lp-grade" type="text" oninput="lpRender()" placeholder="e.g. Year 8 / Grade 7"></div>
+      <div><label>Duration</label><input id="lp-duration" type="text" oninput="lpRender()" placeholder="e.g. 50 min"></div>
+      <div><label>Date</label><input id="lp-date" type="text" oninput="lpRender()" placeholder="e.g. 2026-05-15"></div>
+      <div><label>Teacher</label><input id="lp-teacher" type="text" oninput="lpRender()" placeholder="Your name"></div>
+      <div class="lp-wide"><label>Topic / context</label><input id="lp-topic" type="text" oninput="lpRender()" placeholder="Where this lesson sits in the unit"></div>
+    </div>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details open><summary><strong>Learning objectives</strong> <span class="meta">(Bloom's level per objective)</span></summary>
+    <div id="lp-objectives" style="margin-top:0.6rem"></div>
+    <div class="button-row" style="margin-top:0.5rem">
+      <button class="secondary" type="button" onclick="lpAddObjective()">+ Objective</button>
+    </div>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details><summary><strong>Materials</strong></summary>
+    <textarea id="lp-materials" oninput="lpRender()" style="margin-top:0.6rem;min-height:90px" placeholder="One per line, e.g.&#10;Whiteboard markers&#10;Petri dishes ×16&#10;Microscope slides&#10;Handout: 'Cell structure' (1 per pair)"></textarea>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details open><summary><strong>Instructional steps</strong></summary>
+    <div id="lp-steps" style="margin-top:0.6rem"></div>
+    <div class="button-row" style="margin-top:0.5rem">
+      <button class="secondary" type="button" onclick="lpAddStep()">+ Step</button>
+    </div>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details><summary><strong>Assessment</strong></summary>
+    <div class="lp-grid2" style="margin-top:0.6rem">
+      <div>
+        <label>Formative (during the lesson)</label>
+        <textarea id="lp-formative" oninput="lpRender()" placeholder="e.g. cold-call check-for-understanding after the demo; exit ticket with 2 questions"></textarea>
+      </div>
+      <div>
+        <label>Summative (after / next lesson)</label>
+        <textarea id="lp-summative" oninput="lpRender()" placeholder="e.g. Friday's quiz items 3 & 4; lab write-up due Tuesday"></textarea>
+      </div>
+    </div>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details><summary><strong>Differentiation</strong></summary>
+    <div class="lp-grid3" style="margin-top:0.6rem">
+      <div><label>Support (struggling learners)</label><textarea id="lp-support" oninput="lpRender()" placeholder="e.g. sentence stems on the handout; partner with a stronger reader; reduced word count for the exit ticket"></textarea></div>
+      <div><label>On-level</label><textarea id="lp-onlevel" oninput="lpRender()" placeholder="e.g. standard worksheet"></textarea></div>
+      <div><label>Extension (advanced)</label><textarea id="lp-advanced" oninput="lpRender()" placeholder="e.g. extra prompt asking them to design an experiment; open-ended question on the back of the worksheet"></textarea></div>
+    </div>
+  </details>
+</div>
+
+<div class="tool-card">
+  <details><summary><strong>Reflection</strong> <span class="meta">(filled in after the lesson)</span></summary>
+    <textarea id="lp-reflection" oninput="lpRender()" style="margin-top:0.6rem;min-height:90px" placeholder="Typically left blank when authoring. After the lesson: what worked, what didn't, what to change next time."></textarea>
+  </details>
+</div>
+
+<div class="tool-card">
+  <label>Preview <span class="meta">(print-ready)</span></label>
+  <div id="lp-preview" class="lp-preview"></div>
+  <div class="button-row" style="margin-top:0.5rem">
+    <button class="secondary" type="button" onclick="window.print()">Print</button>
+  </div>
+</div>
+
+<div class="tool-card">
+  <label>Markdown source</label>
+  <div class="output-row">
+    <pre class="output" id="lp-md" style="margin:0;flex:1">Geben Sie oben eine Eingabe ein, um das Ergebnis zu sehen.</pre>
+    <button class="copy-btn secondary" onclick="copyOutput('lp-md', this)">Kopieren</button>
+  </div>
+</div>
+
+    <div class="support-callout" hidden></div>
+    <div class="ad-slot" data-slot="content"></div>
+    <div class="help">
+<h2>Wozu ist das gut?</h2>
+<p>Unterrichtsentwürfe sind die Arbeit hinter der Arbeit. Eine gute Vorbereitung lässt eine Vertretung ohne Panik in deine Klasse gehen, lässt die Fachleitung sehen, was im Fachbereich passiert, und lässt dich nach dem Klingeln ehrlich reflektieren. Aber jedes Mal aus dem Nichts schreiben ist Reibung — der Großteil der Struktur ist bei jedem Entwurf gleich, nur die Inhalte ändern sich. Dieses Tool gibt dir die Struktur als Formular: Fach, Klasse, Dauer, Lernziele (mit Bloom-Tag), Material, didaktischer Ablauf, Leistungsfeststellung, Differenzierung, Reflexion. Du erhältst sauberes Markdown (fürs LMS, für die TA, fürs Unit-Verzeichnis) und eine druckbare HTML-Ansicht.</p>
+
+<h3>So geht's</h3>
+<ul>
+  <li><strong>Vorlage wählen.</strong> Standard passt für die meisten Stunden. 5E ist das kanonische naturwissenschaftliche Inquiry-Modell. Gradual Release ("I do / We do / You do") ist der Direkt-Instruktion-Rahmen.</li>
+  <li><strong>Header ausfüllen.</strong> Fach, Klasse, Dauer sind Pflicht.</li>
+  <li><strong>Lernziele schreiben.</strong> Jedes mit dem höchsten Bloom-Level taggen, das die Schüler:innen erreichen. Mischung ist normal.</li>
+  <li><strong>Schritte sequenzieren.</strong> Zeit, Phase, Lehrer- und Schülerhandlungen.</li>
+  <li><strong>Bewertung vorher planen.</strong> Formativ während der Stunde (Exit-Ticket, Cold-Call), summativ danach (Test).</li>
+  <li><strong>Explizit differenzieren.</strong> Was bekommt die Unterstützungs-Schülerin? Was machen die Schnellen?</li>
+  <li><strong>Reflexion zunächst leer lassen</strong>, nach der Stunde frisch ausfüllen.</li>
+  <li><strong>Als URL speichern.</strong> URL-Fragment-Toggle aktivieren — alles steckt im Link.</li>
+</ul>
+
+<h3>Typische Fehler</h3>
+<ul>
+  <li><strong>Ziele sind keine Tätigkeiten.</strong> "Die Schüler arbeiten in Gruppen" ist eine Tätigkeit. "Die Schüler identifizieren die unabhängige Variable" ist ein Ziel.</li>
+  <li><strong>Bloom ist Leitfaden, keine Pflicht-Hierarchie.</strong> Ein scharfes Erinnern-Ziel schlägt ein vages Bewerten-Ziel.</li>
+  <li><strong>Zeitsummen prüfen.</strong> 70 Minuten Phasen in einer 50-Minuten-Stunde funktioniert nicht.</li>
+  <li><strong>Lehrer- ≠ Schülerhandlungen.</strong> Wenn deine Schüler:innen 40 Minuten lang "zuhören", ist der Plan kaputt.</li>
+  <li><strong>Formatives Assessment muss leicht sein.</strong> Exit-Ticket, Handzeichen. Wird daraus eine 15-Minuten-Aktivität, ist es summativ.</li>
+  <li><strong>Vorlagen sind Startpunkte.</strong> Aggressiv editieren — die Defaults sind absichtlich generisch.</li>
+</ul>
+<div class="related"><span class="meta">Ähnliche Tools:</span> <a href="/de/rubric-generator/">Bewertungsraster-Generator</a> <a href="/de/grade-calculator/">Notenrechner</a> <a href="/de/markdown-to-html/">Markdown zu HTML</a></div></div>
+    <div class="ad-slot" data-slot="footer"></div>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/de/privacy/">Datenschutz</a> · <a href="/de/how-we-handle-your-data/">Datenverarbeitung</a> · <a href="/de/affiliate-disclosure/">Affiliate-Offenlegung</a> · <a href="/de/companion-tools/">Begleit-Tools</a> · <a href="/de/about/">Über uns</a> · <a href="/de/contact/">Kontakt</a> · <a href="/de/for-schools/">Für Schulen</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+    <p data-toolhub-footer-extras></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    function copyOutput(id, btn){
+      const el=document.getElementById(id);
+      const t=el.textContent||el.value||'';
+      navigator.clipboard.writeText(t).then(()=>{
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),700);
+      });
+    }
+  </script>
+  
+<style>
+.lp-grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.5rem 0.7rem}
+.lp-grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem 0.7rem}
+.lp-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0.5rem 0.7rem}
+.lp-grid4 .lp-wide,.lp-grid3 .lp-wide,.lp-grid2 .lp-wide{grid-column:1/-1}
+.lp-grid4 label,.lp-grid3 label,.lp-grid2 label{font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:0.15rem}
+.lp-grid4 input,.lp-grid3 textarea,.lp-grid2 textarea{font-size:0.88rem;width:100%}
+.lp-grid3 textarea,.lp-grid2 textarea{min-height:74px}
+details summary{cursor:pointer;padding:0.3rem 0}
+details[open] summary{margin-bottom:0.2rem}
+.lp-obj-row,.lp-step-card{border:1px solid var(--border);border-radius:6px;padding:0.55rem;background:var(--bg-elev);margin-bottom:0.45rem}
+.lp-obj-row{display:grid;grid-template-columns:1fr 180px auto;gap:0.4rem;align-items:center}
+.lp-step-card{display:grid;grid-template-columns:90px 1fr 1fr 1fr auto;gap:0.4rem}
+.lp-step-card label{font-size:0.74rem;color:var(--text-muted);display:block;margin-bottom:0.1rem}
+.lp-step-card textarea{min-height:56px;font-size:0.86rem;width:100%}
+.lp-step-card input{font-size:0.86rem;width:100%}
+.lp-del{background:transparent;border:1px solid var(--border);border-radius:4px;padding:0.25rem 0.55rem;color:var(--text-muted);cursor:pointer;align-self:center}
+.lp-del:hover{color:#dc2626;border-color:#dc2626}
+.lp-preview{padding:1rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:0.92rem;line-height:1.55}
+.lp-preview h1{font-size:1.4rem;margin:0 0 0.4rem}
+.lp-preview h2{font-size:1.05rem;margin:0.9rem 0 0.35rem;border-bottom:1px solid var(--border);padding-bottom:0.2rem}
+.lp-preview .lp-meta{color:var(--text-muted);font-size:0.84rem;margin-bottom:0.5rem}
+.lp-preview table{border-collapse:collapse;width:100%;margin:0.4rem 0 0.6rem;font-size:0.86rem}
+.lp-preview th,.lp-preview td{border:1px solid var(--border);padding:0.4rem 0.55rem;vertical-align:top;text-align:left}
+.lp-preview thead th{background:var(--bg)}
+.lp-preview ul{margin:0.3rem 0 0.5rem;padding-left:1.3rem}
+.lp-preview li{margin:0.1rem 0}
+.lp-bloom{font-size:0.74rem;color:var(--text-muted);font-weight:400;margin-left:0.3rem}
+@media print{
+  body > *:not(.tool-main):not(main){display:none !important}
+  .tool-card:not(:has(.lp-preview)){display:none !important}
+  .lp-preview{border:none;background:#fff;color:#000;padding:0}
+  .lp-preview table{background:#fff;color:#000}
+  .button-row,.copy-btn,details summary{display:none !important}
+}
+@media(max-width:700px){
+  .lp-step-card{grid-template-columns:1fr 1fr}
+  .lp-obj-row{grid-template-columns:1fr}
+}
+</style>
+<script>
+const LP_BLOOMS = ['Remember','Understand','Apply','Analyze','Evaluate','Create'];
+
+const LP_TEMPLATES = {
+  standard: {
+    title: 'Photosynthesis: light, water, life', subject: 'Biology', grade: 'Year 8', duration: '50 min', date: '', teacher: '',
+    topic: 'Unit 3: How plants make food. Lesson 2 of 6.',
+    objectives: [
+      {bloom: 'Understand', text: 'Explain how plants convert light into chemical energy.'},
+      {bloom: 'Apply',      text: 'Identify the inputs and outputs of photosynthesis in a given diagram.'},
+      {bloom: 'Analyze',    text: 'Predict what happens to a plant kept in the dark for one week.'}
+    ],
+    materials: 'Whiteboard markers\nPlant cuttings (Elodea, 1 per pair)\nBeakers (×16)\nLamps (×8)\nHandout: "Inputs & outputs of photosynthesis"\nExit-ticket slips (×30)',
+    steps: [
+      {time: '5 min',  activity: 'Hook',     teacher: 'Show a wilted plant next to a healthy one. Ask: "What does each one have that the other doesn\'t?"', student: 'Pair-share predictions. Volunteer answers.'},
+      {time: '10 min', activity: 'Direct instruction', teacher: 'Build the word equation on the board: light + water + CO2 → glucose + O2. Annotate each term.', student: 'Copy equation into notebook. Label diagram in handout.'},
+      {time: '20 min', activity: 'Guided practice', teacher: 'Circulate among pairs setting up Elodea + lamp + beaker. Probe: "Where does the gas come from?"', student: 'Set up the apparatus in pairs. Record observations every 2 min.'},
+      {time: '10 min', activity: 'Whole-class debrief', teacher: 'Solicit observations, link to equation, draw graph on board.', student: 'Volunteer findings. Compare against the equation.'},
+      {time: '5 min',  activity: 'Exit ticket', teacher: 'Hand out 2-question exit ticket. Read questions aloud.', student: 'Answer individually, hand in on the way out.'}
+    ],
+    formative: 'Cold-call check during direct instruction (2 students).\nExit ticket questions: (1) Name the two inputs. (2) What gas is produced?',
+    summative: 'Friday\'s unit quiz includes 4 items on photosynthesis.\nLab write-up of today\'s experiment due next Tuesday.',
+    support: 'Pre-printed equation strip glued into the notebook of the 3 support students.\nPair with a stronger reader for handout.',
+    onlevel: 'Standard handout and exit ticket as designed.',
+    advanced: 'Extension question on back of handout: "Design an experiment to test how light intensity affects rate of photosynthesis. What is your IV, DV, and control?"',
+    reflection: ''
+  },
+  '5e': {
+    title: 'Density: why does ice float?', subject: 'Science', grade: 'Year 7', duration: '60 min', date: '', teacher: '',
+    topic: '5E inquiry cycle — single-lesson version. Connects to mass, volume.',
+    objectives: [
+      {bloom: 'Understand', text: 'Explain density as mass per unit volume.'},
+      {bloom: 'Apply',      text: 'Predict whether a substance will float or sink given its density vs. water.'}
+    ],
+    materials: 'Water, salt, food colouring\nIce cubes\nVarious small objects (cork, eraser, marble, coin)\n100 mL beakers (×8)\nElectronic balances (×4)\nHandout: density worksheet',
+    steps: [
+      {time: '5 min',  activity: 'Engage', teacher: 'Drop a chunk of ice into a glass of water. Ask: "Why does ice float when it\'s made of the same water?"', student: 'Pair-share predictions.'},
+      {time: '15 min', activity: 'Explore', teacher: 'Hand out objects + beakers. Let students predict, then test, sink/float.', student: 'Predict in writing, test, record results.'},
+      {time: '15 min', activity: 'Explain', teacher: 'Introduce density formula. Walk through 2 worked examples on the board.', student: 'Take notes. Try the worked example with a partner.'},
+      {time: '15 min', activity: 'Elaborate', teacher: 'Salt-water lava lamp: layer salt water and fresh water with dye. Ask: "Why do they layer?"', student: 'Apply density formula to explain the layering.'},
+      {time: '10 min', activity: 'Evaluate', teacher: 'Distribute exit ticket: 3 sink/float prediction problems.', student: 'Solve individually.'}
+    ],
+    formative: 'Predictions during Explore phase; reasoning during Elaborate phase.\nExit ticket: 3 sink/float prediction problems with densities given.',
+    summative: 'Unit test (week 8) includes density section.',
+    support: 'Worked-example card laminated for support students.\nPair with a partner who can read aloud the worksheet.',
+    onlevel: 'Standard worksheet.',
+    advanced: 'Challenge problem: a 200 mL object weighs 240 g. Will it float in fresh water? In salt water (1.025 g/mL)?',
+    reflection: ''
+  },
+  gradual: {
+    title: 'Topic sentences in argumentative writing', subject: 'English Language Arts', grade: 'Grade 9', duration: '50 min', date: '', teacher: '',
+    topic: 'Persuasive essay unit, lesson 4 of 10. "I do / We do / You do."',
+    objectives: [
+      {bloom: 'Understand', text: 'Identify the function of a topic sentence within a paragraph.'},
+      {bloom: 'Create',     text: 'Write a topic sentence that previews a paragraph\'s argument.'}
+    ],
+    materials: 'Mentor essay (handout)\nSentence-stem reference card\nExit ticket slips',
+    steps: [
+      {time: '10 min', activity: 'I do — model', teacher: 'Read aloud a paragraph from the mentor essay. Annotate the topic sentence on the visualiser, thinking aloud about how it previews the argument.', student: 'Watch and annotate along on their own copy.'},
+      {time: '15 min', activity: 'We do — guided', teacher: 'Project a paragraph missing its topic sentence. Co-construct one with the class.', student: 'Volunteer phrasings. Vote on the best version. Discuss why.'},
+      {time: '15 min', activity: 'You do — practice', teacher: 'Distribute 3 "orphan paragraphs." Circulate, give feedback.', student: 'Write a topic sentence for each paragraph individually.'},
+      {time: '10 min', activity: 'Share + exit ticket', teacher: 'Cold-call 3 students to share. Distribute exit ticket.', student: 'Share strongest. Complete exit ticket: write a topic sentence for a given paragraph.'}
+    ],
+    formative: 'Quality of contributions during We do phase.\nExit ticket: 1-paragraph prompt + write a topic sentence.',
+    summative: 'Drafted persuasive essay due end of unit (week 4).',
+    support: 'Sentence-stem card: "Although ___, ___ because ___."\nReduced expectation: 1 topic sentence instead of 3.',
+    onlevel: 'Standard 3 orphan paragraphs.',
+    advanced: 'Add: "Rewrite one of your topic sentences with an opposing claim. Which version is stronger?"',
+    reflection: ''
+  },
+  inquiry: {
+    title: 'What makes a fair test?', subject: 'Science', grade: 'Year 6', duration: '60 min', date: '', teacher: '',
+    topic: 'Investigation skills strand. Inquiry-based — students design the test.',
+    objectives: [
+      {bloom: 'Analyze',  text: 'Identify the independent, dependent, and controlled variables in an experiment.'},
+      {bloom: 'Create',   text: 'Design a fair test for a question they generate.'}
+    ],
+    materials: 'Various everyday items (paper towels, plastic cups, ramps, balls, water)\nLarge-format planning sheet (1 per group)\nSticky notes',
+    steps: [
+      {time: '10 min', activity: 'Provocation', teacher: 'Show 3 brands of paper towel. Ask: "Which one is best?" Probe what "best" means.', student: 'Brainstorm what "best" could mean. Sticky-note ideas on board.'},
+      {time: '5 min',  activity: 'Question formation', teacher: 'Help students refine "best" into a testable question (e.g. "which paper towel absorbs the most water?").', student: 'Each group chooses one question.'},
+      {time: '25 min', activity: 'Plan + test', teacher: 'Circulate, probe variable choices, push back gently on unfair tests.', student: 'In groups: identify IV, DV, controls. Plan the test. Run it. Record results.'},
+      {time: '15 min', activity: 'Share + critique', teacher: 'Each group presents 2 min. Class identifies one strength + one weakness per group.', student: 'Present own test. Critique others constructively.'},
+      {time: '5 min',  activity: 'Reflection', teacher: 'Prompt: "What would you change next time to make the test fairer?"', student: 'Write reflection on sticky note, place on board.'}
+    ],
+    formative: 'Quality of variable choices on planning sheet.\nCritique offered during share-out.\nReflection sticky notes.',
+    summative: 'End-of-unit investigation report (week 6).',
+    support: 'Planning sheet has variable categories pre-printed.\nGroup with a strong inquiry partner.',
+    onlevel: 'Blank planning sheet.',
+    advanced: 'Add a confounding-variable trap to their setup, then ask them to spot it.',
+    reflection: ''
+  },
+  pbl: {
+    title: 'Design a water-saving device for our school', subject: 'STEM / Cross-curricular', grade: 'Year 9', duration: '60 min (lesson 1 of 8)', date: '', teacher: '',
+    topic: 'PBL launch. Authentic challenge from facilities team. 8-lesson arc ending in pitches.',
+    objectives: [
+      {bloom: 'Understand', text: 'Describe the school\'s current water use and key waste points.'},
+      {bloom: 'Apply',      text: 'Define the scope of an engineering problem they\'ll solve over 8 lessons.'},
+      {bloom: 'Evaluate',   text: 'Generate and weigh initial solution directions.'}
+    ],
+    materials: 'School water-use audit data (1 page, real)\nLarge sheets of paper + markers\nSticky notes\nDriving-question display',
+    steps: [
+      {time: '10 min', activity: 'Entry event', teacher: 'Play 2-min video from facilities manager describing the problem. Project driving question: "How can we cut our school\'s water use by 20% in 12 months?"', student: 'Watch. React. Generate questions on sticky notes.'},
+      {time: '15 min', activity: 'Know / Need-to-know', teacher: 'Run a "K/NTK" chart: what do we already know, what do we need to find out?', student: 'Contribute to both columns. Discuss in pairs.'},
+      {time: '15 min', activity: 'Audit data dive', teacher: 'Distribute audit data. Help interpret unfamiliar units / charts.', student: 'In groups of 3: highlight top 3 waste points. Justify with data.'},
+      {time: '15 min', activity: 'First solution sketches', teacher: 'Circulate. Push for specificity, not just "use less water."', student: 'Each group sketches 2 candidate solutions on chart paper.'},
+      {time: '5 min',  activity: 'Reflection + next steps', teacher: 'Confirm next-lesson plan: refine + research feasibility.', student: 'One sentence: my next research priority is ___.'}
+    ],
+    formative: 'Quality of K/NTK contributions.\nSpecificity of sketches (vague vs. concrete).',
+    summative: 'Final pitch to facilities manager (lesson 8). Rubric: feasibility, impact, presentation.',
+    support: 'Sentence stems: "One waste point I noticed is ___. My idea is ___."\nGroup with a confident speaker.',
+    onlevel: 'Standard chart paper.',
+    advanced: 'Add: identify which solution sketch is most likely to fail at scale, and why.',
+    reflection: ''
+  },
+  blank: {
+    title: '', subject: '', grade: '', duration: '', date: '', teacher: '', topic: '',
+    objectives: [{bloom: 'Understand', text: ''}],
+    materials: '',
+    steps: [{time: '', activity: '', teacher: '', student: ''}],
+    formative: '', summative: '',
+    support: '', onlevel: '', advanced: '',
+    reflection: ''
+  }
+};
+
+let LP = JSON.parse(JSON.stringify(LP_TEMPLATES.standard));
+
+function lpEsc(s){
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function lpLoadTemplate(){
+  const k = document.getElementById('lp-template').value;
+  LP = JSON.parse(JSON.stringify(LP_TEMPLATES[k] || LP_TEMPLATES.blank));
+  lpHydrate();
+}
+
+function lpHydrate(){
+  document.getElementById('lp-title').value = LP.title;
+  document.getElementById('lp-subject').value = LP.subject;
+  document.getElementById('lp-grade').value = LP.grade;
+  document.getElementById('lp-duration').value = LP.duration;
+  document.getElementById('lp-date').value = LP.date;
+  document.getElementById('lp-teacher').value = LP.teacher;
+  document.getElementById('lp-topic').value = LP.topic;
+  document.getElementById('lp-materials').value = LP.materials;
+  document.getElementById('lp-formative').value = LP.formative;
+  document.getElementById('lp-summative').value = LP.summative;
+  document.getElementById('lp-support').value = LP.support;
+  document.getElementById('lp-onlevel').value = LP.onlevel;
+  document.getElementById('lp-advanced').value = LP.advanced;
+  document.getElementById('lp-reflection').value = LP.reflection;
+  lpRebuildObjectives();
+  lpRebuildSteps();
+  lpRender();
+}
+
+function lpAddObjective(){
+  LP.objectives.push({bloom: 'Understand', text: ''});
+  lpRebuildObjectives();
+  lpRender();
+}
+function lpDelObjective(i){
+  if(LP.objectives.length <= 1) return;
+  LP.objectives.splice(i, 1);
+  lpRebuildObjectives();
+  lpRender();
+}
+function lpAddStep(){
+  LP.steps.push({time: '', activity: '', teacher: '', student: ''});
+  lpRebuildSteps();
+  lpRender();
+}
+function lpDelStep(i){
+  if(LP.steps.length <= 1) return;
+  LP.steps.splice(i, 1);
+  lpRebuildSteps();
+  lpRender();
+}
+
+function lpRebuildObjectives(){
+  const box = document.getElementById('lp-objectives');
+  box.innerHTML = '';
+  LP.objectives.forEach((O, i) => {
+    const row = document.createElement('div');
+    row.className = 'lp-obj-row';
+    const txt = document.createElement('input');
+    txt.type = 'text'; txt.value = O.text;
+    txt.placeholder = 'e.g. Explain how plants convert light into chemical energy.';
+    txt.oninput = () => { LP.objectives[i].text = txt.value; lpRender(); };
+    const sel = document.createElement('select');
+    LP_BLOOMS.forEach(b => {
+      const opt = document.createElement('option');
+      opt.value = b; opt.textContent = b;
+      if(b === O.bloom) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    sel.onchange = () => { LP.objectives[i].bloom = sel.value; lpRender(); };
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 'lp-del'; del.textContent = '✕';
+    del.title = 'Remove objective';
+    del.onclick = () => lpDelObjective(i);
+    row.appendChild(txt); row.appendChild(sel); row.appendChild(del);
+    box.appendChild(row);
+  });
+}
+
+function lpRebuildSteps(){
+  const box = document.getElementById('lp-steps');
+  box.innerHTML = '';
+  LP.steps.forEach((S, i) => {
+    const card = document.createElement('div');
+    card.className = 'lp-step-card';
+    const fields = [
+      {key: 'time',     label: 'Time',     tag: 'input',    placeholder: '5 min'},
+      {key: 'activity', label: 'Activity / phase', tag: 'input', placeholder: 'Hook / Direct / Practice'},
+      {key: 'teacher',  label: 'Teacher actions',  tag: 'textarea', placeholder: 'What the teacher does'},
+      {key: 'student',  label: 'Student actions',  tag: 'textarea', placeholder: 'What students do'},
+    ];
+    fields.forEach(F => {
+      const wrap = document.createElement('div');
+      const lbl = document.createElement('label'); lbl.textContent = F.label;
+      const el = document.createElement(F.tag);
+      if(F.tag === 'input') el.type = 'text';
+      el.value = S[F.key]; el.placeholder = F.placeholder;
+      el.oninput = () => { LP.steps[i][F.key] = el.value; lpRender(); };
+      wrap.appendChild(lbl); wrap.appendChild(el);
+      card.appendChild(wrap);
+    });
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 'lp-del'; del.textContent = '✕';
+    del.title = 'Remove step';
+    del.onclick = () => lpDelStep(i);
+    card.appendChild(del);
+    box.appendChild(card);
+  });
+}
+
+function lpCollect(){
+  LP.title = document.getElementById('lp-title').value;
+  LP.subject = document.getElementById('lp-subject').value;
+  LP.grade = document.getElementById('lp-grade').value;
+  LP.duration = document.getElementById('lp-duration').value;
+  LP.date = document.getElementById('lp-date').value;
+  LP.teacher = document.getElementById('lp-teacher').value;
+  LP.topic = document.getElementById('lp-topic').value;
+  LP.materials = document.getElementById('lp-materials').value;
+  LP.formative = document.getElementById('lp-formative').value;
+  LP.summative = document.getElementById('lp-summative').value;
+  LP.support = document.getElementById('lp-support').value;
+  LP.onlevel = document.getElementById('lp-onlevel').value;
+  LP.advanced = document.getElementById('lp-advanced').value;
+  LP.reflection = document.getElementById('lp-reflection').value;
+}
+
+function lpRender(){
+  lpCollect();
+
+  // Preview
+  const meta = [LP.subject, LP.grade, LP.duration, LP.date, LP.teacher].filter(Boolean).join(' · ');
+  const objHtml = LP.objectives
+    .filter(o => o.text.trim())
+    .map(o => `<li>${lpEsc(o.text)}<span class="lp-bloom">(Bloom: ${lpEsc(o.bloom)})</span></li>`).join('');
+  const matsHtml = (LP.materials || '').split('\n').map(m => m.trim()).filter(Boolean)
+    .map(m => `<li>${lpEsc(m)}</li>`).join('');
+  const stepsHtml = LP.steps.filter(s => s.time || s.activity || s.teacher || s.student).map((s, i) => `
+    <tr>
+      <td><strong>${i+1}.</strong> ${lpEsc(s.time||'')}</td>
+      <td>${lpEsc(s.activity||'')}</td>
+      <td>${lpEsc(s.teacher||'').replace(/\n/g,'<br>')}</td>
+      <td>${lpEsc(s.student||'').replace(/\n/g,'<br>')}</td>
+    </tr>
+  `).join('');
+
+  const sec = (h, body) => body ? `<h2>${lpEsc(h)}</h2>${body}` : '';
+  const para = s => s ? `<p>${lpEsc(s).replace(/\n/g,'<br>')}</p>` : '';
+  const diffRows = [
+    LP.support  ? `<tr><td><strong>Support</strong></td><td>${lpEsc(LP.support).replace(/\n/g,'<br>')}</td></tr>` : '',
+    LP.onlevel  ? `<tr><td><strong>On-level</strong></td><td>${lpEsc(LP.onlevel).replace(/\n/g,'<br>')}</td></tr>` : '',
+    LP.advanced ? `<tr><td><strong>Extension</strong></td><td>${lpEsc(LP.advanced).replace(/\n/g,'<br>')}</td></tr>` : '',
+  ].join('');
+  const assessRows = [
+    LP.formative ? `<tr><td><strong>Formative</strong></td><td>${lpEsc(LP.formative).replace(/\n/g,'<br>')}</td></tr>` : '',
+    LP.summative ? `<tr><td><strong>Summative</strong></td><td>${lpEsc(LP.summative).replace(/\n/g,'<br>')}</td></tr>` : '',
+  ].join('');
+
+  document.getElementById('lp-preview').innerHTML = `
+    <h1>${lpEsc(LP.title || 'Lesson plan')}</h1>
+    ${meta ? `<div class="lp-meta">${lpEsc(meta)}</div>` : ''}
+    ${LP.topic ? `<p><em>${lpEsc(LP.topic)}</em></p>` : ''}
+    ${sec('Learning objectives', objHtml ? `<ul>${objHtml}</ul>` : '')}
+    ${sec('Materials', matsHtml ? `<ul>${matsHtml}</ul>` : '')}
+    ${sec('Instructional steps', stepsHtml ? `<table><thead><tr><th>Time</th><th>Activity</th><th>Teacher</th><th>Student</th></tr></thead><tbody>${stepsHtml}</tbody></table>` : '')}
+    ${sec('Assessment', assessRows ? `<table><tbody>${assessRows}</tbody></table>` : '')}
+    ${sec('Differentiation', diffRows ? `<table><tbody>${diffRows}</tbody></table>` : '')}
+    ${sec('Reflection', para(LP.reflection))}
+  `;
+
+  // Markdown source
+  const md = [];
+  md.push('# ' + (LP.title || 'Lesson plan'));
+  if(meta) md.push('', '*' + meta + '*');
+  if(LP.topic) md.push('', LP.topic);
+  const objs = LP.objectives.filter(o => o.text.trim());
+  if(objs.length){
+    md.push('', '## Learning objectives', '');
+    for(const o of objs) md.push(`- ${o.text}  _(Bloom: ${o.bloom})_`);
+  }
+  const mats = (LP.materials || '').split('\n').map(m => m.trim()).filter(Boolean);
+  if(mats.length){
+    md.push('', '## Materials', '');
+    for(const m of mats) md.push('- ' + m);
+  }
+  const steps = LP.steps.filter(s => s.time || s.activity || s.teacher || s.student);
+  if(steps.length){
+    md.push('', '## Instructional steps', '');
+    md.push('| # | Time | Activity | Teacher | Student |');
+    md.push('|---|------|----------|---------|---------|');
+    steps.forEach((s, i) => {
+      const safe = v => (v || '').replace(/\n+/g, ' ').replace(/\|/g, '\\|');
+      md.push(`| ${i+1} | ${safe(s.time)} | ${safe(s.activity)} | ${safe(s.teacher)} | ${safe(s.student)} |`);
+    });
+  }
+  if(LP.formative || LP.summative){
+    md.push('', '## Assessment', '');
+    if(LP.formative) md.push('**Formative:** ' + LP.formative);
+    if(LP.summative) md.push('', '**Summative:** ' + LP.summative);
+  }
+  if(LP.support || LP.onlevel || LP.advanced){
+    md.push('', '## Differentiation', '');
+    if(LP.support)  md.push('- **Support:** ' + LP.support.replace(/\n+/g, ' '));
+    if(LP.onlevel)  md.push('- **On-level:** ' + LP.onlevel.replace(/\n+/g, ' '));
+    if(LP.advanced) md.push('- **Extension:** ' + LP.advanced.replace(/\n+/g, ' '));
+  }
+  if(LP.reflection){
+    md.push('', '## Reflection', '', LP.reflection);
+  }
+  document.getElementById('lp-md').textContent = md.join('\n');
+
+  // URL fragment save
+  if(document.getElementById('lp-url-save').checked){
+    try{
+      const json = JSON.stringify(LP);
+      const b64 = btoa(unescape(encodeURIComponent(json)));
+      history.replaceState(null, '', '#' + b64);
+    }catch(e){}
+  }
+}
+
+function lpFromHash(){
+  if(!location.hash || location.hash.length < 2) return false;
+  try{
+    const json = decodeURIComponent(escape(atob(location.hash.slice(1))));
+    const parsed = JSON.parse(json);
+    if(parsed && typeof parsed === 'object' && Array.isArray(parsed.objectives)){
+      LP = parsed;
+      document.getElementById('lp-url-save').checked = true;
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if(!lpFromHash()) LP = JSON.parse(JSON.stringify(LP_TEMPLATES.standard));
+  lpHydrate();
+});
+</script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+    (function(){
+      let deferred = null;
+      const btn = document.getElementById('installBtn');
+      if (!btn) return;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferred = e;
+        btn.classList.add('visible');
+      });
+      btn.addEventListener('click', async () => {
+        if (!deferred) return;
+        deferred.prompt();
+        try { await deferred.userChoice; } catch(_){}
+        deferred = null;
+        btn.classList.remove('visible');
+      });
+      window.addEventListener('appinstalled', () => { btn.classList.remove('visible'); });
+    })();
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

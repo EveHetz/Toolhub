@@ -209,7 +209,7 @@
   </footer>
 
   <script>
-                                                                                                                                const TOOLS = [
+                                                                                                                                    const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 から画像へ", "desc": "Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -252,9 +252,11 @@
       {"slug": "json-to-csv", "name": "JSON から CSV", "desc": "JSON のオブジェクト配列を CSV に変換。フィールド自動検出、カスタム区切り、Excel・Google Sheets 向けに正しくエスケープ。", "icon": "📋", "cat": "data", "tags": ["json", "csv", "convert", "data", "export", "excel"]},
       {"slug": "jsonl-viewer", "name": "JSONL ビューア", "desc": "JSONL（改行区切り JSON）ファイルをページ送りテーブルで表示。最大数千行を貼り付け、検索・フィルタ・個別レコードの展開が可能。ファイルがブラウザを出ることはありません。", "icon": "📃", "cat": "data", "tags": ["jsonl", "ndjson", "json", "viewer", "llm", "training", "log", "stream"]},
       {"slug": "jwt-decoder", "name": "JWT デコーダー", "desc": "JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。", "icon": "🔓", "cat": "developer", "tags": ["jwt", "json web token", "decode", "auth", "oauth", "openid"]},
+      {"slug": "lesson-plan-template", "name": "学習指導案テンプレート", "desc": "フォームから構造化された学習指導案を生成。標準セクション（目標／教材／指導過程／評価／振り返り）を網羅。Markdown と印刷可能な HTML 出力。", "icon": "📝", "cat": "text", "tags": ["lesson", "plan", "teacher", "education", "school", "template", "curriculum"]},
       {"slug": "lorem-ipsum", "name": "Lorem Ipsum ジェネレーター", "desc": "段落・文・単語・リスト項目の単位でラテン語のプレースホルダーテキストを生成。長さと冒頭フレーズを設定可能。", "icon": "¶", "cat": "text", "tags": ["lorem", "ipsum", "placeholder", "filler", "dummy", "text"]},
       {"slug": "markdown-table-editor", "name": "Markdown テーブルエディター", "desc": "テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。", "icon": "▦", "cat": "text", "tags": ["markdown", "table", "editor", "github", "gfm", "alignment"]},
       {"slug": "markdown-to-html", "name": "Markdown から HTML", "desc": "Markdown をクリーンな HTML に変換し、ライブプレビューを表示。見出し、リスト、コード、テーブル、画像、リンクに対応。", "icon": "M↓", "cat": "text", "tags": ["markdown", "md", "html", "convert", "preview", "render"]},
+      {"slug": "markdown-to-pdf", "name": "Markdown から PDF", "desc": "Markdown をブラウザ内で印刷可能な PDF に変換。貼り付け、プレビュー、ブラウザの印刷ダイアログから PDF として保存。アップロードもサーバも不要。", "icon": "📄", "cat": "text", "tags": ["markdown", "pdf", "convert", "export", "print", "document"]},
       {"slug": "mime-type-lookup", "name": "MIME タイプ検索", "desc": "拡張子やタイプから MIME タイプを検索。image・video・audio・application・text・font の約 120 種を収録。", "icon": "📎", "cat": "developer", "tags": ["mime", "type", "extension", "content-type", "file", "media"]},
       {"slug": "number-base-converter", "name": "進数変換ツール", "desc": "2 進・8 進・10 進・16 進、および 2〜36 の任意の基数を相互変換。", "icon": "0b", "cat": "developer", "tags": ["binary", "hex", "octal", "decimal", "base", "convert", "number"]},
       {"slug": "og-tag-preview", "name": "OG タグプレビュー", "desc": "OG メタタグを貼るか、タイトル／説明／画像を入力すると、Twitter/X、Facebook、LinkedIn、Discord のシェアカードを確認できます。", "icon": "🪟", "cat": "design", "tags": ["og", "open graph", "twitter", "facebook", "linkedin", "discord", "preview", "social"]},
@@ -264,6 +266,7 @@
       {"slug": "prompt-diff", "name": "プロンプト Diff", "desc": "2 つのプロンプト（または同じプロンプトの 2 バージョン）を並べて比較。行単位の差分を赤／緑でハイライト。LLM プロンプト改良用。", "icon": "🔀", "cat": "text", "tags": ["diff", "prompt", "compare", "text", "llm", "ai", "version", "side-by-side"]},
       {"slug": "qr-code-generator", "name": "QR コードジェネレーター", "desc": "テキスト、URL、Wi-Fi、vCard などから QR コードを生成。サイズ・色・誤り訂正を指定可能。PNG／SVG で書き出し。", "icon": "📱", "cat": "media", "tags": ["qr", "code", "generate", "url", "wifi", "vcard", "svg", "png"]},
       {"slug": "query-string-builder", "name": "クエリ文字列ビルダー", "desc": "key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。", "icon": "?=", "cat": "developer", "tags": ["query string", "url", "params", "encode", "build", "key value"]},
+      {"slug": "readability-checker", "name": "可読性チェッカー", "desc": "Flesch Reading Ease、Flesch-Kincaid Grade、Gunning Fog、SMOG、Coleman-Liau を計算。密度の高い段落を発見し、対象学年に合わせて調整。", "icon": "📖", "cat": "text", "tags": ["readability", "flesch", "kincaid", "fog", "smog", "score", "writing", "education"]},
       {"slug": "regex-cheatsheet", "name": "正規表現チートシート", "desc": "クイックリファレンス：アンカー、文字クラス、量指定子、グループ、後読み／先読み、フラグ。クリックでコピー。", "icon": "📖", "cat": "developer", "tags": ["regex", "cheatsheet", "reference", "pattern", "anchors", "groups", "lookaround"]},
       {"slug": "regex-llm-output", "name": "正規表現 LLM 出力抽出ツール", "desc": "雑な LLM 応答から構造化データ（JSON・コードブロック・key-value）を抽出。よくあるテンプレートから選ぶか、独自の正規表現を書く。ライブプレビュー付き。", "icon": "🪝", "cat": "developer", "tags": ["regex", "llm", "extract", "parse", "output", "ai", "structured", "code-fence", "markdown"]},
       {"slug": "regex-tester", "name": "正規表現テスター", "desc": "JavaScript の正規表現をライブテスト。マッチ、キャプチャグループ、置換結果を入力に応じて表示。", "icon": ".*", "cat": "developer", "tags": ["regex", "regular expression", "test", "match", "replace", "javascript"]},
