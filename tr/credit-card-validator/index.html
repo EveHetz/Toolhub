@@ -126,7 +126,7 @@
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Kredi Kartı Doğrulayıcı",
-  "description": "Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel çalışır — numaran asla iletilmez.",
+  "description": "Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel olarak çalışır — numaran asla iletilmez.",
   "step": [
     {
       "@type": "HowToStep",
@@ -331,7 +331,7 @@
   <main class="container">
     <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Kredi Kartı Doğrulayıcı</nav>
     <h1>Kredi Kartı Doğrulayıcı</h1>
-    <p class="tagline">Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel çalışır — numaran asla iletilmez.</p>
+    <p class="tagline">Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel olarak çalışır — numaran asla iletilmez.</p>
     
 <div class="tool-card">
   <label>Card number</label>
@@ -340,7 +340,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="cv-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="cv-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -434,7 +434,7 @@ function cvRun(){
   const num = raw.replace(/[\s\-]/g,'');
   const out = document.getElementById('cv-out');
   out.classList.remove('error');
-  if(!num){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; out.className = 'output'; return; }
+  if(!num){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; out.className = 'output'; return; }
   if(!/^\d+$/.test(num)){ out.classList.add('error'); out.textContent = 'Card number must contain only digits.'; return; }
   const brand = cvDetectBrand(num);
   const lenOk = brand ? brand.lengths.includes(num.length) : (num.length>=12 && num.length<=19);

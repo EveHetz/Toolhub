@@ -11,7 +11,7 @@ TOOL = {
         },
         "de": {
             "name": "Cron-Ausdruck-Parser",
-            "tagline": "Cron-Ausdrücke parsen und die nächsten 10 Auslösezeiten anzeigen. Standard 5-Felder-Crontab.",
+            "tagline": "Cron-Ausdrücke parsen und die nächsten 10 Auslösezeiten anzeigen. Standard-5-Felder-Crontab.",
             "description": "Kostenloser Cron-Ausdruck-Parser. Validiert die 5-Felder-Crontab-Syntax und listet die nächsten 10 Ausführungszeitpunkte in deiner Zeitzone.",
         },
         "es": {

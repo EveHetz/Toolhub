@@ -357,7 +357,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <pre class="output" id="tz-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="tz-out">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -473,7 +473,7 @@ function tzRun(){
   const to = document.getElementById('tz-to').value;
   const out = document.getElementById('tz-out');
   out.classList.remove('error');
-  if (!whenStr || !from || !to){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!whenStr || !from || !to){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   // Parse the wall-clock time as if it's in the source zone.
   // Strategy: build a Date from the wall-clock as if UTC, then shift by the source-zone offset.
   const m = whenStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?/);

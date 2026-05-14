@@ -57,7 +57,7 @@ TOOL = {
         "id": {
             "name": "Konverter format gambar",
             "tagline": "Konversi gambar antara PNG, JPG, dan WebP di browser-mu. Drop, pilih format target, unduh. Tanpa upload, tanpa server.",
-            "description": "Konverter format gambar gratis di browser. Pindah-pindah antara PNG, JPG, dan WebP. File tetap di perangkatmu — tidak ada yang di-upload. Berguna untuk mengecilkan JPG ke WebP, atau menambah dukungan transparansi dengan beralih ke PNG.",
+            "description": "Konverter format gambar gratis di browser. Pindah-pindah antara PNG, JPG, dan WebP. File tetap di perangkatmu — tidak ada yang diunggah. Berguna untuk mengecilkan JPG ke WebP, atau menambah dukungan transparansi dengan beralih ke PNG.",
         },
         "vi": {
             "name": "Chuyển định dạng ảnh",

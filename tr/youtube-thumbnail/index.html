@@ -340,7 +340,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="yt-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="yt-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -451,7 +451,7 @@ function ytRun(){
   const raw = document.getElementById('yt-input').value;
   const out = document.getElementById('yt-out');
   out.classList.remove('error');
-  if(!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; out.className='output'; return; }
+  if(!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; out.className='output'; return; }
   const id = ytExtractId(raw);
   if(!id){ out.classList.add('error'); out.textContent = '✗ Could not find an 11-character YouTube video ID. Check the URL and try again.'; return; }
   out.className = 'output';

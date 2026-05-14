@@ -350,7 +350,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="pc-out" class="output" style="font-size:1.1rem">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="pc-out" class="output" style="font-size:1.1rem">Sonucu görmek için yukarıya giriş yap.</div>
   <div id="pc-formula" class="meta" style="margin-top:0.6rem;font-family:ui-monospace,monospace"></div>
 </div>
 
@@ -429,7 +429,7 @@ function pcRun(){
   const b = parseFloat(document.getElementById('pc-b').value);
   const out = document.getElementById('pc-out');
   const fml = document.getElementById('pc-formula');
-  if(isNaN(a) || isNaN(b)){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; fml.textContent = ''; return; }
+  if(isNaN(a) || isNaN(b)){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; fml.textContent = ''; return; }
   let res = '', formula = '';
   switch(m){
     case 'of':     { const v = (a/100)*b; res = `${pcFmt(a)}% of ${pcFmt(b)} = ${pcFmt(v)}`; formula = `(${pcFmt(a)} ÷ 100) × ${pcFmt(b)} = ${pcFmt(v)}`; break; }

@@ -352,7 +352,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="xf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="xf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('xf-out', this)">Kopyala</button>
   </div>
 </div>
@@ -534,7 +534,7 @@ function xfRun(){
   const inp = document.getElementById('xf-in').value;
   const out = document.getElementById('xf-out');
   const status = document.getElementById('xf-status');
-  if(inp.trim() === ''){ out.classList.remove('error'); out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; status.textContent = ''; return; }
+  if(inp.trim() === ''){ out.classList.remove('error'); out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; status.textContent = ''; return; }
   const parsed = xfParseError(inp);
   if(!parsed.ok){
     out.classList.add('error');

@@ -341,7 +341,7 @@ greet('World');</textarea>
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="jm-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="jm-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('jm-out', this)">Kopyala</button>
   </div>
 </div>
@@ -516,7 +516,7 @@ function jmRun(){
   const out = document.getElementById('jm-out');
   const stats = document.getElementById('jm-stats');
   out.classList.remove('error');
-  if(!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; stats.textContent = ''; return; }
+  if(!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; stats.textContent = ''; return; }
   try {
     const min = jmMinify(raw);
     out.textContent = min;

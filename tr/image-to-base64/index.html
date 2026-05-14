@@ -337,7 +337,7 @@
 <div class="tool-card">
   <label>Data URI</label>
   <div class="output-row">
-    <pre class="output" id="i2b-out" style="max-height:240px;overflow:auto;font-size:0.78rem">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="i2b-out" style="max-height:240px;overflow:auto;font-size:0.78rem">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('i2b-out', this)">Kopyala</button>
   </div>
 </div>
@@ -405,7 +405,7 @@ function i2bRun(){
   const out = document.getElementById('i2b-out');
   const meta = document.getElementById('i2b-meta');
   const prev = document.getElementById('i2b-prev');
-  if (!f){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; meta.textContent=''; prev.innerHTML='<span style="color:var(--text-muted)">No image yet.</span>'; document.getElementById('i2b-html').textContent=''; document.getElementById('i2b-css').textContent=''; document.getElementById('i2b-md').textContent=''; return; }
+  if (!f){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; meta.textContent=''; prev.innerHTML='<span style="color:var(--text-muted)">No image yet.</span>'; document.getElementById('i2b-html').textContent=''; document.getElementById('i2b-css').textContent=''; document.getElementById('i2b-md').textContent=''; return; }
   if (f.size > 5 * 1024 * 1024){ out.classList.add('error'); out.textContent = '✗ File larger than 5 MB. Inline data URIs that big are usually a bad idea — use a real image URL.'; return; }
   out.classList.remove('error');
   const r = new FileReader();

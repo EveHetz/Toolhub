@@ -367,7 +367,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="sg-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="sg-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('sg-out', this)">Kopyala</button>
   </div>
   <div id="sg-meta" class="meta" style="margin-top:0.5rem"></div>
@@ -456,7 +456,7 @@ function sgRun(){
   const maxLen = Math.max(1, parseInt(document.getElementById('sg-max').value) || 80);
   const out = document.getElementById('sg-out');
   const meta = document.getElementById('sg-meta');
-  if(!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; meta.textContent=''; return; }
+  if(!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; meta.textContent=''; return; }
   let s = sgTransliterate(raw);
   // collapse anything not letter/digit to a space
   s = s.replace(/[^A-Za-z0-9]+/g, ' ').trim();

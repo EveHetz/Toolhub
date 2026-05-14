@@ -468,18 +468,18 @@ function bmiRun(){
   if(u === 'metric'){
     const cm = parseFloat(document.getElementById('bmi-cm').value);
     kg = parseFloat(document.getElementById('bmi-kg').value);
-    if(!isFinite(cm) || cm <= 0 || !isFinite(kg) || kg <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+    if(!isFinite(cm) || cm <= 0 || !isFinite(kg) || kg <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
     m = cm / 100;
   } else {
     const ft = parseFloat(document.getElementById('bmi-ft').value) || 0;
     const inch = parseFloat(document.getElementById('bmi-in').value) || 0;
     const lb = parseFloat(document.getElementById('bmi-lb').value);
-    if(ft <= 0 && inch <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
-    if(!isFinite(lb) || lb <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+    if(ft <= 0 && inch <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
+    if(!isFinite(lb) || lb <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
     m = (ft * 12 + inch) * 0.0254;
     kg = lb * 0.45359237;
   }
-  if(m <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(m <= 0){ document.getElementById('bmi-out').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const bmi = kg / (m * m);
   const [cat, cls] = bmiCat(bmi);
   // Marker on 0–40 scale

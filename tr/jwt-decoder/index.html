@@ -340,15 +340,15 @@
 </div>
 <div class="tool-card">
   <label>Header</label>
-  <pre class="output" id="jwt-header">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="jwt-header">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 <div class="tool-card">
   <label>Payload</label>
-  <pre class="output" id="jwt-payload">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="jwt-payload">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 <div class="tool-card">
   <label>Signature (base64url, not verified)</label>
-  <pre class="output" id="jwt-sig">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="jwt-sig">Sonucu görmek için yukarıya giriş yap.</pre>
   <div class="meta">This tool decodes only — it does not verify the signature against a key. Treat decoded payload as untrusted until verified.</div>
 </div>
 
@@ -436,7 +436,7 @@ function jwtDecode(){
   const sig = document.getElementById('jwt-sig');
   const sum = document.getElementById('jwt-summary');
   hdr.classList.remove('error'); pld.classList.remove('error'); sig.classList.remove('error');
-  if (!tok){ hdr.textContent='Sonucu görmek için yukarıya giriş yapın.'; pld.textContent='Sonucu görmek için yukarıya giriş yapın.'; sig.textContent='Sonucu görmek için yukarıya giriş yapın.'; sum.textContent=''; return; }
+  if (!tok){ hdr.textContent='Sonucu görmek için yukarıya giriş yap.'; pld.textContent='Sonucu görmek için yukarıya giriş yap.'; sig.textContent='Sonucu görmek için yukarıya giriş yap.'; sum.textContent=''; return; }
   const parts = tok.split('.');
   if (parts.length !== 3){
     hdr.classList.add('error');

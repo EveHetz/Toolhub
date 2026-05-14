@@ -479,7 +479,7 @@ function vatRun(){
   const currency = country.currency;
   const out = document.getElementById('vat-out');
   if(!isFinite(amount) || amount < 0){
-    out.textContent = 'Sonucu görmek için yukarıya giriş yapın.';
+    out.textContent = 'Sonucu görmek için yukarıya giriş yap.';
   } else {
     const r = rate.rate / 100;
     let net, vat, gross;

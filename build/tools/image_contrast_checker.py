@@ -47,7 +47,7 @@ TOOL = {
         "nl": {
             "name": "Beeld-contrast-checker",
             "tagline": "Klik twee willekeurige punten in een afbeelding aan om WCAG-contrast te checken — AA, AAA, grote-tekst-drempels. Gebouwd voor designers die echte screenshots verifiëren, niet alleen hex-codes.",
-            "description": "Gratis WCAG-contrast-checker die werkt op geüploade afbeeldingen. Klik twee punten aan (bv. een logo op een achtergrond) en zie de contrastratio met pass/fail voor AA, AA-groot, AAA, AAA-groot. Bevat kleur-sampler met instelbare radius (1 pixel of 5×5 gemiddelde). Handig om screenshots te verifiëren tegen accessibility-standaarden.",
+            "description": "Gratis WCAG-contrast-checker die werkt op geüploade afbeeldingen. Klik twee punten aan (bijv. een logo op een achtergrond) en zie de contrastratio met pass/fail voor AA, AA-groot, AAA, AAA-groot. Bevat kleur-sampler met instelbare radius (1 pixel of 5×5 gemiddelde). Handig om screenshots te verifiëren tegen accessibility-standaarden.",
         },
         "tr": {
             "name": "Görsel kontrast denetleyici",
@@ -57,7 +57,7 @@ TOOL = {
         "id": {
             "name": "Pemeriksa kontras pada gambar",
             "tagline": "Klik dua titik mana pun di gambar untuk memeriksa kontras WCAG — AA, AAA, threshold teks besar. Dibuat untuk desainer yang memverifikasi screenshot nyata, bukan cuma kode hex.",
-            "description": "Pemeriksa kontras WCAG gratis yang bekerja pada gambar yang di-upload. Klik dua titik (mis. logo di atas background) dan lihat rasio kontras dengan pass/fail untuk AA, AA-besar, AAA, AAA-besar. Termasuk sampler warna dengan radius yang bisa dikonfigurasi (1 piksel atau rata-rata 5×5). Berguna untuk memverifikasi screenshot terhadap standar aksesibilitas.",
+            "description": "Pemeriksa kontras WCAG gratis yang bekerja pada gambar yang diunggah. Klik dua titik (mis. logo di atas background) dan lihat rasio kontras dengan pass/fail untuk AA, AA-besar, AAA, AAA-besar. Termasuk sampler warna dengan radius yang bisa dikonfigurasi (1 piksel atau rata-rata 5×5). Berguna untuk memverifikasi screenshot terhadap standar aksesibilitas.",
         },
         "vi": {
             "name": "Trình kiểm tra tương phản trên ảnh",

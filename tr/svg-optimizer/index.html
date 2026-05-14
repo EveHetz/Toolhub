@@ -343,7 +343,7 @@
 <div class="tool-card">
   <label>Optimized SVG</label>
   <div class="output-row">
-    <pre class="output" id="svgo-out" style="max-height:240px;overflow:auto;font-size:0.82rem">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="svgo-out" style="max-height:240px;overflow:auto;font-size:0.82rem">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('svgo-out', this)">Kopyala</button>
   </div>
   <div class="meta" id="svgo-stats" style="margin-top:0.5rem"></div>
@@ -414,7 +414,7 @@ function svgoRun(){
   const out = document.getElementById('svgo-out');
   const stats = document.getElementById('svgo-stats');
   const btn = document.getElementById('svgo-dl-btn');
-  if (!s.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; stats.textContent = ''; btn.disabled = true; return; }
+  if (!s.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; stats.textContent = ''; btn.disabled = true; return; }
   const opts = {
     comments: document.getElementById('svgo-comments').checked,
     whitespace: document.getElementById('svgo-ws').checked,

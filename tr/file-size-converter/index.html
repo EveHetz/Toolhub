@@ -360,7 +360,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="fs-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="fs-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -453,7 +453,7 @@ function fsRun(){
   const v = parseFloat(document.getElementById('fs-val').value);
   const u = document.getElementById('fs-unit').value;
   const out = document.getElementById('fs-out');
-  if(!isFinite(v)){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!isFinite(v)){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const bytes = v * FS_FACTORS[u];
   const dec = ['B','KB','MB','GB','TB','PB'];
   const bin = ['B','KiB','MiB','GiB','TiB','PiB'];

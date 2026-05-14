@@ -366,7 +366,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <pre class="output" id="uc-summary">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="uc-summary">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -551,7 +551,7 @@ function ucSwap(){
 }
 function ucRun(){
   const v = parseFloat(document.getElementById('uc-in').value);
-  if(isNaN(v)){ document.getElementById('uc-out').value = ''; document.getElementById('uc-summary').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(isNaN(v)){ document.getElementById('uc-out').value = ''; document.getElementById('uc-summary').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const f = document.getElementById('uc-from').value;
   const t = document.getElementById('uc-to').value;
   const r = ucConvert(v, f, t);

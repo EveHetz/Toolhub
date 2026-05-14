@@ -353,7 +353,7 @@
 </div>
 <div class="tool-card">
   <label>Result</label>
-  <pre class="output" id="ts-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="ts-out">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -419,7 +419,7 @@
 <script>
 function tsRender(d){
   const out = document.getElementById('ts-out');
-  if (!d){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!d){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const ms = d.getTime();
   const sec = Math.floor(ms / 1000);
   const iso = d.toISOString();

@@ -57,7 +57,7 @@ TOOL = {
         "id": {
             "name": "Base64 ke gambar",
             "tagline": "Dekode gambar Base64 atau data URI kembali menjadi file. Tempel string-nya, lihat preview, unduh. Kebalikan dari tool gambar-ke-Base64 kami.",
-            "description": "Decoder Base64 → gambar gratis di-browser. Tempel sebuah data: URI (atau payload Base64 mentah), lihat gambar yang di-render, dan unduh. Mendukung PNG, JPG, WebP, GIF, SVG. Berguna saat kamu menyalin data URI dari CSS atau HTML dan ingin file aslinya kembali.",
+            "description": "Decoder Base64 → gambar gratis di browser. Tempel sebuah data: URI (atau payload Base64 mentah), lihat gambar yang dirender, dan unduh. Mendukung PNG, JPG, WebP, GIF, SVG. Berguna saat kamu menyalin data URI dari CSS atau HTML dan ingin file aslinya kembali.",
         },
         "vi": {
             "name": "Base64 sang ảnh",

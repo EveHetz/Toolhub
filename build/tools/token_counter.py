@@ -12,7 +12,7 @@ TOOL = {
         "de": {
             "name": "Token-Zähler",
             "tagline": "Schätze Token-Anzahl für GPT-4, Claude, Llama, Gemini und andere LLMs. Text einfügen, Zählung pro Modell nebeneinander sehen. Dateien verlassen den Browser nicht.",
-            "description": "Kostenloser Token-Zähler im Browser für LLMs. Füge beliebigen Text ein und sieh Token-Zahlen für GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini und Mistral. Modellspezifische Heuristiken — ±5% genau für Englisch, ±10% für Code und CJK. Nützlich für Prompt-Budget, Kontextfenster und API-Kostenschätzung.",
+            "description": "Kostenloser Token-Zähler im Browser für LLMs. Füge beliebigen Text ein und sieh Token-Zahlen für GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini und Mistral. Modellspezifische Heuristiken — ±5 % genau für Englisch, ±10 % für Code und CJK. Nützlich für Prompt-Budget, Kontextfenster und API-Kostenschätzung.",
         },
         "es": {
             "name": "Contador de Tokens",

@@ -350,7 +350,7 @@
 <div class="tool-card">
   <label>CSV output</label>
   <div class="output-row">
-    <pre class="output" id="jc-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="jc-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('jc-out', this)">Kopyala</button>
   </div>
   <button class="secondary" onclick="jcDownload()" style="margin-top:0.5rem">İndir .csv</button>
@@ -421,7 +421,7 @@ function jcRun(){
   const withHeader = document.getElementById('jc-mode').value === 'header';
   const out = document.getElementById('jc-out');
   out.classList.remove('error');
-  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   let data;
   try { data = JSON.parse(raw); }
   catch(e){ out.classList.add('error'); out.textContent = '✗ Invalid JSON: ' + e.message; return; }
@@ -441,7 +441,7 @@ function jcRun(){
 }
 function jcDownload(){
   const csv = document.getElementById('jc-out').textContent;
-  if (!csv || csv === 'Sonucu görmek için yukarıya giriş yapın.') return;
+  if (!csv || csv === 'Sonucu görmek için yukarıya giriş yap.') return;
   const blob = new Blob([csv], {type: 'text/csv'});
   const a = document.createElement('a');
   a.download = 'data.csv';

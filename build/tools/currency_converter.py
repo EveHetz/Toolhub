@@ -140,7 +140,7 @@ TOOL = {
         "tr": {
             "name": "Döviz Çevirici",
             "tagline": "Bilinen bir tarihteki referans kurlarla 50+ döviz arasında çevir. Canlı API yok, takip yok — freelance tahminler ve teklifler için pratik. Faturalamadan önce mutlaka doğrula.",
-            "description": "Üç ayda bir güncellenen, gömülü referans kurlu, tarayıcı içinde çalışan ücretsiz döviz çevirici. Kaynak ve hedef seç, tutarı gir, sonucu gör. Referans tarihi gösterilir — fatura kesmeden önce her zaman bankanın gerçek kurunu kontrol et. Canlı kur kasıtlı çekilmiyor: bu, sorgularınızı üçüncü tarafa sızdırırdı. Gerçek işlemler için bankanı veya bir döviz masasını kullan.",
+            "description": "Üç ayda bir güncellenen, gömülü referans kurlu, tarayıcı içinde çalışan ücretsiz döviz çevirici. Kaynak ve hedef seç, tutarı gir, sonucu gör. Referans tarihi gösterilir — fatura kesmeden önce her zaman bankanın gerçek kurunu kontrol et. Canlı kur kasıtlı olarak çekilmez: bu, sorgularınızı üçüncü tarafa sızdırırdı. Gerçek işlemler için bankanı veya bir döviz masasını kullan.",
         },
         "id": {
             "name": "Konverter Mata Uang",

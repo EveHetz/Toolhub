@@ -438,7 +438,7 @@ function tsRun(){
   const cur = document.getElementById('ts-cur').value || '';
   const round = document.getElementById('ts-round').checked;
   const out = document.getElementById('ts-out');
-  if(!isFinite(bill) || bill < 0 || !isFinite(tipPct) || tipPct < 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!isFinite(bill) || bill < 0 || !isFinite(tipPct) || tipPct < 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const tip = bill * tipPct / 100;
   const total = bill + tip;
   let pp = total / people;

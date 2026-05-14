@@ -336,7 +336,7 @@
 <div class="tool-card">
   <label>Plain text bibliography</label>
   <div class="output-row">
-    <pre class="output" id="cf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="cf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('cf-out', this)">Kopyala</button>
   </div>
 </div>
@@ -936,14 +936,14 @@ function cfRender(){
   const out = document.getElementById('cf-out');
   if(!CF_SRC.length){
     preview.innerHTML = '<div class="cf-empty">Add a source above to see the bibliography…</div>';
-    out.textContent = 'Sonucu görmek için yukarıya giriş yapın.';
+    out.textContent = 'Sonucu görmek için yukarıya giriş yap.';
     return;
   }
   const entries = CF_SRC.map(cfFormat).filter(Boolean);
   preview.innerHTML = entries.map(e => `<div class="cf-entry">${e}</div>`).join('') ||
     '<div class="cf-empty">Fill in source fields to see the bibliography…</div>';
   const plain = entries.map(e => e.replace(/<\/?i>/g, '').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>')).join('\n\n');
-  out.textContent = plain || 'Sonucu görmek için yukarıya giriş yapın.';
+  out.textContent = plain || 'Sonucu görmek için yukarıya giriş yap.';
 }
 
 document.addEventListener('DOMContentLoaded', () => {

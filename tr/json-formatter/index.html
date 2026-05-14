@@ -339,7 +339,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="json-output">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="json-output">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('json-output', this)">Kopyala</button>
   </div>
   <div class="meta" id="json-meta"></div>
@@ -423,7 +423,7 @@ function jfShowOk(text, label){
 }
 function jfFormat(indent){
   const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     const obj = JSON.parse(raw);
     const out = JSON.stringify(obj, null, indent);
@@ -432,7 +432,7 @@ function jfFormat(indent){
 }
 function jfMinify(){
   const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     const obj = JSON.parse(raw);
     const out = JSON.stringify(obj);
@@ -441,7 +441,7 @@ function jfMinify(){
 }
 function jfValidate(){
   const raw = document.getElementById('json-input').value.trim();
-  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ document.getElementById('json-output').textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     const obj = JSON.parse(raw);
     const t = Array.isArray(obj) ? 'array' : typeof obj;

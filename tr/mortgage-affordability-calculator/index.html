@@ -462,7 +462,7 @@ function maRun(){
   const rule   = parseFloat(document.getElementById('ma-rule').value);
   const cur    = document.getElementById('ma-cur').value || '';
   const out    = document.getElementById('ma-out');
-  if(income <= 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(income <= 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const monthlyIncome = income / 12;
   // Back-end (housing + other debt) <= rule% of monthly income.
   // Front-end variant just uses housing only.

@@ -337,7 +337,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="he-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="he-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('he-out', this)">Kopyala</button>
   </div>
 </div>
@@ -404,7 +404,7 @@ function heRun(){
   const mode = document.getElementById('he-mode').value;
   const raw = document.getElementById('he-in').value;
   const out = document.getElementById('he-out');
-  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   out.textContent = mode === 'enc' ? heEnc(raw) : heDec(raw);
 }
 document.addEventListener('DOMContentLoaded', heRun);

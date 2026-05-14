@@ -501,7 +501,7 @@ function lnRun(){
   const extra = parseFloat(document.getElementById('ln-extra').value) || 0;
   const cur = document.getElementById('ln-cur').value || '';
   const out = document.getElementById('ln-out');
-  if(principal <= 0 || term <= 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(principal <= 0 || term <= 0){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   const months = Math.round(unit === 'years' ? term * 12 : term);
   const monthlyRate = (annualRate/100) / 12;
   const base = lnAmortize(principal, monthlyRate, months, 0);

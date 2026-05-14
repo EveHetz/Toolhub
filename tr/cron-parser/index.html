@@ -347,7 +347,7 @@
 </div>
 <div class="tool-card">
   <label>Next 10 fire times (local timezone)</label>
-  <pre class="output" id="cron-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="cron-out">Sonucu görmek için yukarıya giriş yap.</pre>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -495,7 +495,7 @@ function cronRun(){
   const out = document.getElementById('cron-out');
   const exp = document.getElementById('cron-explain');
   out.classList.remove('error');
-  if (!expr.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; exp.textContent = ''; return; }
+  if (!expr.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; exp.textContent = ''; return; }
   try {
     const dates = cronNext(expr, 10);
     out.textContent = dates.map((d,i) => (i+1).toString().padStart(2,' ') + '.  ' + d.toLocaleString(undefined,{weekday:'short', year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'})).join('\n');

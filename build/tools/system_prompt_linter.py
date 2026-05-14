@@ -12,7 +12,7 @@ TOOL = {
         "de": {
             "name": "System-Prompt-Linter",
             "tagline": "Analysiert einen System-Prompt auf häufige Probleme: vage Anweisungen, widersprüchliche Regeln, fehlende Beispiele, übergroßer Kontext. Heuristisch, meinungsstark, schnell.",
-            "description": "Kostenloser System-Prompt-Linter. Prompt einfügen, Checkliste typischer Probleme erhalten: 'sei hilfreich'-Floskeln ohne Substanz, widersprüchliche Direktiven, keine Beispiele / Shot-Counts, Rollendrift, fehlende Notausstiege, aufgeblähter Vorlauf. Jeder Befund hat einen kurzen Fix-Vorschlag. Heuristisch — kein Orakel — fängt aber die offensichtlichen Lücken.",
+            "description": "Kostenloser System-Prompt-Linter. Prompt einfügen, Checkliste typischer Probleme erhalten: „sei hilfreich“-Floskeln ohne Substanz, widersprüchliche Direktiven, keine Beispiele / Shot-Counts, Rollendrift, fehlende Notausstiege, aufgeblähter Vorlauf. Jeder Befund hat einen kurzen Fix-Vorschlag. Heuristisch — kein Orakel — fängt aber die offensichtlichen Lücken.",
         },
         "es": {
             "name": "Linter de System Prompt",

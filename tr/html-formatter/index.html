@@ -360,7 +360,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="hf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="hf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('hf-out', this)">Kopyala</button>
   </div>
 </div>
@@ -586,7 +586,7 @@ function hfRun(){
   const out = document.getElementById('hf-out');
   const status = document.getElementById('hf-status');
   out.classList.remove('error');
-  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; status.textContent=''; return; }
+  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; status.textContent=''; return; }
   try {
     const mode = document.getElementById('hf-mode').value;
     const stripComments = document.getElementById('hf-strip').checked;

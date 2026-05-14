@@ -369,7 +369,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="sf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="sf-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('sf-out', this)">Kopyala</button>
   </div>
 </div>
@@ -650,7 +650,7 @@ function sfRun(){
   const inp = document.getElementById('sf-in').value;
   const out = document.getElementById('sf-out');
   out.classList.remove('error');
-  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     const mode = document.getElementById('sf-mode').value;
     if(mode === 'minify'){ out.textContent = sfMinify(inp); return; }

@@ -361,7 +361,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="xj-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="xj-out" style="margin:0;flex:1">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('xj-out', this)">Kopyala</button>
   </div>
 </div>
@@ -529,7 +529,7 @@ function xjRun(){
   const inp = document.getElementById('xj-in').value;
   const out = document.getElementById('xj-out');
   out.classList.remove('error');
-  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!inp.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     if(dir === 'x2j'){
       const obj = xjXmlToJson(inp, {attrPrefix: attr, textKey});

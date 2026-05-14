@@ -356,7 +356,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="b64-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="b64-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('b64-out', this)">Kopyala</button>
   </div>
   <div class="meta" id="b64-meta"></div>
@@ -443,7 +443,7 @@ function b64Run(){
   const out = document.getElementById('b64-out');
   const meta = document.getElementById('b64-meta');
   out.classList.remove('error');
-  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; meta.textContent = ''; return; }
+  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; meta.textContent = ''; return; }
   try {
     const result = (mode === 'enc') ? b64Encode(raw, variant === 'url') : b64Decode(raw, variant === 'url');
     out.textContent = result;

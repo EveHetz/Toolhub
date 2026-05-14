@@ -348,7 +348,7 @@
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="url-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="url-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('url-out', this)">Kopyala</button>
   </div>
 </div>
@@ -409,7 +409,7 @@ function urlRun(){
   const raw = document.getElementById('url-in').value;
   const out = document.getElementById('url-out');
   out.classList.remove('error');
-  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     let res;
     if (mode === 'enc') res = scope === 'component' ? encodeURIComponent(raw) : encodeURI(raw);

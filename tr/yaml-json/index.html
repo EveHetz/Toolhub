@@ -357,7 +357,7 @@ data:
 <div class="tool-card">
   <label>Çıktı</label>
   <div class="output-row">
-    <pre class="output" id="yj-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="yj-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('yj-out', this)">Kopyala</button>
   </div>
 </div>
@@ -428,7 +428,7 @@ function yjConv(){
   const raw = document.getElementById('yj-in').value;
   const out = document.getElementById('yj-out');
   out.classList.remove('error');
-  if (!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     let data;
     if (from === 'yaml') data = jsyaml.load(raw);

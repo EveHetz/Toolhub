@@ -332,19 +332,19 @@
 </div>
 <div class="tool-card">
   <label>SHA-1 <span class="badge">160 bits</span> <span class="meta">— legacy, do not use for security</span></label>
-  <div class="output-row"><code class="output" id="h-sha1">Sonucu görmek için yukarıya giriş yapın.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha1', this)">Kopyala</button></div>
+  <div class="output-row"><code class="output" id="h-sha1">Sonucu görmek için yukarıya giriş yap.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha1', this)">Kopyala</button></div>
 </div>
 <div class="tool-card">
   <label>SHA-256 <span class="badge">256 bits</span> <span class="meta">— recommended default</span></label>
-  <div class="output-row"><code class="output" id="h-sha256">Sonucu görmek için yukarıya giriş yapın.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha256', this)">Kopyala</button></div>
+  <div class="output-row"><code class="output" id="h-sha256">Sonucu görmek için yukarıya giriş yap.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha256', this)">Kopyala</button></div>
 </div>
 <div class="tool-card">
   <label>SHA-384 <span class="badge">384 bits</span></label>
-  <div class="output-row"><code class="output" id="h-sha384">Sonucu görmek için yukarıya giriş yapın.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha384', this)">Kopyala</button></div>
+  <div class="output-row"><code class="output" id="h-sha384">Sonucu görmek için yukarıya giriş yap.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha384', this)">Kopyala</button></div>
 </div>
 <div class="tool-card">
   <label>SHA-512 <span class="badge">512 bits</span></label>
-  <div class="output-row"><code class="output" id="h-sha512">Sonucu görmek için yukarıya giriş yapın.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha512', this)">Kopyala</button></div>
+  <div class="output-row"><code class="output" id="h-sha512">Sonucu görmek için yukarıya giriş yap.</code><button class="copy-btn secondary" onclick="copyOutput('h-sha512', this)">Kopyala</button></div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -406,7 +406,7 @@ async function hOne(name, bytes){
 async function hRun(){
   const raw = document.getElementById('h-in').value;
   const ids = ['h-sha1','h-sha256','h-sha384','h-sha512'];
-  if (!raw){ ids.forEach(id => document.getElementById(id).textContent = 'Sonucu görmek için yukarıya giriş yapın.'); return; }
+  if (!raw){ ids.forEach(id => document.getElementById(id).textContent = 'Sonucu görmek için yukarıya giriş yap.'); return; }
   const bytes = new TextEncoder().encode(raw);
   const [s1, s256, s384, s512] = await Promise.all([
     hOne('SHA-1', bytes), hOne('SHA-256', bytes), hOne('SHA-384', bytes), hOne('SHA-512', bytes)

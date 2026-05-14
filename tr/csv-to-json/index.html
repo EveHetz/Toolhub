@@ -352,7 +352,7 @@ Bob,25,"Vienna, Austria"'></textarea>
 <div class="tool-card">
   <label>JSON output</label>
   <div class="output-row">
-    <pre class="output" id="cj-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+    <pre class="output" id="cj-out">Sonucu görmek için yukarıya giriş yap.</pre>
     <button class="copy-btn secondary" onclick="copyOutput('cj-out', this)">Kopyala</button>
   </div>
 </div>
@@ -438,7 +438,7 @@ function cjRun(){
   const useHeader = document.getElementById('cj-header').value === 'yes';
   const out = document.getElementById('cj-out');
   out.classList.remove('error');
-  if (!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if (!raw.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   try {
     const rows = csvParse(raw, delim);
     let result;

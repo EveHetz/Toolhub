@@ -399,7 +399,7 @@
 
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="dc-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="dc-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -519,7 +519,7 @@ function dcRun(){
   out.classList.remove('error');
   if(mode === 'between'){
     const a = dcParse('dc-a'), b = dcParse('dc-b');
-    if(!a || !b){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; out.className='output'; return; }
+    if(!a || !b){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; out.className='output'; return; }
     const incl = document.getElementById('dc-incl').checked ? 1 : 0;
     const from = a < b ? a : b, to = a < b ? b : a;
     const days = Math.round((to - from) / DC_MS_DAY) + incl;
@@ -539,7 +539,7 @@ function dcRun(){
   }
   if(mode === 'addsub'){
     const start = dcParse('dc-start');
-    if(!start){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; out.className='output'; return; }
+    if(!start){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; out.className='output'; return; }
     const op = document.getElementById('dc-op').value === '-' ? -1 : 1;
     const y = (parseInt(document.getElementById('dc-y').value) || 0) * op;
     const m = (parseInt(document.getElementById('dc-m').value) || 0) * op;
@@ -559,7 +559,7 @@ function dcRun(){
   // age
   const dob = dcParse('dc-dob');
   let asOf = dcParse('dc-as');
-  if(!dob){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; out.className='output'; return; }
+  if(!dob){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; out.className='output'; return; }
   if(!asOf){ asOf = new Date(); asOf = new Date(Date.UTC(asOf.getUTCFullYear(), asOf.getUTCMonth(), asOf.getUTCDate(), 12)); }
   if(dob > asOf){ out.classList.add('error'); out.textContent = '✗ Date of birth is after the "as of" date.'; return; }
   const ymd = dcYmd(dob, asOf);

@@ -332,11 +332,11 @@
 </div>
 <div class="tool-card">
   <label>Components</label>
-  <div id="up-components" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="up-components" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 <div class="tool-card">
   <label>Query parameters</label>
-  <div id="up-params" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="up-params" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -408,7 +408,7 @@ function upRun(){
   const params = document.getElementById('up-params');
   comps.classList.remove('error');
   params.classList.remove('error');
-  if(!v){ comps.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; params.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!v){ comps.textContent = 'Sonucu görmek için yukarıya giriş yap.'; params.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   let url;
   try { url = new URL(v); }
   catch(e){

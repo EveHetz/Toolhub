@@ -333,7 +333,7 @@
 </div>
 <div class="tool-card">
   <label>Sonuç</label>
-  <div id="ev-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="ev-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -447,7 +447,7 @@ function evRun(){
   const bulk = document.getElementById('ev-bulk').value.trim();
   const out = document.getElementById('ev-out');
   out.classList.remove('error');
-  if(!single && !bulk){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; return; }
+  if(!single && !bulk){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; return; }
   if(single && !bulk){
     out.innerHTML = evRender(evCheck(single));
     return;

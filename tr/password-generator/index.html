@@ -394,7 +394,7 @@
 </div>
 <div class="tool-card">
   <label>Çıktı</label>
-  <pre class="output" id="pw-out">Sonucu görmek için yukarıya giriş yapın.</pre>
+  <pre class="output" id="pw-out">Sonucu görmek için yukarıya giriş yap.</pre>
   <div class="meta" id="pw-meta"></div>
 </div>
 
@@ -537,7 +537,7 @@ function pwGenerate(){
 
 function pwCopy(){
   const text = document.getElementById('pw-out').textContent;
-  if (!text || text === 'Sonucu görmek için yukarıya giriş yapın.') return;
+  if (!text || text === 'Sonucu görmek için yukarıya giriş yap.') return;
   navigator.clipboard.writeText(text);
 }
 

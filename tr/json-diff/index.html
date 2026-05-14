@@ -357,7 +357,7 @@
 <div class="tool-card">
   <label>Sonuç</label>
   <div id="jd-summary" class="meta" style="margin-bottom:0.5rem"></div>
-  <div id="jd-out" class="output">Sonucu görmek için yukarıya giriş yapın.</div>
+  <div id="jd-out" class="output">Sonucu görmek için yukarıya giriş yap.</div>
 </div>
 
     <div class="support-callout" hidden></div>
@@ -520,7 +520,7 @@ function jdRun(){
   const out = document.getElementById('jd-out');
   const sum = document.getElementById('jd-summary');
   out.classList.remove('error');
-  if(a.empty || b.empty){ out.textContent='Sonucu görmek için yukarıya giriş yapın.'; sum.textContent=''; return; }
+  if(a.empty || b.empty){ out.textContent='Sonucu görmek için yukarıya giriş yap.'; sum.textContent=''; return; }
   if(!a.ok){ out.classList.add('error'); out.textContent = '✗ ' + a.err; sum.textContent=''; return; }
   if(!b.ok){ out.classList.add('error'); out.textContent = '✗ ' + b.err; sum.textContent=''; return; }
   const mode = document.getElementById('jd-mode').value;

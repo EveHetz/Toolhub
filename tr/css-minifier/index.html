@@ -455,7 +455,7 @@ function cmRun(){
   const src = document.getElementById('cm-input').value;
   const out = document.getElementById('cm-out');
   const stats = document.getElementById('cm-stats');
-  if(!src.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yapın.'; stats.textContent = ''; return; }
+  if(!src.trim()){ out.textContent = 'Sonucu görmek için yukarıya giriş yap.'; stats.textContent = ''; return; }
   const min = cmMinify(src);
   out.textContent = min;
   const before = new Blob([src]).size;

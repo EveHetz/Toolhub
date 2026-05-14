@@ -19,7 +19,7 @@ TOOL = {
         "de": {
             "name": "MwSt.-Rechner",
             "tagline": "Mehrwertsteuer für jedes EU-Land, UK, die Schweiz und mehr berechnen — mit aktuellen 2025-Sätzen inkl. Reformen, die viele Tools übersehen. Regel-, ermäßigte und Null-Sätze.",
-            "description": "Kostenloser MwSt.-Rechner mit aktuellen Sätzen für 30+ Länder. Land wählen, Kategorie (Standard, ermäßigt, null) wählen, Netto oder Brutto eingeben — die Aufteilung erscheint. Berücksichtigt jüngste Reformen (Slowakei 20%→23% in 2025, Estland 22%→24% u. a.) und länderspezifische ermäßigte Sätze. Kein Upload, kein Tracking, keine Anmeldung.",
+            "description": "Kostenloser MwSt.-Rechner mit aktuellen Sätzen für 30+ Länder. Land wählen, Kategorie (Standard, ermäßigt, null) wählen, Netto oder Brutto eingeben — die Aufteilung erscheint. Berücksichtigt jüngste Reformen (Slowakei 20 %→23 % in 2025, Estland 22 %→24 % u. a.) und länderspezifische ermäßigte Sätze. Kein Upload, kein Tracking, keine Anmeldung.",
         },
         "es": {
             "name": "Calculadora de IVA",

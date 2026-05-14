@@ -41,12 +41,12 @@ TOOL = {
         },
         "ja": {
             "name": "EXIF メタデータ削除",
-            "tagline": "あなたの写真が何を語っているかを可視化 — GPS 座標、カメラ機種、正確な撮影時刻 — そしてすべて削除。100 % ブラウザ内処理。ファイルは端末から出ません。",
+            "tagline": "あなたの写真が何を語っているかを可視化 — GPS 座標、カメラ機種、正確な撮影時刻 — そしてすべて削除。100% ブラウザ内処理。ファイルは端末から出ません。",
             "description": "オンライン無料の EXIF メタデータビューア兼ストリッパー。JPG を選ぶと、隠れたデータ — GPS 位置（メートル単位の精度）、カメラのメーカー・機種、正確なタイムスタンプ、レンズ情報、編集ソフト名 — を可視化します。その上で、メタデータをすべて削除したクリーンなバージョンをダウンロードできます。すべてブラウザ内で完結 — アップロード・ログなし。",
         },
         "nl": {
             "name": "EXIF-stripper",
-            "tagline": "Zie wat je foto's over je prijsgeven — GPS-coördinaten, cameramodel, exacte timestamp — en strip alles. 100 % in de browser. Het bestand verlaat je apparaat nooit.",
+            "tagline": "Zie wat je foto's over je prijsgeven — GPS-coördinaten, cameramodel, exacte timestamp — en strip alles. 100% in de browser. Het bestand verlaat je apparaat nooit.",
             "description": "Gratis online EXIF-metadata-viewer en -stripper. Drop of kies een JPG en zie verborgen data: GPS-locatie (op meters precies), camerafabrikant en -model, exacte timestamp, lens-info, zelfs editing-software. Download daarna een schone versie zonder metadata. Alles gebeurt in je browser — geen upload, geen log.",
         },
         "tr": {
@@ -56,7 +56,7 @@ TOOL = {
         },
         "id": {
             "name": "Penghapus EXIF",
-            "tagline": "Lihat apa yang fotomu ungkapkan tentangmu — koordinat GPS, model kamera, timestamp persis — lalu hapus semuanya. 100 % di browser. File tidak pernah meninggalkan perangkat.",
+            "tagline": "Lihat apa yang fotomu ungkapkan tentangmu — koordinat GPS, model kamera, timestamp persis — lalu hapus semuanya. 100% di browser. File tidak pernah meninggalkan perangkat.",
             "description": "Viewer dan penghapus metadata EXIF online gratis. Drop atau pilih JPG dan lihat data tersembunyi: lokasi GPS (presisi meter), merek dan model kamera, timestamp persis, info lensa, bahkan software editing. Lalu unduh versi bersih tanpa metadata. Semua terjadi di browser-mu — tanpa upload, tanpa log.",
         },
         "vi": {
