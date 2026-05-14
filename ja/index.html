@@ -237,7 +237,7 @@
   </footer>
 
   <script>
-                                                                                                                                                                    const TOOLS = [
+                                                                                                                                                                        const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII テーブル", "desc": "ASCII 0–127 の完全リファレンス。10 進・16 進・2 進・文字・HTML エンティティを表示。フィルタ可能。", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 エンコーダー / デコーダー", "desc": "テキストを Base64 にエンコード、または Base64 をテキストにデコード。UTF-8 対応で base64url バリアントもサポート。", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 から画像へ", "desc": "Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},
@@ -246,6 +246,7 @@
       {"slug": "chat-thread-viewer", "name": "チャットスレッドビューア", "desc": "OpenAI または Anthropic の messages 配列（JSON）を貼り付けると、読みやすいチャットスレッドとして表示。ロール別に色分け。ツールコールの引数も展開可能。ブラウザ完結・アップロードなし。", "icon": "💬", "cat": "ai", "tags": ["chat", "messages", "openai", "anthropic", "viewer", "thread", "llm", "conversation", "render"]},
       {"slug": "cidr-calculator", "name": "CIDR / サブネット計算機", "desc": "CIDR 表記から IPv4 サブネットを計算。ネットワーク、ブロードキャスト、マスク、ホスト範囲、バイナリ表示。", "icon": "🌐", "cat": "developer", "tags": ["cidr", "subnet", "ipv4", "network", "mask", "ip", "calculator"]},
       {"slug": "citation-formatter", "name": "引用フォーマッター", "desc": "APA 7、MLA 9、Chicago、Harvard 形式で引用を整形。フィールドは手入力 — DOI 検索なし、トラッキングなし。ブラウザのみで動作。", "icon": "📚", "cat": "text", "tags": ["citation", "apa", "mla", "chicago", "harvard", "bibliography", "reference", "academic"]},
+      {"slug": "color-blind-sim", "name": "色覚異常シミュレーター", "desc": "ゲームのスクリーンショット／UI／パレットが色覚異常のプレイヤーにどう見えるかをシミュレーション。1 型／2 型／3 型／全色覚異常の 4 種を並べて確認。ファイルはブラウザを出ません。", "icon": "👓", "cat": "gaming", "tags": ["color-blind", "accessibility", "a11y", "color-blind-simulator", "protanopia", "deuteranopia", "tritanopia", "game-design"]},
       {"slug": "color-converter", "name": "カラー変換ツール", "desc": "任意の色を hex、RGB、HSL、OKLCH の間で相互変換。ライブプレビューとワンクリックコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "hex", "rgb", "hsl", "oklch", "convert", "css"]},
       {"slug": "color-palette-extractor", "name": "カラーパレット抽出ツール", "desc": "任意の画像から主要色をブラウザ内で抽出。5〜8 個のスウォッチと HEX コード、コピー＆ペーストできる CSS 変数。ファイルは端末から出ません。", "icon": "🎨", "cat": "media", "tags": ["color", "palette", "extractor", "image", "design", "swatch", "dominant", "k-means"]},
       {"slug": "color-picker", "name": "カラーピッカー", "desc": "色を選ぶと HEX、RGB、RGBA、HSL、HSLA、HSV、CMYK で即座に表示。不透明度を調整して任意の値をコピー。", "icon": "🎨", "cat": "design", "tags": ["color", "picker", "hex", "rgb", "hsl", "hsv", "cmyk", "palette"]},
@@ -257,6 +258,7 @@
       {"slug": "css-minifier", "name": "CSS ミニファイア", "desc": "CSS からコメント・空白・冗長な記述を除去。ビフォア／アフターのサイズと圧縮率を表示。", "icon": "{}", "cat": "developer", "tags": ["css", "minify", "compress", "optimize", "stylesheet"]},
       {"slug": "csv-to-json", "name": "CSV から JSON", "desc": "CSV データを JSON 配列に変換。ヘッダー検出、カスタム区切り文字、引用符付きフィールド、埋め込み改行に対応。", "icon": "📊", "cat": "data", "tags": ["csv", "json", "convert", "data", "import"]},
       {"slug": "currency-converter", "name": "通貨換算ツール", "desc": "既知の基準日のリファレンスレートで 50 種以上の通貨を換算。ライブ API なし、トラッキングなし — フリーランスの見積もり概算に便利。請求前に必ず実勢レートと照合してください。", "icon": "💱", "cat": "math", "tags": ["currency", "converter", "exchange", "rate", "eur", "usd", "forex", "freelance"]},
+      {"slug": "damage-calculator", "name": "ダメージ計算機", "desc": "RPG 戦闘ダメージ式テスター。攻撃 vs 防御、クリ率、耐性、倍率、防御貫通。期待ダメージ範囲＋クリ込み平均＋DPS。バランス調整向け。", "icon": "⚔️", "cat": "gaming", "tags": ["damage", "calculator", "combat", "rpg", "formula", "crit", "game-dev", "balance"]},
       {"slug": "date-calculator", "name": "日付計算機", "desc": "2 つの日付の差・日付に対する日／週／月／年の加減・年齢を年・月・日で算出。", "icon": "📅", "cat": "datetime", "tags": ["date", "calculator", "duration", "between", "add", "subtract", "age", "weekday"]},
       {"slug": "dice-roller", "name": "ダイスローラー", "desc": "標準 D&D 記法でダイスをロール — 2d6+3、1d20、4d6 keep highest 3 など。暗号論的に安全な RNG。", "icon": "🎲", "cat": "utility", "tags": ["dice", "roll", "d20", "rpg", "dnd", "random", "tabletop", "notation"]},
       {"slug": "email-validator", "name": "メールアドレス検証ツール", "desc": "メールアドレスが構文的に有効か（RFC 5322 準拠）を確認。ローカル部・ドメイン・よくある落とし穴も解析。", "icon": "✉", "cat": "validation", "tags": ["email", "validate", "rfc", "syntax", "mx", "domain"]},
@@ -327,13 +329,14 @@
       {"slug": "word-counter", "name": "ワードカウンター", "desc": "単語数・文字数・文数・段落数を数え、入力中に読了時間と発話時間を概算。", "icon": "#", "cat": "text", "tags": ["word", "count", "character", "sentence", "paragraph", "reading", "writing"]},
       {"slug": "xml-formatter", "name": "XML フォーマッター", "desc": "XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。", "icon": "&lt;/&gt;", "cat": "developer", "tags": ["xml", "format", "beautify", "minify", "validate", "well-formed"]},
       {"slug": "xml-to-json", "name": "XML ↔ JSON コンバーター", "desc": "XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。", "icon": "⇄", "cat": "data", "tags": ["xml", "json", "convert", "transform", "attributes", "data"]},
+      {"slug": "xp-curve-calculator", "name": "XP カーブ計算機", "desc": "RPG の成長カーブ（レベルごとの必要 XP）を生成。線形・多項式・指数・対数・カスタム。テーブル＋グラフ＋JSON／CSV にコピー。", "icon": "📈", "cat": "gaming", "tags": ["xp", "experience", "level", "curve", "rpg", "progression", "game-dev"]},
       {"slug": "yaml-json", "name": "YAML ↔ JSON コンバーター", "desc": "YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。", "icon": "🔁", "cat": "data", "tags": ["yaml", "json", "convert", "kubernetes", "config", "data"]},
       {"slug": "youtube-thumbnail", "name": "YouTube サムネイルダウンローダー", "desc": "YouTube の URL や動画 ID を貼り付けて、利用可能な全サイズのサムネイルを取得 — 直接ダウンロード、登録不要。", "icon": "▶", "cat": "media", "tags": ["youtube", "thumbnail", "preview", "image", "download", "video"]}
     ];
 
     const LBL_ALL = "すべて";
     const HERO_SUB_POST = "個のツール — 高速・プライベート・登録不要。すぐに使えます。";
-    const CAT_LABELS = {"ai": "AI", "developer": "開発", "text": "テキスト", "encoding": "エンコード", "data": "データ", "security": "セキュリティ", "media": "メディア", "validation": "検証", "design": "デザイン", "datetime": "日時", "math": "計算"};
+    const CAT_LABELS = {"ai": "AI", "developer": "開発", "text": "テキスト", "encoding": "エンコード", "data": "データ", "security": "セキュリティ", "media": "メディア", "validation": "検証", "design": "デザイン", "datetime": "日時", "math": "計算", "gaming": "ゲーム"};
 
     function renderFilters() {
       const counts = {};

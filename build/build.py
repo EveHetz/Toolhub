@@ -173,6 +173,7 @@ CATEGORY_TO_APP_CAT = {
     "design":     "DesignApplication",
     "security":   "SecurityApplication",
     "media":      "MultimediaApplication",
+    "gaming":     "GameApplication",
 }
 
 SUBCATEGORY_LABELS = {
@@ -186,6 +187,7 @@ SUBCATEGORY_LABELS = {
     "design":     "Design Tools",
     "datetime":   "Date & Time Tools",
     "math":       "Math Tools",
+    "gaming":     "Gaming Tools",
 }
 
 
