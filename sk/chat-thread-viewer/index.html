@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://plausible.io" crossorigin>
   <link rel="dns-prefetch" href="https://plausible.io">
   <title>Prehliadač chat threadov — Toolhub</title>
-  <meta name="description" content="Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre tool-callov, code bloky so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.">
+  <meta name="description" content="Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre volaní nástrojov, bloky kódu so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.">
   <meta property="og:title" content="Prehliadač chat threadov — Toolhub">
-  <meta property="og:description" content="Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre tool-callov, code bloky so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.">
+  <meta property="og:description" content="Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre volaní nástrojov, bloky kódu so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/chat-thread-viewer/">
   <meta property="og:image" content="https://toolhub.software/og-image.png">
@@ -51,7 +51,7 @@
         "@type": ["SoftwareApplication", "WebApplication"],
         "@id": "https://toolhub.software/sk/chat-thread-viewer/#tool",
         "name": "Prehliadač chat threadov",
-        "description": "Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre tool-callov, code bloky so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.",
+        "description": "Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre volaní nástrojov, bloky kódu so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.",
         "url": "https://toolhub.software/sk/chat-thread-viewer/",
         "applicationCategory": "UtilityApplication",
         "applicationSubCategory": "Ai",
@@ -126,7 +126,7 @@
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Prehliadač chat threadov",
-  "description": "Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre tool-callov rozbaliteľné. Čisto v prehliadači, žiadny upload.",
+  "description": "Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre volaní nástrojov rozbaliteľné. Čisto v prehliadači, žiadny upload.",
   "step": [
     {
       "@type": "HowToStep",
@@ -331,7 +331,7 @@
   <main class="container">
     <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Prehliadač chat threadov</nav>
     <h1>Prehliadač chat threadov</h1>
-    <p class="tagline">Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre tool-callov rozbaliteľné. Čisto v prehliadači, žiadny upload.</p>
+    <p class="tagline">Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre volaní nástrojov rozbaliteľné. Čisto v prehliadači, žiadny upload.</p>
     
 <div class="tool-card">
   <label for="ctv-input">Paste messages JSON (OpenAI / Anthropic / LangChain)</label>

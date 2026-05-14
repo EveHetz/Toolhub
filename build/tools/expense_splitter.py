@@ -36,8 +36,8 @@ TOOL = {
         },
         "pl": {
             "name": "Dzielnik Wydatków",
-            "tagline": "Podziel wydatek grupowy po równo lub własnymi udziałami (procenty lub kwoty stałe). Wynik: kwoty per osoba + instrukcje przelewu ('A wisi B X €').",
-            "description": "Darmowy dzielnik wydatków w przeglądarce. Dodawaj wydatki (kto zapłacił, kwota, kto winien), zdefiniuj grupę, dostań saldo per osoba + rozliczenie z minimalną liczbą przelewów ('Alice winna Bobowi X €'). Obsługuje nierówne podziały (jedna osoba winna więcej itp.) i wiele walut (jedna na grupę; bez konwersji). Dla wyjazdów, mieszkań współdzielonych, kolacji grupowych.",
+            "tagline": "Podziel wydatek grupowy po równo lub własnymi udziałami (procenty lub kwoty stałe). Wynik: kwoty per osoba + instrukcje przelewu („A wisi B X €”).",
+            "description": "Darmowy dzielnik wydatków w przeglądarce. Dodawaj wydatki (kto zapłacił, kwota, kto winien), zdefiniuj grupę, dostań saldo per osoba + rozliczenie z minimalną liczbą przelewów („Alice winna Bobowi X €”). Obsługuje nierówne podziały (jedna osoba winna więcej itp.) i wiele walut (jedna na grupę; bez konwersji). Dla wyjazdów, mieszkań współdzielonych, kolacji grupowych.",
         },
         "ja": {
             "name": "経費割り勘ツール",

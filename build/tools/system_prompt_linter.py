@@ -72,12 +72,12 @@ TOOL = {
         "sk": {
             "name": "Linter systémového promptu",
             "tagline": "Analyzuje systémový prompt na bežné problémy: vágne pokyny, protichodné pravidlá, chýbajúce príklady, nafúknutý kontext. Heuristický, vyhranený, rýchly.",
-            "description": "Bezplatný linter systémového promptu. Vlož svoj prompt, dostaneš checklist bežných problémov: frázy ako 'buď nápomocný' bez špecifík, protichodné direktívy, žiadne príklady / shot-county, drift roly, chýbajúce poistky, nafúknutý úvod. Každý nález má krátky návrh opravy. Heuristika — nie veštica — ale chytí očividné medzery.",
+            "description": "Bezplatný linter systémového promptu. Vlož svoj prompt, dostaneš checklist bežných problémov: frázy ako „buď nápomocný“ bez špecifík, protichodné direktívy, žiadne príklady / počet príkladov, drift roly, chýbajúce poistky, nafúknutý úvod. Každý nález má krátky návrh opravy. Heuristika — nie veštica — ale chytí očividné medzery.",
         },
         "cs": {
             "name": "Linter systémového promptu",
             "tagline": "Analyzuje systémový prompt na běžné problémy: vágní pokyny, protichůdná pravidla, chybějící příklady, nafouknutý kontext. Heuristický, vyhraněný, rychlý.",
-            "description": "Zdarma linter systémového promptu. Vlož svůj prompt, dostaneš checklist běžných problémů: fráze jako 'buď nápomocný' bez specifik, protichůdné direktivy, žádné příklady / shot-county, drift role, chybějící pojistky, nafouknutý úvod. Každý nález má krátký návrh opravy. Heuristika — ne věštkyně — ale chytí očividné mezery.",
+            "description": "Zdarma linter systémového promptu. Vlož svůj prompt, dostaneš checklist běžných problémů: fráze jako „buď nápomocný“ bez specifik, protichůdné direktivy, žádné příklady / shot-county, drift role, chybějící pojistky, nafouknutý úvod. Každý nález má krátký návrh opravy. Heuristika — ne věštkyně — ale chytí očividné mezery.",
         },
     },
     "body": """

@@ -77,7 +77,7 @@ TOOL = {
         "cs": {
             "name": "Počítadlo tokenů",
             "tagline": "Odhadni počet tokenů pro GPT-4, Claude, Llama, Gemini a další LLM. Vlož text, uvidíš počty per model vedle sebe. Soubory nikdy neopustí tvůj prohlížeč.",
-            "description": "Bezplatný in-browser odhad počtu tokenů pro LLM. Vlož libovolný text a uvidíš počty tokenů pro GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini a Mistral. Heuristiky per model — přesnost ±5% pro angličtinu, ±10% pro kód a CJK. Užitečné při plánování rozpočtu promptu, dimenzování kontextového okna a odhadu nákladů na API.",
+            "description": "Bezplatný in-browser odhad počtu tokenů pro LLM. Vlož libovolný text a uvidíš počty tokenů pro GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini a Mistral. Heuristiky per model — přesnost ±5 % pro angličtinu, ±10 % pro kód a CJK. Užitečné při plánování rozpočtu promptu, dimenzování kontextového okna a odhadu nákladů na API.",
         },
     },
     "body": """

@@ -36,7 +36,7 @@ TOOL = {
         },
         "pl": {
             "name": "Ekstraktor palety kolorów",
-            "tagline": "Wyciągnij dominujące kolory z dowolnego obrazka w przeglądarce. 5–8 swatchy, kody hex, gotowe do wklejenia zmienne CSS. Pliki nigdy nie opuszczają urządzenia.",
+            "tagline": "Wyciągnij dominujące kolory z dowolnego obrazka w przeglądarce. 5–8 próbek kolorów, kody hex, gotowe do wklejenia zmienne CSS. Pliki nigdy nie opuszczają urządzenia.",
             "description": "Darmowy ekstraktor palety kolorów z obrazka. Wgraj PNG, JPG albo WebP i dostań 5 do 8 najczęstszych kolorów z kodami hex, kopiowalnymi jako CSS custom properties albo paleta Tailwind. Przydatne do moodboardów, ekstrakcji kolorów marki i seed-owania design systemu. Czysty JS — bez uploadu, bez serwera.",
         },
         "ja": {
@@ -71,12 +71,12 @@ TOOL = {
         },
         "sk": {
             "name": "Extraktor farebnej palety",
-            "tagline": "Vytiahni dominantné farby z akéhokoľvek obrázku priamo v prehliadači. 5–8 swatchov, hex kódy, copy-paste CSS premenné. Súbory nikdy neopustia tvoje zariadenie.",
+            "tagline": "Vytiahni dominantné farby z akéhokoľvek obrázku priamo v prehliadači. 5–8 farebných vzoriek, hex kódy, copy-paste CSS premenné. Súbory nikdy neopustia tvoje zariadenie.",
             "description": "Bezplatný extraktor farebnej palety z obrázka. Nahraj PNG, JPG alebo WebP a dostaneš 5 až 8 najčastejších farieb s hex kódmi, kopírovateľných ako CSS custom properties alebo Tailwind paleta. Užitočné na moodboardy, extrakciu brand farieb a seeding design systému. Čisté JS — žiadny upload, žiadny server.",
         },
         "cs": {
             "name": "Extraktor barevné palety",
-            "tagline": "Vytáhni dominantní barvy z jakéhokoli obrázku přímo v prohlížeči. 5–8 swatchů, hex kódy, copy-paste CSS proměnné. Soubory nikdy neopustí tvé zařízení.",
+            "tagline": "Vytáhni dominantní barvy z jakéhokoli obrázku přímo v prohlížeči. 5–8 vzorků, hex kódy, copy-paste CSS proměnné. Soubory nikdy neopustí tvé zařízení.",
             "description": "Bezplatný extraktor barevné palety z obrázku. Nahraj PNG, JPG nebo WebP a dostaneš 5 až 8 nejčastějších barev s hex kódy, kopírovatelných jako CSS custom properties nebo Tailwind paleta. Užitečné pro moodboardy, extrakci brand barev a seeding design systému. Čisté JS — žádný upload, žádný server.",
         },
     },

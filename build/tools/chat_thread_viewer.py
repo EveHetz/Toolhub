@@ -36,8 +36,8 @@ TOOL = {
         },
         "pl": {
             "name": "Przeglądarka Wątków Chatu",
-            "tagline": "Wklej tablicę messages OpenAI lub Anthropic (JSON) i zobacz ją jako czytelny wątek czatu. Kolory wg roli. Parametry tool-calli rozwijane. Tylko przeglądarka, bez uploadu.",
-            "description": "Darmowa przeglądarka historii rozmów z LLM-ami w przeglądarce. Wklej tablicę JSON messages (format OpenAI Chat Completions, Anthropic Messages API albo dump z LangChain) i dostaniesz czysty render: kolorowe dymki wg roli, rozwijane parametry tool-calli, podświetlone bloki kodu, odwołania do obrazków. Do debugowania długich rozmów i audytu promptów po fakcie.",
+            "tagline": "Wklej tablicę messages OpenAI lub Anthropic (JSON) i zobacz ją jako czytelny wątek czatu. Kolory wg roli. Parametry wywołań narzędzi rozwijane. Tylko przeglądarka, bez uploadu.",
+            "description": "Darmowa przeglądarka historii rozmów z LLM-ami w przeglądarce. Wklej tablicę JSON messages (format OpenAI Chat Completions, Anthropic Messages API albo dump z LangChain) i dostaniesz czysty render: kolorowe dymki wg roli, rozwijane parametry wywołań narzędzi, podświetlone bloki kodu, odwołania do obrazków. Do debugowania długich rozmów i audytu promptów po fakcie.",
         },
         "ja": {
             "name": "チャットスレッドビューア",
@@ -71,13 +71,13 @@ TOOL = {
         },
         "sk": {
             "name": "Prehliadač chat threadov",
-            "tagline": "Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre tool-callov rozbaliteľné. Čisto v prehliadači, žiadny upload.",
-            "description": "Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre tool-callov, code bloky so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.",
+            "tagline": "Vlož pole messages od OpenAI alebo Anthropicu (JSON) a uvidíš ho ako čitateľný chat thread. Farby podľa roly. Parametre volaní nástrojov rozbaliteľné. Čisto v prehliadači, žiadny upload.",
+            "description": "Bezplatný prehliadač histórie konverzácií s LLM v prehliadači. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API alebo dump LangChain) a dostaneš čistý render chat threadu: farebné bubliny podľa roly, rozbaliteľné parametre volaní nástrojov, bloky kódu so syntaxovým zvýraznením, referencie na obrázky. Na debugovanie dlhých konverzácií a spätný audit promptov.",
         },
         "cs": {
             "name": "Prohlížeč chat threadů",
-            "tagline": "Vlož pole messages od OpenAI nebo Anthropicu (JSON) a uvidíš ho jako čitelný chat thread. Barvy podle role. Parametry tool-callů rozbalitelné. Čistě v prohlížeči, žádný upload.",
-            "description": "Bezplatný prohlížeč historie konverzací s LLM v prohlížeči. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API nebo dump LangChain) a dostaneš čistý render chat threadu: barevné bubliny podle role, rozbalitelné parametry tool-callů, code bloky se syntaktickým zvýrazněním, odkazy na obrázky. Na debugování dlouhých konverzací a zpětný audit promptů.",
+            "tagline": "Vlož pole messages od OpenAI nebo Anthropicu (JSON) a uvidíš ho jako čitelný chat thread. Barvy podle role. Parametry volání nástrojů rozbalitelné. Čistě v prohlížeči, žádný upload.",
+            "description": "Bezplatný prohlížeč historie konverzací s LLM v prohlížeči. Vlož JSON pole messages (formát OpenAI Chat Completions, Anthropic Messages API nebo dump LangChain) a dostaneš čistý render chat threadu: barevné bubliny podle role, rozbalitelné parametry volání nástrojů, bloky kódu se syntaktickým zvýrazněním, odkazy na obrázky. Na debugování dlouhých konverzací a zpětný audit promptů.",
         },
     },
     "body": """

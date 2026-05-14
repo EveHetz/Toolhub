@@ -37,7 +37,7 @@ TOOL = {
         "pl": {
             "name": "Konwerter OpenAI ⇄ Anthropic",
             "tagline": "Konwertuj tablice messages między OpenAI Chat Completions a Anthropic Messages API. Obsługuje system messages, tool calle, bloki obrazków, multi-turn. W przeglądarce, bez API keys.",
-            "description": "Darmowy konwerter w przeglądarce między OpenAI Chat Completions a Anthropic Messages API. Pokrywa główne różnice formatów: umiejscowienie system message (pole top-level u Anthropica, role:'system' u OpenAI), format tool-calli (tool_calls/tool_call_id vs tool_use/tool_result), bloki contentu obrazków, strukturę multi-turn. Przydatne przy migracji promptów między providerami. Czysty JS.",
+            "description": "Darmowy konwerter w przeglądarce między OpenAI Chat Completions a Anthropic Messages API. Pokrywa główne różnice formatów: umiejscowienie system message (pole top-level u Anthropica, role:'system' u OpenAI), format wywołań narzędzi (tool_calls/tool_call_id vs tool_use/tool_result), bloki contentu obrazków, strukturę multi-turn. Przydatne przy migracji promptów między providerami. Czysty JS.",
         },
         "ja": {
             "name": "OpenAI ⇄ Anthropic コンバーター",
@@ -72,12 +72,12 @@ TOOL = {
         "sk": {
             "name": "Konvertor OpenAI ⇄ Anthropic",
             "tagline": "Konvertuj polia messages medzi OpenAI Chat Completions a Anthropic Messages API. Rieši system správy, tool cally, image bloky, multi-turn. V prehliadači, žiadne API kľúče.",
-            "description": "Bezplatný konvertor v prehliadači medzi OpenAI Chat Completions a Anthropic Messages API. Rieši hlavné rozdiely formátov: umiestnenie system správy (top-level pole pri Anthropicu, role:'system' pri OpenAI), formát tool-callov (tool_calls/tool_call_id vs tool_use/tool_result), bloky obrazového obsahu, multi-turn štruktúru. Užitočné pri migrácii promptov medzi providermi. Čisté JS.",
+            "description": "Bezplatný konvertor v prehliadači medzi OpenAI Chat Completions a Anthropic Messages API. Rieši hlavné rozdiely formátov: umiestnenie system správy (top-level pole pri Anthropicu, role:'system' pri OpenAI), formát volaní nástrojov (tool_calls/tool_call_id vs tool_use/tool_result), bloky obrazového obsahu, multi-turn štruktúru. Užitočné pri migrácii promptov medzi providermi. Čisté JS.",
         },
         "cs": {
             "name": "Konvertor OpenAI ⇄ Anthropic",
             "tagline": "Konvertuj pole messages mezi OpenAI Chat Completions a Anthropic Messages API. Řeší system zprávy, tool cally, image bloky, multi-turn. V prohlížeči, žádné API klíče.",
-            "description": "Bezplatný konvertor v prohlížeči mezi OpenAI Chat Completions a Anthropic Messages API. Řeší hlavní rozdíly formátů: umístění system zprávy (top-level pole u Anthropicu, role:'system' u OpenAI), formát tool-callů (tool_calls/tool_call_id vs tool_use/tool_result), bloky obrazového obsahu, multi-turn strukturu. Užitečné při migraci promptů mezi providery. Čisté JS.",
+            "description": "Bezplatný konvertor v prohlížeči mezi OpenAI Chat Completions a Anthropic Messages API. Řeší hlavní rozdíly formátů: umístění system zprávy (top-level pole u Anthropicu, role:'system' u OpenAI), formát volání nástrojů (tool_calls/tool_call_id vs tool_use/tool_result), bloky obrazového obsahu, multi-turn strukturu. Užitečné při migraci promptů mezi providery. Čisté JS.",
         },
     },
     "body": """
