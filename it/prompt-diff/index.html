@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Diff di Prompt — Toolhub</title>
   <meta name="description" content="Strumento gratuito di diff prompt nel browser. Incolla la versione A e la versione B — vedi le modifiche riga per riga con evidenziazione rossa/verde. Utile per prompt engineer che confrontano iterazioni, fanno A/B test di prompt o controllano cosa è cambiato in un system prompt tra deployment. Algoritmo LCS standard.">
   <meta property="og:title" content="Diff di Prompt — Toolhub">
   <meta property="og:description" content="Strumento gratuito di diff prompt nel browser. Incolla la versione A e la versione B — vedi le modifiche riga per riga con evidenziazione rossa/verde. Utile per prompt engineer che confrontano iterazioni, fanno A/B test di prompt o controllano cosa è cambiato in un system prompt tra deployment. Algoritmo LCS standard.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/prompt-diff/">
-  <meta property="og:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/prompt-diff/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Diff di Prompt</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Diff di Prompt</nav>
     <h1>Diff di Prompt</h1>
     <p class="tagline">Confronta due prompt (o due versioni dello stesso prompt) affiancati. Diff a livello di riga con modifiche evidenziate. Pensato per iterare sui prompt LLM.</p>
     

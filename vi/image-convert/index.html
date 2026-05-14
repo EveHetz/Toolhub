@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Chuyển định dạng ảnh — Toolhub</title>
   <meta name="description" content="Trình chuyển định dạng ảnh miễn phí trong trình duyệt. Đổi giữa PNG, JPG và WebP. File ở lại trên thiết bị — không có gì được tải lên. Hữu ích để thu nhỏ JPG sang WebP, hoặc thêm hỗ trợ trong suốt bằng cách chuyển sang PNG.">
   <meta property="og:title" content="Chuyển định dạng ảnh — Toolhub">
   <meta property="og:description" content="Trình chuyển định dạng ảnh miễn phí trong trình duyệt. Đổi giữa PNG, JPG và WebP. File ở lại trên thiết bị — không có gì được tải lên. Hữu ích để thu nhỏ JPG sang WebP, hoặc thêm hỗ trợ trong suốt bằng cách chuyển sang PNG.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Chuyển định dạng ảnh</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Chuyển định dạng ảnh</nav>
     <h1>Chuyển định dạng ảnh</h1>
     <p class="tagline">Chuyển ảnh giữa PNG, JPG, và WebP trong trình duyệt. Thả, chọn định dạng đích, tải về. Không upload, không server.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Analyseur d'URL — Toolhub</title>
   <meta name="description" content="Analyseur d'URL gratuit. Décode toute URL en protocole, hôte, port, chemin, query, fragment et origine ; paramètres décodés. 100% dans le navigateur.">
   <meta property="og:title" content="Analyseur d'URL — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Analyseur d'URL</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Analyseur d'URL</nav>
     <h1>Analyseur d'URL</h1>
     <p class="tagline">Collez une URL — protocole, hôte, port, chemin, paramètres de requête (décodés), fragment et origine.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Compteur de Mots — Toolhub</title>
   <meta name="description" content="Compteur de mots gratuit. Comptage en direct des mots, caractères (avec/sans espaces), phrases, paragraphes, syllabes, et estimation du temps de lecture et de parole.">
   <meta property="og:title" content="Compteur de Mots — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Compteur de Mots</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Compteur de Mots</nav>
     <h1>Compteur de Mots</h1>
     <p class="tagline">Comptez mots, caractères, phrases, paragraphes et estimez le temps de lecture et de parole en direct.</p>
     

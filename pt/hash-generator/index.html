@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Gerador de Hash — Toolhub</title>
   <meta name="description" content="Gerador de hash online gratuito. SHA-1, SHA-256, SHA-384, SHA-512 via WebCrypto. Saída em hex, fácil de copiar. Roda inteiramente no seu browser.">
   <meta property="og:title" content="Gerador de Hash — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Gerador de Hash</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Gerador de Hash</nav>
     <h1>Gerador de Hash</h1>
     <p class="tagline">Gere hash de texto com SHA-1, SHA-256, SHA-384 ou SHA-512 usando WebCrypto do browser. Calculado localmente — o input nunca sai da página.</p>
     

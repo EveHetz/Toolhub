@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formateur JSON — Toolhub</title>
   <meta name="description" content="Formateur et validateur JSON gratuit en ligne. Embellissez, minifiez et vérifiez la syntaxe JSON.">
   <meta property="og:title" content="Formateur JSON — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Formateur JSON</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Formateur JSON</nav>
     <h1>Formateur JSON</h1>
     <p class="tagline">Formatez, validez et minifiez du JSON instantanément. Les erreurs sont signalées avec ligne et colonne.</p>
     

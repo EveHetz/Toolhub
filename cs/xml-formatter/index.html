@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML formátovač — Toolhub</title>
   <meta name="description" content="Zdarma online XML formátovač. Naformátuje a zminifikuje XML se správným indentem. Ověří well-formedness a chyby ukáže s řádkem a sloupcem. Běží v prohlížeči.">
   <meta property="og:title" content="XML formátovač — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / XML formátovač</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / XML formátovač</nav>
     <h1>XML formátovač</h1>
     <p class="tagline">Naformátuj a zminifikuj XML. Ověř well-formedness s řádkem a sloupcem při chybách.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>HTTP-statuscodes — Toolhub</title>
   <meta name="description" content="Gratis HTTP-statuscode-referentie. Zoek elke standaard HTTP-statuscode (100–599), zie de betekenis, veelvoorkomende oorzaken en de RFC waarin hij is gedefinieerd. Filter tijdens het typen.">
   <meta property="og:title" content="HTTP-statuscodes — Toolhub">
@@ -290,11 +293,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / HTTP-statuscodes</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / HTTP-statuscodes</nav>
     <h1>HTTP-statuscodes</h1>
     <p class="tagline">Zoek elke HTTP-statuscode op (1xx–5xx). Betekenis, veelvoorkomende oorzaken en de RFC-referentie.</p>
     

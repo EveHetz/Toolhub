@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formatter HTML — Toolhub</title>
   <meta name="description" content="Darmowy online formatter i minifikator HTML. Pretty-print z konfigurowalnym wcięciem, opcjonalne usuwanie komentarzy i respektowanie tagów void/samozamykających. Działa w całości w przeglądarce.">
   <meta property="og:title" content="Formatter HTML — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Formatter HTML</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Formatter HTML</nav>
     <h1>Formatter HTML</h1>
     <p class="tagline">Sformatuj i upiększ HTML albo zminifikuj. Rozmiar wcięcia, usuwanie komentarzy i świadomość tagów samozamykających.</p>
     

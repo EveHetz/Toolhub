@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON Diff — Toolhub</title>
   <meta name="description" content="मुफ़्त ऑनलाइन JSON diff. दो JSON documents के बीच structural delta निकालता है — जोड़े गए/हटाए गए keys, बदले गए values, और साफ़ side-by-side view. पूरी तरह आपके browser में चलता है।">
   <meta property="og:title" content="JSON Diff — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / JSON Diff</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / JSON Diff</nav>
     <h1>JSON Diff</h1>
     <p class="tagline">दो JSON documents के लिए structural diff — जोड़े गए, हटाए गए, बदले गए keys और value परिवर्तन साथ-साथ दिखाए गए।</p>
     

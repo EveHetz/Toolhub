@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Decoder JWT — Toolhub</title>
   <meta name="description" content="Decoder JSON Web Token gratuito. Decodifica header e payload, verifica scadenza, ispeziona la firma. Funziona offline nel browser.">
   <meta property="og:title" content="Decoder JWT — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Decoder JWT</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Decoder JWT</nav>
     <h1>Decoder JWT</h1>
     <p class="tagline">Incolla un JWT per decodificare header e payload. Tutto viene eseguito nel browser — i token non lasciano la pagina.</p>
     

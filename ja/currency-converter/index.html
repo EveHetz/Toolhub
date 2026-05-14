@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>通貨換算ツール — Toolhub</title>
   <meta name="description" content="ブラウザだけで動く無料の通貨換算ツール。四半期ごとに更新されるリファレンスレートを内蔵。元通貨と目的通貨を選び、金額を入力すると結果が表示されます。基準日が表示されるので、請求書を出す前に必ず実際の銀行レートと照合してください。意図的にライブレートは取得していません — 取得するとあなたのクエリが第三者に漏れるためです。実際の決済には銀行や為替デスクのレートを使用してください。">
   <meta property="og:title" content="通貨換算ツール — Toolhub">
   <meta property="og:description" content="ブラウザだけで動く無料の通貨換算ツール。四半期ごとに更新されるリファレンスレートを内蔵。元通貨と目的通貨を選び、金額を入力すると結果が表示されます。基準日が表示されるので、請求書を出す前に必ず実際の銀行レートと照合してください。意図的にライブレートは取得していません — 取得するとあなたのクエリが第三者に漏れるためです。実際の決済には銀行や為替デスクのレートを使用してください。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 通貨換算ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 通貨換算ツール</nav>
     <h1>通貨換算ツール</h1>
     <p class="tagline">既知の基準日のリファレンスレートで 50 種以上の通貨を換算。ライブ API なし、トラッキングなし — フリーランスの見積もり概算に便利。請求前に必ず実勢レートと照合してください。</p>
     

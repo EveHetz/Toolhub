@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generador de Imagen Placeholder — Toolhub</title>
   <meta name="description" content="Generador de imágenes placeholder gratuito. Especifica ancho × alto, texto y colores; obtén un SVG inline que pegas donde quieras — data URI, marcado o descarga. 100% en el navegador.">
   <meta property="og:title" content="Generador de Imagen Placeholder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Generador de Imagen Placeholder</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Generador de Imagen Placeholder</nav>
     <h1>Generador de Imagen Placeholder</h1>
     <p class="tagline">Genera imágenes SVG placeholder de cualquier tamaño con texto y colores personalizados. Salida como data URI o SVG descargable.</p>
     

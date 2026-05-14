@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Date Calculator — Toolhub</title>
   <meta name="description" content="मुफ़्त ऑनलाइन date calculator। दो तिथियों के बीच की अवधि की गणना करें, किसी तिथि से अवधि जोड़ें या घटाएं, और वर्ष/महीने/दिन में सटीक आयु निकालें। सभी गणनाएँ आपके browser में चलती हैं।">
   <meta property="og:title" content="Date Calculator — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Date Calculator</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Date Calculator</nav>
     <h1>Date Calculator</h1>
     <p class="tagline">दो तिथियों के बीच दिन · किसी तिथि में दिन/सप्ताह/महीने/वर्ष जोड़ें या घटाएं · वर्ष, महीने और दिन में आयु।</p>
     

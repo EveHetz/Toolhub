@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tester JSONPath — Toolhub</title>
   <meta name="description" content="Darmowy online tester JSONPath. Odpytuj zagnieżdżony JSON za pomocą $.., wildcardów, slice'ów tablic i wyrażeń filtrujących. Wyniki na żywo, wklej swój JSON i zacznij szukać.">
   <meta property="og:title" content="Tester JSONPath — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Tester JSONPath</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Tester JSONPath</nav>
     <h1>Tester JSONPath</h1>
     <p class="tagline">Uruchamiaj zapytania JSONPath na dowolnym dokumencie JSON. Zobacz dopasowane węzły i ich ścieżki w czasie rzeczywistym.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub pre školy — Toolhub</title>
   <meta name="description" content="Privacy-first developer a utility nástroje do triedy. Bez registrácie, bez sledovania, viacjazyčné, self-hostable. Vhodné cez filtre a bezpečné zdieľať so žiakmi.">
   <meta property="og:title" content="Toolhub pre školy — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" selected="selected">🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Toolhub pre školy</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Toolhub pre školy</nav>
     <h1>Toolhub pre školy</h1>
     <h2>Toolhub v triede</h2>
 <p>Toolhub je sada malých in-browser nástrojov, ktoré žiaci môžu používať bez vytvorenia účtu, bez toho, aby boli sledovaní, a bez presmerovaní na reklamy alebo affiliate lieviky. Každý nástroj beží úplne v prehliadači, čo znamená, že vstup žiaka nikdy neopustí školskú sieť — neexistuje backend, ktorý by sa volal.</p>

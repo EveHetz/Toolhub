@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Encoder / Decoder de URL — Toolhub</title>
   <meta name="description" content="Encoder e decoder de URL online gratuito. Codifica caracteres especiais como percent-escapes para URLs, query strings e dados de formulário. Component-safe.">
   <meta property="og:title" content="Encoder / Decoder de URL — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Encoder / Decoder de URL</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Encoder / Decoder de URL</nav>
     <h1>Encoder / Decoder de URL</h1>
     <p class="tagline">Faça percent-encoding de strings para URLs ou decodifique de volta para texto puro.</p>
     

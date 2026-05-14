@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Šablóna prípravy na hodinu — Toolhub</title>
   <meta name="description" content="Bezplatný generátor prípravy na vyučovaciu hodinu pre učiteľov. Vypĺňaj polia formulára — predmet, ročník, dĺžka, ciele (dropdown s úrovňami Bloomovej taxonómie), pomôcky, priebeh hodiny, hodnotenie, diferenciácia, reflexia — a získaš čistý markdown plus HTML náhľad pripravený na tlač. Pripravené šablóny pre 1. stupeň / 2. stupeň / stredné školy a niekoľko pedagogických rámcov (5E, gradual release, bádateľský prístup, projektové vyučovanie). Stav uložíš do fragmentu URL — zdieľaj odkazom.">
   <meta property="og:title" content="Šablóna prípravy na hodinu — Toolhub">
   <meta property="og:description" content="Bezplatný generátor prípravy na vyučovaciu hodinu pre učiteľov. Vypĺňaj polia formulára — predmet, ročník, dĺžka, ciele (dropdown s úrovňami Bloomovej taxonómie), pomôcky, priebeh hodiny, hodnotenie, diferenciácia, reflexia — a získaš čistý markdown plus HTML náhľad pripravený na tlač. Pripravené šablóny pre 1. stupeň / 2. stupeň / stredné školy a niekoľko pedagogických rámcov (5E, gradual release, bádateľský prístup, projektové vyučovanie). Stav uložíš do fragmentu URL — zdieľaj odkazom.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/lesson-plan-template/">
-  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/lesson-plan-template/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Šablóna prípravy na hodinu</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Šablóna prípravy na hodinu</nav>
     <h1>Šablóna prípravy na hodinu</h1>
     <p class="tagline">Vytvor štruktúrovanú prípravu na hodinu z vyplniteľného formulára. Štandardné sekcie (ciele, pomôcky, priebeh, hodnotenie, reflexia). Markdown + tlačiteľný HTML výstup.</p>
     

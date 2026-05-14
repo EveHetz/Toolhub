@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kleur-picker — Toolhub</title>
   <meta name="description" content="Gratis online color picker. Converteer tussen HEX, RGB(A), HSL(A), HSV en CMYK met live preview, opacity-slider en kopieerknoppen.">
   <meta property="og:title" content="Kleur-picker — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Kleur-picker</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Kleur-picker</nav>
     <h1>Kleur-picker</h1>
     <p class="tagline">Kies een kleur en zie 'm direct in HEX, RGB, RGBA, HSL, HSLA, HSV en CMYK. Stel transparantie in en kopieer elke waarde.</p>
     

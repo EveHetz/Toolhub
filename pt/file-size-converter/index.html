@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Conversor de Tamanho de Arquivo — Toolhub</title>
   <meta name="description" content="Conversor gratuito de unidades de tamanho de arquivo. Converta qualquer quantidade de bytes entre unidades decimais (B, KB, MB, GB, TB, PB) e unidades binárias IEC (KiB, MiB, GiB, TiB, PiB). Veja os dois lado a lado, com a distinção exata.">
   <meta property="og:title" content="Conversor de Tamanho de Arquivo — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Conversor de Tamanho de Arquivo</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Conversor de Tamanho de Arquivo</nav>
     <h1>Conversor de Tamanho de Arquivo</h1>
     <p class="tagline">Converta entre bytes, KB, MB, GB, TB e os binários KiB, MiB, GiB, TiB. Decimal vs binário bem distinguidos.</p>
     

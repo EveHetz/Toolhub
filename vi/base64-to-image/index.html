@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64 sang ảnh — Toolhub</title>
   <meta name="description" content="Trình giải mã Base64 → ảnh miễn phí, hoàn toàn trong trình duyệt. Dán data: URI (hoặc payload Base64 thô), xem ảnh được render và tải về. Hỗ trợ PNG, JPG, WebP, GIF, SVG. Hữu ích khi bạn đã sao chép một data URI từ CSS hoặc HTML và muốn lấy lại file gốc.">
   <meta property="og:title" content="Base64 sang ảnh — Toolhub">
   <meta property="og:description" content="Trình giải mã Base64 → ảnh miễn phí, hoàn toàn trong trình duyệt. Dán data: URI (hoặc payload Base64 thô), xem ảnh được render và tải về. Hỗ trợ PNG, JPG, WebP, GIF, SVG. Hữu ích khi bạn đã sao chép một data URI từ CSS hoặc HTML và muốn lấy lại file gốc.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/base64-to-image/">
-  <meta property="og:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/base64-to-image/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Base64 sang ảnh</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Base64 sang ảnh</nav>
     <h1>Base64 sang ảnh</h1>
     <p class="tagline">Giải mã ảnh Base64 hoặc data URI thành file. Dán chuỗi, xem trước, tải về. Ngược lại với công cụ ảnh-sang-Base64 của chúng tôi.</p>
     

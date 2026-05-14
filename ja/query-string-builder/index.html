@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>クエリ文字列ビルダー — Toolhub</title>
   <meta name="description" content="オンライン無料のクエリ文字列ビルダー。key/value 行を追加すると、適切に percent-encode された ?a=1&b=hello%20world 形式の文字列を生成します。配列のブラケット記法もオプションで対応。すべてブラウザ内で動作します。">
   <meta property="og:title" content="クエリ文字列ビルダー — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / クエリ文字列ビルダー</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / クエリ文字列ビルダー</nav>
     <h1>クエリ文字列ビルダー</h1>
     <p class="tagline">key/value 行を追加し、URL エンコード済みのクエリ文字列を生成。配列（a[]=1）や同名キーの繰り返しに対応。</p>
     

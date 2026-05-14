@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Query String Builder — Toolhub</title>
   <meta name="description" content="मुफ़्त ऑनलाइन query string builder। key/value pairs की rows जोड़ें और एक उचित percent-encoded ?a=1&b=hello%20world string पाएं, वैकल्पिक array bracket notation के साथ। पूरी तरह आपके browser में चलता है।">
   <meta property="og:title" content="Query String Builder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Query String Builder</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Query String Builder</nav>
     <h1>Query String Builder</h1>
     <p class="tagline">key/value rows जोड़ें; एक सही URL-encoded query string प्राप्त करें। Array (a[]=1) और bracket-less repeated keys का समर्थन।</p>
     

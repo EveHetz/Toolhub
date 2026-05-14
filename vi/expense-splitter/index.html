@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Chia Chi Phí — Toolhub</title>
   <meta name="description" content="Bộ chia chi phí miễn phí trong trình duyệt. Thêm chi phí (ai trả, số tiền, ai nợ), xác định nhóm, nhận số dư mỗi người + thanh toán với số chuyển khoản tối thiểu ('Alice nợ Bob €X'). Hỗ trợ chia không đều (một người nợ nhiều hơn, v.v.) và nhiều tiền tệ (một tiền tệ mỗi nhóm; không chuyển đổi). Cho chuyến đi, ở chung, ăn nhóm.">
   <meta property="og:title" content="Chia Chi Phí — Toolhub">
   <meta property="og:description" content="Bộ chia chi phí miễn phí trong trình duyệt. Thêm chi phí (ai trả, số tiền, ai nợ), xác định nhóm, nhận số dư mỗi người + thanh toán với số chuyển khoản tối thiểu ('Alice nợ Bob €X'). Hỗ trợ chia không đều (một người nợ nhiều hơn, v.v.) và nhiều tiền tệ (một tiền tệ mỗi nhóm; không chuyển đổi). Cho chuyến đi, ở chung, ăn nhóm.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/expense-splitter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/expense-splitter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -338,11 +341,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Chia Chi Phí</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Chia Chi Phí</nav>
     <h1>Chia Chi Phí</h1>
     <p class="tagline">Chia một chi phí nhóm đều nhau hoặc theo phần tùy chỉnh (tỷ lệ phần trăm hoặc số tiền cố định). Đầu ra: tổng theo người + chỉ dẫn chuyển khoản ('A nợ B €X').</p>
     

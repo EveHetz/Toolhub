@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Regex LLM Output Extractor — Toolhub</title>
   <meta name="description" content="Gratis regex-builder voor LLM-output-extractie. Gangbare gevallen voorgebouwd: JSON binnen ```json-fences, kaal JSON-object, genummerde lijst, key: value-paren, classificatielabels. Plak een LLM-response, kies een template (of schrijf je eigen regex), zie de gecapturede groepen live. De tool die niemand wil toegeven nodig te hebben maar die iedereen voor elk project opnieuw schrijft.">
   <meta property="og:title" content="Regex LLM Output Extractor — Toolhub">
   <meta property="og:description" content="Gratis regex-builder voor LLM-output-extractie. Gangbare gevallen voorgebouwd: JSON binnen ```json-fences, kaal JSON-object, genummerde lijst, key: value-paren, classificatielabels. Plak een LLM-response, kies een template (of schrijf je eigen regex), zie de gecapturede groepen live. De tool die niemand wil toegeven nodig te hebben maar die iedereen voor elk project opnieuw schrijft.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/regex-llm-output/">
-  <meta property="og:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/regex-llm-output/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Regex LLM Output Extractor</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Regex LLM Output Extractor</nav>
     <h1>Regex LLM Output Extractor</h1>
     <p class="tagline">Extraheer gestructureerde data (JSON, codeblokken, key-value-paren) uit rommelige LLM-responses. Kies uit gangbare templates of schrijf je eigen regex. Live preview.</p>
     

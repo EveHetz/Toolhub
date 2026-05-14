@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculadora CIDR / Subred — Toolhub</title>
   <meta name="description" content="Calculadora gratuita IPv4 CIDR / subred. Introduce un CIDR (p.ej. 10.0.0.0/16) y obtén dirección de red, broadcast, máscara, rango de hosts y representación binaria.">
   <meta property="og:title" content="Calculadora CIDR / Subred — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Calculadora CIDR / Subred</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Calculadora CIDR / Subred</nav>
     <h1>Calculadora CIDR / Subred</h1>
     <p class="tagline">Calcula subredes IPv4 desde notación CIDR. Red, broadcast, máscara, rango de hosts y vista binaria.</p>
     

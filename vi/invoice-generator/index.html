@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình Tạo Hóa Đơn — Toolhub</title>
   <meta name="description" content="Trình tạo hóa đơn miễn phí trong trình duyệt. Nhập thông tin doanh nghiệp (từ), thông tin khách (đến), các dòng mục (mô tả / số lượng / đơn giá) — công cụ tính phụ trợ, VAT (chọn quốc gia + tỷ lệ), tổng. Xuất dạng markdown HOẶC HTML sẵn sàng in — lưu thành PDF qua hộp thoại in của trình duyệt. Không upload, không đăng ký, không dịch vụ bên thứ ba. Lưu thông tin doanh nghiệp vào fragment URL nên lần sau không phải gõ lại.">
   <meta property="og:title" content="Trình Tạo Hóa Đơn — Toolhub">
   <meta property="og:description" content="Trình tạo hóa đơn miễn phí trong trình duyệt. Nhập thông tin doanh nghiệp (từ), thông tin khách (đến), các dòng mục (mô tả / số lượng / đơn giá) — công cụ tính phụ trợ, VAT (chọn quốc gia + tỷ lệ), tổng. Xuất dạng markdown HOẶC HTML sẵn sàng in — lưu thành PDF qua hộp thoại in của trình duyệt. Không upload, không đăng ký, không dịch vụ bên thứ ba. Lưu thông tin doanh nghiệp vào fragment URL nên lần sau không phải gõ lại.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/invoice-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/invoice-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình Tạo Hóa Đơn</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình Tạo Hóa Đơn</nav>
     <h1>Trình Tạo Hóa Đơn</h1>
     <p class="tagline">Tạo hóa đơn sạch dạng markdown + HTML sẵn sàng in. Điền form, xem preview trực tiếp, lưu PDF qua chức năng in của trình duyệt. Không upload, không đăng ký.</p>
     

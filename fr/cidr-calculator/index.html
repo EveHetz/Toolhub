@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculateur CIDR / Sous-réseau — Toolhub</title>
   <meta name="description" content="Calculateur gratuit IPv4 CIDR / sous-réseau. Entrez un CIDR (ex: 10.0.0.0/16) et obtenez adresse réseau, broadcast, masque, plage d'hôtes et représentation binaire.">
   <meta property="og:title" content="Calculateur CIDR / Sous-réseau — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Calculateur CIDR / Sous-réseau</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Calculateur CIDR / Sous-réseau</nav>
     <h1>Calculateur CIDR / Sous-réseau</h1>
     <p class="tagline">Calculez les sous-réseaux IPv4 depuis la notation CIDR. Réseau, broadcast, masque, plage d'hôtes, vue binaire.</p>
     

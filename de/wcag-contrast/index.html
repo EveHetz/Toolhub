@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>WCAG-Kontrast-Prüfer — Toolhub</title>
   <meta name="description" content="Kostenloser WCAG-Kontrastprüfer. Wähle Vordergrund- und Hintergrundfarben, erhalte das Verhältnis (1:1 bis 21:1) und Pass/Fail nach WCAG 2.1 AA und AAA.">
   <meta property="og:title" content="WCAG-Kontrast-Prüfer — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / WCAG-Kontrast-Prüfer</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / WCAG-Kontrast-Prüfer</nav>
     <h1>WCAG-Kontrast-Prüfer</h1>
     <p class="tagline">Prüfe das Kontrastverhältnis zwischen zwei Farben. Pass/fail nach WCAG AA und AAA für jede Textgröße.</p>
     

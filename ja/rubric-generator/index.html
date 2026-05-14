@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>評価ルーブリック生成ツール — Toolhub</title>
   <meta name="description" content="教員向けの無料ルーブリック生成ツール。評価基準（例：「調査の深さ」「文章の明確さ」「引用」など）を入力し、達成レベル（例：優秀／到達／発展途中／初歩）の説明と点数を設定します。出力はきれいな Markdown と印刷可能な HTML プレビュー。エッセイ、プロジェクト、プレゼン、グループワーク、実験レポートのテンプレート付き。ブラウザ内のみで動作 — アップロードもサインアップも不要。">
   <meta property="og:title" content="評価ルーブリック生成ツール — Toolhub">
   <meta property="og:description" content="教員向けの無料ルーブリック生成ツール。評価基準（例：「調査の深さ」「文章の明確さ」「引用」など）を入力し、達成レベル（例：優秀／到達／発展途中／初歩）の説明と点数を設定します。出力はきれいな Markdown と印刷可能な HTML プレビュー。エッセイ、プロジェクト、プレゼン、グループワーク、実験レポートのテンプレート付き。ブラウザ内のみで動作 — アップロードもサインアップも不要。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 評価ルーブリック生成ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 評価ルーブリック生成ツール</nav>
     <h1>評価ルーブリック生成ツール</h1>
     <p class="tagline">評価基準とパフォーマンスレベルから印刷可能なルーブリック（Markdown ＋ HTML プレビュー ＋ 印刷ビュー）を作成。授業の評価設計を行う先生向け。</p>
     

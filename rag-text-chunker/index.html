@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>RAG Text Chunker — Toolhub</title>
   <meta name="description" content="Free in-browser text chunker for RAG and embedding pipelines. Paste a document, pick a chunk size (in tokens, heuristic estimate), pick a strategy (recursive character / sentence-aware / paragraph / semantic-boundary), and get back the list of chunks with optional overlap. Useful for prepping documents for vector-store ingestion without uploading them anywhere. Pairs with our token-counter for sizing guidance.">
   <meta property="og:title" content="RAG Text Chunker — Toolhub">
   <meta property="og:description" content="Free in-browser text chunker for RAG and embedding pipelines. Paste a document, pick a chunk size (in tokens, heuristic estimate), pick a strategy (recursive character / sentence-aware / paragraph / semantic-boundary), and get back the list of chunks with optional overlap. Useful for prepping documents for vector-store ingestion without uploading them anywhere. Pairs with our token-counter for sizing guidance.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/rag-text-chunker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/rag-text-chunker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/">All Tools</a> / RAG Text Chunker</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / RAG Text Chunker</nav>
     <h1>RAG Text Chunker</h1>
     <p class="tagline">Split text into token-sized chunks for RAG / embeddings prep. Multiple strategies: recursive char, sentence-aware, semantic boundaries. Configurable overlap. All in-browser.</p>
     

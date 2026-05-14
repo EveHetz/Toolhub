@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>タイムゾーン変換 — Toolhub</title>
   <meta name="description" content="オンライン無料のタイムゾーン変換ツール。任意の IANA タイムゾーン間で DST を考慮しながら変換できます。よく使うゾーンから、ブラウザがサポートする 400 以上のゾーンまで選択可能です。">
   <meta property="og:title" content="タイムゾーン変換 — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / タイムゾーン変換</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / タイムゾーン変換</nav>
     <h1>タイムゾーン変換</h1>
     <p class="tagline">IANA タイムゾーン間で日時を変換。両端のオフセット、DST の有無、曜日も表示。</p>
     

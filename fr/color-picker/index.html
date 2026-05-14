@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Sélecteur de Couleur — Toolhub</title>
   <meta name="description" content="Sélecteur de couleur en ligne gratuit. HEX, RGB(A), HSL(A), HSV et CMJN avec aperçu et curseur d'opacité.">
   <meta property="og:title" content="Sélecteur de Couleur — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Sélecteur de Couleur</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Sélecteur de Couleur</nav>
     <h1>Sélecteur de Couleur</h1>
     <p class="tagline">Choisissez une couleur et voyez-la en HEX, RGB, RGBA, HSL, HSLA, HSV et CMJN. Ajustez l'opacité et copiez.</p>
     

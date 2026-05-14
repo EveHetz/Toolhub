@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình tạo Rubric đánh giá — Toolhub</title>
   <meta name="description" content="Trình tạo rubric đánh giá miễn phí cho giáo viên. Nhập tiêu chí (vd: 'Độ sâu nghiên cứu', 'Sự rõ ràng trong viết', 'Trích dẫn'), mô tả từng mức độ (Xuất sắc / Đạt yêu cầu / Đang phát triển / Bắt đầu) và điểm số. Kết quả: markdown sạch cùng xem trước HTML in được. Mẫu sẵn có: bài luận, dự án, thuyết trình, làm việc nhóm, báo cáo phòng thí nghiệm. Chạy hoàn toàn trong trình duyệt — không tải lên, không đăng ký.">
   <meta property="og:title" content="Trình tạo Rubric đánh giá — Toolhub">
   <meta property="og:description" content="Trình tạo rubric đánh giá miễn phí cho giáo viên. Nhập tiêu chí (vd: 'Độ sâu nghiên cứu', 'Sự rõ ràng trong viết', 'Trích dẫn'), mô tả từng mức độ (Xuất sắc / Đạt yêu cầu / Đang phát triển / Bắt đầu) và điểm số. Kết quả: markdown sạch cùng xem trước HTML in được. Mẫu sẵn có: bài luận, dự án, thuyết trình, làm việc nhóm, báo cáo phòng thí nghiệm. Chạy hoàn toàn trong trình duyệt — không tải lên, không đăng ký.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình tạo Rubric đánh giá</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình tạo Rubric đánh giá</nav>
     <h1>Trình tạo Rubric đánh giá</h1>
     <p class="tagline">Tạo rubric đánh giá in được (markdown + xem trước HTML + chế độ in) từ tiêu chí và mức độ đạt được. Dành cho giáo viên lên kế hoạch kiểm tra.</p>
     

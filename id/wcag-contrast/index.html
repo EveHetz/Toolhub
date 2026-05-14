@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Pemeriksa Kontras WCAG — Toolhub</title>
   <meta name="description" content="Pemeriksa kontras WCAG gratis. Cek rasio kontras antara warna teks dan background sesuai WCAG 2.1. Penilaian lulus/gagal untuk AA dan AAA, teks normal dan besar. Penting untuk a11y.">
   <meta property="og:title" content="Pemeriksa Kontras WCAG — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Pemeriksa Kontras WCAG</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Pemeriksa Kontras WCAG</nav>
     <h1>Pemeriksa Kontras WCAG</h1>
     <p class="tagline">Cek rasio kontras antara dua warna. Penilaian lulus/gagal di WCAG AA dan AAA untuk setiap ukuran teks.</p>
     

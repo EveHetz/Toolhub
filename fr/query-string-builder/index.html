@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Constructeur de Query String — Toolhub</title>
   <meta name="description" content="Constructeur de query string gratuit. Ajoutez des paires clé/valeur et obtenez une chaîne ?a=1&b=hello%20world correctement percent-encoded, avec notation crochets optionnelle. 100% dans le navigateur.">
   <meta property="og:title" content="Constructeur de Query String — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Constructeur de Query String</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Constructeur de Query String</nav>
     <h1>Constructeur de Query String</h1>
     <p class="tagline">Ajoutez des lignes clé/valeur ; obtenez un query string correctement encodé. Supporte les tableaux (a[]=1) et les clés répétées.</p>
     

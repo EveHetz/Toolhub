@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>toolhub.software — Geliştiriciler için ücretsiz online araçlar</title>
   <meta name="description" content="60+ ücretsiz online geliştirici aracı — JSON formatter, parola oluşturucu, Base64 encoder ve dahası. Kayıt yok, takip yok.">
   <meta property="og:title" content="toolhub.software — Geliştiriciler için ücretsiz online araçlar">
@@ -186,7 +189,7 @@
       <option value="cs">🇨🇿 Čeština</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
 
@@ -234,7 +237,7 @@
   </footer>
 
   <script>
-                                                                                                        const TOOLS = [
+                                                                                                            const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII Tablosu", "desc": "0–127 tam ASCII referansı: ondalık, hex, ikilik, karakter ve HTML entity. Filtrelenebilir.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Metni Base64'e kodla veya Base64'ü metne çöz. UTF-8 güvenli, base64url varyantı destekli.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64'ten görsele", "desc": "Bir Base64 görseli veya data URI'ı tekrar dosyaya çevir. Stringi yapıştır, önizle, indir. Görsel'den Base64'e aracımızın tersi.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},

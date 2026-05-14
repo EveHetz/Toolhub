@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>引用フォーマッター — Toolhub</title>
   <meta name="description" content="学術ライティング向けの無料引用フォーマッター。資料種別（書籍／学術論文／ウェブサイト／章／会議録／学位論文／新聞記事／報告書）を選び、フィールド（著者・タイトル・発行年・出版社など）を入力し、スタイル（APA 7／MLA 9／Chicago 著者-年／Harvard）を選んで整形済みの引用をコピーできます。文献リストモードでは並べ替え済みの一覧を生成。外部参照なし、DOI API なし、トラッキングなし — 一度読み込めばオフラインで動作します。">
   <meta property="og:title" content="引用フォーマッター — Toolhub">
   <meta property="og:description" content="学術ライティング向けの無料引用フォーマッター。資料種別（書籍／学術論文／ウェブサイト／章／会議録／学位論文／新聞記事／報告書）を選び、フィールド（著者・タイトル・発行年・出版社など）を入力し、スタイル（APA 7／MLA 9／Chicago 著者-年／Harvard）を選んで整形済みの引用をコピーできます。文献リストモードでは並べ替え済みの一覧を生成。外部参照なし、DOI API なし、トラッキングなし — 一度読み込めばオフラインで動作します。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/citation-formatter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/citation-formatter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 引用フォーマッター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 引用フォーマッター</nav>
     <h1>引用フォーマッター</h1>
     <p class="tagline">APA 7、MLA 9、Chicago、Harvard 形式で引用を整形。フィールドは手入力 — DOI 検索なし、トラッキングなし。ブラウザのみで動作。</p>
     

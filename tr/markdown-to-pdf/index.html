@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown'dan PDF'e — Toolhub</title>
   <meta name="description" content="Tarayıcıda ücretsiz markdown → PDF. Markdown'u yapıştır, biçimlenmiş önizlemeyi gör, 'PDF olarak kaydet' butonuna tıkla — tarayıcının yerleşik yazdır-PDF özelliğini kullanır (Dosya → PDF olarak kaydet, veya Ctrl+P → hedef: PDF). Başlıklar, kod blokları, tablolar, URL ile görseller, blok alıntılar desteklenir. Temalar: Sade / Akademik / Modern. Sayfa boyutu: A4 veya US Letter. Rubrik üreticimiz ve ders planı şablonumuzla uyumlu — onların markdown çıktısını buraya yapıştır.">
   <meta property="og:title" content="Markdown'dan PDF'e — Toolhub">
   <meta property="og:description" content="Tarayıcıda ücretsiz markdown → PDF. Markdown'u yapıştır, biçimlenmiş önizlemeyi gör, 'PDF olarak kaydet' butonuna tıkla — tarayıcının yerleşik yazdır-PDF özelliğini kullanır (Dosya → PDF olarak kaydet, veya Ctrl+P → hedef: PDF). Başlıklar, kod blokları, tablolar, URL ile görseller, blok alıntılar desteklenir. Temalar: Sade / Akademik / Modern. Sayfa boyutu: A4 veya US Letter. Rubrik üreticimiz ve ders planı şablonumuzla uyumlu — onların markdown çıktısını buraya yapıştır.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/markdown-to-pdf/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/markdown-to-pdf/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Markdown'dan PDF'e</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Markdown'dan PDF'e</nav>
     <h1>Markdown'dan PDF'e</h1>
     <p class="tagline">Markdown'u tarayıcında yazdırılabilir PDF'e dönüştür. Yapıştır, önizle, tarayıcının yazdırma penceresinden PDF olarak kaydet. Yükleme yok, sunucu yok.</p>
     

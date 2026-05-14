@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Đổi kích thước ảnh — Toolhub</title>
   <meta name="description" content="Trình đổi kích thước ảnh miễn phí trực tuyến cho PNG, JPG, WebP. Chọn chiều rộng và chiều cao mục tiêu (hoặc tỷ lệ scale), tùy chọn khóa tỉ lệ khung hình. Kết quả tải về cùng định dạng. Hoạt động ở mọi kích thước trong giới hạn canvas của trình duyệt. File ở lại trong trình duyệt của bạn.">
   <meta property="og:title" content="Đổi kích thước ảnh — Toolhub">
   <meta property="og:description" content="Trình đổi kích thước ảnh miễn phí trực tuyến cho PNG, JPG, WebP. Chọn chiều rộng và chiều cao mục tiêu (hoặc tỷ lệ scale), tùy chọn khóa tỉ lệ khung hình. Kết quả tải về cùng định dạng. Hoạt động ở mọi kích thước trong giới hạn canvas của trình duyệt. File ở lại trong trình duyệt của bạn.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/image-resize/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/image-resize/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Đổi kích thước ảnh</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Đổi kích thước ảnh</nav>
     <h1>Đổi kích thước ảnh</h1>
     <p class="tagline">Đổi kích thước ảnh sang bất kỳ chiều rộng hay chiều cao nào trong trình duyệt. Khóa tỉ lệ khung hình, scale về kích cỡ thân thiện mạng xã hội, tải về tức thì. Không upload.</p>
     

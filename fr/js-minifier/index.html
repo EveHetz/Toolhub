@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Minifieur JavaScript — Toolhub</title>
   <meta name="description" content="Minifieur JavaScript gratuit. Retire les commentaires mono- et multi-lignes, les espaces redondants et les lignes vides sans casser strings, regex et template literals.">
   <meta property="og:title" content="Minifieur JavaScript — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Minifieur JavaScript</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Minifieur JavaScript</nav>
     <h1>Minifieur JavaScript</h1>
     <p class="tagline">Minification structurelle rapide du JS — suppression des commentaires, des espaces redondants et des lignes vides. Taille avant/après.</p>
     

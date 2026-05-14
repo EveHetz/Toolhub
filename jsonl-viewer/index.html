@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSONL Viewer — Toolhub</title>
   <meta name="description" content="Free online JSONL / NDJSON viewer. Paste content or upload a file, get a sortable / searchable table view with one row per JSON object. Useful for LLM training data, audit logs, event streams, OpenAI/Anthropic batch outputs. Schema auto-detected from first 100 rows; missing fields shown as blank cells. Pure JS in your browser — no upload, no server.">
   <meta property="og:title" content="JSONL Viewer — Toolhub">
   <meta property="og:description" content="Free online JSONL / NDJSON viewer. Paste content or upload a file, get a sortable / searchable table view with one row per JSON object. Useful for LLM training data, audit logs, event streams, OpenAI/Anthropic batch outputs. Schema auto-detected from first 100 rows; missing fields shown as blank cells. Pure JS in your browser — no upload, no server.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/jsonl-viewer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/jsonl-viewer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/jsonl-viewer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/jsonl-viewer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/">All Tools</a> / JSONL Viewer</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / JSONL Viewer</nav>
     <h1>JSONL Viewer</h1>
     <p class="tagline">View JSONL (newline-delimited JSON) files in a paginated table. Paste up to thousands of lines, search, filter, expand individual records. Files never leave your browser.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>İletişim — Toolhub</title>
   <meta name="description" content="Hata raporları, özellik istekleri ve araç fikirleri için GitHub Issues üzerinden veya gerisi için e-posta ile Toolhub maintainer'ına ulaş.">
   <meta property="og:title" content="İletişim — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / İletişim</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / İletişim</nav>
     <h1>İletişim</h1>
     <p>Toolhub tek kişilik bir yan projedir. Best-effort yanıt süreleri, ticari değil. İletişim formu yoktur — bu sitenin kasıtlı olarak backend'i yok.</p>
 

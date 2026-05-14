@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Validador de Tarjeta de Crédito — Toolhub</title>
   <meta name="description" content="Validador de tarjeta de crédito gratuito. Suma de comprobación Luhn, detección de marca (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) y longitud. 100% en el navegador.">
   <meta property="og:title" content="Validador de Tarjeta de Crédito — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Validador de Tarjeta de Crédito</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Validador de Tarjeta de Crédito</nav>
     <h1>Validador de Tarjeta de Crédito</h1>
     <p class="tagline">Valida un número de tarjeta con Luhn y detecta la marca. Funciona localmente — el número nunca se envía.</p>
     

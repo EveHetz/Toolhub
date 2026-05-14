@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Zmiana rozmiaru obrazka — Toolhub</title>
   <meta name="description" content="Darmowy online zmieniacz rozmiaru obrazków dla PNG, JPG, WebP. Wybierz docelową szerokość i wysokość (albo procent skalowania), opcjonalnie zablokuj proporcje. Wyjście pobiera się w tym samym formacie. Działa do limitów canvas twojej przeglądarki. Pliki zostają w przeglądarce.">
   <meta property="og:title" content="Zmiana rozmiaru obrazka — Toolhub">
   <meta property="og:description" content="Darmowy online zmieniacz rozmiaru obrazków dla PNG, JPG, WebP. Wybierz docelową szerokość i wysokość (albo procent skalowania), opcjonalnie zablokuj proporcje. Wyjście pobiera się w tym samym formacie. Działa do limitów canvas twojej przeglądarki. Pliki zostają w przeglądarce.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pl/image-resize/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pl/image-resize/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Zmiana rozmiaru obrazka</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Zmiana rozmiaru obrazka</nav>
     <h1>Zmiana rozmiaru obrazka</h1>
     <p class="tagline">Zmień rozmiar obrazków na dowolną szerokość albo wysokość w przeglądarce. Zablokuj proporcje, przeskaluj do rozmiarów pod social media, pobierz natychmiast. Bez uploadu.</p>
     

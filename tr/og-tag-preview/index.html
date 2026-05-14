@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>OG Tag Önizleme — Toolhub</title>
   <meta name="description" content="Ücretsiz Open Graph tag önizleme. <meta> tag'lerini yapıştır veya sadece title/description/image doldur ve linkinin Twitter/X, Facebook, LinkedIn ve Discord paylaşım önizlemelerinde nasıl görüneceğini gör. Tamamen tarayıcında çalışır.">
   <meta property="og:title" content="OG Tag Önizleme — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / OG Tag Önizleme</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / OG Tag Önizleme</nav>
     <h1>OG Tag Önizleme</h1>
     <p class="tagline">OG meta tag'lerini yapıştır veya title/description/image doldur — paylaşım kartlarını Twitter/X, Facebook, LinkedIn ve Discord'da nasıl görüneceği gibi önizle.</p>
     

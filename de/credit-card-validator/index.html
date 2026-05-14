@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kreditkarten-Validator — Toolhub</title>
   <meta name="description" content="Kostenloser Kreditkarten-Validator. Luhn-Prüfsumme, Markenerkennung (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) und Längenprüfung. 100% im Browser.">
   <meta property="og:title" content="Kreditkarten-Validator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Kreditkarten-Validator</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Kreditkarten-Validator</nav>
     <h1>Kreditkarten-Validator</h1>
     <p class="tagline">Prüfe Kartennummern per Luhn-Algorithmus und erkenne die Kartenmarke. Läuft lokal — die Nummer wird nie übertragen.</p>
     

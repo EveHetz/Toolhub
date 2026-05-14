@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64 から画像へ — Toolhub</title>
   <meta name="description" content="ブラウザ内で動く無料 Base64 → 画像デコーダー。data: URI（または生の Base64 ペイロード）を貼り付けると、レンダリングされた画像が見え、ダウンロードできます。PNG・JPG・WebP・GIF・SVG に対応。CSS や HTML からコピーした data URI を元のファイルに戻したい時に便利です。">
   <meta property="og:title" content="Base64 から画像へ — Toolhub">
   <meta property="og:description" content="ブラウザ内で動く無料 Base64 → 画像デコーダー。data: URI（または生の Base64 ペイロード）を貼り付けると、レンダリングされた画像が見え、ダウンロードできます。PNG・JPG・WebP・GIF・SVG に対応。CSS や HTML からコピーした data URI を元のファイルに戻したい時に便利です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/base64-to-image/">
-  <meta property="og:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/base64-to-image/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / Base64 から画像へ</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / Base64 から画像へ</nav>
     <h1>Base64 から画像へ</h1>
     <p class="tagline">Base64 画像や data URI をファイルに戻すデコーダー。文字列を貼り付け、プレビューしてダウンロード。image-to-Base64 ツールの逆方向。</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>MIME Type Arama — Toolhub</title>
   <meta name="description" content="Ücretsiz MIME type arama aracı. Dosya uzantısı (.pdf, .png, .json) veya MIME type (image/jpeg, application/pdf) ile yaklaşık 120 yaygın internet medya türünü ara.">
   <meta property="og:title" content="MIME Type Arama — Toolhub">
@@ -290,11 +293,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / MIME Type Arama</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / MIME Type Arama</nav>
     <h1>MIME Type Arama</h1>
     <p class="tagline">MIME type'ları uzantıya veya türe göre ara. ~120 yaygın tür — image, video, audio, application, text, font.</p>
     

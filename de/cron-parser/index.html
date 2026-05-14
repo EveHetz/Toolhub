@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Cron-Ausdruck-Parser — Toolhub</title>
   <meta name="description" content="Kostenloser Cron-Ausdruck-Parser. Validiert die 5-Felder-Crontab-Syntax und listet die nächsten 10 Ausführungszeitpunkte in deiner Zeitzone.">
   <meta property="og:title" content="Cron-Ausdruck-Parser — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Cron-Ausdruck-Parser</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Cron-Ausdruck-Parser</nav>
     <h1>Cron-Ausdruck-Parser</h1>
     <p class="tagline">Cron-Ausdrücke parsen und die nächsten 10 Auslösezeiten anzeigen. Standard 5-Felder-Crontab.</p>
     

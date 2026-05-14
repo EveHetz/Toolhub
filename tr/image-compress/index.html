@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Görsel sıkıştırıcı — Toolhub</title>
   <meta name="description" content="PNG, JPG ve WebP için ücretsiz online görsel sıkıştırıcı. Bir görsel bırak, kalite kaydırıcısını ayarla ve daha küçük bir sürümü hemen indir. Her şey tarayıcında olur — upload yok, sunucu yok, takip yok.">
   <meta property="og:title" content="Görsel sıkıştırıcı — Toolhub">
   <meta property="og:description" content="PNG, JPG ve WebP için ücretsiz online görsel sıkıştırıcı. Bir görsel bırak, kalite kaydırıcısını ayarla ve daha küçük bir sürümü hemen indir. Her şey tarayıcında olur — upload yok, sunucu yok, takip yok.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/image-compress/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/image-compress/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Görsel sıkıştırıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Görsel sıkıştırıcı</nav>
     <h1>Görsel sıkıştırıcı</h1>
     <p class="tagline">PNG, JPG veya WebP görsellerini doğrudan tarayıcında sıkıştır. Kaliteyi ayarla, önce/sonra boyutlarını gör, indir. Dosyalar cihazından ayrılmaz.</p>
     

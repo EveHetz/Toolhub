@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>OG Tag Preview — Toolhub</title>
   <meta name="description" content="मुफ़्त Open Graph tag preview. अपने <meta> tags paste करें या केवल title/description/image भरें और देखें कि आपका link Twitter/X, Facebook, LinkedIn, और Discord share previews में कैसे render होगा। पूरी तरह आपके browser में चलता है।">
   <meta property="og:title" content="OG Tag Preview — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / OG Tag Preview</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / OG Tag Preview</nav>
     <h1>OG Tag Preview</h1>
     <p class="tagline">OG meta tags paste करें या title/description/image भरें — Twitter/X, Facebook, LinkedIn, और Discord पर share cards कैसे दिखते हैं इसका preview देखें।</p>
     

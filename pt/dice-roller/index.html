@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Rolador de Dados — Toolhub</title>
   <meta name="description" content="Rolador de dados online gratuito com notação padrão de RPG de mesa: 1d20, 2d6+3, 4d6kh3, 3d8-1. Veja cada dado individualmente e o total. Usa crypto.getRandomValues para rolagens justas e imprevisíveis.">
   <meta property="og:title" content="Rolador de Dados — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Rolador de Dados</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Rolador de Dados</nav>
     <h1>Rolador de Dados</h1>
     <p class="tagline">Role dados com notação padrão de D&D — 2d6+3, 1d20, 4d6 mantendo os 3 maiores. RNG criptograficamente seguro.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSONL Viewer — Toolhub</title>
   <meta name="description" content="मुफ़्त online JSONL / NDJSON viewer। Content paste करें या file upload करें, हर JSON object के लिए एक row के साथ sortable / searchable table पाएं। LLM training data, audit logs, event streams, OpenAI/Anthropic batch outputs के लिए उपयोगी। Schema पहली 100 rows से auto-detect किया जाता है; missing fields खाली cells के रूप में दिखाए जाते हैं। आपके browser में pure JS — कोई upload नहीं, कोई server नहीं।">
   <meta property="og:title" content="JSONL Viewer — Toolhub">
   <meta property="og:description" content="मुफ़्त online JSONL / NDJSON viewer। Content paste करें या file upload करें, हर JSON object के लिए एक row के साथ sortable / searchable table पाएं। LLM training data, audit logs, event streams, OpenAI/Anthropic batch outputs के लिए उपयोगी। Schema पहली 100 rows से auto-detect किया जाता है; missing fields खाली cells के रूप में दिखाए जाते हैं। आपके browser में pure JS — कोई upload नहीं, कोई server नहीं।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/jsonl-viewer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/jsonl-viewer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/jsonl-viewer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/jsonl-viewer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / JSONL Viewer</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / JSONL Viewer</nav>
     <h1>JSONL Viewer</h1>
     <p class="tagline">JSONL (newline-delimited JSON) files को paginated table में देखें। हज़ारों lines तक paste करें, search करें, filter करें, individual records expand करें। Files कभी आपके browser से बाहर नहीं जातीं।</p>
     

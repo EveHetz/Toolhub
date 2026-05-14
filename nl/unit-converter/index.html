@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Unit Converter — Toolhub</title>
   <meta name="description" content="Gratis online unit-converter. Converteer lengte (mm, cm, m, km, in, ft, yd, mi), gewicht (g, kg, lb, oz), temperatuur (C, F, K), volume (mL, L, gal, fl oz) en oppervlakte (m², ft², acre, ha).">
   <meta property="og:title" content="Unit Converter — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Unit Converter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Unit Converter</nav>
     <h1>Unit Converter</h1>
     <p class="tagline">Converteer tussen metrische en imperiale eenheden van lengte, gewicht, temperatuur, volume en oppervlakte.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>SQL Formátovač — Toolhub</title>
   <meta name="description" content="Bezplatný online SQL formátovač. Naformátuje a skráš SQL queries so správnym indentom alebo minifikuje na jeden riadok. Pozná ANSI, MySQL a Postgres syntaxiu.">
   <meta property="og:title" content="SQL Formátovač — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / SQL Formátovač</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / SQL Formátovač</nav>
     <h1>SQL Formátovač</h1>
     <p class="tagline">Naformátuj a skráš SQL so správnym odsadením, alebo zminifikuj na jeden riadok. Dialect-aware (ANSI / MySQL / Postgres).</p>
     

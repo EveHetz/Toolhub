@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64 Encoder / Decoder — Toolhub</title>
   <meta name="description" content="Kostenloser Base64 Encoder und Decoder. UTF-8-sicher mit optionaler base64url-Variante für URLs und JWTs.">
   <meta property="og:title" content="Base64 Encoder / Decoder — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Base64 Encoder / Decoder</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Base64 Encoder / Decoder</nav>
     <h1>Base64 Encoder / Decoder</h1>
     <p class="tagline">Text in Base64 codieren oder Base64 in Text decodieren. UTF-8-sicher und base64url-Variante.</p>
     

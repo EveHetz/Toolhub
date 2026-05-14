@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tạo UUID — Toolhub</title>
   <meta name="description" content="Trình tạo UUID miễn phí trực tuyến. Tạo UUID v4 (ngẫu nhiên) hoặc v7 (sắp xếp được theo thời gian) tuân thủ RFC 4122 bằng cách dùng RNG an toàn về mật mã của trình duyệt. Tạo hàng loạt lên đến 100 cùng lúc.">
   <meta property="og:title" content="Tạo UUID — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tạo UUID</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tạo UUID</nav>
     <h1>Tạo UUID</h1>
     <p class="tagline">Tạo UUID RFC 4122 (v4 ngẫu nhiên hoặc v7 sắp xếp được theo thời gian). Tạo hàng loạt lên đến 100. An toàn về mật mã.</p>
     

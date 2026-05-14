@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>OG Tag Preview — Toolhub</title>
   <meta name="description" content="Gratis Open Graph tag preview. Plak je <meta>-tags of vul gewoon title/description/image in en zie hoe je link zal renderen in Twitter/X, Facebook, LinkedIn en Discord share-previews. Draait volledig in je browser.">
   <meta property="og:title" content="OG Tag Preview — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / OG Tag Preview</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / OG Tag Preview</nav>
     <h1>OG Tag Preview</h1>
     <p class="tagline">Plak OG meta tags of vul title/description/image — preview share cards zoals ze er op Twitter/X, Facebook, LinkedIn en Discord uitzien.</p>
     

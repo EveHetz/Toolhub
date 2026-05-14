@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình trích xuất bảng màu — Toolhub</title>
   <meta name="description" content="Trình trích xuất bảng màu từ ảnh miễn phí. Tải lên PNG, JPG hoặc WebP và nhận 5 đến 8 màu xuất hiện nhiều nhất với mã hex, có thể sao chép dưới dạng CSS custom properties hoặc bảng màu Tailwind. Hữu ích cho moodboard, trích xuất màu thương hiệu và seed design system. JS thuần — không upload, không server.">
   <meta property="og:title" content="Trình trích xuất bảng màu — Toolhub">
   <meta property="og:description" content="Trình trích xuất bảng màu từ ảnh miễn phí. Tải lên PNG, JPG hoặc WebP và nhận 5 đến 8 màu xuất hiện nhiều nhất với mã hex, có thể sao chép dưới dạng CSS custom properties hoặc bảng màu Tailwind. Hữu ích cho moodboard, trích xuất màu thương hiệu và seed design system. JS thuần — không upload, không server.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình trích xuất bảng màu</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình trích xuất bảng màu</nav>
     <h1>Trình trích xuất bảng màu</h1>
     <p class="tagline">Trích xuất các màu chủ đạo từ bất kỳ ảnh nào trong trình duyệt. 5–8 mẫu màu, mã hex, biến CSS sao chép-dán. File không bao giờ rời thiết bị của bạn.</p>
     

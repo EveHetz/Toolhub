@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown テーブルエディター — Toolhub</title>
   <meta name="description" content="オンライン無料の Markdown テーブルエディター。セルをクリックして編集、行や列を追加／削除、列ごとの揃えを設定し、GitHub 風 Markdown 出力をコピーできます。すべてブラウザ内で動作します。">
   <meta property="og:title" content="Markdown テーブルエディター — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / Markdown テーブルエディター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / Markdown テーブルエディター</nav>
     <h1>Markdown テーブルエディター</h1>
     <p class="tagline">テーブルをビジュアルに編集 — 行・列・列ごとの揃えまで — して、GitHub 風 Markdown をコピー。</p>
     

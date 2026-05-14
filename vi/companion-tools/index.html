@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Công cụ bổ sung — Toolhub</title>
   <meta name="description" content="Các công cụ bảo mật host-side bên ngoài bổ sung cho các tiện ích chạy trên trình duyệt của Toolhub. sentinel và skill-scanner — cả hai đều mã nguồn mở MIT.">
   <meta property="og:title" content="Công cụ bổ sung — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Công cụ bổ sung</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Công cụ bổ sung</nav>
     <h1>Công cụ bổ sung</h1>
     <p class="tagline">Công cụ bảo mật host-side bổ sung cho các tiện ích chạy trong trình duyệt của Toolhub.</p>
 

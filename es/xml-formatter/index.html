@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formateador XML — Toolhub</title>
   <meta name="description" content="Formateador y minimizador XML gratuito. Pretty-print con sangría configurable o sin espacios. Valida buena forma con el parser XML del navegador — línea y columna en errores.">
   <meta property="og:title" content="Formateador XML — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Formateador XML</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Formateador XML</nav>
     <h1>Formateador XML</h1>
     <p class="tagline">Formatea y minimiza XML. Valida la buena forma con línea y columna en errores.</p>
     

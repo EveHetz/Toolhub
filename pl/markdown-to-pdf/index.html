@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown na PDF — Toolhub</title>
   <meta name="description" content="Markdown → PDF za darmo w przeglądarce. Wklej markdown, zobacz sformatowany podgląd, kliknij 'Zapisz jako PDF' — używa wbudowanego druku-do-PDF w przeglądarce (Plik → Zapisz jako PDF, lub Ctrl+P → cel: PDF). Obsługuje nagłówki, bloki kodu, tabele, obrazki przez URL, blockquote'y. Motywy: Prosty / Akademicki / Nowoczesny. Format: A4 albo US Letter. Działa z naszym generatorem rubryk i szablonem konspektu lekcji — wklej tutaj ich markdown.">
   <meta property="og:title" content="Markdown na PDF — Toolhub">
   <meta property="og:description" content="Markdown → PDF za darmo w przeglądarce. Wklej markdown, zobacz sformatowany podgląd, kliknij 'Zapisz jako PDF' — używa wbudowanego druku-do-PDF w przeglądarce (Plik → Zapisz jako PDF, lub Ctrl+P → cel: PDF). Obsługuje nagłówki, bloki kodu, tabele, obrazki przez URL, blockquote'y. Motywy: Prosty / Akademicki / Nowoczesny. Format: A4 albo US Letter. Działa z naszym generatorem rubryk i szablonem konspektu lekcji — wklej tutaj ich markdown.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pl/markdown-to-pdf/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pl/markdown-to-pdf/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Markdown na PDF</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Markdown na PDF</nav>
     <h1>Markdown na PDF</h1>
     <p class="tagline">Renderuj markdown na PDF do druku w przeglądarce. Wklej, podgląd, zapisz jako PDF przez okno dialogowe druku. Bez uploadu, bez serwera.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Générateur de Factures — Toolhub</title>
   <meta name="description" content="Générateur de factures gratuit dans le navigateur. Entrez vos infos d'entreprise (de), client (à), lignes (description / quantité / prix unitaire) — l'outil calcule sous-totaux, TVA (pays + taux), total. Sortie en markdown ou HTML prêt à imprimer — enregistrez en PDF via la boîte d'impression du navigateur. Aucun envoi, sans inscription, aucun tiers. Mémorise vos infos d'entreprise dans le fragment d'URL pour éviter de les retaper la prochaine fois.">
   <meta property="og:title" content="Générateur de Factures — Toolhub">
   <meta property="og:description" content="Générateur de factures gratuit dans le navigateur. Entrez vos infos d'entreprise (de), client (à), lignes (description / quantité / prix unitaire) — l'outil calcule sous-totaux, TVA (pays + taux), total. Sortie en markdown ou HTML prêt à imprimer — enregistrez en PDF via la boîte d'impression du navigateur. Aucun envoi, sans inscription, aucun tiers. Mémorise vos infos d'entreprise dans le fragment d'URL pour éviter de les retaper la prochaine fois.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/invoice-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/invoice-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Générateur de Factures</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Générateur de Factures</nav>
     <h1>Générateur de Factures</h1>
     <p class="tagline">Générez une facture propre en markdown + HTML prêt à imprimer. Remplissez le formulaire, voyez l'aperçu, enregistrez en PDF via l'impression du navigateur. Sans envoi, sans inscription.</p>
     

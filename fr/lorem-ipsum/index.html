@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Générateur de Lorem Ipsum — Toolhub</title>
   <meta name="description" content="Générateur de Lorem Ipsum gratuit. Paragraphes, phrases, mots ou listes HTML pour maquettes et designs.">
   <meta property="og:title" content="Générateur de Lorem Ipsum — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Générateur de Lorem Ipsum</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Générateur de Lorem Ipsum</nav>
     <h1>Générateur de Lorem Ipsum</h1>
     <p class="tagline">Générez des paragraphes, phrases, mots ou éléments de liste en latin de remplissage. Longueur et phrase d'ouverture configurables.</p>
     

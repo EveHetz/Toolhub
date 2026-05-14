@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>可読性チェッカー — Toolhub</title>
   <meta name="description" content="ブラウザで動く無料の可読性アナライザー。任意のテキストを貼り付けると、主要な公式すべてを表示します：Flesch Reading Ease、Flesch-Kincaid Grade Level、Gunning Fog Index、SMOG Index、Coleman-Liau Index、Automated Readability Index。学年に合わせて教材を調整したい教員、アクセシビリティを確認したい書き手、アクセシビリティ監査者に有用です。段落ごとの内訳で密度の高い箇所を強調表示。純粋な JS — アップロードも登録もトラッキングもなし。">
   <meta property="og:title" content="可読性チェッカー — Toolhub">
   <meta property="og:description" content="ブラウザで動く無料の可読性アナライザー。任意のテキストを貼り付けると、主要な公式すべてを表示します：Flesch Reading Ease、Flesch-Kincaid Grade Level、Gunning Fog Index、SMOG Index、Coleman-Liau Index、Automated Readability Index。学年に合わせて教材を調整したい教員、アクセシビリティを確認したい書き手、アクセシビリティ監査者に有用です。段落ごとの内訳で密度の高い箇所を強調表示。純粋な JS — アップロードも登録もトラッキングもなし。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/readability-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/readability-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 可読性チェッカー</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 可読性チェッカー</nav>
     <h1>可読性チェッカー</h1>
     <p class="tagline">Flesch Reading Ease、Flesch-Kincaid Grade、Gunning Fog、SMOG、Coleman-Liau を計算。密度の高い段落を発見し、対象学年に合わせて調整。</p>
     

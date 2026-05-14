@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>画像カラーピッカー — Toolhub</title>
   <meta name="description" content="ブラウザだけで動く無料の画像カラーピッカー。PNG・JPG・WebP をドロップして、任意のピクセルをクリックすると HEX／RGB／HSL を読み取れます。複数の位置をクリックすればカスタムパレットを構築可能。ホバー時の拡大ルーペで画素単位の正確なピックも可能です。ファイルは端末から出ません。">
   <meta property="og:title" content="画像カラーピッカー — Toolhub">
   <meta property="og:description" content="ブラウザだけで動く無料の画像カラーピッカー。PNG・JPG・WebP をドロップして、任意のピクセルをクリックすると HEX／RGB／HSL を読み取れます。複数の位置をクリックすればカスタムパレットを構築可能。ホバー時の拡大ルーペで画素単位の正確なピックも可能です。ファイルは端末から出ません。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/image-color-picker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/image-color-picker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 画像カラーピッカー</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 画像カラーピッカー</nav>
     <h1>画像カラーピッカー</h1>
     <p class="tagline">画像をアップロードして任意の場所をクリックすると、そのピクセルの HEX・RGB・HSL を取得。複数クリックでカスタムパレットを作成。完全ブラウザ動作、アップロードなし。</p>
     

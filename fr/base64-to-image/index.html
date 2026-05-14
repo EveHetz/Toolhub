@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64 vers image — Toolhub</title>
   <meta name="description" content="Décodeur Base64 → image gratuit, dans le navigateur. Collez une data: URI (ou un payload Base64 brut), voyez l'image rendue et téléchargez-la. Gère PNG, JPG, WebP, GIF, SVG. Utile quand vous avez copié un data URI depuis du CSS ou du HTML et que vous voulez retrouver le fichier d'origine.">
   <meta property="og:title" content="Base64 vers image — Toolhub">
   <meta property="og:description" content="Décodeur Base64 → image gratuit, dans le navigateur. Collez une data: URI (ou un payload Base64 brut), voyez l'image rendue et téléchargez-la. Gère PNG, JPG, WebP, GIF, SVG. Utile quand vous avez copié un data URI depuis du CSS ou du HTML et que vous voulez retrouver le fichier d'origine.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/base64-to-image/">
-  <meta property="og:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/base64-to-image/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Base64 vers image</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Base64 vers image</nav>
     <h1>Base64 vers image</h1>
     <p class="tagline">Décodez une image Base64 ou un data URI en fichier. Collez la chaîne, prévisualisez, téléchargez. L'inverse de notre outil image-vers-Base64.</p>
     

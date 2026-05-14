@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>ローン計算機 — Toolhub</title>
   <meta name="description" content="無料のローン／住宅ローン計算ツール。元本、年利、返済期間（年または月）を入力すると、月々返済額、ローン期間全体での総利息、総支払額、月ごとの完全な償却スケジュール（元金部分＋利息部分＋残高）が得られます。住宅ローン比較、自動車ローン、個人ローンに便利。サーバーへ何も送信しない純粋な JavaScript。">
   <meta property="og:title" content="ローン計算機 — Toolhub">
   <meta property="og:description" content="無料のローン／住宅ローン計算ツール。元本、年利、返済期間（年または月）を入力すると、月々返済額、ローン期間全体での総利息、総支払額、月ごとの完全な償却スケジュール（元金部分＋利息部分＋残高）が得られます。住宅ローン比較、自動車ローン、個人ローンに便利。サーバーへ何も送信しない純粋な JavaScript。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/loan-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/loan-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / ローン計算機</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / ローン計算機</nav>
     <h1>ローン計算機</h1>
     <p class="tagline">任意のローンの月々返済額、総利息、完全な償却スケジュールを計算。固定金利、元利均等。ブラウザのみ。</p>
     

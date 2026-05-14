@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>YAML ↔ JSON コンバーター — Toolhub</title>
   <meta name="description" content="オンライン無料の YAML → JSON / JSON → YAML コンバーター。双方向で、すべてブラウザ内で動作。アンカー、エイリアス、複数ドキュメント YAML にも対応します。">
   <meta property="og:title" content="YAML ↔ JSON コンバーター — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / YAML ↔ JSON コンバーター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / YAML ↔ JSON コンバーター</nav>
     <h1>YAML ↔ JSON コンバーター</h1>
     <p class="tagline">YAML と JSON を双方向に変換。Kubernetes マニフェスト、CI 設定、OpenAPI 仕様などに便利。</p>
     

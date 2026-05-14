@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình Xem Thread Chat — Toolhub</title>
   <meta name="description" content="Trình xem miễn phí trong trình duyệt cho lịch sử hội thoại LLM. Dán mảng JSON messages (định dạng OpenAI Chat Completions, Anthropic Messages API, hoặc dump LangChain) và nhận được render thread chat sạch sẽ: bong bóng tô màu theo vai trò, tham số tool-call mở rộng được, khối code được tô sáng cú pháp, tham chiếu hình ảnh. Dành cho việc debug các hội thoại dài và audit prompt sau khi xảy ra.">
   <meta property="og:title" content="Trình Xem Thread Chat — Toolhub">
   <meta property="og:description" content="Trình xem miễn phí trong trình duyệt cho lịch sử hội thoại LLM. Dán mảng JSON messages (định dạng OpenAI Chat Completions, Anthropic Messages API, hoặc dump LangChain) và nhận được render thread chat sạch sẽ: bong bóng tô màu theo vai trò, tham số tool-call mở rộng được, khối code được tô sáng cú pháp, tham chiếu hình ảnh. Dành cho việc debug các hội thoại dài và audit prompt sau khi xảy ra.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/chat-thread-viewer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/chat-thread-viewer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình Xem Thread Chat</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình Xem Thread Chat</nav>
     <h1>Trình Xem Thread Chat</h1>
     <p class="tagline">Dán mảng messages của OpenAI hoặc Anthropic (JSON) và xem dưới dạng thread chat dễ đọc. Tô màu theo vai trò. Tham số tool-call có thể mở rộng. Hoàn toàn trên trình duyệt, không upload.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub Hakkında — Toolhub</title>
   <meta name="description" content="Toolhub, tek kişi tarafından inşa edilmiş küçük takipsiz bir araç sitesidir. Tamamen tarayıcında çalışan, kayıt veya veri toplama olmadan ücretsiz geliştirici araçları.">
   <meta property="og:title" content="Toolhub Hakkında — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Toolhub Hakkında</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Toolhub Hakkında</nav>
     <h1>Toolhub Hakkında</h1>
     <h2>Toolhub nedir</h2>
 <p>Toolhub, tamamen tarayıcında çalışan ücretsiz geliştirici ve günlük araçların bir koleksiyonudur. Kayıt yok, hesap yok, takip yok, sunucu tarafında işleme yok. Verini yapıştır, sonucu al, sekmeyi kapat — hiçbir şey saklanmaz veya iletilmez.</p>

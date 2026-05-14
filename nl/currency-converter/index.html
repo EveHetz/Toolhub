@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Valutaconverter — Toolhub</title>
   <meta name="description" content="Gratis in-browser valutaconverter met ingebakken referentiekoersen, elk kwartaal bijgewerkt. Kies bron en doel, voer het bedrag in, lees het resultaat. De referentiedatum wordt getoond — controleer altijd de werkelijke koers van je bank voordat je een factuur stuurt. We halen bewust geen live koersen op: dat zou je queries naar een derde partij lekken. Voor echte transacties gebruik je je bank of FX-desk.">
   <meta property="og:title" content="Valutaconverter — Toolhub">
   <meta property="og:description" content="Gratis in-browser valutaconverter met ingebakken referentiekoersen, elk kwartaal bijgewerkt. Kies bron en doel, voer het bedrag in, lees het resultaat. De referentiedatum wordt getoond — controleer altijd de werkelijke koers van je bank voordat je een factuur stuurt. We halen bewust geen live koersen op: dat zou je queries naar een derde partij lekken. Voor echte transacties gebruik je je bank of FX-desk.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Valutaconverter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Valutaconverter</nav>
     <h1>Valutaconverter</h1>
     <p class="tagline">Converteer tussen 50+ valuta's met referentiekoersen op een bekende datum. Geen live API, geen tracking — handig voor snelle freelance-inschattingen en offertes. Altijd verifiëren vóór factureren.</p>
     

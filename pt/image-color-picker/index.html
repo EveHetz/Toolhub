@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Seletor de cor de imagem — Toolhub</title>
   <meta name="description" content="Seletor gratuito de cor de imagem que roda no seu browser. Solte um PNG, JPG ou WebP, então clique em qualquer pixel pra ler seus valores hex/RGB/HSL. Clique em vários pontos pra construir uma paleta customizada. Inclui lupa magnificadora ao passar o mouse pra picking pixel-preciso. Os arquivos nunca saem do seu dispositivo.">
   <meta property="og:title" content="Seletor de cor de imagem — Toolhub">
   <meta property="og:description" content="Seletor gratuito de cor de imagem que roda no seu browser. Solte um PNG, JPG ou WebP, então clique em qualquer pixel pra ler seus valores hex/RGB/HSL. Clique em vários pontos pra construir uma paleta customizada. Inclui lupa magnificadora ao passar o mouse pra picking pixel-preciso. Os arquivos nunca saem do seu dispositivo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/image-color-picker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/image-color-picker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Seletor de cor de imagem</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Seletor de cor de imagem</nav>
     <h1>Seletor de cor de imagem</h1>
     <p class="tagline">Faça upload de uma imagem e clique em qualquer lugar pra obter hex, RGB e HSL daquele pixel. Construa uma paleta customizada clicando em vários pontos. Puro browser, sem upload.</p>
     

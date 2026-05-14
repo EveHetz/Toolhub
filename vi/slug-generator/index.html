@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tạo Slug — Toolhub</title>
   <meta name="description" content="Trình tạo slug miễn phí trực tuyến. Biến tiêu đề thành URL slug thân thiện với SEO — chuyển tự chữ có dấu sang ASCII, bỏ dấu câu, viết thường tất cả và nối các từ bằng dấu gạch ngang.">
   <meta property="og:title" content="Tạo Slug — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tạo Slug</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tạo Slug</nav>
     <h1>Tạo Slug</h1>
     <p class="tagline">Biến bất kỳ tiêu đề nào thành URL slug sạch — chuyển tự chữ có dấu, bỏ dấu câu, nối bằng dấu gạch ngang.</p>
     

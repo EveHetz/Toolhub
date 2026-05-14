@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulator VAT — Toolhub</title>
   <meta name="description" content="Darmowy kalkulator VAT z aktualnymi stawkami dla 30+ krajów. Wybierz kraj, kategorię (podstawowa, obniżona, zerowa), wpisz netto lub brutto — zobaczysz rozbicie. Uwzględnia ostatnie zmiany (Słowacja 20%→23% w 2025, Estonia 22%→24% itd.) i stawki obniżone wg kategorii. Bez wgrywania, bez śledzenia, bez rejestracji.">
   <meta property="og:title" content="Kalkulator VAT — Toolhub">
   <meta property="og:description" content="Darmowy kalkulator VAT z aktualnymi stawkami dla 30+ krajów. Wybierz kraj, kategorię (podstawowa, obniżona, zerowa), wpisz netto lub brutto — zobaczysz rozbicie. Uwzględnia ostatnie zmiany (Słowacja 20%→23% w 2025, Estonia 22%→24% itd.) i stawki obniżone wg kategorii. Bez wgrywania, bez śledzenia, bez rejestracji.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pl/vat-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pl/vat-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Kalkulator VAT</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Kalkulator VAT</nav>
     <h1>Kalkulator VAT</h1>
     <p class="tagline">Policz VAT dla każdego kraju UE, UK, Szwajcarii i nie tylko — z aktualnymi stawkami 2025, w tym reformami, których wiele kalkulatorów nie ma. Stawka podstawowa, obniżone i zerowa.</p>
     

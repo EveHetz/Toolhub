@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calcolatore di Prestiti — Toolhub</title>
   <meta name="description" content="Calcolatore gratuito di prestiti / mutui. Inserisci capitale, tasso d'interesse annuo e durata in anni (o mesi): ottieni rata mensile, interessi totali pagati nella vita del prestito, importo totale e piano di ammortamento mese per mese (quota capitale + quota interessi + debito residuo per ogni mese). Utile per confrontare mutui, prestiti auto, prestiti personali.">
   <meta property="og:title" content="Calcolatore di Prestiti — Toolhub">
   <meta property="og:description" content="Calcolatore gratuito di prestiti / mutui. Inserisci capitale, tasso d'interesse annuo e durata in anni (o mesi): ottieni rata mensile, interessi totali pagati nella vita del prestito, importo totale e piano di ammortamento mese per mese (quota capitale + quota interessi + debito residuo per ogni mese). Utile per confrontare mutui, prestiti auto, prestiti personali.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/loan-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/loan-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Prestiti</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Prestiti</nav>
     <h1>Calcolatore di Prestiti</h1>
     <p class="tagline">Calcola rata mensile, interessi totali e piano di ammortamento completo. Tasso fisso, francese. Solo browser.</p>
     

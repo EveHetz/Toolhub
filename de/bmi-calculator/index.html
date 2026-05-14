@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>BMI-Rechner — Toolhub</title>
   <meta name="description" content="Kostenloser Body-Mass-Index-Rechner. Größe und Gewicht in metrisch (cm + kg) oder imperial (Fuß/Zoll + Pfund) eingeben und BMI-Wert sowie WHO-Klassifikation sehen. Nur zur Information — keine medizinische Beratung.">
   <meta property="og:title" content="BMI-Rechner — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / BMI-Rechner</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / BMI-Rechner</nav>
     <h1>BMI-Rechner</h1>
     <p class="tagline">Body-Mass-Index aus Größe und Gewicht. Metrisch oder imperial. WHO-Kategorie wird angezeigt — keine medizinische Beratung.</p>
     

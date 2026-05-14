@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Modelo de Plano de Aula — Toolhub</title>
   <meta name="description" content="Gerador de plano de aula gratuito. Preencha os campos do formulário — disciplina, ano/série, duração, objetivos (com dropdown dos níveis de Bloom), materiais, etapas da aula, avaliação, diferenciação, reflexão — e receba markdown limpo + visualização HTML pronta para imprimir. Modelos prontos para fundamental I / fundamental II / ensino médio e vários enquadramentos pedagógicos (5E, gradual release, investigativo, ABP). Salva o estado em fragmento de URL para compartilhar.">
   <meta property="og:title" content="Modelo de Plano de Aula — Toolhub">
   <meta property="og:description" content="Gerador de plano de aula gratuito. Preencha os campos do formulário — disciplina, ano/série, duração, objetivos (com dropdown dos níveis de Bloom), materiais, etapas da aula, avaliação, diferenciação, reflexão — e receba markdown limpo + visualização HTML pronta para imprimir. Modelos prontos para fundamental I / fundamental II / ensino médio e vários enquadramentos pedagógicos (5E, gradual release, investigativo, ABP). Salva o estado em fragmento de URL para compartilhar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/lesson-plan-template/">
-  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/lesson-plan-template/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Modelo de Plano de Aula</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Modelo de Plano de Aula</nav>
     <h1>Modelo de Plano de Aula</h1>
     <p class="tagline">Gere um plano de aula estruturado a partir de um formulário. Seções padrão (objetivos, materiais, etapas, avaliação, reflexão). Saída em markdown + HTML pronto para imprimir.</p>
     

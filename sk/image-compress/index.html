@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kompresor obrázkov — Toolhub</title>
   <meta name="description" content="Bezplatný online kompresor obrázkov pre PNG, JPG a WebP. Nahraj obrázok, posuň jazdec kvality a okamžite si stiahni menšiu verziu. Všetko sa deje v prehliadači — žiadny upload, žiadny server, žiadne sledovanie.">
   <meta property="og:title" content="Kompresor obrázkov — Toolhub">
   <meta property="og:description" content="Bezplatný online kompresor obrázkov pre PNG, JPG a WebP. Nahraj obrázok, posuň jazdec kvality a okamžite si stiahni menšiu verziu. Všetko sa deje v prehliadači — žiadny upload, žiadny server, žiadne sledovanie.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/image-compress/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/image-compress/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Kompresor obrázkov</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Kompresor obrázkov</nav>
     <h1>Kompresor obrázkov</h1>
     <p class="tagline">Komprimuj PNG, JPG alebo WebP obrázky priamo v prehliadači. Nastav kvalitu, porovnaj veľkosti pred/po, stiahni. Súbory nikdy neopustia tvoje zariadenie.</p>
     

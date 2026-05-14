@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Emoji Seçici — Toolhub</title>
   <meta name="description" content="Anahtar kelime aramalı ücretsiz emoji seçici. Herhangi bir emojiyi kopyalamak için tıkla. Gülümseyenler, insanlar, hayvanlar, yiyecekler, seyahat, nesneler, semboller ve bayrakları kapsayan derli toplu set. Saf Unicode — her yerde çalışır.">
   <meta property="og:title" content="Emoji Seçici — Toolhub">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Emoji Seçici</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Emoji Seçici</nav>
     <h1>Emoji Seçici</h1>
     <p class="tagline">Ad ve anahtar kelimeye göre aranabilir emoji paleti. Kopyalamak için herhangi bir emojiye tıkla. Kategoriler: gülümseyenler, hayvanlar, yiyecekler, seyahat, nesneler, semboller, bayraklar.</p>
     

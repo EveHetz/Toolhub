@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculadora de IMC — Toolhub</title>
   <meta name="description" content="Calculadora gratuita de Índice de Massa Corporal. Informe altura e peso em métrico (cm + kg) ou imperial (pés/polegadas + libras) e veja o valor de IMC mais a classificação da OMS (abaixo do peso, normal, sobrepeso, obesidade). Apenas educacional — não é orientação médica.">
   <meta property="og:title" content="Calculadora de IMC — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Calculadora de IMC</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Calculadora de IMC</nav>
     <h1>Calculadora de IMC</h1>
     <p class="tagline">Índice de Massa Corporal a partir de altura e peso. Métrico ou imperial. Mostra a categoria da OMS — não é orientação médica.</p>
     

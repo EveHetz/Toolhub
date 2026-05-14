@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Regex extraktor LLM výstupu — Toolhub</title>
   <meta name="description" content="Bezplatný regex builder na extrakciu výstupu z LLM. Bežné prípady pripravené: JSON v ```json fence, holý JSON objekt, číslovaný zoznam, páry key: value, klasifikačné labely. Vlož LLM odpoveď, vyber šablónu (alebo si napíš vlastný regex), pozri zachytené skupiny naživo. Nástroj, ktorý nikto neprizná, že potrebuje, ale každý ho píše odznova pre každý projekt.">
   <meta property="og:title" content="Regex extraktor LLM výstupu — Toolhub">
   <meta property="og:description" content="Bezplatný regex builder na extrakciu výstupu z LLM. Bežné prípady pripravené: JSON v ```json fence, holý JSON objekt, číslovaný zoznam, páry key: value, klasifikačné labely. Vlož LLM odpoveď, vyber šablónu (alebo si napíš vlastný regex), pozri zachytené skupiny naživo. Nástroj, ktorý nikto neprizná, že potrebuje, ale každý ho píše odznova pre každý projekt.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/regex-llm-output/">
-  <meta property="og:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/regex-llm-output/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Regex extraktor LLM výstupu</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Regex extraktor LLM výstupu</nav>
     <h1>Regex extraktor LLM výstupu</h1>
     <p class="tagline">Vytiahni štruktúrované dáta (JSON, kódové bloky, páry kľúč-hodnota) z neprehľadných LLM odpovedí. Vyber zo šablón alebo napíš vlastný regex. Živý náhľad.</p>
     

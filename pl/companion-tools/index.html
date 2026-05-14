@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Narzędzia uzupełniające — Toolhub</title>
   <meta name="description" content="Zewnętrzne narzędzia bezpieczeństwa host-side uzupełniające utility przeglądarkowe Toolhub. sentinel i skill-scanner — oba open source MIT.">
   <meta property="og:title" content="Narzędzia uzupełniające — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Narzędzia uzupełniające</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Narzędzia uzupełniające</nav>
     <h1>Narzędzia uzupełniające</h1>
     <p class="tagline">Narzędzia bezpieczeństwa host-side, które uzupełniają utility przeglądarkowe Toolhub.</p>
 

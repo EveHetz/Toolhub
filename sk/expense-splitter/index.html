@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Delič výdavkov — Toolhub</title>
   <meta name="description" content="Bezplatný delič výdavkov v prehliadači. Pridaj výdavky (kto platil, suma, kto je dlžný), definuj skupinu, dostaň zostatok na osobu + vyrovnanie s minimálnym počtom prevodov („Alice dlhuje Bobovi €X“). Podporuje nerovnomerné rozdelenia (jeden dlhuje viac atď.) a viacero mien (jedna mena na skupinu; bez konverzie). Na výlety, spoločné byty, skupinové večere.">
   <meta property="og:title" content="Delič výdavkov — Toolhub">
   <meta property="og:description" content="Bezplatný delič výdavkov v prehliadači. Pridaj výdavky (kto platil, suma, kto je dlžný), definuj skupinu, dostaň zostatok na osobu + vyrovnanie s minimálnym počtom prevodov („Alice dlhuje Bobovi €X“). Podporuje nerovnomerné rozdelenia (jeden dlhuje viac atď.) a viacero mien (jedna mena na skupinu; bez konverzie). Na výlety, spoločné byty, skupinové večere.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/expense-splitter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/expense-splitter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -338,11 +341,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Delič výdavkov</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Delič výdavkov</nav>
     <h1>Delič výdavkov</h1>
     <p class="tagline">Rozdeľ skupinový výdavok rovnomerne alebo vlastnými podielmi (percentá alebo pevné sumy). Výstup: súčty na osobu + pokyny na prevody („A dlhuje B €X“).</p>
     

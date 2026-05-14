@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Redimensionneur d'images — Toolhub</title>
   <meta name="description" content="Redimensionneur d'images gratuit en ligne pour PNG, JPG, WebP. Choisissez largeur et hauteur cibles (ou un pourcentage d'échelle), verrouillez éventuellement le ratio. La sortie se télécharge dans le même format. Fonctionne jusqu'aux limites de canvas de votre navigateur. Les fichiers restent dans votre navigateur.">
   <meta property="og:title" content="Redimensionneur d'images — Toolhub">
   <meta property="og:description" content="Redimensionneur d'images gratuit en ligne pour PNG, JPG, WebP. Choisissez largeur et hauteur cibles (ou un pourcentage d'échelle), verrouillez éventuellement le ratio. La sortie se télécharge dans le même format. Fonctionne jusqu'aux limites de canvas de votre navigateur. Les fichiers restent dans votre navigateur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/image-resize/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-resize.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/image-resize/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Redimensionneur d'images</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Redimensionneur d'images</nav>
     <h1>Redimensionneur d'images</h1>
     <p class="tagline">Redimensionnez vos images à n'importe quelle largeur ou hauteur dans le navigateur. Verrouillez le ratio, échelonnez vers des tailles social media, téléchargez. Pas d'upload.</p>
     

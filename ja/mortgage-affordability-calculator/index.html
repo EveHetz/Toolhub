@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>住宅ローン支払能力計算機 — Toolhub</title>
   <meta name="description" content="ブラウザ完結の無料住宅ローン支払能力計算ツール。年間税前収入、月々の負債、頭金、住宅ローン金利、返済期間を入力すると、伝統的な 28/36 債務収入比（DTI）ルールに基づく最大購入可能額、対応する月額 PITI 支払、借入元本を表示します。価格を決めた後はローン計算機で実際の償却スケジュールも参照できます。">
   <meta property="og:title" content="住宅ローン支払能力計算機 — Toolhub">
   <meta property="og:description" content="ブラウザ完結の無料住宅ローン支払能力計算ツール。年間税前収入、月々の負債、頭金、住宅ローン金利、返済期間を入力すると、伝統的な 28/36 債務収入比（DTI）ルールに基づく最大購入可能額、対応する月額 PITI 支払、借入元本を表示します。価格を決めた後はローン計算機で実際の償却スケジュールも参照できます。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/mortgage-affordability-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/mortgage-affordability-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/mortgage-affordability-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/mortgage-affordability-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 住宅ローン支払能力計算機</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 住宅ローン支払能力計算機</nav>
     <h1>住宅ローン支払能力計算機</h1>
     <p class="tagline">いくらの家を買えるか？ 収入 + 月々の負債 + 頭金 + 金利 → 28/36 DTI ルールに基づく最大購入額。</p>
     

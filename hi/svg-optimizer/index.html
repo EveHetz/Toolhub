@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>SVG Optimizer — Toolhub</title>
   <meta name="description" content="मुफ़्त SVG optimizer जो पूरी तरह आपके browser में चलता है। SVG paste या upload करें, sensible defaults के साथ एक minified version पाएँ: comments हटाए गए, whitespace collapsed, redundant attributes dropped, coordinates 2 decimals तक rounded। Before/after size दिखाता है।">
   <meta property="og:title" content="SVG Optimizer — Toolhub">
   <meta property="og:description" content="मुफ़्त SVG optimizer जो पूरी तरह आपके browser में चलता है। SVG paste या upload करें, sensible defaults के साथ एक minified version पाएँ: comments हटाए गए, whitespace collapsed, redundant attributes dropped, coordinates 2 decimals तक rounded। Before/after size दिखाता है।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/svg-optimizer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/svg-optimizer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / SVG Optimizer</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / SVG Optimizer</nav>
     <h1>SVG Optimizer</h1>
     <p class="tagline">SVG files को सीधे अपने browser में minify करें। Comments, बेकार whitespace, default attributes हटाता है और लंबे decimals को round करता है। Files कभी आपके device से बाहर नहीं जातीं।</p>
     

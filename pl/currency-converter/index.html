@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Przelicznik Walut — Toolhub</title>
   <meta name="description" content="Darmowy przelicznik walut w przeglądarce z wbudowanymi kursami referencyjnymi, aktualizowanymi kwartalnie. Wybierz źródło i cel, wpisz kwotę, zobacz wynik. Data referencyjna jest widoczna — przed wystawieniem faktury zawsze sprawdź rzeczywisty kurs swojego banku. Celowo nie pobieramy kursów na żywo: to wyciekałoby twoje zapytania do strony trzeciej. Do realnych transakcji użyj banku lub kantoru.">
   <meta property="og:title" content="Przelicznik Walut — Toolhub">
   <meta property="og:description" content="Darmowy przelicznik walut w przeglądarce z wbudowanymi kursami referencyjnymi, aktualizowanymi kwartalnie. Wybierz źródło i cel, wpisz kwotę, zobacz wynik. Data referencyjna jest widoczna — przed wystawieniem faktury zawsze sprawdź rzeczywisty kurs swojego banku. Celowo nie pobieramy kursów na żywo: to wyciekałoby twoje zapytania do strony trzeciej. Do realnych transakcji użyj banku lub kantoru.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pl/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pl/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Przelicznik Walut</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Przelicznik Walut</nav>
     <h1>Przelicznik Walut</h1>
     <p class="tagline">Przelicz między 50+ walutami z kursami referencyjnymi na znaną datę. Bez live API, bez śledzenia — przydatne dla freelancerów do szybkich wycen. Zawsze sprawdź przed wystawieniem faktury.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Modèle de Fiche de Préparation — Toolhub</title>
   <meta name="description" content="Générateur de fiches de préparation gratuit. Remplissez le formulaire — discipline, niveau, durée, objectifs (avec menu déroulant niveaux de Bloom), matériel, déroulement, évaluation, différenciation, bilan — et obtenez un markdown propre et une vue HTML prête à imprimer. Modèles prêts pour primaire / collège / lycée et plusieurs cadres pédagogiques (5E, libération progressive, démarche d'investigation, APP). État sauvegardé dans un fragment d'URL pour partager.">
   <meta property="og:title" content="Modèle de Fiche de Préparation — Toolhub">
   <meta property="og:description" content="Générateur de fiches de préparation gratuit. Remplissez le formulaire — discipline, niveau, durée, objectifs (avec menu déroulant niveaux de Bloom), matériel, déroulement, évaluation, différenciation, bilan — et obtenez un markdown propre et une vue HTML prête à imprimer. Modèles prêts pour primaire / collège / lycée et plusieurs cadres pédagogiques (5E, libération progressive, démarche d'investigation, APP). État sauvegardé dans un fragment d'URL pour partager.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/lesson-plan-template/">
-  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/lesson-plan-template/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Modèle de Fiche de Préparation</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Modèle de Fiche de Préparation</nav>
     <h1>Modèle de Fiche de Préparation</h1>
     <p class="tagline">Générez une fiche de préparation structurée à partir d'un formulaire. Sections standard (objectifs, matériel, déroulement, évaluation, réflexion). Sortie markdown + HTML imprimable.</p>
     

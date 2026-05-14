@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>BMI कैलकुलेटर — Toolhub</title>
   <meta name="description" content="मुफ़्त Body Mass Index कैलकुलेटर। Metric (cm + kg) या imperial (feet/inches + pounds) में height और weight डालें और BMI value और WHO classification (underweight, normal, overweight, obese) देखें। केवल शैक्षणिक — चिकित्सीय सलाह नहीं।">
   <meta property="og:title" content="BMI कैलकुलेटर — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / BMI कैलकुलेटर</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / BMI कैलकुलेटर</nav>
     <h1>BMI कैलकुलेटर</h1>
     <p class="tagline">Height और weight से Body Mass Index। Metric या imperial। WHO category दिखाता है — चिकित्सीय सलाह नहीं।</p>
     

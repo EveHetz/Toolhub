@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Linter System Prompt — Toolhub</title>
   <meta name="description" content="Linter gratuito di system prompt. Incolla il tuo system prompt, ottieni una checklist di problemi comuni: frasi 'sii utile' senza specifici, direttive contraddittorie, niente esempi / shot-counts, deriva di ruolo, niente valvole di fuga, preambolo sovradimensionato. Ogni risultato ha un breve suggerimento di fix. Euristico — non un oracolo — ma cattura i buchi ovvi.">
   <meta property="og:title" content="Linter System Prompt — Toolhub">
   <meta property="og:description" content="Linter gratuito di system prompt. Incolla il tuo system prompt, ottieni una checklist di problemi comuni: frasi 'sii utile' senza specifici, direttive contraddittorie, niente esempi / shot-counts, deriva di ruolo, niente valvole di fuga, preambolo sovradimensionato. Ogni risultato ha un breve suggerimento di fix. Euristico — non un oracolo — ma cattura i buchi ovvi.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/system-prompt-linter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/system-prompt-linter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Linter System Prompt</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Linter System Prompt</nav>
     <h1>Linter System Prompt</h1>
     <p class="tagline">Analizza un system prompt cercando problemi comuni: istruzioni vaghe, regole in conflitto, esempi mancanti, contesto sovradimensionato. Euristico, opinionato, veloce.</p>
     

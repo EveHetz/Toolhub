@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>WCAG Contrast Checker — Toolhub</title>
   <meta name="description" content="Bezplatný online WCAG contrast checker. Skontroluj contrast ratio medzi popredím a pozadím — verdikt pass/fail pre AA a AAA pre normálny aj veľký text. Užitočné na accessibility audit.">
   <meta property="og:title" content="WCAG Contrast Checker — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / WCAG Contrast Checker</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / WCAG Contrast Checker</nav>
     <h1>WCAG Contrast Checker</h1>
     <p class="tagline">Skontroluj contrast ratio medzi dvomi farbami. Pass/fail verdikt pre WCAG AA a AAA pri každej veľkosti textu.</p>
     

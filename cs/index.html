@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>toolhub.software — Bezplatné online nástroje pro vývojáře</title>
   <meta name="description" content="25+ bezplatných online nástrojů pro vývojáře — JSON formátovač, generátor hesel, Base64 encoder, regex tester a další. Bez registrace, bez sledování, okamžitý výsledek.">
   <meta property="og:title" content="toolhub.software — Bezplatné online nástroje pro vývojáře">
@@ -187,7 +190,7 @@
       <option value="cs" selected>🇨🇿 Čeština</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
 
@@ -235,7 +238,7 @@
   </footer>
 
   <script>
-                                                                                                                                                                                        const TOOLS = [
+                                                                                                                                                                                            const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII tabulka", "desc": "Kompletní ASCII reference 0–127 s decimálním, hex, binárním, znakem a HTML entitou. Filtrovatelná.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Zakóduj text do Base64 nebo dekóduj Base64 zpět na text. UTF-8 safe a base64url varianta.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 na obrázek", "desc": "Dekóduj Base64 obrázek nebo data URI zpět do souboru. Vlož řetězec, podívej se na náhled, stáhni. Opak našeho nástroje obrázek-na-Base64.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Lanciatore di Dadi — Toolhub</title>
   <meta name="description" content="Lanciatore di dadi gratuito con notazione standard da tavolo: 1d20, 2d6+3, 4d6kh3, 3d8-1. Ogni dado e il totale. Usa crypto.getRandomValues per lanci equi.">
   <meta property="og:title" content="Lanciatore di Dadi — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Lanciatore di Dadi</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Lanciatore di Dadi</nav>
     <h1>Lanciatore di Dadi</h1>
     <p class="tagline">Lancia dadi con notazione D&D standard — 2d6+3, 1d20, 4d6 tieni i 3 più alti. RNG crittograficamente sicuro.</p>
     

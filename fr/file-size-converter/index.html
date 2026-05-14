@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertisseur de Taille de Fichier — Toolhub</title>
   <meta name="description" content="Convertisseur gratuit de taille de fichier. Convertissez n'importe quel nombre d'octets entre unités décimales (B, KB, MB, GB, TB) et unités binaires IEC (KiB, MiB, GiB, TiB).">
   <meta property="og:title" content="Convertisseur de Taille de Fichier — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur de Taille de Fichier</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Convertisseur de Taille de Fichier</nav>
     <h1>Convertisseur de Taille de Fichier</h1>
     <p class="tagline">Convertissez entre octets, Ko, Mo, Go, To et les binaires Kio, Mio, Gio, Tio. Décimal vs binaire clarifié.</p>
     

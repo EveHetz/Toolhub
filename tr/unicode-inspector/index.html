@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Unicode İnceleyici — Toolhub</title>
   <meta name="description" content="Ücretsiz Unicode inceleyici. Herhangi bir metni yapıştır ve her Unicode code point'ini gör: hex, ondalık, UTF-8 byte dizisi, genel kategori ve bilinen yerlerde ad. Görünmez ve karıştırılabilir karakterleri vurgular.">
   <meta property="og:title" content="Unicode İnceleyici — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Unicode İnceleyici</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Unicode İnceleyici</nav>
     <h1>Unicode İnceleyici</h1>
     <p class="tagline">Metni yapıştır → her code point için tablo. Hex, ondalık, UTF-8 byte, kategori. Görünmez karakterleri yakala.</p>
     

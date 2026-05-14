@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSV sang JSON — Toolhub</title>
   <meta name="description" content="Bộ chuyển CSV sang JSON miễn phí trực tuyến. Phát hiện header tự động, hỗ trợ delimiter tùy chỉnh, trường được quote và newline trong giá trị. Toàn bộ chuyển đổi chạy cục bộ.">
   <meta property="og:title" content="CSV sang JSON — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / CSV sang JSON</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / CSV sang JSON</nav>
     <h1>CSV sang JSON</h1>
     <p class="tagline">Chuyển dữ liệu CSV thành mảng JSON. Xử lý phát hiện header, delimiter tùy chỉnh, trường được quote và newline lồng nhau.</p>
     

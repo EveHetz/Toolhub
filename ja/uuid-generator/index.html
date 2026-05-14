@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>UUID 生成ツール — Toolhub</title>
   <meta name="description" content="オンライン無料の UUID 生成ツール。RFC 4122 の v4（ランダム）と v7（時刻順、ソート可能）に対応。1 つから複数まで、すべてブラウザ内で生成します。">
   <meta property="og:title" content="UUID 生成ツール — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / UUID 生成ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / UUID 生成ツール</nav>
     <h1>UUID 生成ツール</h1>
     <p class="tagline">RFC 4122 の UUID（v4 ランダム または v7 時刻順）を生成。最大 100 件まで一括生成。暗号論的に安全。</p>
     

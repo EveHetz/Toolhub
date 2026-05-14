@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertisseur OpenAI ⇄ Anthropic — Toolhub</title>
   <meta name="description" content="Convertisseur gratuit dans le navigateur entre OpenAI Chat Completions et Anthropic Messages API. Couvre les principales différences de format : placement du system message (champ top-level pour Anthropic, role:'system' pour OpenAI), format des tool-calls (tool_calls/tool_call_id vs tool_use/tool_result), blocs de contenu image, structure multi-tour. Utile lors de la migration de prompts entre fournisseurs. JS pur.">
   <meta property="og:title" content="Convertisseur OpenAI ⇄ Anthropic — Toolhub">
   <meta property="og:description" content="Convertisseur gratuit dans le navigateur entre OpenAI Chat Completions et Anthropic Messages API. Couvre les principales différences de format : placement du system message (champ top-level pour Anthropic, role:'system' pour OpenAI), format des tool-calls (tool_calls/tool_call_id vs tool_use/tool_result), blocs de contenu image, structure multi-tour. Utile lors de la migration de prompts entre fournisseurs. JS pur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/openai-anthropic-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/openai-anthropic-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/openai-anthropic-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/openai-anthropic-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur OpenAI ⇄ Anthropic</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Convertisseur OpenAI ⇄ Anthropic</nav>
     <h1>Convertisseur OpenAI ⇄ Anthropic</h1>
     <p class="tagline">Convertissez des tableaux de messages entre OpenAI Chat Completions et Anthropic Messages API. Gère les system messages, tool calls, blocs d'image, multi-tour. Dans le navigateur, sans API keys.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Ispettore Unicode — Toolhub</title>
   <meta name="description" content="Ispettore Unicode gratuito. Incolla qualsiasi testo e vedi ogni code point Unicode: hex, decimale, sequenza di byte UTF-8, categoria. Evidenzia caratteri invisibili e confondibili.">
   <meta property="og:title" content="Ispettore Unicode — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Ispettore Unicode</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Ispettore Unicode</nav>
     <h1>Ispettore Unicode</h1>
     <p class="tagline">Incolla testo → tabella di ogni code point. Hex, decimale, byte UTF-8, categoria. Trova caratteri invisibili.</p>
     

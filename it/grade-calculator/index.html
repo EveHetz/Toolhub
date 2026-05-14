@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calcolatore di Voti — Toolhub</title>
   <meta name="description" content="Calcolatore di voti ponderati gratuito. Definisci le categorie con il loro peso percentuale (somma 100), inserisci i voti, e vedi la media corrente con la lettera/votazione. La modalità what-if calcola il voto necessario in una prova pendente (es. 'Mi serve 9 al finale per tenere la media 8'). Salva lo stato in un frammento URL per i preferiti — nulla viene caricato.">
   <meta property="og:title" content="Calcolatore di Voti — Toolhub">
   <meta property="og:description" content="Calcolatore di voti ponderati gratuito. Definisci le categorie con il loro peso percentuale (somma 100), inserisci i voti, e vedi la media corrente con la lettera/votazione. La modalità what-if calcola il voto necessario in una prova pendente (es. 'Mi serve 9 al finale per tenere la media 8'). Salva lo stato in un frammento URL per i preferiti — nulla viene caricato.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Voti</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Voti</nav>
     <h1>Calcolatore di Voti</h1>
     <p class="tagline">Calcola la media ponderata di una materia. Categorie (compiti / verifiche / progetti / esame finale) con pesi, inserisci i voti, vedi la media corrente. Modalità what-if: 'Cosa mi serve all'esame finale per prendere 9?'</p>
     

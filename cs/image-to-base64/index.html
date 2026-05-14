@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Obrázek na Base64 — Toolhub</title>
   <meta name="description" content="Zdarma online image-to-Base64 konvertor. Nahraj jakýkoli obrázek a dostaneš data URI připravené na inline použití v HTML, CSS background-image nebo Markdown. Soubory neopouštějí tvůj prohlížeč.">
   <meta property="og:title" content="Obrázek na Base64 — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Obrázek na Base64</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Obrázek na Base64</nav>
     <h1>Obrázek na Base64</h1>
     <p class="tagline">Převeď jakýkoli obrázek na Base64 data URI připravené na inline použití v HTML, CSS nebo Markdown. Soubory zůstávají v prohlížeči.</p>
     

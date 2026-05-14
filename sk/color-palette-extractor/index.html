@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Extraktor farebnej palety — Toolhub</title>
   <meta name="description" content="Bezplatný extraktor farebnej palety z obrázka. Nahraj PNG, JPG alebo WebP a dostaneš 5 až 8 najčastejších farieb s hex kódmi, kopírovateľných ako CSS custom properties alebo Tailwind paleta. Užitočné na moodboardy, extrakciu brand farieb a seeding design systému. Čisté JS — žiadny upload, žiadny server.">
   <meta property="og:title" content="Extraktor farebnej palety — Toolhub">
   <meta property="og:description" content="Bezplatný extraktor farebnej palety z obrázka. Nahraj PNG, JPG alebo WebP a dostaneš 5 až 8 najčastejších farieb s hex kódmi, kopírovateľných ako CSS custom properties alebo Tailwind paleta. Užitočné na moodboardy, extrakciu brand farieb a seeding design systému. Čisté JS — žiadny upload, žiadny server.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Extraktor farebnej palety</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Extraktor farebnej palety</nav>
     <h1>Extraktor farebnej palety</h1>
     <p class="tagline">Vytiahni dominantné farby z akéhokoľvek obrázku priamo v prehliadači. 5–8 swatchov, hex kódy, copy-paste CSS premenné. Súbory nikdy neopustia tvoje zariadenie.</p>
     

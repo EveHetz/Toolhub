@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>HTML フォーマッター — Toolhub</title>
   <meta name="description" content="オンライン無料の HTML フォーマッター / ミニファイア。設定可能なインデントでの整形、コメントの任意除去、void / 自己終了タグの認識に対応。すべてブラウザ内で動作します。">
   <meta property="og:title" content="HTML フォーマッター — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / HTML フォーマッター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / HTML フォーマッター</nav>
     <h1>HTML フォーマッター</h1>
     <p class="tagline">HTML を整形・圧縮。インデント幅、コメント除去、自己終了タグの自動認識に対応。</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub cho Trường học — Toolhub</title>
   <meta name="description" content="Công cụ dev và tiện ích ưu tiên quyền riêng tư cho lớp học. Không cần đăng ký, không theo dõi, đa ngôn ngữ, có thể tự host. Thân thiện với bộ lọc và an toàn để chia sẻ cho học sinh.">
   <meta property="og:title" content="Toolhub cho Trường học — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Toolhub cho Trường học</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Toolhub cho Trường học</nav>
     <h1>Toolhub cho Trường học</h1>
     <h2>Toolhub trong lớp học</h2>
 <p>Toolhub là một bộ công cụ nhỏ trong trình duyệt mà học sinh có thể dùng mà không cần tạo tài khoản, không bị theo dõi và không bị chuyển hướng đến phễu quảng cáo hoặc affiliate. Mỗi công cụ chạy hoàn toàn trong trình duyệt, nghĩa là bất kỳ điều gì học sinh gõ không bao giờ rời khỏi mạng trường học — không có backend để gọi.</p>

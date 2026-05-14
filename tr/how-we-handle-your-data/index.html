@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Verilerini nasıl işliyoruz — Toolhub</title>
   <meta name="description" content="Toolhub'ın verilerini tam olarak nasıl işlediğinin sade bir dilde açıklaması. Araçlar tarayıcında çalışır, hiçbir şey saklanmaz, üç istisna açıkça adlandırılır.">
   <meta property="og:title" content="Verilerini nasıl işliyoruz — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Verilerini nasıl işliyoruz</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Verilerini nasıl işliyoruz</nav>
     <h1>Verilerini nasıl işliyoruz</h1>
     <p><strong>Son güncelleme:</strong> 11 May 2026</p>
 <p>Bu sayfa sade dildeki versiyondur. <a href="/tr/privacy/">Gizlilik politikasını</a> tamamlar; bir yerde çelişiyorlarsa, bu sayfa daha spesifik olandır ve geçerlidir.</p>

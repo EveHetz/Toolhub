@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>プロンプト Diff — Toolhub</title>
   <meta name="description" content="ブラウザ完結のプロンプト差分ツール（無料）。バージョン A とバージョン B を貼り付けると、行単位の変更が赤／緑のハイライトで表示されます。プロンプトを改良するエンジニア、プロンプトを A/B テストする人、デプロイ間で system prompt が何変わったかを監査したい人に便利。一般的な LCS ベースの差分アルゴリズムを使用。">
   <meta property="og:title" content="プロンプト Diff — Toolhub">
   <meta property="og:description" content="ブラウザ完結のプロンプト差分ツール（無料）。バージョン A とバージョン B を貼り付けると、行単位の変更が赤／緑のハイライトで表示されます。プロンプトを改良するエンジニア、プロンプトを A/B テストする人、デプロイ間で system prompt が何変わったかを監査したい人に便利。一般的な LCS ベースの差分アルゴリズムを使用。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/prompt-diff/">
-  <meta property="og:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/prompt-diff/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / プロンプト Diff</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / プロンプト Diff</nav>
     <h1>プロンプト Diff</h1>
     <p class="tagline">2 つのプロンプト（または同じプロンプトの 2 バージョン）を並べて比較。行単位の差分を赤／緑でハイライト。LLM プロンプト改良用。</p>
     

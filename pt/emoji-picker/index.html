@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Seletor de Emoji — Toolhub</title>
   <meta name="description" content="Seletor gratuito de emojis com busca por palavra-chave. Clique para copiar qualquer emoji. Conjunto curado cobrindo smileys, pessoas, animais, comida, viagem, objetos, símbolos e bandeiras. Unicode puro — funciona em qualquer lugar.">
   <meta property="og:title" content="Seletor de Emoji — Toolhub">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Seletor de Emoji</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Seletor de Emoji</nav>
     <h1>Seletor de Emoji</h1>
     <p class="tagline">Paleta de emojis pesquisável por nome e palavra-chave. Clique em qualquer emoji para copiar. Categorias: smileys, animais, comida, viagem, objetos, símbolos, bandeiras.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>URL Parser — Toolhub</title>
   <meta name="description" content="Gratis online URL parser. Decodeert elke URL naar protocol, host, port, path, query string, hash en origin, met elke query-parameter gedecodeerd getoond. Draait volledig in je browser.">
   <meta property="og:title" content="URL Parser — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / URL Parser</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / URL Parser</nav>
     <h1>URL Parser</h1>
     <p class="tagline">Plak elke URL — zie protocol, host, port, path, query parameters (gedecodeerd), hash en origin uitgesplitst.</p>
     

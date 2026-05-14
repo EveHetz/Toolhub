@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Prompt Diff — Toolhub</title>
   <meta name="description" content="Bezplatný in-browser prompt diff nástroj. Vlož verziu A a verziu B — uvidíš zmeny riadok po riadku s červeno-zeleným zvýraznením. Užitočné pre prompt engineerov porovnávajúcich iterácie, A/B testujúcich prompty alebo audit toho, čo sa zmenilo v system prompte medzi deploymentmi. Štandardný LCS diff algoritmus.">
   <meta property="og:title" content="Prompt Diff — Toolhub">
   <meta property="og:description" content="Bezplatný in-browser prompt diff nástroj. Vlož verziu A a verziu B — uvidíš zmeny riadok po riadku s červeno-zeleným zvýraznením. Užitočné pre prompt engineerov porovnávajúcich iterácie, A/B testujúcich prompty alebo audit toho, čo sa zmenilo v system prompte medzi deploymentmi. Štandardný LCS diff algoritmus.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/prompt-diff/">
-  <meta property="og:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/prompt-diff/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Prompt Diff</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Prompt Diff</nav>
     <h1>Prompt Diff</h1>
     <p class="tagline">Porovnaj dva prompty (alebo dve verzie toho istého promptu) vedľa seba. Riadkový diff so zvýraznenými zmenami. Navrhnuté pre iteráciu LLM promptov.</p>
     

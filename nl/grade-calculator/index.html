@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Cijfer-calculator — Toolhub</title>
   <meta name="description" content="Gratis gewogen cijfer-calculator. Definieer beoordelingscategorieën met weging in procenten (totaal 100), voer je scores per categorie in, en zie het lopende cijfer met de letter erbij. In de what-if-modus reken je terug welke score je nodig hebt op een openstaande toets (bijv. 'Ik moet een 8 op het eindexamen om mijn 7,5 te houden'). Sla je data op als URL-fragment om te bookmarken — niets wordt geüpload.">
   <meta property="og:title" content="Cijfer-calculator — Toolhub">
   <meta property="og:description" content="Gratis gewogen cijfer-calculator. Definieer beoordelingscategorieën met weging in procenten (totaal 100), voer je scores per categorie in, en zie het lopende cijfer met de letter erbij. In de what-if-modus reken je terug welke score je nodig hebt op een openstaande toets (bijv. 'Ik moet een 8 op het eindexamen om mijn 7,5 te houden'). Sla je data op als URL-fragment om te bookmarken — niets wordt geüpload.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Cijfer-calculator</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Cijfer-calculator</nav>
     <h1>Cijfer-calculator</h1>
     <p class="tagline">Bereken gewogen cijfers voor een vak. Stel categorieën (huiswerk / toetsen / projecten / eindexamen) met wegingen in, voer scores in, zie het lopende cijfer. What-if-modus: 'Wat moet ik halen op het eindexamen voor een 8?'</p>
     

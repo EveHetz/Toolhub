@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub untuk Sekolah — Toolhub</title>
   <meta name="description" content="Alat developer dan utilitas yang mengutamakan privasi untuk kelas. Tanpa pendaftaran, tanpa pelacakan, multibahasa, bisa self-host. Ramah filter dan aman dibagikan ke siswa.">
   <meta property="og:title" content="Toolhub untuk Sekolah — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Toolhub untuk Sekolah</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Toolhub untuk Sekolah</nav>
     <h1>Toolhub untuk Sekolah</h1>
     <h2>Toolhub di kelas</h2>
 <p>Toolhub adalah serangkaian alat kecil dalam browser yang bisa digunakan siswa tanpa membuat akun, tanpa dilacak, dan tanpa diarahkan ke corong iklan atau afiliasi. Setiap alat berjalan sepenuhnya di browser, artinya apa pun yang diketik siswa tidak pernah meninggalkan jaringan sekolah — tidak ada backend yang dipanggil.</p>

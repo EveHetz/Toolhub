@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Görsel format dönüştürücü — Toolhub</title>
   <meta name="description" content="Tarayıcı içi ücretsiz görsel format dönüştürücü. PNG, JPG ve WebP arasında geçiş yap. Dosyalar cihazında kalır — hiçbir şey yüklenmez. JPG'yi WebP'ye küçültmek veya PNG'ye geçerek şeffaflık eklemek için kullanışlı.">
   <meta property="og:title" content="Görsel format dönüştürücü — Toolhub">
   <meta property="og:description" content="Tarayıcı içi ücretsiz görsel format dönüştürücü. PNG, JPG ve WebP arasında geçiş yap. Dosyalar cihazında kalır — hiçbir şey yüklenmez. JPG'yi WebP'ye küçültmek veya PNG'ye geçerek şeffaflık eklemek için kullanışlı.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Görsel format dönüştürücü</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Görsel format dönüştürücü</nav>
     <h1>Görsel format dönüştürücü</h1>
     <p class="tagline">Görselleri tarayıcında PNG, JPG ve WebP arasında dönüştür. Bırak, hedef formatı seç, indir. Upload yok, sunucu yok.</p>
     

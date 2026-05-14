@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Comparador de Texto — Toolhub</title>
   <meta name="description" content="Comparador de texto en línea gratuito. Diff de Myers por línea con vista lado a lado y unificada, ignorar espacios y mayúsculas. En el navegador.">
   <meta property="og:title" content="Comparador de Texto — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Comparador de Texto</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Comparador de Texto</nav>
     <h1>Comparador de Texto</h1>
     <p class="tagline">Compara dos bloques de texto y ve adiciones, eliminaciones y contexto línea por línea. Vista lado a lado o unificada.</p>
     

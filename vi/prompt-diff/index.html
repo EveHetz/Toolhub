@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Diff Prompt — Toolhub</title>
   <meta name="description" content="Công cụ diff prompt miễn phí trên trình duyệt. Dán phiên bản A và phiên bản B — xem các thay đổi từng dòng với highlight đỏ/xanh. Hữu ích cho prompt engineer so sánh các phiên bản, A/B test prompt, hoặc audit những gì đã thay đổi trong system prompt giữa các lần deploy. Thuật toán LCS chuẩn.">
   <meta property="og:title" content="Diff Prompt — Toolhub">
   <meta property="og:description" content="Công cụ diff prompt miễn phí trên trình duyệt. Dán phiên bản A và phiên bản B — xem các thay đổi từng dòng với highlight đỏ/xanh. Hữu ích cho prompt engineer so sánh các phiên bản, A/B test prompt, hoặc audit những gì đã thay đổi trong system prompt giữa các lần deploy. Thuật toán LCS chuẩn.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/prompt-diff/">
-  <meta property="og:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/prompt-diff.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/prompt-diff/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Diff Prompt</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Diff Prompt</nav>
     <h1>Diff Prompt</h1>
     <p class="tagline">So sánh hai prompt (hoặc hai phiên bản của một prompt) cạnh nhau. Diff theo từng dòng với các thay đổi được làm nổi bật. Thiết kế cho việc lặp lại các prompt LLM.</p>
     

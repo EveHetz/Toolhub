@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Slug Generator — Toolhub</title>
   <meta name="description" content="Gratis online URL slug generator. Maakt lowercase, translitereert accenten (à → a, ñ → n), strijkt punctuation en voegt woorden samen met een gekozen separator. Stop-word removal optioneel.">
   <meta property="og:title" content="Slug Generator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Slug Generator</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Slug Generator</nav>
     <h1>Slug Generator</h1>
     <p class="tagline">Maak van elke titel een schone URL-slug — translitereert accenten, strijkt punctuation, voegt met hyphens samen.</p>
     

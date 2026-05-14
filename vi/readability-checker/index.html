@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình kiểm tra Độ dễ đọc — Toolhub</title>
   <meta name="description" content="Bộ phân tích độ dễ đọc miễn phí trong trình duyệt. Dán văn bản bất kỳ, xem tất cả công thức chính: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Hữu ích cho giáo viên hiệu chỉnh tài liệu đến đúng cấp, cho người viết kiểm tra khả năng tiếp cận, cho kiểm toán viên khả năng tiếp cận. Phân tích theo đoạn nêu bật những đoạn rậm nhất. Thuần JS — không tải lên, không đăng ký, không theo dõi.">
   <meta property="og:title" content="Trình kiểm tra Độ dễ đọc — Toolhub">
   <meta property="og:description" content="Bộ phân tích độ dễ đọc miễn phí trong trình duyệt. Dán văn bản bất kỳ, xem tất cả công thức chính: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Hữu ích cho giáo viên hiệu chỉnh tài liệu đến đúng cấp, cho người viết kiểm tra khả năng tiếp cận, cho kiểm toán viên khả năng tiếp cận. Phân tích theo đoạn nêu bật những đoạn rậm nhất. Thuần JS — không tải lên, không đăng ký, không theo dõi.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/readability-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/readability-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình kiểm tra Độ dễ đọc</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình kiểm tra Độ dễ đọc</nav>
     <h1>Trình kiểm tra Độ dễ đọc</h1>
     <p class="tagline">Tính Flesch Reading Ease, Flesch-Kincaid Grade, Gunning Fog, SMOG và Coleman-Liau cho văn bản. Phát hiện đoạn rậm, nhắm đúng cấp lớp.</p>
     

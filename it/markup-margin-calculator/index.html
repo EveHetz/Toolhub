@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calcolatore di Markup &amp; Margine — Toolhub</title>
   <meta name="description" content="Calcolatore gratuito di markup e margine in browser per piccole imprese, freelance e dettaglianti. Inserisci costo e markup obiettivo, margine obiettivo o prezzo di vendita — gli altri valori e l'utile lordo vengono derivati. Spiega la differenza tra markup (% sul costo) e margine (% sul ricavo), all'origine della maggior parte degli errori di pricing.">
   <meta property="og:title" content="Calcolatore di Markup &amp; Margine — Toolhub">
   <meta property="og:description" content="Calcolatore gratuito di markup e margine in browser per piccole imprese, freelance e dettaglianti. Inserisci costo e markup obiettivo, margine obiettivo o prezzo di vendita — gli altri valori e l'utile lordo vengono derivati. Spiega la differenza tra markup (% sul costo) e margine (% sul ricavo), all'origine della maggior parte degli errori di pricing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/markup-margin-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markup-margin-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markup-margin-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/markup-margin-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Markup &amp; Margine</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Calcolatore di Markup &amp; Margine</nav>
     <h1>Calcolatore di Markup &amp; Margine</h1>
     <p class="tagline">Fissa i prezzi di vendita dal costo. Inserisci due di costo / markup % / margine % / prezzo — gli altri due e l'utile vengono calcolati. Solo browser.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Privacybeleid — Toolhub</title>
   <meta name="description" content="Toolhub-privacybeleid: tools draaien volledig in je browser, geen registratie, geen accounts, geen tool-data verlaat je apparaat. Plausible voor geaggregeerde statistiek, AdSense alleen met expliciete toestemming.">
   <meta property="og:title" content="Privacybeleid — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Privacybeleid</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Privacybeleid</nav>
     <h1>Privacybeleid</h1>
     <p><strong>Laatst bijgewerkt:</strong> 11 May 2026</p>
 

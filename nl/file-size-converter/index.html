@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Bestandsgrootte-converter — Toolhub</title>
   <meta name="description" content="Gratis converter voor bestandsgrootte-units. Converteer elk aantal bytes tussen decimale units (B, KB, MB, GB, TB, PB) en IEC binaire units (KiB, MiB, GiB, TiB, PiB). Zie beide tegelijk, met het exacte onderscheid.">
   <meta property="og:title" content="Bestandsgrootte-converter — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Bestandsgrootte-converter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Bestandsgrootte-converter</nav>
     <h1>Bestandsgrootte-converter</h1>
     <p class="tagline">Converteer tussen bytes, KB, MB, GB, TB en de binaire KiB, MiB, GiB, TiB. Decimaal vs binair duidelijk gescheiden.</p>
     

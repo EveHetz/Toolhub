@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CIDR Subnet-calculator — Toolhub</title>
   <meta name="description" content="Gratis IPv4 CIDR / subnet-calculator. Voer een CIDR in (bijv. 10.0.0.0/16) en zie het netwerkadres, broadcast, subnet mask, hostbereik, totaal aantal adressen en binaire representatie.">
   <meta property="og:title" content="CIDR Subnet-calculator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / CIDR Subnet-calculator</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / CIDR Subnet-calculator</nav>
     <h1>CIDR Subnet-calculator</h1>
     <p class="tagline">Bereken IPv4-subnetten uit CIDR-notatie. Netwerk, broadcast, mask, hostbereik en binaire weergave.</p>
     

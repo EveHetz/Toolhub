@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulator Tip & Bagi Tagihan — Toolhub</title>
   <meta name="description" content="Kalkulator tip dan bagi tagihan gratis. Masukkan jumlah tagihan, persentase tip, dan jumlah orang — dapatkan jumlah per orang, total tip, dan grand total. Opsi pembulatan ke atas untuk angka yang rapi.">
   <meta property="og:title" content="Kalkulator Tip & Bagi Tagihan — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Kalkulator Tip & Bagi Tagihan</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Kalkulator Tip & Bagi Tagihan</nav>
     <h1>Kalkulator Tip & Bagi Tagihan</h1>
     <p class="tagline">Total tagihan + % tip + jumlah orang = jumlah per orang. Opsi pembulatan ke atas, menampilkan tip dan grand total.</p>
     

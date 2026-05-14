@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Đếm Token — Toolhub</title>
   <meta name="description" content="Công cụ ước tính token miễn phí trong trình duyệt cho LLM. Dán bất kỳ văn bản nào và xem số token cho GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini và Mistral. Heuristic riêng cho từng model — chính xác ±5% với tiếng Anh, ±10% với mã nguồn và CJK. Hữu ích để lên kế hoạch ngân sách prompt, ước lượng cửa sổ ngữ cảnh, và ước tính chi phí API.">
   <meta property="og:title" content="Đếm Token — Toolhub">
   <meta property="og:description" content="Công cụ ước tính token miễn phí trong trình duyệt cho LLM. Dán bất kỳ văn bản nào và xem số token cho GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini và Mistral. Heuristic riêng cho từng model — chính xác ±5% với tiếng Anh, ±10% với mã nguồn và CJK. Hữu ích để lên kế hoạch ngân sách prompt, ước lượng cửa sổ ngữ cảnh, và ước tính chi phí API.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/token-counter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/token-counter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Đếm Token</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Đếm Token</nav>
     <h1>Đếm Token</h1>
     <p class="tagline">Ước tính số token cho GPT-4, Claude, Llama, Gemini và các LLM khác. Dán văn bản, xem số đếm theo từng model cạnh nhau. File không bao giờ rời khỏi trình duyệt của bạn.</p>
     

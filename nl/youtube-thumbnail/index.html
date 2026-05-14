@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>YouTube Thumbnail Downloader — Toolhub</title>
   <meta name="description" content="Gratis YouTube thumbnail downloader. Extraheert de video-ID uit elke YouTube-URL (watch, youtu.be, shorts, embed, /v/) en toont alle beschikbare thumbnail-resoluties met directe downloadlinks.">
   <meta property="og:title" content="YouTube Thumbnail Downloader — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / YouTube Thumbnail Downloader</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / YouTube Thumbnail Downloader</nav>
     <h1>YouTube Thumbnail Downloader</h1>
     <p class="tagline">Plak elke YouTube-URL of video-ID en grijp elke beschikbare thumbnail-size — directe downloadlinks, geen upload, geen registratie.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64'ten görsele — Toolhub</title>
   <meta name="description" content="Tamamen tarayıcı içi ücretsiz Base64 → görsel decoder. Bir data: URI (veya ham Base64 payload) yapıştır, render edilmiş görseli gör ve indir. PNG, JPG, WebP, GIF, SVG'yi destekler. CSS veya HTML'den bir data URI kopyaladıysan ve orijinal dosyayı geri istiyorsan kullanışlıdır.">
   <meta property="og:title" content="Base64'ten görsele — Toolhub">
   <meta property="og:description" content="Tamamen tarayıcı içi ücretsiz Base64 → görsel decoder. Bir data: URI (veya ham Base64 payload) yapıştır, render edilmiş görseli gör ve indir. PNG, JPG, WebP, GIF, SVG'yi destekler. CSS veya HTML'den bir data URI kopyaladıysan ve orijinal dosyayı geri istiyorsan kullanışlıdır.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/base64-to-image/">
-  <meta property="og:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/base64-to-image/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Base64'ten görsele</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Base64'ten görsele</nav>
     <h1>Base64'ten görsele</h1>
     <p class="tagline">Bir Base64 görseli veya data URI'ı tekrar dosyaya çevir. Stringi yapıştır, önizle, indir. Görsel'den Base64'e aracımızın tersi.</p>
     

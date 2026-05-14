@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON Schema → Pydantic — Toolhub</title>
   <meta name="description" content="Gratis JSON Schema → Pydantic v2 code-generator. Plak een JSON Schema-object, krijg een Pydantic BaseModel class met type hints, Field()-defaults, validators en Optional/Union opgelost. Handig als je een structured-output schema hebt ontworpen voor een LLM (OpenAI / Claude / etc.) en de matching Pydantic class nodig hebt. Alleen in de browser, geen upload.">
   <meta property="og:title" content="JSON Schema → Pydantic — Toolhub">
   <meta property="og:description" content="Gratis JSON Schema → Pydantic v2 code-generator. Plak een JSON Schema-object, krijg een Pydantic BaseModel class met type hints, Field()-defaults, validators en Optional/Union opgelost. Handig als je een structured-output schema hebt ontworpen voor een LLM (OpenAI / Claude / etc.) en de matching Pydantic class nodig hebt. Alleen in de browser, geen upload.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/json-schema-to-pydantic/">
-  <meta property="og:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/json-schema-to-pydantic/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / JSON Schema → Pydantic</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / JSON Schema → Pydantic</nav>
     <h1>JSON Schema → Pydantic</h1>
     <p class="tagline">Converteer JSON Schema naar Pydantic v2 modelcode, in je browser. Plak schema, krijg een ready-to-paste Python class. Handig voor LLM structured-output workflows.</p>
     

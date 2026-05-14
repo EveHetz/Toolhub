@@ -541,6 +541,17 @@ def alternate_links(slug: str) -> str:
     return "\n  ".join(lines)
 
 
+OG_IMAGE_FALLBACK = "/og-image.png"
+
+
+def og_image_url(slug: str) -> str:
+    """Return per-tool og-image URL if the asset exists on disk, else the
+    site-wide fallback. Prevents 31 tools' pages emitting broken og:image."""
+    if (ROOT / "og-images" / f"{slug}.png").exists():
+        return f"https://toolhub.software/og-images/{slug}.png"
+    return f"https://toolhub.software{OG_IMAGE_FALLBACK}"
+
+
 def render_tool(tool: dict, lang: str) -> str:
     slug = tool["slug"]
     ui = UI[lang]
@@ -672,9 +683,10 @@ def render_tool(tool: dict, lang: str) -> str:
         "APP_CATEGORY": CATEGORY_TO_APP_CAT.get(cat, "UtilityApplication"),
         "APP_SUBCATEGORY": SUBCATEGORY_LABELS.get(cat, cat.title()),
         "FEATURE_LIST": feature_list_json,
-        "OG_IMAGE_URL": f"https://toolhub.software/og-images/{slug}.png",
+        "OG_IMAGE_URL": og_image_url(slug),
         "FAQPAGE_SCHEMA_JSON": render_faq_schema(tool, lang),
         "HOWTO_SCHEMA_JSON": render_howto_schema(tool, lang),
+        "BREADCRUMB_LBL": ui["breadcrumb"],
     }
 
     return fill_placeholders(TEMPLATE, placeholders)
@@ -793,6 +805,7 @@ def render_page(page: dict, lang: str) -> str:
         "INLANG": lang,
         "SCHEMA_TYPE": page.get("schema", "WebPage"),
         "OG_IMAGE_URL": "https://toolhub.software/og-image.png",
+        "BREADCRUMB_LBL": ui["breadcrumb"],
     }
     return fill_placeholders(PAGE_TEMPLATE, placeholders)
 

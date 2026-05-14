@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CIDR-Subnetz-Rechner — Toolhub</title>
   <meta name="description" content="Kostenloser IPv4 CIDR / Subnetz-Rechner. Gib einen CIDR ein (z.B. 10.0.0.0/16) und sieh Netzadresse, Broadcast, Subnetzmaske, Host-Bereich, Gesamtadressen und Binärdarstellung.">
   <meta property="og:title" content="CIDR-Subnetz-Rechner — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / CIDR-Subnetz-Rechner</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / CIDR-Subnetz-Rechner</nav>
     <h1>CIDR-Subnetz-Rechner</h1>
     <p class="tagline">Berechne IPv4-Subnetze aus CIDR-Notation. Netz, Broadcast, Maske, Host-Bereich und Binärdarstellung.</p>
     

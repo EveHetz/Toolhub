@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Renk paleti çıkarıcı — Toolhub</title>
   <meta name="description" content="Ücretsiz görsel renk paleti çıkarıcı. Bir PNG, JPG veya WebP yükle ve en sık görülen 5 ile 8 rengi hex kodlarıyla al, CSS custom properties veya Tailwind paleti olarak kopyalanabilir. Moodboard, marka rengi çıkarımı ve tasarım sistemi seed'leme için kullanışlı. Saf JS — upload yok, sunucu yok.">
   <meta property="og:title" content="Renk paleti çıkarıcı — Toolhub">
   <meta property="og:description" content="Ücretsiz görsel renk paleti çıkarıcı. Bir PNG, JPG veya WebP yükle ve en sık görülen 5 ile 8 rengi hex kodlarıyla al, CSS custom properties veya Tailwind paleti olarak kopyalanabilir. Moodboard, marka rengi çıkarımı ve tasarım sistemi seed'leme için kullanışlı. Saf JS — upload yok, sunucu yok.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Renk paleti çıkarıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Renk paleti çıkarıcı</nav>
     <h1>Renk paleti çıkarıcı</h1>
     <p class="tagline">Herhangi bir görselden baskın renkleri tarayıcında çıkar. 5–8 swatch, hex kodları, kopyala-yapıştır CSS değişkenleri. Dosyalar cihazından ayrılmaz.</p>
     

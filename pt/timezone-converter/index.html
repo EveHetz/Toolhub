@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Conversor de Fuso Horário — Toolhub</title>
   <meta name="description" content="Conversor gratuito de fuso horário. Converta entre quaisquer fusos IANA com suporte a horário de verão. Escolha entre fusos comuns ou qualquer um dos 400+ suportados pelo seu navegador.">
   <meta property="og:title" content="Conversor de Fuso Horário — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Conversor de Fuso Horário</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Conversor de Fuso Horário</nav>
     <h1>Conversor de Fuso Horário</h1>
     <p class="tagline">Converta uma data e hora entre fusos horários IANA. Veja offsets, status de horário de verão e dia da semana dos dois lados.</p>
     

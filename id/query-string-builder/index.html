@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Query String Builder — Toolhub</title>
   <meta name="description" content="Query string builder gratis. Tambahkan key/value secara visual dan dapatkan query string yang di-URL-encode dengan benar. Mendukung notasi array (a[]=1) atau kunci berulang sederhana. Sempurna untuk testing API.">
   <meta property="og:title" content="Query String Builder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Query String Builder</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Query String Builder</nav>
     <h1>Query String Builder</h1>
     <p class="tagline">Tambahkan baris key/value; dapatkan output query string yang di-URL-encode dengan benar. Mendukung array (a[]=1) dan kunci berulang tanpa kurung.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>RAG Metin Chunker — Toolhub</title>
   <meta name="description" content="RAG ve embedding pipeline'ları için ücretsiz tarayıcı içi metin chunker. Bir doküman yapıştır, chunk boyutu seç (token cinsinden, sezgisel tahmin), strateji seç (recursive character / sentence-aware / paragraph / semantic-boundary) ve isteğe bağlı overlap ile chunk listesini geri al. Dokümanları vector store ingestion için herhangi bir yere yüklemeden hazırlamak için yararlı. Boyutlandırma rehberliği için token-counter'ımızla eşleşir.">
   <meta property="og:title" content="RAG Metin Chunker — Toolhub">
   <meta property="og:description" content="RAG ve embedding pipeline'ları için ücretsiz tarayıcı içi metin chunker. Bir doküman yapıştır, chunk boyutu seç (token cinsinden, sezgisel tahmin), strateji seç (recursive character / sentence-aware / paragraph / semantic-boundary) ve isteğe bağlı overlap ile chunk listesini geri al. Dokümanları vector store ingestion için herhangi bir yere yüklemeden hazırlamak için yararlı. Boyutlandırma rehberliği için token-counter'ımızla eşleşir.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/rag-text-chunker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/rag-text-chunker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / RAG Metin Chunker</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / RAG Metin Chunker</nav>
     <h1>RAG Metin Chunker</h1>
     <p class="tagline">Metni RAG / embedding hazırlığı için token boyutunda chunk'lara böl. Birden fazla strateji: recursive char, sentence-aware, semantic boundaries. Yapılandırılabilir overlap. Hepsi tarayıcıda.</p>
     

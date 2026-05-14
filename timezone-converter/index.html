@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Time Zone Converter — Toolhub</title>
   <meta name="description" content="Free online time zone converter. Convert between any IANA time zones with DST awareness. Pick from common zones or any of the ~400+ supported by your browser.">
   <meta property="og:title" content="Time Zone Converter — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/">All Tools</a> / Time Zone Converter</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / Time Zone Converter</nav>
     <h1>Time Zone Converter</h1>
     <p class="tagline">Convert a date and time between IANA time zones. See offsets, DST status, and weekday for both ends.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulator Nilai — Toolhub</title>
   <meta name="description" content="Kalkulator nilai berbobot gratis. Definisikan kategori penilaian dengan bobot persen (jumlah = 100), masukkan skor di tiap kategori, dan lihat nilai berjalan dengan huruf nilainya. Mode what-if menghitung skor yang kamu butuhkan di tugas yang tersisa (mis. 'Aku butuh 87 di final supaya tetap A-'). Simpan datamu sebagai fragmen URL untuk bookmark — tidak ada yang diunggah.">
   <meta property="og:title" content="Kalkulator Nilai — Toolhub">
   <meta property="og:description" content="Kalkulator nilai berbobot gratis. Definisikan kategori penilaian dengan bobot persen (jumlah = 100), masukkan skor di tiap kategori, dan lihat nilai berjalan dengan huruf nilainya. Mode what-if menghitung skor yang kamu butuhkan di tugas yang tersisa (mis. 'Aku butuh 87 di final supaya tetap A-'). Simpan datamu sebagai fragmen URL untuk bookmark — tidak ada yang diunggah.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/id/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/id/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Kalkulator Nilai</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Kalkulator Nilai</nav>
     <h1>Kalkulator Nilai</h1>
     <p class="tagline">Hitung nilai berbobot satu mata pelajaran. Atur kategori (PR / ujian / proyek / final) dengan bobotnya, masukkan skormu, lihat nilai berjalan. Mode what-if: 'Berapa yang harus aku dapat di final supaya A?'</p>
     

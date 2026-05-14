@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>MwSt.-Rechner — Toolhub</title>
   <meta name="description" content="Kostenloser MwSt.-Rechner mit aktuellen Sätzen für 30+ Länder. Land wählen, Kategorie (Standard, ermäßigt, null) wählen, Netto oder Brutto eingeben — die Aufteilung erscheint. Berücksichtigt jüngste Reformen (Slowakei 20%→23% in 2025, Estland 22%→24% u. a.) und länderspezifische ermäßigte Sätze. Kein Upload, kein Tracking, keine Anmeldung.">
   <meta property="og:title" content="MwSt.-Rechner — Toolhub">
   <meta property="og:description" content="Kostenloser MwSt.-Rechner mit aktuellen Sätzen für 30+ Länder. Land wählen, Kategorie (Standard, ermäßigt, null) wählen, Netto oder Brutto eingeben — die Aufteilung erscheint. Berücksichtigt jüngste Reformen (Slowakei 20%→23% in 2025, Estland 22%→24% u. a.) und länderspezifische ermäßigte Sätze. Kein Upload, kein Tracking, keine Anmeldung.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/vat-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/vat-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / MwSt.-Rechner</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / MwSt.-Rechner</nav>
     <h1>MwSt.-Rechner</h1>
     <p class="tagline">Mehrwertsteuer für jedes EU-Land, UK, die Schweiz und mehr berechnen — mit aktuellen 2025-Sätzen inkl. Reformen, die viele Tools übersehen. Regel-, ermäßigte und Null-Sätze.</p>
     

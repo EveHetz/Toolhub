@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình tạo Trích dẫn — Toolhub</title>
   <meta name="description" content="Công cụ định dạng trích dẫn miễn phí cho viết học thuật. Chọn loại nguồn (sách / bài báo tạp chí / website / chương sách / kỷ yếu hội thảo / luận văn / bài báo tin tức / báo cáo), nhập các trường (tác giả, tiêu đề, năm, nhà xuất bản…), chọn phong cách (APA 7, MLA 9, Chicago tác giả-năm, Harvard) và sao chép trích dẫn đã định dạng. Chế độ thư mục tạo danh sách đã sắp xếp. Không tra cứu bên ngoài, không API DOI, không theo dõi — chạy ngoại tuyến sau khi tải lần đầu.">
   <meta property="og:title" content="Trình tạo Trích dẫn — Toolhub">
   <meta property="og:description" content="Công cụ định dạng trích dẫn miễn phí cho viết học thuật. Chọn loại nguồn (sách / bài báo tạp chí / website / chương sách / kỷ yếu hội thảo / luận văn / bài báo tin tức / báo cáo), nhập các trường (tác giả, tiêu đề, năm, nhà xuất bản…), chọn phong cách (APA 7, MLA 9, Chicago tác giả-năm, Harvard) và sao chép trích dẫn đã định dạng. Chế độ thư mục tạo danh sách đã sắp xếp. Không tra cứu bên ngoài, không API DOI, không theo dõi — chạy ngoại tuyến sau khi tải lần đầu.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/citation-formatter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/citation-formatter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình tạo Trích dẫn</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình tạo Trích dẫn</nav>
     <h1>Trình tạo Trích dẫn</h1>
     <p class="tagline">Định dạng trích dẫn theo APA 7, MLA 9, Chicago và Harvard. Tự nhập trường — không tra DOI, không theo dõi. Hoạt động trong trình duyệt.</p>
     

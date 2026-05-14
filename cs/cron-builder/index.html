@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Cron Expression Builder — Toolhub</title>
   <meta name="description" content="Zdarma online cron expression builder. Postav crontab výraz vizuálně pomocí dropdownů pro minutu, hodinu, den, měsíc a weekday. Náhled dalších 5 spuštění v lidsky čitelné formě.">
   <meta property="og:title" content="Cron Expression Builder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Cron Expression Builder</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Cron Expression Builder</nav>
     <h1>Cron Expression Builder</h1>
     <p class="tagline">Postav cron výraz vizuálně — minuta, hodina, den, měsíc, weekday — a podívej se na náhled dalších 5 fire times.</p>
     

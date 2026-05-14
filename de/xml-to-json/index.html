@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML ↔ JSON Konverter — Toolhub</title>
   <meta name="description" content="Kostenloser XML-zu-JSON-Konverter (und JSON zurück zu XML). Verwendet den XML-Parser des Browsers; Attribute mit konfigurierbarem Präfix; wiederholte Elemente werden zu Arrays. Komplett im Browser.">
   <meta property="og:title" content="XML ↔ JSON Konverter — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / XML ↔ JSON Konverter</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / XML ↔ JSON Konverter</nav>
     <h1>XML ↔ JSON Konverter</h1>
     <p class="tagline">XML in JSON konvertieren oder JSON zurück in XML. Verarbeitet Attribute, Textknoten und Arrays sinnvoll.</p>
     

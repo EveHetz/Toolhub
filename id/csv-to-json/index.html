@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSV ke JSON — Toolhub</title>
   <meta name="description" content="Konverter CSV ke JSON gratis. Tempel CSV apa pun dan dapatkan array JSON dari objek. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip. Berjalan di browser-mu.">
   <meta property="og:title" content="CSV ke JSON — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / CSV ke JSON</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / CSV ke JSON</nav>
     <h1>CSV ke JSON</h1>
     <p class="tagline">Konversi data CSV ke array JSON. Menangani deteksi header, delimiter custom, field yang di-quote, dan newline tersisip.</p>
     

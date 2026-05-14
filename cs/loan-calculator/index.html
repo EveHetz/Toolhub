@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulačka úvěru — Toolhub</title>
   <meta name="description" content="Bezplatná kalkulačka úvěru / hypotéky. Zadej jistinu, roční úrokovou sazbu a dobu splácení v letech (nebo měsících): dostaneš měsíční splátku, celkové úroky za dobu úvěru, celkovou zaplacenou sumu a kompletní splátkový kalendář měsíc po měsíci (část jistiny + část úroku + zůstatek dluhu pro každý měsíc). Užitečné při porovnávání hypoték, autoúvěrů, spotřebitelských úvěrů.">
   <meta property="og:title" content="Kalkulačka úvěru — Toolhub">
   <meta property="og:description" content="Bezplatná kalkulačka úvěru / hypotéky. Zadej jistinu, roční úrokovou sazbu a dobu splácení v letech (nebo měsících): dostaneš měsíční splátku, celkové úroky za dobu úvěru, celkovou zaplacenou sumu a kompletní splátkový kalendář měsíc po měsíci (část jistiny + část úroku + zůstatek dluhu pro každý měsíc). Užitečné při porovnávání hypoték, autoúvěrů, spotřebitelských úvěrů.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/loan-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/loan-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kalkulačka úvěru</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kalkulačka úvěru</nav>
     <h1>Kalkulačka úvěru</h1>
     <p class="tagline">Vypočítá měsíční splátku, celkové úroky a kompletní splátkový kalendář pro jakýkoli úvěr. Fixní sazba, anuitní splácení. Pouze v prohlížeči.</p>
     

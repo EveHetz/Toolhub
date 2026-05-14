@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tối ưu hóa SVG — Toolhub</title>
   <meta name="description" content="Trình tối ưu hóa SVG miễn phí chạy hoàn toàn trong trình duyệt. Dán hoặc tải lên một SVG, nhận phiên bản đã nén với các mặc định hợp lý: bỏ chú thích, gộp khoảng trắng, loại bỏ thuộc tính dư thừa, làm tròn tọa độ đến 2 chữ số thập phân. Hiển thị kích thước trước/sau.">
   <meta property="og:title" content="Tối ưu hóa SVG — Toolhub">
   <meta property="og:description" content="Trình tối ưu hóa SVG miễn phí chạy hoàn toàn trong trình duyệt. Dán hoặc tải lên một SVG, nhận phiên bản đã nén với các mặc định hợp lý: bỏ chú thích, gộp khoảng trắng, loại bỏ thuộc tính dư thừa, làm tròn tọa độ đến 2 chữ số thập phân. Hiển thị kích thước trước/sau.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/svg-optimizer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/svg-optimizer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tối ưu hóa SVG</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tối ưu hóa SVG</nav>
     <h1>Tối ưu hóa SVG</h1>
     <p class="tagline">Nén file SVG ngay trong trình duyệt. Loại bỏ chú thích, khoảng trắng vô dụng, thuộc tính mặc định và làm tròn số thập phân dài. File không bao giờ rời thiết bị của bạn.</p>
     

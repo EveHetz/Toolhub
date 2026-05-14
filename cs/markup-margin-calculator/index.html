@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulačka přirážky a marže — Toolhub</title>
   <meta name="description" content="Bezplatná kalkulačka přirážky a marže v prohlížeči pro malé firmy, freelancery a obchodníky. Zadej nákladovou cenu a cílovou přirážku, cílovou marži nebo prodejní cenu — ostatní hodnoty a hrubý zisk se dopočítají. Vysvětluje rozdíl mezi přirážkou (% nad náklady) a marží (% z výnosu), zdroj většiny chyb v cenotvorbě.">
   <meta property="og:title" content="Kalkulačka přirážky a marže — Toolhub">
   <meta property="og:description" content="Bezplatná kalkulačka přirážky a marže v prohlížeči pro malé firmy, freelancery a obchodníky. Zadej nákladovou cenu a cílovou přirážku, cílovou marži nebo prodejní cenu — ostatní hodnoty a hrubý zisk se dopočítají. Vysvětluje rozdíl mezi přirážkou (% nad náklady) a marží (% z výnosu), zdroj většiny chyb v cenotvorbě.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/markup-margin-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markup-margin-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markup-margin-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/markup-margin-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kalkulačka přirážky a marže</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kalkulačka přirážky a marže</nav>
     <h1>Kalkulačka přirážky a marže</h1>
     <p class="tagline">Stanov maloobchodní ceny z nákladové. Zadej dvě z náklady / přirážka % / marže % / prodejní cena — zbylé dvě a zisk se dopočítají. Pouze v prohlížeči.</p>
     

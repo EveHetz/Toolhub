@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generator Faktur — Toolhub</title>
   <meta name="description" content="Generator faktur gratis di browser. Masukkan info bisnis (dari), info klien (ke), item baris (deskripsi / qty / tarif) — alat hitung subtotal, PPN (pilih negara + tarif), total. Output sebagai markdown ATAU HTML siap cetak — simpan sebagai PDF via dialog cetak browser-mu. Tanpa upload, tanpa daftar, tanpa layanan pihak ketiga. Menyimpan info bisnismu di fragmen URL agar tak perlu mengetik ulang.">
   <meta property="og:title" content="Generator Faktur — Toolhub">
   <meta property="og:description" content="Generator faktur gratis di browser. Masukkan info bisnis (dari), info klien (ke), item baris (deskripsi / qty / tarif) — alat hitung subtotal, PPN (pilih negara + tarif), total. Output sebagai markdown ATAU HTML siap cetak — simpan sebagai PDF via dialog cetak browser-mu. Tanpa upload, tanpa daftar, tanpa layanan pihak ketiga. Menyimpan info bisnismu di fragmen URL agar tak perlu mengetik ulang.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/id/invoice-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/id/invoice-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Generator Faktur</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Generator Faktur</nav>
     <h1>Generator Faktur</h1>
     <p class="tagline">Buat faktur rapi dalam markdown + HTML siap cetak. Isi form, lihat preview langsung, simpan sebagai PDF via cetak browser. Tanpa upload, tanpa daftar.</p>
     

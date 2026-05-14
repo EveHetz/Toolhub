@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Trình kiểm tra tương phản trên ảnh — Toolhub</title>
   <meta name="description" content="Trình kiểm tra tương phản WCAG miễn phí hoạt động trên ảnh đã upload. Nhấp hai điểm (ví dụ logo trên nền) và xem tỷ lệ tương phản với đạt/không đạt cho AA, AA-lớn, AAA, AAA-lớn. Bao gồm trình lấy mẫu màu với bán kính có thể cấu hình (1 pixel hoặc trung bình 5×5). Hữu ích để xác minh ảnh chụp màn hình theo tiêu chuẩn khả năng truy cập.">
   <meta property="og:title" content="Trình kiểm tra tương phản trên ảnh — Toolhub">
   <meta property="og:description" content="Trình kiểm tra tương phản WCAG miễn phí hoạt động trên ảnh đã upload. Nhấp hai điểm (ví dụ logo trên nền) và xem tỷ lệ tương phản với đạt/không đạt cho AA, AA-lớn, AAA, AAA-lớn. Bao gồm trình lấy mẫu màu với bán kính có thể cấu hình (1 pixel hoặc trung bình 5×5). Hữu ích để xác minh ảnh chụp màn hình theo tiêu chuẩn khả năng truy cập.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/image-contrast-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/image-contrast-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Trình kiểm tra tương phản trên ảnh</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Trình kiểm tra tương phản trên ảnh</nav>
     <h1>Trình kiểm tra tương phản trên ảnh</h1>
     <p class="tagline">Nhấp vào bất kỳ hai điểm nào trên ảnh để kiểm tra tương phản WCAG — AA, AAA, ngưỡng văn bản lớn. Dành cho designer xác minh ảnh chụp màn hình thực tế, không chỉ mã hex.</p>
     

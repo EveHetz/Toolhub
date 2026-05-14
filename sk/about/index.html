@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>O Toolhube — Toolhub</title>
   <meta name="description" content="Toolhub je malá utility stránka bez sledovania, ktorú postavil jeden človek. Bezplatné developer nástroje, čo bežia úplne v tvojom prehliadači — bez registrácie, bez zbierania údajov.">
   <meta property="og:title" content="O Toolhube — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" selected="selected">🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / O Toolhube</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / O Toolhube</nav>
     <h1>O Toolhube</h1>
     <h2>Čo Toolhub je</h2>
 <p>Toolhub je zbierka bezplatných developer nástrojov a každodenných utilít, ktoré bežia úplne v tvojom prehliadači. Bez registrácie, bez účtu, bez sledovania, bez spracovania na serveri. Vložíš svoje dáta, dostaneš výsledok, zavrieš záložku — nič sa neukladá ani neprenáša.</p>

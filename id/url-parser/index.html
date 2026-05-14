@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>URL Parser — Toolhub</title>
   <meta name="description" content="URL parser gratis. Tempel URL apa pun dan lihat protokol, host, port, path, parameter query yang di-decode, hash, dan origin-nya. Bantu debug masalah routing dan inspeksi link yang kompleks.">
   <meta property="og:title" content="URL Parser — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / URL Parser</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / URL Parser</nav>
     <h1>URL Parser</h1>
     <p class="tagline">Tempel URL apa pun — lihat protokol, host, port, path, parameter query (di-decode), hash, dan origin yang sudah diurai.</p>
     

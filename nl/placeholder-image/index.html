@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Placeholder Image Generator — Toolhub</title>
   <meta name="description" content="Gratis placeholder image-generator. Specificeer width × height, labeltekst en kleuren; krijg een inline SVG die je overal kunt plakken — data URI, raw markup of download. Draait volledig in je browser.">
   <meta property="og:title" content="Placeholder Image Generator — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Placeholder Image Generator</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Placeholder Image Generator</nav>
     <h1>Placeholder Image Generator</h1>
     <p class="tagline">Genereer inline-SVG placeholder images op elke size met custom tekst en kleuren. Output als data URI of downloadbaar SVG.</p>
     

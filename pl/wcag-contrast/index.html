@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Sprawdzacz Kontrastu WCAG — Toolhub</title>
   <meta name="description" content="Darmowy sprawdzacz kontrastu WCAG. Wybierz kolor tekstu i tła, dostań współczynnik (1:1 do 21:1) i werdykt pass/fail dla WCAG 2.1 AA i AAA — dla normalnego tekstu, dużego tekstu i komponentów UI.">
   <meta property="og:title" content="Sprawdzacz Kontrastu WCAG — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pl/">Wszystkie narzędzia</a> / Sprawdzacz Kontrastu WCAG</div>
+    <nav class="breadcrumb" aria-label="Okruszki"><a href="/pl/">Wszystkie narzędzia</a> / Sprawdzacz Kontrastu WCAG</nav>
     <h1>Sprawdzacz Kontrastu WCAG</h1>
     <p class="tagline">Sprawdź współczynnik kontrastu między dwoma kolorami. Werdykt pass/fail dla WCAG AA i AAA przy każdym rozmiarze tekstu.</p>
     

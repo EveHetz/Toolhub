@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>チャットスレッドビューア — Toolhub</title>
   <meta name="description" content="LLM 会話履歴のためのブラウザ完結ビューア（無料）。messages の JSON 配列（OpenAI Chat Completions 形式、Anthropic Messages API 形式、または LangChain のダンプ）を貼り付けると、見やすいチャットスレッドにレンダリングします。ロール別に色分けされたバブル、展開可能なツールコール引数、コードブロックのシンタックスハイライト、画像参照を表示。長い会話のデバッグや、プロンプトの事後監査に便利です。">
   <meta property="og:title" content="チャットスレッドビューア — Toolhub">
   <meta property="og:description" content="LLM 会話履歴のためのブラウザ完結ビューア（無料）。messages の JSON 配列（OpenAI Chat Completions 形式、Anthropic Messages API 形式、または LangChain のダンプ）を貼り付けると、見やすいチャットスレッドにレンダリングします。ロール別に色分けされたバブル、展開可能なツールコール引数、コードブロックのシンタックスハイライト、画像参照を表示。長い会話のデバッグや、プロンプトの事後監査に便利です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/chat-thread-viewer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/chat-thread-viewer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / チャットスレッドビューア</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / チャットスレッドビューア</nav>
     <h1>チャットスレッドビューア</h1>
     <p class="tagline">OpenAI または Anthropic の messages 配列（JSON）を貼り付けると、読みやすいチャットスレッドとして表示。ロール別に色分け。ツールコールの引数も展開可能。ブラウザ完結・アップロードなし。</p>
     

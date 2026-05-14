@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Générateur de Grilles d'Évaluation — Toolhub</title>
   <meta name="description" content="Générateur de grilles d'évaluation gratuit pour enseignants. Saisissez vos critères (par ex. 'Profondeur de la recherche', 'Clarté de l'écriture', 'Citations'), définissez les descripteurs par niveau (Excellent / Acquis / En développement / Émergent) et les points. Sortie : markdown propre et aperçu HTML prêt à imprimer. Modèles : dissertation, projet, exposé, travail de groupe, compte-rendu de TP. 100 % dans le navigateur — pas d'upload, pas d'inscription.">
   <meta property="og:title" content="Générateur de Grilles d'Évaluation — Toolhub">
   <meta property="og:description" content="Générateur de grilles d'évaluation gratuit pour enseignants. Saisissez vos critères (par ex. 'Profondeur de la recherche', 'Clarté de l'écriture', 'Citations'), définissez les descripteurs par niveau (Excellent / Acquis / En développement / Émergent) et les points. Sortie : markdown propre et aperçu HTML prêt à imprimer. Modèles : dissertation, projet, exposé, travail de groupe, compte-rendu de TP. 100 % dans le navigateur — pas d'upload, pas d'inscription.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Générateur de Grilles d'Évaluation</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Générateur de Grilles d'Évaluation</nav>
     <h1>Générateur de Grilles d'Évaluation</h1>
     <p class="tagline">Générez des grilles d'évaluation prêtes à imprimer (markdown + aperçu HTML + vue impression) à partir de critères et de niveaux de maîtrise. Pensé pour les enseignants.</p>
     

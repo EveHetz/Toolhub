@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculadora de Gorjeta e Rachar a Conta — Toolhub</title>
   <meta name="description" content="Calculadora gratuita de gorjeta e divisão de conta. Informe a conta, a porcentagem de gorjeta e o número de pessoas. Veja o valor da gorjeta, o total geral e a parte de cada um. Arredondamento opcional para cima.">
   <meta property="og:title" content="Calculadora de Gorjeta e Rachar a Conta — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Calculadora de Gorjeta e Rachar a Conta</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Calculadora de Gorjeta e Rachar a Conta</nav>
     <h1>Calculadora de Gorjeta e Rachar a Conta</h1>
     <p class="tagline">Total da conta + gorjeta % + pessoas = valor por pessoa. Opção de arredondar para cima, mostra gorjeta e total geral.</p>
     

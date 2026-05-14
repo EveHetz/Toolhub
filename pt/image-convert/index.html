@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Conversor de formato de imagem — Toolhub</title>
   <meta name="description" content="Conversor gratuito de formato de imagem no browser. Alterne entre PNG, JPG e WebP. Os arquivos ficam no seu dispositivo — nada é enviado. Útil pra encolher JPGs pra WebP, ou pra adicionar suporte a transparência indo pra PNG.">
   <meta property="og:title" content="Conversor de formato de imagem — Toolhub">
   <meta property="og:description" content="Conversor gratuito de formato de imagem no browser. Alterne entre PNG, JPG e WebP. Os arquivos ficam no seu dispositivo — nada é enviado. Útil pra encolher JPGs pra WebP, ou pra adicionar suporte a transparência indo pra PNG.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Conversor de formato de imagem</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Conversor de formato de imagem</nav>
     <h1>Conversor de formato de imagem</h1>
     <p class="tagline">Converta imagens entre PNG, JPG e WebP no seu browser. Solte, escolha o formato alvo, baixe. Sem upload, sem servidor.</p>
     

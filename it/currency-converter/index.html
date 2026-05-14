@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertitore di Valute — Toolhub</title>
   <meta name="description" content="Convertitore di valute gratuito nel browser con tassi di riferimento integrati, aggiornati trimestralmente. Scegli origine e destinazione, inserisci l'importo, leggi il risultato. La data di riferimento è mostrata — verifica sempre col tasso reale della tua banca prima di emettere una fattura. Volutamente non recuperiamo tassi live: farebbe trapelare le tue richieste a terzi. Per i pagamenti reali, usa la banca o un FX desk.">
   <meta property="og:title" content="Convertitore di Valute — Toolhub">
   <meta property="og:description" content="Convertitore di valute gratuito nel browser con tassi di riferimento integrati, aggiornati trimestralmente. Scegli origine e destinazione, inserisci l'importo, leggi il risultato. La data di riferimento è mostrata — verifica sempre col tasso reale della tua banca prima di emettere una fattura. Volutamente non recuperiamo tassi live: farebbe trapelare le tue richieste a terzi. Per i pagamenti reali, usa la banca o un FX desk.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Convertitore di Valute</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Convertitore di Valute</nav>
     <h1>Convertitore di Valute</h1>
     <p class="tagline">Converti tra 50+ valute con tassi di riferimento a una data nota. Niente API live, niente tracking — utile per stime e preventivi freelance. Verifica sempre prima di fatturare.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculateur de Pourboire et Partage — Toolhub</title>
   <meta name="description" content="Calculateur gratuit de pourboire et partage. Entrez l'addition, le pourcentage et le nombre de personnes. Pourboire, total et part par personne calculés. Arrondi en option.">
   <meta property="og:title" content="Calculateur de Pourboire et Partage — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Calculateur de Pourboire et Partage</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Calculateur de Pourboire et Partage</nav>
     <h1>Calculateur de Pourboire et Partage</h1>
     <p class="tagline">Addition + pourboire % + personnes = montant par personne. Arrondi en option. Pourboire et total affichés.</p>
     

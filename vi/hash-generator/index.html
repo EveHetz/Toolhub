@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tạo Hash — Toolhub</title>
   <meta name="description" content="Trình tạo hash miễn phí trực tuyến hỗ trợ SHA-1, SHA-256, SHA-384 và SHA-512. Sử dụng API WebCrypto của trình duyệt — đầu vào của bạn không bao giờ rời khỏi thiết bị.">
   <meta property="og:title" content="Tạo Hash — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tạo Hash</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tạo Hash</nav>
     <h1>Tạo Hash</h1>
     <p class="tagline">Hash văn bản với SHA-1, SHA-256, SHA-384 hoặc SHA-512 bằng WebCrypto của trình duyệt. Tính cục bộ — đầu vào không bao giờ rời khỏi trang.</p>
     

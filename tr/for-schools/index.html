@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Okullar için Toolhub — Toolhub</title>
   <meta name="description" content="Sınıf için privacy-first geliştirici ve utility araçları. Kayıt yok, takip yok, çok dilli, self-hostable. Filtre-dostu ve öğrencilerle paylaşmak için güvenli.">
   <meta property="og:title" content="Okullar için Toolhub — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Okullar için Toolhub</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Okullar için Toolhub</nav>
     <h1>Okullar için Toolhub</h1>
     <h2>Sınıfta Toolhub</h2>
 <p>Toolhub, öğrencilerin hesap oluşturmadan, takip edilmeden ve reklam veya affiliate huni'lerine yönlendirilmeden kullanabilecekleri küçük tarayıcı içi araçlar setidir. Her araç tamamen tarayıcıda çalışır, bu da bir öğrencinin yazdığının okul ağını asla terk etmediği anlamına gelir — çağrılacak bir backend yoktur.</p>

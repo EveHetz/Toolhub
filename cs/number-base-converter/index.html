@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Konvertor číselné soustavy — Toolhub</title>
   <meta name="description" content="Zdarma online konvertor číselných soustav. Převeď čísla mezi binárkou (base 2), oktálkou (base 8), decimálkou (base 10), hexadecimálkou (base 16) a jakoukoli soustavou od 2 do 36.">
   <meta property="og:title" content="Konvertor číselné soustavy — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Konvertor číselné soustavy</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Konvertor číselné soustavy</nav>
     <h1>Konvertor číselné soustavy</h1>
     <p class="tagline">Převeď mezi binárkou, oktálkou, decimálkou, hexa a jakoukoli soustavou od 2 do 36.</p>
     

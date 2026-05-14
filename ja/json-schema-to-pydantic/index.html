@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON Schema → Pydantic — Toolhub</title>
   <meta name="description" content="JSON Schema → Pydantic v2 コードジェネレータ（無料）。JSON Schema を貼り付けると、型ヒント・Field() のデフォルト・バリデータ付きの Pydantic BaseModel クラスを生成します。Optional / Union も解決済み。LLM（OpenAI、Claude など）の構造化出力スキーマを設計したあと、対応する Pydantic クラスが必要なときに便利。ブラウザ内処理のみ、アップロードなし。">
   <meta property="og:title" content="JSON Schema → Pydantic — Toolhub">
   <meta property="og:description" content="JSON Schema → Pydantic v2 コードジェネレータ（無料）。JSON Schema を貼り付けると、型ヒント・Field() のデフォルト・バリデータ付きの Pydantic BaseModel クラスを生成します。Optional / Union も解決済み。LLM（OpenAI、Claude など）の構造化出力スキーマを設計したあと、対応する Pydantic クラスが必要なときに便利。ブラウザ内処理のみ、アップロードなし。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/json-schema-to-pydantic/">
-  <meta property="og:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/json-schema-to-pydantic/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / JSON Schema → Pydantic</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / JSON Schema → Pydantic</nav>
     <h1>JSON Schema → Pydantic</h1>
     <p class="tagline">ブラウザ内で JSON Schema を Pydantic v2 のモデルコードに変換。スキーマを貼ると、貼り付けられる Python クラスがそのまま得られます。LLM の構造化出力ワークフローに便利。</p>
     

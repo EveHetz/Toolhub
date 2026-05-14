@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Unicode Inspector — Toolhub</title>
   <meta name="description" content="मुफ़्त ऑनलाइन Unicode inspector। कोई भी टेक्स्ट पेस्ट करें और हर Unicode codepoint देखें: hex, decimal, UTF-8 byte क्रम, सामान्य श्रेणी और ज्ञात होने पर नाम। अदृश्य और भ्रमित करने वाले अक्षरों को हाइलाइट करता है।">
   <meta property="og:title" content="Unicode Inspector — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Unicode Inspector</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Unicode Inspector</nav>
     <h1>Unicode Inspector</h1>
     <p class="tagline">टेक्स्ट पेस्ट करें → हर codepoint की तालिका। Hex, decimal, UTF-8 bytes, श्रेणी। अदृश्य अक्षरों को पहचानें।</p>
     

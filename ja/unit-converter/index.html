@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>単位変換ツール — Toolhub</title>
   <meta name="description" content="オンライン無料の単位変換ツール。長さ（mm、cm、m、km、in、ft、yd、mi）、重さ（g、kg、lb、oz）、温度（C、F、K）、体積（mL、L、gal、fl oz）、面積（m²、ft²、acre、ha）を相互変換できます。">
   <meta property="og:title" content="単位変換ツール — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 単位変換ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 単位変換ツール</nav>
     <h1>単位変換ツール</h1>
     <p class="tagline">メートル法とヤード・ポンド法の長さ、重さ、温度、体積、面積を相互変換。</p>
     

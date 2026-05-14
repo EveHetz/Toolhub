@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>HTML Encoder / Decoder — Toolhub</title>
   <meta name="description" content="Ücretsiz online HTML entity encoder ve decoder. &amp; &lt; &gt; &quot; ' ve adlandırılmış entity'leri escape eder. Adlandırılmış, sayısal ve hex entity referanslarını çözer.">
   <meta property="og:title" content="HTML Encoder / Decoder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / HTML Encoder / Decoder</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / HTML Encoder / Decoder</nav>
     <h1>HTML Encoder / Decoder</h1>
     <p class="tagline">HTML özel karakterlerini escape et veya entity'leri geri çöz. Kullanıcı girdisini güvenle gömmek veya kodlanmış işaretlemeyi debug etmek için kullanışlı.</p>
     

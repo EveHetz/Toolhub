@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>お問い合わせ — Toolhub</title>
   <meta name="description" content="バグ報告・機能リクエスト・新ツールのアイデアは GitHub Issues、それ以外はメールで Toolhub のメンテナーへご連絡ください。">
   <meta property="og:title" content="お問い合わせ — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / お問い合わせ</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / お問い合わせ</nav>
     <h1>お問い合わせ</h1>
     <p>Toolhub は個人で運営するサイドプロジェクトです。返信はベストエフォートで、商用サポートではありません。お問い合わせフォームは用意していません — このサイトはあえてバックエンドを持たない設計です。</p>
 

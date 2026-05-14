@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formattatore HTML — Toolhub</title>
   <meta name="description" content="Formattatore e minificatore HTML gratuito. Pretty-print con indentazione configurabile, rimozione opzionale dei commenti, rispetto dei tag void/auto-chiudenti. 100% nel browser.">
   <meta property="og:title" content="Formattatore HTML — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Formattatore HTML</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Formattatore HTML</nav>
     <h1>Formattatore HTML</h1>
     <p class="tagline">Formatta e abbellisce HTML o minifica. Dimensione indentazione, rimozione commenti, consapevolezza tag auto-chiudenti.</p>
     

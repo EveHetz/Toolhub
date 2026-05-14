@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formateur SQL — Toolhub</title>
   <meta name="description" content="Formateur SQL gratuit. Pretty-print de SELECT/INSERT/UPDATE/DDL avec indentation cohérente, casse des mots-clés et alignement des clauses. Minify aussi. 100% dans le navigateur.">
   <meta property="og:title" content="Formateur SQL — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Formateur SQL</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Formateur SQL</nav>
     <h1>Formateur SQL</h1>
     <p class="tagline">Formatez et embellissez du SQL avec indentation, ou minifiez sur une ligne. Conscient du dialecte (ANSI / MySQL / Postgres).</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tung Xúc xắc — Toolhub</title>
   <meta name="description" content="Trình tung xúc xắc trực tuyến miễn phí. Hỗ trợ notation D&D chuẩn (1d20, 2d6+3, 4d6kh3, v.v.) bằng cách dùng crypto.getRandomValues của trình duyệt để các lần tung là công bằng và không thể đoán trước.">
   <meta property="og:title" content="Tung Xúc xắc — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tung Xúc xắc</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tung Xúc xắc</nav>
     <h1>Tung Xúc xắc</h1>
     <p class="tagline">Tung xúc xắc với notation D&D chuẩn — 2d6+3, 1d20, 4d6 lấy 3 cao nhất. RNG an toàn về mật mã.</p>
     

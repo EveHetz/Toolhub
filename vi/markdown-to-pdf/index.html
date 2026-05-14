@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown sang PDF — Toolhub</title>
   <meta name="description" content="Markdown → PDF miễn phí trong trình duyệt. Dán markdown, xem trước đã định dạng, nhấn 'Lưu thành PDF' — dùng tính năng in-thành-PDF có sẵn của trình duyệt (Tệp → Lưu thành PDF, hoặc Ctrl+P → đích: PDF). Hỗ trợ tiêu đề, khối code, bảng, ảnh qua URL, trích dẫn. Chủ đề: Đơn giản / Học thuật / Hiện đại. Khổ giấy: A4 hoặc US Letter. Tương thích với trình tạo rubric và mẫu giáo án của chúng tôi — dán markdown của chúng vào đây.">
   <meta property="og:title" content="Markdown sang PDF — Toolhub">
   <meta property="og:description" content="Markdown → PDF miễn phí trong trình duyệt. Dán markdown, xem trước đã định dạng, nhấn 'Lưu thành PDF' — dùng tính năng in-thành-PDF có sẵn của trình duyệt (Tệp → Lưu thành PDF, hoặc Ctrl+P → đích: PDF). Hỗ trợ tiêu đề, khối code, bảng, ảnh qua URL, trích dẫn. Chủ đề: Đơn giản / Học thuật / Hiện đại. Khổ giấy: A4 hoặc US Letter. Tương thích với trình tạo rubric và mẫu giáo án của chúng tôi — dán markdown của chúng vào đây.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/markdown-to-pdf/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/markdown-to-pdf/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Markdown sang PDF</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Markdown sang PDF</nav>
     <h1>Markdown sang PDF</h1>
     <p class="tagline">Chuyển markdown thành PDF in được trong trình duyệt. Dán, xem trước, lưu thành PDF qua hộp thoại in của trình duyệt. Không tải lên, không máy chủ.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>SQL Formatter — Toolhub</title>
   <meta name="description" content="मुफ़्त ऑनलाइन SQL formatter। किसी भी SELECT/INSERT/UPDATE/DDL को सुसंगत indentation, keyword casing, और clause alignment के साथ pretty-print करता है। एक line में minify भी करता है। पूरी तरह आपके browser में चलता है।">
   <meta property="og:title" content="SQL Formatter — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / SQL Formatter</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / SQL Formatter</nav>
     <h1>SQL Formatter</h1>
     <p class="tagline">SQL को उचित indentation के साथ फ़ॉर्मैट और सुंदर बनाएं, या एक line में minify करें। Dialect-aware (ANSI / MySQL / Postgres)।</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Giới thiệu Toolhub — Toolhub</title>
   <meta name="description" content="Toolhub là một site tiện ích nhỏ không theo dõi do một người xây dựng. Công cụ dev miễn phí chạy hoàn toàn trong trình duyệt của bạn, không cần đăng ký, không thu thập dữ liệu.">
   <meta property="og:title" content="Giới thiệu Toolhub — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Giới thiệu Toolhub</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Giới thiệu Toolhub</nav>
     <h1>Giới thiệu Toolhub</h1>
     <h2>Toolhub là gì</h2>
 <p>Toolhub là một bộ sưu tập công cụ dev và tiện ích hằng ngày miễn phí, chạy hoàn toàn trong trình duyệt của bạn. Không cần đăng ký, không có tài khoản, không theo dõi, không xử lý phía server. Dán dữ liệu vào, lấy kết quả, đóng tab — không có gì được lưu hoặc truyền đi.</p>

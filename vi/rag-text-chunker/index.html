@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Bộ chia chunk văn bản cho RAG — Toolhub</title>
   <meta name="description" content="Bộ chia chunk văn bản miễn phí trong trình duyệt cho pipeline RAG và embedding. Dán một tài liệu, chọn kích thước chunk (theo token, ước tính heuristic), chọn chiến lược (recursive character / sentence-aware / paragraph / semantic-boundary), và nhận danh sách chunk với overlap tùy chọn. Hữu ích để chuẩn bị tài liệu cho ingest vector store mà không cần upload đi đâu cả. Kết hợp với token-counter của chúng tôi để hướng dẫn sizing.">
   <meta property="og:title" content="Bộ chia chunk văn bản cho RAG — Toolhub">
   <meta property="og:description" content="Bộ chia chunk văn bản miễn phí trong trình duyệt cho pipeline RAG và embedding. Dán một tài liệu, chọn kích thước chunk (theo token, ước tính heuristic), chọn chiến lược (recursive character / sentence-aware / paragraph / semantic-boundary), và nhận danh sách chunk với overlap tùy chọn. Hữu ích để chuẩn bị tài liệu cho ingest vector store mà không cần upload đi đâu cả. Kết hợp với token-counter của chúng tôi để hướng dẫn sizing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/rag-text-chunker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/rag-text-chunker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Bộ chia chunk văn bản cho RAG</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Bộ chia chunk văn bản cho RAG</nav>
     <h1>Bộ chia chunk văn bản cho RAG</h1>
     <p class="tagline">Chia văn bản thành các chunk theo kích thước token để chuẩn bị RAG / embeddings. Nhiều chiến lược: recursive char, sentence-aware, semantic boundaries. Overlap có thể cấu hình. Tất cả trong trình duyệt.</p>
     

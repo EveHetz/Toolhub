@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub voor scholen — Toolhub</title>
   <meta name="description" content="Privacy-first developer- en utility-tools voor in de klas. Geen registratie, geen tracking, meertalig, self-hostable. Filter-vriendelijk en veilig om met leerlingen te delen.">
   <meta property="og:title" content="Toolhub voor scholen — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Toolhub voor scholen</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Toolhub voor scholen</nav>
     <h1>Toolhub voor scholen</h1>
     <h2>Toolhub in de klas</h2>
 <p>Toolhub is een set kleine in-browser tools die leerlingen kunnen gebruiken zonder een account aan te maken, zonder gevolgd te worden en zonder doorgestuurd te worden naar reclame of affiliate-funnels. Elke tool draait volledig in de browser, wat betekent dat wat een leerling intypt nooit het schoolnetwerk verlaat — er is geen backend om aan te roepen.</p>

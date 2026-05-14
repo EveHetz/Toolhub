@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>経費割り勘ツール — Toolhub</title>
   <meta name="description" content="ブラウザだけで動く無料の経費割り勘ツール。支出（誰が払ったか、金額、誰が負担するか）を追加し、グループを定義すると、各自の純残高と最小限の振込で精算する手順（「Alice は Bob に X 円返す」）を得られます。不均等な分担（一人が多めに負担、など）に対応し、グループあたり 1 通貨を扱えます（換算は行いません）。旅行・シェアハウス・グループでの食事に便利。">
   <meta property="og:title" content="経費割り勘ツール — Toolhub">
   <meta property="og:description" content="ブラウザだけで動く無料の経費割り勘ツール。支出（誰が払ったか、金額、誰が負担するか）を追加し、グループを定義すると、各自の純残高と最小限の振込で精算する手順（「Alice は Bob に X 円返す」）を得られます。不均等な分担（一人が多めに負担、など）に対応し、グループあたり 1 通貨を扱えます（換算は行いません）。旅行・シェアハウス・グループでの食事に便利。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/expense-splitter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/expense-splitter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -338,11 +341,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 経費割り勘ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 経費割り勘ツール</nav>
     <h1>経費割り勘ツール</h1>
     <p class="tagline">グループの支出を均等または独自の割合（パーセントや固定額）で分割。出力は各自の残高と振込指示（「A は B に X 円返す」）。</p>
     

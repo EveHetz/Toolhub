@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>URL Parser — Toolhub</title>
   <meta name="description" content="Ücretsiz online URL parser. Herhangi bir URL'i protokol, host, port, path, query string, hash ve origin'e çözer; her query parametresi decoded gösterilir. Tamamen tarayıcında çalışır.">
   <meta property="og:title" content="URL Parser — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / URL Parser</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / URL Parser</nav>
     <h1>URL Parser</h1>
     <p class="tagline">Herhangi bir URL'i yapıştır — protokolü, host'u, port'u, path'i, query parametrelerini (decoded), hash'i ve origin'i ayrıştırılmış olarak gör.</p>
     

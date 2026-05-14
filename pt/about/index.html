@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Sobre o Toolhub — Toolhub</title>
   <meta name="description" content="Toolhub é um site pequeno de utilitários sem tracking, feito por uma pessoa só. Ferramentas grátis para devs que rodam inteiramente no seu navegador, sem cadastro e sem coletar dados.">
   <meta property="og:title" content="Sobre o Toolhub — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Sobre o Toolhub</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Sobre o Toolhub</nav>
     <h1>Sobre o Toolhub</h1>
     <h2>O que é o Toolhub</h2>
 <p>Toolhub é uma coleção de ferramentas grátis para devs e uso cotidiano que rodam inteiramente no seu navegador. Sem cadastro, sem conta, sem tracking, sem processamento no servidor. Você cola os dados, pega o resultado, fecha a aba — nada é guardado nem transmitido.</p>

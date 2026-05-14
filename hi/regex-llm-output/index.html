@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Regex LLM Output Extractor — Toolhub</title>
   <meta name="description" content="मुफ़्त regex builder LLM output extraction के लिए। आम cases pre-built हैं: ```json fences के अंदर JSON, plain JSON object, numbered list, key: value pairs, classification labels। LLM response paste करें, template चुनें (या अपना regex लिखें), matched groups live देखें। वह tool जिसकी ज़रूरत कोई admit नहीं करता पर हर project के लिए हर कोई नया लिखता है।">
   <meta property="og:title" content="Regex LLM Output Extractor — Toolhub">
   <meta property="og:description" content="मुफ़्त regex builder LLM output extraction के लिए। आम cases pre-built हैं: ```json fences के अंदर JSON, plain JSON object, numbered list, key: value pairs, classification labels। LLM response paste करें, template चुनें (या अपना regex लिखें), matched groups live देखें। वह tool जिसकी ज़रूरत कोई admit नहीं करता पर हर project के लिए हर कोई नया लिखता है।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/regex-llm-output/">
-  <meta property="og:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/regex-llm-output.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/regex-llm-output/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Regex LLM Output Extractor</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Regex LLM Output Extractor</nav>
     <h1>Regex LLM Output Extractor</h1>
     <p class="tagline">गन्दे LLM responses से structured data (JSON, code blocks, key-value pairs) निकालें। आम templates में से चुनें या अपना regex लिखें। Live preview।</p>
     

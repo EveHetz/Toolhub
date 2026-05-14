@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>System-Prompt-Linter — Toolhub</title>
   <meta name="description" content="Kostenloser System-Prompt-Linter. Prompt einfügen, Checkliste typischer Probleme erhalten: 'sei hilfreich'-Floskeln ohne Substanz, widersprüchliche Direktiven, keine Beispiele / Shot-Counts, Rollendrift, fehlende Notausstiege, aufgeblähter Vorlauf. Jeder Befund hat einen kurzen Fix-Vorschlag. Heuristisch — kein Orakel — fängt aber die offensichtlichen Lücken.">
   <meta property="og:title" content="System-Prompt-Linter — Toolhub">
   <meta property="og:description" content="Kostenloser System-Prompt-Linter. Prompt einfügen, Checkliste typischer Probleme erhalten: 'sei hilfreich'-Floskeln ohne Substanz, widersprüchliche Direktiven, keine Beispiele / Shot-Counts, Rollendrift, fehlende Notausstiege, aufgeblähter Vorlauf. Jeder Befund hat einen kurzen Fix-Vorschlag. Heuristisch — kein Orakel — fängt aber die offensichtlichen Lücken.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/system-prompt-linter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/system-prompt-linter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / System-Prompt-Linter</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / System-Prompt-Linter</nav>
     <h1>System-Prompt-Linter</h1>
     <p class="tagline">Analysiert einen System-Prompt auf häufige Probleme: vage Anweisungen, widersprüchliche Regeln, fehlende Beispiele, übergroßer Kontext. Heuristisch, meinungsstark, schnell.</p>
     

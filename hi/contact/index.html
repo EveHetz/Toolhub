@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>संपर्क — Toolhub</title>
   <meta name="description" content="Bug रिपोर्ट, feature अनुरोध और tool के सुझावों के लिए GitHub Issues के ज़रिए Toolhub maintainer से संपर्क करें, या बाक़ी सब के लिए email द्वारा।">
   <meta property="og:title" content="संपर्क — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / संपर्क</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / संपर्क</nav>
     <h1>संपर्क</h1>
     <p>Toolhub एक-व्यक्ति का side project है। Best-effort जवाब का समय, कोई व्यावसायिक support नहीं। यहाँ कोई संपर्क फ़ॉर्म नहीं है — इस साइट का जानबूझकर कोई backend नहीं है।</p>
 

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Cron Expression Parser — Toolhub</title>
   <meta name="description" content="Parser ekspresi cron gratis. Tempel ekspresi cron apa pun dan lihat 10 waktu eksekusi berikutnya dengan zona waktu yang dapat dipilih. Mendukung crontab 5-field standar dengan steps, ranges, dan list.">
   <meta property="og:title" content="Cron Expression Parser — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Cron Expression Parser</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Cron Expression Parser</nav>
     <h1>Cron Expression Parser</h1>
     <p class="tagline">Parse ekspresi cron dan lihat 10 waktu run berikutnya. Crontab 5-field standar.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSS Box-Shadow-Generator — Toolhub</title>
   <meta name="description" content="Kostenloser CSS Box-Shadow-Generator. Stapele mehrere Shadows, schalte inset, feinjustiere Blur und Spread, kopiere CSS mit einem Klick.">
   <meta property="og:title" content="CSS Box-Shadow-Generator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / CSS Box-Shadow-Generator</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / CSS Box-Shadow-Generator</nav>
     <h1>CSS Box-Shadow-Generator</h1>
     <p class="tagline">Erstelle einzel- oder mehrlagige CSS-Box-Shadows visuell. Offset, Blur, Spread, Farbe einstellen und CSS kopieren.</p>
     

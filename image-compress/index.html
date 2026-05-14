@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Image Compressor — Toolhub</title>
   <meta name="description" content="Free online image compressor for PNG, JPG, and WebP. Drop or pick an image, adjust the quality slider, and download a smaller version instantly. Everything happens in your browser — no upload, no server, no tracking.">
   <meta property="og:title" content="Image Compressor — Toolhub">
   <meta property="og:description" content="Free online image compressor for PNG, JPG, and WebP. Drop or pick an image, adjust the quality slider, and download a smaller version instantly. Everything happens in your browser — no upload, no server, no tracking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/image-compress/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/image-compress/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/">All Tools</a> / Image Compressor</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / Image Compressor</nav>
     <h1>Image Compressor</h1>
     <p class="tagline">Compress PNG, JPG, or WebP images right in your browser. Adjust quality, see before/after sizes, download. Files never leave your device.</p>
     

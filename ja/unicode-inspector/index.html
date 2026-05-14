@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Unicode インスペクター — Toolhub</title>
   <meta name="description" content="無料の Unicode インスペクター。任意のテキストを貼り付けると、各 Unicode コードポイントを hex、10 進、UTF-8 バイト列、一般カテゴリ、既知の名称付きで表示します。不可視文字や紛らわしい文字をハイライトします。">
   <meta property="og:title" content="Unicode インスペクター — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / Unicode インスペクター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / Unicode インスペクター</nav>
     <h1>Unicode インスペクター</h1>
     <p class="tagline">テキストを貼ると各コードポイントを一覧表示。hex、10 進、UTF-8 バイト、カテゴリ。不可視文字も発見。</p>
     

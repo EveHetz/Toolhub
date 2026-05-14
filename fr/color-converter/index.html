@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertisseur de Couleur — Toolhub</title>
   <meta name="description" content="Convertisseur de couleur gratuit en ligne. Conversion entre hex, rgb(), hsl() et le format moderne oklch(). Aperçu en direct, copie en un clic.">
   <meta property="og:title" content="Convertisseur de Couleur — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur de Couleur</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Convertisseur de Couleur</nav>
     <h1>Convertisseur de Couleur</h1>
     <p class="tagline">Convertissez toute couleur entre hex, RGB, HSL et OKLCH. Aperçu en direct, copier en un clic.</p>
     

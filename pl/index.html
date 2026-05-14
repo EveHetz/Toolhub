@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>toolhub.software — Darmowe Narzędzia Online dla Programistów</title>
   <meta name="description" content="60+ darmowych narzędzi online dla programistów — formatter JSON, generator haseł, koder Base64 i wiele więcej. Bez rejestracji, bez śledzenia.">
   <meta property="og:title" content="toolhub.software — Darmowe Narzędzia Online dla Programistów">
@@ -186,7 +189,7 @@
       <option value="cs">🇨🇿 Čeština</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami" aria-label="Zainstaluj Toolhub jako aplikację — działa offline, bez sklepu z aplikacjami">Zainstaluj aplikację</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Przełącz motyw" aria-label="Przełącz motyw">🌙</button>
     </div>
   </header>
 
@@ -234,7 +237,7 @@
   </footer>
 
   <script>
-                                                                                                                                                            const TOOLS = [
+                                                                                                                                                                const TOOLS = [
       {"slug": "ascii-table", "name": "Tabela ASCII", "desc": "Pełna referencja ASCII 0–127 z wartościami dec, hex, bin, znakiem i encją HTML. Z filtrem.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Encoder / Decoder Base64", "desc": "Koduj tekst do Base64 albo dekoduj Base64 z powrotem na tekst. Bezpieczny dla UTF-8, wariant base64url.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 do obrazka", "desc": "Zdekoduj obrazek Base64 albo data URI z powrotem do pliku. Wklej string, podgląd, pobierz. Odwrotność naszego narzędzia obrazek-do-Base64.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},

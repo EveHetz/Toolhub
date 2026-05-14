@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Lesbarkeits-Prüfer — Toolhub</title>
   <meta name="description" content="Kostenloser Lesbarkeits-Analysator im Browser. Text einfügen, alle gängigen Formeln sehen: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Nützlich für Lehrkräfte, die Lesematerial auf die Klassenstufe abstimmen, für Schreibende, die Zugänglichkeit prüfen, für Accessibility-Auditor:innen. Absatz-Breakdown markiert die dichtesten Stellen. Pure JS — kein Upload, keine Anmeldung, kein Tracking.">
   <meta property="og:title" content="Lesbarkeits-Prüfer — Toolhub">
   <meta property="og:description" content="Kostenloser Lesbarkeits-Analysator im Browser. Text einfügen, alle gängigen Formeln sehen: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Nützlich für Lehrkräfte, die Lesematerial auf die Klassenstufe abstimmen, für Schreibende, die Zugänglichkeit prüfen, für Accessibility-Auditor:innen. Absatz-Breakdown markiert die dichtesten Stellen. Pure JS — kein Upload, keine Anmeldung, kein Tracking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/readability-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/readability-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Lesbarkeits-Prüfer</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Lesbarkeits-Prüfer</nav>
     <h1>Lesbarkeits-Prüfer</h1>
     <p class="tagline">Berechne Flesch Reading Ease, Flesch-Kincaid-Klasse, Gunning Fog, SMOG und Coleman-Liau für deinen Text. Erkenne dichte Absätze, ziele auf die richtige Klassenstufe.</p>
     

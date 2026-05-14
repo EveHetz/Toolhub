@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Creditcard-validator — Toolhub</title>
   <meta name="description" content="Gratis online creditcard-validator. Luhn (mod-10) checksum, brand-detectie (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) en lengtecontrole. 100% client-side.">
   <meta property="og:title" content="Creditcard-validator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Creditcard-validator</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Creditcard-validator</nav>
     <h1>Creditcard-validator</h1>
     <p class="tagline">Valideer een kaartnummer met de Luhn-check en detecteer het kaartmerk. Draait lokaal — je nummer wordt nooit verzonden.</p>
     

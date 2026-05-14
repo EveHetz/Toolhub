@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Bộ Chuyển Đổi Tiền Tệ — Toolhub</title>
   <meta name="description" content="Bộ chuyển đổi tiền tệ miễn phí trong trình duyệt với tỷ giá tham chiếu nhúng sẵn, cập nhật hàng quý. Chọn nguồn và đích, nhập số tiền, xem kết quả. Ngày tham chiếu được hiển thị — luôn kiểm tra lại tỷ giá thực của ngân hàng trước khi gửi hóa đơn. Chúng tôi cố ý không lấy tỷ giá live: làm vậy sẽ rò rỉ truy vấn của bạn cho bên thứ ba. Với giao dịch thực, dùng ngân hàng hoặc bàn ngoại hối.">
   <meta property="og:title" content="Bộ Chuyển Đổi Tiền Tệ — Toolhub">
   <meta property="og:description" content="Bộ chuyển đổi tiền tệ miễn phí trong trình duyệt với tỷ giá tham chiếu nhúng sẵn, cập nhật hàng quý. Chọn nguồn và đích, nhập số tiền, xem kết quả. Ngày tham chiếu được hiển thị — luôn kiểm tra lại tỷ giá thực của ngân hàng trước khi gửi hóa đơn. Chúng tôi cố ý không lấy tỷ giá live: làm vậy sẽ rò rỉ truy vấn của bạn cho bên thứ ba. Với giao dịch thực, dùng ngân hàng hoặc bàn ngoại hối.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Bộ Chuyển Đổi Tiền Tệ</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Bộ Chuyển Đổi Tiền Tệ</nav>
     <h1>Bộ Chuyển Đổi Tiền Tệ</h1>
     <p class="tagline">Chuyển đổi giữa 50+ tiền tệ với tỷ giá tham chiếu tại ngày đã biết. Không API live, không tracking — hữu ích cho ước tính và báo giá freelance nhanh. Luôn xác minh trước khi xuất hóa đơn.</p>
     

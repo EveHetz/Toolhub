@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Beeld-kleurpicker — Toolhub</title>
   <meta name="description" content="Gratis beeld-kleurpicker die in je browser draait. Drop een PNG, JPG of WebP en klik op elke pixel om zijn hex/RGB/HSL-waarden te lezen. Klik op meerdere punten om een eigen palet op te bouwen. Bevat een hover-loep voor pixel-perfect picken. Bestanden verlaten je apparaat nooit.">
   <meta property="og:title" content="Beeld-kleurpicker — Toolhub">
   <meta property="og:description" content="Gratis beeld-kleurpicker die in je browser draait. Drop een PNG, JPG of WebP en klik op elke pixel om zijn hex/RGB/HSL-waarden te lezen. Klik op meerdere punten om een eigen palet op te bouwen. Bevat een hover-loep voor pixel-perfect picken. Bestanden verlaten je apparaat nooit.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/image-color-picker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/image-color-picker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Beeld-kleurpicker</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Beeld-kleurpicker</nav>
     <h1>Beeld-kleurpicker</h1>
     <p class="tagline">Upload een afbeelding en klik ergens om de hex, RGB en HSL van die pixel te krijgen. Bouw een custom palet door meerdere punten te klikken. Pure browser, geen upload.</p>
     

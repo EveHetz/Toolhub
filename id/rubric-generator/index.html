@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generator Rubrik Penilaian — Toolhub</title>
   <meta name="description" content="Generator rubrik penilaian gratis untuk guru. Masukkan kriteria (mis. 'Kedalaman riset', 'Kejelasan tulisan', 'Sitasi'), tentukan deskriptor tiap level (mis. Sangat Baik / Kompeten / Berkembang / Awal) dan poin per level. Output: markdown rapi plus pratinjau HTML siap cetak. Template siap pakai: esai, proyek, presentasi, kerja kelompok, laporan praktikum. Sepenuhnya di browser — tanpa upload, tanpa daftar.">
   <meta property="og:title" content="Generator Rubrik Penilaian — Toolhub">
   <meta property="og:description" content="Generator rubrik penilaian gratis untuk guru. Masukkan kriteria (mis. 'Kedalaman riset', 'Kejelasan tulisan', 'Sitasi'), tentukan deskriptor tiap level (mis. Sangat Baik / Kompeten / Berkembang / Awal) dan poin per level. Output: markdown rapi plus pratinjau HTML siap cetak. Template siap pakai: esai, proyek, presentasi, kerja kelompok, laporan praktikum. Sepenuhnya di browser — tanpa upload, tanpa daftar.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/id/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/id/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Generator Rubrik Penilaian</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Generator Rubrik Penilaian</nav>
     <h1>Generator Rubrik Penilaian</h1>
     <p class="tagline">Buat rubrik penilaian siap cetak (markdown + pratinjau HTML + tampilan cetak) dari daftar kriteria dan level pencapaian. Untuk guru yang merencanakan asesmen.</p>
     

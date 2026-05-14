@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Editor Tabel Markdown — Toolhub</title>
   <meta name="description" content="Editor tabel Markdown gratis. Edit tabel di antarmuka spreadsheet, atur alignment kolom, tambah/hapus baris dan kolom, dan dapatkan Markdown GFM siap-tempel. Tempel CSV/TSV untuk import cepat.">
   <meta property="og:title" content="Editor Tabel Markdown — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Editor Tabel Markdown</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Editor Tabel Markdown</nav>
     <h1>Editor Tabel Markdown</h1>
     <p class="tagline">Edit tabel secara visual — baris, kolom, alignment per kolom — dan salin Markdown yang kompatibel dengan GitHub.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CIDR Subnet kalkulačka — Toolhub</title>
   <meta name="description" content="Zdarma IPv4 CIDR / subnet kalkulačka. Zadej jakýkoli CIDR (např. 10.0.0.0/16) a uvidíš network address, broadcast, subnet mask, host range, celkový počet adres a binární reprezentaci.">
   <meta property="og:title" content="CIDR Subnet kalkulačka — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / CIDR Subnet kalkulačka</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / CIDR Subnet kalkulačka</nav>
     <h1>CIDR Subnet kalkulačka</h1>
     <p class="tagline">Spočítej IPv4 subnety z CIDR notace. Network, broadcast, mask, host range a binární pohled.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Text Diff — Toolhub</title>
   <meta name="description" content="Tool diff teks gratis. Bandingkan dua blok teks dan lihat perbedaannya baris demi baris dengan penambahan, penghapusan, dan konteks tak berubah disorot. Beralih antara tampilan side-by-side dan unified.">
   <meta property="og:title" content="Text Diff — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Text Diff</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Text Diff</nav>
     <h1>Text Diff</h1>
     <p class="tagline">Bandingkan dua blok teks dan lihat penambahan, penghapusan, dan konteks tak berubah baris demi baris. Tampilan side-by-side atau unified.</p>
     

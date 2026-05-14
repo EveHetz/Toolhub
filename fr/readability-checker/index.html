@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Vérificateur de Lisibilité — Toolhub</title>
   <meta name="description" content="Analyseur de lisibilité gratuit dans le navigateur. Collez n'importe quel texte, obtenez les formules majeures : Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog, SMOG, Coleman-Liau, Automated Readability Index. Utile aux enseignant·e·s qui calibrent les supports au niveau de la classe, aux rédacteur·rice·s qui vérifient l'accessibilité, aux auditeurs d'accessibilité. La ventilation par paragraphe met en évidence les passages les plus denses. JS pur — pas d'upload, pas d'inscription, pas de tracking.">
   <meta property="og:title" content="Vérificateur de Lisibilité — Toolhub">
   <meta property="og:description" content="Analyseur de lisibilité gratuit dans le navigateur. Collez n'importe quel texte, obtenez les formules majeures : Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog, SMOG, Coleman-Liau, Automated Readability Index. Utile aux enseignant·e·s qui calibrent les supports au niveau de la classe, aux rédacteur·rice·s qui vérifient l'accessibilité, aux auditeurs d'accessibilité. La ventilation par paragraphe met en évidence les passages les plus denses. JS pur — pas d'upload, pas d'inscription, pas de tracking.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/readability-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/readability-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Vérificateur de Lisibilité</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Vérificateur de Lisibilité</nav>
     <h1>Vérificateur de Lisibilité</h1>
     <p class="tagline">Calculez Flesch Reading Ease, Flesch-Kincaid, Gunning Fog, SMOG et Coleman-Liau sur votre texte. Repérez les paragraphes denses, visez le bon niveau scolaire.</p>
     

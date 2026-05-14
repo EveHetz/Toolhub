@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Zitations-Formatierer — Toolhub</title>
   <meta name="description" content="Kostenloser Zitations-Formatierer für wissenschaftliche Arbeiten. Quellentyp wählen (Buch / Zeitschriftenartikel / Webseite / Buchkapitel / Konferenzbeitrag / Abschlussarbeit / Zeitungsartikel / Bericht), Felder ausfüllen (Autor:innen, Titel, Jahr, Verlag …), Stil auswählen (APA 7, MLA 9, Chicago Autor-Datum, Harvard) und die formatierte Quellenangabe kopieren. Im Literaturlisten-Modus baust du eine sortierte Liste. Keine externen Abfragen, keine DOI-API, kein Tracking — funktioniert offline.">
   <meta property="og:title" content="Zitations-Formatierer — Toolhub">
   <meta property="og:description" content="Kostenloser Zitations-Formatierer für wissenschaftliche Arbeiten. Quellentyp wählen (Buch / Zeitschriftenartikel / Webseite / Buchkapitel / Konferenzbeitrag / Abschlussarbeit / Zeitungsartikel / Bericht), Felder ausfüllen (Autor:innen, Titel, Jahr, Verlag …), Stil auswählen (APA 7, MLA 9, Chicago Autor-Datum, Harvard) und die formatierte Quellenangabe kopieren. Im Literaturlisten-Modus baust du eine sortierte Liste. Keine externen Abfragen, keine DOI-API, kein Tracking — funktioniert offline.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/citation-formatter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/citation-formatter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Zitations-Formatierer</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Zitations-Formatierer</nav>
     <h1>Zitations-Formatierer</h1>
     <p class="tagline">Zitate in APA 7, MLA 9, Chicago und Harvard formatieren. Felder selbst eintragen — keine DOI-Abfragen, kein Tracking. Nur im Browser.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JWT デコーダー — Toolhub</title>
   <meta name="description" content="オンライン無料の JSON Web Token デコーダー。ヘッダーとペイロードのデコード、有効期限のタイムスタンプ確認、署名の表示まで対応。完全にオフライン（ブラウザ内）で動作します。">
   <meta property="og:title" content="JWT デコーダー — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / JWT デコーダー</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / JWT デコーダー</nav>
     <h1>JWT デコーダー</h1>
     <p class="tagline">JWT を貼り付けてヘッダーとペイロードをデコード。すべてブラウザ内で処理し、トークンはページから外に出ません。</p>
     

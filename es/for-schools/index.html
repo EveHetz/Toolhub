@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub para escuelas — Toolhub</title>
   <meta name="description" content="Herramientas para desarrolladores y utilidades, centradas en la privacidad, pensadas para el aula. Sin registro, sin tracking, multilingüe y autoalojable. Compatible con filtros web y seguro para compartir con estudiantes.">
   <meta property="og:title" content="Toolhub para escuelas — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Toolhub para escuelas</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Toolhub para escuelas</nav>
     <h1>Toolhub para escuelas</h1>
     <h2>Toolhub en el aula</h2>
 <p>Toolhub es un conjunto de pequeñas herramientas que funcionan en el navegador y que los estudiantes pueden usar sin crear una cuenta, sin ser rastreados y sin que se les redirija a anuncios o embudos de afiliados. Cada herramienta corre enteramente en el navegador, lo que significa que lo que el estudiante escribe nunca sale de la red del centro — no hay backend al que llamar.</p>

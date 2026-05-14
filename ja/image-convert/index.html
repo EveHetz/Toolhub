@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>画像フォーマット変換 — Toolhub</title>
   <meta name="description" content="ブラウザ内で動作する無料の画像フォーマット変換ツール。PNG・JPG・WebP を相互に変換します。ファイルは端末から外に出ません。JPG → WebP でサイズを縮める、PNG にして透過を得るなどに便利です。">
   <meta property="og:title" content="画像フォーマット変換 — Toolhub">
   <meta property="og:description" content="ブラウザ内で動作する無料の画像フォーマット変換ツール。PNG・JPG・WebP を相互に変換します。ファイルは端末から外に出ません。JPG → WebP でサイズを縮める、PNG にして透過を得るなどに便利です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 画像フォーマット変換</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 画像フォーマット変換</nav>
     <h1>画像フォーマット変換</h1>
     <p class="tagline">PNG・JPG・WebP の相互変換をブラウザ内で実行。画像を選び、出力形式を指定してダウンロード。アップロードもサーバーも不要です。</p>
     

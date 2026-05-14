@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Conversor de Moedas — Toolhub</title>
   <meta name="description" content="Conversor de moedas gratuito no navegador com taxas de referência incorporadas, atualizadas trimestralmente. Escolha origem e destino, digite o valor, veja o resultado. A data de referência é mostrada — verifique sempre com a taxa real do seu banco antes de emitir uma fatura. Deliberadamente não buscamos taxas ao vivo: isso vazaria suas consultas para terceiros. Para transações reais, use seu banco ou mesa de câmbio.">
   <meta property="og:title" content="Conversor de Moedas — Toolhub">
   <meta property="og:description" content="Conversor de moedas gratuito no navegador com taxas de referência incorporadas, atualizadas trimestralmente. Escolha origem e destino, digite o valor, veja o resultado. A data de referência é mostrada — verifique sempre com a taxa real do seu banco antes de emitir uma fatura. Deliberadamente não buscamos taxas ao vivo: isso vazaria suas consultas para terceiros. Para transações reais, use seu banco ou mesa de câmbio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Conversor de Moedas</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Conversor de Moedas</nav>
     <h1>Conversor de Moedas</h1>
     <p class="tagline">Converte entre 50+ moedas com taxas de referência numa data conhecida. Sem API ao vivo, sem rastreamento — útil para estimativas e orçamentos freelance. Verifique sempre antes de faturar.</p>
     

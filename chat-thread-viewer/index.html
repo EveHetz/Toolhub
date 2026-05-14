@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Chat Thread Viewer — Toolhub</title>
   <meta name="description" content="Free in-browser viewer for LLM conversation history. Paste a JSON messages array (OpenAI chat completions format, Anthropic Messages API format, or LangChain dump) and get a clean chat-thread render: role-colored bubbles, expandable tool-call parameters, syntax-highlighted code blocks, image references. Designed for debugging long conversations and audit-reviewing prompts post-hoc.">
   <meta property="og:title" content="Chat Thread Viewer — Toolhub">
   <meta property="og:description" content="Free in-browser viewer for LLM conversation history. Paste a JSON messages array (OpenAI chat completions format, Anthropic Messages API format, or LangChain dump) and get a clean chat-thread render: role-colored bubbles, expandable tool-call parameters, syntax-highlighted code blocks, image references. Designed for debugging long conversations and audit-reviewing prompts post-hoc.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/chat-thread-viewer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/chat-thread-viewer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/chat-thread-viewer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/">All Tools</a> / Chat Thread Viewer</div>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / Chat Thread Viewer</nav>
     <h1>Chat Thread Viewer</h1>
     <p class="tagline">Paste an OpenAI or Anthropic messages array (JSON) and see it rendered as a readable chat thread. Color-coded by role. Tool-call params expanded. Pure browser, no upload.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Editor di Tabelle Markdown — Toolhub</title>
   <meta name="description" content="Editor di tabelle Markdown gratuito. Clicca le celle per modificare, aggiungi/rimuovi righe e colonne, allineamento per colonna e copia il Markdown GFM. 100% nel browser.">
   <meta property="og:title" content="Editor di Tabelle Markdown — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Editor di Tabelle Markdown</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Editor di Tabelle Markdown</nav>
     <h1>Editor di Tabelle Markdown</h1>
     <p class="tagline">Modifica visualmente una tabella — righe, colonne, allineamento per colonna — e copia il Markdown stile GitHub.</p>
     

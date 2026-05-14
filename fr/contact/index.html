@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Contact — Toolhub</title>
   <meta name="description" content="Contacte le mainteneur de Toolhub via GitHub Issues pour les bugs, demandes de fonctionnalités et idées d'outils, ou par email pour le reste.">
   <meta property="og:title" content="Contact — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Contact</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Contact</nav>
     <h1>Contact</h1>
     <p>Toolhub est un side project d'une seule personne. Délais de réponse en best-effort, rien de commercial. Il n'y a pas de formulaire de contact — ce site n'a pas de backend, c'est voulu.</p>
 

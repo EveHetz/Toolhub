@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Afbeelding format-converter — Toolhub</title>
   <meta name="description" content="Gratis in-browser afbeelding-formaatconverter. Schakel tussen PNG, JPG en WebP. Bestanden blijven op je apparaat — niets wordt geüpload. Handig om JPGs naar WebP te verkleinen, of om transparantie toe te voegen door naar PNG te gaan.">
   <meta property="og:title" content="Afbeelding format-converter — Toolhub">
   <meta property="og:description" content="Gratis in-browser afbeelding-formaatconverter. Schakel tussen PNG, JPG en WebP. Bestanden blijven op je apparaat — niets wordt geüpload. Handig om JPGs naar WebP te verkleinen, of om transparantie toe te voegen door naar PNG te gaan.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Afbeelding format-converter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Afbeelding format-converter</nav>
     <h1>Afbeelding format-converter</h1>
     <p class="tagline">Converteer afbeeldingen tussen PNG, JPG en WebP in je browser. Drop, kies een doelformaat, download. Geen upload, geen server.</p>
     

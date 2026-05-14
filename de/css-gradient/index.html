@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSS-Gradient-Generator — Toolhub</title>
   <meta name="description" content="Kostenloser CSS-Gradient-Generator. Erstelle lineare oder radiale Gradienten mit beliebig vielen Farbstops, kopiere produktionsreifes CSS mit einem Klick.">
   <meta property="og:title" content="CSS-Gradient-Generator — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / CSS-Gradient-Generator</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / CSS-Gradient-Generator</nav>
     <h1>CSS-Gradient-Generator</h1>
     <p class="tagline">Erstelle lineare und radiale CSS-Gradienten visuell. Farbstops bearbeiten, fertiges CSS kopieren.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulačka známek — Toolhub</title>
   <meta name="description" content="Bezplatná kalkulačka vážených známek. Definuj hodnoticí kategorie s procentními vahami (součet 100), zapiš body do každé, a uvidíš průběžnou známku včetně písmena. Režim what-if vyřeší, kolik potřebuješ na zbývajícím hodnocení (např. 'potřebuju 87 % na závěrečné, abych udržel 1−'). Stav lze uložit jako fragment URL pro záložky — nic se nikam nenahrává.">
   <meta property="og:title" content="Kalkulačka známek — Toolhub">
   <meta property="og:description" content="Bezplatná kalkulačka vážených známek. Definuj hodnoticí kategorie s procentními vahami (součet 100), zapiš body do každé, a uvidíš průběžnou známku včetně písmena. Režim what-if vyřeší, kolik potřebuješ na zbývajícím hodnocení (např. 'potřebuju 87 % na závěrečné, abych udržel 1−'). Stav lze uložit jako fragment URL pro záložky — nic se nikam nenahrává.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kalkulačka známek</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kalkulačka známek</nav>
     <h1>Kalkulačka známek</h1>
     <p class="tagline">Spočítej váženou známku z předmětu. Nastav kategorie (domácí úkoly / testy / projekty / závěrečná) s vahami, zapiš si své body, podívej se na průběžnou známku. Režim what-if: 'Co potřebuju na závěrečné, abych měl jedničku?'</p>
     

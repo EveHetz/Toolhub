@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertisseur de Bases — Toolhub</title>
   <meta name="description" content="Convertisseur de bases numériques gratuit. Convertissez entre binaire, octal, décimal, hex et bases arbitraires 2-36. Gère les nombres négatifs et grands entiers via BigInt.">
   <meta property="og:title" content="Convertisseur de Bases — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur de Bases</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Convertisseur de Bases</nav>
     <h1>Convertisseur de Bases</h1>
     <p class="tagline">Convertissez entre binaire, octal, décimal, hexadécimal et toute base de 2 à 36.</p>
     

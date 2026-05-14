@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Doplnkové nástroje — Toolhub</title>
   <meta name="description" content="Externé host-side bezpečnostné nástroje, ktoré dopĺňajú in-browser utility Toolhub-u. sentinel a skill-scanner — oba open source MIT.">
   <meta property="og:title" content="Doplnkové nástroje — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" selected="selected">🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Doplnkové nástroje</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Doplnkové nástroje</nav>
     <h1>Doplnkové nástroje</h1>
     <p class="tagline">Host-side bezpečnostné nástroje, ktoré dopĺňajú in-browser utility Toolhub-u.</p>
 

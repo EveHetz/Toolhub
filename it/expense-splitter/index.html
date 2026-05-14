@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Divisore di Spese — Toolhub</title>
   <meta name="description" content="Divisore di spese gratuito nel browser. Aggiungi spese (chi ha pagato, importo, chi deve), definisci gruppi, ottieni saldo per persona + regolamento a trasferimenti minimi ('Alice deve a Bob X €'). Supporta divisioni non paritarie (una persona deve di più, ecc.) e valute multiple (una sola valuta per gruppo; conversione non fatta). Per viaggi, coinquilini, cene di gruppo.">
   <meta property="og:title" content="Divisore di Spese — Toolhub">
   <meta property="og:description" content="Divisore di spese gratuito nel browser. Aggiungi spese (chi ha pagato, importo, chi deve), definisci gruppi, ottieni saldo per persona + regolamento a trasferimenti minimi ('Alice deve a Bob X €'). Supporta divisioni non paritarie (una persona deve di più, ecc.) e valute multiple (una sola valuta per gruppo; conversione non fatta). Per viaggi, coinquilini, cene di gruppo.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/expense-splitter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/expense-splitter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -338,11 +341,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Divisore di Spese</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Divisore di Spese</nav>
     <h1>Divisore di Spese</h1>
     <p class="tagline">Dividi una spesa di gruppo equamente o con quote personalizzate (percentuali o importi fissi). Output: totali per persona + istruzioni di trasferimento ('A deve a B X €').</p>
     

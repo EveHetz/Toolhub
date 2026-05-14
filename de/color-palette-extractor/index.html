@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Farbpaletten-Extraktor — Toolhub</title>
   <meta name="description" content="Kostenloser Farbpaletten-Extraktor für Bilder. Lade ein PNG, JPG oder WebP hoch und erhalte die 5 bis 8 häufigsten Farben mit Hex-Codes, kopierbar als CSS Custom Properties oder Tailwind-Palette. Praktisch für Moodboards, Markenfarben-Extraktion und Design-System-Seeding. Reines JS — kein Upload, kein Server.">
   <meta property="og:title" content="Farbpaletten-Extraktor — Toolhub">
   <meta property="og:description" content="Kostenloser Farbpaletten-Extraktor für Bilder. Lade ein PNG, JPG oder WebP hoch und erhalte die 5 bis 8 häufigsten Farben mit Hex-Codes, kopierbar als CSS Custom Properties oder Tailwind-Palette. Praktisch für Moodboards, Markenfarben-Extraktion und Design-System-Seeding. Reines JS — kein Upload, kein Server.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Farbpaletten-Extraktor</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Farbpaletten-Extraktor</nav>
     <h1>Farbpaletten-Extraktor</h1>
     <p class="tagline">Dominante Farben aus jedem Bild direkt im Browser extrahieren. 5–8 Swatches, Hex-Codes, kopierbare CSS-Variablen. Datei verlässt dein Gerät nie.</p>
     

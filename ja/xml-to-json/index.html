@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML ↔ JSON コンバーター — Toolhub</title>
   <meta name="description" content="オンライン無料の XML → JSON（および JSON → XML）コンバーター。ブラウザの XML パーサを使用し、属性は設定可能なプレフィックス付き、繰り返し要素は配列にまとめます。すべてブラウザ内で動作します。">
   <meta property="og:title" content="XML ↔ JSON コンバーター — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / XML ↔ JSON コンバーター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / XML ↔ JSON コンバーター</nav>
     <h1>XML ↔ JSON コンバーター</h1>
     <p class="tagline">XML を JSON に、または JSON を XML に変換。属性・テキストノード・配列を妥当に処理。</p>
     

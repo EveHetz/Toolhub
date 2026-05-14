@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calcolatore Mancia e Conto Diviso — Toolhub</title>
   <meta name="description" content="Calcolatore gratuito mancia e divisione conto. Inserisci conto, percentuale di mancia e numero di persone. Mancia, totale e quota per persona calcolati. Arrotondamento opzionale.">
   <meta property="og:title" content="Calcolatore Mancia e Conto Diviso — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Calcolatore Mancia e Conto Diviso</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Calcolatore Mancia e Conto Diviso</nav>
     <h1>Calcolatore Mancia e Conto Diviso</h1>
     <p class="tagline">Conto + mancia % + persone = importo per persona. Arrotondamento opzionale. Mancia e totale mostrati.</p>
     

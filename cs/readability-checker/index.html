@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kontrola čitelnosti — Toolhub</title>
   <meta name="description" content="Bezplatný analyzátor čitelnosti v prohlížeči. Vlož libovolný text, podívej se na všechny hlavní vzorce: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Užitečné pro učitele, kteří kalibrují texty na úroveň žáků, pro autory kontrolující přístupnost, pro audítory přístupnosti. Rozpis po odstavcích zvýrazňuje nejhustší pasáže. Čisté JS — žádné nahrávání, žádná registrace, žádné sledování.">
   <meta property="og:title" content="Kontrola čitelnosti — Toolhub">
   <meta property="og:description" content="Bezplatný analyzátor čitelnosti v prohlížeči. Vlož libovolný text, podívej se na všechny hlavní vzorce: Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, SMOG Index, Coleman-Liau Index, Automated Readability Index. Užitečné pro učitele, kteří kalibrují texty na úroveň žáků, pro autory kontrolující přístupnost, pro audítory přístupnosti. Rozpis po odstavcích zvýrazňuje nejhustší pasáže. Čisté JS — žádné nahrávání, žádná registrace, žádné sledování.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/readability-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/readability-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/readability-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kontrola čitelnosti</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kontrola čitelnosti</nav>
     <h1>Kontrola čitelnosti</h1>
     <p class="tagline">Spočítej Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog, SMOG a Coleman-Liau pro svůj text. Najdi husté odstavce, miř na správnou úroveň ročníku.</p>
     

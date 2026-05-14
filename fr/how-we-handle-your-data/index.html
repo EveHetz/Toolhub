@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Comment on traite tes données — Toolhub</title>
   <meta name="description" content="Présentation en langage clair de la façon dont Toolhub traite tes données. Les outils tournent dans le navigateur, rien n'est stocké, trois exceptions nommées explicitement.">
   <meta property="og:title" content="Comment on traite tes données — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Comment on traite tes données</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Comment on traite tes données</nav>
     <h1>Comment on traite tes données</h1>
     <p><strong>Dernière mise à jour :</strong> 11 May 2026</p>
 <p>Cette page est la version en clair. Elle complète la <a href="/fr/privacy/">politique de confidentialité</a> ; si les deux semblent se contredire quelque part, cette page-ci est la plus spécifique et prévaut.</p>

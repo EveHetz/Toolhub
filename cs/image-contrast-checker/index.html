@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kontrastní kontrola na obrázku — Toolhub</title>
   <meta name="description" content="Bezplatný WCAG contrast checker, který funguje na nahraných obrázcích. Klikni dva body (např. logo na pozadí) a vidíš contrast ratio s pass/fail pro AA, AA-large, AAA, AAA-large. Včetně sampleru barvy s nastavitelným poloměrem (1 pixel nebo průměr 5×5). Užitečné pro ověřování screenshotů vůči accessibility standardům.">
   <meta property="og:title" content="Kontrastní kontrola na obrázku — Toolhub">
   <meta property="og:description" content="Bezplatný WCAG contrast checker, který funguje na nahraných obrázcích. Klikni dva body (např. logo na pozadí) a vidíš contrast ratio s pass/fail pro AA, AA-large, AAA, AAA-large. Včetně sampleru barvy s nastavitelným poloměrem (1 pixel nebo průměr 5×5). Užitečné pro ověřování screenshotů vůči accessibility standardům.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/image-contrast-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/image-contrast-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kontrastní kontrola na obrázku</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kontrastní kontrola na obrázku</nav>
     <h1>Kontrastní kontrola na obrázku</h1>
     <p class="tagline">Klikni dva libovolné body v obrázku a zkontroluj WCAG kontrast — AA, AAA, prahy pro velký text. Postavené pro designéry, kteří ověřují reálné screenshoty, nejen hex kódy.</p>
     

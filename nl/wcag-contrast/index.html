@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>WCAG Contrast Checker — Toolhub</title>
   <meta name="description" content="Gratis WCAG contrastratio-checker. Kies foreground- en background-kleuren, krijg de ratio (1:1 tot 21:1) en pass/fail-verdicts voor WCAG 2.1 AA en AAA — voor normale tekst, grote tekst en UI-componenten.">
   <meta property="og:title" content="WCAG Contrast Checker — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / WCAG Contrast Checker</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / WCAG Contrast Checker</nav>
     <h1>WCAG Contrast Checker</h1>
     <p class="tagline">Check de contrastratio tussen twee kleuren. Pass/fail-verdict voor WCAG AA en AAA op elke tekstgrootte.</p>
     

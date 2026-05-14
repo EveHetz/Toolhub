@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>学校向け Toolhub — Toolhub</title>
   <meta name="description" content="教室向けの、プライバシー重視の開発者ツール／ユーティリティ。登録不要、トラッキングなし、多言語、セルフホスト可。フィルタとの相性がよく、生徒に共有しても安心。">
   <meta property="og:title" content="学校向け Toolhub — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 学校向け Toolhub</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 学校向け Toolhub</nav>
     <h1>学校向け Toolhub</h1>
     <h2>教室での Toolhub</h2>
 <p>Toolhub は、ブラウザ内で動く小さなツールの集まりです。生徒はアカウントを作る必要なく、追跡されることなく、広告やアフィリエイト誘導に飛ばされることもなく利用できます。各ツールは完全にブラウザ内で動作するため、生徒が入力した内容が学校ネットワークから外に出ることはありません — 呼び出すバックエンド自体が存在しないからです。</p>

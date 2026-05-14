@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>画像コントラストチェッカー — Toolhub</title>
   <meta name="description" content="アップロードした画像上で動作する無料の WCAG コントラストチェッカー。2 点（例：背景上のロゴ）をクリックすると、コントラスト比と AA／AA-Large／AAA／AAA-Large の合否を判定します。サンプリング半径（1 ピクセルか 5×5 平均）も切り替え可能。スクリーンショットをアクセシビリティ基準に照らして確認するのに便利です。">
   <meta property="og:title" content="画像コントラストチェッカー — Toolhub">
   <meta property="og:description" content="アップロードした画像上で動作する無料の WCAG コントラストチェッカー。2 点（例：背景上のロゴ）をクリックすると、コントラスト比と AA／AA-Large／AAA／AAA-Large の合否を判定します。サンプリング半径（1 ピクセルか 5×5 平均）も切り替え可能。スクリーンショットをアクセシビリティ基準に照らして確認するのに便利です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/image-contrast-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/image-contrast-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 画像コントラストチェッカー</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 画像コントラストチェッカー</nav>
     <h1>画像コントラストチェッカー</h1>
     <p class="tagline">画像内の任意の 2 点をクリックして WCAG コントラストを判定 — AA／AAA、大きい文字の閾値。HEX 単独ではなく、実際のスクリーンショットを検証したいデザイナー向け。</p>
     

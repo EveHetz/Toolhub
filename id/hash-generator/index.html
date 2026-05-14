@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Hash Generator — Toolhub</title>
   <meta name="description" content="Hash generator gratis. Hitung digest SHA-1, SHA-256, SHA-384, dan SHA-512 untuk teks atau file apa pun menggunakan WebCrypto browser. Semuanya berjalan lokal — input tidak pernah meninggalkan perangkatmu.">
   <meta property="og:title" content="Hash Generator — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Hash Generator</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Hash Generator</nav>
     <h1>Hash Generator</h1>
     <p class="tagline">Hash teks dengan SHA-1, SHA-256, SHA-384, atau SHA-512 menggunakan WebCrypto browser. Dihitung lokal — input tidak pernah meninggalkan halaman.</p>
     

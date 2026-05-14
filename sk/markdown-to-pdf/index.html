@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown na PDF — Toolhub</title>
   <meta name="description" content="Bezplatný markdown → PDF v prehliadači. Vlož markdown, pozri sformátovaný náhľad, klikni 'Uložiť ako PDF' — používa vstavanú funkciu tlač-do-PDF v prehliadači (Súbor → Uložiť ako PDF, alebo Ctrl+P → cieľ: PDF). Podporuje nadpisy, bloky kódu, tabuľky, obrázky cez URL, citácie. Témy: Jednoduchá / Akademická / Moderná. Veľkosť stránky: A4 alebo US Letter. Funguje s naším generátorom rubrík a šablónou prípravy na hodinu — vlož sem ich markdown výstup.">
   <meta property="og:title" content="Markdown na PDF — Toolhub">
   <meta property="og:description" content="Bezplatný markdown → PDF v prehliadači. Vlož markdown, pozri sformátovaný náhľad, klikni 'Uložiť ako PDF' — používa vstavanú funkciu tlač-do-PDF v prehliadači (Súbor → Uložiť ako PDF, alebo Ctrl+P → cieľ: PDF). Podporuje nadpisy, bloky kódu, tabuľky, obrázky cez URL, citácie. Témy: Jednoduchá / Akademická / Moderná. Veľkosť stránky: A4 alebo US Letter. Funguje s naším generátorom rubrík a šablónou prípravy na hodinu — vlož sem ich markdown výstup.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/markdown-to-pdf/">
-  <meta property="og:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/markdown-to-pdf.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/markdown-to-pdf/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Markdown na PDF</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Markdown na PDF</nav>
     <h1>Markdown na PDF</h1>
     <p class="tagline">Vyrenderuj markdown na PDF pripravený na tlač v prehliadači. Vlož, náhľad, ulož ako PDF cez tlačový dialóg prehliadača. Žiadny upload, žiadny server.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>YAML ↔ JSON Dönüştürücü — Toolhub</title>
   <meta name="description" content="Ücretsiz online YAML'den JSON'a ve JSON'dan YAML'a dönüştürücü. Çift yönlü, tamamen tarayıcında çalışır. Anchor'ları, alias'ları ve çoklu belge YAML'ı işler.">
   <meta property="og:title" content="YAML ↔ JSON Dönüştürücü — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / YAML ↔ JSON Dönüştürücü</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / YAML ↔ JSON Dönüştürücü</nav>
     <h1>YAML ↔ JSON Dönüştürücü</h1>
     <p class="tagline">YAML ve JSON arasında her iki yöne dönüştür. Kubernetes manifest'leri, CI config'leri ve OpenAPI spec'leri için kullanışlı.</p>
     

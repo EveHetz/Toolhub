@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON-Diff — Toolhub</title>
   <meta name="description" content="Kostenloses JSON-Diff. Berechnet ein strukturelles Delta zwischen zwei JSON-Dokumenten — Schlüssel hinzugefügt/entfernt, Werte geändert. Komplett im Browser.">
   <meta property="og:title" content="JSON-Diff — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / JSON-Diff</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / JSON-Diff</nav>
     <h1>JSON-Diff</h1>
     <p class="tagline">Strukturelles Diff zweier JSON-Dokumente — hinzugefügte, entfernte und geänderte Schlüssel und Werte nebeneinander.</p>
     

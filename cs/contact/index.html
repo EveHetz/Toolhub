@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kontakt — Toolhub</title>
   <meta name="description" content="Maintainera Toolhubu kontaktuj přes GitHub Issues pro bug reporty, feature requesty a nápady na nástroje — nebo e-mailem na všechno ostatní.">
   <meta property="og:title" content="Kontakt — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Kontakt</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Kontakt</nav>
     <h1>Kontakt</h1>
     <p>Toolhub je vedlejší projekt jednoho člověka. Časy odpovědí v rámci možností, ne komerční support. Kontaktní formulář tu není — tahle stránka záměrně nemá backend.</p>
 

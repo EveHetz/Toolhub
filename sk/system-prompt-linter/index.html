@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Linter systémového promptu — Toolhub</title>
   <meta name="description" content="Bezplatný linter systémového promptu. Vlož svoj prompt, dostaneš checklist bežných problémov: frázy ako 'buď nápomocný' bez špecifík, protichodné direktívy, žiadne príklady / shot-county, drift roly, chýbajúce poistky, nafúknutý úvod. Každý nález má krátky návrh opravy. Heuristika — nie veštica — ale chytí očividné medzery.">
   <meta property="og:title" content="Linter systémového promptu — Toolhub">
   <meta property="og:description" content="Bezplatný linter systémového promptu. Vlož svoj prompt, dostaneš checklist bežných problémov: frázy ako 'buď nápomocný' bez špecifík, protichodné direktívy, žiadne príklady / shot-county, drift roly, chýbajúce poistky, nafúknutý úvod. Každý nález má krátky návrh opravy. Heuristika — nie veštica — ale chytí očividné medzery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/system-prompt-linter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/system-prompt-linter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Linter systémového promptu</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Linter systémového promptu</nav>
     <h1>Linter systémového promptu</h1>
     <p class="tagline">Analyzuje systémový prompt na bežné problémy: vágne pokyny, protichodné pravidlá, chýbajúce príklady, nafúknutý kontext. Heuristický, vyhranený, rýchly.</p>
     

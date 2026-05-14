@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON Diff — Toolhub</title>
   <meta name="description" content="JSON diff miễn phí trực tuyến. So sánh hai tài liệu JSON theo cấu trúc, hiển thị key được thêm, bị xóa, được thay đổi và thay đổi giá trị một cách trực quan. Chạy hoàn toàn trong trình duyệt.">
   <meta property="og:title" content="JSON Diff — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / JSON Diff</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / JSON Diff</nav>
     <h1>JSON Diff</h1>
     <p class="tagline">Diff theo cấu trúc của hai tài liệu JSON — key được thêm, bị xóa, được thay đổi và thay đổi giá trị hiển thị cạnh nhau.</p>
     

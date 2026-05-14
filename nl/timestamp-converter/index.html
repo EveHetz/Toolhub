@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Unix Timestamp Converter — Toolhub</title>
   <meta name="description" content="Gratis online Unix timestamp converter. Converteer tussen epoch seconds, milliseconds, ISO 8601 en menselijk leesbare datums in UTC of lokale tijd.">
   <meta property="og:title" content="Unix Timestamp Converter — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Unix Timestamp Converter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Unix Timestamp Converter</nav>
     <h1>Unix Timestamp Converter</h1>
     <p class="tagline">Converteer tussen Unix-timestamps en menselijk leesbare datums. Seconds en milliseconds, UTC en lokaal.</p>
     

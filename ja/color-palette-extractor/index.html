@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>カラーパレット抽出ツール — Toolhub</title>
   <meta name="description" content="無料の画像カラーパレット抽出ツール。PNG・JPG・WebP をアップロードすると、頻度の高い 5〜8 色を HEX 付きで取得でき、CSS カスタムプロパティや Tailwind パレットとしてコピーできます。ムードボード、ブランドカラー抽出、デザインシステムのシード作りに便利です。純粋な JS — アップロードもサーバーもありません。">
   <meta property="og:title" content="カラーパレット抽出ツール — Toolhub">
   <meta property="og:description" content="無料の画像カラーパレット抽出ツール。PNG・JPG・WebP をアップロードすると、頻度の高い 5〜8 色を HEX 付きで取得でき、CSS カスタムプロパティや Tailwind パレットとしてコピーできます。ムードボード、ブランドカラー抽出、デザインシステムのシード作りに便利です。純粋な JS — アップロードもサーバーもありません。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / カラーパレット抽出ツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / カラーパレット抽出ツール</nav>
     <h1>カラーパレット抽出ツール</h1>
     <p class="tagline">任意の画像から主要色をブラウザ内で抽出。5〜8 個のスウォッチと HEX コード、コピー＆ペーストできる CSS 変数。ファイルは端末から出ません。</p>
     

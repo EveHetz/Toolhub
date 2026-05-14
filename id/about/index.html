@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tentang Toolhub — Toolhub</title>
   <meta name="description" content="Toolhub adalah situs utilitas kecil tanpa pelacakan yang dibangun oleh satu orang. Alat developer gratis yang berjalan sepenuhnya di browser, tanpa pendaftaran, tanpa pengumpulan data.">
   <meta property="og:title" content="Tentang Toolhub — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Tentang Toolhub</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Tentang Toolhub</nav>
     <h1>Tentang Toolhub</h1>
     <h2>Apa itu Toolhub</h2>
 <p>Toolhub adalah kumpulan alat developer dan utilitas sehari-hari yang gratis dan berjalan sepenuhnya di browser. Tanpa pendaftaran, tanpa akun, tanpa pelacakan, tanpa pemrosesan di sisi server. Tempel data, dapatkan hasil, tutup tab — tidak ada yang disimpan atau dikirim.</p>

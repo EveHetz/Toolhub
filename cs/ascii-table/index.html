@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>ASCII tabulka — Toolhub</title>
   <meta name="description" content="Zdarma ASCII tabulka. Všech 128 ASCII kódů s decimálem, hex, octalem, binárkou, znakem, HTML entitou a popisem pro control characters. Filtruj při psaní.">
   <meta property="og:title" content="ASCII tabulka — Toolhub">
@@ -290,11 +293,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / ASCII tabulka</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / ASCII tabulka</nav>
     <h1>ASCII tabulka</h1>
     <p class="tagline">Kompletní ASCII reference 0–127 s decimálním, hex, binárním, znakem a HTML entitou. Filtrovatelná.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kredi Hesaplayıcı — Toolhub</title>
   <meta name="description" content="Ücretsiz kredi / mortgage hesaplayıcı. Anapara, yıllık faiz oranı ve vade (yıl ya da ay) gir, geri al: aylık ödeme, kredi ömrü boyunca ödenen toplam faiz, ödenen toplam tutar ve aydan aya tam amortisman tablosu (her ay için anapara payı + faiz payı + kalan bakiye). Konut kredisi, taşıt kredisi, ihtiyaç kredisi karşılaştırması için faydalı.">
   <meta property="og:title" content="Kredi Hesaplayıcı — Toolhub">
   <meta property="og:description" content="Ücretsiz kredi / mortgage hesaplayıcı. Anapara, yıllık faiz oranı ve vade (yıl ya da ay) gir, geri al: aylık ödeme, kredi ömrü boyunca ödenen toplam faiz, ödenen toplam tutar ve aydan aya tam amortisman tablosu (her ay için anapara payı + faiz payı + kalan bakiye). Konut kredisi, taşıt kredisi, ihtiyaç kredisi karşılaştırması için faydalı.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/loan-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/loan-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Kredi Hesaplayıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Kredi Hesaplayıcı</nav>
     <h1>Kredi Hesaplayıcı</h1>
     <p class="tagline">Herhangi bir kredi için aylık ödeme, toplam faiz ve tam amortisman tablosu hesapla. Sabit oran, eşit taksit. Sadece tarayıcı.</p>
     

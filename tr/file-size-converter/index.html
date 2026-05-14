@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Dosya Boyutu Dönüştürücü — Toolhub</title>
   <meta name="description" content="Ücretsiz dosya boyutu birim dönüştürücü. Herhangi bir byte sayısını ondalık birimler (B, KB, MB, GB, TB, PB) ile IEC ikilik birimleri (KiB, MiB, GiB, TiB, PiB) arasında çevir. İkisini birden, kesin ayrımıyla gör.">
   <meta property="og:title" content="Dosya Boyutu Dönüştürücü — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Dosya Boyutu Dönüştürücü</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Dosya Boyutu Dönüştürücü</nav>
     <h1>Dosya Boyutu Dönüştürücü</h1>
     <p class="tagline">byte, KB, MB, GB, TB ve ikilik KiB, MiB, GiB, TiB arasında dönüştür. Ondalık - ikilik ayrımı net.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Xác thực Thẻ Tín dụng — Toolhub</title>
   <meta name="description" content="Xác thực số thẻ tín dụng miễn phí trực tuyến. Kiểm tra Luhn checksum và phát hiện brand thẻ (Visa, Mastercard, Amex, Discover, JCB và các loại khác). Toàn bộ kiểm tra chạy trong trình duyệt của bạn — số thẻ không bao giờ được gửi đi.">
   <meta property="og:title" content="Xác thực Thẻ Tín dụng — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Xác thực Thẻ Tín dụng</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Xác thực Thẻ Tín dụng</nav>
     <h1>Xác thực Thẻ Tín dụng</h1>
     <p class="tagline">Xác thực số thẻ bằng kiểm tra Luhn và phát hiện brand. Chạy cục bộ — số thẻ của bạn không bao giờ được gửi đi.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSONPath Tester — Toolhub</title>
   <meta name="description" content="Ücretsiz online JSONPath tester. İç içe JSON'u $.., joker karakterler, dizi dilimleri ve filtre ifadeleriyle sorgula. Canlı sonuçlar, JSON'unu yapıştır ve sorgulamaya başla.">
   <meta property="og:title" content="JSONPath Tester — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / JSONPath Tester</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / JSONPath Tester</nav>
     <h1>JSONPath Tester</h1>
     <p class="tagline">Herhangi bir JSON belgesine JSONPath sorgusu çalıştır. Eşleşen düğümleri ve yollarını gerçek zamanlı gör.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formátovač citácií — Toolhub</title>
   <meta name="description" content="Bezplatný formátovač citácií pre akademické písanie. Vyber typ zdroja (kniha / článok v časopise / web / kapitola / konferenčný príspevok / diplomová alebo dizertačná práca / spravodajský článok / správa), vypĺňaj polia (autori, názov, rok, vydavateľ…), vyber štýl (APA 7, MLA 9, Chicago autor-rok, Harvard) a skopíruj naformátovaný záznam. Režim bibliografie poskladá utriedený zoznam. Žiadne externé vyhľadávanie, žiadne DOI API, žiadne sledovanie — po prvom načítaní funguje offline.">
   <meta property="og:title" content="Formátovač citácií — Toolhub">
   <meta property="og:description" content="Bezplatný formátovač citácií pre akademické písanie. Vyber typ zdroja (kniha / článok v časopise / web / kapitola / konferenčný príspevok / diplomová alebo dizertačná práca / spravodajský článok / správa), vypĺňaj polia (autori, názov, rok, vydavateľ…), vyber štýl (APA 7, MLA 9, Chicago autor-rok, Harvard) a skopíruj naformátovaný záznam. Režim bibliografie poskladá utriedený zoznam. Žiadne externé vyhľadávanie, žiadne DOI API, žiadne sledovanie — po prvom načítaní funguje offline.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/citation-formatter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/citation-formatter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Formátovač citácií</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Formátovač citácií</nav>
     <h1>Formátovač citácií</h1>
     <p class="tagline">Formátuj citácie v štýloch APA 7, MLA 9, Chicago a Harvard. Polia zadávaj ručne — žiadne DOI vyhľadávanie, žiadne sledovanie. Iba v prehliadači.</p>
     

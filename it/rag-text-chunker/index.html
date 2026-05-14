@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>RAG Text Chunker — Toolhub</title>
   <meta name="description" content="Chunker di testo gratuito nel browser per pipeline RAG ed embeddings. Incolla un documento, scegli una dimensione di chunk (in token, stima euristica), scegli una strategia (recursive character / sentence-aware / paragraph / semantic-boundary) e ottieni la lista di chunk con overlap opzionale. Utile per preparare documenti per ingest vector-store senza caricarli da nessuna parte. Si abbina al nostro token-counter per linee guida sul sizing.">
   <meta property="og:title" content="RAG Text Chunker — Toolhub">
   <meta property="og:description" content="Chunker di testo gratuito nel browser per pipeline RAG ed embeddings. Incolla un documento, scegli una dimensione di chunk (in token, stima euristica), scegli una strategia (recursive character / sentence-aware / paragraph / semantic-boundary) e ottieni la lista di chunk con overlap opzionale. Utile per preparare documenti per ingest vector-store senza caricarli da nessuna parte. Si abbina al nostro token-counter per linee guida sul sizing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/rag-text-chunker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/rag-text-chunker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / RAG Text Chunker</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / RAG Text Chunker</nav>
     <h1>RAG Text Chunker</h1>
     <p class="tagline">Spezza il testo in chunk dimensionati a token per preparazione RAG / embeddings. Strategie multiple: recursive char, sentence-aware, semantic boundaries. Overlap configurabile. Tutto nel browser.</p>
     

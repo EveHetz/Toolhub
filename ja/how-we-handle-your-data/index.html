@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>データの取り扱いについて — Toolhub</title>
   <meta name="description" content="Toolhub があなたのデータを具体的にどう扱うかを、平易な言葉で説明します。ツールはブラウザ内で動作し、何も保存されず、3 つの例外を明示しています。">
   <meta property="og:title" content="データの取り扱いについて — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / データの取り扱いについて</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / データの取り扱いについて</nav>
     <h1>データの取り扱いについて</h1>
     <p><strong>最終更新:</strong> 11 May 2026</p>
 <p>このページは平易な言葉版です。<a href="/ja/privacy/">プライバシーポリシー</a> を補足するものです。両者の記述が食い違って見える箇所がある場合は、本ページの方が具体的であり、こちらが優先されます。</p>

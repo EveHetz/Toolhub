@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSS box-shadow ジェネレーター — Toolhub</title>
   <meta name="description" content="無料の CSS box-shadow ジェネレーター。複数のシャドウを重ねてリアルな立体感を表現でき、inset の切り替え、blur と spread の微調整、本番投入できる CSS のワンクリックコピーに対応します。">
   <meta property="og:title" content="CSS box-shadow ジェネレーター — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / CSS box-shadow ジェネレーター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / CSS box-shadow ジェネレーター</nav>
     <h1>CSS box-shadow ジェネレーター</h1>
     <p class="tagline">1 層または多層の CSS box-shadow をビジュアルに作成。オフセット・ぼかし・広がり・色を調整し、CSS をコピー。</p>
     

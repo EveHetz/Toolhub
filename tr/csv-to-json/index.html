@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSV'den JSON'a — Toolhub</title>
   <meta name="description" content="Ücretsiz online CSV'den JSON'a dönüştürücü. Başlıkları otomatik tespit eder, özel sınırlayıcıları ve tırnaklı çok satırlı alanları destekler. Tarayıcıda çalışır.">
   <meta property="og:title" content="CSV'den JSON'a — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / CSV'den JSON'a</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / CSV'den JSON'a</nav>
     <h1>CSV'den JSON'a</h1>
     <p class="tagline">CSV verisini JSON dizilerine dönüştür. Başlık tespiti, özel sınırlayıcılar, tırnaklı alanlar ve gömülü satır sonları işlenir.</p>
     

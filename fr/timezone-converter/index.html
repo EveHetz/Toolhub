@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Convertisseur de Fuseaux — Toolhub</title>
   <meta name="description" content="Convertisseur de fuseaux horaires gratuit. Conversion entre fuseaux IANA avec gestion de l'heure d'été. Choisissez parmi les zones communes ou les 400+ supportées par votre navigateur.">
   <meta property="og:title" content="Convertisseur de Fuseaux — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Convertisseur de Fuseaux</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Convertisseur de Fuseaux</nav>
     <h1>Convertisseur de Fuseaux</h1>
     <p class="tagline">Convertissez date et heure entre fuseaux horaires IANA. Affiche décalages, heure d'été et jour de la semaine.</p>
     

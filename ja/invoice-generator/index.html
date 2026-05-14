@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>請求書ジェネレーター — Toolhub</title>
   <meta name="description" content="ブラウザだけで動く無料の請求書ジェネレーター。差出人（自社情報）、宛先（顧客情報）、明細（説明 / 数量 / 単価）を入力すると、小計・消費税（国＋税率を選択）・合計を自動計算。Markdown または印刷向け HTML として出力 — ブラウザの印刷ダイアログから PDF として保存できます。アップロードなし、登録不要、第三者サービスなし。自社情報を URL フラグメントに保存するので、次回入力し直す必要がありません。">
   <meta property="og:title" content="請求書ジェネレーター — Toolhub">
   <meta property="og:description" content="ブラウザだけで動く無料の請求書ジェネレーター。差出人（自社情報）、宛先（顧客情報）、明細（説明 / 数量 / 単価）を入力すると、小計・消費税（国＋税率を選択）・合計を自動計算。Markdown または印刷向け HTML として出力 — ブラウザの印刷ダイアログから PDF として保存できます。アップロードなし、登録不要、第三者サービスなし。自社情報を URL フラグメントに保存するので、次回入力し直す必要がありません。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/invoice-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/invoice-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 請求書ジェネレーター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 請求書ジェネレーター</nav>
     <h1>請求書ジェネレーター</h1>
     <p class="tagline">Markdown + 印刷向け HTML できれいな請求書を生成。フォームを埋め、ライブプレビューを見て、ブラウザの印刷から PDF 保存。アップロードなし、登録不要。</p>
     

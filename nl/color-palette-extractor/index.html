@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kleurenpalet-extractor — Toolhub</title>
   <meta name="description" content="Gratis kleurenpalet-extractor uit afbeeldingen. Upload een PNG, JPG of WebP en krijg de 5 tot 8 meest voorkomende kleuren met hex codes, kopieerbaar als CSS custom properties of Tailwind-palet. Handig voor moodboards, brand-kleur extractie en design system-seeds. Pure JS — geen upload, geen server.">
   <meta property="og:title" content="Kleurenpalet-extractor — Toolhub">
   <meta property="og:description" content="Gratis kleurenpalet-extractor uit afbeeldingen. Upload een PNG, JPG of WebP en krijg de 5 tot 8 meest voorkomende kleuren met hex codes, kopieerbaar als CSS custom properties of Tailwind-palet. Handig voor moodboards, brand-kleur extractie en design system-seeds. Pure JS — geen upload, geen server.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/color-palette-extractor/">
-  <meta property="og:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/color-palette-extractor.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/color-palette-extractor/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Kleurenpalet-extractor</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Kleurenpalet-extractor</nav>
     <h1>Kleurenpalet-extractor</h1>
     <p class="tagline">Haal de dominante kleuren uit elke afbeelding in je browser. 5–8 swatches, hex codes, kopieerbare CSS-variabelen. Bestanden verlaten je apparaat nooit.</p>
     

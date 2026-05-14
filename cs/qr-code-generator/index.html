@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generátor QR kódu — Toolhub</title>
   <meta name="description" content="Zdarma online QR kód generátor. Vytvoř QR pro text, URL, Wi-Fi credentials nebo vCard. Nastav velikost, barvy a level error correction. Export do PNG nebo SVG.">
   <meta property="og:title" content="Generátor QR kódu — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Generátor QR kódu</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Generátor QR kódu</nav>
     <h1>Generátor QR kódu</h1>
     <p class="tagline">Vygeneruj QR kódy pro jakýkoli text, URL, Wi-Fi nebo vCard. Velikost, barvy a error correction. Export PNG nebo SVG.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown'dan HTML'e — Toolhub</title>
   <meta name="description" content="Ücretsiz online Markdown'dan HTML'e dönüştürücü. CommonMark uyumlu: başlıklar, listeler, çitli kod, tablolar, görseller, blok alıntılar, satır içi biçimlendirme. Canlı önizleme + kopyala.">
   <meta property="og:title" content="Markdown'dan HTML'e — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Markdown'dan HTML'e</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Markdown'dan HTML'e</nav>
     <h1>Markdown'dan HTML'e</h1>
     <p class="tagline">Markdown'u canlı önizlemeyle temiz HTML'e dönüştür. Başlıkları, listeleri, kodu, tabloları, görselleri ve linkleri destekler.</p>
     

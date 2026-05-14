@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Ders Planı Şablonu — Toolhub</title>
   <meta name="description" content="Öğretmenler için ücretsiz ders planı oluşturucu. Form alanlarını doldur — ders, sınıf düzeyi, süre, kazanımlar (Bloom taksonomi etiketi açılır menüsüyle), materyaller, dersin akışı, ölçme-değerlendirme, farklılaştırma, yansıma — temiz markdown ve yazdırmaya hazır HTML görünümü al. İlkokul / ortaokul / lise formatları ve birden çok pedagojik çerçeve için (5E, kademeli sorumluluk aktarımı, sorgulama temelli, PDÖ) hazır şablonlar. Durumu URL parçasında kaydet — paylaşılabilir şablonlar oluştur.">
   <meta property="og:title" content="Ders Planı Şablonu — Toolhub">
   <meta property="og:description" content="Öğretmenler için ücretsiz ders planı oluşturucu. Form alanlarını doldur — ders, sınıf düzeyi, süre, kazanımlar (Bloom taksonomi etiketi açılır menüsüyle), materyaller, dersin akışı, ölçme-değerlendirme, farklılaştırma, yansıma — temiz markdown ve yazdırmaya hazır HTML görünümü al. İlkokul / ortaokul / lise formatları ve birden çok pedagojik çerçeve için (5E, kademeli sorumluluk aktarımı, sorgulama temelli, PDÖ) hazır şablonlar. Durumu URL parçasında kaydet — paylaşılabilir şablonlar oluştur.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/lesson-plan-template/">
-  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/lesson-plan-template/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Ders Planı Şablonu</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Ders Planı Şablonu</nav>
     <h1>Ders Planı Şablonu</h1>
     <p class="tagline">Doldurulabilir bir formdan yapılandırılmış ders planı oluştur. Standart bölümler (hedefler, materyaller, aşamalar, ölçme, yansıma). Markdown + yazdırılabilir HTML çıktısı.</p>
     

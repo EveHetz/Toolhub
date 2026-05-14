@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Toolhub について — Toolhub</title>
   <meta name="description" content="Toolhub は一人の開発者が作っている、トラッキングなしの小さなユーティリティサイトです。すべてブラウザ内で動く無料の開発者向けツール — 登録不要、データ収集なし。">
   <meta property="og:title" content="Toolhub について — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / Toolhub について</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / Toolhub について</nav>
     <h1>Toolhub について</h1>
     <h2>Toolhub とは</h2>
 <p>Toolhub は、すべてブラウザ内で動作する無料の開発者向け・日常用ユーティリティツール集です。登録不要、アカウント不要、トラッキングなし、サーバー側処理もありません。データを貼り付けて、結果を取得して、タブを閉じる — 何も保存されず、送信もされません。</p>

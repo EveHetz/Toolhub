@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Dice Roller — Toolhub</title>
   <meta name="description" content="Standard tabletop notation का उपयोग करते हुए मुफ़्त ऑनलाइन dice roller: 1d20, 2d6+3, 4d6kh3, 3d8-1। हर individual roll और total देखें। निष्पक्ष, अप्रत्याशित rolls के लिए crypto.getRandomValues का उपयोग करता है।">
   <meta property="og:title" content="Dice Roller — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Dice Roller</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Dice Roller</nav>
     <h1>Dice Roller</h1>
     <p class="tagline">Standard D&D notation के साथ dice rolls करें — 2d6+3, 1d20, 4d6 keep highest 3। Crypto-secure RNG।</p>
     

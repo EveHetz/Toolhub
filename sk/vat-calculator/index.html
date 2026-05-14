@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kalkulačka DPH — Toolhub</title>
   <meta name="description" content="Bezplatná online kalkulačka DPH s aktuálnymi sadzbami pre 30+ krajín. Vyber si krajinu, vyber kategóriu (základná, znížená, nulová), zadaj netto alebo brutto — uvidíš rozpis. Zahŕňa najnovšie zmeny — Slovensko z 20 % na 23 % od 1. 1. 2025, znížené sadzby 19 % a 5 %, Česko zjednotené 12 %, Estónsko 22 % → 24 % od 1. 7. 2025, Fínsko 24 % → 25,5 %, Švajčiarsko 7,7 % → 8,1 % a ďalšie. Žiadne nahrávanie, žiadne sledovanie, žiadna registrácia.">
   <meta property="og:title" content="Kalkulačka DPH — Toolhub">
   <meta property="og:description" content="Bezplatná online kalkulačka DPH s aktuálnymi sadzbami pre 30+ krajín. Vyber si krajinu, vyber kategóriu (základná, znížená, nulová), zadaj netto alebo brutto — uvidíš rozpis. Zahŕňa najnovšie zmeny — Slovensko z 20 % na 23 % od 1. 1. 2025, znížené sadzby 19 % a 5 %, Česko zjednotené 12 %, Estónsko 22 % → 24 % od 1. 7. 2025, Fínsko 24 % → 25,5 %, Švajčiarsko 7,7 % → 8,1 % a ďalšie. Žiadne nahrávanie, žiadne sledovanie, žiadna registrácia.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/vat-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/vat-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Kalkulačka DPH</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Kalkulačka DPH</nav>
     <h1>Kalkulačka DPH</h1>
     <p class="tagline">Vyrátaj DPH pre ľubovoľnú krajinu EÚ, Veľkú Britániu, Švajčiarsko a ďalšie — s aktuálnymi sadzbami pre rok 2025 vrátane zmien po reforme, ktoré mnohé online kalkulačky stále nemajú. Slovensko zvýšilo základnú sadzbu z 20 % na 23 % od 1. 1. 2025.</p>
     

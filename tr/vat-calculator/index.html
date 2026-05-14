@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>KDV Hesaplayıcı — Toolhub</title>
   <meta name="description" content="30+ ülke için güncel oranlarla ücretsiz KDV hesaplayıcı. Ülke seç, kategori seç (standart, indirimli, sıfır), net veya brüt gir — dökümü gör. Son değişiklikleri (Slovakya 20%→23% 2025'te, Estonya 22%→24% vb.) ve kategori bazlı indirimli oranları içerir. Yükleme yok, takip yok, kayıt yok.">
   <meta property="og:title" content="KDV Hesaplayıcı — Toolhub">
   <meta property="og:description" content="30+ ülke için güncel oranlarla ücretsiz KDV hesaplayıcı. Ülke seç, kategori seç (standart, indirimli, sıfır), net veya brüt gir — dökümü gör. Son değişiklikleri (Slovakya 20%→23% 2025'te, Estonya 22%→24% vb.) ve kategori bazlı indirimli oranları içerir. Yükleme yok, takip yok, kayıt yok.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/vat-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/vat-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/vat-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / KDV Hesaplayıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / KDV Hesaplayıcı</nav>
     <h1>KDV Hesaplayıcı</h1>
     <p class="tagline">Tüm AB ülkeleri, Birleşik Krallık, İsviçre ve daha fazlası için KDV hesapla — 2025'in güncel oranlarıyla, çoğu aracın atladığı reform sonrası güncellemeler dahil. Standart, indirimli ve sıfır.</p>
     

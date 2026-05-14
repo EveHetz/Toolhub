@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>System Prompt Linter — Toolhub</title>
   <meta name="description" content="Trình kiểm tra system prompt miễn phí. Dán system prompt của bạn, nhận checklist các vấn đề phổ biến: cụm 'hãy giúp đỡ' không có cụ thể, chỉ thị mâu thuẫn, không có ví dụ / shot-count, role drift, không có van thoát hiểm, mở đầu phình to. Mỗi phát hiện có gợi ý sửa ngắn. Heuristic — không phải tiên tri — nhưng bắt được những lỗ hổng rõ ràng.">
   <meta property="og:title" content="System Prompt Linter — Toolhub">
   <meta property="og:description" content="Trình kiểm tra system prompt miễn phí. Dán system prompt của bạn, nhận checklist các vấn đề phổ biến: cụm 'hãy giúp đỡ' không có cụ thể, chỉ thị mâu thuẫn, không có ví dụ / shot-count, role drift, không có van thoát hiểm, mở đầu phình to. Mỗi phát hiện có gợi ý sửa ngắn. Heuristic — không phải tiên tri — nhưng bắt được những lỗ hổng rõ ràng.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/system-prompt-linter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/system-prompt-linter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / System Prompt Linter</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / System Prompt Linter</nav>
     <h1>System Prompt Linter</h1>
     <p class="tagline">Phân tích system prompt tìm vấn đề phổ biến: hướng dẫn mơ hồ, quy tắc xung đột, thiếu ví dụ, ngữ cảnh quá lớn. Heuristic, có chính kiến, nhanh.</p>
     

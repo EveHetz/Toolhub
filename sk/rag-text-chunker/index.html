@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>RAG Text Chunker — Toolhub</title>
   <meta name="description" content="Bezplatný text chunker v prehliadači pre RAG a embedding pipeliny. Vlož dokument, vyber veľkosť chunku (v tokenoch, heuristický odhad), vyber stratégiu (recursive character / sentence-aware / paragraph / semantic-boundary) a dostaneš zoznam chunkov s voliteľným overlapom. Užitočné na prípravu dokumentov na ingest do vector store bez nahrávania kdekoľvek. Páruje sa s naším token-counterom pre sizing usmernenie.">
   <meta property="og:title" content="RAG Text Chunker — Toolhub">
   <meta property="og:description" content="Bezplatný text chunker v prehliadači pre RAG a embedding pipeliny. Vlož dokument, vyber veľkosť chunku (v tokenoch, heuristický odhad), vyber stratégiu (recursive character / sentence-aware / paragraph / semantic-boundary) a dostaneš zoznam chunkov s voliteľným overlapom. Užitočné na prípravu dokumentov na ingest do vector store bez nahrávania kdekoľvek. Páruje sa s naším token-counterom pre sizing usmernenie.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/rag-text-chunker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rag-text-chunker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/rag-text-chunker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / RAG Text Chunker</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / RAG Text Chunker</nav>
     <h1>RAG Text Chunker</h1>
     <p class="tagline">Rozdeľ text na token-veľké chunky pre prípravu RAG / embeddingov. Viac stratégií: recursive char, sentence-aware, semantic boundaries. Konfigurovateľný overlap. Všetko v prehliadači.</p>
     

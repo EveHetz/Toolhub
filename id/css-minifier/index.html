@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>CSS Minifier — Toolhub</title>
   <meta name="description" content="CSS minifier gratis. Strip komentar, whitespace, dan stylesheet kosong dari CSS-mu. Lihat ukuran sebelum/sesudah dan persen byte yang dihemat — semuanya di browser-mu.">
   <meta property="og:title" content="CSS Minifier — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / CSS Minifier</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / CSS Minifier</nav>
     <h1>CSS Minifier</h1>
     <p class="tagline">Strip komentar, whitespace, dan redundansi dari CSS. Lihat ukuran sebelum/sesudah dan persen penghematan.</p>
     

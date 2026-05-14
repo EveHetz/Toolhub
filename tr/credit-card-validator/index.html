@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kredi Kartı Doğrulayıcı — Toolhub</title>
   <meta name="description" content="Ücretsiz online kredi kartı doğrulayıcı. Luhn (mod-10) checksum, marka tespiti (Visa, Mastercard, Amex, Discover, JCB, Diners, UnionPay) ve uzunluk doğrulaması. %100 istemci tarafında çalışır.">
   <meta property="og:title" content="Kredi Kartı Doğrulayıcı — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Kredi Kartı Doğrulayıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Kredi Kartı Doğrulayıcı</nav>
     <h1>Kredi Kartı Doğrulayıcı</h1>
     <p class="tagline">Kart numarasını Luhn kontrolü ile doğrula ve kart markasını tespit et. Yerel çalışır — numaran asla iletilmez.</p>
     

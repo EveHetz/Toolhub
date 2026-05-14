@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>コンパニオンツール — Toolhub</title>
   <meta name="description" content="Toolhubのブラウザユーティリティを補完するホスト側のセキュリティツール群。sentinel と skill-scanner — どちらも MITライセンスのオープンソース。">
   <meta property="og:title" content="コンパニオンツール — Toolhub">
@@ -183,11 +186,11 @@
         <option value="sk" >🇸🇰 SK</option>
         <option value="cs" >🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / コンパニオンツール</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / コンパニオンツール</nav>
     <h1>コンパニオンツール</h1>
     <p class="tagline">Toolhub のブラウザ内ユーティリティを補完するホスト側セキュリティツール。</p>
 

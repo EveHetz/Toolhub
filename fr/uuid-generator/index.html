@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Générateur UUID — Toolhub</title>
   <meta name="description" content="Générateur UUID gratuit en ligne. RFC 4122 v4 (aléatoire) et v7 (ordonné par temps, triable). Un ou plusieurs, tout dans votre navigateur.">
   <meta property="og:title" content="Générateur UUID — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Générateur UUID</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Générateur UUID</nav>
     <h1>Générateur UUID</h1>
     <p class="tagline">Générez des UUIDs RFC 4122 (v4 aléatoire ou v7 ordonné par temps). Jusqu'à 100 à la fois. Cryptographiquement sûr.</p>
     

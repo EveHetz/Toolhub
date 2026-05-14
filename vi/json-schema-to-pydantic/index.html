@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON Schema → Pydantic — Toolhub</title>
   <meta name="description" content="Trình tạo code JSON Schema → Pydantic v2 miễn phí. Dán một đối tượng JSON Schema và nhận về một class Pydantic BaseModel với type hint, default Field(), validator, và Optional/Union đã được xử lý. Hữu ích khi bạn đã thiết kế schema structured output cho một LLM (OpenAI / Claude / v.v.) và cần class Pydantic tương ứng. Chỉ trong trình duyệt, không upload.">
   <meta property="og:title" content="JSON Schema → Pydantic — Toolhub">
   <meta property="og:description" content="Trình tạo code JSON Schema → Pydantic v2 miễn phí. Dán một đối tượng JSON Schema và nhận về một class Pydantic BaseModel với type hint, default Field(), validator, và Optional/Union đã được xử lý. Hữu ích khi bạn đã thiết kế schema structured output cho một LLM (OpenAI / Claude / v.v.) và cần class Pydantic tương ứng. Chỉ trong trình duyệt, không upload.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/json-schema-to-pydantic/">
-  <meta property="og:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/json-schema-to-pydantic.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/json-schema-to-pydantic/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / JSON Schema → Pydantic</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / JSON Schema → Pydantic</nav>
     <h1>JSON Schema → Pydantic</h1>
     <p class="tagline">Chuyển đổi JSON Schema sang code model Pydantic v2, trong trình duyệt của bạn. Dán schema, nhận về một class Python sẵn sàng để dán. Hữu ích cho workflow LLM với structured output.</p>
     

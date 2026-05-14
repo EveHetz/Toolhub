@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML Formatter — Toolhub</title>
   <meta name="description" content="Gratis online XML formatter en minifier. Pretty-print XML met configureerbare indent, of strip whitespace om te minify-en. Valideert well-formedness via de XML-parser van de browser — foutregel en -kolom getoond.">
   <meta property="og:title" content="XML Formatter — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / XML Formatter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / XML Formatter</nav>
     <h1>XML Formatter</h1>
     <p class="tagline">Formatteer en minify XML. Valideer well-formedness met regel en kolom bij fouten.</p>
     

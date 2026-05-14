@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generatore di Rubriche — Toolhub</title>
   <meta name="description" content="Generatore di rubriche gratuito per insegnanti. Inserisci i criteri (es. 'Profondità della ricerca', 'Chiarezza della scrittura', 'Citazioni'), definisci i descrittori per livello (Eccellente / Competente / In sviluppo / Iniziale) e i punti per livello. Output: markdown pulito più anteprima HTML pronta per la stampa. Modelli inclusi: tema, progetto, presentazione, lavoro di gruppo, relazione di laboratorio. Tutto nel browser — niente upload, niente registrazione.">
   <meta property="og:title" content="Generatore di Rubriche — Toolhub">
   <meta property="og:description" content="Generatore di rubriche gratuito per insegnanti. Inserisci i criteri (es. 'Profondità della ricerca', 'Chiarezza della scrittura', 'Citazioni'), definisci i descrittori per livello (Eccellente / Competente / In sviluppo / Iniziale) e i punti per livello. Output: markdown pulito più anteprima HTML pronta per la stampa. Modelli inclusi: tema, progetto, presentazione, lavoro di gruppo, relazione di laboratorio. Tutto nel browser — niente upload, niente registrazione.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Generatore di Rubriche</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Generatore di Rubriche</nav>
     <h1>Generatore di Rubriche</h1>
     <p class="tagline">Crea rubriche stampabili (markdown + anteprima HTML + vista stampa) da criteri e livelli di prestazione. Pensato per docenti che pianificano valutazioni.</p>
     

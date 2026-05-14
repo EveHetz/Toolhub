@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>E-Mail-Validator — Toolhub</title>
   <meta name="description" content="Kostenloser E-Mail-Validator. RFC-5322-kompatible Syntaxprüfung, Local-Part- und Domain-Analyse, Hinweis auf Wegwerfdomains und Längenprüfung.">
   <meta property="og:title" content="E-Mail-Validator — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / E-Mail-Validator</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / E-Mail-Validator</nav>
     <h1>E-Mail-Validator</h1>
     <p class="tagline">Prüfe, ob eine E-Mail-Adresse syntaktisch korrekt ist (RFC 5322), mit Aufschlüsselung von Local-Part und Domain.</p>
     

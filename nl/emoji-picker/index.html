@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Emoji-picker — Toolhub</title>
   <meta name="description" content="Gratis emoji-picker met keyword-search. Klik om elke emoji te kopiëren. Gecureerde set met smileys, mensen, dieren, eten, reizen, objecten, symbolen en vlaggen. Pure Unicode — werkt overal.">
   <meta property="og:title" content="Emoji-picker — Toolhub">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Emoji-picker</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Emoji-picker</nav>
     <h1>Emoji-picker</h1>
     <p class="tagline">Doorzoekbaar emoji-palet op naam en keyword. Klik een emoji om te kopiëren. Categorieën: smileys, dieren, eten, reizen, objecten, symbolen, vlaggen.</p>
     

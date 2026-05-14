@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Zar Atıcı — Toolhub</title>
   <meta name="description" content="Standart masaüstü notasyonuyla ücretsiz online zar atıcı: 1d20, 2d6+3, 4d6kh3, 3d8-1. Her tek atışı ve toplamı gör. Adil, öngörülemez atışlar için crypto.getRandomValues kullanır.">
   <meta property="og:title" content="Zar Atıcı — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Zar Atıcı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Zar Atıcı</nav>
     <h1>Zar Atıcı</h1>
     <p class="tagline">Standart D&D notasyonuyla zar at — 2d6+3, 1d20, 4d6 en yüksek 3'ü tut. Kripto-güvenli RNG.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>SVG-Optimierer — Toolhub</title>
   <meta name="description" content="Kostenloser SVG-Optimierer, der komplett im Browser läuft. SVG einfügen oder hochladen und eine minifizierte Version mit sinnvollen Voreinstellungen erhalten: Kommentare entfernt, Leerzeichen reduziert, redundante Attribute weg, Koordinaten auf 2 Dezimalstellen gerundet. Zeigt Vorher/Nachher-Größe.">
   <meta property="og:title" content="SVG-Optimierer — Toolhub">
   <meta property="og:description" content="Kostenloser SVG-Optimierer, der komplett im Browser läuft. SVG einfügen oder hochladen und eine minifizierte Version mit sinnvollen Voreinstellungen erhalten: Kommentare entfernt, Leerzeichen reduziert, redundante Attribute weg, Koordinaten auf 2 Dezimalstellen gerundet. Zeigt Vorher/Nachher-Größe.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/de/svg-optimizer/">
-  <meta property="og:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/svg-optimizer.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/de/svg-optimizer/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / SVG-Optimierer</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / SVG-Optimierer</nav>
     <h1>SVG-Optimierer</h1>
     <p class="tagline">SVG-Dateien im Browser minifizieren. Entfernt Kommentare, überflüssige Leerzeichen, Standard-Attribute und rundet lange Dezimalzahlen. Datei verlässt dein Gerät nie.</p>
     

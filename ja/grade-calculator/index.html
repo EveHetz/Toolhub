@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>成績計算機 — Toolhub</title>
   <meta name="description" content="無料の重み付き成績計算機。評価カテゴリと重み（合計 100%）を設定し、各カテゴリの得点を入力すると、現在の合計成績と評定（A〜F）を表示。What-if モードでは、残っている課題で必要な得点を逆算できます（例：「期末で 87% 取れば A− を維持できる」）。状態を URL フラグメントとして保存可能 — どこにもアップロードされません。">
   <meta property="og:title" content="成績計算機 — Toolhub">
   <meta property="og:description" content="無料の重み付き成績計算機。評価カテゴリと重み（合計 100%）を設定し、各カテゴリの得点を入力すると、現在の合計成績と評定（A〜F）を表示。What-if モードでは、残っている課題で必要な得点を逆算できます（例：「期末で 87% 取れば A− を維持できる」）。状態を URL フラグメントとして保存可能 — どこにもアップロードされません。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / 成績計算機</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / 成績計算機</nav>
     <h1>成績計算機</h1>
     <p class="tagline">教科の重み付き成績を計算。カテゴリ（課題／テスト／プロジェクト／期末）と重みを設定し、得点を入力すると現在の評定が表示されます。What-if モード：「期末で何点取れば A になる？」</p>
     

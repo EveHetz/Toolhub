@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON naar CSV — Toolhub</title>
   <meta name="description" content="Gratis online JSON-naar-CSV converter. Flat arrays van objects naar rows, escapet quotes volgens RFC 4180, ondersteunt komma/puntkomma/tab delimiters.">
   <meta property="og:title" content="JSON naar CSV — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / JSON naar CSV</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / JSON naar CSV</nav>
     <h1>JSON naar CSV</h1>
     <p class="tagline">Converteer JSON-arrays van objects naar CSV. Detecteert velden automatisch, ondersteunt custom delimiters, escapet correct voor Excel en Google Sheets.</p>
     

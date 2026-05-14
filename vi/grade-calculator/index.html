@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Tính điểm trung bình — Toolhub</title>
   <meta name="description" content="Công cụ tính điểm trung bình có trọng số miễn phí. Định nghĩa các danh mục đánh giá với phần trăm trọng số (tổng = 100), nhập điểm ở từng danh mục, xem điểm hiện tại kèm hạng chữ cái. Chế độ what-if tính ngược điểm bạn cần ở bài còn lại (vd: 'Cần 87% ở bài cuối để giữ A-'). Lưu trạng thái dưới dạng fragment URL để đánh dấu — không có gì bị tải lên.">
   <meta property="og:title" content="Tính điểm trung bình — Toolhub">
   <meta property="og:description" content="Công cụ tính điểm trung bình có trọng số miễn phí. Định nghĩa các danh mục đánh giá với phần trăm trọng số (tổng = 100), nhập điểm ở từng danh mục, xem điểm hiện tại kèm hạng chữ cái. Chế độ what-if tính ngược điểm bạn cần ở bài còn lại (vd: 'Cần 87% ở bài cuối để giữ A-'). Lưu trạng thái dưới dạng fragment URL để đánh dấu — không có gì bị tải lên.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Tính điểm trung bình</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Tính điểm trung bình</nav>
     <h1>Tính điểm trung bình</h1>
     <p class="tagline">Tính điểm có trọng số cho một môn học. Thiết lập danh mục (bài tập / kiểm tra / dự án / cuối kỳ) cùng trọng số, nhập điểm, xem điểm hiện tại. Chế độ what-if: 'Cần bao nhiêu điểm bài cuối kỳ để đạt A?'</p>
     

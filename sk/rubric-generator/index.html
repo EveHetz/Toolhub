@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generátor hodnotiacej tabuľky — Toolhub</title>
   <meta name="description" content="Bezplatný generátor hodnotiacich tabuliek pre učiteľov. Zadaj kritériá (napr. 'Hĺbka výskumu', 'Jasnosť písania', 'Citácie'), opíš úrovne výkonu (Vynikajúci / Vyhovujúci / Rozvíjajúci sa / Začínajúci) a body. Výstup: čistý markdown a HTML náhľad pripravený na tlač. Pripravené šablóny: esej, projekt, prezentácia, skupinová práca, laboratórny protokol. Všetko v prehliadači — nič sa nenahráva, žiadna registrácia.">
   <meta property="og:title" content="Generátor hodnotiacej tabuľky — Toolhub">
   <meta property="og:description" content="Bezplatný generátor hodnotiacich tabuliek pre učiteľov. Zadaj kritériá (napr. 'Hĺbka výskumu', 'Jasnosť písania', 'Citácie'), opíš úrovne výkonu (Vynikajúci / Vyhovujúci / Rozvíjajúci sa / Začínajúci) a body. Výstup: čistý markdown a HTML náhľad pripravený na tlač. Pripravené šablóny: esej, projekt, prezentácia, skupinová práca, laboratórny protokol. Všetko v prehliadači — nič sa nenahráva, žiadna registrácia.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/rubric-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/rubric-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/rubric-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Generátor hodnotiacej tabuľky</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Generátor hodnotiacej tabuľky</nav>
     <h1>Generátor hodnotiacej tabuľky</h1>
     <p class="tagline">Vytvor hodnotiace tabuľky pripravené na tlač (markdown + HTML náhľad + tlačový pohľad) z kritérií a úrovní výkonu. Pre učiteľov, ktorí plánujú hodnotenia.</p>
     

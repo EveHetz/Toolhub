@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculadora de Capacidade de Financiamento — Toolhub</title>
   <meta name="description" content="Calculadora gratuita de capacidade de financiamento no navegador. Informe renda bruta anual, dívidas mensais recorrentes, valor de entrada, taxa de juros do financiamento e prazo. Obtenha o preço máximo de casa pela clássica regra 28/36 DTI, a parcela PITI mensal correspondente e o principal a financiar. Combina com a nossa loan-calculator para a tabela de amortização real depois que você escolher um preço.">
   <meta property="og:title" content="Calculadora de Capacidade de Financiamento — Toolhub">
   <meta property="og:description" content="Calculadora gratuita de capacidade de financiamento no navegador. Informe renda bruta anual, dívidas mensais recorrentes, valor de entrada, taxa de juros do financiamento e prazo. Obtenha o preço máximo de casa pela clássica regra 28/36 DTI, a parcela PITI mensal correspondente e o principal a financiar. Combina com a nossa loan-calculator para a tabela de amortização real depois que você escolher um preço.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/mortgage-affordability-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/mortgage-affordability-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/mortgage-affordability-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/mortgage-affordability-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Calculadora de Capacidade de Financiamento</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Calculadora de Capacidade de Financiamento</nav>
     <h1>Calculadora de Capacidade de Financiamento</h1>
     <p class="tagline">Quanto de casa posso pagar? Renda + dívidas mensais + entrada + taxa de juros → preço máximo pela regra 28/36 DTI.</p>
     

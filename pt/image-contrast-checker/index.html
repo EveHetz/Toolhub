@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Verificador de contraste sobre imagem — Toolhub</title>
   <meta name="description" content="Verificador WCAG de contraste gratuito que funciona sobre imagens enviadas. Clique em dois pontos (ex. um logo num fundo) e veja a razão de contraste com pass/fail pra AA, AA-grande, AAA, AAA-grande. Inclui amostrador de cor com raio configurável (1 pixel ou média 5×5). Útil pra verificar screenshots contra os padrões de acessibilidade.">
   <meta property="og:title" content="Verificador de contraste sobre imagem — Toolhub">
   <meta property="og:description" content="Verificador WCAG de contraste gratuito que funciona sobre imagens enviadas. Clique em dois pontos (ex. um logo num fundo) e veja a razão de contraste com pass/fail pra AA, AA-grande, AAA, AAA-grande. Inclui amostrador de cor com raio configurável (1 pixel ou média 5×5). Útil pra verificar screenshots contra os padrões de acessibilidade.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/image-contrast-checker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-contrast-checker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/image-contrast-checker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Verificador de contraste sobre imagem</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Verificador de contraste sobre imagem</nav>
     <h1>Verificador de contraste sobre imagem</h1>
     <p class="tagline">Clique em quaisquer dois pontos de uma imagem pra verificar contraste WCAG — AA, AAA, limites de texto grande. Feito pra designers que verificam screenshots reais, não só códigos hex.</p>
     

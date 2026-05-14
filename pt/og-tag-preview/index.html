@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Preview de Tags OG — Toolhub</title>
   <meta name="description" content="Preview de Open Graph tags gratuito. Cole seus <meta> tags ou preencha título/descrição/imagem e veja como seu link vai renderizar nos previews de compartilhamento do Twitter/X, Facebook, LinkedIn e Discord. Roda inteiramente no seu navegador.">
   <meta property="og:title" content="Preview de Tags OG — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Preview de Tags OG</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Preview de Tags OG</nav>
     <h1>Preview de Tags OG</h1>
     <p class="tagline">Cole meta tags OG ou preencha título/descrição/imagem — visualize os share cards como aparecem no Twitter/X, Facebook, LinkedIn e Discord.</p>
     

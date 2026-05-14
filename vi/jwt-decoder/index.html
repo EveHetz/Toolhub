@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JWT Decoder — Toolhub</title>
   <meta name="description" content="JWT decoder miễn phí trực tuyến. Dán token và xem header, payload và claim được giải mã. Toàn bộ decode chạy trong trình duyệt — token không bao giờ rời khỏi thiết bị của bạn.">
   <meta property="og:title" content="JWT Decoder — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / JWT Decoder</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / JWT Decoder</nav>
     <h1>JWT Decoder</h1>
     <p class="tagline">Dán một JWT, decode header và payload. Toàn bộ decode xảy ra trong trình duyệt — token không bao giờ rời khỏi trang.</p>
     

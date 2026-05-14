@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML ↔ JSON konvertor — Toolhub</title>
   <meta name="description" content="Bezplatný online XML ↔ JSON konvertor. Konverzia oboma smermi — XML na JSON aj JSON späť na XML. Rozumne pracuje s atribútmi, text nodes a arrays.">
   <meta property="og:title" content="XML ↔ JSON konvertor — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / XML ↔ JSON konvertor</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / XML ↔ JSON konvertor</nav>
     <h1>XML ↔ JSON konvertor</h1>
     <p class="tagline">Preveď XML na JSON alebo JSON späť na XML. Atribúty, text nody a arrays rozumne ošetrené.</p>
     

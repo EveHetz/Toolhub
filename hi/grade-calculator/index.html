@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Grade Calculator — Toolhub</title>
   <meta name="description" content="मुफ़्त weighted grade calculator। Grade categories को weight percentages के साथ define करें (sum 100 होना चाहिए), हर category में scores डालें, running grade letter scale के साथ देखें। What-if mode बकाया assignment में required score solve करता है (जैसे 'Final में 87% चाहिए A- रखने के लिए')। अपना data URL fragment के रूप में save करें bookmark करने के लिए — कुछ भी upload नहीं होता।">
   <meta property="og:title" content="Grade Calculator — Toolhub">
   <meta property="og:description" content="मुफ़्त weighted grade calculator। Grade categories को weight percentages के साथ define करें (sum 100 होना चाहिए), हर category में scores डालें, running grade letter scale के साथ देखें। What-if mode बकाया assignment में required score solve करता है (जैसे 'Final में 87% चाहिए A- रखने के लिए')। अपना data URL fragment के रूप में save करें bookmark करने के लिए — कुछ भी upload नहीं होता।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Grade Calculator</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Grade Calculator</nav>
     <h1>Grade Calculator</h1>
     <p class="tagline">एक class का weighted grade calculate करें। Categories (assignments / tests / projects / final) और उनके weights set करें, scores डालें, running grade देखें। What-if mode: 'Final में कितना चाहिए A लाने के लिए?'</p>
     

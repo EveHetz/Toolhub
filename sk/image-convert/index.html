@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Konvertor formátu obrázka — Toolhub</title>
   <meta name="description" content="Bezplatný konvertor formátu obrázka v prehliadači. Prepínaj medzi PNG, JPG a WebP. Súbory zostávajú na tvojom zariadení — nič sa nenahráva. Užitočné na zmenšenie JPG na WebP alebo pridanie priehľadnosti prechodom na PNG.">
   <meta property="og:title" content="Konvertor formátu obrázka — Toolhub">
   <meta property="og:description" content="Bezplatný konvertor formátu obrázka v prehliadači. Prepínaj medzi PNG, JPG a WebP. Súbory zostávajú na tvojom zariadení — nič sa nenahráva. Užitočné na zmenšenie JPG na WebP alebo pridanie priehľadnosti prechodom na PNG.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Konvertor formátu obrázka</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Konvertor formátu obrázka</nav>
     <h1>Konvertor formátu obrázka</h1>
     <p class="tagline">Konvertuj obrázky medzi PNG, JPG a WebP v prehliadači. Nahraj, vyber cieľový formát, stiahni. Bez uploadu, bez servera.</p>
     

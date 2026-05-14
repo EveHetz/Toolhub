@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Expense Splitter — Toolhub</title>
   <meta name="description" content="Free in-browser expense splitter। Expenses जोड़ें (किसने pay किया, amount, कौन देय), groups define करें, per-person balance + minimal-transfers settlement पाएं ('Alice, Bob को €X देय' format में)। Uneven splits support करता है (एक व्यक्ति ज़्यादा देय आदि) और multiple currencies (group में एक currency; conversion नहीं)। Trips, shared apartments, group dinners के लिए।">
   <meta property="og:title" content="Expense Splitter — Toolhub">
   <meta property="og:description" content="Free in-browser expense splitter। Expenses जोड़ें (किसने pay किया, amount, कौन देय), groups define करें, per-person balance + minimal-transfers settlement पाएं ('Alice, Bob को €X देय' format में)। Uneven splits support करता है (एक व्यक्ति ज़्यादा देय आदि) और multiple currencies (group में एक currency; conversion नहीं)। Trips, shared apartments, group dinners के लिए।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/expense-splitter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/expense-splitter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/expense-splitter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -338,11 +341,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Expense Splitter</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Expense Splitter</nav>
     <h1>Expense Splitter</h1>
     <p class="tagline">Group expense को बराबर या custom shares (percentages या fixed amounts) में split करें। Output: per-person totals + transfer instructions ('A, B को €X देय')।</p>
     

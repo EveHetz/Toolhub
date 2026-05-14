@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JSON ke CSV — Toolhub</title>
   <meta name="description" content="Konverter JSON ke CSV gratis. Tempel array JSON berisi objek dan dapatkan CSV bersih siap diimpor ke Excel, Google Sheets, atau database apa pun. Deteksi field otomatis dengan delimiter dan quoting yang dapat dikonfigurasi.">
   <meta property="og:title" content="JSON ke CSV — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / JSON ke CSV</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / JSON ke CSV</nav>
     <h1>JSON ke CSV</h1>
     <p class="tagline">Konversi array JSON berisi objek ke CSV. Mendeteksi field otomatis, mendukung delimiter custom, escape yang benar untuk Excel dan Google Sheets.</p>
     

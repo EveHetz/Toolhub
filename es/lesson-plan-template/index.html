@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Plantilla de Plan de Clase — Toolhub</title>
   <meta name="description" content="Generador de planes de clase gratuito. Rellena los campos del formulario — asignatura, nivel, duración, objetivos (con desplegable de niveles de Bloom), materiales, secuencia didáctica, evaluación, atención a la diversidad, reflexión — y obtén markdown limpio y vista HTML lista para imprimir. Plantillas listas para primaria / secundaria / bachillerato y varios modelos pedagógicos (5E, liberación gradual, indagación, ABP). Guarda el estado en un fragmento de URL para compartir.">
   <meta property="og:title" content="Plantilla de Plan de Clase — Toolhub">
   <meta property="og:description" content="Generador de planes de clase gratuito. Rellena los campos del formulario — asignatura, nivel, duración, objetivos (con desplegable de niveles de Bloom), materiales, secuencia didáctica, evaluación, atención a la diversidad, reflexión — y obtén markdown limpio y vista HTML lista para imprimir. Plantillas listas para primaria / secundaria / bachillerato y varios modelos pedagógicos (5E, liberación gradual, indagación, ABP). Guarda el estado en un fragmento de URL para compartir.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/es/lesson-plan-template/">
-  <meta property="og:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/lesson-plan-template.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/es/lesson-plan-template/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps" aria-label="Instala Toolhub como app en tu dispositivo — funciona sin conexión, sin tienda de apps">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/es/">Todas las herramientas</a> / Plantilla de Plan de Clase</div>
+    <nav class="breadcrumb" aria-label="Migas de pan"><a href="/es/">Todas las herramientas</a> / Plantilla de Plan de Clase</nav>
     <h1>Plantilla de Plan de Clase</h1>
     <p class="tagline">Genera un plan de clase estructurado desde un formulario. Secciones estándar (objetivos, materiales, fases, evaluación, reflexión). Salida en markdown + HTML imprimible.</p>
     

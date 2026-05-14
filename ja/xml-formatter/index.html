@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>XML フォーマッター — Toolhub</title>
   <meta name="description" content="オンライン無料の XML フォーマッター／ミニファイア。設定可能なインデントでの整形、または空白除去によるミニファイに対応します。ブラウザの XML パーサで well-formed を検証し、エラー時は行と列を表示します。">
   <meta property="og:title" content="XML フォーマッター — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / XML フォーマッター</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / XML フォーマッター</nav>
     <h1>XML フォーマッター</h1>
     <p class="tagline">XML を整形・圧縮。well-formed の検証では行と列でエラー位置を表示。</p>
     

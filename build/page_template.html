@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>{{TITLE}} — Toolhub</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <meta property="og:title" content="{{TITLE}} — Toolhub">
@@ -168,11 +171,11 @@
         <option value="sk" {{SEL_SK}}>🇸🇰 SK</option>
         <option value="cs" {{SEL_CS}}>🇨🇿 CS</option>
       </select>
-      <button class="theme-toggle" onclick="toggleTheme()" title="{{THEME_TIP}}">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="{{THEME_TIP}}" aria-label="{{THEME_TIP}}">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="{{HOME}}">{{ALL_TOOLS}}</a> / {{TITLE}}</div>
+    <nav class="breadcrumb" aria-label="{{BREADCRUMB_LBL}}"><a href="{{HOME}}">{{ALL_TOOLS}}</a> / {{TITLE}}</nav>
     <h1>{{H1}}</h1>
     {{BODY}}
   </main>

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Dobbelsteen-roller — Toolhub</title>
   <meta name="description" content="Gratis online dobbelsteen-roller met standaard tabletop-notatie: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zie elke individuele worp plus het totaal. Gebruikt crypto.getRandomValues voor eerlijke, onvoorspelbare worpen.">
   <meta property="og:title" content="Dobbelsteen-roller — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Dobbelsteen-roller</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Dobbelsteen-roller</nav>
     <h1>Dobbelsteen-roller</h1>
     <p class="tagline">Gooi dobbelstenen met standaard D&D-notatie — 2d6+3, 1d20, 4d6 keep highest 3. Crypto-secure RNG.</p>
     

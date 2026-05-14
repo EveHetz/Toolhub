@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kleur-converter — Toolhub</title>
   <meta name="description" content="Gratis online kleurconverter. Vertaal tussen hex (#3498db), rgb(), hsl() en het moderne oklch()-formaat. Live swatch-preview, kopieer elke waarde in één klik.">
   <meta property="og:title" content="Kleur-converter — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Kleur-converter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Kleur-converter</nav>
     <h1>Kleur-converter</h1>
     <p class="tagline">Converteer elke kleur tussen hex, RGB, HSL en OKLCH. Live preview, kopieer in één klik.</p>
     

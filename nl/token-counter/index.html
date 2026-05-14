@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Token Counter — Toolhub</title>
   <meta name="description" content="Gratis in-browser token-teller voor LLM's. Plak willekeurige tekst en zie token-tellingen voor GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini en Mistral. Per-model heuristieken — ±5% nauwkeurig voor Engels, ±10% voor code en CJK. Handig voor prompt-budget plannen, context-window sizing en API-kostraming.">
   <meta property="og:title" content="Token Counter — Toolhub">
   <meta property="og:description" content="Gratis in-browser token-teller voor LLM's. Plak willekeurige tekst en zie token-tellingen voor GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini en Mistral. Per-model heuristieken — ±5% nauwkeurig voor Engels, ±10% voor code en CJK. Handig voor prompt-budget plannen, context-window sizing en API-kostraming.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/nl/token-counter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/nl/token-counter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / Token Counter</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / Token Counter</nav>
     <h1>Token Counter</h1>
     <p class="tagline">Schat tokens voor GPT-4, Claude, Llama, Gemini en andere LLM's. Plak tekst, zie tellingen per model naast elkaar. Files verlaten je browser nooit.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>toolhub.software — Free Online Developer Tools</title>
   <meta name="description" content="25+ free online developer tools — JSON formatter, password generator, Base64 encoder, regex tester and more. No signup, no tracking, instant results.">
   <meta property="og:title" content="toolhub.software — Free Online Developer Tools">
@@ -186,7 +189,7 @@
       <option value="cs">🇨🇿 Čeština</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Install Toolhub as an app on your device — works offline, no app store needed" aria-label="Install Toolhub as an app on your device — works offline, no app store needed">Install app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
     </div>
   </header>
 
@@ -234,7 +237,7 @@
   </footer>
 
   <script>
-                                                                                                                                                                                        const TOOLS = [
+                                                                                                                                                                                            const TOOLS = [
       {"slug": "ascii-table", "name": "ASCII Table", "desc": "Full ASCII reference 0–127 with decimal, hex, binary, character, and HTML entity. Filterable.", "icon": "🔤", "cat": "developer", "tags": ["ascii", "table", "character", "encoding", "hex", "binary", "control", "html"]},
       {"slug": "base64-encoder", "name": "Base64 Encoder / Decoder", "desc": "Encode text to Base64 or decode Base64 back to text. UTF-8 safe and base64url variant supported.", "icon": "🔄", "cat": "encoding", "tags": ["base64", "encode", "decode", "data-uri"]},
       {"slug": "base64-to-image", "name": "Base64 to Image", "desc": "Decode a Base64 image or data URI back into a file. Paste the string, preview, download. The inverse of our image-to-Base64 tool.", "icon": "🔓", "cat": "encoding", "tags": ["base64", "data-uri", "decode", "image", "convert"]},

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Compressor de imagens — Toolhub</title>
   <meta name="description" content="Compressor de imagens gratuito online para PNG, JPG e WebP. Solte ou escolha uma imagem, ajuste o slider de qualidade e baixe uma versão menor na hora. Tudo acontece no seu browser — sem upload, sem servidor, sem rastreamento.">
   <meta property="og:title" content="Compressor de imagens — Toolhub">
   <meta property="og:description" content="Compressor de imagens gratuito online para PNG, JPG e WebP. Solte ou escolha uma imagem, ajuste o slider de qualidade e baixe uma versão menor na hora. Tudo acontece no seu browser — sem upload, sem servidor, sem rastreamento.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/pt/image-compress/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-compress.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/pt/image-compress/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Compressor de imagens</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Compressor de imagens</nav>
     <h1>Compressor de imagens</h1>
     <p class="tagline">Comprima imagens PNG, JPG ou WebP direto no seu browser. Ajuste a qualidade, veja tamanhos antes/depois, baixe. Os arquivos nunca saem do seu dispositivo.</p>
     

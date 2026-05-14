@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>JavaScript Minifier — Toolhub</title>
   <meta name="description" content="Gratis online JavaScript minifier. Verwijdert single- en multi-line comments, redundante whitespace en blank lines terwijl strings, regex literals en template literals behouden blijven.">
   <meta property="og:title" content="JavaScript Minifier — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installeer Toolhub als app — werkt offline, geen app store nodig" aria-label="Installeer Toolhub als app — werkt offline, geen app store nodig">App installeren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thema wisselen" aria-label="Thema wisselen">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/nl/">Alle tools</a> / JavaScript Minifier</div>
+    <nav class="breadcrumb" aria-label="Kruimelpad"><a href="/nl/">Alle tools</a> / JavaScript Minifier</nav>
     <h1>JavaScript Minifier</h1>
     <p class="tagline">Snelle structurele JavaScript-minify — strip comments, collapseer whitespace, drop blank lines. Zie size voor/na en het besparingspercentage.</p>
     

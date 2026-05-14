@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Construtor de Expressões Cron — Toolhub</title>
   <meta name="description" content="Construtor online gratuito de expressões cron. Escolha os campos com dropdowns e presets, obtenha a string cron e veja os próximos 5 horários de execução no seu fuso local. Crontab padrão de 5 campos.">
   <meta property="og:title" content="Construtor de Expressões Cron — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store" aria-label="Instalar Toolhub como app no seu dispositivo — funciona offline, sem app store">Instalar app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema" aria-label="Alternar tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/pt/">Todas as ferramentas</a> / Construtor de Expressões Cron</div>
+    <nav class="breadcrumb" aria-label="Navegação estrutural"><a href="/pt/">Todas as ferramentas</a> / Construtor de Expressões Cron</nav>
     <h1>Construtor de Expressões Cron</h1>
     <p class="tagline">Monte uma expressão cron visualmente — minuto, hora, dia, mês, dia da semana — e veja os próximos 5 horários de execução.</p>
     

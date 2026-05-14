@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Lanceur de Dés — Toolhub</title>
   <meta name="description" content="Lanceur de dés gratuit avec notation standard de jeu de rôle : 1d20, 2d6+3, 4d6kh3, 3d8-1. Chaque dé et le total. Utilise crypto.getRandomValues pour des lancers équitables.">
   <meta property="og:title" content="Lanceur de Dés — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Lanceur de Dés</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Lanceur de Dés</nav>
     <h1>Lanceur de Dés</h1>
     <p class="tagline">Lancez les dés avec la notation D&D standard — 2d6+3, 1d20, 4d6 garder les 3 plus hauts. RNG crypto-sûr.</p>
     

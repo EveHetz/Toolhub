@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>MIME-Typ-Suche — Toolhub</title>
   <meta name="description" content="Kostenlose MIME-Typ-Suche. Suche nach Dateierweiterung (.pdf, .png, .json) oder MIME-Typ (image/jpeg, application/pdf) in rund 120 gängigen Medien-Typen.">
   <meta property="og:title" content="MIME-Typ-Suche — Toolhub">
@@ -290,11 +293,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / MIME-Typ-Suche</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / MIME-Typ-Suche</nav>
     <h1>MIME-Typ-Suche</h1>
     <p class="tagline">Suche MIME-Typen nach Erweiterung oder Typ. ~120 gängige Typen — Bild, Video, Audio, application, text, font.</p>
     

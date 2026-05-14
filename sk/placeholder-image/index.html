@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generátor placeholder obrázkov — Toolhub</title>
   <meta name="description" content="Bezplatný online generátor placeholder obrázkov. Nastav veľkosť, popredie, pozadie a text — dostaneš inline-SVG placeholder pre wireframy a mockupy. Stiahni alebo skopíruj ako data URI.">
   <meta property="og:title" content="Generátor placeholder obrázkov — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Generátor placeholder obrázkov</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Generátor placeholder obrázkov</nav>
     <h1>Generátor placeholder obrázkov</h1>
     <p class="tagline">Vygeneruj inline-SVG placeholder obrázky akejkoľvek veľkosti s vlastným textom a farbami. Výstup ako data URI alebo stiahnuteľné SVG.</p>
     

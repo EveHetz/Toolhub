@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculateur d'IMC — Toolhub</title>
   <meta name="description" content="Calculateur d'IMC gratuit. Saisissez la taille et le poids en métrique (cm + kg) ou impérial (pieds/pouces + livres) et obtenez l'IMC plus la classification OMS. À titre informatif — pas un avis médical.">
   <meta property="og:title" content="Calculateur d'IMC — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Calculateur d'IMC</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Calculateur d'IMC</nav>
     <h1>Calculateur d'IMC</h1>
     <p class="tagline">Indice de Masse Corporelle à partir de la taille et du poids. Métrique ou impérial. Catégorie OMS — pas un avis médical.</p>
     

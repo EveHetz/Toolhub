@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Image Format Converter — Toolhub</title>
   <meta name="description" content="मुफ़्त in-browser image format converter। PNG, JPG, और WebP के बीच switch करें। Files आपके device पर रहती हैं — कुछ भी upload नहीं होता। JPG को WebP में सिकोड़ने, या PNG में जाकर transparency support जोड़ने के लिए उपयोगी।">
   <meta property="og:title" content="Image Format Converter — Toolhub">
   <meta property="og:description" content="मुफ़्त in-browser image format converter। PNG, JPG, और WebP के बीच switch करें। Files आपके device पर रहती हैं — कुछ भी upload नहीं होता। JPG को WebP में सिकोड़ने, या PNG में जाकर transparency support जोड़ने के लिए उपयोगी।">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/hi/image-convert/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-convert.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/hi/image-convert/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं" aria-label="Toolhub को अपने डिवाइस पर ऐप के रूप में इंस्टॉल करें — ऑफ़लाइन काम करता है, ऐप स्टोर की ज़रूरत नहीं">ऐप इंस्टॉल करें</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="थीम बदलें" aria-label="थीम बदलें">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/hi/">सभी टूल्स</a> / Image Format Converter</div>
+    <nav class="breadcrumb" aria-label="ब्रेडक्रंब नेविगेशन"><a href="/hi/">सभी टूल्स</a> / Image Format Converter</nav>
     <h1>Image Format Converter</h1>
     <p class="tagline">अपने browser में PNG, JPG, और WebP के बीच images convert करें। Drop करें, target format चुनें, download करें। कोई upload नहीं, कोई server नहीं।</p>
     

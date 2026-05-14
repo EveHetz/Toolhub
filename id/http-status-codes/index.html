@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Kode Status HTTP — Toolhub</title>
   <meta name="description" content="Referensi kode status HTTP gratis. Cari kode status apa pun (1xx informational, 2xx success, 3xx redirect, 4xx client error, 5xx server error) dengan maknanya, alasan umum, dan referensi RFC.">
   <meta property="og:title" content="Kode Status HTTP — Toolhub">
@@ -290,11 +293,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store" aria-label="Pasang Toolhub sebagai aplikasi di perangkatmu — bekerja offline, tanpa app store">Pasang aplikasi</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/id/">Semua alat</a> / Kode Status HTTP</div>
+    <nav class="breadcrumb" aria-label="Remah roti"><a href="/id/">Semua alat</a> / Kode Status HTTP</nav>
     <h1>Kode Status HTTP</h1>
     <p class="tagline">Cari kode status HTTP apa pun (1xx–5xx). Maknanya, alasan umum, dan referensi RFC.</p>
     

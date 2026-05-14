@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Markdown zu HTML — Toolhub</title>
   <meta name="description" content="Kostenloser Markdown-zu-HTML-Konverter. CommonMark-Stil: Überschriften, Listen, Codeblöcke, Tabellen, Bilder, Zitate, Inline-Formatierung. Live-Vorschau + Kopieren.">
   <meta property="og:title" content="Markdown zu HTML — Toolhub">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Markdown zu HTML</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Markdown zu HTML</nav>
     <h1>Markdown zu HTML</h1>
     <p class="tagline">Markdown in sauberes HTML umwandeln mit Live-Vorschau. Überschriften, Listen, Code, Tabellen, Bilder und Links.</p>
     

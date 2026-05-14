@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculateur de Notes — Toolhub</title>
   <meta name="description" content="Calculateur de notes pondérées gratuit. Définissez les catégories d'évaluation avec leur coefficient (somme = 100), saisissez vos notes, et voyez la moyenne en cours avec la lettre/mention correspondante. Le mode hypothèse résout la note nécessaire sur un devoir restant (ex. « Il me faut 14/20 à l'exam pour garder ma mention »). Sauvegardez l'état dans un fragment d'URL — rien n'est envoyé.">
   <meta property="og:title" content="Calculateur de Notes — Toolhub">
   <meta property="og:description" content="Calculateur de notes pondérées gratuit. Définissez les catégories d'évaluation avec leur coefficient (somme = 100), saisissez vos notes, et voyez la moyenne en cours avec la lettre/mention correspondante. Le mode hypothèse résout la note nécessaire sur un devoir restant (ex. « Il me faut 14/20 à l'exam pour garder ma mention »). Sauvegardez l'état dans un fragment d'URL — rien n'est envoyé.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/grade-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/grade-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/grade-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Calculateur de Notes</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Calculateur de Notes</nav>
     <h1>Calculateur de Notes</h1>
     <p class="tagline">Calcule la moyenne pondérée d'une matière. Catégories (devoirs / contrôles / projets / examen final) avec coefficients, saisis tes notes, vois la moyenne en cours. Mode hypothèse : « Que dois-je avoir au final pour décrocher la mention ? »</p>
     

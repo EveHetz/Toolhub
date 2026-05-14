@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calculatrice de Prêt — Toolhub</title>
   <meta name="description" content="Calculatrice gratuite de prêt / crédit immobilier. Saisissez capital, taux d'intérêt annuel et durée en années (ou mois) : obtenez mensualité, total d'intérêts payés sur la vie du prêt, montant total et tableau d'amortissement mois par mois (capital + intérêts + capital restant dû). Utile pour comparer prêts immo, crédits auto, prêts perso.">
   <meta property="og:title" content="Calculatrice de Prêt — Toolhub">
   <meta property="og:description" content="Calculatrice gratuite de prêt / crédit immobilier. Saisissez capital, taux d'intérêt annuel et durée en années (ou mois) : obtenez mensualité, total d'intérêts payés sur la vie du prêt, montant total et tableau d'amortissement mois par mois (capital + intérêts + capital restant dû). Utile pour comparer prêts immo, crédits auto, prêts perso.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/loan-calculator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/loan-calculator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/loan-calculator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Calculatrice de Prêt</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Calculatrice de Prêt</nav>
     <h1>Calculatrice de Prêt</h1>
     <p class="tagline">Calculez la mensualité, le total d'intérêts et le tableau d'amortissement complet. Taux fixe, amortissement constant. Navigateur seul.</p>
     

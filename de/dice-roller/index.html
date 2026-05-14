@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Würfelroller — Toolhub</title>
   <meta name="description" content="Kostenloser Online-Würfler mit Standard-Tabletop-Notation: 1d20, 2d6+3, 4d6kh3, 3d8-1. Zeigt jeden Wurf einzeln plus Summe. Verwendet crypto.getRandomValues für faire Würfe.">
   <meta property="og:title" content="Würfelroller — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig" aria-label="Toolhub als App auf deinem Gerät installieren — funktioniert offline, kein App Store nötig">App installieren</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Theme wechseln" aria-label="Theme wechseln">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/de/">Alle Tools</a> / Würfelroller</div>
+    <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><a href="/de/">Alle Tools</a> / Würfelroller</nav>
     <h1>Würfelroller</h1>
     <p class="tagline">Würfle mit Standard-D&D-Notation — 2d6+3, 1d20, 4d6 keep highest 3. Krypto-sicherer RNG.</p>
     

@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Calcolatore BMI — Toolhub</title>
   <meta name="description" content="Calcolatore BMI gratuito. Inserisci altezza e peso in metrico (cm + kg) o imperiale (piedi/pollici + libbre) e ottieni il BMI e la classificazione OMS. Solo informativo — non un consiglio medico.">
   <meta property="og:title" content="Calcolatore BMI — Toolhub">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Calcolatore BMI</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Calcolatore BMI</nav>
     <h1>Calcolatore BMI</h1>
     <p class="tagline">Indice di Massa Corporea da altezza e peso. Metrico o imperiale. Categoria OMS — non è un consiglio medico.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>システムプロンプト Linter — Toolhub</title>
   <meta name="description" content="無料のシステムプロンプト linter。プロンプトを貼り付けると、よくある問題のチェックリストが出ます：具体性のない「親切に」、矛盾する指示、例示・shot 数の欠如、役割ドリフト、逃げ道なし、肥大化した前文。各検出には短い修正案がつきます。占いではなくヒューリスティック — けれど明らかな抜けは拾います。">
   <meta property="og:title" content="システムプロンプト Linter — Toolhub">
   <meta property="og:description" content="無料のシステムプロンプト linter。プロンプトを貼り付けると、よくある問題のチェックリストが出ます：具体性のない「親切に」、矛盾する指示、例示・shot 数の欠如、役割ドリフト、逃げ道なし、肥大化した前文。各検出には短い修正案がつきます。占いではなくヒューリスティック — けれど明らかな抜けは拾います。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/ja/system-prompt-linter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/system-prompt-linter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/ja/system-prompt-linter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要" aria-label="Toolhubをアプリとしてインストール — オフラインで動作、ストア不要">アプリをインストール</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="テーマを切り替え" aria-label="テーマを切り替え">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/ja/">すべてのツール</a> / システムプロンプト Linter</div>
+    <nav class="breadcrumb" aria-label="パンくずリスト"><a href="/ja/">すべてのツール</a> / システムプロンプト Linter</nav>
     <h1>システムプロンプト Linter</h1>
     <p class="tagline">システムプロンプトをよくある問題で点検：曖昧な指示、矛盾するルール、例示の欠如、肥大化したコンテキスト。ヒューリスティック、辛口、高速。</p>
     

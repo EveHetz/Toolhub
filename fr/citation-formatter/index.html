@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Formateur de Citations — Toolhub</title>
   <meta name="description" content="Formateur de citations gratuit pour la rédaction universitaire. Choisissez le type de source (livre / article de revue / site web / chapitre / acte de colloque / mémoire ou thèse / article de presse / rapport), remplissez les champs (auteurs, titre, année, éditeur…), choisissez le style (APA 7, MLA 9, Chicago auteur-date, Harvard) et copiez la référence formatée. Le mode bibliographie construit une liste triée. Aucun appel externe, aucune API DOI, aucun tracking — fonctionne hors-ligne après chargement.">
   <meta property="og:title" content="Formateur de Citations — Toolhub">
   <meta property="og:description" content="Formateur de citations gratuit pour la rédaction universitaire. Choisissez le type de source (livre / article de revue / site web / chapitre / acte de colloque / mémoire ou thèse / article de presse / rapport), remplissez les champs (auteurs, titre, année, éditeur…), choisissez le style (APA 7, MLA 9, Chicago auteur-date, Harvard) et copiez la référence formatée. Le mode bibliographie construit une liste triée. Aucun appel externe, aucune API DOI, aucun tracking — fonctionne hors-ligne après chargement.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/fr/citation-formatter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/citation-formatter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/fr/citation-formatter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -298,11 +301,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store" aria-label="Installer Toolhub comme app sur ton appareil — fonctionne hors-ligne, sans app store">Installer l'app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer de thème" aria-label="Changer de thème">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/fr/">Tous les outils</a> / Formateur de Citations</div>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/fr/">Tous les outils</a> / Formateur de Citations</nav>
     <h1>Formateur de Citations</h1>
     <p class="tagline">Formatez vos citations en APA 7, MLA 9, Chicago et Harvard. Saisie manuelle des champs — pas d'appel DOI, pas de tracking. 100 % navigateur.</p>
     

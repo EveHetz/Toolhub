@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Výběr barvy z obrázku — Toolhub</title>
   <meta name="description" content="Bezplatný výběr barvy z obrázku, který běží v prohlížeči. Pusť PNG, JPG nebo WebP, potom klikni na libovolný pixel a načti jeho hex/RGB/HSL hodnoty. Klikej více bodů, abys vybudoval vlastní paletu. Včetně hover lupy pro pixelově přesný výběr. Soubory nikdy neopustí tvé zařízení.">
   <meta property="og:title" content="Výběr barvy z obrázku — Toolhub">
   <meta property="og:description" content="Bezplatný výběr barvy z obrázku, který běží v prohlížeči. Pusť PNG, JPG nebo WebP, potom klikni na libovolný pixel a načti jeho hex/RGB/HSL hodnoty. Klikej více bodů, abys vybudoval vlastní paletu. Včetně hover lupy pro pixelově přesný výběr. Soubory nikdy neopustí tvé zařízení.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/image-color-picker/">
-  <meta property="og:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/image-color-picker.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/image-color-picker/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Výběr barvy z obrázku</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Výběr barvy z obrázku</nav>
     <h1>Výběr barvy z obrázku</h1>
     <p class="tagline">Nahraj obrázek a klikni kdekoli pro získání hex, RGB a HSL toho pixelu. Vybuduj vlastní paletu kliknutím na více bodů. Čistý prohlížeč, žádný upload.</p>
     

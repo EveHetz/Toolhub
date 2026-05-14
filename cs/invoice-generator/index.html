@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Generátor faktur — Toolhub</title>
   <meta name="description" content="Bezplatný generátor faktur v prohlížeči. Zadej údaje své firmy (od), klienta (komu), položky (popis / množství / cena) — nástroj spočítá mezisoučet, DPH (vyber zemi + sazbu) a celkovou částku. Výstup jako markdown nebo HTML připravené k tisku — ulož jako PDF přes tiskový dialog prohlížeče. Bez nahrávání, bez registrace, bez třetích stran. Uloží údaje tvé firmy do URL fragmentu, takže je nemusíš příště psát znovu.">
   <meta property="og:title" content="Generátor faktur — Toolhub">
   <meta property="og:description" content="Bezplatný generátor faktur v prohlížeči. Zadej údaje své firmy (od), klienta (komu), položky (popis / množství / cena) — nástroj spočítá mezisoučet, DPH (vyber zemi + sazbu) a celkovou částku. Výstup jako markdown nebo HTML připravené k tisku — ulož jako PDF přes tiskový dialog prohlížeče. Bez nahrávání, bez registrace, bez třetích stran. Uloží údaje tvé firmy do URL fragmentu, takže je nemusíš příště psát znovu.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/invoice-generator/">
-  <meta property="og:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/invoice-generator.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/invoice-generator/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Generátor faktur</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Generátor faktur</nav>
     <h1>Generátor faktur</h1>
     <p class="tagline">Vygeneruj čistou fakturu jako markdown + HTML připravené k tisku. Vyplň formulář, sleduj náhled naživo, ulož jako PDF přes tisk prohlížeče. Bez nahrávání, bez registrace.</p>
     

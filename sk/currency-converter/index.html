@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Prevodník mien — Toolhub</title>
   <meta name="description" content="Bezplatný prevodník mien priamo v prehliadači s napevno zakódovanými referenčnými kurzami, aktualizovanými štvrťročne. Vyber zdroj a cieľ, zadaj sumu, prečítaj výsledok. Referenčný dátum je zobrazený — pred vystavením faktúry vždy over so skutočným kurzom svojej banky. Live kurzy zámerne neťaháme: prezradilo by to tvoje dotazy tretej strane. Na reálne transakcie použi banku alebo FX dealera.">
   <meta property="og:title" content="Prevodník mien — Toolhub">
   <meta property="og:description" content="Bezplatný prevodník mien priamo v prehliadači s napevno zakódovanými referenčnými kurzami, aktualizovanými štvrťročne. Vyber zdroj a cieľ, zadaj sumu, prečítaj výsledok. Referenčný dátum je zobrazený — pred vystavením faktúry vždy over so skutočným kurzom svojej banky. Live kurzy zámerne neťaháme: prezradilo by to tvoje dotazy tretej strane. Na reálne transakcie použi banku alebo FX dealera.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/sk/currency-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/currency-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/sk/currency-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami" aria-label="Nainštaluj Toolhub ako aplikáciu na svoje zariadenie — funguje offline, bez obchodu s aplikáciami">Nainštalovať aplikáciu</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Prepnúť tému" aria-label="Prepnúť tému">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/sk/">Všetky nástroje</a> / Prevodník mien</div>
+    <nav class="breadcrumb" aria-label="Drobčeková navigácia"><a href="/sk/">Všetky nástroje</a> / Prevodník mien</nav>
     <h1>Prevodník mien</h1>
     <p class="tagline">Preveď medzi 50+ menami s referenčnými kurzami k známemu dátumu. Bez live API, bez sledovania — užitočné na rýchle odhady a cenové ponuky pre freelancera. Pred fakturáciou vždy over.</p>
     

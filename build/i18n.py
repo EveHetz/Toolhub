@@ -57,6 +57,7 @@ UI = {
         "highlight_schools_body": "Free, ad-free, privacy-first. Self-hostable. 15 languages.",
         "highlight_companion_title": "Companion Tools",
         "highlight_companion_body": "Host-side security utilities — skill-scanner & sentinel.",
+        "breadcrumb": "Breadcrumb",
     },
     "de": {
         "all_tools": "Alle Tools",
@@ -113,6 +114,7 @@ UI = {
         "highlight_schools_body": "Kostenlos, werbefrei, datenschutzfreundlich. Selbst hostbar. 15 Sprachen.",
         "highlight_companion_title": "Begleit-Tools",
         "highlight_companion_body": "Host-Sicherheits-Tools — Skill-Scanner & Sentinel.",
+        "breadcrumb": "Brotkrümelnavigation",
     },
     "es": {
         "all_tools": "Todas las herramientas",
@@ -169,6 +171,7 @@ UI = {
         "highlight_schools_body": "Gratis, sin anuncios, privado. Auto-hospedable. 15 idiomas.",
         "highlight_companion_title": "Herramientas complementarias",
         "highlight_companion_body": "Utilidades de seguridad para hosts — skill-scanner & sentinel.",
+        "breadcrumb": "Migas de pan",
     },
     "fr": {
         "all_tools": "Tous les outils",
@@ -225,6 +228,7 @@ UI = {
         "highlight_schools_body": "Gratuit, sans pub, respect de la vie privée. Auto-hébergeable. 15 langues.",
         "highlight_companion_title": "Outils complémentaires",
         "highlight_companion_body": "Utilitaires sécurité côté hôte — skill-scanner & sentinel.",
+        "breadcrumb": "Fil d'Ariane",
     },
     "it": {
         "all_tools": "Tutti gli strumenti",
@@ -281,6 +285,7 @@ UI = {
         "highlight_schools_body": "Gratuito, senza pub, privacy-first. Self-hostable. 15 lingue.",
         "highlight_companion_title": "Strumenti complementari",
         "highlight_companion_body": "Utility di sicurezza host — skill-scanner & sentinel.",
+        "breadcrumb": "Briciole di pane",
     },
     "pt": {
         "all_tools": "Todas as ferramentas",
@@ -337,6 +342,7 @@ UI = {
         "highlight_schools_body": "Grátis, sem anúncios, com privacidade. Self-host. 15 idiomas.",
         "highlight_companion_title": "Ferramentas complementares",
         "highlight_companion_body": "Utilitários de segurança do host — skill-scanner & sentinel.",
+        "breadcrumb": "Navegação estrutural",
     },
     "pl": {
         "all_tools": "Wszystkie narzędzia",
@@ -393,6 +399,7 @@ UI = {
         "highlight_schools_body": "Darmowe, bez reklam, prywatne. Self-hosting. 15 języków.",
         "highlight_companion_title": "Narzędzia uzupełniające",
         "highlight_companion_body": "Narzędzia bezpieczeństwa po stronie hosta — skill-scanner & sentinel.",
+        "breadcrumb": "Okruszki",
     },
     "ja": {
         "all_tools": "すべてのツール",
@@ -449,6 +456,7 @@ UI = {
         "highlight_schools_body": "無料・広告なし・プライバシー重視。セルフホスト可。15言語。",
         "highlight_companion_title": "コンパニオンツール",
         "highlight_companion_body": "ホスト側セキュリティ — skill-scanner と sentinel。",
+        "breadcrumb": "パンくずリスト",
     },
     "nl": {
         "all_tools": "Alle tools",
@@ -505,6 +513,7 @@ UI = {
         "highlight_schools_body": "Gratis, advertentievrij, privacy-first. Self-host. 15 talen.",
         "highlight_companion_title": "Aanvullende tools",
         "highlight_companion_body": "Host-side security utilities — skill-scanner & sentinel.",
+        "breadcrumb": "Kruimelpad",
     },
     "tr": {
         "all_tools": "Tüm araçlar",
@@ -561,6 +570,7 @@ UI = {
         "highlight_schools_body": "Ücretsiz, reklamsız, gizlilik odaklı. Self-host. 15 dil.",
         "highlight_companion_title": "Tamamlayıcı araçlar",
         "highlight_companion_body": "Host tarafı güvenlik araçları — skill-scanner & sentinel.",
+        "breadcrumb": "Konum izi",
     },
     "id": {
         "all_tools": "Semua alat",
@@ -617,6 +627,7 @@ UI = {
         "highlight_schools_body": "Gratis, tanpa iklan, privasi dulu. Self-host. 15 bahasa.",
         "highlight_companion_title": "Alat pendamping",
         "highlight_companion_body": "Utilitas keamanan sisi host — skill-scanner & sentinel.",
+        "breadcrumb": "Remah roti",
     },
     "vi": {
         "all_tools": "Tất cả công cụ",
@@ -673,6 +684,7 @@ UI = {
         "highlight_schools_body": "Miễn phí, không quảng cáo, riêng tư. Self-host. 15 ngôn ngữ.",
         "highlight_companion_title": "Công cụ bổ sung",
         "highlight_companion_body": "Tiện ích bảo mật phía host — skill-scanner & sentinel.",
+        "breadcrumb": "Đường dẫn",
     },
     "sk": {
         "all_tools": "Všetky nástroje",
@@ -729,6 +741,7 @@ UI = {
         "highlight_schools_body": "Zadarmo, bez reklám, súkromné. Self-host. 15 jazykov.",
         "highlight_companion_title": "Doplnkové nástroje",
         "highlight_companion_body": "Bezpečnostné utility na strane hosta — skill-scanner & sentinel.",
+        "breadcrumb": "Drobčeková navigácia",
     },
     "cs": {
         "all_tools": "Všechny nástroje",
@@ -785,6 +798,7 @@ UI = {
         "highlight_schools_body": "Zdarma, bez reklam, soukromé. Self-host. 15 jazyků.",
         "highlight_companion_title": "Doplňkové nástroje",
         "highlight_companion_body": "Bezpečnostní utility na straně hostitele — skill-scanner & sentinel.",
+        "breadcrumb": "Drobečková navigace",
     },
     "hi": {
         "all_tools": "सभी टूल्स",
@@ -841,6 +855,7 @@ UI = {
         "highlight_schools_body": "मुफ़्त, बिना विज्ञापन, गोपनीयता पहले। Self-host। 15 भाषाएँ।",
         "highlight_companion_title": "साथी टूल्स",
         "highlight_companion_body": "होस्ट-साइड सुरक्षा टूल्स — skill-scanner & sentinel।",
+        "breadcrumb": "ब्रेडक्रंब नेविगेशन",
     },
 }
 

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Token Sayacı — Toolhub</title>
   <meta name="description" content="LLM'ler için ücretsiz tarayıcı içi token sayacı. Herhangi bir metni yapıştır ve GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini ve Mistral için token sayısını gör. Modele özgü sezgisel yöntemler — İngilizce için ±%5, kod ve CJK için ±%10 doğruluk. Prompt bütçesi planlama, bağlam penceresi boyutlandırma ve API maliyet tahmini için yararlıdır.">
   <meta property="og:title" content="Token Sayacı — Toolhub">
   <meta property="og:description" content="LLM'ler için ücretsiz tarayıcı içi token sayacı. Herhangi bir metni yapıştır ve GPT-4, GPT-3.5, Claude (Sonnet / Opus / Haiku), Llama, Gemini ve Mistral için token sayısını gör. Modele özgü sezgisel yöntemler — İngilizce için ±%5, kod ve CJK için ±%10 doğruluk. Prompt bütçesi planlama, bağlam penceresi boyutlandırma ve API maliyet tahmini için yararlıdır.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/tr/token-counter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/token-counter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/tr/token-counter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez" aria-label="Toolhub'ı cihazına uygulama olarak yükle — çevrimdışı çalışır, uygulama mağazası gerekmez">Uygulamayı yükle</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Temayı değiştir" aria-label="Temayı değiştir">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/tr/">Tüm araçlar</a> / Token Sayacı</div>
+    <nav class="breadcrumb" aria-label="Konum izi"><a href="/tr/">Tüm araçlar</a> / Token Sayacı</nav>
     <h1>Token Sayacı</h1>
     <p class="tagline">GPT-4, Claude, Llama, Gemini ve diğer LLM'ler için token sayısını tahmin et. Metni yapıştır, model başına sayıları yan yana gör. Dosyalar tarayıcını asla terk etmez.</p>
     

@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Bộ chuyển đổi OpenAI ⇄ Anthropic — Toolhub</title>
   <meta name="description" content="Bộ chuyển đổi miễn phí trong trình duyệt giữa OpenAI Chat Completions và Anthropic Messages API. Xử lý các khác biệt định dạng chính: vị trí system message (field top-level cho Anthropic, role:'system' cho OpenAI), định dạng tool-call (tool_calls/tool_call_id vs tool_use/tool_result), khối content hình ảnh, cấu trúc multi-turn. Hữu ích khi di chuyển prompt giữa các nhà cung cấp. JS thuần.">
   <meta property="og:title" content="Bộ chuyển đổi OpenAI ⇄ Anthropic — Toolhub">
   <meta property="og:description" content="Bộ chuyển đổi miễn phí trong trình duyệt giữa OpenAI Chat Completions và Anthropic Messages API. Xử lý các khác biệt định dạng chính: vị trí system message (field top-level cho Anthropic, role:'system' cho OpenAI), định dạng tool-call (tool_calls/tool_call_id vs tool_use/tool_result), khối content hình ảnh, cấu trúc multi-turn. Hữu ích khi di chuyển prompt giữa các nhà cung cấp. JS thuần.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/vi/openai-anthropic-converter/">
-  <meta property="og:image" content="https://toolhub.software/og-images/openai-anthropic-converter.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/openai-anthropic-converter.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/vi/openai-anthropic-converter/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -322,11 +325,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store" aria-label="Cài Toolhub như một ứng dụng trên thiết bị của bạn — hoạt động offline, không cần app store">Cài ứng dụng</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Đổi giao diện" aria-label="Đổi giao diện">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/vi/">Tất cả công cụ</a> / Bộ chuyển đổi OpenAI ⇄ Anthropic</div>
+    <nav class="breadcrumb" aria-label="Đường dẫn"><a href="/vi/">Tất cả công cụ</a> / Bộ chuyển đổi OpenAI ⇄ Anthropic</nav>
     <h1>Bộ chuyển đổi OpenAI ⇄ Anthropic</h1>
     <p class="tagline">Chuyển đổi mảng messages giữa OpenAI Chat Completions và Anthropic Messages API. Xử lý system messages, tool calls, khối hình ảnh, multi-turn. Trong trình duyệt, không cần API key.</p>
     

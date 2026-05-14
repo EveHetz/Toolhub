@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Base64 na obrázek — Toolhub</title>
   <meta name="description" content="Zdarma in-browser Base64 → obrázek dekodér. Vlož data: URI (nebo surový Base64 payload), podívej se na vykreslený obrázek a stáhni si ho. Zvládá PNG, JPG, WebP, GIF, SVG. Hodí se, když jsi zkopíroval data URI z CSS nebo HTML a chceš zpět originální soubor.">
   <meta property="og:title" content="Base64 na obrázek — Toolhub">
   <meta property="og:description" content="Zdarma in-browser Base64 → obrázek dekodér. Vlož data: URI (nebo surový Base64 payload), podívej se na vykreslený obrázek a stáhni si ho. Zvládá PNG, JPG, WebP, GIF, SVG. Hodí se, když jsi zkopíroval data URI z CSS nebo HTML a chceš zpět originální soubor.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/cs/base64-to-image/">
-  <meta property="og:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/base64-to-image.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/cs/base64-to-image/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -314,11 +317,11 @@
         <option value="cs" selected="selected">🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi" aria-label="Nainstaluj Toolhub jako aplikaci na svém zařízení — funguje offline, bez obchodu s aplikacemi">Nainstalovat aplikaci</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Přepnout motiv" aria-label="Přepnout motiv">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/cs/">Všechny nástroje</a> / Base64 na obrázek</div>
+    <nav class="breadcrumb" aria-label="Drobečková navigace"><a href="/cs/">Všechny nástroje</a> / Base64 na obrázek</nav>
     <h1>Base64 na obrázek</h1>
     <p class="tagline">Dekóduj Base64 obrázek nebo data URI zpět do souboru. Vlož řetězec, podívej se na náhled, stáhni. Opak našeho nástroje obrázek-na-Base64.</p>
     

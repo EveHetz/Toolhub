@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
   <title>Rimozione EXIF — Toolhub</title>
   <meta name="description" content="Visualizzatore e rimozione gratuita di metadati EXIF online. Seleziona un JPG e vedi i dati nascosti: posizione GPS (precisione al metro), marca e modello fotocamera, timestamp esatto, info obiettivo, persino il software di editing. Poi scarica una versione pulita senza metadati. Tutto avviene nel browser — niente upload, niente log.">
   <meta property="og:title" content="Rimozione EXIF — Toolhub">
   <meta property="og:description" content="Visualizzatore e rimozione gratuita di metadati EXIF online. Seleziona un JPG e vedi i dati nascosti: posizione GPS (precisione al metro), marca e modello fotocamera, timestamp esatto, info obiettivo, persino il software di editing. Poi scarica una versione pulita senza metadati. Tutto avviene nel browser — niente upload, niente log.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolhub.software/it/exif-stripper/">
-  <meta property="og:image" content="https://toolhub.software/og-images/exif-stripper.png">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://toolhub.software/og-images/exif-stripper.png">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
   <link rel="canonical" href="https://toolhub.software/it/exif-stripper/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -330,11 +333,11 @@
         <option value="cs" >🇨🇿 CS</option>
       </select>
       <button class="install-btn" id="installBtn" type="button" title="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store" aria-label="Installa Toolhub come app sul tuo dispositivo — funziona offline, senza app store">Installa app</button>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema">🌙</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Cambia tema" aria-label="Cambia tema">🌙</button>
     </div>
   </header>
   <main class="container">
-    <div class="breadcrumb"><a href="/it/">Tutti gli strumenti</a> / Rimozione EXIF</div>
+    <nav class="breadcrumb" aria-label="Briciole di pane"><a href="/it/">Tutti gli strumenti</a> / Rimozione EXIF</nav>
     <h1>Rimozione EXIF</h1>
     <p class="tagline">Scopri cosa rivelano le tue foto — coordinate GPS, modello di fotocamera, timestamp esatto — poi rimuovi tutto. 100 % nel browser. Il file non lascia mai il dispositivo.</p>
     
