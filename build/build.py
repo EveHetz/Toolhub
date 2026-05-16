@@ -102,6 +102,11 @@ pages_mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pages_mod)
 PAGES = pages_mod.PAGES
 
+# Load article renderer (build/articles.py + build/articles/*.py manifests).
+spec = importlib.util.spec_from_file_location("articles", BUILD / "articles.py")
+articles_mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(articles_mod)
+
 # Load all tool modules
 TOOLS = []
 for tool_file in sorted((BUILD / "tools").glob("*.py")):
@@ -136,6 +141,12 @@ def page_path(lang: str, slug: str) -> str:
     if lang == "en":
         return f"/{slug}/"
     return f"/{lang}/{slug}/"
+
+
+def articles_path(lang: str) -> str:
+    """URL path for the /articles/ index. EN-only for now; non-EN langs
+    fall back to /articles/ until translated content lands."""
+    return "/articles/"
 
 
 def output_path(lang: str, slug: str) -> Path:
@@ -655,6 +666,8 @@ def render_tool(tool: dict, lang: str) -> str:
         "AFFILIATE_DISCLOSURE_LBL": ui["affiliate_disclosure"],
         "COMPANION_TOOLS": page_path(lang, "companion-tools"),
         "COMPANION_TOOLS_LBL": ui["companion_tools"],
+        "ARTICLES": articles_path(lang),
+        "NAV_ARTICLES_LBL": ui["nav_articles"],
         "ALL_TOOLS": ui["all_tools"],
         "THEME_TIP": ui["theme_tip"],
         "INSTALL_APP": ui["install_app"],
@@ -783,6 +796,8 @@ def render_page(page: dict, lang: str) -> str:
         "AFFILIATE_DISCLOSURE_LBL": ui["affiliate_disclosure"],
         "COMPANION_TOOLS": page_path(lang, "companion-tools"),
         "COMPANION_TOOLS_LBL": ui["companion_tools"],
+        "ARTICLES": articles_path(lang),
+        "NAV_ARTICLES_LBL": ui["nav_articles"],
         "ALL_TOOLS": ui["all_tools"],
         "THEME_TIP": ui["theme_tip"],
         "LANGUAGE": ui["language"],
@@ -877,6 +892,7 @@ if __name__ == "__main__":
     assert_translations_complete()
     write_tool_pages()
     write_static_pages()
+    articles_mod.write_articles()
     if args.update_index:
         update_index_tools_arrays()
     else:

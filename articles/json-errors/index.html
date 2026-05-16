@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <link rel="preconnect" href="https://plausible.io" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible.io">
+  <title>JSON: 5 common errors devs hit and how to fix them — Toolhub</title>
+  <meta name="description" content="Trailing commas, single quotes, unquoted keys, comments, and unescaped characters cause the majority of "but it looks fine" JSON failures. Five concrete fixes, with code samples and a short RFC 8259 reference.">
+  <meta property="og:title" content="JSON: 5 common errors devs hit and how to fix them — Toolhub">
+  <meta property="og:description" content="Trailing commas, single quotes, unquoted keys, comments, and unescaped characters cause the majority of "but it looks fine" JSON failures. Five concrete fixes, with code samples and a short RFC 8259 reference.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://toolhub.software/articles/json-errors/">
+  <meta property="og:image" content="https://toolhub.software/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://toolhub.software/og-image.png">
+  <link rel="canonical" href="https://toolhub.software/articles/json-errors/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#58a6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/articles/json-errors/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/articles/json-errors/">
+  <meta property="og:locale" content="en_GB">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://toolhub.software/articles/json-errors/#page",
+        "name": "JSON: 5 common errors devs hit and how to fix them",
+        "description": "Trailing commas, single quotes, unquoted keys, comments, and unescaped characters cause the majority of "but it looks fine" JSON failures. Five concrete fixes, with code samples and a short RFC 8259 reference.",
+        "url": "https://toolhub.software/articles/json-errors/",
+        "inLanguage": "en",
+        "isPartOf": {"@id": "https://toolhub.software#site"},
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://toolhub.software#site",
+        "url": "https://toolhub.software",
+        "name": "Toolhub",
+        "publisher": {"@id": "https://toolhub.software#publisher"}
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://toolhub.software#publisher",
+        "name": "Toolhub",
+        "url": "https://toolhub.software",
+        "sameAs": ["https://github.com/EveHetz/Toolhub"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "All Tools", "item": "https://toolhub.software/"},
+          {"@type": "ListItem", "position": 2, "name": "JSON: 5 common errors devs hit and how to fix them", "item": "https://toolhub.software/articles/json-errors/"}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --text: #e6edf3; --text-muted: #a5b1bd; --accent: #58a6ff;
+      --accent-hover: #79c0ff; --green: #3fb950; --red: #f85149;
+      --card-hover: #1c2129; --code-bg: #0a0d12;
+    }
+    [data-theme="light"] {
+      --bg: #f6f8fa; --surface: #ffffff; --border: #d0d7de;
+      --text: #1f2328; --text-muted: #656d76; --accent: #0969da;
+      --accent-hover: #0550ae; --green: #1a7f37; --red: #cf222e;
+      --card-hover: #f3f4f6; --code-bg: #f6f8fa;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-hover); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .header { padding: 1.25rem 1.5rem; max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+    .header-nav { display: flex; gap: 1rem; align-items: center; }
+    .header-nav a { color: var(--text-muted); font-size: 0.92rem; font-weight: 500; text-decoration: none; }
+    .header-nav a:hover { color: var(--accent); }
+    .header-actions { display: flex; gap: 0.5rem; align-items: center; }
+    .lang-select, .theme-toggle { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--text); }
+    h2 { font-size: 1.25rem; margin: 2rem 0 0.5rem; color: var(--text); }
+    h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; color: var(--text); }
+    p, li { color: var(--text-muted); margin-bottom: 0.8rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 0.8rem; }
+    li { margin-bottom: 0.4rem; }
+    code { background: var(--code-bg); padding: 0.1rem 0.35rem; border-radius: 3px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; color: var(--text); }
+    strong { color: var(--text); }
+    .footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    .footer a { color: var(--text-muted); margin: 0 0.4rem; text-decoration: underline; }
+    .footer a:hover { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      .container { padding: 1.25rem 1rem; }
+      .header { padding: 0.75rem 1rem; }
+      .logo { font-size: 1.2rem; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.1rem; }
+    }
+    /* Inlined from /js/monetize.css */
+    .ad-slot { margin: 1.5rem 0; padding: 0.5rem; border: 1px dashed var(--border, #30363d); border-radius: 8px; background: var(--surface, #161b22); min-height: 100px; }
+    .ad-slot:empty, .ad-slot[data-rendered="1"]:empty { display: none; }
+    .ad-slot .ad-label { font-size: 0.7rem; color: var(--text-muted, #a5b1bd); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.4rem; opacity: 0.7; }
+    #toolhub-consent { position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 9999; background: var(--surface, #161b22); color: var(--text, #e6edf3); border: 1px solid var(--border, #30363d); border-radius: 10px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); padding: 1rem 1.25rem; max-width: 760px; margin: 0 auto; }
+    .toolhub-consent-inner { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .toolhub-consent-msg { flex: 1 1 280px; margin: 0; font-size: 0.88rem; color: var(--text-muted, #a5b1bd); line-height: 1.55; }
+    .toolhub-consent-learn { color: var(--accent, #58a6ff); margin-left: 0.5rem; white-space: nowrap; }
+    .toolhub-consent-actions { display: flex; gap: 0.5rem; }
+    .toolhub-consent-btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border, #30363d); background: transparent; color: var(--text, #e6edf3); }
+    .toolhub-consent-btn.toolhub-consent-accept { background: var(--accent, #58a6ff); border-color: var(--accent, #58a6ff); color: #fff; }
+    .toolhub-consent-btn:hover { opacity: 0.9; }
+    [data-toolhub-footer-extras]:empty { display: none; }
+    [data-toolhub-footer-extras] { margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted, #a5b1bd); }
+    [data-toolhub-footer-extras] a { margin: 0 0.5rem; }
+    .ad-slot .ad-placeholder { font-size: 0.85rem; color: var(--text-muted, #a5b1bd); text-align: center; padding: 1.25rem 0.5rem; font-style: italic; letter-spacing: 0.02em; }
+    #toolhub-sandbox-badge { position: fixed; right: 0.75rem; bottom: 0.75rem; z-index: 9998; background: var(--accent, #58a6ff); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.3rem 0.55rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); pointer-events: none; user-select: none; opacity: 0.92; }
+    .tagline { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .companion-tool { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1rem 0; }
+    .companion-tool h3 { margin-bottom: 0.5rem; }
+    .companion-tool h3 a { color: var(--accent); text-decoration: none; }
+    .companion-tool h3 a:hover { text-decoration: underline; }
+    .companion-tool .tagline { font-size: 1rem; margin-bottom: 0.75rem; }
+    .companion-tool .meta { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; }
+    .companion-tool .version { font-size: 0.78rem; color: var(--text-muted); font-weight: normal; margin-left: 0.4rem; }
+  </style>
+  <script defer data-domain="toolhub.software" src="https://plausible.io/js/script.js"></script>
+  <!-- AdSense loader: ALWAYS present so Google's reviewer can verify site
+       ownership. Manual ad units only; Auto-ads opt-in lives in console. -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7632777524243165" crossorigin="anonymous"></script>
+  <script>
+    window.TOOLHUB_CONFIG = {
+      deploy_env: "sandbox",
+      adsenseClientId: "",
+      adSlotIds: { content: "", footer: "", indexTop: "", indexBottom: "" },
+      cloudflareAnalyticsToken: "",
+      digitalOceanRef: "https://m.do.co/c/05c01e8aec67",
+      githubSponsorsUrl: "https://github.com/sponsors/JXXR1",
+      buyMeACoffeeUrl: "https://www.buymeacoffee.com/Tool_hub"
+    };
+  </script>
+  <script defer src="/js/monetize.js"></script>
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="logo"><span>Tool</span>hub</a>
+    <nav class="header-nav" aria-label="Primary"><a href="/articles/">Articles</a></nav>
+    <div class="header-actions">
+      <label for="lang-select" class="visually-hidden">Language</label>
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/articles/json-errors/'; else location.href='/articles/json-errors/'">
+        <option value="" selected="selected">🇬🇧 EN</option>
+        <option value="de" >🇩🇪 DE</option>
+        <option value="es" >🇪🇸 ES</option>
+        <option value="fr" >🇫🇷 FR</option>
+        <option value="it" >🇮🇹 IT</option>
+        <option value="pt" >🇧🇷 PT</option>
+        <option value="pl" >🇵🇱 PL</option>
+        <option value="ja" >🇯🇵 JA</option>
+        <option value="nl" >🇳🇱 NL</option>
+        <option value="tr" >🇹🇷 TR</option>
+        <option value="id" >🇮🇩 ID</option>
+        <option value="vi" >🇻🇳 VI</option>
+        <option value="hi" >🇮🇳 HI</option>
+        <option value="sk" >🇸🇰 SK</option>
+        <option value="cs" >🇨🇿 CS</option>
+      </select>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / JSON: 5 common errors devs hit and how to fix them</nav>
+    <h1>JSON: 5 common errors devs hit and how to fix them</h1>
+    <style>
+.article-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.article-meta strong { color: var(--text); font-weight: 600; }
+.article-subtitle { color: var(--text-muted); font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.5rem; font-style: italic; }
+.article-body { max-width: 70ch; margin: 0 auto; line-height: 1.65; }
+.article-body p { color: var(--text-muted); font-size: 1rem; }
+.article-body h2 { margin-top: 2rem; font-size: 1.3rem; }
+.article-body pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; overflow-x: auto; font-size: 0.88rem; line-height: 1.5; margin: 1rem 0; }
+.article-body pre code { background: none; padding: 0; font-size: inherit; color: var(--text); display: block; white-space: pre; }
+.article-body blockquote { border-left: 3px solid var(--accent); background: var(--surface); margin: 1.5rem 0; padding: 0.9rem 1.1rem; border-radius: 0 8px 8px 0; }
+.article-body blockquote p { margin-bottom: 0.4rem; color: var(--text); font-style: italic; }
+.article-body blockquote cite { font-size: 0.88rem; color: var(--text-muted); font-style: normal; display: block; }
+.article-related { border-top: 1px solid var(--border); margin-top: 2.5rem; padding-top: 1.5rem; }
+.article-related h2 { font-size: 1.1rem; margin-bottom: 0.6rem; margin-top: 0; }
+.article-related ul { padding-left: 1.25rem; }
+.article-related li { color: var(--text-muted); }
+.article-back { display: inline-block; margin: 2rem 0 0.5rem; font-size: 0.95rem; }
+.articles-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.articles-list li { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+.articles-list li:last-child { border-bottom: 0; }
+.articles-list h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+.articles-list h3 a { color: var(--text); text-decoration: none; }
+.articles-list h3 a:hover { color: var(--accent); text-decoration: underline; }
+.articles-list .date { color: var(--text-muted); font-size: 0.85rem; }
+.articles-list .summary { color: var(--text-muted); font-size: 0.95rem; margin: 0.35rem 0 0; line-height: 1.55; }
+</style><article class="article-body"><p class="article-subtitle">Trailing commas, single quotes, comments — the five mistakes that account for most "but it looks fine" JSON failures, and the one-character fix for each.</p><p class="article-meta"><span><strong>Published:</strong> 2026-05-16</span><span><strong>By:</strong> Toolhub Team</span></p><p>JSON looks simple — until your parser throws <code>SyntaxError: Unexpected token</code> at line 47 of a 200-line config file and you can't see what's wrong. The spec (RFC 8259) is barely sixteen pages, but small differences from JavaScript's looser object syntax catch out experienced developers all the time. The fix is usually one character.</p>
+
+<p>Here are the five errors that account for the vast majority of "but it looks fine" JSON failures — what the parser sees, why it complains, and how to spot the same shape next time. If you want to throw a blob into a working tool while you read, our <a href="/json-formatter/">JSON formatter</a> will point at the exact offending column.</p>
+
+<h2>1. Trailing commas</h2>
+
+<p>JavaScript object literals tolerate them. JSON does not.</p>
+
+<pre><code>{"name": "ada",}   ✗ trailing comma — invalid JSON
+{"name": "ada"}    ✓ valid
+
+[1, 2, 3,]         ✗ trailing comma — invalid
+[1, 2, 3]          ✓ valid</code></pre>
+
+<p>The grammar in RFC 8259 defines an object as <code>{ member, member, member }</code> — commas are <em>separators</em> between members, not terminators. The same rule applies to arrays.</p>
+
+<p>This usually bites when you're hand-editing config files: you delete the last entry, forget the comma that was on the previous line, save, and the parser stops cooperating. Some tooling has trained us in the opposite direction — ESLint will helpfully <em>add</em> trailing commas to JS source so diffs are cleaner, and that habit carries over.</p>
+
+<p>If your build chain includes a JSON5 or JSONC file (VS Code's <code>settings.json</code> is JSONC), trailing commas are allowed there — but they will fail the moment that file is read by a strict parser, like an HTTP client or a Go <code>encoding/json</code> call.</p>
+
+<h2>2. Single vs double quotes</h2>
+
+<p>JSON requires double quotes around every string. Single quotes are rejected, even though JavaScript treats <code>'foo'</code> and <code>"foo"</code> as equivalent.</p>
+
+<pre><code>{'name': 'ada'}    ✗ single quotes — invalid
+{"name": "ada"}    ✓ valid</code></pre>
+
+<p>This goes for keys as well as values. The reason is that JSON is a strict subset of JavaScript object notation — the spec authors chose one quote style and one only to keep parsers simple and avoid the edge case of escaped quotes within mixed-quote strings.</p>
+
+<p>If you're generating JSON from a templating language (Jinja, Mustache, Handlebars) and getting single quotes by mistake, check whether you're using raw string interpolation or Python's <code>repr()</code> — both prefer single quotes by default and will silently emit invalid JSON. Use <code>json.dumps()</code> in Python, <code>JSON.stringify()</code> in JavaScript, or the equivalent in your language to serialize properly.</p>
+
+<h2>3. Unquoted keys</h2>
+
+<p>JavaScript object literals let you write keys without quotes — <code>{name: "ada"}</code> — when the key is a valid identifier. JSON requires every key to be a quoted string, no exceptions.</p>
+
+<pre><code>{name: "ada"}      ✗ unquoted key — invalid
+{"name": "ada"}    ✓ valid</code></pre>
+
+<p>You'll hit this when copy-pasting from JS source into a <code>.json</code> file or when a colleague writes documentation showing "the object" without actually meaning JSON. It's also a sign of confusion when a YAML or TOML user is writing JSON for the first time — both of those allow bare keys.</p>
+
+<p>A related trap: numeric keys. JSON keys are <em>always</em> strings, even if the value looks like a number.</p>
+
+<pre><code>{1: "first"}       ✗ unquoted, numeric — invalid
+{"1": "first"}     ✓ valid</code></pre>
+
+<p>If you're querying nested data and not sure how a parser will interpret your structure, <a href="/json-path/">JSON Path</a> lets you test selectors against a real JSON blob.</p>
+
+<h2>4. Comments</h2>
+
+<p>JSON has no comments. Not <code>//</code>, not <code>/* */</code>, not <code>#</code>. Douglas Crockford (the spec's designer) deliberately left them out — his reasoning was that comments encouraged people to embed parsing directives, defeating the point of a portable data format.</p>
+
+<pre><code>{
+  // user record   ✗ JSON has no comments
+  "name": "ada"
+}</code></pre>
+
+<p>Most parsers will reject the entire document if they encounter a comment-shaped token. Some lenient parsers (jq, JSON5, JSONC) accept comments — but anything that hits a stricter parser downstream will fail.</p>
+
+<p>The pragmatic workaround is to add a <code>"_comment"</code> field with the note as its value. Parsers that don't recognize it will ignore it, and humans editing the file get the context.</p>
+
+<pre><code>{
+  "_comment": "user record — see PR #423",
+  "name": "ada"
+}</code></pre>
+
+<p>If you're copying JSON from JS or Python source that includes inline notes, strip them first.</p>
+
+<h2>5. Special characters in strings</h2>
+
+<p>Strings in JSON must escape four kinds of characters: the double quote (<code>\"</code>), the backslash (<code>\\</code>), control characters below U+0020 such as <code>\n</code> and <code>\t</code>, and the forward slash (<code>\/</code>) if you want — the last one is optional but useful in HTML contexts.</p>
+
+<pre><code>{"path": "C:\Users\ada"}            ✗ backslash not escaped
+{"path": "C:\\Users\\ada"}          ✓ valid
+
+{"quote": "She said "hi""}          ✗ unescaped quote
+{"quote": "She said \"hi\""}        ✓ valid
+
+{"note": "line one
+line two"}                          ✗ literal newline
+{"note": "line one\nline two"}      ✓ valid</code></pre>
+
+<p>For arbitrary Unicode, JSON strings support <code>\uXXXX</code> escapes — useful when you can't trust the encoding of the channel transporting the payload.</p>
+
+<h2>From the spec</h2>
+
+<blockquote>
+  <p>"All Unicode characters may be placed within the quotation marks, except for the characters that MUST be escaped: quotation mark, reverse solidus, and the control characters (U+0000 through U+001F)."</p>
+  <cite>— <a href="https://datatracker.ietf.org/doc/html/rfc8259#section-7" rel="noopener">RFC 8259 §7</a> (IETF, public domain)</cite>
+</blockquote>
+
+<p>That sentence is the entire rule for what counts as a valid JSON string. Memorize it and §5 (the trailing-comma rule) and you've covered the four most common parse failures.</p>
+
+<p>It's also the reason pasting JSON between systems with mismatched line endings (Windows CRLF vs. Unix LF) sometimes breaks silently. If you need to compare two payloads that <em>should</em> be equivalent but one parser rejects, <a href="/json-diff/">JSON diff</a> will show you the exact byte that differs.</p>
+
+<h2>The Toolhub workflow</h2>
+
+<p>Three browser-side tools cover most JSON-debugging cases:</p>
+
+<ul>
+  <li><a href="/json-formatter/">JSON formatter</a> — pretty-print, validate, and pinpoint the column of a syntax error.</li>
+  <li><a href="/json-diff/">JSON diff</a> — compare two payloads structurally, not line by line.</li>
+  <li><a href="/json-path/">JSON Path</a> — query nested data with <code>$.users[0].name</code> selectors.</li>
+</ul>
+
+<p>Everything runs locally — your JSON never leaves the tab. Bookmark whichever fits the way you debug.</p><aside class="article-related"><h2>Related Toolhub tools</h2><ul><li><a href="/json-formatter/">JSON Formatter</a> — Format, validate, and minify JSON instantly. Errors highlighted with line and column.</li><li><a href="/json-diff/">JSON Diff</a> — Structural diff for two JSON documents — keys added, removed, changed, and value changes shown side by side.</li><li><a href="/json-path/">JSONPath Tester</a> — Run JSONPath queries against any JSON document. See matched nodes and their paths in real time.</li></ul></aside><a class="article-back" href="/articles/">← All articles</a></article>
+  </main>
+  <footer class="footer">
+    <p>© 2026 toolhub.software</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="/how-we-handle-your-data/">Data Handling</a> · <a href="/affiliate-disclosure/">Affiliate Disclosure</a> · <a href="/companion-tools/">Companion Tools</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/for-schools/">For Schools</a> · <a href="https://github.com/EveHetz/Toolhub">GitHub</a></p>
+  </footer>
+  <script>
+    function toggleTheme(){
+      const d=document.documentElement;
+      const next=d.getAttribute('data-theme')==='light'?'dark':'light';
+      d.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      document.querySelector('.theme-toggle').textContent=next==='light'?'🌙':'☀️';
+    }
+    (function(){
+      const saved=localStorage.getItem('theme')||'dark';
+      if(saved==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('.theme-toggle').textContent='🌙';}
+    })();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+  <script>
+    (function() {
+      var t = window.TOOLHUB_CONFIG && window.TOOLHUB_CONFIG.cloudflareAnalyticsToken;
+      if (!t || !/^[a-f0-9]{32,}$/i.test(t)) return;
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>
