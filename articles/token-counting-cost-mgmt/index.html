@@ -6,18 +6,18 @@
   <meta name="color-scheme" content="dark light">
   <link rel="preconnect" href="https://plausible.io" crossorigin>
   <link rel="dns-prefetch" href="https://plausible.io">
-  <title>Articles — Toolhub</title>
-  <meta name="description" content="Guides, tutorials, and deep-dives on the tools we build at Toolhub.">
-  <meta property="og:title" content="Articles — Toolhub">
-  <meta property="og:description" content="Guides, tutorials, and deep-dives on the tools we build at Toolhub.">
+  <title>Token counting for LLM cost management — Toolhub</title>
+  <meta name="description" content="Most LLM cost surprises come from one mistake: assuming a token is roughly a word. It isn't. System prompts on every request, JSON whitespace, tool-use schemas, and vision tokens add up faster than developers expect. Five places where the bill actually lives, with real numbers.">
+  <meta property="og:title" content="Token counting for LLM cost management — Toolhub">
+  <meta property="og:description" content="Most LLM cost surprises come from one mistake: assuming a token is roughly a word. It isn't. System prompts on every request, JSON whitespace, tool-use schemas, and vision tokens add up faster than developers expect. Five places where the bill actually lives, with real numbers.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://toolhub.software/articles/">
+  <meta property="og:url" content="https://toolhub.software/articles/token-counting-cost-mgmt/">
   <meta property="og:image" content="https://toolhub.software/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://toolhub.software/og-image.png">
-  <link rel="canonical" href="https://toolhub.software/articles/">
+  <link rel="canonical" href="https://toolhub.software/articles/token-counting-cost-mgmt/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="alternate icon" href="/favicon.ico">
@@ -26,19 +26,19 @@
   <meta name="theme-color" content="#58a6ff">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="alternate" hreflang="en" href="https://toolhub.software/articles/">
-  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/articles/">
+  <link rel="alternate" hreflang="en" href="https://toolhub.software/articles/token-counting-cost-mgmt/">
+  <link rel="alternate" hreflang="x-default" href="https://toolhub.software/articles/token-counting-cost-mgmt/">
   <meta property="og:locale" content="en_GB">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CollectionPage",
-        "@id": "https://toolhub.software/articles/#page",
-        "name": "Articles",
-        "description": "Guides, tutorials, and deep-dives on the tools we build at Toolhub.",
-        "url": "https://toolhub.software/articles/",
+        "@type": "Article",
+        "@id": "https://toolhub.software/articles/token-counting-cost-mgmt/#page",
+        "name": "Token counting for LLM cost management",
+        "description": "Most LLM cost surprises come from one mistake: assuming a token is roughly a word. It isn't. System prompts on every request, JSON whitespace, tool-use schemas, and vision tokens add up faster than developers expect. Five places where the bill actually lives, with real numbers.",
+        "url": "https://toolhub.software/articles/token-counting-cost-mgmt/",
         "inLanguage": "en",
         "isPartOf": {"@id": "https://toolhub.software#site"},
         "publisher": {"@id": "https://toolhub.software#publisher"}
@@ -61,7 +61,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "All Tools", "item": "https://toolhub.software/"},
-          {"@type": "ListItem", "position": 2, "name": "Articles", "item": "https://toolhub.software/articles/"}
+          {"@type": "ListItem", "position": 2, "name": "Token counting for LLM cost management", "item": "https://toolhub.software/articles/token-counting-cost-mgmt/"}
         ]
       }
     ]
@@ -162,7 +162,7 @@
     <nav class="header-nav" aria-label="Primary"><a href="/articles/">Articles</a></nav>
     <div class="header-actions">
       <label for="lang-select" class="visually-hidden">Language</label>
-      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/articles/'; else location.href='/articles/'">
+      <select id="lang-select" class="lang-select" onchange="if(this.value)location.href='/'+this.value+'/articles/token-counting-cost-mgmt/'; else location.href='/articles/token-counting-cost-mgmt/'">
         <option value="" selected="selected">🇬🇧 EN</option>
         <option value="de" >🇩🇪 DE</option>
         <option value="es" >🇪🇸 ES</option>
@@ -183,8 +183,8 @@
     </div>
   </header>
   <main class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / Articles</nav>
-    <h1>Articles</h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">All Tools</a> / Token counting for LLM cost management</nav>
+    <h1>Token counting for LLM cost management</h1>
     <style>
 .article-meta { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
 .article-meta strong { color: var(--text); font-weight: 600; }
@@ -210,7 +210,99 @@
 .articles-list h3 a:hover { color: var(--accent); text-decoration: underline; }
 .articles-list .date { color: var(--text-muted); font-size: 0.85rem; }
 .articles-list .summary { color: var(--text-muted); font-size: 0.95rem; margin: 0.35rem 0 0; line-height: 1.55; }
-</style><p class="article-subtitle">Guides, tutorials, and deep-dives on the tools we build at Toolhub.</p><ul class="articles-list"><li><h3><a href="/articles/token-counting-cost-mgmt/">Token counting for LLM cost management</a></h3><p class="date">2026-05-19</p><p class="summary">Most LLM cost surprises come from one mistake: assuming a token is roughly a word. It isn't. System prompts on every request, JSON whitespace, tool-use schemas, and vision tokens add up faster than developers expect. Five places where the bill actually lives, with real numbers.</p></li><li><h3><a href="/articles/image-format-comparison/">JPG vs WebP vs AVIF: when to use each</a></h3><p class="date">2026-05-16</p><p class="summary">JPEG, WebP, and AVIF each win different fights — file size, compatibility, encode time, animation support. A practical guide to picking the right one without re-encoding your entire CDN.</p></li><li><h3><a href="/articles/json-errors/">JSON: 5 common errors devs hit and how to fix them</a></h3><p class="date">2026-05-16</p><p class="summary">Trailing commas, single quotes, unquoted keys, comments, and unescaped characters cause the majority of "but it looks fine" JSON failures. Five concrete fixes, with code samples and a short RFC 8259 reference.</p></li></ul>
+</style><article class="article-body"><p class="article-subtitle">Why your LLM bill keeps surprising you, where the expensive tokens are actually hiding, and the trade-offs worth thinking about before you ship a feature that hits the API on every page view.</p><p class="article-meta"><span><strong>Published:</strong> 2026-05-19</span><span><strong>By:</strong> Toolhub Team</span></p>
+<p>Most LLM cost surprises come from one mistake: assuming a token is roughly a word. It isn't. A 500-word English email is around 625 tokens. A 500-character base64-encoded image fragment is also around 625 tokens. A 500-word JSON blob with whitespace and repeated field names? Closer to 1,200. Same wall-clock typing time. Very different bills at the end of the month.</p>
+
+<p>If your feature hits an LLM on every page view and you haven't actually counted what each call costs in tokens, you don't have a cost forecast — you have a budget that explodes when traffic shows up. Here are the five places where token counts surprise developers, what the numbers look like at scale, and what to do about each before it bites.</p>
+
+<h2>1. Tokens aren't words. They're not characters either.</h2>
+
+<p>Tokenizers split text into sub-word units, and the rules depend on the model. The string <code>"GPT-4"</code> is 4 tokens in OpenAI's tokenizer (<code>"G", "PT", "-", "4"</code>) and 3 in Anthropic's. The string <code>"supercalifragilisticexpialidocious"</code> is 9 tokens in cl100k (OpenAI) and 11 in Claude's tokenizer. Same characters, different costs.</p>
+
+<p>What this means in practice:</p>
+
+<ul>
+<li>You cannot reliably estimate cost by character or word count. The ratio shifts per model and per content type.</li>
+<li>The same prompt may cost meaningfully more on one model than another even at the same per-token price.</li>
+<li>Code, JSON, and non-English content all tokenize less efficiently than plain English — sometimes 2-3x worse.</li>
+</ul>
+
+<p>Run your actual prompts through the actual tokenizer for the actual model you're using before you ship. The <a href="/token-counter/">token counter</a> handles the major models. Anthropic also publishes their tokenizer behaviour in their <a href="https://docs.claude.com/en/docs/about-claude/models" target="_blank" rel="noopener">model documentation</a>.</p>
+
+<h2>2. System prompts are paid for on every single request</h2>
+
+<p>This is the one that catches everyone. You write a beautiful 2,000-token system prompt with examples, edge cases, and tone guidance. You ship the feature. It works. Then someone in finance asks why the API bill is €4,200 this month.</p>
+
+<p>Math: 2,000 tokens × 50,000 requests/day × 30 days = 3 billion input tokens/month. At Claude Sonnet 4.6 pricing of $3/million input tokens, that's $9,000/month — just for the system prompt. The user's actual question is the cheap part.</p>
+
+<p>Three things to do, in order of effort:</p>
+
+<ul>
+<li><strong>Enable prompt caching.</strong> Anthropic's prompt caching has a 5-minute TTL and a 90% discount on cached portions. If your system prompt is stable, mark it as <code>cache_control: { "type": "ephemeral" }</code> and most requests hit cache. Same example collapses from $9,000 to ~$900/month.</li>
+<li><strong>Tighten the system prompt.</strong> Most are 2-3x longer than they need to be. Cut examples that aren't proving their worth, drop "be helpful and accurate" boilerplate the model already knows.</li>
+<li><strong>Pre-process where you can.</strong> If your prompt has long instructions about output format, consider switching to a constrained output schema instead.</li>
+</ul>
+
+<h2>3. JSON in / JSON out has hidden whitespace cost</h2>
+
+<p>If you're round-tripping JSON through the API — sending structured input, asking for structured output — whitespace and indentation get billed at full token rates.</p>
+
+<pre><code>{
+  "user_id": 12345,
+  "preferences": {
+    "language": "en",
+    "timezone": "UTC"
+  }
+}     ← pretty-printed, ~30 tokens
+
+{"user_id":12345,"preferences":{"language":"en","timezone":"UTC"}}
+       ← minified, ~22 tokens (-27%)</code></pre>
+
+<p>27% might not sound much, but compound it across a million calls. Worse: field names repeat. If you have an array of 500 objects each with the same eight keys, those eight key strings get tokenized 500 times. Abbreviated field names cost less. <code>"timezone"</code> is 2 tokens; <code>"tz"</code> is 1.</p>
+
+<p>If you're using tool-use mode (function calling), the schema you provide also counts. Trim descriptions to what's necessary for the model to use the tool correctly, not what would help a human read it. For converting between schema formats, <a href="/json-schema-to-pydantic/">the JSON Schema to Pydantic converter</a> handles a common pattern.</p>
+
+<h2>4. Vision tokens are not free</h2>
+
+<p>Multimodal calls add a per-image cost most teams forget to model. Anthropic's vision pricing charges roughly 1,568 tokens for a 1092×1092 image — same as ~1,500 tokens of prose. OpenAI's scales by detail level. Both are billed at input rates.</p>
+
+<p>If you've built a "user uploads photo of receipt, we extract line items" feature:</p>
+
+<ul>
+<li>1 image = ~1,500 input tokens for vision processing</li>
+<li>+ your system prompt for the task</li>
+<li>+ the JSON output</li>
+<li>= ~3,000 tokens per receipt, easy</li>
+</ul>
+
+<p>10,000 receipts/day × 3,000 tokens × Claude Sonnet rates = ~$900/day in API costs alone. Compare that to your per-user revenue from the feature. The economics often demand caching, batching, or fallback to a cheaper OCR pipeline before LLM only on hard cases.</p>
+
+<h2>5. Conversations bloat fast</h2>
+
+<p>In a chat-style application, every turn includes the entire prior conversation as input. Turn 10 sends the previous 9 turns plus the new question. Cost grows roughly quadratically with conversation length.</p>
+
+<p>Mitigations:</p>
+
+<ul>
+<li><strong>Summarize old turns.</strong> After turn N, replace turns 1 to N-5 with a compressed summary. The model loses some context detail; your bill gets bounded.</li>
+<li><strong>Cap conversation length.</strong> Force a new conversation after 20 turns or 50K tokens of history.</li>
+<li><strong>Use prompt caching for the system prompt portion</strong> so at least the stable preamble doesn't repay full cost every turn.</li>
+</ul>
+
+<p>If you're A/B testing different prompts to see which one your costs prefer, <a href="/prompt-diff/">prompt diff</a> shows what actually changed and where.</p>
+
+<h2>The discipline</h2>
+
+<p>Token counting isn't an optimization concern that you address after you've shipped. It's a planning concern that goes in before you write the first prompt. Three habits that pay back the time spent learning them:</p>
+
+<ol>
+<li><strong>Always know your per-request token count before shipping.</strong> Run a real example through a tokenizer, write the number in your design doc, multiply by expected traffic.</li>
+<li><strong>Log token counts per request</strong> alongside latency and error rate. Anthropic and OpenAI both return <code>usage</code> fields. Push them into your metrics like any other operational signal.</li>
+<li><strong>Set a hard monthly budget</strong> in your provider's dashboard. The "I'll watch it" approach has put a lot of indie devs into surprise five-figure bills.</li>
+</ol>
+
+<p>The tooling we ship at Toolhub is browser-only, no LLM in the loop — but if your team is shipping LLM-backed features, the <a href="/token-counter/">token counter</a> is the first stop. Get the cost picture before the bill picture.</p>
+<aside class="article-related"><h2>Related Toolhub tools</h2><ul><li><a href="/token-counter/">Token Counter</a> — Estimate token counts across GPT-4, Claude, Llama, Gemini, and other LLMs. Paste text, see counts per model side-by-side. Files never leave your browser.</li><li><a href="/prompt-diff/">Prompt Diff</a> — Compare two prompts (or two versions of a prompt) side by side. Line-level diff with highlighted changes. Designed for iterating on LLM prompts.</li><li><a href="/json-schema-to-pydantic/">JSON Schema → Pydantic</a> — Convert JSON Schema to Pydantic v2 model code, in your browser. Paste schema, get a ready-to-paste Python class. Useful for LLM structured-output workflows.</li></ul></aside><a class="article-back" href="/articles/">← All articles</a></article>
   </main>
   <footer class="footer">
     <p>© 2026 toolhub.software</p>
